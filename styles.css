@@ -1,0 +1,79 @@
+.fondo{
+  background: rgb(10,79,233);
+  background: linear-gradient(180deg, rgba(148,191,233,100) 0%, rgba(78,116,203,1) 100%);
+}
+
+.fondo-info{
+  background: rgb(63,94,251);
+background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
+
+.flexbox{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.definicion{
+border-radius: 25px;
+background-color: #dbcef9;/*:#f4eef9;/*#e6d4f2;/*#94bbe9;*/
+padding: 20px;
+border: 10px  solid #e6d4f2 ;/* #dbcef9;*/
+margin: 20px;
+font-size: 20px;
+width: 70%;
+}
+
+.ejercicio{
+  border-radius: 25px;
+background-color: #94bbe9;;
+
+padding: 20px;
+border: 10px solid #91D3E9;
+margin: 20px;
+font-size: 20px;
+width: 70%
+}
+
+.info{
+border-radius: 25px;
+background-color: #94bbe9;;
+padding: 20px;
+border: 10px solid #91D3E9;
+margin: 20px;
+font-size: 20px;
+width: 70%
+}
+
+.flexbox{
+display: flex;
+flex-direction: column;
+}
+
+.flexbox-definicion:before{
+  font-size: 25px;
+  content: "Definición ";
+}
+
+
+
+body.card{
+  counter-reset: section;
+}
+
+
+h1.card{
+  counter-reset: subsection;
+}
+
+h1.card::before{
+  counter-increment: section;
+  content:"Section "counter(section)".";
+}
+
+h2.card::before{
+  counter-increment: subsection;
+  content: counter(section)"."counter(subsection)":";
+}
