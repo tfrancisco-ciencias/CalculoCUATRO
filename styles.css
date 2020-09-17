@@ -1,3 +1,5 @@
+
+
 .fondo{
   background: rgb(10,79,233);
   background: linear-gradient(180deg, rgba(148,191,233,100) 0%, rgba(78,116,203,1) 100%);
@@ -36,28 +38,34 @@ h1.card{
 
 h1.card::before{
   counter-increment: section;
-  content:"Section "counter(section)".";
+  content:"Section "counter(section)" ";
 }
 
 h2.card::before{
   counter-increment: subsection;
-  content: counter(section)"."counter(subsection)":";
+  content: counter(section)"."counter(subsection)" ";
 }
 
 
 .definicion{
   border-radius: 25px;
-  background-color: #dbcef9;/*:#f4eef9;/*#e6d4f2;/*#94bbe9;*/
+  background-color: #dbcef9;
+  background: rgb(229,180,255);
+  background: radial-gradient(circle,
+    rgba(229,180,255,1) 0%, rgba(219,206,249,1) 100%);
   padding: 20px;
-  border: 10px  solid #e6d4f2 ;/* #dbcef9;*/
+  border: 10px  solid #e6d4f2 ;
   margin: 20px;
   font-size: 20px;
+  font-family:  Serif Hylia;
   width: 70%;
 }
 
 .ejercicio{
   border-radius: 25px;
-  background-color: #94bbe9;;
+  /*background-color: rgb(92,213,241);/*#94bbe9;;*/
+  background: radial-gradient(circle,
+    rgba(92,213,241,1) 50%, rgba(183,233,254,1) 99%);
   padding: 20px;
   border: 10px solid #91D3E9;
   margin: 20px;
@@ -74,5 +82,19 @@ h2.card::before{
     border: 10px solid #91D3E9;
     margin: 20px;
     font-size: 20px;
-    width: 70%
+    width: 70%;
+    font-family: Zelda;
+}
+
+.nota{
+  background: rgb(255,206,102);
+  background: radial-gradient(circle,
+    rgba(255,206,102,1) 50%, rgba(254,242,177,1) 100%);
+    border-radius: 25px;
+    padding: 20px;
+    border: 10px solid rgba(255,206,102,1);
+    margin: 20px;
+    font-size: 20px;
+    width: 70%;
+    font-family: Zelda;
 }
