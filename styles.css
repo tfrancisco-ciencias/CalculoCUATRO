@@ -28,22 +28,22 @@
 
 
 body.card{
-  counter-reset: section;
+  counter-reset: sectionCounter  cardCounter ;
 }
 
 
-h1.card{
-  counter-reset: subsection;
+ h1.card{
+   counter-reset: sectionCounter  cardCounter ;
+ }
+
+h1.card:before{
+  counter-increment: sectionCounter;
+  content:"Sección " counter(sectionCounter) " : ";
 }
 
-h1.card::before{
-  counter-increment: section;
-  content:"Section "counter(section)" ";
-}
-
-h2.card::before{
-  counter-increment: subsection;
-  content: counter(section)"."counter(subsection)" ";
+h2.card:before{
+  counter-increment: cardCounter;
+  content: counter(sectionCounter)"."counter(cardCounter)"";
 }
 
 

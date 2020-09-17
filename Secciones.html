@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Next part is for new coomands -->
+        <script>
+          window.MathJax = {
+          tex: {
+            macros: {
+              sen: "\\operatorname{sen}",
+              seg: ["\\overrightarrow{#1}",1]
+            }
+          }
+        };
+        </script>
+    <!-- CSS -->
+
+      <link rel="stylesheet", href="styles.css" />
+
+  </head>
+
+  <body class="flexbox fondo-info">
+    <h1> Cálculo CUATRO </h1>
+    <h2> Secciones </h2>
+    <div class="info">
+      <ul>
+        <li> <a href="./S1.html"> Sección 1 <a> </li>
+      </ul>
+    </div>
+
+
+  </body>
+
+</html>
