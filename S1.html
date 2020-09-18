@@ -7,6 +7,12 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+<!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- This part is to load main.js -->
+    <script type="text/javascript" src="./main.js"></script>
+
+
 <!-- Next part is for new coomands -->
     <script>
       window.MathJax = {
@@ -28,8 +34,12 @@
 
 </head>
 
+
+<!--    Contenido empiaza abajo
+ ///////////////////////////////// -->
+
 <body class="fondo card">
-  
+
 
 <div class="flexbox">
   <h1 class="card" > \(1\)-Formas constantes </h1>
@@ -104,7 +114,7 @@
     <h2 class="card"> Nota  </h2>
   <p> Cuando uno busca qué es una \(1\)-forma
     (por ejemplo
-    <a href="https://es.wikipedia.org/wiki/1-forma"> en wikipedia</a>)
+    <a href="https://es.wikipedia.org/wiki/1-forma" target="_blank"> en wikipedia</a>)
     se encuentra uno con definiciones avanzadas o  expresiones de la forma
   \[
   A_1 dx_1+A_2dx_2+\cdots + A_n dx_n.
@@ -153,6 +163,89 @@
        "recorre" el segmento \(\seg{PQ}\), estas reglas no son
       tan misteriosas.
     </p>
+  </div>
+
+  <div class="ejercicio">
+    <h2 class="card"> Ejercicio  </h2>
+    <p>Supngamos que \(\omega\) es una \(1\)-forma constante
+    que satisafce:
+    </p>
+    \[
+    \omega[\seg{OR}]=-1, \, \omega[\seg{PQ}]=3,
+    \]
+     <p>
+       donde \(O\) denota a el origen, \(R=(2,0),
+       P=(4,2)\) y \( Q=(4,6)\).
+    </p>
+    </ol>
+      <li> Encuentra el valor de \(\omega[\seg{OS}]\),
+        donde \(S=(2,4)\).
+      </li>
+      <li> Para todo \(n\in \mathbb{Z}\) encuentra el
+        valor de \(\omega[\seg{OP_n}]\), donde \(P_n=(n,0)\).
+      </li>
+    </ol>
+
+  <button id="respButton"> Respuesta  </button >
+  <div class="resp">
+    <p>
+      <ul>
+      <li> Para el primer inciso, si empezamos usando la aditividad
+      de \(\omega \) obtenemos:
+    </p>
+    \[
+    \omega[\seg{OS}]=\omega[\seg{OR}]+\omega[\seg{RS}]=-1+\omega[\seg{RS}]
+    \]
+    <p>
+      Ahora trasladamos \(\seg{RS}\) hacia \(\seg{PQ}\) de la siguiente forma:
+    </p>
+    \[
+    R+(2,2)=P, \, S+(2,2)=Q
+    \]
+    <p>
+      De la invarianza de \(\omega\) bajo
+      traslaciones llegamos  \(\omega[\seg{RS}]=\omega[\seg{PQ}]=3\) y concluimos
+    </p>
+    \[
+    \omega[\seg{OS}]=-1+3=2.
+    \]
+
+    <p>
+    </li>
+
+      <li>  Para el segundo inciso notamos que, para
+    \(n \) natural, la aditivida  de \(\omega\) nos da:
+    </p>
+      \[
+          \omega[\seg{OP_n}]=n\omega[\seg{OP_1}],
+          \quad \omega[\seg{OP_{-n}}]=n\omega[\seg{OP_{-1}}]
+      \]
+      <p>
+        Además, ya que \(\omega\) es invariante bajo traslaciones,
+        sumando \((1,0)\)  llegamos a \( \omega[\seg{OP_{-1}}]=\omega[P_1O] \).
+
+        De lo anterior concluimos que, para todo \(n\in \mathbb{Z}\),
+        \[
+          \omega[\seg{OP_n}]=n\omega[\seg{OP_1}]
+        \]
+
+        Así, sólo resta encontrar el valor de \(\omega[\seg{OP_1}]\). Pero
+        \[
+        \omega[\seg{0P_1}]+\omega[\seg{P_1P_2}]=\omega[\seg{OR}]=-1
+        \]
+        y \(\omega[\seg{OP_1}]=\omega[\seg{P_1P_2}]\), por lo que
+        \[
+        2\omega[\seg{OP_1}]=-1 \Rightarrow \omega[\seg{OP_1}]=\frac{-1}{2}
+        \]
+        </p>
+        <p>
+          Concluimos que, para todo \(n\in \mathbb{Z}\)
+          \[
+          \omega[\seg{OP_n}]=-\frac{n}{2}
+          \]
+        </p>
+      </li>
+    </div>
   </div>
 
 
@@ -273,7 +366,7 @@
      </p>
       <p>
         Sea \(f: \mathbb{R}^n \to \mathbb{R}\) una función
-        aditiva (ver <a href="#Ejer:linealToforma"> Ejercicio 1.8 <a>).
+        aditiva (ver <a href="#Ejer:linealToforma"> Ejercicio 1.9 <a>).
           Prueba:
         <ol>
           <li> \(f(0)=0\),</li>
@@ -323,7 +416,7 @@
      </div>
 -->
 
-     <div class="ejercicio">
+    <div class="ejercicio">
 
        <h2 class="card"> Ejercicio </h2>
        <p>Una \(1\)-forma constante \(\omega\), se llama
@@ -337,7 +430,9 @@
        \lim_{Q\to R}\omega[\seg{PQ}]=\omega[\seg{PR}]
        \]
      </p>
-     </div>
+        </div>
+
+
 
 
      <div class="ejercicio">
@@ -351,8 +446,8 @@
          \]
 
          Sugerencia: usa los ejercicios
-         <a href="#Ejer:FormaToLineal">1.9</a> y
-         <a href="#Ejer:AditivaMasContinua">1.11</a>
+         <a href="#Ejer:FormaToLineal">1.10</a> y
+         <a href="#Ejer:AditivaMasContinua">1.12</a>
        </p>
 
      </div>
@@ -376,6 +471,37 @@
          \]
          donde \(P=(p_1,\dots, p_n), Q=(q_1,\dots, q_n)\).
        </p>
+
+       <button id="respButton"> Respuesta </button>
+       <div class="resp">
+         <p>
+           Por el ejercicio 1.14, existe una función lineal
+           \(f: \mathbb{R}^3 \to \mathbb{R}\) tal que
+           \[
+           \omega[\seg{PQ}]=f(Q)-f(P)
+           \]
+           Tomamos
+           \[
+           A=f(1,0,0), B=f(0,1,0), C=f(0,1,0)
+           \]
+           Al ser \(f\) lineal tenemos que, para cualquier
+           punto \((x,y,z)\)
+           \begin{eqnarray}
+           f(x,y,z)&=&xf(1,0,0)+yf(0,1,0)+zf(0,0,1)\\
+           &=&Ax+By+Cz
+           \end{eqnarray}
+           Por lo tanto
+           \begin{eqnarray}
+           f(Q)-f(P)&=&Aq_1+Bq_2+Cq_3-(Ap_1+Bp_2+Cp_3) \\
+           &=&A(q_1-p_1)+B(p_2-q_2)+C(q_3-p_3)
+           \end{eqnarray}
+           y concluimos
+           \[
+           \omega(\seg{PQ})=A(q_1-p_1)+B(q_2-p_2)+C(p_3-q_3)
+           \]
+
+         </p>
+       </div>
      </div>
 
      <div class="nota">
