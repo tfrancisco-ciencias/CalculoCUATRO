@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#respButton").click(function() {
-    $("div.resp").toggle();
+  $("button.respButton").click(function() {
+       $(this).next("div.resp").toggle();
   });
 });

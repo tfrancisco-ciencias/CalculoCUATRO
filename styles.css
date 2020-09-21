@@ -108,7 +108,8 @@ div.resp{
     margin: 20px;
     font-size: 20px;
 }
-#respButton{
+
+.respButton{
     display: block;
     border-radius: 25px;
     border: 10px solid #91D3E9;
