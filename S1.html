@@ -511,10 +511,98 @@
 
          </p>
        </div>
+      </div>
+
+       <div class="ejercicio">
+         <h2 class="card"> Ejercicio </h2>
+         <p>
+           Dado \(V\), un espacio vectorial sobre \(\mathbb{R}\), denotamos
+         </p>
+           \[
+            V^*=\{\varphi: V \to \mathbb{R}: \textrm{\(\varphi\) es lineal }\}
+           \]
+
+         <p>este conjunto es importante dentro de la teoría y se llama
+         el dual de \(V\).
+         </p>
+         <ol>
+         <li> Demuestra que \(V^*\) es un espacio vectorial. </li>
+         <li> Demuestra que \(\mathbb{R}^n\) tiene dimensión \(n\).
+         Sugerencia: considera las proyecciones de \(\mathbb{R}^n\) a
+          \(\mathbb{R}\).</li>
+         </ol>
+
+         <button class="respButton"> Respuesta </button>
+         <div class="resp">
+           <p>
+             <p>Sólo probaremos el segundo inciso.</p>
+             <p> Por \(\pi_j\) vamos a denotar la proyección
+                sobre la coordenada \(j\), es decir
+                \[
+                \pi_j(p_1,\dots p_n)=p_j.
+                \]
+              Sabemos que las \(\pi_j\)  son funciones lineales,
+              por lo tanto \(\beta:=\{\pi_1,\dots, \pi_n\} \subset (\mathbb{R}^n)^*\).
+               Afirmamos que \(\beta\) es una base para \((\mathbb{R}^n)^*\)
+             </p>
+              <p> Primero vamos a ver que \(\beta\) es linealmente independiente.
+                Supongamos que
+                \[
+                \varphi= c_1 \pi_1+\cdots c_n\pi_n
+                \]
+                es la función idénticamente cero, es decir, para toda \(P\in \mathbb{R}^n\)
+                \[
+                0=\varphi(P)=c_1\pi_1(P)+\cdots c_n\pi_n(P).
+                \]
+
+                Vamos a denotar  por \(e_j\)
+                el vector que tiene todas las entradas cero, excepto por la entrada
+                \(j\), donde tiene un 1 (la base canónica).
+
+                Tomando \(P=e_1\) notamos que \(\pi_j(P)=0\) si \(j\ne 1\)
+                y \(\pi_1(P)=1\). Por lo tanto
+                \[
+                0=\varphi(P)=c_1\pi_1(P)+\cdots + c_n \pi_n(P)=c_1
+                \]
+                por lo que \(c_1=0\).
+
+                De manera similar, tomando \(P=e_j\), obtenemos que
+                \(c_j=0\), para toda \(j=1,\dots, n\) y concluimos que
+                \(\beta\) es linealmente independiente.
+
+               </p>
+               <p>
+                 Ahora vamos a probar que \(\beta\) genera a \((\mathbb{R})^n\).
+
+                 Tomamos \(\psi \in (\mathbb{R}^n)^*\) fijo y arbitrario. Al ser
+                 \(\psi \) una función lineal tenermos que, para toda
+                 \(P=(p_1,\dots p_n)\in \mathbb{R}^n\):
+                 \[
+                 \psi(P)=\psi(\sum_{j=1}^n p_j e_j )=\sum_{j=1}^n p_j \psi(e_j).
+                 \]
+
+                 Dentemos \(A_j=\psi(e_j)\). Con esta notación
+                 \[
+                 \psi(P)=\sum_{j=1}^n A_j p_j.
+                 \]
+                 Pero notamos que, \(\pi_j(P)=p_j\), por lo que podemos reescribir
+                 la igualdad anterior como
+                 \[
+                 \psi(P)=\sum_{j=1}^n A_j \pi_j(P), \quad \forall P\in \mathbb{R}^n,
+                 \]
+                 es decir, como funciones \(\psi\) y \(\sum_{j=1}A_j \pi_j\)
+                 son iguales, por lo que concluimos que \(\beta\) genera a
+                 \((\mathbb{R}^n)^*\).
+               </p>
+         </div>
+
+
+         </div>
 
 
 
-     </div>
+
+
 
      <div class="nota">
        <h2 class="card"> Conclusión  </h2>
