@@ -10,7 +10,7 @@
     <!-- This part is for jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- This part is to load main.js -->
-    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
 
 
     <!-- Next part is for new coomands -->
@@ -24,18 +24,41 @@
         }
       };
     </script>
+
     <!-- CSS -->
 
-    <link rel="stylesheet" , href="styles.css" />
-    <script>
-      counter - set: my - counter 1;
-    </script>
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at 1 -->
+    <style>
+      body.card{
+        counter-reset: sectionCounter 0 cardCounter ;
+      }
+      h1.card{
+        counter-reset: sectionCounter 0 cardCounter ;
+      }
+    </style>
 
   </head>
 
 
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio  </a> </li>
+        <li> <a href="../Secciones.html"> Secciones  </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
   <!--    Contenido empiaza abajo
  ///////////////////////////////// -->
+
 
   <body class="fondo card">
 
@@ -170,7 +193,7 @@
         </p>
       </div>
 
-      <div class="ejercicio">
+      <div class="ejercicio ">
         <h2 class="card"> Ejercicio </h2>
         <p>Supongamos que \(\omega\) es una \(1\)-forma constante
           que satisface:
@@ -327,7 +350,7 @@
 
         Define la acción de \(\omega\) por
         \[
-        \omega[\seg{PQ}]:=f(P)-f(Q).
+        \omega[\seg{PQ}]:=f(Q)-f(P).
         \]
         donde \(f\) es aditiva.
 
@@ -449,7 +472,7 @@
         <p>
           Sea \(\omega\) una \(1\)-forma constante y
           continua. Prueba que existe una función lineal
-          \(f:\omega \to \mathbb{R}\) tal que
+          \(f:\mathbb{R}^n \to \mathbb{R}\) tal que
           \[
           \omega[\seg{PQ}]=f(Q)-f(P)
           \]

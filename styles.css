@@ -1,4 +1,7 @@
-
+html, body{
+  margin: 0;
+  padding: 0;
+}
 
 .fondo{
   background: rgb(10,79,233);
@@ -20,34 +23,75 @@
   align-items: center;
 }
 
+.main-header{
+  background-image:  linear-gradient(180deg,
+    rgba(148,191,233,100) 0%, rgba(78,116,203,1) 100%);
+  width: 100%;
+  }
 
-.flexbox-definicion:before{
-  font-size: 25px;
-  content: "Definición ";
+.top-nav ul {
+  margin:10px;
+  padding: 10px;
+
 }
 
+.top-nav li {
+  display: inline;
+}
+
+.top-nav a{
+  padding: 10px;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.top-nav a:hover{
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+
+.calculo-title{
+  text-align: center;
+  font-size: 40px;
+}
+
+.secciones-main ul{
+  margin: 0;
+  padding: 10px;
+}
+
+.secciones-main li {
+    font-size: 30px;
+    padding: 10px;
+}
+
+.secciones-main a{
+  padding: 10px;
+  font-size: 30px;
+  text-decoration: none;
+}
 
 body.card{
   counter-reset: sectionCounter  cardCounter ;
 }
 
 
- h1.card{
+ h1.card{ /* for clearness this should be named like card-title*/
    counter-reset: sectionCounter  cardCounter ;
  }
 
-h1.card:before{
+h1.card:before{/* for clearness this should be named like card-title*/
   counter-increment: sectionCounter;
   content:"Sección " counter(sectionCounter) " : ";
 }
 
-h2.card:before{
+h2.card:before{/* for clearness this should be named like card-title*/
   counter-increment: cardCounter;
   content: counter(sectionCounter)"."counter(cardCounter)"";
 }
 
 
-.definicion{
+.definicion{ /* for clearness this should be named like definition-box */
   border-radius: 25px;
   background-color: #dbcef9;
   background: rgb(229,180,255);
@@ -97,7 +141,7 @@ h2.card:before{
     width: 70%;
 }
 
-div.resp{
+.resp{
   display: none;
   background: rgb(217,255,203);
   background: linear-gradient(0deg,
@@ -119,7 +163,7 @@ div.resp{
 }
 
 
-div.video{
+.video{
   background: rgb(255,206,102);
   background: radial-gradient(circle,
     rgba(255,206,102,1) 50%, rgba(254,242,177,1) 100%);

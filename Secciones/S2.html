@@ -23,8 +23,10 @@
       </script>
       <!-- CSS -->
 
-      <link rel="stylesheet", href="styles.css" />
+      <link rel="stylesheet", href="../styles.css" />
 
+
+      <!-- This part restart counter of cards to start at 2 -->
       <style>
         body.card{
           counter-reset: sectionCounter 1 cardCounter ;
@@ -37,10 +39,62 @@
 </head>
 
 
+<!-- Top Menu -->
+
+<header class="main-header">
+  <nav class="top-nav">
+    <ul>
+      <li> <a href="../Home.html"> Inicio  </a> </li>
+      <li> <a href="../Secciones.html"> Secciones  </a> </li>
+    </ul>
+  </nav>
+
+  <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+</header>
+
+<!-- Contenido empieza abajo -->
+
 
 <body class="fondo card " >
+
 <div class="flexbox">
-  <h1 class="card " > \(1\)-formas diferenciales   </h1>
+
+  <h1 class="card " > \(1\)-formas diferenciables   </h1>
+
+
+    <div class="definicion">
+      <h2 class="card"> Definición  </h2>
+      <p>Sea \(U \) un subconjunto abierto de \(\mathbb{R}^n\). Una 1-forma
+      diferencial en \(U\), denotada por \(\omega\), es una función tal que
+      a cada punto \(p\) de \(U\) le asocia una 1-forma constante continua,
+      denotada \(\omega_p\), de tal forma que al escribirla en coordenadas
+      \[
+      \omega_p=A_1(p)dx_1+A_2(p)dx_2 + \cdots + A_n(p)dx_n
+      \]
+      se cumple que las funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\),
+      son diferenciables en todo punto de \(U\).
+      </p>
+    </div>
+
+
+    <div class="nota">
+      <h2 class="card"> Nota </h2>
+      <p>
+        Es buen momento para ver la notación \(dx_j\) otra vez. En la sección
+        pasada se usaba \(dx_j\) para denotar 1-forma constante que es la proyección sobre la
+        \(j\)-ésima coordenada, es decir
+        \[
+        dx_j(p_1,\dots, p_n)=p_j
+        \]
+
+        Pero de ahora en adelante \(dx_j\) va a denotar la 1-forma
+        diferencial tal que, a cada punto \(p\) del dominio, le
+        asigna la 1-forma constante que es la proyección a la \(j\)-ésima
+        coordenada.
+      </p>
+    </div>
+
     <div class="ejercicio">
       <h2 class="card"> Ejercicio </h2>
       <p>Sean \(V\) y \(W\) dos espacios vectoriales sobre \(\mathbb{R}\).
