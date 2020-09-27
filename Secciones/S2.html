@@ -126,7 +126,7 @@
           <li> \(P=(0,y), Q=(x,y+1), R=(a,b) \) . </li>
         </ol>
 
-        <p><strong>Solución</strong></p>
+        <p><strong>Solución: </strong></p>
         <p>
           <li> Siguiendo la <a href="#Def:1formaDif"> Definición 2.1</a>, en este caso se tiene que
             \[ \omega_{(1/2,1/2)} = 3(1/2)^2 dx + ((1/2)^2 + 1) dy = \frac{3}{4} dx + \frac{5}{4} dy \]
@@ -348,11 +348,11 @@
 
         Sea \(U \subseteq \mathbb{R}^n\) un subconjunto abierto y
         \(\omega = \sum_{j=1}^n A_jdx_j\) una 1-forma diferenciable
-        sobre \(f\). Dada \(f: U\to \mathbb{R}\) una función clase \(C^1\)
+        sobre \( U \). Dada \(f: U\to \mathbb{R}\) una función clase \(C^1\)
         definimos el producto de \(f\) con \(\omega\) como la
         1-forma diferenciable en \(U\) tal que, para \(P\in U\):
         \[
-        \eta_P= f(P)A_1(P)dx_1+f(p)A_2(P)dx_2+\cdots + f(P)A_n(P)dx_n.
+        \eta_P= f(P)A_1(P)dx_1+f(P)A_2(P)dx_2+\cdots + f(P)A_n(P)dx_n.
         \]
 
         Prueba que si \(f,g:U \to \mathbb{R}\) son clase \(C^1\)
@@ -363,8 +363,27 @@
         donde \(df\) y \(dg\) denotan las <a href="#Def:derivadaExterior">derivadas exteriores</a>
         de \(f\) y \(g\) respectivamente.
 
+        <p><strong>Solución: </strong></p>
+        <p>
+          Inmediatamente de la <a href="#Def:derivadaExterior"> Definición 2.7</a> se sigue que:
+          \[ d (fg) = \partial_{x_1} (fg) dx_1 + \partial_{x_2} (fg) dx_2 + \cdots +
+          \partial_{x_n}(fg)
+          d_{x_n} \]
+        </p>
 
-
+        <p>
+          Sin embargo, para cada \( i=1,2,\ldots, n \) sabemos que \( \partial_{x_i} (fg) = f \partial_{x_i} (g) + g
+          \partial_{x_i} (f)\), por lo tanto
+        </p>
+        <p>
+          \begin{align*} d(fg) &= \sum_{i=1}^n [ f \partial_{x_i} (g) + g
+          \partial_{x_i} (f) ] dx_{i}\\ &= \sum_{i=1}^n f \partial_{x_i} (g) dx_{i} + \sum_{i=1}^n g
+          \partial_{x_i} (f) dx_{i}\\
+          &= f dg + g df
+          \end{align*}
+          donde la última igualdad se tiene por la definición del producto de una función con una \(1\)- forma
+          diferenciable.
+        </p>
       </div>
 
 
