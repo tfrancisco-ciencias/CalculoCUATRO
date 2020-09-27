@@ -1,98 +1,103 @@
 <! DOCTYPE html>
+  <html lang="es">
 
 
 
-<html lang="es">
-<head>
-
-<!-- Following part is mathjax, for latex-->
+  <head>
+    <!-- Following part is mathjax, for latex-->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<!-- Next part is for new coomands -->
+    <!-- Next part is for new coomands -->
 
-  <script>
-    window.MathJax = {
-      tex: {
-        macros: {
-          sen: "\\operatorname{sen}",
-          seg: ["\\overrightarrow{#1}", 1],
-        },
-        tags:"ams" /* this part is for numbered equations */
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at 2 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 1 cardCounter;
       }
-    };
-  </script>
-  <!-- CSS -->
 
-      <link rel="stylesheet", href="../styles.css" />
+      h1.card {
+        counter-reset: sectionCounter 1 cardCounter;
+      }
+    </style>
 
-
-      <!-- This part restart counter of cards to start at 2 -->
-      <style>
-        body.card{
-          counter-reset: sectionCounter 1 cardCounter ;
-        }
-        h1.card{
-          counter-reset: sectionCounter 1 cardCounter ;
-        }
-      </style>
-
-</head>
+  </head>
 
 
-<!-- Top Menu -->
+  <!-- Top Menu -->
 
-<header class="main-header">
-  <nav class="top-nav">
-    <ul>
-      <li> <a href="../Home.html"> Inicio  </a> </li>
-      <li> <a href="../Secciones.html"> Secciones  </a> </li>
-    </ul>
-  </nav>
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
 
-  <h1 class="calculo-title"> Cálculo CUATRO</h1>
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
 
-</header>
+  </header>
 
-<!-- Contenido empieza abajo -->
-
-
-<body class="fondo card " >
-
-<div class="flexbox">
-
-  <h1 class="card " > \(1\)-formas diferenciables   </h1>
+  <!-- Contenido empieza abajo -->
 
 
-    <div class="definicion">
-      <h2 class="card" id="Def:1formaDif"> Definición  </h2>
-      <p>Sea \(U \) un subconjunto abierto de \(\mathbb{R}^n\). Una <b>1-forma
-      diferenciable</b> en \(U\), denotada por \(\omega\), es una función tal que
-      a cada punto \(p\) de \(U\) le asocia una 1-forma constante continua,
-      denotada \(\omega_p\), de tal forma que al escribirla en coordenadas
-      \[
-      \omega_P=A_1(P)dx_1+A_2(P)dx_2 + \cdots + A_n(P)dx_n
-      \]
-      se cumple que las funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\),
-      son diferenciables, en todo  \(U\). Con ésta notación
-      se escribe:
-      \[
-      \omega=A_1dx_1+A_2dx_2+\cdots +A_ndx_n
-      \]
-      Por ejemplo \(\omega= ydx+ xdy\) es una 1-forma diferenciable en \(\mathbb{R}^2\) y
-      \(\eta = \sqrt{y}dx+\sqrt{x}dy \) es una  1-forma
-      diferenciable en \((0,\infty)\times (0,\infty)\). En estos ejemplos,
-      tenemos que las 1-formas constantes, en el punto (9,16),  son respectivamente:
-      \[
-      \omega_{(9,16)}=16dx+9dy, \quad \eta_{(9,16)}=4dx+3dy
-      \]
-      </p>
-      <p>
-        <b>Nota:</b> si además las funciones \(A_1,\dots, A_n\) son
-        clase \(C^k\) en \(U\) (para algún \(k=1,2,\dots\)) decimos
-        que la 1-forma diferencial es clase \(C^k\).
-      </p>
-    </div>
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> \(1\)-formas diferenciables </h1>
+
+
+      <div class="definicion">
+        <h2 class="card" id="Def:1formaDif"> Definición </h2>
+        <p>Sea \(U \) un subconjunto abierto de \(\mathbb{R}^n\). Una <b>1-forma
+            diferenciable</b> en \(U\), denotada por \(\omega\), es una función tal que
+          a cada punto \(p\) de \(U\) le asocia una 1-forma constante continua,
+          denotada \(\omega_p\), de tal forma que al escribirla en coordenadas
+          \[
+          \omega_P=A_1(P)dx_1+A_2(P)dx_2 + \cdots + A_n(P)dx_n
+          \]
+          se cumple que las funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\),
+          son diferenciables, en todo \(U\). Con ésta notación
+          se escribe:
+          \[
+          \omega=A_1dx_1+A_2dx_2+\cdots +A_ndx_n
+          \]
+          Por ejemplo \(\omega= ydx+ xdy\) es una 1-forma diferenciable en \(\mathbb{R}^2\) y
+          \(\eta = \sqrt{y}dx+\sqrt{x}dy \) es una 1-forma
+          diferenciable en \((0,\infty)\times (0,\infty)\). En estos ejemplos,
+          tenemos que las 1-formas constantes, en el punto (9,16), son respectivamente:
+          \[
+          \omega_{(9,16)}=16dx+9dy, \quad \eta_{(9,16)}=4dx+3dy
+          \]
+        </p>
+        <p>
+          <b>Nota:</b> si además las funciones \(A_1,\dots, A_n\) son
+          clase \(C^k\) en \(U\) (para algún \(k=1,2,\dots\)) decimos
+          que la 1-forma diferencial es clase \(C^k\).
+        </p>
+      </div>
 
 
       <div class="ejercicio">
@@ -100,9 +105,9 @@
         Considera la 1-forma diferenciable, \(\omega = (2x+y)dx-(6x+2y)dy\). Encuentra
         los puntos \(R\) para los cuales:
         <ol>
-        <li> \(\omega_R= 3dx+4dy\). </li>
-        <li> \(\omega_R = 0 \). </li>
-        <li>  \(\omega_R= dx \). </li>
+          <li> \(\omega_R= 3dx+4dy\). </li>
+          <li> \(\omega_R = 0 \). </li>
+          <li> \(\omega_R= dx \). </li>
         </ol>
       </div>
 
@@ -114,12 +119,34 @@
           Considera la 1-forma diferenciable, \(\omega=3x^2dx+(y^2+1)dy\). Para los
           siguientes puntos \(P,Q,R\) y tomando la 1-forma constante \(\omega_R\)
           calcula \(\int_{\overrightarrow{PQ}} \omega_R \).
-          </p>
-          <ol>
-            <li> \(P=(0,0), Q=(1,1), R= (1/2,1/2) \). </li>
-            <li> \(P=(0,4), Q=(2,2), R= (-1,-1) \). </li>
-            <li> \(P=(0,y), Q=(x,y+1), R=(a,b) \) . </li>
+        </p>
+        <ol>
+          <li> \(P=(0,0), Q=(1,1), R= (1/2,1/2) \). </li>
+          <li> \(P=(0,4), Q=(2,2), R= (-1,-1) \). </li>
+          <li> \(P=(0,y), Q=(x,y+1), R=(a,b) \) . </li>
+        </ol>
+
+        <p><strong>Solución: </strong></p>
+        <p>
+          <li> Siguiendo la <a href="#Def:1formaDif"> Definición 2.1</a>, en este caso se tiene que
+            \[ \omega_{(1/2,1/2)} = 3(1/2)^2 dx + ((1/2)^2 + 1) dy = \frac{3}{4} dx + \frac{5}{4} dy \]
+            Luego, de la conclusión en la Sección 1 se sigue:
+            \[
+            \int_{\seg{PQ}}\omega_{(1/2,1/2)} = \frac{3}{4}(1 -0)+ \frac{5}{4}(1-0) = \frac{3}{4}+ \frac{5}{4} = 2
+            \]
+            donde \( P=(0,0), Q=(1,1) \)
+          </li>
+          <li> Similarmente, para este inciso se obtiene que: \( \omega_{(-1,-1)} = 3dx + 2dy \) y
+            \(\displaystyle\int_{\seg{PQ}}\omega_{(-1,-1)} = 2\)
+          </li>
+          <li>
+            Finalmente, y de manera análoga se verífica que: \( \omega_{(a,b)} = 3a^{2} dx + (b^{2} + 1) dy\) y
+            \(\displaystyle\int_{\seg{PQ}}\omega_{(a,b)} = 3 a^{2} x + (b^2 + 1)\)
+          </li>
+
           </ol>
+        </p>
+
       </div>
 
 
@@ -128,7 +155,8 @@
         <h2 class="card"> Nota </h2>
         <p>
           Es buen momento para ver la notación \(dx_j\) otra vez. En la sección
-          pasada, justo al final en la conclusión, se usaba \(dx_j\) para denotar 1-forma constante que es la proyección sobre la
+          pasada, justo al final en la conclusión, se usaba \(dx_j\) para denotar 1-forma constante que es la proyección
+          sobre la
           \(j\)-ésima coordenada, es decir
           \[
           dx_j(p_1,\dots, p_n)=p_j
@@ -147,7 +175,7 @@
         <p>
           Esta distinción puede pensarse como la que se hace entre una
           una constante y función constante. Por ejemplo en la función
-          \(f(x)=3\), la función \(f\) sería  \(dx_j\) y
+          \(f(x)=3\), la función \(f\) sería \(dx_j\) y
           el 3 sería la proyección en la coordenada j.
         </p>
       </div>
@@ -156,23 +184,23 @@
 
 
       <div class="ejercicio">
-          <h2 class="card"> Ejercicio </h2>
-            Considera las 1-formas diferenciables \(\omega=xdx+ydy\)
-            y \(\eta=ydx+xdy\). Toma
-            puntos cualesquiera \(P=(x_0,y_0), Q=(x_1,y_1)\) y
-            denota por \(R\) a su punto medio. Paras las 1-formas
-            constantes \(\omega_R\) y \(\eta_R\) prueba que
-            \begin{eqnarray*}
-            \int_{\seg{PQ}}\omega_R &=&\frac{1}{2}(x_1^2-x_0^2+y_1^2-y_0^2 ) \\
-            \int_{\seg{PQ}}\eta_R &=& \frac{1}{2}(x_1y_1-x_0y_0)
-            \end{eqnarray*}
+        <h2 class="card"> Ejercicio </h2>
+        Considera las 1-formas diferenciables \(\omega=xdx+ydy\)
+        y \(\eta=ydx+xdy\). Toma
+        puntos cualesquiera \(P=(x_0,y_0), Q=(x_1,y_1)\) y
+        denota por \(R\) a su punto medio. Paras las 1-formas
+        constantes \(\omega_R\) y \(\eta_R\) prueba que
+        \begin{eqnarray*}
+        \int_{\seg{PQ}}\omega_R &=&\frac{1}{2}(x_1^2-x_0^2+y_1^2-y_0^2 ) \\
+        \int_{\seg{PQ}}\eta_R &=& \frac{1}{2}(x_1y_1-x_0y_0)
+        \end{eqnarray*}
       </div>
 
 
       <div class="ejercicio">
         <h2 class="card"> Ejercicio </h2>
         Considera las 1-formas diferenciable \(\omega = -ydx+xdy\)
-        y (\eta=ydx+xdy). Por
+        y \(\eta=ydx+xdy\). Por
         \(P_1,P_2, P_3\) y \(P_4\) denotamos los vértices de un rectángulo
         centrado en el origen y por \(R_i\) el punto medio de \(\seg{P_{i}P_{i+1}} \), \(i=1,2,3,4 \)
         donde por conveción ponemos \(P_5=P_1\).
@@ -180,10 +208,10 @@
         Prueba que:
         <ol>
           <li>
-          \[
-          \sum_{i=1}^4 \int_{\overrightarrow{ P_iP_{i+1} } }\omega_{R_i} = 2A
-          \]
-          donde \(A\) es el área del rectángulo.
+            \[
+            \sum_{i=1}^4 \int_{\overrightarrow{ P_iP_{i+1} } }\omega_{R_i} = 2A
+            \]
+            donde \(A\) es el área del rectángulo.
           </li>
 
           <li>
@@ -196,86 +224,86 @@
 
 
 
-    <div class="definicion">
-      <h2 class="card" id="Def:derivadaExterior"> Definición </h2>
-      <p>
-      Sea \(U \subseteq \mathbb{R}^n\) un abierto.
-      Dada  \(f: U \to \mathbb{R}\), una función de clase \(C^1\), su
-      <b>derivada exterior</b>, denotada \(df\), se define como  la
-      1-forma diferenciable dada por
-      \[
-      df= \partial_{x_1}f dx_1+ \partial_{x_2}f dx_2+\cdots + \partial_{x_n}f dx_n
-      \]
-      donde \(\partial_{x_j}f\) denota la derivada parcial de \(f\)
-      con respecto a la variable \(x_j\).
-      </p>
-      <p>
-        Por ejemplo, si \(f(x,y,z)=xy+y^2z\), su derivada exterior es
-        \[
-        df= y dx + (x+2yz)dy+ y^2 dz
-        \]
-        además, si \(P=(1,-2,\pi)\) entonces
-        \[
-        (df)_P=-2dx+(1-4\pi)dy+4dz
-        \]
-      </p>
+      <div class="definicion">
+        <h2 class="card" id="Def:derivadaExterior"> Definición </h2>
+        <p>
+          Sea \(U \subseteq \mathbb{R}^n\) un abierto.
+          Dada \(f: U \to \mathbb{R}\), una función de clase \(C^1\), su
+          <b>derivada exterior</b>, denotada \(df\), se define como la
+          1-forma diferenciable dada por
+          \[
+          df= \partial_{x_1}f dx_1+ \partial_{x_2}f dx_2+\cdots + \partial_{x_n}f dx_n
+          \]
+          donde \(\partial_{x_j}f\) denota la derivada parcial de \(f\)
+          con respecto a la variable \(x_j\).
+        </p>
+        <p>
+          Por ejemplo, si \(f(x,y,z)=xy+y^2z\), su derivada exterior es
+          \[
+          df= y dx + (x+2yz)dy+ y^2 dz
+          \]
+          además, si \(P=(1,-2,\pi)\) entonces
+          \[
+          (df)_P=-2dx+(1-4\pi)dy+4dz
+          \]
+        </p>
 
-      <p>
-        <b> Nota: </b> para que \(df\) sea una 1-forma <b>diferenciable</b>
-         (según la <a href="#Def:1formaDif">  definición de 1-forma diferenciable </a>)
-         debemos pedir que cada \(\partial_{x_j}f \),
-         \(j=1,\dots, n\), sea diferenciable, lo cual pasa si la función
-         \(f\) con la que empezamos es clase \(C^2\).
-      </p>
-    </div>
-
-
+        <p>
+          <b> Nota: </b> para que \(df\) sea una 1-forma <b>diferenciable</b>
+          (según la <a href="#Def:1formaDif"> definición de 1-forma diferenciable </a>)
+          debemos pedir que cada \(\partial_{x_j}f \),
+          \(j=1,\dots, n\), sea diferenciable, lo cual pasa si la función
+          \(f\) con la que empezamos es clase \(C^2\).
+        </p>
+      </div>
 
 
-          <div class="ejercicio">
-            <h2 class="card"> Ejercicio </h2>
-            Para cada una de las siguientes funciones, encuentra la derivada
-            exterior y encuentra los puntos \(P\) para los cuales \(df_P=0\).
-            <ol>
-              <li>  \(f(x,y,z)= x^2+y^2+z^2 +xy+xz \). </li>
-              <li> \(f(x,y)=e^{xy}\). </li>
-              <li> \(f(x_1,\dots, x_n) = \sum_{i=1}^n (x_1+x_i)^2\).  </li>
-             </ol>
 
-
-          </div>
-
-          <div  class="ejercicio">
-            <h2 class="card"> Ejercicio </h2>
-            <p>
-              Por  \(B_r(P)\) denotamos la bola abierta en \(\mathbb{R}^n\)
-              centrada en \(P\) y de radio \(r\). Sea \(f:B_r(P) \to \mathbb{R}\)
-              una función clase \(C^1\). Demuestra que si \(df =0 \)
-              entonces \(f\) es una función constante.
-
-            </p>
-          </div>
-
-    <div class="definicion">
-      <h2 class="card" id="Def:1formaExacta"> Definición </h2>
-      <p>Una 1-forma  diferenciable \(\omega \) se
-      llama <b>exácta</b> si existe una función diferenciable \(f\) tal que
-      \[
-      df = \omega
-      \]
-      Si escribimos \(\omega = A_1 dx_1 + \cdots + A_n dx_n\),
-      lo anterior equivale a encontrar una función \(f\) tal que
-      \[
-      \partial_{x_1}f=A_1 , \cdots, \partial_{x_n} f=A_n
-      \]
-      El nombre viene de ecuaciones diferenciales, como se muestra
-      en el ejercicio siguiente.
-      </p>
-    </div>
 
       <div class="ejercicio">
-          <h2 class="card"> Ejercicio </h2>
-          <p>Supongamos que \(U \subseteq \mathbb{R}^2\) es un
+        <h2 class="card"> Ejercicio </h2>
+        Para cada una de las siguientes funciones, encuentra la derivada
+        exterior y encuentra los puntos \(P\) para los cuales \(df_P=0\).
+        <ol>
+          <li> \(f(x,y,z)= x^2+y^2+z^2 +xy+xz \). </li>
+          <li> \(f(x,y)=e^{xy}\). </li>
+          <li> \(f(x_1,\dots, x_n) = \sum_{i=1}^n (x_1+x_i)^2\). </li>
+        </ol>
+
+
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        <p>
+          Por \(B_r(P)\) denotamos la bola abierta en \(\mathbb{R}^n\)
+          centrada en \(P\) y de radio \(r\). Sea \(f:B_r(P) \to \mathbb{R}\)
+          una función clase \(C^1\). Demuestra que si \(df =0 \)
+          entonces \(f\) es una función constante.
+
+        </p>
+      </div>
+
+      <div class="definicion">
+        <h2 class="card" id="Def:1formaExacta"> Definición </h2>
+        <p>Una 1-forma diferenciable \(\omega \) se
+          llama <b>exácta</b> si existe una función diferenciable \(f\) tal que
+          \[
+          df = \omega
+          \]
+          Si escribimos \(\omega = A_1 dx_1 + \cdots + A_n dx_n\),
+          lo anterior equivale a encontrar una función \(f\) tal que
+          \[
+          \partial_{x_1}f=A_1 , \cdots, \partial_{x_n} f=A_n
+          \]
+          El nombre viene de ecuaciones diferenciales, como se muestra
+          en el ejercicio siguiente.
+        </p>
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        <p>Supongamos que \(U \subseteq \mathbb{R}^2\) es un
           abierto y \(F,G: U \to \mathbb{R}\) son funciones
           clase \(C^1\) en \(U\) y que \(G\) nunca se anula en \(U \).
 
@@ -294,81 +322,89 @@
           Supongamos que existe
           una función clase \(C^1\), \(f:U \to \mathbb{R}\), tal que
           \(\omega=df\) (es decir, \(\omega\)
-          es exácta). Prueba que  las
+          es exácta). Prueba que las
           curvas de nivel de \(f\) son soluciones de la ecuación diferencial
           (1).
 
-          </p>
+        </p>
       </div>
 
-
-        <div class="ejercicio">
-          <h2 class="card"> Ejercicio </h2>
-          <p>Para las siguientes 1-formas diferenciables sobre \(\mathbb{R}^2\)
-          encuentra cuales son exáctas y trata de escribirlas de la
-          forma \(df\), donde \(f\) es una función clase \(C^1\).
-          </p>
-          <ol>
-            <li> \(3y dx+ 3xdy \). </li>
-            <li> \( 7xdx+6ydy \).</li>
-            <li> \( -ydx + x dy \).</li>
-          </ol>
-          </div>
 
       <div class="ejercicio">
-          <h2 class="card"> Ejercicio </h2>
+        <h2 class="card"> Ejercicio </h2>
+        <p>Para las siguientes 1-formas diferenciables sobre \(\mathbb{R}^2\)
+          encuentra cuales son exáctas y trata de escribirlas de la
+          forma \(df\), donde \(f\) es una función clase \(C^1\).
+        </p>
+        <ol>
+          <li> \(3y dx+ 3xdy \). </li>
+          <li> \( 7xdx+6ydy \).</li>
+          <li> \( -ydx + x dy \).</li>
+        </ol>
+      </div>
 
-          Sea \(U \subseteq \mathbb{R}^n\) un subconjunto abierto y
-          \(\omega = \sum_{j=1}^n A_jdx_j\) una 1-forma diferenciable
-          sobre \(f\). Dada \(f: U\to \mathbb{R}\) una función clase \(C^1\)
-          definimos el producto de \(f\) con \(\omega\) como la
-          1-forma diferenciable en \(U\) tal que, para \(P\in U\):
-          \[
-          \eta_P= f(P)A_1(P)dx_1+f(p)A_2(P)dx_2+\cdots + f(P)A_n(P)dx_n.
-          \]
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
 
-          Prueba que si \(f,g:U \to \mathbb{R}\) son clase \(C^1\)
-          en \(U\)  entonces
-          \[
-          d(fg)=fdg+g df
-          \]
-          donde \(df\) y \(dg\) denotan las <a href="#Def:derivadaExterior">derivadas exteriores</a>
-          de \(f\) y \(g\) respectivamente.
+        Sea \(U \subseteq \mathbb{R}^n\) un subconjunto abierto y
+        \(\omega = \sum_{j=1}^n A_jdx_j\) una 1-forma diferenciable
+        sobre \( U \). Dada \(f: U\to \mathbb{R}\) una función clase \(C^1\)
+        definimos el producto de \(f\) con \(\omega\) como la
+        1-forma diferenciable en \(U\) tal que, para \(P\in U\):
+        \[
+        \eta_P= f(P)A_1(P)dx_1+f(P)A_2(P)dx_2+\cdots + f(P)A_n(P)dx_n.
+        \]
 
+        Prueba que si \(f,g:U \to \mathbb{R}\) son clase \(C^1\)
+        en \(U\) entonces
+        \[
+        d(fg)=fdg+g df
+        \]
+        donde \(df\) y \(dg\) denotan las <a href="#Def:derivadaExterior">derivadas exteriores</a>
+        de \(f\) y \(g\) respectivamente.
 
+        <p><strong>Solución: </strong></p>
+        <p>
+          Inmediatamente de la <a href="#Def:derivadaExterior"> Definición 2.7</a> se sigue que:
+          \[ d (fg) = \partial_{x_1} (fg) dx_1 + \partial_{x_2} (fg) dx_2 + \cdots +
+          \partial_{x_n}(fg)
+          d_{x_n} \]
+        </p>
 
+        <p>
+          Sin embargo, para cada \( i=1,2,\ldots, n \) sabemos que \( \partial_{x_i} (fg) = f \partial_{x_i} (g) + g
+          \partial_{x_i} (f)\), por lo tanto
+        </p>
+        <p>
+          \begin{align*} d(fg) &= \sum_{i=1}^n [ f \partial_{x_i} (g) + g
+          \partial_{x_i} (f) ] dx_{i}\\ &= \sum_{i=1}^n f \partial_{x_i} (g) dx_{i} + \sum_{i=1}^n g
+          \partial_{x_i} (f) dx_{i}\\
+          &= f dg + g df
+          \end{align*}
+          donde la última igualdad se tiene por la definición del producto de una función con una \(1\)- forma
+          diferenciable.
+        </p>
       </div>
 
 
 
-    <div class="ejercicio">
+      <div class="ejercicio">
         <h2 class="card"> Ejercicio </h2>
-        <p>Sea \(U \subseteq \mathbb{R}^2\) y  \(\omega=Adx+Bdy\) una 1-forma
+        <p>Sea \(U \subseteq \mathbb{R}^2\) y \(\omega=Adx+Bdy\) una 1-forma
           diferencial sobre \(U\). Decimos que \(\omega \) es <b>cerrada</b> si
-        \[
-        \partial_y A= \partial_x B, \quad \textrm{en \(U\)}.
-        \]
+          \[
+          \partial_y A= \partial_x B, \quad \textrm{en \(U\)}.
+          \]
         </p>
         Prueba que toda 1-forma diferenciable clase \(C^1\) y exácta
         es también cerrada.
         <p>
-        Sugerencia: igualdad de las derivadas parciales mixtas.
+          Sugerencia: igualdad de las derivadas parciales mixtas.
         </p>
 
-    </div>
+      </div>
 
-
-    <div class="nota">
-      <h2 class="card"> Nota </h2>
-
-      Recordamos que nuestro objetivo inmediato  es definir una
-      integral 1-dimensional, para lo cual debemos de limitar los
-      objetos 1-dimensionales que ésta integral va a medir. Estos
-      objestos serán las trayectorias suaves. El resto de ésta
-      sección se enfoca en dichas trayectorias.
-
-    </div>
-
+<<<<<<< HEAD
     <div class="definicion">
       <h2 class="card"> Definición </h2>
       <p>A una función continua \(\alpha:[a,b]\to \mathbb{R}^n\)
@@ -421,57 +457,85 @@
 
 
     </div>
+=======
 
+      <div class="nota">
+        <h2 class="card"> Nota </h2>
+>>>>>>> af4b90418c839591f002bd746b72304bc868d944
 
-    <div class="ejercicio">
-        <h2 class="card"> Ejercicio  </h2>
-        Para los siguientes conjuntos \(S\), encuentra una trayectoria suave
-        o suave a trozos cuya traza sea igual a \(S\).
-        <ol>
-          <li> \(S=\{(x,y): x^2+y^2=r^2\}\), donde \(r>0\) es una constante. </li>
-          <li>  \(S=\{ (x,y): x^2/a^2+y^2/b^2=1 \}\), donde \(a\ne 0, b\ne 0\)
-            son constantes. </li>
-          <li> \(S=\{(x,y): |x|+|y|=1 \}\) . </li>
-        </ol>
+        Recordamos que nuestro objetivo inmediato es definir una
+        integral 1-dimensional, para lo cual debemos de limitar los
+        objetos 1-dimensionales que ésta integral va a medir. Estos
+        objestos serán las trayectorias suaves. El resto de ésta
+        sección se enfoca en dichas trayectorias.
 
-    </div>
+      </div>
 
-    <div class="definicion">
-      <h2 class="card"> Definición  </h2>
-      Dos <b>trayectorias</b> continuas
-      \(\alpha: [a,b] \to \mathbb{R}^n, \beta:[c,d]\to \mathbb{R}^n \)
-      se llaman <b>equivalentes</b> si <i>existe</i> una función \(u:[a,b] \to [c,d]\)
-      tal que:
-      <ul>
-        <li> \(u\) es continua en \([a,b]\), diferenciable  en \((a,b)\), </li>
-        <li>  \(u([a,b])=[c,d]\), </li>
-        <li>  \(u'\) nunca se anula en \((a,b)\), </li>
-        <li> para todo \(t\in [a,b]\), se tiene que  \(\beta(u(t))=\alpha(t)\).  </li>
-      </ul>
+      <div class="definicion">
+        <h2 class="card"> Definición </h2>
+        <p>A una función continua \(\alpha:[a,b]\to \mathbb{R}^n\)
+          se le llama una <b>trayectoria</b> o curva <b>continua</b> en \(\mathbb{R}^n\).
+          La <b>trayectoria</b> se llama <b>suave</b> si la derivada \(\alpha' \) existe
+          y es continua en todo punto de \( (a,b) \).
+        </p>
+        <p>El punto \(\alpha(a)\) se llama el punto inicial y el
+          punto \(\alpha(b)\) se llama punto final. Si \(\alpha(a)=\alpha(b)\)
+          la trayectoria se llama cerrada y si los extremos son los
+          únicos puntos donde la tayectoria coincide, se llama trayectoria
+          cerrada simple. La <b>traza</b> de \(\alpha\) es simplemente su imagen,
+          es decir la traza es
+          \[
+          \{\alpha(t): t\in [a,b] \} \subset \mathbb{R}^n
+          \]
+          y es la representación gráfica de \(\alpha\) que usualemte se puede ver.
+        </p>
+        <p>Una trayectoria \(\beta:[a,b] \to \mathbb{R}^n\) se llama <b>suave a
+            trozos</b> si existe una partición \(\{ a=t_0< t_1 < \cdots < t_n=b \}\) de \([a,b]\), tal que para todo
+            \(i=1,\dots, n\), \(\beta\) restringida a \([t_{i-1},t_i]\) es una trayectoria suave. </p> </div> <div
+            class="ejercicio">
+            <h2 class="card"> Ejercicio </h2>
+            Para los siguientes conjuntos \(S\), encuentra una trayectoria suave
+            o suave a trozos cuya traza sea igual a \(S\).
+            <ol>
+              <li> \(S=\{(x,y): x^2+y^2=r^2\}\), donde \(r>0\) es una constante. </li>
+              <li> \(S=\{ (x,y): x^2/a^2+y^2/b^2=1 \}\), donde \(a\ne 0, b\ne 0\)
+                son constantes. </li>
+              <li> \(S=\{(x,y): |x|+|y|=1 \}\) . </li>
+            </ol>
 
-      Si además:
-      <ul>
-        <li> \(u'(t) >0\) para todo \(t\in (a,b)\), decimos
-      que \(u\) preserva la orientación. Nota que en este caso,
-      al ser \(u\) estrictamente creciente, \(u(a)=c, u(b)=d\). </li>
-      <li>\(u'(t)<0 \) para todo
-      \(t\in (a,b)\), decimos que \(u \) invierte la orientación. Nota que en este caso,
-      al ser \(u\) estrictamente creciente, \(u(a)=d, u(b)=c\). </li>
-      </ul>
-    </div>
+      </div>
 
-    <div class="ejercicio">
+      <div class="definicion">
+        <h2 class="card"> Definición </h2>
+        Dos <b>trayectorias</b> continuas
+        \(\alpha: [a,b] \to \mathbb{R}^n, \beta:[c,d]\to \mathbb{R}^n \)
+        se llaman <b>equivalentes</b> si <i>existe</i> una función \(u:[a,b] \to [c,d]\)
+        tal que:
+        <ul>
+          <li> \(u\) es continua en \([a,b]\), diferenciable en \((a,b)\), </li>
+          <li> \(u([a,b])=[c,d]\), </li>
+          <li> \(u'\) nunca se anula en \((a,b)\), </li>
+          <li> para todo \(t\in [a,b]\), se tiene que \(\beta(u(t))=\alpha(t)\). </li>
+        </ul>
+
+        Si además:
+        <ul>
+          <li> \(u'(t) >0\) para todo \(t\in (a,b)\), decimos
+            que \(u\) preserva la orientación. Nota que en este caso,
+            al ser \(u\) estrictamente creciente, \(u(a)=c, u(b)=d\). </li>
+          <li>\(u'(t)<0 \) para todo \(t\in (a,b)\), decimos que \(u \) invierte la orientación. Nota que en este caso,
+              al ser \(u\) estrictamente creciente, \(u(a)=d, u(b)=c\). </li> </ul> </div> <div class="ejercicio">
+              <h2 class="card"> Ejercicio </h2>
+              Considera las trayectorias continuas \(\alpha, \beta:[0,1] \to \mathbb{R}^2\)
+              dadas por
+              \[
+              \alpha(t)=(1-2t,0), \beta(t)=(\cos(\pi t),\sen(\pi t))
+              \]
+              Prueba que las dos trayectorias no son equivalentes.
+      </div>
+
+      <div class="ejercicio">
         <h2 class="card"> Ejercicio </h2>
-        Considera las trayectorias continuas \(\alpha, \beta:[0,1] \to \mathbb{R}^2\)
-        dadas por
-        \[
-        \alpha(t)=(1-2t,0), \beta(t)=(\cos(\pi t),\sen(\pi t))
-        \]
-        Prueba que las dos trayectorias no son equivalentes.
-    </div>
-
-    <div class="ejercicio">
-      <h2 class="card"> Ejercicio </h2>
         Considera \(\alpha:[a,b]\to \mathbb{R}^n\) una trayectoria continua y define
         \[
         \beta:[-b,-a] \to \mathbb{R}^n, \beta(s)=\alpha(-s)
@@ -481,46 +545,46 @@
         \]
         Demuestra que \(\beta\) y \(\gamma\) son equivalentes
         a \(\alpha\) y que ambas invierten la orientación orignal de \(\alpha\).
-    </div>
+      </div>
 
 
-    <div class="ejercicio">
-      <h2 class="card"> Ejercicio </h2>
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
         Considera \(\alpha:[a,b]\to \mathbb{R}^n\) una trayectoria continua.
         Sea \([c,d]\) un intervalo arbitrario. Encuentra una trayectoria
         continua \(\beta\) con dominio \([c,d]\), que sea equivalente a \(\alpha\)
         y que invierta su orientación.
-    </div>
+      </div>
 
 
 
 
       <div class="ejercicio">
-          <h2 class="card"> Ejercicio </h2>
-          Dadas dos trayectorias continuas \(\alpha:[a,b]\to \mathbb{R}^n,
-          \beta:[c,d]\to \mathbb{R}^n\) con la propiedad de que
-          \(\alpha(b)=\beta(c)\) (una termina donde la otra empieza) definimos:
-          \[
-          \alpha \vee \beta :[0,1] \to \mathbb{R}^n
-          \]
-          por
-          \[
-          (\alpha \vee \beta )(t)=\left\{
-          \begin{array}{cc}
-          \alpha((b-a)(2t)+a) & t\in [0,1/2] \\
-          \beta((d-c)(2t-1)+c) & t\in [1/2,1]
-          \end{array}
-          \right.
-          \]
+        <h2 class="card"> Ejercicio </h2>
+        Dadas dos trayectorias continuas \(\alpha:[a,b]\to \mathbb{R}^n,
+        \beta:[c,d]\to \mathbb{R}^n\) con la propiedad de que
+        \(\alpha(b)=\beta(c)\) (una termina donde la otra empieza) definimos:
+        \[
+        \alpha \vee \beta :[0,1] \to \mathbb{R}^n
+        \]
+        por
+        \[
+        (\alpha \vee \beta )(t)=\left\{
+        \begin{array}{cc}
+        \alpha((b-a)(2t)+a) & t\in [0,1/2] \\
+        \beta((d-c)(2t-1)+c) & t\in [1/2,1]
+        \end{array}
+        \right.
+        \]
 
-          Prueba que si \(\alpha\) es equivalente a \(\tilde{\alpha}\)
-          y \(\beta\) es equivalente a \(\tilde{\beta}\) entonces
-          \(\alpha \vee \beta\) es equivalente a
-          \(\tilde{\alpha} \vee \tilde{\beta}\).
-        </div>
+        Prueba que si \(\alpha\) es equivalente a \(\tilde{\alpha}\)
+        y \(\beta\) es equivalente a \(\tilde{\beta}\) entonces
+        \(\alpha \vee \beta\) es equivalente a
+        \(\tilde{\alpha} \vee \tilde{\beta}\).
+      </div>
 
 
-        <!--<div class="ejercicio">
+      <!--<div class="ejercicio">
             <h2 class="card">  Ejercicio </h2>
             Dadas dos trayectorias continuas a trozos \(\alpha:[a,b]\to \mathbb{R}^n\) y
             \(\beta:[c,d]\to \mathbb{R}^n\)
@@ -541,10 +605,10 @@
 
 
 
-  </div>
+    </div>
 
   </body>
 
   </html>
 
-<!------     //////////////////////////          --->
+  <!------     //////////////////////////          --->
