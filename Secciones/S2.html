@@ -8,6 +8,12 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
     <!-- Next part is for new coomands -->
 
     <script>
@@ -95,8 +101,11 @@
         <p>
           <b>Nota:</b> si además las funciones \(A_1,\dots, A_n\) son
           clase \(C^k\) en \(U\) (para algún \(k=1,2,\dots\)) decimos
-          que la 1-forma diferencial es clase \(C^k\).
+          que la 1-forma diferenciable es clase \(C^k\).
         </p>
+        <div class=" flexbox video">
+            <a href="https://youtu.be/NMXclu8IxMg" target="_blank" class="hvr-grow"> Video </a>
+        </div>
       </div>
 
 
@@ -109,8 +118,67 @@
           <li> \(\omega_R = 0 \). </li>
           <li> \(\omega_R= dx \). </li>
         </ol>
+
+
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp">
+
+
+        <p>Primero encontremos \(R\) tal que \(\omega_{R} = 3dx + 4dy\).
+        Entonces tenemos que resolver el siguiente sistema de ecuaciones:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 3 \\
+        -6x & -2y & = & 4 \\
+        \end{array} \right.
+        \]
+
+
+        <p>El cual tiene como única solución \(x = -5 \) y \( y = 13\), es decir el
+          punto \(R\) tal que \(\omega_{R} = 3dx + 4dy\), es  \(R = (-5,13)\).
+        </p>
+
+        <p>Ahora encontremos \(R\) tal que \(\omega_{R} = 0\).
+          Nuevamente  tenemos que resolver el siguiente sistema de ecuaciones:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 0 \\
+        -6x & -2y & = & 0 \\
+        \end{array} \right.
+        \]
+
+        <p>No es difícil verificar que este sistema tiene como única solución a
+          \(x = 0 \) y \( y = 0\), es decir el punto \(R\) tal que \( \omega_{R} = 0\),
+          es  \(R = (0,0)\).
+        </p>
+
+        <p>Por último, encontremos \(R\) tal que \(\omega_{R} = dx\).
+          Entonces el sistema de ecuaciones a resolver es el siguiente:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 1 \\
+        -6x & -2y & = & 0 \\
+        \end{array} \right.
+        \]
+
+
+        <p>El cual tiene como única solución \(x = -1 \) y \( y = 3\), es decir el
+          punto \(R\) tal que \(\omega_{R} = dx\), es  \(R = (-1,3)\).
+        </p>
+
+
       </div>
 
+    </div>
 
 
       <div class="ejercicio">
@@ -126,7 +194,10 @@
           <li> \(P=(0,y), Q=(x,y+1), R=(a,b) \) . </li>
         </ol>
 
-        <p><strong>Solución: </strong></p>
+
+
+        <button class="respButton hvr-grow " > Respuesta </button>
+        <div class="resp">
         <p>
           <li> Siguiendo la <a href="#Def:1formaDif"> Definición 2.1</a>, en este caso se tiene que
             \[ \omega_{(1/2,1/2)} = 3(1/2)^2 dx + ((1/2)^2 + 1) dy = \frac{3}{4} dx + \frac{5}{4} dy \]
@@ -146,6 +217,7 @@
 
           </ol>
         </p>
+        </div>
 
       </div>
 
@@ -163,7 +235,7 @@
           \]
 
           Pero de ahora en adelante \(dx_j\) va a denotar la 1-forma
-          diferencial tal que, a cada punto \(p\) del dominio, le
+          diferenciable tal que, a cada punto \(p\) del dominio, le
           asigna la 1-forma constante que es la proyección a la \(j\)-ésima
           coordenada. Por ejemplo, si escribieramos todos los parámetros
           para \(dx_j\) tendríamos
@@ -174,7 +246,7 @@
         </p>
         <p>
           Esta distinción puede pensarse como la que se hace entre una
-          una constante y función constante. Por ejemplo en la función
+          una constante y la función constante. Por ejemplo en la función
           \(f(x)=3\), la función \(f\) sería \(dx_j\) y
           el 3 sería la proyección en la coordenada j.
         </p>
@@ -270,7 +342,122 @@
           <li> \(f(x_1,\dots, x_n) = \sum_{i=1}^n (x_1+x_i)^2\). </li>
         </ol>
 
+        <button class="respButton hvr-grow"> Respuesta </button>
 
+        <div class="resp">
+
+          <p>Resolvamos 1. Primero encontremos las parciales de \(f\) con respecto a
+            \(x\), \(y\) y \(z\). Entonces sacando las parciales tenemos
+          </p>
+          \[
+          \begin{array}{ccccc}
+          \partial_{x}f(x, y, z) & = & 2x & +y & +z  \\
+          \partial_{y}f(x, y, z) & = & 2y & +x \\
+          \partial_{z}f(x, y, z)& = & 2z & +x
+          \end{array}
+          \]
+
+          Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df = (2x + y + z)dx + (2y + x)dy + (2z + x)dz
+          \]
+
+          <p>Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones:
+          </p>
+
+          \[
+           \left\{
+          \begin{array}{ccccc}
+          2x & +y & +z & = & 0 \\
+          x & +2y &  & = & 0 \\
+          x &  & +2z & = & 0
+          \end{array} \right.
+          \]
+
+          <p> Tal sistema de ecuaciones tiene como única solución a \(x = 0\),
+            \(y = 0 \) y \( z = 0\). Por lo tanto el  punto \(P\) tal que \(df_{P} = 0\), es
+            \(P = (0,0,0)\).
+          </p>
+
+          <p>Ahora veamos 2. Nuevamente sacamos las parciales de \(f\) con respecto de
+            \(x\) y \(y\), las cuales son,
+          </p>
+          \[
+          \begin{array}{ccc}
+          \partial_{x}f(x, y) & = & ye^{xy} \\
+          \partial_{y}f(x, y) & = & xe^{xy} \\
+          \end{array}
+          \]
+
+          <p>Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df =  ye^{xy} dx +  xe^{xy} dy
+          \]
+
+          Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones.
+          </p>
+
+          \[
+           \left\{
+          \begin{array}{ccccc}
+          ye^{xy} & = & 0 \\
+          xe^{xy} & = & 0
+          \end{array} \right.
+          \]
+
+          <p>Como \(e^{xy} > 0\) para toda \((x,y) \in \mathbb{R}^{2}\).
+            Entonces la única solución al sistema de ecuaciones es \(x = 0\) y \(y = 0\).
+            Por lo tanto el  punto \(P\) tal que \(df_{P} = 0\), es  \(P = (0,0)\).
+          </p>
+
+          <p>Por último resolvamos 3. Sacamos las parciales de \(f\) con respecto de
+            \(x_{1}, . . . , x_{n}\), las cuales son,
+          </p>
+          \[
+          \begin{array}{ccc}
+          \partial_{x_{1}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) \\
+          \partial_{x_{2}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 2(x_{1} + x_{2}) \\
+           & \vdots &  \\
+          \partial_{x_{n}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 2(x_{1} + x_{n})
+          \end{array}
+          \]
+
+
+          <p>Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df = \left( 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) \right)dx_{1} + 2(x_{1} + x_{2})dx_{2} + . . . + 2(x_{1} + x_{n}) dx_{n}
+          \]
+
+          <p>Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones.
+          </p>
+          \[
+           \left\{
+          \begin{array}{ccc}
+           8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) & = & 0 \\
+           2(x_{1} + x_{2}) & = & 0 \\
+            \vdots &  & \\
+           2(x_{1} + x_{n}) & = & 0
+          \end{array} \right.
+          \]
+
+          <p>Como \(2(x_{1} + x_{i}) = 0\) para \(2 \leq i \leq n\), se sigue que
+          \(\sum_{i=2}^{n}2(x_{1} + x_{i})  =  0\). Lo cual implica que
+          \(8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i})  = 8x_{1}\).
+          Pero por otro lado \( 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i})  = 0\),
+          es decir \(x_{1} = 0\). Lo cual implica que para \(2 \leq i \leq n\),
+           \(x_{i} = 0\) ya que \(2(x_{1} + x_{i}) = 0\) y \(x_{1} = 0\).
+          </p>
+
+          <p>Por lo tanto la única solución al sistema de ecuaciones es
+          \(x_{i} = 0\) para toda \(1 \leq i \leq n\). Es decir que el  punto
+          \(P\) tal que \(df_{P} = 0\), es  \(P = (0,0, . . . ,0)\).
+          </p>
+
+
+        </div>
       </div>
 
       <div class="ejercicio">
@@ -327,7 +514,45 @@
           (1).
 
         </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+
+          <div class="resp">
+            Ya que suponemos que \(df = Fdx- Gdy\), se sigue
+            (de la definición de <a href="#Def:derivadaExterior">derivada exterior</a>)
+            que
+            \[
+            \partial_x f = F \quad  \textrm{y} \quad \partial_y f=-G
+            \]
+            en \( U \).
+
+            Ahora consideremos una curva de nivel de \(f\)
+            \[
+            S=\{(x,y): f(x,y)=c\}
+            \]
+            y tomemos un punto \( (x_0,y_0)\in S\) arbitrario.
+
+            Ya que \(G\) no se anula en \(U\) y \(\partial_yf(x_0,y_0)=-G(x_0,y_0)\ne 0\)
+            por el teorema de la función inversa existe una vecindad de \(x_0\)
+             y una función \(y\), definida  y diferenciable en ésta vecindad tal que
+             \[
+             f(x,y(x))=c.
+             \]
+
+             Derivando la ecuación anterior con respecto a \(x\) (usando la regla de la cadena )
+             llegamos a que
+             \begin{eqnarray*}
+             0&= \partial_xf(x,y(x))+\partial_yf(x,y(x))y'(x)=F(x,y(x))-G(x,y(x))\frac{dy(x)}{dx} \\
+             &\Rightarrow \frac{F(x,y(x))}{G(x,y(x))}=\frac{dy(x)}{dx}
+             \end{eqnarray*}
+             y por lo tanto \(y\) es una solución para (1).
+
+
+
+          </div>
       </div>
+
+
 
 
       <div class="ejercicio">
@@ -363,7 +588,9 @@
         donde \(df\) y \(dg\) denotan las <a href="#Def:derivadaExterior">derivadas exteriores</a>
         de \(f\) y \(g\) respectivamente.
 
-        <p><strong>Solución: </strong></p>
+
+        <button class="respButton hvr-grow"> Respuesta  </button>
+        <div class="resp">
         <p>
           Inmediatamente de la <a href="#Def:derivadaExterior"> Definición 2.7</a> se sigue que:
           \[ d (fg) = \partial_{x_1} (fg) dx_1 + \partial_{x_2} (fg) dx_2 + \cdots +
@@ -383,7 +610,8 @@
           \end{align*}
           donde la última igualdad se tiene por la definición del producto de una función con una \(1\)- forma
           diferenciable.
-        </p>
+          </p>
+        </div>
       </div>
 
 
@@ -404,6 +632,19 @@
 
       </div>
 
+
+
+            <div class="nota">
+              <h2 class="card"> Nota </h2>
+              Recordamos que nuestro objetivo inmediato es definir una
+              integral 1-dimensional, para lo cual debemos de limitar los
+              objetos 1-dimensionales que ésta integral va a medir. Estos
+              objestos serán las trayectorias suaves. El resto de ésta
+              sección se enfoca en dichas trayectorias.
+
+            </div>
+
+
     <div class="definicion">
       <h2 class="card"> Definición </h2>
       <p>A una función continua \(\alpha:[a,b]\to \mathbb{R}^n\)
@@ -423,7 +664,7 @@
        \[
        \{\alpha(t): t\in [a,b] \} \subset \mathbb{R}^n
        \]
-       y es la representación gráfica de \(\alpha\) que usualemte se puede ver.
+       y es la representación gráfica de \(\alpha\) que usualmente se puede ver.
       </p>
        <p>Una trayectoria \(\beta:[a,b] \to \mathbb{R}^n\) se llama <b>suave a
        trozos</b> si existe una partición \(\{ a=t_0< t_1 < \cdots < t_n=b \}\)
@@ -451,24 +692,10 @@
                 las trayectorias pueden vivir en espacios de cualquier dimensión.
               </ul>
         </div>
-
-
        </p>
+     </div>
 
-
-    </div>
-
-      <div class="nota">
-        <h2 class="card"> Nota </h2>
-        Recordamos que nuestro objetivo inmediato es definir una
-        integral 1-dimensional, para lo cual debemos de limitar los
-        objetos 1-dimensionales que ésta integral va a medir. Estos
-        objestos serán las trayectorias suaves. El resto de ésta
-        sección se enfoca en dichas trayectorias.
-
-      </div>
-
-      <div class="definicion">
+      <!--<div class="definicion">
         <h2 class="card"> Definición </h2>
         <p>A una función continua \(\alpha:[a,b]\to \mathbb{R}^n\)
           se le llama una <b>trayectoria</b> o curva <b>continua</b> en \(\mathbb{R}^n\).
@@ -500,6 +727,24 @@
               <li> \(S=\{(x,y): |x|+|y|=1 \}\) . </li>
             </ol>
 
+      </div>
+ -->
+
+
+      <div class="ejercicio">
+          <h2 class="card"> Ejercicio </h2>
+
+          <p> Para cada uno de los siguientes subconjuntos \(S\),
+            encuentra una trayectoria suave o suave a trozos cuya
+            traza sea \(S\).
+          </p>
+
+          <ol>
+            <li> \(S=\{(x,y): x^2/a^2 + y^2/b^2 =1\}\), donde \(a,b\) son
+            constantes distintas de cero.  </li>
+            <li> \(S=\{(x,y): |x|+|y|=1 \}\).  </li>
+            <li> \(S= \{ (x,y,z): x^2+y^2=1, \, x+y+z=1 \} \) </li>
+          </ol>
       </div>
 
       <div class="definicion">
