@@ -1,0 +1,634 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 3 cardCounter;
+      }
+
+      h1.number-title {
+        counter-reset: sectionCounter 3 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="number-title"> La integral de línea </h1>
+
+
+      <div class="nota-box ">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          A manera de introducción vamos a motivar la
+          definición de integral de línea a partir de la integral de
+          1-formas constantes. La discusión se centra en 1-formas en
+          \(\mathbb{R}^3\) pero se puede extender de manera natural a
+          cualquier \(\mathbb{R}^n\).
+        </p>
+        <p>
+          Si \(\omega=Adx+Bdy+Cdz\) es una 1-forma constante (y continua)
+          en \(\mathbb{R}^3\)encontramos
+          en la sección 1 que
+          \[
+          \int_{\seg{PQ}}\omega =A(x_1-x_0)+B(y_1-y_0)+C(z_1-z_0)
+          \]
+          donde \(P=(x_0,y_0,z_0), Q=(x_1,y_1,z_1)\).
+
+          Patiendo de lo anterior ahora queremos definir \(\int_\gamma \omega \)
+          (integral de línea) donde \(\gamma\) es una curva suave y \(\omega\) es una 1-forma
+          diferenciable clase \(C^1\).
+        </p>
+
+        <p>
+          Para ser más específicos, vamos a suponer que \(U\) es un abierto,
+          \(\omega = Adx+Bdy+Cdz\) es una 1-forma diferenciable
+          en \(U\) y \(\gamma:[a,b] \to \mathbb{R}^3\) es una curva suave
+          cuya traza está contenida en \(U\).
+
+          Ya que sabemos cómo integrar sobre segmentos de recta, iniciamos
+          aproximando \(\gamma\) con segmentos de recta. Supongamos que
+          escribimos las funciones coordenadas de \(\gamma \) como:
+          \[
+          \gamma(t)=(x(t), y(t), z(t))
+          \]
+          y consideramos una partición de \([a,b]\), \(\{a=t_0<\cdots < t_n=b\} \).
+
+          Para dicha partición denotamos \(P_i=\gamma(t_i)\), \(i=0,\dots, n\)
+          y \(R_i=\gamma(t_i^*)\) donde \(t_i^*\) es un punto arbitrario
+          de \([t_{i-1}, t_i]\) y es el punto que vamos a utilizar para
+          aproximar la 1-forma en el intervalo \([t_{i-1},t_{i}]\), es decir,
+          en vez de tomar la 1-forma diferenciable \(\omega\) vamos a
+          reemplazarla por la 1-forma constante \(\omega_{R_i}\). Entonces
+          \[
+          \int_{\seg{P_{i-1}P_{i}}}\omega_{R_i}=A(R_i)(x(t_i)-x(t_{i-1}))
+          +B(R_i)(y(t_i)-y(t_{i-1}))
+          +C(R_i)(y(t_i)-y(t_{i-1}))
+          \]
+          y uno puede pensar a
+          \begin{eqnarray*}
+          \sum_{i=1}^n \int_{\seg{P_{i-1}P_i}}\omega_{R_i}&=&\sum_{i=1}^n
+          A(R_i)(x(t_i)-x(t_{i-1})) \\
+          &+&\sum_{i=1}^nB(R_i)(y(t_i)-y(t_{i-1}))\\
+          &+&\sum_{i=1}^nC(R_i)(y(t_i)-y(t_{i-1}))
+          \end{eqnarray*}
+          como una aproximación de lo que debería de ser \(\int_{\gamma}\omega\).
+
+          Si analizamos cada suma por separado, digamos la correspondiente a \(dx\)
+          obtenemos
+          \begin{equation}\label{Eqn:1}
+          \sum_{i=1}^nA(R_i)(x(t_i)-x(t_{i-1}))=\sum_{i=1}^n A(\gamma(t_i^*))(x(t_{i-1})-x(t_i)).
+          \end{equation}
+          Lo que descubrio la gente es que \eqref{Eqn:1} se parece
+          a una suma de Riemann. Recordemos que si \(f:[a,b]\to \mathbb{R}\)
+          es una función continua en \([a,b]\), una suman de Riemann para
+          \(f\) es:
+          \[
+          \sum_{i=1}^n f(t_i^*)(t_i-t_{i-1})
+          \]
+          donde las \(t_i\) y \(t_{i}^*\) son como antes. Admás, si suponemos
+          que la partición es homogenea (o que la norma de la partición tiende
+          a cero), se tiene el siguiente teorema
+          \[
+          \lim_{n\to \infty}\sum_{i=1}^n f(t_i^*)(t_i-t_{i-1})=\int_a^b f(t)dt
+          \]
+          (es en esta identidad donde la continuidad de \(f\) es escencial).
+        </p>
+        <p>
+          Para ver a \eqref{Eqn:1} como una suma de Riemann el ingrediente
+          crucial es el Teorema del Valor Medio para derivadas, pues al ser
+          \(x:[a,b]\to \mathbb{R}\) una función de clase \(C^1\) tenemos
+          que existe \(a_i\in [t_{i-1}, t_i]\) para el cual
+          \[
+          x(t_i)-x(t_{i-1})=x'(a_i)(t_i-t_{i-1})
+          \]
+          por lo que \eqref{Eqn:1} puede reescribirse como (tomando \(t_i^*=c_i\))
+          \[
+          \sum_{i=1}^n A(\gamma(a_i))x'(a_i)(t_i-t_{i-1})
+          \]
+          Tomando \(f(t)=A(\gamma(t))x'(t)\) concluimos que
+          \[
+          \lim_{n\to \infty} \sum_{i=1}^n A(\gamma(a_i))x'(a_i)(t_i-t_{i-1})=
+          \int_{a}^b A(\gamma(t))x'(t)dt.
+          \]
+          De manera similar, existen \(b_i,c_i\in [a,b] \) tales que:
+          \[
+          \lim_{n\to \infty} \sum_{i=1}^n B(\gamma(b_i))x'(b_i)(t_i-t_{i-1})=
+          \int_{a}^b B(\gamma(t))y'(t)dt.
+          \]
+          \[
+          \lim_{n\to \infty} \sum_{i=1}^n C(\gamma(c_i))x'(c_i)(t_i-t_{i-1})=
+          \int_{a}^b C(\gamma(t))z'(t)dt.
+          \]
+          Todo el  trabajo anterior justifica que definamos
+          \[
+          \int_\gamma \omega  =\int_{a}^b A(\gamma(t))x'(t)+B(\gamma(t))y'(t) +
+          C(\gamma(t))z'(t)dt
+          \]
+
+        </p>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición</h2>
+        Sea \(U \subseteq \mathbb{R}^n\) un abierto, \(\omega=\sum_{j=1}^n A_j dx_j\)
+        una 1-forma diferenciable clase \(C^1\) en \(U\) y
+        \(\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))\), \(t\in [a,b]\) una curva suave
+        cuya traza esté contenida en \(U\). Definimos la integral de línea
+        de \(\omega\) a lo largo de \(\gamma \) como
+        \[
+        \int_\gamma \omega :=\int_a^b \sum_{j=1}^n A_j(\gamma(t))\gamma_j'(t)dt
+        \]
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="number-title"> Ejercicio </h2>
+          <p>
+          Sea \(\omega=Adx+Bdy\) una 1-forma clase \(C^1\) definida
+          en todo \(\mathbb{R}^2\). Por \(\alpha\) denotamos la
+          circunferencia de radio \(r\) centrada en el origen.
+          Demuestra que
+          \[
+          \int_\alpha \omega = r\left(\int_0^{2\pi}B((r\cos(t),r\sen(t)))\cos(t)dt-\int_0^{2\pi}A((r\cos(t),r\sen(t)))\sen(t)dt
+          \right)\]
+          Concluye que, si \(A\) y \(B\) son constantes, entonces \(\int_\alpha \omega=0\).
+          </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Este ejercicio prueba que la integral de línea no depende de
+          la parametrización de la curva y que el signo depende de la
+          orientación.
+          </p>
+          <p>Sea \(\omega\) una 1-forma diferenciable clase \(C^1\) en el abierto
+          \(U\) y supon  que \( \alpha:[a,b]\to \mathbb{R}^n, \beta:[c,d]\to \mathbb{R}^n\),
+          son dos curvas suaves cuyas trazas están contenidas en \(U\) y que
+          son <a href="./S2.html#Def:curvasEquiv">equivalentes</a>.
+          </p>
+          <p>
+            Demuestra que si \(\alpha\) y \(\beta\) tienen la misma orientación entonces
+          \[
+          \int_\alpha \omega = \int_\beta \omega
+          \]
+          y que si tienen orientaciones distintas entonces
+          \[
+          \int_\alpha \omega = -\int_\beta \omega
+          \]
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+            <p> Esribamos \(\omega =\sum_{j=1}^n A_jdx_j\),
+              \(\alpha(t)=(\alpha_1(t),\dots,\alpha_n(t))\) y
+              \(\beta(s)=(\beta_1(s), \dots, \beta_n(s))\).  Primero supongamos
+              que \(\alpha\) y \(\beta\) tienen las misma orientación. En
+              éste caso  debemos probar que:
+              \[
+              \sum_{j=1}^n \int_{a}^b A_j(\alpha(t))\alpha_j'(t)dt=\sum_{j=1}^n \int_c^dA_j(\beta(s))\beta_j'(s)ds,
+              \]
+              lo cual, por la linealidad de la integral, es equivalente probar que,
+              para toda \(j=1,\dots, n\) fija:
+              \begin{equation}\label{Eqn:igualdadInteg}
+              \int_a^bA_j(\alpha(t))\alpha_j'(t)dt=\int_c^d A_j(\beta(s))\beta_j'(s)dt.
+              \end{equation}
+              Tomando en cuenta de que vamos a fijar el índice  \(j\) y para simplificar
+              la notación vamos a escribir \(A\) en vez de \(A_j\).
+
+              Ya  que \(\alpha\) y \(\beta\) son equivalentes, con la misma orientación,
+              existe una función \(u:[a,b]\to [c,d]\), continua en \([a,b]\),
+              diferenciable en \((a,b)\), con \(u'>0\) en \((a,b)\), con
+              \(u(a)=c, u(b)=d\) y \(\alpha(t)=\beta(u(t))\). Por la regla de la
+              cadena
+              \(\alpha'(t)=\beta'(u(t))u'(t)\) y por lo tanto
+              \begin{eqnarray*}
+                \int_a^b A(\alpha(t))\alpha_j'(t)dt=\int_a^b A(\beta(u(t)))\beta_j'(u(t))u'(t)dt
+              \end{eqnarray*}
+              Por el Teorema del cambio de variable (tomando \(s=u(t)\))
+              \[
+              \int_a^b A(\beta(u(t)))\beta_j'(u(t))u'(t)dt=\int_{u(a)}^{u(b)}A(\beta(s))\beta_j'(s)ds=\int_c^d A(\beta(s))\beta_j'(s)ds
+              \]
+              lo cual prueba \eqref{Eqn:igualdadInteg}.
+              </p>
+              <p>
+              Ahora supongamos que \(\alpha\) y \(\beta\) tienen orientaciones
+              distintas. En este caso todo es muy parecido excepto que  se cumple que
+              \(u'<0 \) y que \(u(a)=d\), \(u(b)=c\). Por lo tanto, con estas condiciones
+              el Teorema del cambio de variable (de nuevo con \(s=u(t)\)) dice
+              \begin{eqnarray*}
+                \int_a^b A_j(\beta(u(t)))\beta_j'(u(t))u'(t)dt &=& \int_{u(a)}^{u(b)} A(\beta(s))\beta_j'(s)ds \\
+                            &=&\int_{d}^{c} A(\beta(s))\beta_j'(s)ds \\
+                            &=& -\int_c^d A(\beta(s))\beta_j'(s)ds
+              \end{eqnarray*}
+              lo cual prueba la segunda parte del ejercicio.
+
+            </p>
+          </div>
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="number-title"> Ejercicio </h2>
+        En \(\mathbb{R}^2\setminus \{0\}\) considera la 1-forma clase \(C^1\)
+        \[
+        \omega= -\frac{y}{x^2+y^2}dx + \frac{x}{x^2+y^2}dy
+        \]
+        Para \(n\) un entero considera la curva \(\alpha_n(t)=(r\cos(nt), r\sen(nt))\)
+        con \(t\in [0,2\pi]\) y \(r>0\) es un número fijo. Prueba que
+        \[
+        \int_{\alpha_n} \omega = 2\pi n
+        \]
+        En particular, esto prueba que si \(n\ne m\) entonces
+        las curvas \(\alpha_n\) y \(\alpha_m \) NO son equivalente, lo cual
+        se puede interpretar pensando que \(\alpha_n\) recorre la
+        circunferencia de radio \(r\) n veces y
+        \(\alpha_m\) la recorre \(m\) veces.
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Calcula las siguientes integrales de línea de las 1-formas
+            sobre las curvas dadas.
+          </p>
+          <ol>
+            <li>  \(\alpha\) es el segmento de
+            recta que va de \(P=(1,1)\) a \(Q=(3,5)\) y
+             \[
+             \omega= (2x-y)dx+(y-x)dy
+             \]
+           </li>
+            <li> \(\alpha\) es
+            la parte de la parábola \(y=x^2\) que va de \((-1,1)\) a
+            \((1,1)\) y
+            \[
+            \omega=(x^2-y^2)dx+(xy-1)dy
+            \]
+
+            </li>
+            <li> ,\(\alpha=(t,t^2,t)\),
+              \(t\in [0,1]\) y
+              \[
+              \omega = (xz)dx - (z^2)dy+ (x+y)dz
+              \]
+              </li>
+            <li>
+             \(\alpha\) es la circunferencia de radio \(r\) centrada
+              en el origen, recorrida en el sentido positivo y
+              \[
+              \omega= \frac{x+y}{x^2+y^2}dx + \frac{x-y}{x^2+y^2}dy
+              \]
+            </li>
+
+            </ol>
+        </div>
+
+          <div class="definicion">
+            <h2 class="number-title"> Definición </h2>
+            <p>La definición de integral de línea se extiende de curvas suaves a
+            curvas suaves a trozos de la siguiente manera. Si
+            \(\beta:[a,b] \to \mathbb{R}\) es una curva suave a trozos y
+            \( \{a=t_0< \cdots < t_n=b \}\) es una partición de \([a,b]\)
+            tal que \(\beta\) restringida a \([t_{i-1}, t_{i}]\) es suave, definimos
+            \[
+            \int_\beta \omega = \sum_{j=1}^n \int_{\beta_j} \omega
+            \]
+            donde \(\beta_j\) es simplemente la restricción de \(\beta\)
+            al intervalo \([t_{i-1},t_j]\).
+            </p>
+            <p>
+              Usando la propiedad de la integral que dice
+              \[
+              \int_a^b f(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx
+              \]
+              donde \(f\) es una función integrable en \([a,b]\)
+              y \(c\in [a,b]\) es un punto cualquiera, se obtiene que
+              ésta definición no depende de la partición que se tome.
+            </p>
+          </div>
+
+
+
+          <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+                Sea \(\omega=\sum_{j=1}^n A_jdx_j\) una 1-forma constante y
+                sea \(\alpha:[a,b]\to \mathbb{R}^n\) una curva suave a trozos.
+                Si \(F=(A_1,\dots, A_n)\) prueba que
+                \[
+                \int_\alpha \omega = F\cdot (\alpha(b)-\alpha(a))
+                \]
+                Nota: el lado derecho es el producto punto.
+          </div>
+
+          <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              Calcula \(\int_\alpha \omega\) para las siguientes
+              1-formas y curvas.
+              <ol>
+                <li>
+                    \(\alpha\) es el triángulo con vértices \((0,0), (1,1), (-1,1)\),
+                    recorrido en el sentido positivo y
+                    \[
+                      \omega= (x+y)dx+(x-y)dy
+                    \]
+                </li>
+                <li> \(\alpha\) es el cuadrado con vértices
+                  \( (1,1), (-1,1) , (-1,-1), (1,-1)\), recorrido
+                  en el sentido positivo  y
+                \[
+                \omega= -ydx+xdy
+                \]
+              </li>
+              <li>
+                \(\alpha\) es el cuadrado con vértices
+                \((2,0), (0,2), (-2,0), (0,-2)\), recorrido en el
+                sentido positivo y
+                \[
+                \omega= \frac{dx+dy}{|x|+|y|}
+                \]
+              </li>
+
+              <li>
+                \(\alpha\) es la curva dada por \(\{(x,y):\max\{|x|,|y|=1\}\}\)
+                y
+                \[
+                \omega= \frac{2xy}{|x|+|y|}dx+ \frac{x}{|x|+|y|}dy
+                \]
+
+              </li>
+
+              </ol>
+          </div>
+
+
+
+          <div class="ejercicio">
+              <h2 class="number-title"> Ejercicio </h2>
+
+              Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(\omega, \eta\)
+              dos 1-formas diferenciables clase \(C^1\) en \(U\) y \(\alpha\)
+              una curva suave a trozos cuya traza está contenida de \(U\). Prueba
+              \[
+              \int_\alpha c \omega + \eta = c \int_\alpha \omega + \int_\alpha \eta
+              \]
+              donde \(c\in \mathbb{R}\) es un escalar arbitrario.
+          </div>
+
+            <div class="ejercicio">
+                <h2 class="number-title"> Ejercicio </h2>
+                <p>Sea \(U \subseteq \mathbb{R}^n\) un abierto y \(\omega\)
+                una 1-forma diferenciable clase \(C^1\) en \(U\). Sean
+                \(\alpha\) y \(\beta\) dos curvas suaves cuyas trazas están
+                contenidas en \(U\) y tal que el punto final de \(\alpha\)
+                conicide con el punto inicial de \(\beta\). Demuestra que
+                \[
+                \int_{\alpha \vee \beta}\omega =\int_\alpha \omega + \int_\beta \omega
+                \]
+              </p>
+                <p>Donde \(\alpha \vee \beta\) se toma como en el
+                <a href="S2.html#Ejer:unionCurvas">ejercicio</a>.
+              </p>
+            </div>
+
+
+            <div class="nota-box">
+              <h2 class="number-title"> Otras notaciones para la integral de línea </h2>
+              <p>
+              Recordemos que en la <a href="S2.html#Conclu:S2">conclusión de la sección 2</a>, vimos que otra
+              forma equivalente de ver a las 1-formas son como campos vecoriales
+              donde la equivalencia esta dada de las siguiente forma:
+
+              \[
+              \omega=\sum_{j=1}^nA_jdx_j \Leftrightarrow \mathbb{F}=(A_1,\dots, A_n)
+              \]
+              donde si \(\omega\) está definida en el abierto \(U\)
+              el campo va \(\mathbb{F}:U\to \mathbb{R}^n\).
+
+              Con esta notación \(\int_\alpha \omega\) es  la integral de línea
+              de \(\mathbb{F}\) a lo largo de \(\alpha\) y puede denotarse como:
+              \[
+               \int_\alpha \mathbb{F}\cdot d\alpha, \int_\alpha \mathbb{F}\cdot \mathbb{T}ds
+              \]
+              </p>
+              <p>
+                Para entender un poco más esta notación observamos que por definición
+                \[
+                \int_\alpha \omega =\int_a^b \sum_{j=1}^n A_j(\alpha(t))\alpha_j'(t)dt
+                \]
+                y nota que el integrando es el producto punto del vector
+                \((A_1\circ \alpha, \dots, A_n\circ \alpha)\) con \((\alpha_1', \dots, \alpha_n')\)
+                es decir \((\mathbb{F}\circ \gamma) \cdot \alpha'\) y podemos denotar
+                \[
+                \int_\alpha \omega= \int_\alpha \mathbb{F}\cdot \alpha' dt
+                \]
+              </p>
+              <p>
+                Si pensamos que \(d\alpha= \alpha'dt\) obtenemos la primera
+                notación \(\int_\alpha \mathbb{F}\cdot d\alpha\).
+              </p>
+              <p>
+                Para la otra notación se entiende tácitamente que
+                la curva está parametrizada por longitud de arco
+                (donde el parámetro es \(s\)). El vector \(\alpha'\) es el vector tangente a la curva
+                \(\alpha\). Si la curva está parametrizada
+                por longitud de arco \(\alpha'\) es tangente unitario y
+                en este caso se suele denotar como \(\mathbb{T}\), asi que
+                \(\alpha'=\mathbb{T}\) y obtenemos la segunda notación
+                \(\int_\alpha \mathbb{F}\cdot \mathbb{T}ds\).
+              </p>
+              </div>
+
+
+
+            <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+
+
+                    Calcula \(\int_{\alpha}\mathbb{F}\cdot d\alpha\).
+                    <ol>
+                      <li> \(\mathbb{F}(x,y,z)=(0,x^2)\), \(\alpha\)
+                      el segmento de recta que va de \((0,0,0)\)  a \((1,1,1)\).
+                     </li>
+                     <li> \(\mathbb{F}(x,y)=\frac{1}{x^2+y^2+1}(x,\sqrt{y}) \),
+                       \(\alpha\) el segmento de curva de la parábola
+                        \(y=x^2\) que va de \((0,0)\) a \((1,1)\).
+                      </li>
+                      <li>
+                        \(\mathbb{F}=\nabla f\), donde \(f(x,y,z)=xy+yx\)
+                        y \(\alpha\) es la circunferencia centrada en el origen,
+                        de radio 1, recorrida en el sentido positivo.
+                      </li>
+                      <li>
+                        \(\mathbb{F}(x,y,z)=(x,y,xy)\), \(\alpha\)
+                        el segmento de  hélice dado por \(\alpha(t)=(\cos(t),\sen(t), t)\)
+                      \(0 \leq t \leq \pi\).
+                      </li>
+                      </ol>
+                </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>Considera la 1-forma clase \(C^1\) en \(\mathbb{R}^2\)
+              dada por
+              \[
+              \omega= (Ex+Fy)dx+(Gx+Hy)dy
+              \]
+              donde \(E,F,G,H\in \mathbb{R}\) son constantes.
+              </p>
+              <p>Al final de este ejercicio se va a concluir el siguiente resultado:
+              \[
+              \int_\alpha \omega =0 \quad \textrm{para toda curva cerrda suave \(\alpha\)}
+              \quad \Leftrightarrow F=G
+              \]
+              </p>
+              <ol>
+                <li> Supon que \(w:[a,b] \to \mathbb{R}\) es una
+                  función de clase \(C^1\) y que satisface \(w(a)=w(b)\). Prueba
+                  que
+                  \[
+                  \int_a^b w(t)w'(t)dt=0
+                  \]
+                  Sugerencia: fijate en la derivada de \(w^2\).
+                </li>
+
+                <li> Sean \(v,w:[a,b]\to \mathbb{R}\) dos funciones
+                  de clase \(C^1\) que satisfacen, \(w(a)=w(b)\)
+                  y \(v(a)=v(b)\). Demuestra que
+                  \[
+                  \int_a^b v(t)w'(t)+v'(t)w(t)dt=0
+                  \]
+                  Sugerencia: fíjate en la derivada de \(vw\).
+                  </li>
+                  <li>
+                    Asume ahora que \(F=G\) y sea
+                    \(\alpha:[a,b]\to \mathbb{R}^2\) una curva suave
+                    cerrada. Prueba que
+                    \[
+                    \int_\alpha \omega =0
+                    \]
+                    Sugerencia: utiliza los incisos 1 y 2.
+                  </li>
+                  <li>
+                    Supon ahora que, para toda curva cerrada
+                    \(\alpha:[a,b]\to \mathbb{R}\) se satisface
+                    \[
+                    \int_\alpha \omega =0
+                    \]
+
+                    Prueba que \(F=G\).
+
+                    <p>
+                    Sugerencia: considera \(\alpha\) una circunferencia
+                    centrada en el origen.
+                    </p>
+                  </li>
+                  </ol>
+                <p>
+                  <b>Nota</b>. Observa que, usando la definición de
+                  <a href="./S2.html#Def:1formacerrada">1-forma cerrada</a>, el resultado de éste ejercicio
+                  puede reescribirse de la siguiente forma:
+                  \[
+                  \int_\alpha \omega =0 \quad \textrm{para toda curva cerrada suave \(\alpha\)}
+                  \quad \Leftrightarrow \quad \textrm{\(\omega\) es cerrada }
+                  \]
+
+                  Más adelante vamos a generalizar éste resultado no sólo
+                  para las 1-formas del tipo \((Ex+Fy)dx+(Gx+Hy)dy\), si no
+                  para cualquier 1-forma clase \(C^1\) definida en TODO \(\mathbb{R}^2\).
+                </p>
+
+            </div>
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+
+              <p>Considera la 1-forma diferenciable  \(\omega=\sum_{j=1}^n x_j dx_j\)
+              y sea \(\alpha:[a,b]\to \mathbb{R}^n\) una curva suave a trozos.
+              Prueba que
+              \[
+              \int_\alpha \omega =\frac{1}{2}\left(\|\alpha(b)\|^2-\|\alpha(b)\|^2 \right)
+              \]
+              </p>
+
+              </div>
+
+            <!--<div class="ejercicio">
+              <h2 class="ejercicio"> Ejercicio </h2>
+
+
+            </div>->
+
+
+<!--- Acaba contenido --->
+        </div>
+    </div>
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
