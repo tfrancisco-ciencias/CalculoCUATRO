@@ -376,7 +376,7 @@
         </div>
 
           <div class="definicion">
-            <h2 class="number-title"> Definición </h2>
+            <h2 class="number-title" id="Def:Ext_Int_Lin"> Definición  </h2>
             <p>La definición de integral de línea se extiende de curvas suaves a
             curvas suaves a trozos de la siguiente manera. Si
             \(\beta:[a,b] \to \mathbb{R}\) es una curva suave a trozos y
@@ -454,6 +454,30 @@
               <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
             <p>
+            <ol>
+              <li>
+              Sea \( \beta \colon [0,3] \to \mathbb{R}^{2} \) definida por
+
+              \[
+              \beta(t) : = \begin{cases}
+\beta_1(t)= (\beta_{1_1}(t), \beta_{1_2}(t)):= (t,t)  & \text{ si } t \in [0,1]\\
+\beta_2(t)=(\beta_{2_1}(t), \beta_{2_2}(t)) := (3-2t,1) & \text{ si } t \in [1,2]\\
+\beta_3(t) = (\beta_{3_1}(t), \beta_{3_2}(t)):= (t -3,3-t) & \text{ si } t \in [2,3]
+\end{cases}
+             \]
+No es difícil ver que  \(\beta\) es una curva suave a trozos y que en efecto \(\beta\) tiene como traza el triángulo
+ con vértices \(P:= (0,0),  Q:=(1,1)\) y \(R:=(-1,1)\), recorrido en el sentido positivo. Entonces  para la 
+ forma diferencial de clase \( C^{1}\)  \( \omega :=(x+y)dx+(x-y)dy \) haciendo \( A_{1}(x,y):= x+y \) y \( A_{2}(x,y):= x-y \)
+ de la  <a href="#Def:Ext_Int_Lin" >  Definición 4.7</a>  se tiene que:
+    \[
+           \begin{align*} \int_\beta \omega &= \sum_{j=1}^3 \int_{\beta_j} \omega\\
+           &= \sum_{j=1}^3 \int_{j-1}^{j} \sum_{i=1}^2 A_{i}(\beta_{j}(t))\beta_{j_i}'(t)dt \\
+           &= 1 - 2 + 1
+           &= 0
+            \end{align*}\]
+
+              </li>
+            </ol>
             </p> 
           </div>
 
