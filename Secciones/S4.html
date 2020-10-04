@@ -189,7 +189,7 @@
       </div>
 
       <div class="definicion-box">
-        <h2 class="number-title"> Definición</h2>
+        <h2 class="number-title" id="Def:Int_Lin"> Definición</h2>
         Sea \(U \subseteq \mathbb{R}^n\) un abierto, \(\omega=\sum_{j=1}^n A_j dx_j\)
         una 1-forma diferenciable clase \(C^1\) en \(U\) y
         \(\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))\), \(t\in [a,b]\) una curva suave
@@ -346,7 +346,30 @@
             <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
             <p>
+<ol>
+  <li>
+  El segmento de recta de  \( P = (1,1)\) a \( Q=(3,5) \),  queda determinado por la  curva \(\alpha \colon [0,1] \to  
+  \mathbb{R}^2 \), definida como 
+  
+  \[\alpha(t) = (\alpha_1(t), \alpha_2(t)) :=  ((1-t) + 3t, (1-t) + 5t)= (1+2t, 1+4t).\]
 
+   De acuerdo a la  <a href="#Def:1formaDif"> Definición 2.1</a> como las funciones  
+   \( A_1(x,y) := 2x - y\) y \(A_2(x,y) := y-x \) son clase \( C^1\) en \( \mathbb{R}^2\),  \(\omega= (2x-y)dx+(y-x)dy \)
+    es una \( 1\)-forma diferenciable clase \( C^1 \)  en todo \( \mathbb{R}^2 \).  Además, es claro que  \( \alpha\) es una curva suave
+  cuya traza siempre se encuentra contenida en \(\mathbb{R}^2 \). Por lo tanto, siguiendo la
+   <a href="#Def:Int_Lin"> Definición 4.2</a> se tiene que:
+  
+  \begin{align*}
+    \int_\alpha \omega &:=\int_0^1 [A_1(\alpha(t))\alpha_1'(t) + A_2(\alpha(t))\alpha_2'(t) ] dt\\
+     &= \int_0^1 A_1(\alpha(t))\alpha_1'(t)  dt + \int_0^1 A_2(\alpha(t))\alpha_2'(t)  dt\\
+    &= \int_0^1 2dt + \int_0^1 (-8t) dt\\
+    &= 2(1) - 8 (1/2)\\
+    &= -2
+  \end{align*}
+
+
+</li>
+</ol>
             </p>
           </div> 
 
@@ -433,7 +456,7 @@
             <p>
             </p> 
           </div>
-          
+
           </div>
 
 
