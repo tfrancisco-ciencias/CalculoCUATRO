@@ -109,6 +109,58 @@
         donde \(a,b,c,d,e,f\) son constantes y
         \(\alpha\) es la circunferencia de radio \(r\) y centrada
         en el origen.
+
+
+
+        <button class="respButton hvr-grow"> Respuesta</button>
+      <div class="resp-box">
+
+        Prueba.  Primero parametricemos una circunferencia de radio \(r \)
+        \(( \text{ con }  r > 0)\) y con centro en el origen. Sea
+        \(\alpha : [0, 2\pi ] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\)
+        definida como \[ \alpha (t) = (r \cos(t), r \sen(t)) \]
+
+        Es claro que \(\alpha\) parametriza la circunferencia de radio \(r\) y con
+        centro en el origen. Además \(\alpha^{\prime}(t) = (-r \sen(t), r \cos(t))\).
+        Por lo tanto
+        \[
+        \| \alpha^{\prime}(t) \| =
+        \sqrt{(-r \sen(t))^{2} + (r \cos(t))^{2}} = r
+        \]
+
+        Ahora podemos desarrollar la siguiente integral,
+        \begin{eqnarray*}
+        & & \int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds \\
+         &=& 
+        \int_{0}^{2\pi}\big[ a + b(r\cos(t)) + c(r\sen(t)) + dr^{2}\cos(t)\sen(t) \\
+        &  &
+        \hspace{ 3pt} + er^{2}\cos^{2}(t) + fr^{2}\sen^{2}(t) \big] \cdot r  dt \\
+        & = &
+        r \int_{0}^{2\pi}\Bigg[ a + br\cos(t) + cr\sen(t) + dr^{2}\dfrac{\sen(2t)}{2} \\
+        &  & \hspace{3pt} + er^{2}\left(\dfrac{1 + \cos(2t)}{2}\right)
+        + fr^{2}\left(\dfrac{1 -\cos(2t)}{2}\right) \Bigg] dt \\
+        & = &
+        r  \int_{0}^{2\pi}\Bigg[ a + \dfrac{er^{2}}{2} + \dfrac{fr^{2}}{2} \Bigg] dt \\
+        & = & 2\pi r\Bigg[ a + \dfrac{er^{2}}{2} + \dfrac{fr^{2}}{2} \Bigg] \\
+        & = & 2\pi ra + \pi r^{3}(e +f) \hspace{3pt}
+        \end{eqnarray*}
+
+        La tercera igualdad es consecuencia de que
+        \[
+        \int_{0}^{2\pi}\cos(t) dt = \int_{0}^{2\pi}\sen(t) dt
+        = \int_{0}^{2\pi}\cos(2t) dt = \int_{0}^{2\pi}\sen(2t) dt = 0
+        \]
+
+        Por lo tanto \(\int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds
+        = 2\pi ra + \pi r^{3}(e +f)\).
+
+
+
+
+      </div>
+
+
+
       </div>
 
 
@@ -299,7 +351,7 @@
               <div class="video flexbox"> <a href="https://youtu.be/wPM6cxFTnps" target="_blank">Video</a> </div>
 
           </div>
-          
+
 
 
       </div>
