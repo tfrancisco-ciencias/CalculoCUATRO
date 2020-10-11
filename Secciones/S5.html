@@ -131,7 +131,7 @@
         Ahora podemos desarrollar la siguiente integral,
         \begin{eqnarray*}
         & & \int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds \\
-         &=& 
+         &=&
         \int_{0}^{2\pi}\big[ a + b(r\cos(t)) + c(r\sen(t)) + dr^{2}\cos(t)\sen(t) \\
         &  &
         \hspace{ 3pt} + er^{2}\cos^{2}(t) + fr^{2}\sen^{2}(t) \big] \cdot r  dt \\
@@ -486,6 +486,81 @@
               </li>
             </ol>
           </p>
+
+          <button class="respButton hvr-grow"> Respuesta de 1 </button>
+        <div class="resp-box">
+
+
+          Prueba.  Primero notemos que la gráfica de \(|x| + |y| = 2\) que está
+          por arriba del eje de las \(x\), son los segmentos de recta que van de
+          \(P_1 = (2,0) \) a \(P_2 =(0,2)\) y de \(P_2 \) a \(P_3 = (-2,0)\).
+          Entonces parametricemos estos segmentos. Sean
+          \(\alpha_1, \alpha_2 : [0,1] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\)
+          definidas como:
+          \begin{eqnarray*}
+          \alpha_1 (t) = (2 -2t, 2t) & \Rightarrow & \alpha_{1}^{\prime}(t)
+          =
+          (-2, 2) \hspace{,5cm} \left(\parallel \alpha_{1}^{\prime}(t) \parallel
+          =
+          2\sqrt{2}\right) \\
+          \alpha_2 (t) = (-2t, 2 -2t) & \Rightarrow &  \alpha_{2}^{\prime}(t)
+          =
+          (-2, -2) \hspace{,5cm} \left(\parallel \alpha_{2}^{\prime}(t) \parallel = 2\sqrt{2}\right)
+          \end{eqnarray*}
+
+          Es claro que \(\alpha_1\)  parametriza el segmento
+          \(\overrightarrow{P_1 P_2}\) y \(\alpha_2\) parametriza el segmento
+          \(\overrightarrow{P_2 P_3}\). A partir de tales funciones \(\alpha_{i}\)
+          podemos parametrizar la región en cuestión. Sea
+          \(\alpha : [0, 2] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\) una
+          función definida como:
+
+          \begin{equation*}
+          \alpha (t) =  \left\{
+          \begin{array}{cccc}
+          \alpha_{1}(t)  & \text{ si } t \in [0, 1]  \\
+          \alpha_{2}(t - 1) & \text{ si } t \in [1, 2]
+          \end{array} \right.
+          \end{equation*}
+
+          La función \(\alpha\) es una curva suave a trozos. Entonces podemos calcular
+          la integral con respecto a la longitud de arco,
+
+          \begin{equation*}
+          \int_{\alpha}e^{y} ds = \int_{\alpha_{\vert_{[0, 1]}}}e^{y} ds +
+          \int_{\alpha_{\vert_{[1, 2]}}}e^{y} ds
+          \end{equation*}
+          donde \(\alpha_{\vert_{[0, 1]}}\) y \(\alpha_{\vert_{[1, 2]}}\)
+          son las restricción de \(\alpha\) en los intervalos \([0, 1]\) y \( [1,2]\)
+          respectivamente. Es importante notar que \(\alpha_{\vert_{[i -1, i]}}\) es
+          \textbf{equivalente} a \(\alpha_{i}\) con \(i = 1, 2\). Por lo tanto, por el
+          \textbf{Ejercicio 5.5} se tiene que para cada \(i = 1, 2\)
+
+          \begin{equation*}
+          \int_{\alpha_{\vert_{[i -1, i]}}}e^{y} ds = \int_{\alpha_{i}}e^{y} ds
+          \end{equation*}
+
+          Entonces se sigue que
+          \begin{eqnarray*}
+          \int_{\alpha}e^{y} ds & = &  \int_{\alpha_{1}}e^{y} ds +
+          \int_{\alpha_{2}}e^{y} ds   \\
+          & = &
+          \int_{0}^{1}e^{2t} \cdot \parallel \alpha_{1}^{\prime}(t) \parallel dt
+          + \int_{0}^{1}e^{2 -2t} \cdot \parallel \alpha_{2}^{\prime}(t) \parallel dt \\
+          & = &
+          \int_{0}^{1}2\sqrt{2}e^{2t} dt + \int_{0}^{1}2\sqrt{2}e^{2 -2t} dt \\
+          & = &
+          \sqrt{2}(e^{2} -1) -\sqrt{2}(1 -e^{2}) \\
+          & = &
+          2\sqrt{2}(e^{2} -1)
+          \end{eqnarray*}
+
+          Por lo tanto \(\int_{\alpha}e^{y} ds  = 2\sqrt{2}(e^{2} -1)\).
+
+
+
+        </div>
+
       </div>
 
 
