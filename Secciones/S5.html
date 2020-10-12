@@ -180,11 +180,10 @@
       <div class="definicion-box">
           <h2 class="number-title"> Definición </h2>
           <p>
-            Sea \(f: U \to \mathbb{R}\), una función continua
-            en \(U\) (nota que \(f\) toma valores escalares).
             Consideremos \(\alpha:[a,b]\to \mathbb{R}^n\)
-            una curva suave tal que su traza está contenida
-            en \(U\).
+            una curva suave y sea \(f\) una función que toma valores escalares
+            de tal forma que la composición \(f\circ \alpha\) sea continua
+            en \([a,b]\).
             <p>
             <p>
             La integral con respecto a longitd
@@ -795,6 +794,26 @@
           Por lo tanto \(\int_{\alpha}e^{y} ds  = 2\sqrt{2}(e^{2} -1)\).
         </div>
 
+      </div>
+
+
+      <div class="ejercicio">
+          <h2 class="number-title" id="Ejer:aditividad"> Ejercicio </h2>
+          <p>Sean
+          \(\alpha\) y \(\beta\) dos curvas parametrizadas suaves de tal
+          forma que el punto final de \(\alpha\)
+          conicide con el punto inicial de \(\beta\). Sea \(f\)
+          una función que toma valores escalares tal que las composiciones
+          \(f\circ \alpha\) y \(f\circ \beta\) son funciones
+          continuas en sus respectivos dominios.
+          Demuestra que
+          \[
+          \int_{\alpha \vee \beta} f ds  =\int_\alpha f ds+ \int_\beta f ds
+          \]
+        </p>
+          <p>Donde \(\alpha \vee \beta\) se toma como en el
+          <a href="S3.html#Ejer:unionCurvas">ejercicio</a>.
+        </p>
       </div>
 
 
