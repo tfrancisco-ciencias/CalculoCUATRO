@@ -284,6 +284,18 @@ h2.number-title:before{/* for clearness this should be named like card-title*/
     align-content: center;
 }
 
+
+.imagen-box{
+    border-radius: 25px;
+    padding: 30px;
+    border: 10px;
+    margin: auto;
+    font-size: 20px;
+    width: 10%;
+    height: 10%;
+    align-content: center;
+}
+
 .video a{
   text-decoration: none;
 }
