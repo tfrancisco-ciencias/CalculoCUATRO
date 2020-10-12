@@ -172,13 +172,14 @@
          \int_a^b \rho(\alpha(t))\|\alpha'(t) \| dt.
          \]
          Dicha expresión es la que se va a definir como la
-         integral de \(\rho\) respecto a longitud de arco.
+         integral de \(\rho\), a lo largo de \(\alpha\), con respecto a
+         longitud de arco.
        </p>
       </div>
 
 
       <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
+          <h2 class="number-title" id="Def:Int_LArc"> Definición </h2>
           <p>
             Consideremos \(\alpha:[a,b]\to \mathbb{R}^n\)
             una curva suave y sea \(f\) una función que toma valores escalares
@@ -799,7 +800,7 @@
 
 
                 <div class="ejercicio">
-                    <h2 class="number-title"> Ejercicio </h2>
+                    <h2 class="number-title" > Ejercicio </h2>
 
                     <p>Sea \(\alpha\)
                     una curva parametrizada suave a trozos  y
@@ -850,6 +851,34 @@
                     a longitud de arco NO ve orientaciones, es decir,
                     \(\int_\alpha f ds\) no cambia si cambiamos la
                     orienteción de \(\alpha\).
+                  </p>
+
+                  <p>
+                    Sin embargo sí hay algunas propiedades que la integral
+                    con respecto longitud de arco comparte con la integral de
+                    línea.
+                    <ol>
+                      <li> La integral sobre puntos es cero:
+                      \[
+                      \int_{\alpha} f ds=0
+                      \]
+                      cuando \(\gamma\) es un punto. Esto es consecuencia
+                      directa de la <a href="S5.html#Def:Int_LArc">Definición 5.2 </a>,
+                      pues si \(\alpha\) es un punto, digamos \(P_0\),
+                      tenemos \(\alpha(t)=P_0\) para toda \(t\)
+                      y por lo tanto \(\alpha'(t)=0\) y \(\|\alpha'(t)\|=0\)
+                      para toda \(t\).
+                   </li>
+                   <li>
+                     Aditividad
+                     \[
+                     \int_{\alpha\vee \beta} fds = \int_\alpha f ds+ \int_\beta f ds
+                     \]
+                      siempre y cuando el punto final de \(\alpha\) coincida con el
+                      punto inicial de \(\beta\).
+
+                     Esta propiedad  es el  <a href="S5.html#Ejer:aditividadIntLArc">Ejercicio 5.19</a>
+                   </li>
                   </p>
               </div>
 
