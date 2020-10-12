@@ -76,6 +76,104 @@
 
       <div class="nota-box">
         <h2 class="number-title"> Introducción  </h2>
+        <p>
+          La integral con respecto a longitud de arco es otro
+          tipo de herramienta que asigna números  a objetos
+          1-dimensionales (aunque en éste caso es más
+          ilustrativo pensar que asigna  masas o pesos
+          a objetos 1-dimensionales). Vamos
+          a motivar la definición desde el punto de vista del
+          siguiente problema.
+        </p>
+
+        <p>
+          ¿Cómo encontrar
+          la masa de un cable si su densidad en cada punto es
+          conocida?
+        </p>
+        <p>
+          Para empezar a resolver éste problema modelamos el
+          cable con una  trayectoria suave, \(\alpha:[a,b]\to\mathbb{R}^3\).
+          Es importante notar que estamos suponiendo que el grosor del cable
+          no es relevante, por eso lo tratamos como un objeto  1-dimensional.
+          La densidad se modela con una función continua \(\rho(x,y,z)\).
+        </p>
+
+        <p>
+          Veamos
+          primero el caso de densidad constante en un cable que es un segmento
+          de línea recta. En este caso la masa es simplemente
+          la longitud del cable por la densidad.
+          <div class="imagen-box flexbox">
+            <img src="./Images/DensidadC.png" alt="DensidadC" width="230" height="230">
+            </div>
+        </p>
+
+        <p>
+          Ahora supongamos que el cable está curveado
+          y que la densidad no es constante. En este caso
+          tenemos a la mano la vieja técnica Arquimedeana de
+          partir el cable en pedazos pequeños y estimar la
+          masa de cada pedazo como en el caso anterior.
+        </p>
+        <div class="imagen-box flexbox">
+          <img src="./Images/DensidadV.png" alt="DensidadV" width="250" height="250">
+        </div>
+        Donde los puntos \(t_i^*\in [t_i, t_{i-1}]\) son cualesquiera,
+        pues ya que la densidad es continua el valor de \(\rho(\alpha(t_i^*))\)
+        no debería varia mucho en el intervalo \([t_{i-1},t_i]\). Con
+        esto podemos estimar la masa total del cable por:
+        \[
+        \sum_{i=1}^n \rho(\alpha(t_i^*))\| \alpha(t_i)-\alpha(t_{i-1})\|.
+        \]
+      </p>
+
+      <p>
+      Ahora
+      viene un paso  crucial y algo que Arquímides no
+      podría haber hecho, pues se necesita el cálculo de Newton.
+      Vamos a aplicar el Teorema del Valor Medio para funciones
+      vectoriales.
+      </p>
+      <p>
+        El teorema del valor medio dice que dada una función
+        \(\alpha:[a,b]\to \mathbb{R}^n\),
+        continua en \([a,b]\), diferenciable con derivada
+        continua en \((a,b)\), existe un punto
+        \(c\in (a,b)\) para el cual
+        \[
+        \| \alpha(b)-\alpha(b)\| \leq \|\alpha'(c)\| (b-a)
+        \]
+      </p>
+
+      <p>Aplicando la desigualdad anterior
+      a los intervalos \([t_{i-1},t_i]\)  obtenemos que existen
+      puntos \(c_i\in (t_{i-1},t_i)\) para los cuales
+      \(\|\alpha(t_i)-\alpha(t_{i-1})\| \leq
+      \|\alpha'(c_i)\| (t_i-t_{i-1})\). Entonces
+      podemos estimar la masa
+      del cable mediante
+      \begin{equation}\label{Eqn:AproxIntLArc}
+      \sum_{i=1}^n \rho(\alpha(c_i))\|\alpha'(c_i)\| (t_{i}-t_{i-1})
+      \end{equation}
+      donde nota que ahora tomamos ventaja
+      de la flexibilidad de los puntos \(t_i^*\) y tomamos
+      \(t_i^*=c_i\).
+      </p>
+      <p>
+        Si observamos detenidamente la ecuación \eqref{Eqn:AproxIntLArc}, se puede ver
+         que es una suma de Rimann para la función
+         \(t \mapsto \rho(\alpha(t))\|\alpha'(t)\|\). Por lo tanto,
+         usando que tanto \(\rho\) como \(\alpha'\) son continuas, cuando
+         tomamos el número de puntos que tienda a infinito, digamos
+         en una partición uniforme, obtenemos que la estimación se
+         aproxima a
+         \[
+         \int_a^b \rho(\alpha(t))\|\alpha'(t) \| dt.
+         \]
+         Dicha expresión es la que se va a definir como la
+         integral de \(\rho\) respecto a longitud de arco.
+       </p>
       </div>
 
 
@@ -360,7 +458,7 @@
         <div class="nota-box">
             <h2 class="number-title"> Nota </h2>
             <p>
-              Es importante señalar que es muy importante cómo se recorre
+              Es crucial señalar que es muy importante cómo se recorre
               la curva para el resultado de la integral con respecto a
               longitud de arco. Por ejemplo, si la curva se recorre múltiples
               veces el resultado de la integral de línea muy probablemente
@@ -484,15 +582,12 @@
 
           <p>
             Para un cable, tendido a lo largo de una curva \(\alpha\), con
-            densidad \(\rho(x,y,z)\) (masa por unidad de volumen) en el punto
+            densidad continua \(\rho(x,y,z)\) (masa por unidad de volumen) en el punto
             \((x,y,z)\), se define la
             <b>masa</b> del cable como
             \[
             \textrm{Masa}:=\int_\alpha \rho(x,y,z)ds.
             \]
-            Si recordamos que una integral es en el fondo un promedio,
-            está definición tiene sentido pues estamos tomando simplemente
-            la masa como el promedio de la densidad a lo lardo de la curva.
             <p>
             <p>
             Las coordenadas de su <b>centro de masa (o centroide)</b>, denotadas
@@ -507,6 +602,12 @@
             \[
             \bar{z}=\frac{1}{M}\int_\alpha z \rho(x,y,z)ds.
             \]
+            Si recordamos que una integral es en el fondo un promedio,
+            estas definiciones tienen sentido pues estamos tomando simplemente
+            el promedio de la masa que se distribuye a lo largo del eje \(x\),
+            \(y\) o \(z\).
+            </p>
+            <p>
             Dado un eje \(L\) en el espacio, el momento de incercia con respecto a \(L\)
             se define como
             \[
@@ -696,13 +797,22 @@
 
       </div>
 
-      
+
 
 
 
 
               <div class="nota-box">
                   <h2 class="number-title"> Conclusión </h2>
+                  <p>
+                    La integral con respecto la longitud de arco es una forma
+                    más de asignar números a objetos 1-dimensionales que mide
+                    aspectos distintos a la integral de línea. Una de las
+                    diferencias importantes es que la integral con respecto
+                    a longitud de arco NO ve orientaciones, es decir,
+                    \(\int_\alpha f ds\) no cambia si cambiamos la
+                    orienteción de \(\alpha\).
+                  </p>
               </div>
 
       <!--  <div class="ejercicio-box">
