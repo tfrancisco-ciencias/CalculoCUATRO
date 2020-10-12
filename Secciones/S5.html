@@ -191,7 +191,99 @@
             \[
             \int_\alpha f ds= \int_\beta f ds.
             \]
-          <p>
+          </p>
+
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box">
+              <p>
+              Según la definición
+              \[
+              \int_\alpha f ds= \int_a^b f(\alpha(t))\| \alpha'(t)\| dt,
+              \]
+              \[
+              \int_\beta f ds= \int_a^b f(\beta(\tau))\|\beta'(\tau)\| d\tau.
+              \]
+              por lo que debemos de probar
+              \[
+              \int_a^b f(\alpha(t))\| \alpha'(t)\| dt=
+              \int_a^b f(\beta(\tau))\|\beta'(\tau)\| d\tau.
+              \]
+              </p>
+              <p>
+              Pero recordemos que \(\alpha\) y \(\beta\) son curvas
+              equivalentes, por lo tanto, existe \(u:[a,b]\to [c,d]\)
+              clase \(C^1\), cuya derivada nunca se anula y
+              tal que \(\beta(u(t))=\alpha(t)\)
+              para toda \(t\in [a,b]\). Por la regla de la cadena
+              \[
+              \alpha'(t)=\beta'(u(t))u'(t)\Rightarrow \|\alpha'(t)\|=
+              |u'(t)|\|\beta(u(t))\|
+              \]
+              y por lo tanto
+              \[
+              \int_a^b f(\alpha(t))\| \alpha'(t)\| dt=
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt.
+              \]
+              Por lo que debemos de probar
+              \[
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt=
+              \int_c^d f(\beta(\tau))\|\beta'(\tau)\| d\tau
+              \]
+              En este punto tenemos dos casos.
+              </p>
+
+              <p>
+                Primer caso: \(u'(t)>0\) para toda \(t\in (a,b)\).
+              </p>
+              <p>
+              En este caso \(|u'(t)|=u(t)\) y
+              \[
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt
+              =\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt.
+              \]
+              Además \(u\) es estrictamente creciente
+              y por lo tanto \(u(a)=c, u(b)=d\). Entonces, por el teorema
+              del cambio de variable (con \(\tau=u(t)\))
+              \[
+              \begin{eqnarray*}
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+              &=&
+              \int_{u(a)}^{u(b)} f(\beta(\tau))\|\beta'(\tau)\| d\tau \\
+              &=&\int_{c}^{d} f(\beta(u))\|\beta'(\tau)\| d\tau.
+              \end{eqnarray*}
+              \]
+              </p>
+              <p>
+              Segundo caso: \(u'(t)< 0\) para toda \(t\in (a,b)\).
+              </p>
+              <p>
+              Este caso es el interesante pues aparecerá un cambio de
+              signo. En efecto, ya que la derivada es negativa
+              \(|u'(t)|=-u(t)\) y
+              \[
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt=
+              -\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt.
+              \]
+
+              Además, \(u\) es estricamente decreciente y
+              por lo tanto \(u(a)=d\) y \(u(b)=c\). Entonces, por el
+              teorema del cambio de variable (con \(\tau=u(t)\))
+              \[
+              \begin{eqnarray*}
+              -\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+              &=&
+              -\int_{u(a)}^{u(b)} f(\beta(\tau))\|\beta'(\tau)\|d\tau\\
+              &=&-\int_{d}^c f(\beta(\tau))\|\beta'(\tau) \|d\tau \\
+              &=&\int_{c}^d f(\beta(\tau))\|\beta'(\tau) \|d\tau.
+              \end{eqnarray*}
+              \]
+              Nota el cambio de orden en los límites de integración
+              y la cancelación del signo menos.
+              </P>
+
+
+            </div>
       </div>
 
       <div class="ejercicio-box">
@@ -224,6 +316,8 @@
               </ol>
 
           </p>
+
+
       </div>
 
 

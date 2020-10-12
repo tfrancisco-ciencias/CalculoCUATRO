@@ -73,137 +73,73 @@
     <div class="flexbox">
 
       <h1 class="card "> Title  </h1>
+        Según la definición
+        \[
+        \int_\alpha f ds= \int_a^b f(\alpha(t))\| \alpha'(t)\| dt
+        \]
+        \[
+        \int_\beta f ds= \int_a^b f(\beta(\tau))\|\beta'(\tau)\| d\tau
+        \]
+        por lo que debemos de probar
+        \[
+        \int_a^b f(\alpha(t))\| \alpha'(t)\| dt=\int_a^b f(\beta(\tau))\|\beta'(\tau)\| d\tau
+        \]
+        Pero recordemos que \(\alpha\) y \(\beta\) son curvas
+        equivalentes, por lo tanto, existe \(u:[a,b]\to [c,d]\)
+        clase \(C^1\), cuya derivada nunca se anula y
+        tal que \(\beta(u(t))=\alpha(t)\)
+        para toda \(t\in [a,b]\). Por la regla de la cadena
+        \[
+        \alpha'(t)=\beta'(u(t))u'(t)\Rightarrow \|\alpha'(t)\|=|u'(t)|\|\beta(u(t))\|
+        \]
+        y por lo tanto
+        \[
+        \int_a^b f(\alpha(t))\| \alpha'(t)\| dt=\int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt
+        \]
+        En este punto tenemos dos casos.
 
+        Primer caso: \(u'(t)>0\) para toda \(t\in (a,b)\).
 
+        En este caso |u'(t)|=u(t) y
+        \[
+        \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt=\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+        \]
+        Además \(u\) es estrictamente creciente
+        y por lo tanto \(u(a)=c, u(b)=d\). Entonces, por el teorema
+        del cambio de variable (con \(\tau=u(t)\))
+        \[
+        \begin{eqnarray*}
+        \int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+        &=&
+        \int_{u(a)}^{u(b)} f(\beta(\tau))\|\beta'(\tau)\| d\tau \\
+        &=&\int_{c}^{d} f(\beta(u))\|\beta'(\tau)\| d\tau
+        \end{eqnarray*}
+        \]
 
-5.3. Ejercicio. Demuestra que
-\[
-\int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds
-= 2\pi ra + \pi r^{3}(e +f)
-\]
+        Primer caso: \(u'(t)< 0\) para toda \(t\in (a,b)\).
 
-donde \(a, b, c, d, e, f\) son constantes y \(\alpha\) es la circunferencia de
-radio \(r\) y centrada en el origen.
+        Este caso es el interesante pues aparecerá un cambio de
+        signo. En efecto, ya que la derivada es negativa
+        \(|u'(t)|=-u(t)\) y
+        \[
+        \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt=
+        -\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+        \]
 
-Prueba.  Primero parametricemos una circunferencia de radio \(r \)
-\(( \text{ con }  r > 0)\) y con centro en el origen. Sea
-\(\alpha : [0, 2\pi ] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\)
-definida como \[ \alpha (t) = (r \cos(t), r \sen(t)) \]
-
-Es claro que \(\alpha\) parametriza la circunferencia de radio \(r\) y con
-centro en el origen. Además \(\alpha^{\prime}(t) = (-r \sen(t), r \cos(t))\).
-Por lo tanto
-\[
-\| \alpha^{\prime}(t) \| =
-\sqrt{(-r \sen(t))^{2} + (r \cos(t))^{2}} = r
-\]
-
-Ahora podemos desarrollar la siguiente integral,
-\begin{eqnarray*}
-\int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds
-& = &
-\int_{0}^{2\pi}\big[ a + b(r\cos(t)) + c(r\sen(t)) + dr^{2}\cos(t)\sen(t) \\
-&  &
-\hspace{ 3pt} + er^{2}\cos^{2}(t) + fr^{2}\sen^{2}(t) \big] \cdot r  dt \\
-& = &
-r \int_{0}^{2\pi}\Bigg[ a + br\cos(t) + cr\sen(t) + dr^{2}\dfrac{\sen(2t)}{2} \\
-&  & \hspace{3pt} + er^{2}\left(\dfrac{1 + \cos(2t)}{2}\right)
-+ fr^{2}\left(\dfrac{1 -\cos(2t)}{2}\right) \Bigg] dt \\
-& = &
-r  \int_{0}^{2\pi}\Bigg[ a + \dfrac{er^{2}}{2} + \dfrac{fr^{2}}{2} \Bigg] dt \\
-& = & 2\pi r\Bigg[ a + \dfrac{er^{2}}{2} + \dfrac{fr^{2}}{2} \Bigg] \\
-& = & 2\pi ra + \pi r^{3}(e +f) \hspace{3pt}
-\end{eqnarray*}
-
-La tercera igualdad es consecuencia de que
-\[
-\int_{0}^{2\pi}\cos(t) dt = \int_{0}^{2\pi}\sen(t) dt
-= \int_{0}^{2\pi}\cos(2t) dt = \int_{0}^{2\pi}\sen(2t) dt = 0
-\]
-
-Por lo tanto \(\int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds
-= 2\pi ra + \pi r^{3}(e +f)\).
-
-
-5.17. Ejercicio.  Calcula las siguientes integrales con respecto
-a la longitud de arco.
-
-
-1. \begin{equation*}
-\int_{\alpha}e^{y} ds
-\end{equation*}
-
-donde \(\alpha\) es la parte de la gráfica de \(|x| + |y| = 2\) que está por
-arriba del eje de las \(x\).
-
-
-Prueba.  Primero notemos que la gráfica de \(|x| + |y| = 2\) que está
-por arriba del eje de las \(x\), son los segmentos de recta que van de
-\(P_1 = (2,0) \) a \(P_2 =(0,2)\) y de \(P_2 \) a \(P_3 = (-2,0)\).
-Entonces parametricemos estos segmentos. Sean
-\(\alpha_1, \alpha_2 : [0,1] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\)
-definidas como:
-\begin{eqnarray*}
-\alpha_1 (t) = (2 -2t, 2t) & \Rightarrow & \alpha_{1}^{\prime}(t)
-=
-(-2, 2) \hspace{,5cm} \left(\parallel \alpha_{1}^{\prime}(t) \parallel
-=
-2\sqrt{2}\right) \\
-\alpha_2 (t) = (-2t, 2 -2t) & \Rightarrow &  \alpha_{2}^{\prime}(t)
-=
-(-2, -2) \hspace{,5cm} \left(\parallel \alpha_{2}^{\prime}(t) \parallel = 2\sqrt{2}\right)
-\end{eqnarray*}
-
-Es claro que \(\alpha_1\)  parametriza el segmento
-\(\overrightarrow{P_1 P_2}\) y \(\alpha_2\) parametriza el segmento
-\(\overrightarrow{P_2 P_3}\). A partir de tales funciones \(\alpha_{i}\)
-podemos parametrizar la región en cuestión. Sea
-\(\alpha : [0, 2] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\) una
-función definida como:
-
-\begin{equation*}
-\alpha (t) =  \left\{
-\begin{array}{cccc}
-\alpha_{1}(t)  & \text{ si } t \in [0, 1]  \\
-\alpha_{2}(t - 1) & \text{ si } t \in [1, 2]
-\end{array} \right.
-\end{equation*}
-
-La función \(\alpha\) es una curva suave a trozos. Entonces podemos calcular
-la integral con respecto a la longitud de arco,
-
-\begin{equation*}
-\int_{\alpha}e^{y} ds = \int_{\alpha_{\vert_{[0, 1]}}}e^{y} ds +
-\int_{\alpha_{\vert_{[1, 2]}}}e^{y} ds
-\end{equation*}
-donde \(\alpha_{\vert_{[0, 1]}}\) y \(\alpha_{\vert_{[1, 2]}}\)
-son las restricción de \(\alpha\) en los intervalos \([0, 1]\) y \( [1,2]\)
-respectivamente. Es importante notar que \(\alpha_{\vert_{[i -1, i]}}\) es
-\textbf{equivalente} a \(\alpha_{i}\) con \(i = 1, 2\). Por lo tanto, por el
-\textbf{Ejercicio 5.5} se tiene que para cada \(i = 1, 2\)
-
-\begin{equation*}
-\int_{\alpha_{\vert_{[i -1, i]}}}e^{y} ds = \int_{\alpha_{i}}e^{y} ds
-\end{equation*}
-
-Entonces se sigue que
-\begin{eqnarray*}
-\int_{\alpha}e^{y} ds & = &  \int_{\alpha_{1}}e^{y} ds +
-\int_{\alpha_{2}}e^{y} ds   \\
-& = &
-\int_{0}^{1}e^{2t} \cdot \parallel \alpha_{1}^{\prime}(t) \parallel dt
-+ \int_{0}^{1}e^{2 -2t} \cdot \parallel \alpha_{2}^{\prime}(t) \parallel dt \\
-& = &
-\int_{0}^{1}2\sqrt{2}e^{2t} dt + \int_{0}^{1}2\sqrt{2}e^{2 -2t} dt \\
-& = &
-\sqrt{2}(e^{2} -1) -\sqrt{2}(1 -e^{2}) \\
-& = &
-2\sqrt{2}(e^{2} -1)
-\end{eqnarray*}
-
-Por lo tanto \(\int_{\alpha}e^{y} ds  = 2\sqrt{2}(e^{2} -1)\).
-
-
+        Además, \(u\) es estricamente decreciente y
+        por lo tanto \(u(a)=d\) y \(u(b)=c\). Entonces, por el
+        teorema del cambio de variable (con \(\tau=u(t)\))
+        \[
+        \begin{eqnarray*}
+        -\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+        &=&
+        -\int_{u(a)}^{u(b)} f(\beta(\tau)\|\beta'(\tau)\|d\tau\\
+        &=&-\int_{d}^c f(\beta(\tau))\|\beta'(\tau) \|d\tau \\
+        &=&=\int_{c}^d f(\beta(\tau))\|\beta'(\tau) \|d\tau
+        \end{eqnarray*}
+        \]
+        nota el cambio de orden en los límites de integración
+        y la cancelación del signo menos.
 
     </div>
 
