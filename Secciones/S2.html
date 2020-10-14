@@ -461,7 +461,7 @@
       </div>
 
       <div class="ejercicio">
-        <h2 class="card"> Ejercicio </h2>
+        <h2 class="card" id="Ejer:DerivadaCeroConstanteBolas"> Ejercicio </h2>
         <p>
           Por \(B_r(P)\) denotamos la bola abierta en \(\mathbb{R}^n\)
           centrada en \(P\) y de radio \(r\). Sea \(f:B_r(P) \to \mathbb{R}\)
@@ -480,24 +480,44 @@
           \]
           Si escribimos \(\omega = A_1 dx_1 + \cdots + A_n dx_n\),
           lo anterior equivale a encontrar una función \(f\) tal que
-          \[
+          \begin{equation}\label{Eqn:1-formaExacta}
           \partial_{x_1}f=A_1 , \cdots, \partial_{x_n} f=A_n
-          \]
-          El nombre viene de ecuaciones diferenciales, como se muestra
+          \end{equation}
+          En el fondo, decidir si una 1-forma es
+          exácta se traduce en resolver el sistema de ecuaciones
+          diferenciales \eqref{Eqn:1-formaExacta}.
+          A decir  verda el nombre de exácta viene de ecuaciones diferenciales, como se menciona
           en el ejercicio siguiente.
         </p>
       </div>
 
       <div class="ejercicio">
         <h2 class="card"> Ejercicio </h2>
+
+        <p>
+          Una ecuación diferencial de la forma
+          \begin{equation}\label{Eqn:EcuDifExact}
+          M(x,y)+N(x,y)\frac{dy}{dx}=0
+          \end{equation}
+          se llama exácta, si existe una función escalar \(f(x,y) \) tal que
+          \[
+          \partial_x f(x,y)=M(x,y) \quad \textrm{y} \quad \partial_y f(x,y)=N(x,y).
+          \]
+          Si es que pudíesemos multiplicar \eqref{Eqn:EcuDifExact}
+          por \(dx\) tendríamos que el lado izquierdo es \(Mdx+Ndy\), una 1-forma
+          diferencial. Lo anterior claro está es sólo un truco para
+          recordar que a toda ecuación diferencial de la forma
+          \eqref{Eqn:EcuDifExact} le podemos asociar una 1-forma. En esta notación la condición de que la ecuación
+          diferencial sea exácta es lo mismo que la 1-forma sea exácta.
+        </p>
         <p>Supongamos que \(U \subseteq \mathbb{R}^2\) es un
           abierto y \(F,G: U \to \mathbb{R}\) son funciones
           clase \(C^1\) en \(U\) y que \(G\) nunca se anula en \(U \).
 
           Consideremos la ecuación diferencial
           \[
-          \begin{equation}
-          \frac{dy }{dx} =\frac{F(x,y)}{G(x,y)}
+          \begin{equation}\label{Eqn:EcuDifExactEjer}
+          F(x,y)-G(x,y)\frac{dy}{dx}=0
           \end{equation}
           \]
           donde \(y\) denota una función que depende de \(x\).
@@ -511,7 +531,7 @@
           \(\omega=df\) (es decir, \(\omega\)
           es exácta). Prueba que las
           curvas de nivel de \(f\) son soluciones de la ecuación diferencial
-          (1).
+          \eqref{Eqn:EcuDifExactEjer}.
 
         </p>
 

@@ -1,0 +1,429 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 5 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 5 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> Independencia de la trayectoria  </h1>
+
+      <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+          Un conjunto abierto \(U\subseteq \mathbb{R}^n\) se llama
+          <b>conexo por trayectorias</b> si para cualesquiera dos
+          puntos \(P,Q\) en \(U\), existe una trayectoria suave
+          a trozos \(\alpha:[a,b]\to \mathbb{R}^n\) que satisface:
+          <ol>
+            <li> para todo \(t\in [a,b]\), \(\alpha(t)\in U\),</li>
+            <li> \(\alpha(a)=P\), \(\alpha(b)=Q\).
+          </ol>
+
+          Los conjuntos conexos son los que se pueden pensar
+          de una sola pieza.
+        </p>
+
+        <p>
+          Un conjunto abierto se llama <b>disconexo</b> si se puede
+          esribir como la unión disjunta de dos o más subconjuntos
+          abiertos conexos y no vacíos.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio  </h2>
+
+          <p>
+            Para los siguientes subconjuntos abiertos de \(\mathbb{R}^2\)
+            determina cuales son conexos o disconexos. Para los que sean
+            conexos explica cómo se encuentra una trayectoria que una
+            dos puntos en el conjunto.
+
+            <ol>
+              <!--<li> \(S=\{(x,y): x^2+y^2< 4, (x-2)^2+y^2< 1 \}\) .</li>-->
+              <li> \(S=\{ (x,y): x^2+y^2> 1, |y|< 1/2  \} \). </li>
+              <li> \(S=\{(x,y): x^2+y^2> 2 , x^2+(y-5)^2> 1\}\).  </li>
+              <li>  \(S=\{(x,y): x+2y >1, -x+6y< 3  \}\) .</li>
+              <li> \(S=\{(x,y): x^2-y^2>1, y>0 \} \). </li>
+            </ol>
+          </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+        Sean \(U_1,U_2,\dots, U_n\) abiertos conexos y no vacíos. Prueba
+        que si cualesquiera dos tienen intersección no vacía entonces
+        la unión \(\cup_{i=1}^n U_i\) es abierta conexa.
+        </p>
+        <p>
+          Sugerencia: inicia con dos conjuntos \(U_1,U_2\)
+          y después usa inducción sobre el número de conjuntos.
+        </p>
+      </div>
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+          <p>
+          Da ejemplos de dos conjuntos abierto conexos, no vacíos,
+          tales que su intersección sea: (1) conexa; (2) disconexa.
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+          Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto conexo
+          no vacío y  \(f:U\to \mathbb{R}\) una función diferenciable
+          tal que \( df=0\) (<a href="S2.html#Def:derivadaExterior"
+          target="_blank">derivada exterior</a>). Prueba que \(f\) es constante
+          en \(U\).
+          </p>
+          <p>
+            Sugerencia: usa el <a href="S2.html#Ejer:DerivadaCeroConstanteBolas">
+              Ejercicio 2.9</a>
+            para probar que, para cualquier \(P\in U\) existe
+            una bola \(B_{r_P}(P)\subseteq U\) donde \(f\) es constante
+            en \(B_{r_P}(P)\).
+            Después usa la conexidad de \(U\) para probar que
+            es la misma constante para cualesquiera  bolas.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:necesidad1FormaExacta3D"> Ejercicio </h2>
+          <p>
+            Por \(U\) denotamos un abierto no vacío de \(\mathbb{R}^3\). Supongamos
+            que \(\omega=Adx+Bdy+Cdz\) es una 1-forma diferenciable  clase \(C^1\) en \(U\).
+          </p>
+          <p>
+            Prueba que si existe \(f:U\to \mathbb{R}\) diferenciable en \(U\) tal que
+            \(df=\omega\) entonces
+            \[
+            \partial_y A= \partial_x B, \quad \partial_z A =\partial_x C,\quad
+            \partial_z B= \partial_y C \quad \textrm{en \(U\)}
+            \]
+          </p>
+          <p>
+            Sugerencia: este ejercicio es muy parecido al
+            <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>.
+          </p>
+
+        </div>
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>Un campo vectorial \(\mathbb{F}\) se llama campo gradiente
+          si existe una función escalar diferenciable \(f\) tal que
+          \(\mathbb{F}=\nabla f\). En el lenguaje de 1-formas, si
+          \(\omega\) es la 1-forma asociada el campo \(\mathbb{F}\),
+          decir que \(\mathbb{F}\) sea campo gradiente es equivalente
+          a decir que \(\omega \) es exácta, es decir \(\omega =df\). A
+          una función así se le llama una función potencial de \(\mathbb{F}\)
+          (ó  de \(\omega\)).
+          </p>
+          <p>
+
+          </p>
+        </div>
+
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                  Para los siguientes campos vectoriales \(\mathbb{F}\) prueba que
+                  no son campos gradientes. Además, encuentra una
+                  trayectoria cerrada \(\alpha\) para la cual
+                  \(\int_\alpha \mathbb{F}\cdot d\alpha \ne 0\).
+                  <ol>
+                    <li> \(\mathbb{F}(x,y,z)=(y,x^2,x)\). </li>
+                    <li> \(\mathbb{F}(x,y,z)=(xy,x^2+3,z^2)\). </li>
+                  </ol>
+                  Sugerencia: utiliza el <a href="#Ejer:necesidad1FormaExacta3D">
+                    Ejercicio 6.6 </a>
+                  </p>
+                </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera el campo vectorial definido en
+            todo \(\mathbb{R}^3\) dado por
+            \[\mathbb{F}(x,y,z)=(f(y),g(z),h(x))\]
+            donde \(f,g,h:\mathbb{R}\to\mathbb{R} \) son funciones
+            clase \(C^1\) con \(h\) no constante que satisface
+            \(h(x)x\geq 0\) para toda \(x\).
+          </p>
+          <p>
+            Prueba que \(\mathbb{F}\) no es un campo gradiente. Además
+            prueba que para cualquier \(\alpha\), circunferencia centrada en el
+            origen contenida en el plano \(xz\), se cumple:
+            \[
+            \int_\alpha \mathbb{F}\cdot \alpha >0.
+            \]
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            <ol>
+              <li>
+                Sea \(g:[0,\infty)\to \mathbb{R}\), cotinua en \([0,\infty)\)
+                y diferenciable en \((0,\infty)\). Define
+                \(h(x,y)=g(\|(x,y)\|)\). Prueba que,
+                para \((x,y)\ne (0,0)\)
+                \[
+                \partial_x h(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}x,\quad
+                \partial_y h(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}y,
+                \]
+              </li>
+              <li> <p>Un campo vectorial \(\mathbb{F}\) en \(\mathbb{R}^2\)se llama
+              radial si puede escribirse de la forma \(\mathbb{F}(x,y)=f(\|(x,y)\|)(x,y)\),
+              para alguna función \(f:[0,\infty)\to \mathbb{R}\).</p>
+              <p>
+                Si \(\mathbb{F}\) es radial con \(f\) continua, prueba que
+                \(\mathbb{F}\) es un campo gradiente.
+              </p>
+              <p>
+                Sugerencia: usa el inciso anterior con \(g\)
+                definida como \(g(r)=\int_0^r f(t)tdt\).
+              </p>
+              </li>
+            </ol>
+          </p>
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <h3> Segundo Teorema Fundamental de las integrales de línea</h3>
+            <p>
+              Sea \(U\subset\mathbb{R}^n\) un abierto conexo y \(f:U\to \mathbb{R}\)
+              una función de clase \(C^1\) en \(U\). Para cualquier
+              trayectoria suave a trozos, \(\alpha:[a,b]\to \mathbb{R}^n\),
+              con traza contenida en \(U\) se cumple:
+            </p>
+            <p>
+              En notación de 1-formas:
+              \[
+              \int_\alpha df = f(\alpha(b))-f(\alpha(a))
+              \]
+              En notación de campos:
+              \[
+              \int_\alpha \nabla f \cdot d\alpha = f(\alpha(b))-f(\alpha(a))
+              \]
+            </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo
+            y \(f:U\to \mathbb{R}\) clase \(C^1\) en \(U\). Prueba que
+            \[
+            \int_\alpha df=0
+            \]
+            para toda \(\alpha:[a,b]\to U\), curva <b>cerrada</b>,
+            suave a trozos.
+          </p>
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <h3> Primer Teorema Fundamental de integrales de línea </h3>
+          <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
+            \(\mathbb{R}:U\to \mathbb{R}^n\) un campo vectorial continuo en \(U\).
+          </p>
+          <p>
+            Supon que las integrales de línea de \(\mathbb{F}\) sólo dependen
+            del punto inicial y final de la trayetoria.
+          </p>
+          <p>
+            Fija \(P\in U\) y define
+            \[
+            f(Q)=\int_\alpha \mathbb{F}\cdot d\alpha
+            \]
+            donde \(\alpha\) es cualquier trayectoria que una \(P\)
+            con \(Q\) cuya traza esté contenida en \(U\).
+          </p>
+          <p>
+            Entonces \(\nabla f= \mathbb{F}\), es decir,
+            \(\mathbb{F}\) es un campo gradiente.
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"id="Ejer:equivFormaExacta"> Ejercicio  </h2>
+          <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
+            \(\omega\) una 1-forma, donde las funciones coordenadas
+            son continuas en \(U\). Prueba que
+            las siguientes condiciones son equivalentes:
+            <ol>
+              <li>\(\omega\) es exácta. </li>
+              <li> Para toda \(\alpha\),  curva cerrada suave a trozos
+                   con traza contenida en \(U\):
+                   \[
+                   \int_\alpha\omega =0.
+                   \]
+              </li>
+              <li>
+                La integral \(\int_\beta \omega \) sólo depende
+                del punto inicial y punto final de \(\beta\)
+                (curva suave a trozos, con traza contenida en
+                \(U\)).
+              </li>
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo no vacío.
+              Si \(f,g:U\to \mathbb{R}\) son dos funciones potenciales
+              de \(\omega\). Prueba que \(f-g\) es constante.
+            </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+            <p>
+            Considera la 1-forma
+            \[
+            \omega = -\frac{y}{x^2+y^2}dx+ \frac{x}{x^2+y^2}dy
+            \]
+            y toma
+            \[
+            U=\mathbb{R}^2\setminus \{(x,y): y=0, \quad x\leq 0\}.
+            \]
+            <ol>
+             <li> Dado un punto \((x,y)\in U\), sus coordenadas se pueden
+               escribir como:
+                  \[
+                  x=r\cos(\theta), \quad y=r\sin(\theta),
+                  \]
+                  con \(r=\sqrt{x^2+y^2}\) y \(\theta \in (-\pi,\pi)\).
+                  Prueba que \(\theta\) está dado por
+                  \[
+                  \theta(x,y)=
+                  \left\{
+                  \begin{array}{cc}
+                  \arctan(y/x) & x>0 \\
+                  \pi/2 & x=0 \\
+                  \arctan(y/x)+\pi & x< 0 \\
+                  \end{array}
+                  \right.
+                  \]
+              </li>
+              <li>
+                Del inciso anterior prueba que
+                \[
+                \partial_x \theta = -\frac{y}{x^2+y^2}, \quad
+                \partial_y \theta = \frac{x}{x^2+y^2}
+                \]
+                Por lo que \(\theta\) es una función potencial de \(\omega\),
+                es decir \(\omega\) es exácta.
+              </li>
+              <li>
+                Por el ejercicio 4.6, si \(\alpha\) es el circulo unitario
+                recorrido en el sentido positivo
+                \[
+                \int_\alpha \omega = 2\pi
+                \]
+                Sin embargo, por el Segundo Teorema Fundamental
+                de integrales de línea, la integral de una 1-forma
+                exácta sobre una trayectoria cerrada es cero
+                (ver <a href="#Ejer:equivFormaExacta"> Ejercicio  </a>). ¿Esto
+                es una contradicción?
+              </li>
+            </ol>
+            </p>
+        </div>
+
+
+<!--termina contenido -->
+
+    </div>
+
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
