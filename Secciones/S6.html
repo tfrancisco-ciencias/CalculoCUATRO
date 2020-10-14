@@ -74,11 +74,12 @@
 
       <h1 class="card "> Independencia de la trayectoria  </h1>
 
-      <div class="definicion-box">
+      <div class="definicion-box" id="Def:conjuntoConexo">
           <h2 class="number-title"> Definición </h2>
           <p>
           Un conjunto abierto \(U\subseteq \mathbb{R}^n\) se llama
-          <b>conexo por trayectorias</b> si para cualesquiera dos
+          <b>conexo por trayectorias</b>, o por simplicidad conexo,
+          si para cualesquiera dos
           puntos \(P,Q\) en \(U\), existe una trayectoria suave
           a trozos \(\alpha:[a,b]\to \mathbb{R}^n\) que satisface:
           <ol>
@@ -97,6 +98,26 @@
         </p>
       </div>
 
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota  </h2>
+        <p>
+          Existe una definición más general que la dada en
+          <a href="#Def:conjuntoConexo"> Definición </a> de conjuntos conexos.
+          (ver por ejemplo
+          <a href="https://es.wikipedia.org/wiki/Conjunto_conexo"> conexidad
+          en espacios topológicos</a>). Afortunadamente, para conjuntos
+          abiertos estás dos definiciónes son equivalentes. Por lo tanto
+          nos restringiremos sólamente a conjuntos <b> abiertos y
+          conexos </b>.
+        </p>
+        <p>
+          Nota que, por vacuidad, el conjunto vacío es conexo, pero en la
+          mayoría de los casos siempre vamos a tratar con conjuntos
+          abierto, conexos y no vacíos.
+        </p>
+      </div>
+
       <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio  </h2>
 
@@ -112,7 +133,12 @@
               <li> \(S=\{(x,y): x^2+y^2> 2 , x^2+(y-5)^2> 1\}\).  </li>
               <li>  \(S=\{(x,y): x+2y >1, -x+6y< 3  \}\) .</li>
               <li> \(S=\{(x,y): x^2-y^2>1, y>0 \} \). </li>
+              <li> \(S=\{(x,y): x^2+y^2< 1 \} \cup \{(x,y): (x-2)^2+y^2< 1 \}\).
+              </li>
             </ol>
+          </p>
+          <p>
+            Sugerencia: haz unos dibujos.
           </p>
       </div>
 
