@@ -968,6 +968,52 @@
                   </div>
              -->
 
+             <div class="nota-box">
+               <h2 class="number-title"> Nota </h2>
+               <h3>
+                 La integral de línea extiende la integral usual.
+              </h3>
+              <p>
+                Queremos ver que la integral de Riemann
+                \[
+                \int_a^b f(x)dx,
+                \]
+                donde \(f:[a,b]\to \mathbb{R}\) es una función continua,
+                se puede ver como un integral de una 1-forma.
+                </p>
+                <p>
+                Primero notamos que, las 1-formas constantes en \([a,b]\)
+                son de la forma \(Adx\), pues estamos en un espacio de una
+                dimensión (el intervalo). Así, una 1-forma en general se puede
+                escribir
+                \[
+                \omega=Adx
+                \]
+                donde \(A\) es una función \(A:[a,b]\to \mathbb{R}\) y \(dx\)
+                es la 1-forma tal que
+                \[
+                \int_{\seg{PQ}} dt= P-Q
+                \]
+                donde \(P,Q\in [a,b]\).
+              </p>
+              <p>
+                Ahora, resulta que las curvas suaves en \([a,b]\) son sencillas,
+                simplemente van a conectar dos puntos del intervalo y sólo pueden
+                viajar en el intervalo \([a,b]\). Por ejemplo
+                \(\alpha:[a,b] \to [a,b]\) con \(\alpha(t)=t\),  tiene como
+                traza el intervalo \([a,b]\) y, según la
+                <a href="S4.html#Def:Int_Lin">Definición 4.2</a>
+                \[
+                \int_\alpha \omega= \int_a^b A(\alpha(t))\alpha'(t)dt
+                =\int_a^b A(t)dt
+                \]
+                siempre y cuando \(A\) sea continua. Así recuperamos la integra
+                usual.
+              </p>
+              </div>
+
+
+
 
               <div class="Nota">
                   <h2 class="number-title"> Conclusión </h2>
