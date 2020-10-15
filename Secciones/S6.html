@@ -72,13 +72,85 @@
 
     <div class="flexbox">
 
-      <h1 class="card "> Independencia de la trayectoria  </h1>
+
+
+
+
+      <h1 class="card "> Teoremas fundamentales de las integrales de línea </h1>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          Pensando que las integrales de línea son una generalización
+          de las integrales usuales de cálculo 2, uno puede preguntarse
+          si hay resultados análogos a los teoremas  fundamentales ahora para
+          integrales de línea. Antes de continuar recordamos los teoremas
+          fundamentales.
+        </p>
+        <p>
+          <h3> Primer Teorema Fundamental</h3>
+        </p>
+        <p>
+          Sea \(f:[a,b]\to \mathbb{R}\) una función integrable en \([a,b]\).
+          Dado \(c\in [a,b]\) definimos
+          \[
+          F(x)=\int_c^x f(t)dt
+          \]
+          Entonces \(F'(x)\) para todo \(x\in (a,b)\) para el cual
+          \(f\) sea continua en \(x\), y en este caso se cumple
+          \[
+          F'(x)=f(x)
+          \]
+        </p>
+
+        <p>
+          En particular, si \(f\) es continua en \([a,b]\), \(F'=f\). En este caso
+            se puede pensar que el Primer TF nos asegura que para cualquier función
+            continua podemos encontrar una antiderivada. En el contexto de 1-formas
+            o campos vectoriales, primero tenemos que decir cuales
+            son las antiderivadas. Una vez hecho esto el Primer TF va
+            a decir que toda 1-forma ó campo continuo admite una antiderivada.
+          </p>
+          <p>
+            Ahora vamos al Segundo Teorema Fundamental.
+          </p>
+        <p>
+          <h3>  Segundo Teorema Fundamental </h3>
+        </p>
+        <p>
+          Supongamos que \(f:[a,b]\to \mathbb{R}\) es continua en
+          \([a,b]\). Si \(G:[a,b]\to \mathbb{R}\) es diferenciable
+          en \((a,b)\) y \(G'(x)=f(x)\) para toda \(x\in (a,b)\), entonces
+          \[
+          \int_c^d f(x)dx=G(d)-G(c)
+          \]
+          para cualesquiera puntos \(c,d\in (a,b)\).
+        </p>
+        <p>
+          El Segundo TF es muy práctico, pues si de alguna forma conocemos
+          una antiderivada, entonces la integral se calcula muy fácilmente.
+
+
+          En el caso de integrales de línea el Segundo TF va a tener la misma
+          conclusión, sólo que es un poco más elaborada pues involucra
+          trayectorias, ciertos abiertos especiales (conexos)  y unas funciones
+          apropiadas (funciones potenciales).
+        </p>
+
+        <p>
+          Así pues, tenemos que empezar a ver las definiciones preliminares
+          para entender los Teoremas Fundamentales en el mundo de las
+          integrales de línea. Empezamos con la definición de conjunto conexo.
+        </p>
+      </div>
 
       <div class="definicion-box" id="Def:conjuntoConexo">
           <h2 class="number-title"> Definición </h2>
           <p>
           Un conjunto abierto \(U\subseteq \mathbb{R}^n\) se llama
-          <b>conexo por trayectorias</b>, o por simplicidad conexo,
+          <b>conexo por trayectorias</b>, o por simplicidad <b>conexo</b>,
           si para cualesquiera dos
           puntos \(P,Q\) en \(U\), existe una trayectoria suave
           a trozos \(\alpha:[a,b]\to \mathbb{R}^n\) que satisface:
@@ -110,6 +182,10 @@
           abiertos estás dos definiciónes son equivalentes. Por lo tanto
           nos restringiremos sólamente a conjuntos <b> abiertos y
           conexos </b>.
+        </p>
+        <p>
+          Los conjuntos abiertos conexos son los que van a reemplazar a los
+          intervalos de la forma \((a,b)\).
         </p>
         <p>
           Nota que, por vacuidad, el conjunto vacío es conexo, pero en la
@@ -185,6 +261,56 @@
         </div>
 
 
+
+                <div class="definicion-box">
+                  <h2 class="number-title"> Definición </h2>
+                  <p>Un campo vectorial \(\mathbb{F}\) se llama campo conservativo
+                  o campo gradiente si existe una función escalar
+                  diferenciable \(f\) tal que
+                  \(\mathbb{F}=\nabla f\). Por ejemplo, si
+                  \(\mathbb{F}(x,y,z)=(f_1(x,y,z),f_2(x,y,z),f_3(x,y,z))\)
+                  que \(f\) satisfaga \(\nabla f=\mathbb{F}\) quiere decir:
+                  \[
+                  \partial_x f = f_1, \quad \partial_y f = f_2, \quad \partial_z f= f_3.
+                  \]
+                  </p>
+                  <p>
+                  En el lenguaje de 1-formas, si
+                  \(\omega\) es la 1-forma asociada al campo \(\mathbb{F}\),
+                  decir que \(\mathbb{F}\) sea campo conservativo es equivalente
+                  a decir que \(\omega \) es exácta, es decir \(\omega =df\). Entonces
+                  las 1-formas exáctas, en dimensión 3, son de la forma:
+                  \[
+                  (\partial_x f)dx+ (\partial_y f )dy+(\partial_z f)dz.
+                  \]
+                  </p>
+                  <p>
+                    Auna función escalar  \(f\) que cumple
+                    \(\nabla f=\mathbb{F}\) ó \(df=\omega\) se le llama una
+                    función potencial de \(\mathbb{F}\)
+                  ó  de \(\omega\) respectivamente.
+                  </p>
+                  <p>
+
+                  </p>
+                </div>
+
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <p>
+            La funciones potenciales son los que van a jugar el papel de antiderivadas.
+            Un diferencia importante con el caso 1-dimensional es que la antiderivada
+            es un "animal" de otra especia. Por ejemplo, \(f(x,y)=x^2+y^2\)
+            es una función potencial de \(\mathbb{F}(x,y)=(2x,2y)\), nota que
+            \(f\) es una función escalar pero \(\mathbb{F}\) es un campo vectorial,
+            así que \(\mathbb{F}\) y su antiderivada son de "distintas especies".
+          </p>
+          <p>
+            Los ejercicios que siguen se enfocan en funciones potenciales,
+            campos conservativos y 1-formas exáctas.
+          </p>
+        </div>
+
         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:necesidad1FormaExacta3D"> Ejercicio </h2>
           <p>
@@ -206,22 +332,6 @@
 
         </div>
 
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-          <p>Un campo vectorial \(\mathbb{F}\) se llama campo gradiente
-          o campo conservativo si existe una función escalar
-          diferenciable \(f\) tal que
-          \(\mathbb{F}=\nabla f\). En el lenguaje de 1-formas, si
-          \(\omega\) es la 1-forma asociada el campo \(\mathbb{F}\),
-          decir que \(\mathbb{F}\) sea campo gradiente es equivalente
-          a decir que \(\omega \) es exácta, es decir \(\omega =df\). A
-          una función así se le llama una función potencial de \(\mathbb{F}\)
-          (ó  de \(\omega\)).
-          </p>
-          <p>
-
-          </p>
-        </div>
 
 
         <div class="ejercicio-box">
@@ -251,21 +361,27 @@
           </p>
         </div>
 
-                <div class="ejercicio-box">
-                  <h2 class="number-title"> Ejercicio </h2>
-                  <p>
-                  Para los siguientes campos vectoriales \(\mathbb{F}\) prueba que
-                  no son campos gradientes. Además, encuentra una
-                  trayectoria cerrada \(\alpha\) para la cual
-                  \(\int_\alpha \mathbb{F}\cdot d\alpha \ne 0\).
-                  <ol>
-                    <li> \(\mathbb{F}(x,y,z)=(y,x^2,x)\). </li>
-                    <li> \(\mathbb{F}(x,y,z)=(xy,x^2+3,z^2)\). </li>
-                  </ol>
-                  Sugerencia: utiliza el <a href="#Ejer:necesidad1FormaExacta3D">
-                    Ejercicio 6.6 </a>
-                  </p>
-                </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>Para las siguientes 1-formas, determina si son exáctas o no. Si lo
+          son encuentra una función potencial.
+          </p>
+          <ol>
+            <li> \(\omega=(y^2\sen(x)+z^4)dx +(x^2y-3xy)dy+(y^2-x^2+6z)dz\).</li>
+            <li> \(\omega=(2x+2y+3yz)dx+(2x-z^2+3xz)dy+(-2zy+3xy)dz\). </li>
+            <li> \(\omega=(2x\cos(x^2+y^2)-y\sen(xy))dx+(2y\cos(x^2+y^2)-x\sen(xy))dy\). </li>
+            <li> \(\omega=(\frac{2x}{x^2+y^2z^2})dx-(\frac{2yz^2}{x^2+y^2z^2})dy
+              +(\frac{2y^2z}{x^2+y^2z^2})dz \) .</li>
+          </ol>
+          <p>
+            Sugerencia: <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>
+            o <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.6</a>
+            son útiles para probar que una 1-forma NO es exácta.
+          </p>
+        </div>
+
+
 
 
         <div class="ejercicio-box">
@@ -279,7 +395,7 @@
             \(h(x)x\geq 0\) para toda \(x\).
           </p>
           <p>
-            Prueba que \(\mathbb{F}\) no es un campo gradiente. Además
+            Prueba que \(\mathbb{F}\) no es un campo conservativo. Además
             prueba que para cualquier \(\alpha\), circunferencia centrada en el
             origen contenida en el plano \(xz\), se cumple:
             \[
@@ -288,6 +404,17 @@
           </p>
 
         </div>
+
+
+
+                <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo no vacío.
+                      Si \(f,g:U\to \mathbb{R}\) son dos funciones potenciales
+                      de \(\omega\). Prueba que \(f-g\) es constante.
+                    </p>
+                </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
@@ -320,6 +447,45 @@
         </div>
 
 
+
+              <!--  <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Las siguientes 1-formas son variantes de la 1-forma
+                    exácta
+                    \[
+                    d\left(-\frac{1}{\|(x,y,z)\|}\right)=\frac{x}{\|(x,y,z)\|^3}dx
+                    +\frac{y}{\|(x,y,z)\|^3}dy
+                    +\frac{z}{\|(x,y,z)\|^3}dz
+                    \]
+                    Usa esto para encontrar funciones potenciales.
+                  </p>
+                  <ol>
+                    <li>
+                      \[
+                    \omega=  \frac{\pi x}{\|(x,y,z)\|^3}dx
+                    +\frac{\pi y}{\|(x,y,z)\|^3}dy
+                    +\frac{\pi z}{\|(x,y,z)\|^3}dz
+                    \]
+                  </li>
+                    <li>
+                      \[
+                    \omega=  \frac{x-2}{\|(x-2,y+3,z)\|^3}dx
+                      +\frac{y+3}{\|(x-2,y+3,z)\|^3}dy
+                      +\frac{z}{\|(x-2,y+3,z)\|^3}dz
+                      \]
+                    </li>
+                  <li>
+                      \[
+                      \omega=\frac{3x+3}{\|(x+1,y-1,z+7)\|^3}dx
+                      +\frac{3y-3}{\|(x+1,y-1,z+7)\|^3}dy
+                      +\frac{3z-21}{\|(x+1,y-1,z+7)\|^3}dz
+                      \]
+                    </li>
+                  </ol>
+                </div>-->
+
+
         <div class="teorema-box">
           <h2 class="number-title"> Teorema </h2>
           <h3> Segundo Teorema Fundamental de las integrales de línea</h3>
@@ -342,6 +508,51 @@
         </div>
 
 
+                <div class="nota-box">
+                  <h2 class="number-title"> Nota </h2>
+                  <p>
+                    Empezamos con el Segundo TF pués es el más fácil de entender,
+                    el que necesita menos construcciones.
+                  </p>
+                  <p>
+                    El teorema resuelve completamente el problema de calcular
+                    las integrales de línea de campos conservativos o 1-formas
+                    exáctas, pues sólo tenemos que evaluar la función potencial
+                    en los puntos inicial y final de la trayectoria.
+                  </p>
+                  <p>
+                    Otra consecuencia importante del teorema es que la integral
+                    de línea de campos conservativos sólo depende del punto inicial
+                    y final de la trayectoria. Por eso se les llama campos conservativos,
+                    por que la integral de línea se conserva aún si modificamos la
+                    trayectoria que une el punto inicial y el punto final.
+                  </p>
+                  <p>
+                    Nota que el teorema NO dice que la integral de línea de campos
+                    conservativos no cambia si cambiamos los puntos inicial y final.
+                    Por ejemplo, si \(\alpha\) une \((0,0)\) con \((1,0)\)
+                    y \(\beta\) une \((0,0)\) con \((0,1)\), el teorema no implica
+                    que \(\int_\alpha \mathbb{F}=\int_\beta \mathbb{F}\) aún si
+                    \(\mathbb{F}\) es conservativo.
+                  </p>
+                </div>
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                          Para los siguientes campos vectoriales \(\mathbb{F}\) prueba que
+                          no son campos gradientes encontrado una
+                          trayectoria cerrada \(\alpha\) para la cual
+                          \(\int_\alpha \mathbb{F}\cdot d\alpha \ne 0\).
+                          <ol>
+                            <li> \(\mathbb{F}(x,y,z)=(y,x^2,x)\). </li>
+                            <li> \(\mathbb{F}(x,y,z)=(xy,x^2+3,z^2)\). </li>
+                          </ol>
+                          Sugerencia: utiliza el <a href="#Ejer:necesidad1FormaExacta3D">
+                            Ejercicio 6.6 </a>
+                          </p>
+                        </div>
+
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
@@ -354,6 +565,86 @@
             suave a trozos.
           </p>
         </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Prueba que las integrales de línea son independientes
+            de la trayectoria
+            y luego usa el Segundo Teorema
+            Fundamental para calcularlas.
+          <p>
+            <p>
+              Sugerencia: encuentra una función potencial.
+            </p>
+            <ol>
+              <li> \(\int_\alpha (3x^2e^{-y})dx+(-x^3e^{-y}+y)dy\),
+              donde \(\alpha\) es cualquier tryectoria
+            que une \((1,1)\) con \((2,3)\). </li>
+              <li> \(\int_\alpha (e^x\sen(y))dx+(e^x\cos(y)+(y+1)^2)dy \)
+                donde \(\alpha\) es cualquier curva que une
+                \((0,0)\) con \((0,\pi)\).
+
+            </ol>
+
+        </div>
+
+
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                    Considera la 1-forma
+                    \[
+                    \omega = -\frac{y}{x^2+y^2}dx+ \frac{x}{x^2+y^2}dy
+                    \]
+                    y toma
+                    \[
+                    U=\mathbb{R}^2\setminus \{(x,y): y=0, \quad x\leq 0\}.
+                    \]
+                    <ol>
+                     <li> Dado un punto \((x,y)\in U\), sus coordenadas se pueden
+                       escribir como:
+                          \[
+                          x=r\cos(\theta), \quad y=r\sin(\theta),
+                          \]
+                          con \(r=\sqrt{x^2+y^2}\) y \(\theta \in (-\pi,\pi)\).
+                          Prueba que \(\theta\) está dado por
+                          \[
+                          \theta(x,y)=
+                          \left\{
+                          \begin{array}{cc}
+                          \arctan(y/x) & x>0 \\
+                          \pi/2 & x=0 \\
+                          \arctan(y/x)+\pi & x< 0 \\
+                          \end{array}
+                          \right.
+                          \]
+                      </li>
+                      <li>
+                        Del inciso anterior prueba que
+                        \[
+                        \partial_x \theta = -\frac{y}{x^2+y^2}, \quad
+                        \partial_y \theta = \frac{x}{x^2+y^2}
+                        \]
+                        Por lo que \(\theta\) es una función potencial de \(\omega\),
+                        es decir \(\omega\) es exácta.
+                      </li>
+                      <li>
+                        Por el ejercicio 4.6, si \(\alpha\) es el circulo unitario
+                        recorrido en el sentido positivo
+                        \[
+                        \int_\alpha \omega = 2\pi
+                        \]
+                        Sin embargo, por el Segundo Teorema Fundamental
+                        de integrales de línea, la integral de una 1-forma
+                        exácta sobre una trayectoria cerrada es cero
+                        (ver <a href="#Ejer:equivFormaExacta"> Ejercicio  </a>). ¿Dónde
+                        está el error?
+                      </li>
+                    </ol>
+                    </p>
+                </div>
 
 
         <div class="teorema-box">
@@ -368,19 +659,47 @@
             del punto inicial y final de la trayetoria.
           </p>
           <p>
-            Fija \(P\in U\) y define
+            Fija \(P\in U\). Para un punto \(Q\in U\) define
             \[
-            f(Q)=\int_\alpha \mathbb{F}\cdot d\alpha
+            f(P)=\int_\alpha \mathbb{F}\cdot d\alpha
             \]
-            donde \(\alpha\) es cualquier trayectoria que una \(P\)
+            donde \(\alpha\) es una trayectoria que une \(P\)
             con \(Q\) cuya traza esté contenida en \(U\).
           </p>
+
           <p>
             Entonces \(\nabla f= \mathbb{F}\), es decir,
             \(\mathbb{F}\) es un campo gradiente.
           </p>
+          <p>
+            Nota: ya que la hipótesis dice que la integral sólo depende
+            del punto inicial y final, la curva que se use para definir
+            la función potencial no va a
+            ser relevante.
+          </p>
         </div>
 
+
+                <div class="nota-box">
+                  <h2 class="number-title"> Nota </h2>
+                  <p>
+                    El Primer TF da, en teoría, una forma para construir
+                    una función potencial, pero nota que la hipótesis fuerte
+                    es que sabemos de antemano que la integral de línea
+                    NO depende de la trayectoria que una los puntos, lo cual
+                    es una hipótesis fuerte de probar. Sín embargo es una
+                    herramienta teórica fundamental. Entre otras cosas da una
+                    caracterización de las 1-formas exáctas (o campos
+                    conservativos), lo que se muestra en el siguiente ejercicio.
+                  </p>
+                  <p>
+                    Otra observación importante es que en este teorema se puede
+                    ver la necesidad de pedir que el dominio sea conexo pues,
+                    para construir la función potencial, debemos de usar
+                    una trayectoria que una cualesquiera puntos del dominio,
+                    es decir, pedir que el dominio sea conexo.
+                  </p>
+                </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title"id="Ejer:equivFormaExacta"> Ejercicio  </h2>
@@ -407,89 +726,7 @@
         </div>
 
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-              Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo no vacío.
-              Si \(f,g:U\to \mathbb{R}\) son dos funciones potenciales
-              de \(\omega\). Prueba que \(f-g\) es constante.
-            </p>
-        </div>
 
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-            <p>
-            Considera la 1-forma
-            \[
-            \omega = -\frac{y}{x^2+y^2}dx+ \frac{x}{x^2+y^2}dy
-            \]
-            y toma
-            \[
-            U=\mathbb{R}^2\setminus \{(x,y): y=0, \quad x\leq 0\}.
-            \]
-            <ol>
-             <li> Dado un punto \((x,y)\in U\), sus coordenadas se pueden
-               escribir como:
-                  \[
-                  x=r\cos(\theta), \quad y=r\sin(\theta),
-                  \]
-                  con \(r=\sqrt{x^2+y^2}\) y \(\theta \in (-\pi,\pi)\).
-                  Prueba que \(\theta\) está dado por
-                  \[
-                  \theta(x,y)=
-                  \left\{
-                  \begin{array}{cc}
-                  \arctan(y/x) & x>0 \\
-                  \pi/2 & x=0 \\
-                  \arctan(y/x)+\pi & x< 0 \\
-                  \end{array}
-                  \right.
-                  \]
-              </li>
-              <li>
-                Del inciso anterior prueba que
-                \[
-                \partial_x \theta = -\frac{y}{x^2+y^2}, \quad
-                \partial_y \theta = \frac{x}{x^2+y^2}
-                \]
-                Por lo que \(\theta\) es una función potencial de \(\omega\),
-                es decir \(\omega\) es exácta.
-              </li>
-              <li>
-                Por el ejercicio 4.6, si \(\alpha\) es el circulo unitario
-                recorrido en el sentido positivo
-                \[
-                \int_\alpha \omega = 2\pi
-                \]
-                Sin embargo, por el Segundo Teorema Fundamental
-                de integrales de línea, la integral de una 1-forma
-                exácta sobre una trayectoria cerrada es cero
-                (ver <a href="#Ejer:equivFormaExacta"> Ejercicio  </a>). ¿Dónde
-                está el error?
-              </li>
-            </ol>
-            </p>
-        </div>
-
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>Para las siguientes 1-formas, determina si son exáctas o no. Si lo
-          son encuentra una función potencial.
-          </p>
-          <ol>
-            <li> \(\omega=(y^2\sen(x)+z^4)dx +(x^2y-3xy)dy+(y^2-x^2+6z)dz\).</li>
-            <li> \(\omega=(2x+2y+3yz)dx+(2x-z^2+3xz)dy+(-2zy+3xy)dz\). </li>
-            <li> \(\omega=(2x\cos(x^2+y^2)-y\sen(xy))dx+(2y\cos(x^2+y^2)-x\sen(xy))dy\). </li>
-            <li> \(\omega=(\frac{2x}{x^2+y^2z^2})dx-(\frac{2yz^2}{x^2+y^2z^2})dy
-              +(\frac{2y^2z}{x^2+y^2z^2})dz \) .</li>
-          </ol>
-          <p>
-            Sugerencia: <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>
-            o <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.6</a>
-            son útiles para probar que una 1-forma NO es exácta.
-          </p>
-        </div>
 
 
         <div class="ejercicio-box">
@@ -510,63 +747,12 @@
         </div>
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Las siguientes 1-formas son variantes de la 1-forma
-            exácta
-            \[
-            d\left(-\frac{1}{\|(x,y,z)\|}\right)=\frac{x}{\|(x,y,z)\|^3}dx
-            +\frac{y}{\|(x,y,z)\|^3}dy
-            +\frac{z}{\|(x,y,z)\|^3}dz
-            \]
-            Usa esto para encontrar funciones potenciales.
-          </p>
-          <ol>
-            <li>
-              \[
-            \omega=  \frac{\pi x}{\|(x,y,z)\|^3}dx
-            +\frac{\pi y}{\|(x,y,z)\|^3}dy
-            +\frac{\pi z}{\|(x,y,z)\|^3}dz
-            \]
-          </li>
-            <li>
-              \[
-            \omega=  \frac{x-2}{\|(x-2,y+3,z)\|^3}dx
-              +\frac{y+3}{\|(x-2,y+3,z)\|^3}dy
-              +\frac{z}{\|(x-2,y+3,z)\|^3}dz
-              \]
-            </li>
-          <li>
-              \[
-              \omega=\frac{3x+3}{\|(x+1,y-1,z+7)\|^3}dx
-              +\frac{3y-3}{\|(x+1,y-1,z+7)\|^3}dy
-              +\frac{3z-21}{\|(x+1,y-1,z+7)\|^3}dz
-              \]
-            </li>
-          </ol>
-        </div>
+
+                <div class="nota-box">
+                  <h2 class="number-title"> Conclusión </h2>
+                </div>
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-
-          <p>
-            Prueba que las integrales de línea son independientes
-            de la trayectoria y luego usa el Segundo Teorema
-            Fundamental para calcularlas.
-          <p>
-            <ol>
-              <li> \(\int_\alpha (3x^2e^{-y})dx+(-x^3e^{-y}+y)dy\),
-              donde \(\alpha\) es cualquier tryectoria
-            que une \((1,1)\) con \((2,3)\). </li>
-              <li> \(\int_\alpha (e^x\sen(y))dx+(e^x\cos(y)+(y+1)^2)dy \)
-                donde \(\alpha\) es cualquier curva que une
-                \((0,0)\) con \((0,\pi)\).
-
-            </ol>
-
-        </div>
 <!--termina contenido -->
 
     </div>
