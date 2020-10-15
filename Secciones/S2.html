@@ -77,23 +77,40 @@
 
       <div class="definicion">
         <h2 class="card" id="Def:1formaDif"> Definición </h2>
-        <p>Sea \(U \) un subconjunto abierto de \(\mathbb{R}^n\). Una <b>1-forma
-            diferenciable</b> en \(U\), denotada por \(\omega\), es una función tal que
-          a cada punto \(p\) de \(U\) le asocia una 1-forma constante continua,
-          denotada \(\omega_p\), de tal forma que al escribirla en coordenadas
+        <p>
+          <ol>
+            <li> Sea \( S \) un subconjunto  \(\mathbb{R}^n\). Una <b>1-forma</b>
+              en \(S \), denotada por \(\omega\), es una función tal que
+          a cada punto \(P\) de \(S\) le asocia una 1-forma constante
+          denotada \(\omega_P\). Si escribimos a la 1-forma en coordenadas \(dx_j\)
+          obtenemos
           \[
           \omega_P=A_1(P)dx_1+A_2(P)dx_2 + \cdots + A_n(P)dx_n
           \]
-          se cumple que las funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\),
-          son diferenciables, en todo \(U\). Con ésta notación
+          donde las \(A_j\) son funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\).
+          </li>
+          <li> Si todas las funciones \(A_1,\dots, A_n:S\to \mathbb{R}\)
+            son continuas en \(S\) decimos que \(\omega\) es una 1-forma
+            continua.
+          </li>
+          <li>Si \(S=U\), un conjunto abierto de \(\mathbb{R}^n\)
+          y las todas funciones \(A_1,\dots, A_n:U\to \mathbb{R}\)
+          son diferenciables, decimos que \(\omega\)
+          es una 1-forma diferenciable en \(U\).
+          </li>
+          </ol>
+          <p>Con ésta notación
           se escribe:
           \[
           \omega=A_1dx_1+A_2dx_2+\cdots +A_ndx_n
           \]
+          </p>
+          <p>
           Por ejemplo \(\omega= ydx+ xdy\) es una 1-forma diferenciable en \(\mathbb{R}^2\) y
           \(\eta = \sqrt{y}dx+\sqrt{x}dy \) es una 1-forma
           diferenciable en \((0,\infty)\times (0,\infty)\). En estos ejemplos,
-          tenemos que las 1-formas constantes, en el punto (9,16), son respectivamente:
+          tenemos que las 1-formas constantes, en el punto \((9,16)\in \mathbb{R}^2\),
+          son respectivamente:
           \[
           \omega_{(9,16)}=16dx+9dy, \quad \eta_{(9,16)}=4dx+3dy
           \]
