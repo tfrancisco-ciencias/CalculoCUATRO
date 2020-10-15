@@ -209,7 +209,8 @@
         <div class="definicion-box">
           <h2 class="number-title"> Definición </h2>
           <p>Un campo vectorial \(\mathbb{F}\) se llama campo gradiente
-          si existe una función escalar diferenciable \(f\) tal que
+          o campo conservativo si existe una función escalar
+          diferenciable \(f\) tal que
           \(\mathbb{F}=\nabla f\). En el lenguaje de 1-formas, si
           \(\omega\) es la 1-forma asociada el campo \(\mathbb{F}\),
           decir que \(\mathbb{F}\) sea campo gradiente es equivalente
@@ -219,6 +220,34 @@
           </p>
           <p>
 
+          </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            La ley de gravedad de Newton dice que la fuerza ejercida
+            por un cuerpo de masa \(M\) sobre otro de masa \(m\), es un
+            vector de longitud \(\frac{GMm}{r^2}\) que apunta hacia
+            el cuerpo de masa \(M\), done \(G\) es una constante
+            y \(r\) es la distancia entre los cuerpos.
+            <ol>
+              <li> Posiciona el cuerpo de masa \(M\) en el origen
+              y por \((x,y,z)\) denota la posición del cuerpo de masa \(m\) y
+              escribe \(r=\|(x,y,z)\|\). Prueba que
+              \[
+              \mathbb{F}(x,y,z)=-\frac{GMm}{r^3}(x,y,z)
+              \]
+              satisface las condiciones de la fuerza de gravedad de Newton.
+              </li>
+              <li>
+                Prueba que la función \(f(x,y,z)=GMm\frac{-1}{\|(x,y,z)\|}\)
+                es una función potencial para \(\mathbb{F}\), llamada
+                el potencial de Newton.
+              </li>
+            </ol>
           </p>
         </div>
 
@@ -243,7 +272,7 @@
           <h2 class="number-title"> Ejercicio </h2>
           <p>
             Considera el campo vectorial definido en
-            todo \(\mathbb{R}^3\) dado por
+            todo \(\mathbb{R}^3\) por
             \[\mathbb{F}(x,y,z)=(f(y),g(z),h(x))\]
             donde \(f,g,h:\mathbb{R}\to\mathbb{R} \) son funciones
             clase \(C^1\) con \(h\) no constante que satisface
@@ -279,7 +308,7 @@
               para alguna función \(f:[0,\infty)\to \mathbb{R}\).</p>
               <p>
                 Si \(\mathbb{F}\) es radial con \(f\) continua, prueba que
-                \(\mathbb{F}\) es un campo gradiente.
+                \(\mathbb{F}\) es un campo conservativo.
               </p>
               <p>
                 Sugerencia: usa el inciso anterior con \(g\)
@@ -478,6 +507,64 @@
             Sugerencia: usa el <a href="S4.html#Ejer:carac1FormasCerradasLineales">
               Ejercicio 4.15 </a>
           </p>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Las siguientes 1-formas son variantes de la 1-forma
+            exácta
+            \[
+            d\left(-\frac{1}{\|(x,y,z)\|}\right)=\frac{x}{\|(x,y,z)\|^3}dx
+            +\frac{y}{\|(x,y,z)\|^3}dy
+            +\frac{z}{\|(x,y,z)\|^3}dz
+            \]
+            Usa esto para encontrar funciones potenciales.
+          </p>
+          <ol>
+            <li>
+              \[
+            \omega=  \frac{\pi x}{\|(x,y,z)\|^3}dx
+            +\frac{\pi y}{\|(x,y,z)\|^3}dy
+            +\frac{\pi z}{\|(x,y,z)\|^3}dz
+            \]
+          </li>
+            <li>
+              \[
+            \omega=  \frac{x-2}{\|(x-2,y+3,z)\|^3}dx
+              +\frac{y+3}{\|(x-2,y+3,z)\|^3}dy
+              +\frac{z}{\|(x-2,y+3,z)\|^3}dz
+              \]
+            </li>
+          <li>
+              \[
+              \omega=\frac{3x+3}{\|(x+1,y-1,z+7)\|^3}dx
+              +\frac{3y-3}{\|(x+1,y-1,z+7)\|^3}dy
+              +\frac{3z-21}{\|(x+1,y-1,z+7)\|^3}dz
+              \]
+            </li>
+          </ol>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Prueba que las integrales de línea son independientes
+            de la trayectoria y luego usa el Segundo Teorema
+            Fundamental para calcularlas.
+          <p>
+            <ol>
+              <li> \(\int_\alpha (3x^2e^{-y})dx+(-x^3e^{-y}+y)dy\),
+              donde \(\alpha\) es cualquier tryectoria
+            que une \((1,1)\) con \((2,3)\). </li>
+              <li> \(\int_\alpha (e^x\sen(y))dx+(e^x\cos(y)+(y+1)^2)dy \)
+                donde \(\alpha\) es cualquier curva que une
+                \((0,0)\) con \((0,\pi)\).
+
+            </ol>
 
         </div>
 <!--termina contenido -->
