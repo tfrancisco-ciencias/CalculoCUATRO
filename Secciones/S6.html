@@ -261,7 +261,7 @@
           <button class="respButton hvr-grow"> Respuesta </button>
                 <div class="resp-box">
                   <div class="video flexbox">
-                    <a href="https://youtu.be/qimO6k_wa3k"> Video </a>
+                    <a href="https://youtu.be/qimO6k_wa3k" targer="_blank"> Video </a>
                     </div>
                   </div>
         </div>
@@ -386,7 +386,82 @@
             o <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.6</a>
             son útiles para probar que una 1-forma NO es exácta.
           </p>
+
+
+                  <button class="respButton hvr-grow"> Respuesta de 1 y 2 </button>
+                    <div class="resp-box">
+
+                <p>
+                  Inciso 1.
+                </p>
+                </p>
+                Sean \(A(x,y,z)  =  y^{2}\sen (x) + z^{4}\),
+                \(B(x,y,z)  =  x^{2}y - 3xy\)  y
+                \( C(x,y,z)  =  y^{2} - x^{2} + 6z\).
+                Entonces \(\omega = Adx + Bdy + Cdz\).
+               </p>
+              <p>
+                Calculando la parcial de \(A\) con respecto de \(y\)
+                y la parcial de \(C\) con repecto de \(x\), obtenemos
+                \begin{eqnarray*}
+                  \partial_{y}A(x,y,z) & = & 2y\sen (x) \\
+                  \partial_{x}B(x,y,z) & = & 2xy -3y
+                \end{eqnarray*}
+                Concluimos que no necesariamente
+                \(\partial_{y}A = \partial_{x}B\).
+                Si consideramos \(p = (0,1,0)\), entonces
+                \(\partial_{y}A(p) = 0 \) y \( \partial_{x}B(p) = -3\),
+                es decir \(\partial_{y}A \neq \partial_{x}B\).
+                Por lo tanto, por el
+                <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.10</a>
+                concluimos que \(\omega\) no es exacta.
+              </p>
+              <p>
+                Inciso 2.
+              </p>
+              <p>
+                Sean \(A(x,y,z)  =  2x + 2y + 3yz\), \(B(x,y,z)  =  2x -z^{2} + 3xz\)
+                 y \(C(x,y,z)  = -2zy + 3xy\). Entonces \(\omega = Adx + Bdy + Cdz\).
+                 Si consideramos la siguiente función
+                 \(f : \mathbb{R}^{2} \rightarrow \mathbb{R}\) difinida como
+                 \[
+                 f (x,y) = x^{2} + 2xy + 3xyz -yz^{2}.
+                 \]
+                Es fácil comprobar que   \(\partial_{x}f = A\),
+                \( \partial_{y}f = B \) y \( \partial_z f = C\).
+                Por lo tanto podemos concluir que \(\omega\) es exácta.
+              </p>
+              <p>
+                Veamos ahora el proceso de obtener dicha función, \(f\),
+                la cual se obtiene  integrando las funciones \(A, B\) y  \(C\),
+                ya que la existencia de \(f\) implica que
+                \( f = \int Adx = \int Bdy = \int C dz \).
+              </p>
+              <p>
+                Así que
+                \begin{eqnarray*}
+                \int A dx & = & x^{2} + 2xy + 3xyz + F(y,z)  \\
+                \int B dy & = & 2xy -yz^{2} +3xyz + G(x,z) \\
+                \int C dz & = & -yz^{2} + 3xyz  + H(x,y)
+                \end{eqnarray*}
+
+                Donde \(F\), \(G\) y \(H\) son funciones.
+              </p>
+              <p>
+                Para que \(\int Adx = \int Bdy \), se tiene que
+                \(F(y, z) = -yz^{2}\) y \(G(x,z) = x^{2}\).
+                Por otra parte, si \(\int C dz  =  \int Adx \) y
+                \( \int C dz  = \int Bdy\),  implica que \(H(x,y) = x^{2} + 2xy\).
+                Obtenemos que apartir de estas funciones (\(F, G\) y  \(H\))
+                que \(\int Adx = \int Bdy = \int C dz \).
+                Por lo tanto si definimos
+                \(f(x,y) = \int A dx = x^{2} + 2xy + 3xyz -yz^{2}\),
+                obtenemos que \(f\) es la función potencial buscada.
+              </p>
+              </div>
         </div>
+
+
 
 
 
@@ -409,6 +484,16 @@
             \int_\alpha \mathbb{F}\cdot \alpha >0.
             \]
           </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+                  <div class="video flexbox">
+                    <a href="https://youtu.be/zSPE6T6rtpI" target="_blank"> Video </a>
+                    </div>
+                  </div>
+
+
+
 
         </div>
 
@@ -493,7 +578,7 @@
                 </div>-->
 
 
-        <div class="teorema-box">
+        <div class="teorema-box" id="Teo:2TF">
           <h2 class="number-title"> Teorema </h2>
           <h3> Segundo Teorema Fundamental de las integrales de línea</h3>
             <p>
@@ -555,22 +640,87 @@
                             <li> \(\mathbb{F}(x,y,z)=(y,x^2,x)\). </li>
                             <li> \(\mathbb{F}(x,y,z)=(xy,x^2+3,z^2)\). </li>
                           </ol>
-                          Sugerencia: utiliza el <a href="#Ejer:necesidad1FormaExacta3D">
-                            Ejercicio 6.6 </a>
                           </p>
                         </div>
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:integralCurvaCerradaCero"> Ejercicio </h2>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo
             y \(f:U\to \mathbb{R}\) clase \(C^1\) en \(U\). Prueba que
+            <ol>
+            <li> Para toda \(\alpha:[a,b]\to U\), curva <b>cerrada</b>,
+            suave a trozos:
             \[
-            \int_\alpha df=0
+            \int_\alpha df=0.
             \]
-            para toda \(\alpha:[a,b]\to U\), curva <b>cerrada</b>,
-            suave a trozos.
+            </li>
+            <li> Si \(\beta \) y \(\gamma\)
+              son dos curvas suaves a trozos (cuyas trazas
+              están contenidas en \(U\)) que empiezan y terminan igual
+              entonces
+              \[
+              \int_\beta \omega= \int_\gamma \omega
+              \]
+            </li>
           </p>
+
+          <button class="respButton hvr-grow"> Respuesta de 1 </button>
+            <div class="resp-box">
+          <p>
+            Inciso 1
+          </p>
+          <p>
+            Sea \(\alpha:[a,b]\to U\) curva cerrada, suave a trozos. Ya que \(f\) es \(C^1\)
+            y \(\alpha\) es suave a trozos (contenida en \(U\)) podemos
+            aplicar directamente el <a href="#Teo:2TF">Segundo Teorema Fundamental</a> para integrales
+            de línea y obtener
+            \[
+            \int_\alpha df= f(\alpha(b))-f(\alpha(a)).
+            \]
+            Pero, ya que \(\alpha\) es cerrada \(\alpha(a)=\alpha(b)\),
+            de donde se sigue que \(\int_\alpha df =0\).
+          </p>
+          <p>
+            Inciso 2.
+          </p>
+          <p>
+          Sean \(\beta:[a,b]\to U\) y \(\gamma:[c,d]\to U\) curvas
+          suaves a trozos que empiezan y terminan igual.
+          Ahora definimos \(\tilde{\gamma}: [c,d] \to U \)
+          como \(\gamma (t) = \beta(a+b -t)\), por el
+          <a href="./S3.html#Ejer:invertirOrientacion"> Ejercicio 3.6</a> \(\tilde{\gamma}\)
+          invierte la orientación.
+          Por lo tanto por el <a href="./S4.html#Ejer:orientacion">Ejercicio 4.4</a>
+
+          \begin{equation*}
+          \int_{\tilde{\gamma}}\omega = -\int_{\gamma}\omega
+          \end{equation*}
+
+          Por otro lado, ya que \(\beta\) y
+          \(\gamma\) empiezan en el mismo punto y
+          terminan en el mismo punto \(\beta \vee \tilde{\gamma}\) está bien
+          definida y  es una curva cerrada
+          (suave a trozos). Entonces por el primer inciso
+
+          \begin{equation*}
+          \int_{\alpha \vee \gamma}\omega = \int_{\alpha \vee \gamma}df = 0,
+          \end{equation*}
+
+          Y por el <a href="S4.html#Ejer:aditividad">Ejercicio 4.12</a> obtenemos
+
+          \begin{eqnarray*}
+          \int_{\alpha \vee \gamma}\omega
+          & = &
+          \int_{\alpha}\omega + \int_{\gamma}\omega \\
+          & = & \int_{\alpha}\omega - \int_{\beta}\omega
+          \end{eqnarray*}
+
+          Por lo tanto \(\int_{\beta}\omega - \int_{\gamma}\omega = 0\).
+          Es decir \(\int_{\beta}\omega = \int_{\gamma}\omega\).
+          Por lo tanto, hemos demostrado que la integral de línea de
+          \(\omega\) es independiente de la trayectoria.
+        </div>
         </div>
 
         <div class="ejercicio-box">
@@ -594,7 +744,58 @@
                 \((0,0)\) con \((0,\pi)\).
 
             </ol>
+          <button class="respButton hvr-grow"> Respuesta de 1 </button>
+            <div class="resp-box">
+                    <p>
+                    Sea \(\omega := (3x^{2}e^{-y})dx + (-x^{3}e^{-y} + y)dy\),
+                    es claro que \(\omega\) es una 1-forma diferenciable. Además si consideramos
+                    la siguiente función \(f(x,y) = x^{3}e^{-y} + \frac{y^{2}}{2}\)
+                    obtenemos que \(\omega = df\), es decir \(\omega\) es exácta.
+                    </p>
+                    <p>
+                      Antes de proseguir con el ejercicio, recordemos cómo se
+                      obtiene \(f\). Recordemos que \(df=\omega\) implica
+                      \[
+                      \partial_x f = 3x^2e^{-y}, \quad \partial_y = -x^{3}e^{-y}+y
+                      \]
+                      Integrando
+                      \begin{eqnarray*}
+                      \partial_x f = 3x^2e^{-y} \Rightarrow
+                       f=\int \partial_x f dx
+                       &=& \int 3x^2e^{-y} dx \\
+                       &=&  x^3e^{-y}+F(y)
+                      \end{eqnarray*}
+                      Diferenciando
+                      \[
+                      f=x^3e^{-y}+F(y) \Rightarrow \partial_y f= -x^3e^{-y}+F'(y)
+                      \]
+                      Pero \(\partial_y f= -x^3e^{-y}+y \) por lo que
+                      igualando y despejando obtenemos \(F'(y)=y\) y por lo tanto
+                      podemo tomar \(F(y)=\frac{y^2}{2}\) de lo que se sigue que
+                      \(f(x,y)=x^3e^{-y}+\frac{y^2}{2}\).
+                    </p>
+                    <p>
+                      Ya que hemos probado que existe \(f\), clase \(C^1\)
+                      con \(\omega=df\), aplicando el
+                      <a href="#Ejer:integralCurvaCerradaCero">Ejercicio 6.19</a>,
+                      concluimos que la integral de línea no depende
+                      de la trayectoria que une \((1,1)\) con \((2,3)\).
+                    </p>
 
+                    <p>
+                    Por último calculemos
+                    \(\int_{\alpha}(3x^{2}e^{-y})dx + (-x^{3}e^{-y} + y)dy\),
+                    donde \(\alpha\) es cualquier trayectoria que une \((1,1)\) con \((2,3)\).
+                    Usando el <a href="#Teo:2TF">Segundo Teorema Fundamental</a> de las
+                    integrales de línea obtenemos
+
+                    \begin{eqnarray*}
+                    \int_{\alpha}\omega  =  \int_{\alpha}df & = & f(2,3) - f(1,1) \\
+                     & = & 8e^{-3} +\dfrac{9}{2} - \left(e^{-1} + \dfrac{1}{2} \right) \\
+                     & = & 8e^{-3} -e^{-1} + 4
+                    \end{eqnarray*}
+                  </p>
+            </div>
         </div>
 
 
@@ -654,9 +855,9 @@
                 </div>
 
 
-        <div class="teorema-box">
+        <div class="teorema-box" >
           <h2 class="number-title"> Teorema </h2>
-          <h3> Primer Teorema Fundamental de integrales de línea </h3>
+          <h3> Segundo Teorema Fundamental de integrales de línea </h3>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
             \(\mathbb{R}:U\to \mathbb{R}^n\) un campo vectorial continuo en \(U\).
