@@ -76,36 +76,136 @@
 
             <div class="nota">
               <h2 class="card"> Introducción </h2>
+              <p>
               Recordamos que nuestro objetivo inmediato es definir una
-              integral 1-dimensional, para lo cual debemos de limitar los
-              objetos 1-dimensionales que ésta integral va a medir. Estos
-              objetos serán las trayectorias parametrizadas suaves. El resto de ésta
-              sección se enfoca en dichas trayectorias.
+              integral 1-dimensional, para lo cual debemos de definir los
+              objetos 1-dimensionales que ésta integral va a medir. Dichos
+              objetos los vamos a llamar curvas o trayectorias.
+            </p>
+            <p>Intuitivamente
+              una curva o trayectoria es on objeto en donde sólo tenemos un
+              parametro de libertad para movernos. Por ejemplo, si nos imaginamos
+              viajando sobre la curva sólo tendríamos dos opciones
+              para movernos, para adelante o para atrás (como una hormiga
+              moviendose sobre un cable muy delgado). Matemáticamente ya se han
+              topado con objetos así (líneas rectas, círculos), pero hay que
+              ser cuidadosos pues hay objetos que parecerían curvas pero
+              para los cuales las herramientas del cálculo diferencial e integral
+              que desarrollaremos no son las mejores (por ejemplo
+              <a href="https://en.wikipedia.org/wiki/Koch_snowflake">el
+              copo de nieve de Koch</a>).
 
+
+            </p>
+            <p>
+              Vamos a ver con más detalle los ejemplos de la línea recta y
+              el círculo para llegar una definición satisfactoria de
+              objetos 1-dimensionales que vamos a poder manejar.
+            </p>
+            <p>
+              Una línea recta, en el plano, está dada por una ecuación de la forma
+              \(y=mx+b\), donde \(m\) es la pendiente y \(b\) la intersección
+              con el eje \(y\). Para ser más específicos la recta consiste en
+              el conjunto
+              \[
+              L=\{(x,y)\in \mathbb{R}^2: y=mx+b\}.
+              \]
+            </p>
+            <p>
+              De manera similar, un círculo centrado en \((x_0,y_0)\) y
+              radio \(r>0\) es el conjunto
+              \[
+              C=\{(x,y)\in \mathbb{R}^2: (x-x_0)^2+(y-y_0)^2=r^2\}.
+              \]
+            </p>
+            <p>
+              Podríamos intentar definir una curva en el espacio \(\mathbb{R}^n\)
+              como un subconjunto de \(\mathbb{R}^n\) que satisface ciertas
+              ecuaciones algebráicas (como en \(C\) y \(L\)). Aunque este camino es posible,
+              para el cálculo diferencial e integral esta definición presenta algunos problemas. Uno,
+              que realmente es técnico y se pude resolver, es que con esta
+              definición podríamos obtener objetos muy grandes y grande quiere
+              decir no compacto, como \(L\). Otro problema más de fondo es que
+              dichas descripciones de curvas no vienen con una orientación integrada
+              y ya establecimos que la orientación es muy importante en la integral
+              que queremos definir. Por ejemplo, en el círculo \(C\) hay dos orientaciones,
+              en el sentido contrario a las manecillas del reloj (llamado sentido
+              positivo) o en el sentido de las manecillas del reloj (llamado sentido
+              negativo).
+            </p>
+            <p>
+              Por lo tanto, necestiamos una descripción de objetos como \(L\)
+              (o cachos de \(L\)) y \(C\) que nos de tanto el conjunto como
+              su orientación. Volvamos al ejemplo del círculo.
+            </p>
+              <p>Otra manera
+              de describir al círculo es con las ecuaciones paramétricas
+              \[
+              x=r\cos(t)+x_0, \quad y=r\sin(t)+y_0, \quad t\in [0,2\pi].
+              \]
+              Nota que entonces
+              \[
+              C=\{(r\cos(t)+x_0,r\sen(t)+y_0): t\in [0,1]\}
+              \]
+              lo cual está bien pues no hemos perdido información sobre \(C\), pero
+              ya ganamos la orientación. ¿Dónde está la orientación? En el  intervalo
+              \([0,2\pi]\). En efecto, en \([0,2\pi]\) 0 es el primer punto y
+              \(2\pi\) es el último, es decir, la orientación está dada por
+              el orden del intervalo. La orientación de \([0,2\pi]\) la pensamos
+              que va de izquierda a derecha. Ahora, si empezamos a dibujar
+              los puntos \(x=r\cos(t)+x_0\) y \(y=r\sen(t)+y_0\) empezando por
+              \(t=0\) y vamos moviendo \(t\) hacia \(2\pi\) el círculo \(C\) se dibuja
+              en el sentido contrario a las manecillas del reloj.
+            </p>
+            <p>
+              Entonces, con esta descripción paramétrica de
+              tenemos dos cosas, el conjunto \(C\) y la orientación. Además
+              la descripción paramétrica está dada mediante funciones de una variable
+              (\(x(t)=r\cos(t)+x_0\) y \(y(t)=r\sen(t)+y_0\)) para las
+              cuales el cálculo diferencial e integral está perfectamente
+              diseñado para manejarlas. Así, ¡esta descripción es la ideal
+              y la que sirve para hacer las cuentas!
+            </p>
             </div>
 
 
     <div class="definicion">
-      <h2 class="card"> Definición </h2>
+      <h2 class="card" id="Def:curvaParametrizada"> Definición </h2>
       <p>A una función continua \(\alpha:[a,b]\to \mathbb{R}^n\)
-      se le llama una <b>trayectoria o curva parametrizada continua</b> en \(\mathbb{R}^n\).
-      La trayectoria se llama <b>suave</b> si la derivada \(\alpha' \) existe
+      se le llama una <b>trayectoria o curva parametrizada continua</b>
+      en \(\mathbb{R}^n\), o simplemente una trayectoria continua.
+      </p>
+      <p>La trayectoria se llama <b>suave</b> si la derivada \(\alpha' \) existe
        y es continua en todo punto de \( (a,b) \). Por ejemplo,
        en \(\mathbb{R}^2\) una curva tiene dos funciones coordenadas
        \(\alpha(t)=(x(t),y(t))\) y para que \(\alpha\) sea suave
        es equivalente pedir que las funciones \(x, y\) sean clase \(C^1\).
        </p>
        <p>El punto \(\alpha(a)\) se llama el punto inicial y el
-       punto \(\alpha(b)\) se llama punto final. Si \(\alpha(a)=\alpha(b)\)
+       punto \(\alpha(b)\) se llama punto final.
+     </p>
+     <p>Si \(\alpha(a)=\alpha(b)\)
        la trayectoria se llama cerrada y si los extremos son los
        únicos puntos donde la tayectoria coincide, se llama trayectoria
-       cerrada simple. La <b>traza</b> de \(\alpha\) es simplemente su imagen,
+       cerrada simple.
+     </p>
+     <p>
+       La <b>traza</b> de \(\alpha\) es simplemente su imagen,
        es decir la traza es
        \[
        \{\alpha(t): t\in [a,b] \} \subset \mathbb{R}^n
        \]
-       y es la representación gráfica de \(\alpha\) que usualmente se puede ver.
+       y es la representación gráfica de \(\alpha\) que usualmente se puede ver
+       (como el círculo \(C\) de la introducción).
       </p>
+       <p> Para hacer la taoría más flexible vamos a ampliar la clase
+         de curvas que vamos a estudiar. Vamos a considerar curvas
+         que estan formadas por "cachos suaves". Por ejemplo las
+         que se forman con pegar cachos de circunferencia
+         y segmentos de línea o curvas que tienen picos
+         (como la gráfica del valor absoluto). Estas curvas se llaman suaves a 
+         trozos.
+       </p>
        <p>Una trayectoria \(\beta:[a,b] \to \mathbb{R}^n\) se llama <b>suave a
        trozos</b> si existe una partición \(\{ a=t_0< t_1 < \cdots < t_n=b \}\)
        de \([a,b]\), tal que para todo \(i=1,\dots, n\), \(\beta\) restringida a
@@ -134,6 +234,7 @@
         </div>
        </p>
      </div>
+
 
       <div class="ejercicio">
           <h2 class="card"> Ejercicio </h2>
