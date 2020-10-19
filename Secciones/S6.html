@@ -215,6 +215,7 @@
           </p>
           <p>
             Sugerencia: haz unos dibujos.
+            Nota: para describir las trayectorias no hay que ser formal en este ejercicio.
           </p>
       </div>
 
@@ -240,7 +241,7 @@
           </p>
         </div>
 
-        <div class="ejercicio-box">
+        <div class="ejercicio-box" id="Ejer:dfCeroConstante">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
           Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto conexo
@@ -384,7 +385,8 @@
           <p>
             Sugerencia: <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>
             o <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.6</a>
-            son útiles para probar que una 1-forma NO es exácta.
+            son útiles para probar que una 1-forma NO es exácta. Si crees que
+            hay una función potencial trata de encontrarla integrando y/o diferenciando.
           </p>
 
 
@@ -506,6 +508,9 @@
                       Si \(f,g:U\to \mathbb{R}\) son dos funciones potenciales
                       de \(\omega\). Prueba que \(f-g\) es constante.
                     </p>
+                    <p>
+                      Sugerencia: usa el  <a href="#Ejer:dfCeroConstante">Ejercicio 6.7</a>.
+                    </p>
                 </div>
 
         <div class="ejercicio-box">
@@ -521,6 +526,9 @@
                 \partial_x h(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}x,\quad
                 \partial_y h(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}y,
                 \]
+                <p>
+                  Sugerencia: regla de la cadena a \(h\).
+                </p>
               </li>
               <li> <p>Un campo vectorial \(\mathbb{F}\) en \(\mathbb{R}^2\)se llama
               radial si puede escribirse de la forma \(\mathbb{F}(x,y)=f(\|(x,y)\|)(x,y)\),
@@ -828,6 +836,9 @@
                           \end{array}
                           \right.
                           \]
+
+                          Recuerda que la función \(\arctan\) toma valores
+                          en el intervalo \((-\pi/2,\pi/2)\).
                       </li>
                       <li>
                         Del inciso anterior prueba que
@@ -837,6 +848,27 @@
                         \]
                         Por lo que \(\theta\) es una función potencial de \(\omega\),
                         es decir \(\omega\) es exácta.
+                        <p>
+                          Sugerencia: El caso difícil es tomar las
+                          parciales en el punto \((0,y)\), \(y\ne 0\) . Para estos
+                          casos debes probar los siguientes límites latereales:
+                        </p>
+                        <p>
+                          Para \(\partial_x \theta(0,y)\):
+                          \[
+                          \lim_{h\to 0^+} \frac{\theta(h,y)-\theta(0,y)}{h}=-\frac{1}{y},
+                          \lim_{h\to 0^-} \frac{\theta(h,y)-\theta(0,y)}{h}=-\frac{1}{y},
+                          \]
+                          los cuales puedes probar usando LH'ospital.
+                        </p>
+                        <p>
+                          Para \(\partial_y \theta(0,y)\):
+                          \[
+                          \lim_{h\to 0^+} \frac{\theta(0,y+h)-\theta(0,y)}{h}=0,
+                          \lim_{h\to 0^-} \frac{\theta(0,y+h)-\theta(0,y)}{h}=0,
+                          \]
+                          los cuales puedes probar usando LH'ospital.
+                        </p>
                       </li>
                       <li>
                         Por el ejercicio 4.6, si \(\alpha\) es el circulo unitario
@@ -847,7 +879,7 @@
                         Sin embargo, por el Segundo Teorema Fundamental
                         de integrales de línea, la integral de una 1-forma
                         exácta sobre una trayectoria cerrada es cero
-                        (ver <a href="#Ejer:equivFormaExacta"> Ejercicio  </a>). ¿Dónde
+                        (ver <a href="#Ejer:integralCurvaCerradaCero"> Ejercicio 6.19 </a>). ¿Dónde
                         está el error?
                       </li>
                     </ol>
