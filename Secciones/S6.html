@@ -162,7 +162,16 @@
           Los conjuntos conexos son los que se pueden pensar
           de una sola pieza.
         </p>
-
+        <p>
+          La primera condición dice que, toda la trayectoria debe de quedarse
+          dentro de \(U\). Otra forma de decirlo es que la traza de la curva
+          está totalmente contenida en \(U\) lo cual puede denotarse
+          \(\alpha\subset U\), aunque es una buso de notación.
+        </p>
+        <p>
+          La segunda condición se puede leer como que la curva empieza en \(P\) y termina en
+          \(Q\).
+        </p>
         <p>
           Un conjunto abierto se llama <b>disconexo</b> si se puede
           esribir como la unión disjunta de dos o más subconjuntos
@@ -262,7 +271,7 @@
           target="_blank">derivada exterior</a>). Prueba que \(f\) es constante
           en \(U\).
           </p>
-          <p>
+          <!--<p>
             Sugerencia: usa el <a href="S2.html#Ejer:DerivadaCeroConstanteBolas">
               Ejercicio 2.9</a>
             para probar que, para cualquier \(P\in U\) existe
@@ -270,7 +279,7 @@
             en \(B_{r_P}(P)\).
             Después usa la conexidad de \(U\) para probar que
             es la misma constante para cualesquiera  bolas.
-          </p>
+          </p>-->
           <button class="respButton hvr-grow"> Respuesta </button>
                 <div class="resp-box">
                   <div class="video flexbox">
@@ -304,10 +313,10 @@
                   \]
                   </p>
                   <p>
-                    Auna función escalar  \(f\) que cumple
+                    A una función escalar  \(f\) que cumple
                     \(\nabla f=\mathbb{F}\) ó \(df=\omega\) se le llama una
                     función potencial de \(\mathbb{F}\)
-                  ó  de \(\omega\) respectivamente.
+                  ó  de \(\omega\), respectivamente.
                   </p>
                   <p>
 
@@ -360,7 +369,7 @@
             La ley de gravedad de Newton dice que la fuerza ejercida
             por un cuerpo de masa \(M\) sobre otro de masa \(m\), es un
             vector de longitud \(\frac{GMm}{r^2}\) que apunta hacia
-            el cuerpo de masa \(M\), done \(G\) es una constante
+            el cuerpo de masa \(M\), donde \(G\) es una constante
             y \(r\) es la distancia entre los cuerpos.
             <ol>
               <li> Posiciona el cuerpo de masa \(M\) en el origen
@@ -370,11 +379,18 @@
               \mathbb{F}(x,y,z)=-\frac{GMm}{r^3}(x,y,z)
               \]
               satisface las condiciones de la fuerza de gravedad de Newton.
+              <p>
+                Sugerencia: checa que la magnitud y dirección sean las
+                adecuadas.
+              </p>
               </li>
               <li>
-                Prueba que la función \(f(x,y,z)=GMm\frac{-1}{\|(x,y,z)\|}\)
+                Prueba que la función \(f(x,y,z)=GMm\frac{1}{\|(x,y,z)\|}\)
                 es una función potencial para \(\mathbb{F}\), llamada
                 el potencial de Newton.
+                <p>
+                  Sugerencia: prueba que \(\nabla f=\mathbb{F}\).
+                </p>
               </li>
             </ol>
           </p>
@@ -532,26 +548,27 @@
               <li>
                 Sea \(g:[0,\infty)\to \mathbb{R}\), cotinua en \([0,\infty)\)
                 y diferenciable en \((0,\infty)\). Define
-                \(h(x,y)=g(\|(x,y)\|)\). Prueba que,
+                \(f(x,y)=g(\|(x,y)\|)\). Prueba que,
                 para \((x,y)\ne (0,0)\)
                 \[
-                \partial_x h(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}x,\quad
-                \partial_y h(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}y,
+                \partial_x f(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}x,\quad
+                \partial_y f(x,y)= \frac{g'(\|(x,y)\|)}{\|(x,y)\|}y,
                 \]
                 <p>
-                  Sugerencia: regla de la cadena a \(h\).
+                  Sugerencia: regla de la cadena a \(f\).
                 </p>
               </li>
               <li> <p>Un campo vectorial \(\mathbb{F}\) en \(\mathbb{R}^2\)se llama
-              radial si puede escribirse de la forma \(\mathbb{F}(x,y)=f(\|(x,y)\|)(x,y)\),
-              para alguna función \(f:[0,\infty)\to \mathbb{R}\).</p>
+              radial si puede escribirse de la forma \(\mathbb{F}(x,y)=R(\|(x,y)\|)(x,y)\),
+              para alguna función \(R:[0,\infty)\to \mathbb{R}\).</p>
               <p>
-                Si \(\mathbb{F}\) es radial con \(f\) continua, prueba que
+                Si \(\mathbb{F}\) es radial con \(R\) continua, prueba que
                 \(\mathbb{F}\) es un campo conservativo.
               </p>
               <p>
                 Sugerencia: usa el inciso anterior con \(g\)
-                definida como \(g(r)=\int_0^r f(t)tdt\).
+                definida como \(g(r)=\int_0^r R(t)tdt\) para después encontrar
+                una función potencial de \(\mathbb{F}\)
               </p>
               </li>
             </ol>
@@ -696,7 +713,7 @@
                   <h2 class="number-title"> Nota </h2>
                   <p>
                     Empezamos con el Segundo TF pués es el más fácil de entender,
-                    el que necesita menos construcciones.
+                    pues es el que necesita menos construcciones.
                   </p>
                   <p>
                     El teorema resuelve completamente el problema de calcular
@@ -740,7 +757,7 @@
                   <div class="video flexbox">
                     <a href="https://youtu.be/CyYX4NgOn7c" target="_blank"> Video </a>
                     </div>
-                  </div>
+</div>
                         </div>
 
         <div class="ejercicio-box">
@@ -765,7 +782,7 @@
             </li>
           </p>
 
-          <button class="respButton hvr-grow"> Respuesta de 1 </button>
+          <button class="respButton hvr-grow"> Respuesta </button>
             <div class="resp-box">
           <p>
             Inciso 1
@@ -1102,7 +1119,9 @@
                     nos da una forma de pasar de un objeto 1-dimensional
                     (integral de línea) a uno cero dimensional (valuar la
                     función potencial en el punto inicial y final). El resultado
-                    es profundo pues se va a extender a otras dimensiones.
+                    es profundo pues se va a extender a otras dimensiones y que
+                    finalmente se convertiran en los Teoremas de Green, Gauss
+                    y Stokes.
                   </p>
                 </div>
 
