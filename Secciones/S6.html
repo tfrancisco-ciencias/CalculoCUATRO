@@ -666,6 +666,27 @@
                   \int_\alpha df =f(\alpha(b))-f(\alpha(a))
                   \]
                 </p>
+                <p>
+                  Para terminar vamos a ver el caso cuando \(\alpha\) es suave
+                  a trozos.
+                </p>
+                <p>
+                  Ya que \(\alpha\) es suave a trozos, existe una partición
+                  \(\{a=t_0< \cdots< t_n=b\}\) tal que \(\alpha\)
+                  restringida a \([t_{i-1},t_i]\) es suave. Por el caso anterior,
+                  si \(\alpha_i\) es la restricción a \([t_{i-1},t_i]\), tenemos:
+                  \[
+                  \int_{\alpha_i}df=f(\alpha(t_i))-f(\alpha(t_{i-1}))
+                  \]
+                  de donde se sigue
+                  \[
+                  \int_\alpha df= \sum_{i=1}^n \int_{\alpha_i}df=\sum_{i=1}^n
+                  f(\alpha(t_i))-f(\alpha(t_{i-1}))=f(\alpha(b))-f(\alpha(a))
+                  \]
+                  donde la primera identidad es la definición de la integral
+                  sobre curvas suaves a trozos y la última es porque tenemos
+                  una suma telescópica.
+                </p>
 
               </div>
         </div>
@@ -1061,6 +1082,20 @@
 
                 <div class="nota-box">
                   <h2 class="number-title"> Conclusión </h2>
+                  <p>
+                    Los dos teoremas fundamentales son dos caras de la misma
+                    moneda. El primero dice que, mientras el integrando sea
+                    continuo (sobre un dominio conexo), siempre tenemos una
+                    función potencial. El segundo dice cómo calcular
+                    la integral una vez que ya tenemos la función potencial.
+                  </p>
+                  <p>
+                    Otro aspecto importante es que el Segundo Teorema Fundamental
+                    nos da una forma de pasar de un objeto 1-dimensional
+                    (integral de línea) a uno cero dimensional (valuar la
+                    función potencial en el punto inicial y final). El resultado
+                    es profundo pues se va a extender a otras dimensiones.
+                  </p>
                 </div>
 
 
