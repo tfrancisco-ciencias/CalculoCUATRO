@@ -168,6 +168,18 @@
           esribir como la unión disjunta de dos o más subconjuntos
           abiertos conexos y no vacíos.
         </p>
+
+        <p>
+          El el video se presentan algunos ejemplo.
+
+
+          <div class="video flexbox">
+            <a href="https://youtu.be/PT_IeN3pfmQ" target="_blank"> Video </a>
+            </div>
+
+
+        </p>
+
       </div>
 
 
@@ -262,7 +274,7 @@
           <button class="respButton hvr-grow"> Respuesta </button>
                 <div class="resp-box">
                   <div class="video flexbox">
-                    <a href="https://youtu.be/qimO6k_wa3k" targer="_blank"> Video </a>
+                    <a href="https://youtu.be/qimO6k_wa3k" target="_blank"> Video </a>
                     </div>
                   </div>
         </div>
@@ -605,6 +617,57 @@
               \int_\alpha \nabla f \cdot d\alpha = f(\alpha(b))-f(\alpha(a))
               \]
             </p>
+
+
+            <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+                <p>
+                  La demostración no es muy difícil y se basa en el Segundo
+                  Teorema Fundamental de Cálculo (de una variable).
+                </p>
+                <p>
+                  Primero vamos a suponer que \(\alpha:[a,b]\to U\)
+                  es una curva suave (sin "picos"). Definimos la función escalar
+                  \(\varphi:[a,b]\to \mathbb{R}\) por
+                  \(\varphi(t)= f(\alpha(t))\). Ya que \(f\) y  \(\alpha\)
+                  son diferenciables \(\varphi\) también lo es
+                  y  podemos aplicar la regla de la cadena
+                  para obtener que
+                  \[
+                  \varphi'(t)=\frac{\partial f}{\partial_{x_1}}(\alpha(t))
+                  \frac{d x_1}{d t}(t) + \cdots
+                  +\frac{\partial f}{\partial_{x_n}}(\alpha(t))
+                  \frac{d x_n}{d t}(t)
+                  \]
+                  donde \(\frac{d x_j}{dt}=\alpha_j'\) y tenemos las
+                  funciones coordenadas de \(\alpha=(\alpha_1,\dots, \alpha_n)\).
+                  Entonces tenemos
+                  \[
+                  \varphi'(t)= \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
+                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t)
+                  \]
+                  donde el lado derecho de la ecuación anterior es precisamente
+                  el integrando la la integral de línea \(\int_\alpha df=\int_\alpha \partial_{x_1}f dx_1+\cdots+
+                  \partial_{x_n}dx_{x_n} \),
+                  por lo tanto
+                  \begin{equation}\label{Eqn:TFILequation1}
+                  \int_\alpha df =\int_a^b \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
+                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t) dt
+                  =\int_a^b \varphi'(t)dt.
+                  \end{equation}
+                  Por el Segundo Teorema Fundamental de Cálculo, y tomando que
+                  \(\alpha'\) es contina (ya que \(f\) y \(\alpha\) son clase \(C^1\))
+                  tenemos
+                  \begin{equation}\label{Eqn:TFC1aplicado}
+                  \int_a^b \varphi'(t)dt=\varphi(b)-\varphi(a)=f(\alpha(b))-f(\alpha(a))
+                  \end{equation}
+                  Concluimos de \eqref{Eqn:TFILequation1} y \eqref{Eqn:TFC1aplicado}
+                  \[
+                  \int_\alpha df =f(\alpha(b))-f(\alpha(a))
+                  \]
+                </p>
+
+              </div>
         </div>
 
 
@@ -889,10 +952,10 @@
 
         <div class="teorema-box" >
           <h2 class="number-title"> Teorema </h2>
-          <h3> Segundo Teorema Fundamental de integrales de línea </h3>
+          <h3> Primer Teorema Fundamental de integrales de línea </h3>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
-            \(\mathbb{R}:U\to \mathbb{R}^n\) un campo vectorial continuo en \(U\).
+            \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial continuo en \(U\).
           </p>
           <p>
             Supon que las integrales de línea de \(\mathbb{F}\) sólo dependen
