@@ -1,0 +1,184 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 6 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 6 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> Aplicaciones de la integral de línea </h1>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Considera una partícula que se mueve bajo la acción de un campo
+          de fuerza continuo \(\mathbb{F}\). Si la trayectoria de la partícula
+          está dibujada por la traza de una  trayectoria suave
+          a trozos \(\alpha\), el trabajo realizado por \(\mathbb{F}\) para
+          mover la partícula se define como
+          \[
+          \int_\alpha \mathbb{F}\cdot d\alpha
+          \]
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Un campo de fuerza está dado por \(\mathbb{F}=(y,zx,xy-x^2z)\). Calcula
+          el trabajo realizado al mover una partícula desde el origen
+          al punto \((1,5,2)\) (en esa dirección).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2  class="number-title"> Ejercicio </h2>
+        <p>
+          Un campo de fuerza en el plano está dado por \(\mathbb{F}(x,y)=(x^2-y^2,2xy)\).
+        </p>
+          <p>
+            Fija dos números positivos \(a,b\) y por \(\alpha\) denota la trayectoria
+          formada por el rectángulo con vértices \((0,0),(a,0),(a,b),(0,b)\),
+          recorrida en  ese orden, una sóla vez.
+        </p>
+        <ol>
+          <li>
+            Encuentra el trabajo realizado por \(\mathbb{F}\).
+          </li>
+          <li>
+            Si ponemos la condición de que \(a+b=1\), encuentra las
+            \(a\) y \(b\) que dan la trayectoria  con el trabajo máximo
+            y mínimo.
+          </li>
+        </ol>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera un campo de fuerza en el plano de la forma
+          \(\mathbb{F}(x,y,z)=(f_1(x,y),xy)\), donde
+          \(f_1\) es una función continua en \(\mathbb{R}^2\).
+        </p>
+        Prueba que el trabajo realizado por \(\mathbb{F}\) para
+        mover una partícula a lo largo del eje \(y\) siempre
+        es cero.
+        <p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Cosidera el campo de fuerza \(\mathbb{F}(x,y)=(3x-3y,5xy)\). Este
+          campo actua sobre una partícula que debe de moverse desde el origen
+          hasta la recta \(x=1\) a lo largo de una línea recta de la forma
+          \(y=ax\), con \(a\geq 0\).
+        </p>
+        <p>
+          Encuentra los valores de \(a\) para los cuales el trabajo
+          realizado por la fuerza sobre la partícula sea cero.
+        </p>
+      </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio</h2>
+
+      <p>
+        Un campo de fuerza en \(\mathbb{R}^3\) está dado por
+        \(\mathbb{F}(x,y,z)=(z-x,2z-y,x-y)\). Considera la curva
+        \(\alpha\) que se obtiene al intersectar la esfera
+        \(x^2+y^2+z^2=9\) con el plano \(z=ay\) donde \(0< a \). La
+        curva \(\alpha\) se recorre una sóla vez en el sentido positivo cuando
+        se ve desde desde arriba del plano \(xy\). Calcula el trabajo
+        realizado por la fuarza al mover la partícula.
+      </p>
+      <p>
+        Sugerencia: escribe \(a\) como \(a=\tan(\theta)\) con
+        \(0<\theta<\pi/2\) y usa \(1+\tan^2(\theta)=\sen^2(\theta)\)
+        para obtener una parametrización de la curva \(\alpha\)
+        utilizando la elipse que se proyecta en el plano \(xy\).
+      </p>
+
+    </div>
+
+<!-- acaba contenido -->
+
+    </div>
+
+
+
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
