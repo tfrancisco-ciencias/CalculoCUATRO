@@ -86,6 +86,10 @@
           \[
           \int_\alpha \mathbb{F}\cdot d\alpha
           \]
+
+          La motivación de esta definición es
+          <a href="./S1.html#Ejer:trabajo">este Ejercicio</a> de la
+          Sección 1.
         </p>
       </div>
 
@@ -170,6 +174,132 @@
       </p>
 
     </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Encuentra un campo vectorial  no conservativo,
+        para el cual el trabajo realizado
+        al mover una partícula a lo largo de la curva
+        dada sea cero.
+        <ol>
+        <li> El círculo \(x^2+y^2=1\), recorrido
+          una sola vez en el sentido positivo.</li>
+        <li> El segmento de la hélice
+          dada por \(\alpha(t)=(\cos(t),\sen(t),t)\), \(0\leq t \leq 4\pi \)
+          .</li>
+        </ol>
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio  </h2>
+        <p>
+          Encuentra un campo vectorial tal que el trabajo realizado
+          al mover una partícula a lo largo del cuadrado con vértices
+          \((0,0), (2,0), (2,2), (0,2)\), recorrido en ese orden,
+          es \(5\).
+        </p>
+    </div>
+
+
+
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Dada una trayectoria parametrizada suave
+          a trozos, \(\alpha:[a,b]\to \mathbb{R}^n\).
+          La <b>función longitud de arco</b> de la curva \(\alpha\)
+          se define como
+          \[
+          s(t)=\int_a^t \|\alpha'(u) \|du
+          \]
+          Nota que, ya que \(\alpha'\) es continua, el Teorema
+          Fundamental del Cálculo implica que
+          \[
+          s'(t)=\|\alpha'(t)\|, \forall t
+          \]
+          La <b>lontigud de arco de \(\alpha\)</b> (o simplemente
+          longitud) se define como
+          \[
+          \textrm{longitud(\(\alpha\))}:=\int_a^b \| \alpha'(u)\|du
+          \]
+
+
+        <p>
+
+    </div>
+
+    <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>Es muy importante notar que, gracias al
+          <a href="./S5.html#Ejer:invarianzaIintLongArc">Ejercicio</a>,
+        la longitud de arco NO depende de la parametrización
+        de la curva, es decir, la longitud es una
+        característica intrínsica de la curva.
+        </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Usando la Definición de longitd de arco de una curva suave, prueba:
+        <ol>
+          <li>
+            La longitd del segmento que une dos puntos, \(P\) y \(Q\),
+            es \(\|P-Q\|\).
+          </li>
+          <li>
+            La longitud de una circunferencia de radio \(r>0\) es
+            \(2\pi r\).
+          </li>
+        </ol>
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Calcula la longitud de arco de las siguientes curvas.
+          <ol>
+            <li>
+              \(\alpha(t)=(e^{t}\cos(t), e^{t}\sen(t))\), \(0 \leq t \leq 2\pi\).
+            </li>
+            <li>
+              \(\alpha(t)=(3t,\frac{1}{2}t^2,t^3)\), \(0 \leq t \leq 2\).
+            </li>
+          </ol>
+        </p>
+    </div>
+
+
+
+            <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Considera una elipse parametrizada por
+                    \(\alpha(t)=(a\cos(t),a\sen(t))\), \(0\leq t \leq 2\pi\)
+                    con \( 0 < b < a \). Muestra que la longitud de arco
+                    de la elipse es
+                    \[
+                    L=4a\int_0^{\pi/2} \sqrt{1-e^2\sin^2(t)}dt
+                    \]
+                    donde \(e=\frac{\sqrt{a^2-b^2}}{a}\) (llamada la
+                    exentricidad de la elipse).
+                  </p>
+                  <p>
+                    Este tipo de integrales se llama
+                    <a href="https://en.wikipedia.org/wiki/Elliptic_integral"
+                    target="_blank">integrales
+                    elípticas </a>. Excepto por casos sencillos
+                    no se pueden integrar mediante funciones elementales
+                    y son toda una area de estudio. 
+                  </p>
+            </div>
+
 
 <!-- acaba contenido -->
 
