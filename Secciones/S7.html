@@ -166,14 +166,108 @@
         se ve desde desde arriba del plano \(xy\). Calcula el trabajo
         realizado por la fuarza al mover la partícula.
       </p>
-      <p>
+      <!--<p>
         Sugerencia: escribe \(a\) como \(a=\tan(\theta)\) con
         \(0<\theta<\pi/2\) y usa \(1+\tan^2(\theta)=\sen^2(\theta)\)
         para obtener una parametrización de la curva \(\alpha\)
         utilizando la elipse que se proyecta en el plano \(xy\).
+      </p>-->
+
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box">
+              <p>
+
+                Intuitivamente podemos ver que \(\alpha\) es una curva cerrada,
+                si \(\mathbb{F}\) fuera un campo conservativo, entonces
+                \(\int_{\alpha}\mathbb{F}\cdot d\alpha = 0\), es decir,
+                el trabajo realizado por la fuerza al mover la partícula es cero.
+                Pero en este caso \(\mathbb{F}\) no es un campo conservativo,
+                ya que \(\partial_{z}F_{2} = 2\) y \(\partial_{y}F_3 = -1\),
+                es decir \(\partial_{z}F_{2} \neq \partial_{y}F_3\).
+              </p>
+
+          <p>Empecemos por parametrizar la curva que se obtiene al intersectar
+          la esfera \(x^{2} + y^{2} + z^{2} = 9\) con el plano \(z = ay\) donde
+          \(0 < a\). Entonces sustituyendo \(z = ay\) en la ecuación
+          \(x^{2} + y^{2} + z^{2} = 9\) obtenemos \(x^{2} + y^{2} + a^{2}y^{2} = 9\),
+          simplificando llegamos a
+          \(x^{2} +  c^{2}y^{2} = 9\) donde \(c^{2} = 1 + a^2\)
+          que representa la ecuación de una elipse.
+        </p>
+        <p>
+          Una parametrización de esta elipse es
+          \(x(t) = 3\cos (t) \) y \( y(t) = \frac{3\sen (t)}{c}\) donde
+          \(t \in [0, 2\pi]\). Es claro que \(y(t)\) esta bien definida, ya que \(c > 0\).
+          Además cabe mencionar que esta parametrización de la elipse la recorre
+          en sentido contrario a las manecillas del reloj. Como \(z = ay\)
+          se sigue que \(z(t) = \frac{3a\sen (t)}{c}\).
+        </p>
+        <p>
+          Sea \(\alpha : [0, 2\pi] \subseteq \mathbb{R} \rightarrow
+          \mathbb{R}^{3}\) definida como
+          \[
+          \alpha (t) = (x(t), y(t), z(t))
+          =
+          \left(3\cos(t), \frac{3\sen (t)}{c}, \frac{3a\sen (t)}{c}\right)
+          \]
+
+          Por lo tanto \(\alpha\) es una parametrización de la curva que se
+          obtiene al intersectar la esfera \(x^{2} + y^{2} + z^{2} = 9\) con
+          el plano \(z = ay\).
+        </p>
+        <p>
+          Ahora procedemos a calcular \(\alpha^{\prime}(t)\).
+          Basta calcular \(x^{\prime}(t), y^{\prime}(t) \text{ y } z^{\prime}(t)\).
+          Entonces tenemos que \(x^{\prime}(t) = -3\sen(t), y^{\prime}(t) =
+          \frac{3\cos(t)}{c}  \text{ y } z^{\prime}(t) = \frac{3a\cos(t)}{c}\).
+        </p>
+        <p>
+          Por lo tanto,
+          \begin{eqnarray*}
+          \int_{\alpha}\mathbb{F}\cdot d\alpha
+          & = &
+          \int_{0}^{2\pi} \Bigg[\left(\frac{3a\sen(t)}{c} -3\cos(t)\right)(-3\sen(t))\\
+          & + & \left(\frac{2\cdot 3a\sen(t)}{c}
+          -\frac{3\sen(t)}{c}\right)\left(\frac{3\cos(t)}{c}\right) \\
+           &  & + \left(3\cos(t)
+           -\frac{3\sen(t)}{c}\right)\left(\frac{3a\cos(t)}{c}\right) \Bigg] dt \\
+           & = & \int_{0}^{2\pi} \Bigg[9\cos(t)\sen(t)
+           -\frac{9a}{c}\sen^{2}(t) \\
+           & + & \frac{18a}{c^{2}}\sen(t)\cos(t)
+           -\frac{9}{c^{2}}\sen(t)\cos(t) \\
+           &  & + \frac{9a}{c}\cos^{2}(t)
+           -\frac{9a}{c^{2}}\sen(t)\cos(t) \Bigg] dt \\
+           & = & \int_{0}^{2\pi} \Bigg[\left(9 + \frac{18a}{c^{2}}
+           -\frac{9}{c^{2}} -\frac{9a}{c^{2}}\right)\sen(t)\cos(t) \\
+           & + & \frac{9a}{c}\left(\cos^{2}(t) -\sen^{2}(t)\right) \Bigg] dt \\
+           & = & \int_{0}^{2\pi} \Bigg[\left(9 + \frac{9a}{c^{2}}
+           -\frac{9}{c^{2}} \right)\frac{\sen(2t)}{2}
+           + \frac{9a}{c}\cos(2t) \Bigg] dt \\
+           & = & \frac{1}{2}\left(9 + \frac{9a}{c^{2}}
+           -\frac{9}{c^{2}} \right)\int_{0}^{2\pi}\sen(2t) dt
+           +\frac{9a}{c}\int_{0}^{2\pi}\cos(2t) dt \\
+           & = & 0
+          \end{eqnarray*}
+
+          La última igualdad es consecuencia de que
+          \[
+          \int_{0}^{2\pi}\cos(2t) dt = \int_{0}^{2\pi}\sen(2t) dt = 0
+          \]
+        </p>
+        <p>
+          Una observación es que a pesar de que \(\mathbb{F}\) no es un
+          campo conservativo se tiene que
+          \(\int_{\alpha}\mathbb{F}\cdot d\alpha = 0\).
+        </p>
+        <p>
+          Por lo tanto el trabajo realizado por la fuerza al mover
+          la partícula es \(\int_{\alpha}\mathbb{F}\cdot d\alpha = 0\).
       </p>
+            </div>
 
     </div>
+
 
 
     <div class="ejercicio-box">
