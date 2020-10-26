@@ -325,7 +325,7 @@
 
       <p>
         Partir la curva es, formalmente, dar una partición
-        \(\{a=t_0< t_1< \dots < t_n=b\}\) de \([a,b]\) y considerar
+        \(\{0=t_0< t_1< \dots < t_n=1\}\) de \([0,1]\) y considerar
         los segmentos de la curva que van de \(\alpha(t_{i-1})\)
         a \(\alpha(t_i)\). Podemos aproximar la longitud de este
         segmento por \(\|\alpha(t_i)-\alpha(t_{i-1}) \|\). Por lo tanto
@@ -343,7 +343,7 @@
         \end{eqnarray*}
         Entonce la aproximación es
         \[
-        \sum_{i=1}^n (t_i-t_{i-1})\sqrt{1+(t_i+t_{i+1})^2}
+        \sum_{i=1}^n (t_i-t_{i-1})\sqrt{1+(t_i+t_{i+1})^2},
         \]
         la cual pede no decirnos mucho pero si le preguntamos a Riemann
         nos va a decir que es una aproximación de una integral. En efecto
@@ -356,7 +356,7 @@
         \sqrt{1+4(t_i^*)^2}
         \end{eqnarray*}
         donde \(t_i^*=(t_i+t_{i-1}/2)\) es le punto medio del intervalo
-        \([t_{i-1},t_i]\) y la aproximación de la longitd de la curva es
+        \([t_{i-1},t_i]\), la aproximación de la longitd de la curva es
         \begin{equation}\label{Eqn:SumaRiemann}
         \sum_{i=1}^n (t_i-t_{i-1})\sqrt{1+4(t_i^*)^2}
         \end{equation}
@@ -370,12 +370,12 @@
         y entonces podemos decir que la longitud de la curva va a ser esta integral.
       </p>
       <p>
-        Las cuentas de este ejercicio se pueden generalizar para una
+        Las cuentas de este ejercicio se pueden adaptarse para una
         curva más general usando el Teorema del Valor Medio para derivadas
         de funciones de varias variables, justo como en la introducción
-        de la integral de longitudes de arco. Lo que se llega de manera más general,
-        para una curva suave (o suave a trozos) \(\alpha\),
-        la aproximación mediante segmentos va a llevar a que la integral
+        de la integral de longitudes de arco. Lo que se llega es que para una curva
+        suave (o suave a trozos) \(\alpha\),
+        es que la aproximación mediante segmentos va a llevar a que la integral
         \[
         \int_a^b \| \alpha'(t) \| dt
         \]
@@ -383,7 +383,21 @@
         <p>
         </p>
         Nota que, para el ejemplo de la derviada \(\alpha'(t)=(1,2t)\)
-        y \(\|\alpha'(t) \|=\sqrt{1+4t}\), el integrando que encontramos.
+        y \(\|\alpha'(t) \|=\sqrt{1+4t^2}\), el integrando que encontramos.
+      </p>
+
+      <p>
+        Para encontrar el valor preciso de \(\int_0^1 \sqrt{1+4t^2}dt\) primero
+        hacemos el cambio de variable \(u=2t\), con \(du=2dt\) para obtener
+        \[
+        \int_0^1\sqrt{1+4t^2}dt=\frac{1}{2}\int_0^{2}\sqrt{1+u^2}du
+        \]
+        Esta última integral se puede hacer por substitución hiperbólica
+        o usar tablas de integrales para obtener
+        \[
+        \frac{1}{2}\int_0^{2}\sqrt{1+u^2}du=\frac{1}{2}
+        \left( \sqrt{5}+\frac{1}{2}\ln(2+\sqrt{5})  \right)
+        \]
       </p>
     </div>
 
@@ -420,6 +434,11 @@
         la longitud de arco NO depende de la parametrización
         de la curva, es decir, la longitud es una
         característica intrínsica de la curva.
+        </p>
+        <p>
+          En general, la integrales que aparecen al calcular longitudes
+          de arco son complicadas de hacer a mano pues aparecen
+          raíces cuadradas.
         </p>
     </div>
 
