@@ -948,9 +948,12 @@
                           \theta(x,y)=
                           \left\{
                           \begin{array}{cc}
-                          \arctan(y/x) & x>0 \\
-                          \pi/2 & x=0 \\
-                          \arctan(y/x)+\pi & x< 0 \\
+                          \arctan(y/x) & y>0, x>0 \\
+                          \pi/2 & y>0, x=0 \\
+                          \arctan(y/x)+\pi & y> 0,  x< 0 \\
+                          \arctan(y/x) & y< 0, x> 0 \\
+                          -\pi/2 &  y< 0, x=0 \\
+                          \arctan(y/x)-\pi & y< 0, x< 0  
                           \end{array}
                           \right.
                           \]
