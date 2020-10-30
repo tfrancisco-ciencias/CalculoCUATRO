@@ -326,16 +326,41 @@
         <h2 class="card"> Ejercicio </h2>
         Considera \(\alpha:[a,b]\to \mathbb{R}^n\) una trayectoria continua.
         Sea \([c,d]\) un intervalo arbitrario. Encuentra una trayectoria
-        continua \(\beta\) con dominio \([c,d]\), que sea equivalente a \(\alpha\)
+        continua \(\beta\) con dominio \([c,d]\) tal que:
+        <ol>
+        <li> sea equivalente a \(\alpha\)
+        y que tenga la misma  orientación.
+        </li>
+        <li> sea equivalente a \(\alpha\)
         y que invierta su orientación.
+        </li>
+        </ol>
       </div>
 
-
+      <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            La noción de curvas equivalentes se puede extender
+            a curvas suaves a trozos. Decimos que dos curvas
+            suaves a trozos, \(\alpha:[a,b]\to \mathbb{R}^n\)
+            y \(\beta:[c,d]\to \mathbb{R}^n\), son equivalentes
+            si existe particiones \(\{a=t_0 < \cdots < t_n=b\}\),
+            y \(\{c=\tilde{t}_0 < \cdots < \tilde{t}_n =d \}\),
+            de \([a,b]\) y \([c,d]\) respectivamente,
+            tal que para toda \(j=1,\dots, n\),
+            \(\alpha_j\) y \(\beta_j\) son curvas suaves
+            y equivalentes (de acuerdo con la <a href="Def:curvasEquiv">Definicion</a>),
+            donde \(\alpha_j\) denota la restriccióßn
+            de \(\alpha_j\) a \([t_{j-1},t_j]\)
+            y \(\beta_j\) la restricción de \(\beta\)
+            a \([\tilde{t}_{j-1}, \tilde{t}_j]\).
+          </p>
+      </div>
 
 
       <div class="ejercicio">
         <h2 class="card" id="Ejer:unionCurvas"> Ejercicio </h2>
-        Dadas dos trayectorias continuas \(\alpha:[a,b]\to \mathbb{R}^n,
+        Dadas dos trayectorias suaves \(\alpha:[a,b]\to \mathbb{R}^n,
         \beta:[c,d]\to \mathbb{R}^n\) con la propiedad de que
         \(\alpha(b)=\beta(c)\) (una termina donde la otra empieza) definimos:
         \[
