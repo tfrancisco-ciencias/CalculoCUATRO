@@ -1,0 +1,161 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 7 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 7 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> Una condición suficiente para que una 1-forma sea exácta </h1>
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Introducción </h2>
+          <p>
+            Saber si una 1-forma (o un campo vectorial) es exácta
+            (conservativo) sólo
+            con ver la 1-forma no es sencillo, pues es necesario encontrar una
+            función potencial lo cual en el fondo es resolver una ecuación
+            diferencial.
+          </p>
+          <p>
+            Sin embargo, en las secciones pasadas encontramos una condición necesaria.
+            <ol>
+              <li>En el <a href="S2.html#Def:1formacerrada"> Ejercicio </a>
+                 se vió que si la 1-forma \(\omega=Adx+Bdy\)
+                 es exácta necesariamente debemos de tener que
+               \begin{equation}\label{Eqn:condicionNecesariaDim2}
+               \partial_y A= \partial_x B
+               \end{equation}
+           </li>
+            <li>
+              En el <a href="S6.html#Ejer:necesidad1FormaExacta3D">Ejercicio</a>
+              se vió que si la 1-forma \(\omega=Adx+Bdy+Cdz\)
+            es exácta necesariamente debemos de tener que
+            \[
+            \partial_y A= \partial_x B, \quad \partial_z A= \partial_x C,
+            \quad \partial_z B=\partial_yC
+            \]
+            </li>
+          </ol>
+          </p>
+          <p>
+            Los ejercicios anteriores se pueden generalizar de la sigueinte
+            forma: si la 1-forma \(A_1dx_1+ \cdots A_ndx_n\) es exácta entonces
+            necesariamente
+            \begin{equation}\label{Eqn:condicionNecesariaDimn}
+            \partial_i  A_j = \partial_j A_i, \quad \textrm{para todos \(i,j\)}
+            \end{equation}
+          </p>
+          <p>
+            Sin embargo las condiciones del tipo \eqref{Eqn:condicionNecesariaDimn}
+            no siempre asegura
+            que la 1-forma en cuestión sea exácta. Es decir
+            \eqref{Eqn:condicionNecesariaDimn} es una condición suficiente
+            pero no necesaria. Por ejemplo,
+            en el <a href="S4.html#Ejer:formaCerradaNoExacta">Ejercicio</a>
+            se presentó un ejemplo de una 1-forma que satisface la condición
+             \eqref{Eqn:condicionNecesariaDim2} pero sin embargo no
+            es exácta. En ese ejercicio un aspecto determinante de le
+            exáctitud es el dominio sobre el cual se considera la 1-forma.
+          </p>
+          <p>
+            Algo sorprendente sobre las 1-formas es que su exáctitud dependen
+            del domino sobre el cual se las está considerando.
+          </p>
+          <p>Por ejemplo, para la 1-forma
+            \[
+            \omega= -\frac{y}{x^2+y^2}dx+\frac{x}{x^2+y^2}dy
+            \]
+            <ol>
+              <li> si consideramos su domino natural, es decir \(\mathbb{R}^2\setminus\{0\}\),
+            \(\omega\) no es exácta, pues su integral sobre
+            el círculo unitario no es cero (por el
+            <a href="S4.html#Ejer:ejemploCerrada"> Ejercicio </a>).
+            </li>
+            <li>
+              si consideramos su dominio como \(\mathbb{R}^2\setminus \{(x,y): y=0, x\leq 0\}\),
+              resulta que sí es exácta, pues el
+              <a href="S4.html#Ejer:formaCerradaNoExacta">Ejercicio</a>
+              provee una función potencial.
+            </li>
+            </ol>
+          </p>
+        </div>
+
+
+    </div>
+
+
+<!-- contenido termina -->
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
