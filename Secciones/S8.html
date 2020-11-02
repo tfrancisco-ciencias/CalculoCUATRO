@@ -23,7 +23,7 @@
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
         }
       };
     </script>
@@ -110,7 +110,7 @@
             forma: si la 1-forma \(A_1dx_1+ \cdots A_ndx_n\) es exácta entonces
             necesariamente
             \begin{equation}\label{Eqn:condicionNecesariaDimn}
-            \partial_i  A_j = \partial_j A_i, \quad \textrm{para todos \(i,j\)}
+            \partial_{x_i}  A_j = \partial_{x_j} A_i, \quad \textrm{para todos \(i,j\)}
             \end{equation}
           </p>
           <p>
@@ -119,7 +119,7 @@
             que la 1-forma en cuestión sea exácta. Es decir
             \eqref{Eqn:condicionNecesariaDimn} es una condición suficiente
             pero no necesaria. Por ejemplo,
-            en el <a href="S4.html#Ejer:formaCerradaNoExacta">Ejercicio</a>
+            en el <a href="S6.html#Ejer:formaCerradaNoExacta">Ejercicio</a>
             se presentó un ejemplo de una 1-forma que satisface la condición
              \eqref{Eqn:condicionNecesariaDim2} pero sin embargo no
             es exácta. En ese ejercicio un aspecto determinante de le
@@ -133,7 +133,7 @@
             \[
             \omega= -\frac{y}{x^2+y^2}dx+\frac{x}{x^2+y^2}dy
             \]
-            <ol>
+            <ul>
               <li> si consideramos su domino natural, es decir \(\mathbb{R}^2\setminus\{0\}\),
             \(\omega\) no es exácta, pues su integral sobre
             el círculo unitario no es cero (por el
@@ -142,18 +142,402 @@
             <li>
               si consideramos su dominio como \(\mathbb{R}^2\setminus \{(x,y): y=0, x\leq 0\}\),
               resulta que sí es exácta, pues el
-              <a href="S4.html#Ejer:formaCerradaNoExacta">Ejercicio</a>
+              <a href="S6.html#Ejer:formaCerradaNoExacta">Ejercicio</a>
               provee una función potencial.
             </li>
-            </ol>
+          </ul>
+          </p>
+          <p>
+            El propósito de esta sección es presentar ciertos dominios para los
+            cuales la condición \eqref{Eqn:condicionNecesariaDimn}
+            sí implica la exáctitud de la 1-forma, es decir
+            \eqref{Eqn:condicionNecesariaDimn} es una condición suficiente
+            para la exáctitud. Los dominiios para los cuales
+            \eqref{Eqn:condicionNecesariaDimn} es una condición suficiente
+            son los convexos, así que empezamos con esta definición.
           </p>
         </div>
 
 
-    </div>
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Un subconjunto \(C\subseteq \mathbb{R}^n\) se llama <i>convexo</i>
+            si todo segmento de línea determinado por puntos en \(C\) queda
+            totalmente contenido en \(C\). Con más detalle,  \(C\) es convexo si
+            para cualesquiera \(P,Q\in C\) se cumple
+            \[
+            \{ (1-t)P+ t Q| t\in [0,1]\} \subseteq C.
+            \]
+            Observa que podemos excluir \(t=0\) y \(t=1\) pues
+            en estos casos obtenemos \(P\) y \(Q\) respectivamente,
+            los cuales tomamos en \(C\).
+           <p>
+             <p>
+               Nota: dados dos puntos \(P,Q\in \mathbb{R}^n\) a una
+               expresión de la forma \(aP+bQ\), donde
+               \(a,b\geq 0 \) y \(a+b=1\), se le llama una
+               combinación lineal convexa de \(P\) y \(Q\). Entonces
+               decir que un conjunto sea convexo significa que es cerrado
+               bajo combinaciones lineales convexas.
+              <p>
+                <p>
+                  Nota: por vacuidad el conjunto vacío es convexo.
+                </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que los siguientes conjuntos son convexos.
+          <ol>
+            <li> Un segmento de recta. </li>
+            <li> Una bola abierta. </li>
+          </ol>
+        </p>
 
 
+        <button class="respButton hvr-grow"> Respuesta de 1 y 2 </button>
+
+          <div class="resp-box">
+          <p>
+            Inciso 1.
+          </p>
+          <p>
+            Aunque geométricamente
+            es claro que un segmento de línea es convexo
+            vamos a probarlo analíticamente usando sólo la
+            definición.
+          </p>
+            <p>Describimos el segmento
+            como
+            \[
+            C=\{(1-s)A+sB| s\in [0,1] \}
+            \]
+            donde \(A,B\in \mathbb{R}^n\) son fijos.
+          <p>
+            <p>
+              Tomamos \(P,Q\in C\) y debemos de probar que todo
+              el segmento determinado por \(P\) y \(Q\) está
+              contenido en \(C\). Un punto arbitrario del segmento
+              detereminado por \(P\) y \(Q\) se puede escribir
+              \((1-t)P+tQ\), para algún \(t\in [0,1]\).
+            </p>
+              <p>
+                A su vez, ya que \(P\) y \(Q\) pertenecen a \(C\), existen
+              \(s_1, s_2\in [0,1]\) con \(P=(1-s_1)A+s_1B\), \(Q=(1-s_2)A+s_2B\).
+              Por lo que se sigue
+              \begin{eqnarray*}
+              (1-t)P+tQ&=&(1-t)((1-s_1)A+s_1B)+t( (1-s_2)A+s_2B)
+              \\
+              &=&
+              aA+bB
+              \end{eqnarray*}
+              donde \(a=(1-t)(1-s_1)+t(1-s_2)\geq 0, b=(1-t)s_1+ts_2 \geq0 \).
+              Un cálculo
+              directo prueba que \(a+b=1\) asi que podemos tomar \(s=b\)
+              y \(1-s=a\) con \(s\in [0,1]\) y concluir
+              \[
+              (1-t)P+tQ=(1-s)A+Bs
+              \]
+              por lo que \((1-t)P+tQ \in C\).
+            </p>
+            <p>
+              Inciso 2.
+            </p>
+            <p>
+              Describimos las bola abierto como
+              \[
+              C=\{X\in \mathbb{R}^n| \| X-Y\|< r\}
+              \]
+              donde \(Y \in \mathbb{R}^n\) es el centro y
+              \(r>0\) el radio.
+            </p>
+            <p>
+              Tomamos \(P,Q\in C\) arbitrarios y \(t\in (0,1)\). Debemos
+              de probar que \((1-t)P+tQ\in C\). Si escribimos el centro como
+              \(Y=(1-t)Y+tY\) entonces
+              \begin{eqnarray*}
+              \| (1-t)P+tQ - Y \|&=&\| (1-t)P-(1-t)Y+ tQ-tY\| \\
+              & = &
+              \|(1-t)(P-Y)+ t(Q-Y)\| \\
+              &\leq &
+              (1-t)\|P-Y\| + t\|Q-Y\|
+              \end{eqnarray*}
+              Pero ya que \(P\) y \(Q\) est\'an en la bola,
+              \(\|P-Y\|< r\) y \(\| Q-Y\| < r\) por lo que
+              \[
+              (1-t)\|P-Y\|  < (1-t)r, \quad t\|Q-Y\| < tr
+              \]
+              de lo que se sigue
+              \[
+              \| (1-t)P+tQ - Y \| < (1-t)r+tr=r
+              \]
+              Por lo que \((1-t)P+tQ\in C\).
+            <p>
+          </div>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Da ejemplos de subconjuntos convexos \(A\) y \(B\) en \(\mathbb{R}^2\)
+            para los cuales:
+            <ol>
+              <li> \(A\cup B\) sea convexa. </li>
+              <li>  \(A\cup B\) NO sea convexa. </li>
+            </ol>
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sean \(A\) y \(B\) dos subconjuntos convexos de
+          \(\mathbb{R}^n\). Prueba que la intersección
+          \(A\cap B\) también es convexa.
+        </p>
+        <p>
+          Nota: puede pasar que \(A\cap B=\emptyset\).
+        </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(C\subseteq \mathbb{R}^n\) un conjunto convexo. Prueba que
+          su cerradura \(\bar{C}\), también es un conjunto convexo.
+        </p>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Este ejercicio es la generalización del
+            <a href="S2.html#Def:1formacerrada">Ejercicio</a> y
+            la prueba es similar.
+          </p>
+          <p>Sea \(U\subseteq \mathbb{R}^n\) y
+          \(
+          \omega= A_1dx_1+\cdots +A_n dx_n
+          \)
+          una 1-forma clase \(C^1\) definida en \(U\).
+        </p>
+        <p>
+          Prueba que si existe \(f:U\to \mathbb{R}\) función
+          diferenciable tal que \(df=\omega\) (es decir,
+          \(\omega\) es exácta) entonces
+          \[
+          \partial_{x_i}A_j=\partial_{x_j}A_i, \quad \textrm{para todos \(i,j\)}
+          \]
+        </p>
+        </div>
+
+
+
+
+      <div class="ejercicio-box">
+            <h2  class="number-title"> Lema (diferenciación dentro
+              de la  integral) </h2>
+
+
+            <p>
+              Supón que tenemos definida una función escalar
+              \(\varphi: U\times (c,d) \to \mathbb{R}\), donde
+              \(U\) es un conjunto no vacío de \(\mathbb{R}^n\). Suponemos
+              que \(\varphi\) es una función clase \(C^1\) en \(U\times (c,d))\).
+            </p>
+            <p>
+              A los puntos de \(U\times (c,d)\) los vamos a denotar
+              \( (X,t) \)  donde \(X=(x_1,\dots, x_n)\in U\) y \(t\in (c,d)\).
+            </p>
+            <p>
+              Fija un intervalo cerrado
+              \([a,b]\subset (c,d)\) y define la función escalar \(\phi:U\to \mathbb{R}\) por
+              \[
+              \phi(X)=\int_a^b \varphi(X,t)dt
+              \]
+
+              Entonces las derivadas parciales
+              de \(\phi\) existen en \(U\) y
+              \[
+              \partial_{x_j} \phi(X) = \int_a^b \partial_{x_j}\varphi(X,t)dt
+              \]
+            </p>
+
+            <button class="respButton hvr-grow"> Demostración  </button>
+            <div class="resp-box">
+
+              <p>
+                Fijamos un  \(j=1,\dots, n\) y por
+                \(e_j\) denotamos el
+                \(j\)-ésimo vector canónico. Para probar el resultado tenemos
+                que probar
+                \[
+                \lim_{h\to 0 }\frac{\phi(X+te_j)-\phi(X)}{h}=
+                \int_a^b \partial_{x_j}\varphi(X,t)dt,
+                \]
+                el cual es equivalente a
+                \begin{equation}\label{Eqn:auxLimiteCero}
+                \lim_{h\to 0 }
+                \left|
+                \frac{\phi(X+te_j)-\phi(X)}{h}
+                -\int_a^b \partial_{x_j}\varphi(X,t)dt
+                \right|
+                =0.
+                \end{equation}
+
+                Para probar el límite anterior vamos
+                a proceder en dos pasos. En el primer paso
+                vamos a reescribir el cociente diferencial
+                de \(\phi\) como una integral. En el segundo paso probamos \eqref{Eqn:auxLimiteCero}
+              </p>
+              <p>
+                Primer paso.
+              </p>
+              <p>
+                Antes de iniciar fijamos una radio \(r>0\) tal que
+                la bola abierta centrada en \(X\) esté contenida en \(U\). De aqúi en
+                adelante aamos a estar considerando sólo puntos en esta bola.
+              </p>
+              <p>
+                Por definición de \(\phi\), usando linealidad de la
+                integral tenemos
+                \[
+                \frac{\phi(X+he_j)-\phi(X)}{h}=
+                \int_a^b \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}dt
+                \]
+                para \(h \ne 0\) y \(|h|< r\).
+              </p>
+              <p>
+                Ahora aplicamos el Teorema del Valor Medio para
+                derivadas para obtener
+                \begin{equation}\label{Eqn:auxTVM}
+                \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}=\partial_{x_j}\varphi(X(h,t),t)
+                \end{equation}
+                donde \(X(h,t)\) es un punto en el segmento de línea
+                que une \(X+he_j\) con \(X\) y depende de \(h\) y de \(t\).
+              </p>
+              <p>
+                Nota: para obtener la identidad \eqref{Eqn:auxTVM} se cosidera la función
+                \(g(h)=\varphi(X+he_j,t)\), para la variable \(h\) tomada en
+                \((-r,r)\) y se usa que
+                \(g'(h)=\partial_{x_j}\varphi(X+he_j,t)\).
+              </p>
+              <p>
+                Por lo tanto, de \eqref{Eqn:auxTVM} concluimos que el cociente
+                diferencial para \(\phi\) se puede escribir como
+                \begin{equation}\label{Eqn:auxCocienteDif}
+                \frac{\phi(X+he_j,t)-\phi(X,t)}{h}
+                =
+                \int_a^b \partial_{x_j}\varphi(X(h,t),t)dt
+                \end{equation}
+
+                Aquí termina el paso 1.
+              </p>
+              <p>
+                Paso 2.
+              </p>
+              <p>
+                Concluimos de \eqref{Eqn:auxCocienteDif} que el término
+                dentro del valor absoluto en \eqref{Eqn:auxLimiteCero}
+                lo podemos acotar como
+                \[
+                \left|
+                \frac{\phi(X+te_j)-\phi(X)}{h}
+                -\int_a^b \partial_{x_j}\varphi(X,t)dt
+                \right|
+                \leq
+                \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
+                \]
+                Por lo tanto para probar \eqref{Eqn:auxLimiteCero} es
+                suficiente probar
+                \begin{equation}\label{Eqn:auxLimiteCeroDos}
+                \lim_{h\to 0}
+                \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
+                =0
+                \end{equation}
+                el cual probamos con  \(\varepsilon\) y \(\delta\). Fijamos
+                \(\varepsilon>0\).
+              </p>
+              <p>
+                Hasta este momento no hemos usado el hecho de que \(\varphi\)
+                es clase \(C^1\), ahorita es el momento. Por
+                \(\bar{B}_{r/2}(X)\) denotamos la bola cerrada centrada
+                en \(X\) centrada en \(X\). Considera el compacto
+                \(\bar{B}_{r/2}(X)\times [a,b]\). Tenemos que
+                \(\bar{B}_{r/2}(X)\times [a,b] \subset U \times (c,d)\)
+                y ya que \(\partial_{x_j}\varphi\) es continua
+                en \(U\times (c,d)\) resulta que
+                es uniformemente continua en \(\bar{B}_{r/2}(X)\times [a,b]\).
+              </p>
+              <p>
+                Usando que \(\partial_{x_j}\varphi\) es uniformemente continua
+                en \(\bar{B}_{r/2}(X)\times [a,b]\), para nuestra \(\varepsilon\)
+                existe \(\delta >0\) tal que si \((Y,s) \)  y \((Z,u)\)
+                son puntos en \(\bar{B}_{r/2}(X)\times [a,b] \)
+                \begin{equation}\label{Eqn:auxContinuidadUnif}
+                \| (Y,s)-(Z,u)\| < \delta
+                \Rightarrow
+                |\partial_{x_j}\varphi(Y,s)
+                -
+                \partial_{x_j}\varphi(Z,u)|
+                <
+                \frac{\varepsilon}{b-a}
+                \end{equation}
+              </p>
+              <p>
+                Tomamos
+                \(h\) con \(0< |h|<\delta\)  y \(t\in [a,b]\) arbitrarios. Tomando
+                \((Y,s)=(X,t)\) y \((Z,u)=(X(h,t),t)\) resulta
+                \[
+                \| (Y,s)-(Z,u)\|= \|X-X(h,t) \| \leq |h|
+                \]
+                donde la última igualdad se debe a que \(X(h,t)\) está en
+                el segmento de recta que  une \(X\) con \(X+he_j\). Ya que
+                \(|h|< \delta\) de \eqref{Eqn:auxContinuidadUnif} concluimos
+                \[
+                |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|
+                < \frac{\varepsilon}{b-a}
+                \]
+                para toda \(t\in [a,b]\). Integrando con respecto a \(t\)
+                llegamos a que
+                \[
+                \int_a^b |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|dt
+                <\varepsilon
+                \]
+                para toda \(0<|h|<\delta\), lo cual prueba \eqref{Eqn:auxLimiteCeroDos}.
+              </p>
+
+              </div>
+
+      </div>
+
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+
+        <p>
+          Sea \(U\) un conjunto abierto convexo no vacío de \(\mathbb{R}^n\).
+
+          Supón que \(\omega=A_1dx_1+\cdots +A_ndx_n\) es una 1-forma
+          clase \(C^1\) definida en  \(U\) que
+          satisface
+          \begin{equation}
+          \partial_{x_i}A_j= \partial_{x_j}A_i, \quad \textrm{en \(U\) y para todas \(i,j\)}
+          \end{equation}
+           Entonces existe \(\phi: U\to \mathbb{R}\) diferenciable
+          tal que \(d\phi = \omega\). Es decir, \(\omega\) es exácta.
+        </p>
+      </div>
 <!-- contenido termina -->
+
+      </div>
   </body>
 
   </html>
