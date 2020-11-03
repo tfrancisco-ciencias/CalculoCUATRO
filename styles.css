@@ -3,6 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Sen&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Verdana&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Futura&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 html, body{
   margin: 0;
@@ -116,7 +119,7 @@ h1.number-title:before{/* for clearness this should be named like card-title*/
 }
 
 h2.number-title{
-  font-family: "Muli";
+  font-family: "Roboto";
 }
 
 h2.number-title:before{/* for clearness this should be named like card-title*/
