@@ -528,12 +528,53 @@
           Supón que \(\omega=A_1dx_1+\cdots +A_ndx_n\) es una 1-forma
           clase \(C^1\) definida en  \(U\) que
           satisface
-          \begin{equation}
+          \begin{equation}\label{Eqn:condicionSuficiente}
           \partial_{x_i}A_j= \partial_{x_j}A_i, \quad \textrm{en \(U\) y para todas \(i,j\)}
           \end{equation}
            Entonces existe \(\phi: U\to \mathbb{R}\) diferenciable
           tal que \(d\phi = \omega\). Es decir, \(\omega\) es exácta.
         </p>
+      </div>
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          La demostración del Teorema 8.9 da un método para encontrar
+          funciones potenciales. Si
+          el campo \(\mathbb{F}\) está definido en un dominio
+          convexo y satisface la condición \eqref{Eqn:condicionSuficiente}
+          entonces
+          una función potencial puede encontrarse como
+          \[
+          f(P)=\int_0^1 \mathbb{F}(P_0+t(P-P_0)) \cdot (P-P_0)dt
+          \]
+          donde \(P_0\) es un punto fijo del dominio de \(\mathbb{F}\).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Para los siguientes campos vectoriales:
+          <ul>
+            <li> comprueba que se satisfacen la
+          condición \eqref{Eqn:condicionSuficiente} del Teorema.
+          </li>
+          <li> usa el método de la Nota 8.10  para encontrar
+          una función potencial.
+          </li>
+          <li>
+            finalmente comprueba directamente que el gradiente del
+            potencial  es igual al campo.
+            </li>
+          </ul>
+          <ol>
+            <li> \(\mathbb{F}(x,y,z)=(4xy-3x^2z^2+1,2x^2+2,-2x^3-3z^2) \). </li>
+            <li> \(\mathbb{F}(x,y,z)=(6xy-6xyz+12xy^2-12x^2y^3z,
+              3x^2-3x^2z+12x^2y-12x^3y^2z,-3x^2y-4x^3y^3)\). </li>
+          </ol>
+          Sugerencia: en el método de la Nota 8.10 toma  \(P_0=0\).
+        </p>
+
       </div>
 <!-- contenido termina -->
 
