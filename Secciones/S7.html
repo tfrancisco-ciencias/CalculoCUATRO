@@ -509,6 +509,103 @@
                   </p>
             </div>
 
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Considera el subconjunto de \(\mathbb{R}^2\)
+                determinado  por
+                \[
+                S=\{ (x,y)| y^3=x^2\}
+                \]
+                <ol>
+                  <li> Considera el subconjuto de \(S\) que se
+                  obtiene de viajar sobre \(S\) desde el punto \((-1,1)\)
+                  al \((1,1)\). Prueba que este subconjunto es
+                  la traza de una curva suave a trozos.  Sugerencia:
+                  considera la función \(f(t)=t^{2/3}\).  </li>
+                  <li>
+                    Calcula la longitud de arco de la curva suave a trozos
+                    del inciso anterior.
+                  </li>
+                </ol>
+
+              </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+              <div class="resp-box">
+                <p> Inciso 1. </p>
+              <p>
+                Por \(S_1\) vamos a denotar la parte de \(S\) que
+                va desde \((-1,1)\) a \((0,0)\) y
+                por \(S_2\)  la parte de \(S\) que va de
+                \((0,0)\) a \((1,1\).
+              </p>
+              <p>
+                Vamos a dar dos parametrizaciones
+                que van tener a \(S_1\) y a \(S_2\) como trazas.
+              </p>
+
+              <p>Para
+                \(S_1\) consideramos \(\alpha(t)=(x(t),y(t))\) con \(t\in [-1,0]\)
+                y \(x(t)=t, y(t)=t^{2/3}\).
+                Notamos que \(y(t)^3=t^2, x(t)^2=t^2\), por lo que \(\alpha(t)\)
+                pertenece a \(S_1\). Además si \((x,y)\in S_1\) despejando \(y\) de
+                \(y^2=x^3\) y tomando \(t=x\) obtenemos que \(\alpha(t)=(x,y)\).
+                Por lo tanto la traza de \(\alpha\) es \(S_1\). Finalmente, \(\alpha\)
+                es continua en el intervalo  \([-1,0]\) y  diferenciable en el intervalo
+                \((-1,0)\) \(\alpha'(t)=(1,t^{-1/3})\). Por lo tanto \(\alpha\) es una curva parametrizada suave.
+              </p>
+              <p>
+                Para \(S_2\) consideramos \(\beta(t)=(x(t),y(t))\)
+                con \(t\in [1,0]\), \(x(t)=t, y(t)=t^{2/3}\). El argumento es
+                muy similar al anterior.
+              </p>
+              <p> Inciso 2. </p>
+              <p>
+                Primero notamos que el conjunto \(S\) es simétrico con respecto
+                al eje \(y\), por lo tanto la longitud de \(S\) es dos veces
+                la longiutd de \(S_2\).
+              </p>
+                Para calcular la longitd de arco de \(S_2\) NO vamos a usar la
+                parametrización anterior, pues si la usamos la integral que debemos
+                calcular es, para la longitud de \(S_1\) es:
+                \[
+                \int_0^1 \|\alpha'(t)\| dt=\int_0^1 \sqrt{1+ t^{-2/3}}dt
+                \]
+                la cual tiene una sigularidad en 0.
+              </p>
+              <p>
+                  Por lo tanto vamos a usar otra parametrización. Consideramos
+                  \(\gamma(t)=(t^3,t^2)\), con \(t\in [0,1]\). Notamos que si
+                  consideramos la función \(u:[0,1]\to [0,1]\)
+                  dada por \(u(t)=(t^3,t^3)\) obtenemos que
+                  \(u\) es clase \(C^1\), \(u'> 0\) en \((0,1)\) y
+                  \( \beta(u(t))= \gamma(t) \), es decir \(\gamma\)
+                  es equivalente a \(\beta\) y por lo tanto podemos usar
+                  \(\gamma\) para calcular la longitud de arco.
+              </p>
+              <p>
+                Para \(\gamma\), \(\gamma'(t)=(3t^2,2t)\) y
+                la integral para calcular la longitud de arco es
+                \[
+                \int_0^1 \| \gamma'(t)\| dt=\int_0^1 \sqrt{9t^4+4t^2}dt=\int_0^1 2t\sqrt{\frac{9}{4}t^2+1}
+                \]
+                Para ésta última integral usamos el cambio de varible
+                \(v= \frac{9}{4}t^2+1\) para obtener
+                \[
+                \int_0^1 2t\sqrt{\frac{9}{4}t^2+1} =\frac{2}{9}\int_{1}^{13/4}\sqrt{v}dv=\frac{2}{9}((13/4)^{3/2}-1)
+                \]
+                Por lo tanto la longitd de arco de \(S_1\) es \(\frac{2}{9}((13/4)^{3/2}-1) \)
+                y
+                \[
+                \textrm{longitud}(S)=2\textrm{longitud}(S_1)=\frac{4}{9}((13/4)^{3/2}-1).
+                \]
+              </p>
+            </div>
+
+            </div>
+
+
 
 <!-- acaba contenido -->
 
