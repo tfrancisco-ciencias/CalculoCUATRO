@@ -326,6 +326,59 @@
 
 
     <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Considera los puntos en \(\mathbb{R}^2\), \(P,Q,P+S,Q+S\).
+      </p>
+      <p>
+        Supongamos que \(\omega\) es una 2-forma constante en
+        \(\mathbb{R}^2\). Usando la propiedad de la aditividad
+        de la integral prueba que
+        \[
+        \int_{\triangle(P,Q,P+S)}\omega+ \int_{\triangle(Q,Q+S,P+S)}\omega
+        =
+        \int_{\triangle(P,Q,Q+S)}\omega+\int_{\triangle(Q+S,P+S,P)}\omega
+        \]
+      </p>
+      <p>
+        Sugerencia: utiliza sumas de triángulos dirigidos
+        para escribir ambos lados de la igualdad anterior como la suma
+        de integrales sobre cuatro  triángulos dirigidos.
+      </p>
+    </div>
+
+    <div class="nota-box">
+      <h2 class="number-title"> Nota  </h2>
+      <p>
+        En el ejercicio anterior nota que podemos considerar los puntos \(P,Q,P+S,Q+S\)
+        como los vértices de un paralelogramo. Al igual que con los
+        triángulos, podemos asignar un orden a sus vértices
+        para obtener una orientación. Para fijar ideas vamos a
+        asignarle la orientación positiva.
+      </p>
+      <p>
+        Utilizando triángulos orientados el paralelogramo puede
+        descomponerse de dos maneras distintas:
+        \[
+        \triangle(P,Q,P+S), \quad \triangle(Q,Q+S,P+S)
+        \]
+        y
+        \[
+        \triangle(P,Q,Q+S), \quad  \triangle(Q+S,P+S,P).
+        \]
+        Si por \(\square(P,Q,Q+S,P+S)\) denotamos al paralelogramo definimos
+        \[
+        \int_{\square(P,Q,Q+S,P+S)}\omega=\int_{\triangle_1}\omega
+        +\int_{\triangle_2}\omega
+        \]
+        donde \(\triangle_1\) y \(\triangle_2\) son cualesquiera triángulos
+        orientados cuya suma da \(\square(P,Q,Q+S,P+S)\). El ejercicio anterior
+        muestra que está definición NO depende de la descomposición que
+        demos.
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:2fToBilineal"> Ejercicio </h2>
       Considera \(\omega\), una 2-forma constante en \(\mathbb{R}^2\). Define
       \(\varphi_{\omega}: \mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}\) por
