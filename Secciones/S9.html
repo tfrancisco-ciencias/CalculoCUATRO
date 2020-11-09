@@ -378,20 +378,72 @@
       </p>
     </div>
 
+
+    <div class="ejercicio-box">
+
+      <h2 class="number-title" id="Ejer:invaRotaciones"> Ejercicio </h2>
+      <p>
+        Una 2-forma constante \(\omega\) se llama <b>invariante bajo rotaciones</b> si
+        \[
+        \int_{\triangle(P,Q,R)}\omega = \int_{\triangle(P',Q',R')}\omega
+        \]
+        siempre que el triángulo \(\triangle(P',Q',R')\) se obtenga
+        de \(\triangle(P,Q,R)\) mediante una rotación.
+      </p>
+      <p>
+        Supon que \(\omega\) es una 2-forma constante en \(\mathbb{R}^2\)
+        e invariante bajo rotaciones.
+
+        <ol>
+          <li>Prueba que
+
+        \[
+        \int_{\triangle(P,Q,R)}\omega=\int_{\triangle(P,R,P+R-Q)}
+        \]
+        </li>
+        <li> Prueba que
+          \[
+          \int_{\triangle(P,Q,R)}=\frac{1}{2}\int_{\square(P,Q,R,P+R-Q)}\omega
+          \]
+        </li>
+      </ol>
+      </p>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Considera \(\omega\) una 2-forma constante en \(\mathbb{R}^2\)
+        invariante bajo rotaciones.
+      </p>
+      <p>
+        Fija un triángulo dirigido \(\triangle(P,Q,R)\) y por
+        \(L\) denota a la recta que pasa por \(R\) paralela al
+        segmento \(\seg{PQ}\).
+      </p>
+      <p>
+        Prueba que, para toda \(R' \in L\):
+        \[
+        \int_{\triangle(P,Q,R)}\omega = \int_{\triangle(P,Q,R')}\omega.
+        \]
+      </p>
+    </div>
+
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:2fToBilineal"> Ejercicio </h2>
       Considera \(\omega\), una 2-forma constante en \(\mathbb{R}^2\). Define
-      \(\varphi_{\omega}: \mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}\) por
+      \(\varphi: \mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}\) por
       \[
-      \varphi_\omega(Q,R)=\int_{\triangle(O,Q,R)}\omega
+      \varphi(Q,R)=\int_{\triangle(O,Q,R)}\omega
       \]
       donde \(O\) denota el origen.
       Prueba:
       <ol>
-        <li> \(\varphi_{\omega}(Q+Q',R)=\varphi_{\omega}(Q,R)+\varphi_{\omega}(Q',R)\). </li>
+        <li> \(\varphi(Q+Q',R)=\varphi(Q,R)+\varphi(Q',R)\). </li>
 
-        <li> \(\varphi_{\omega}(Q,R+R')=\varphi_{\omega}(Q,R)+\varphi_\omega(Q,R')\). </li>
-        <li> \(\varphi_{\omega}(Q,R)=-\varphi_\omega(R,Q)\). </li>
+        <li> \(\varphi(Q,R+R')=\varphi(Q,R)+\varphi(Q,R')\). </li>
+        <li> \(\varphi(Q,R)=-\varphi(R,Q)\). </li>
       </ol>
     </div>
 
@@ -404,11 +456,11 @@
         el siguiente paso sería definir 1-formas constantes que
         además sean continuas, análogo al
         <a href="S1.html#Ejer:1fConstanteContinua"> Ejercicio 1.13</a>.
-        Con esta nueva propiedad la función \(\varphi_\omega\)
+        Con esta nueva propiedad la función \(\varphi\)
         del ejercicio <a href="#Ejer:2fToBilineal">Ejercicio 9.6</a> además
         debe de satisfacer
         \[
-        \varphi_{\omega}(cQ,R)=c\varphi_\omega(Q,R), \quad \varphi_{\omega}(Q,cR)=c\varphi_\omega(Q,R)
+        \varphi(cQ,R)=c\varphi(Q,R), \quad \varphi(Q,cR)=c\varphi(Q,R)
         \]
         para todos \(Q,R\in \mathbb{R}^n\), \(c\in \mathbb{R}\).
       </p>
