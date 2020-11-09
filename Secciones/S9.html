@@ -462,7 +462,54 @@
           Nota: \(O\) denota el origen.
         </p>
 
+
+                      <button class="respButton hvr-grow" > Respuesta </button>
+                      <div class="resp-box">
+
+
+
+                              <p>Prueba inciso 1.</p>
+
+                              <p>
+                              Para el primer inciso tenemos que
+                              \[
+                              \varphi(O, R) = \varphi(O + O, R) =
+                              \varphi(O,R) + \varphi(O,R) = 2\varphi(O,R).
+                              \]
+
+                              Esto implica que  \(\varphi(O, R) = 2\varphi(O, R)\). Es decir,  \(\varphi(O, R) = 0\).
+                            </p>
+                            <p>
+                              Por otro lado, usando la alternancia de \(\varphi\), tenemos \(\varphi(Q,O) = -\varphi(O,Q)\). Pero \( \varphi(O,Q) = 0\). Por lo tanto \(\varphi(Q,O) = 0\).
+                            </p>
+
+                              <p> Prueba inciso 2.</p>
+                              <p>
+                                Usando la alternancia de \(\varphi\),
+                                \(\varphi(\underbrace{P}_\text{1},\underbrace{P}_\text{2})
+                                = -\varphi(\underbrace{P}_\text{ 2},\underbrace{P}_\text{ 1})\).
+                                Lo cual implica que \(\varphi(P,P) = 0\).
+                              </p>
+
+                              <p> Prueba inciso 3. </p>
+
+                              <p>
+                                Por último, usando la linealidad de \(\varphi\) tenemos
+                              \begin{eqnarray*}
+                              \varphi(Q + S, R + S) & = & \varphi(Q, R + S) + \varphi(S, R + S) \\
+                               & = & \varphi(Q, R) + \varphi(Q, S) + \varphi(S, R) + \varphi(S, S) \\
+                               & = & \varphi(Q, R) + \varphi(Q, S) + \varphi(S, R) \\
+                               & = & \varphi(Q, R) + \varphi(S, R) + \varphi(Q, S)
+                              \end{eqnarray*}
+
+                              La tercera igualdad es concecuencia de que \(\varphi(S, S) = 0\).
+                            </p>
+
+                      </div>
+
       </div>
+
+
 
       <div class="ejercicio-box">
         <h2 class="number-title" id="Ejer:propBasicasBil2"> Ejercicio </h2>
@@ -473,10 +520,10 @@
         <button class="respButton hvr-grow" > Respuesta </button>
         <div class="resp-box">
         Por hipótesis existe \( \lambda \in \mathbb{R}\) tal que \(Q=\lambda P \).
-        Entonces,  \( \varphi(P,Q)= \lambda \varphi(P,P) \). Sin embargo, como \(\varphi \) 
-        es bilineal alternante de (2)  en <a href="Ejer:propBasicasBil"> Ejercicio</a> se 
+        Entonces,  \( \varphi(P,Q)= \lambda \varphi(P,P) \). Sin embargo, como \(\varphi \)
+        es bilineal alternante de (2)  en <a href="Ejer:propBasicasBil"> Ejercicio</a> se
         sigue que \(\varphi(P,Q)=0\).
-         
+
         </div>
 
       </div>
@@ -499,13 +546,13 @@
 
         <button class="respButton hvr-grow" > Respuesta </button>
         <div class="resp-box">
-        Como \(P,Q,R \) son colineales, entonces los vectores  \(Q-P\) y \(R-P\)  son paralelos 
-        i.e. existe \( \lambda \in \mathbb{R}\) tal que \( Q-P = \lambda (R - P)\)  en otras palabras 
-        \(Q-P\) y \(R-P\) son linealmente dependientes. Por lo tanto del ejercicio 
+        Como \(P,Q,R \) son colineales, entonces los vectores  \(Q-P\) y \(R-P\)  son paralelos
+        i.e. existe \( \lambda \in \mathbb{R}\) tal que \( Q-P = \lambda (R - P)\)  en otras palabras
+        \(Q-P\) y \(R-P\) son linealmente dependientes. Por lo tanto del ejercicio
         <a href="Ejer:propBasicasBil2"> Ejercicio</a> se sigue que \(\varphi(Q-P,R-P)=0\).
         </div>
 
-        
+
 
 
 
