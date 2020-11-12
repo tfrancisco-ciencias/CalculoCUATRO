@@ -1,37 +1,103 @@
-<div class="ejercicio">
-  <h2 class="card"> Ejercicio </h2>
-  <p>Sean \(V\) y \(W\) dos espacios vectoriales sobre \(\mathbb{R}\).
-    Recuerda que \(V\times W\) denota el producto cartesiano de \(V\) y \(W\)
-    es decir,  los elementos de \(V\times W\) son de la forma \((v,w)\),
-    \(v\in V\) ,\( w\in W\).
-  </p>
+<! DOCTYPE html>
+  <html lang="es">
 
-  <p>Para \((v,w),(v',w')\in V\times W\) y \(\lambda\in \mathbb{R}\) define</p>
-    \[
-    (v,w)+(v',w'):=(v+v',w+w'), \, \lambda (v,w):=(\lambda v, \lambda w)
-    \]
-    <p>Prueba que con estas operaciones \(V\times W\) es un espacio vectorial.
-      </p>
-</div>
 
-<div class="ejercicio">
-  <h2 class="card"> Ejercicio </h2>
-  Sean \(V\) y \(W\) dos espacios vectoriales.
 
-  Una función \(f:V\times W \to \mathbb{R}\) se llama bilineal si:
-  <ul>
-    <li> para \(v_0\in V\) fija, \(f_V(w)=f(v_0,w)\) es lineal, </li>
-    <li> para \(w_0\in W\) fija, \(f_W(v)=f(v,w_0)\) es lineal. </li>
-  </ul>
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  Si además \(V=W\) y \(f(v,w)=-f(w,v)\), \(f\) se llama
-  bilineal alternante.
 
-  Prueba que el conjunto de formas bilineales alternantes es
-  un espacio vectorial.
-</div>
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
 
 
 
 
-    
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 9 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 9 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> El espacio de funciones bilineales alternantes  </h1>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Introducción </h2>
+
+
+        \[
+        \Lambda^2(\mathbb{R}^n):=\{\varphi:\mathbb{R}^2\times \mathbb{R}^n \to
+        \mathbb{R}| \textrm{\(\varphi\) es bilineal y alternante }\}
+        \]
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+
+        </p>
+
+      </div>
+
+
+<!---- acaba contenido --->
+    </div>
+
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
