@@ -163,7 +163,7 @@
                   \[
                   \psi_i(P,Q)=\varphi(T_i(P), T_i(Q)), \quad i=1,2,3.
                   \]
-                  (ver <a href="#Ejer:bilinealInducidaTransLineal">Ejercicio</a> ).
+                  (ver <a href="#Ejer:bilinealInducidaTransLineal">Ejercicio anterior</a> ).
                 </p>
                 <p>
                   Toma \(\psi= 3\psi_1-2 \psi_2+5\psi_3 \). Calcula
@@ -312,7 +312,7 @@
                       \sum_{1\leq i < j \leq n} \alpha_{i,j}dx_i\wedge dx_j=0
                       \]
                       valua la función anterior en parejas de la forma
-                      \((e_k,e_l)\) y usa el <a href="Ejer:lemaDeltaDirectWedge">Ejercicio </a>.
+                      \((e_k,e_l)\) y usa el <a href="Ejer:lemaDeltaDirectWedge">Ejercicio 10.10</a>.
                     </p>
                   </div>
 
@@ -339,7 +339,7 @@
                     </p>
                     <p>
                       Sugerencia:  usa el <a href="#Ejer:condicionIgualdadBilinealesAlternantes">
-                        Ejercicio</a> para probar que la igualdad de funciones que se pide.
+                        Ejercicio 10.12</a> para probar que la igualdad de funciones que se pide.
                     </p>
                   </div>
 
@@ -383,7 +383,7 @@
                   <p>Nota
                     en particular que \(\Lambda^2(\mathbb{R}^2)\) tiene
                     dimensión \(\frac{n(n-1)}{2}=\frac{2(2-1)}{2}=1\), lo cual
-                    concuerda con el ejercicio <a href="#Ejer:bilinealesAlternantesR2dim1">Ejercicio</a>
+                    concuerda con el ejercicio <a href="#Ejer:bilinealesAlternantesR2dim1">Ejercicio 10.3</a>
                   </p>
                   </div>
 
@@ -398,8 +398,8 @@
                       \[
                       A^t[i,j]:=A[j,i].
                       \]
-                      Es decir, es la matriz que obtenemos al reflejar la matriz
-                      \(A\) con respcto a la diagonal principal.
+                      Es decir, es la matriz que obtenemos al intercambiar renglones
+                      y columnas de \(A\).
                     </p>
                     <p>
                       Una matriz \(A\in M_n(\mathbb{R})\) se llama anti-simétrica
@@ -410,12 +410,25 @@
                   <div class="ejercicio-box">
                     <h2 class="number-title" id="Ejer:propiedadAdjunto"> Ejercicio </h2>
                     <p>
-                      Sea \(A\in M_n(\mathbb{R})\). Prueba
+                      Sean \(A,B\in M_n(\mathbb{R})\) y \(c\in \mathbb{R}\) una constante. Prueba:
+                      <ol>
+                      <li>
                       \[
                       (AP)\cdot (Q)=(P)\cdot (A^tQ), \quad \forall P,Q\in \mathbb{R}^n
                       \]
                       donde \(AP\) denota el producto de la matriz \(A\) por el vector \(P\)
                       y \(\cdot\) indica el producto punto.
+                    </li>
+                    <li>
+                      \[
+                      (cA+B)^t=cA^t+B^t
+                      \]
+                    </li>
+                    <li>
+                      \(A\) es anti-simétrica si y sólo si \(A[i,i]=0\)
+                      para toda \(i=1,\dots, n\) y \(A[j,i]=-A[i,j]\)
+                      para toda \(1\leq i < j \leq n\).
+                    </li>
                     </p>
                     </div>
 
@@ -443,7 +456,7 @@
                       <ol>
                       <li>
                       \(
-                      \{ E_{i,j}: 1\leq i < j \leq n\}
+                      \{ E_{i,j}-E_{j,i}: 1\leq i < j \leq n\}
                       \)
                       es una base para el subespacio de matrices anti-simétricas.
                     </li>
@@ -470,7 +483,7 @@
                     </p>
                     <p>
                       Sugerencia: para probar que \(\varphi\) es alternante
-                      usa el <a href="#Ejer:propiedadAdjunto">Ejercicio</a>.
+                      usa el <a href="#Ejer:propiedadAdjunto">Ejercicio 10.17</a>.
                     </p>
                   </div>
 
