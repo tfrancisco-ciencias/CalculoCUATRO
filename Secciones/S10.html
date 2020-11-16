@@ -76,8 +76,16 @@
 
       <div class="nota-box">
         <h2 class="number-title"> Introducción </h2>
-
-
+        <p>
+          En la sección 9 vimos que las nociones geométricas sobre la integral
+          de 2-formas constantes nos llevan a las funciones bilineales alternantes. En
+          esta sección se estudian las funciones bilineales desde el punto
+          de vista de álgebra lineal. De especial importancia es encontrar una
+          base explícita para el espacio de las funciones bilineales alternantes.
+        </p>
+        <p>
+          Recordamos que denotamos:
+        </p>
         \[
         \Lambda^2(\mathbb{R}^n):=\{\varphi:\mathbb{R}^n\times \mathbb{R}^n \to
         \mathbb{R}| \textrm{\(\varphi\) es bilineal y alternante }\}
@@ -407,6 +415,17 @@
                     </p>
                   </div>
 
+
+                  <div class="nota-box">
+                    <h2 class="number-title"> Nota </h2>
+                    <p>
+                      Con la ayuda de las matrices anti-simétricas es posible
+                      dar otra descripción de las funciones bilineales alternantes. Los
+                      ejercicios que siguen están dirigidos a mostrar esta descripción.
+                    </p>
+
+                  </div>
+
                   <div class="ejercicio-box">
                     <h2 class="number-title" id="Ejer:propiedadAdjunto"> Ejercicio </h2>
                     <p>
@@ -483,7 +502,7 @@
                     </p>
                     <p>
                       Sugerencia: para probar que \(\varphi\) es alternante
-                      usa el <a href="#Ejer:propiedadAdjunto">Ejercicio 10.17</a>.
+                      usa el <a href="#Ejer:propiedadAdjunto">Ejercicio 10.18</a>.
                     </p>
                   </div>
 
@@ -498,6 +517,50 @@
                     </p>
                   </div>
 
+
+                  <div class="nota-box">
+                    <h2 class="number-title"> Conclusión </h2>
+                    <p>
+                      El conjunto
+                      \[
+                      \Lambda^2(\mathbb{R}^n)=\{\varphi: \mathbb{R}^2\times \mathbb{R}^2\to \mathbb{R}
+                      : \textrm{\(\varphi\) es bilineal y alternante}\}
+                      \]
+                      forma un espacio y con la ayuda del producto cuña tenemos que el conjunto
+                      \[
+                      dx_i\wedge dx_j, \quad 1 \leq i < j \leq n,
+                      \]
+                      forma una base. Es decir, para toda \(\varphi\in \Lambda^2(\mathbb{R}^n)\)
+                      existen constantes \(A_{i,j}\in \mathbb{R}\), con \(1\leq i< j \leq n\), tal que
+                      \[
+                      \varphi=\sum_{1\leq i < j \leq n} A_{i,j}dx_i \wedge dx_j
+                      \]
+                      La descripción anterior será útil para definir 2-formas no constantes.
+                    </p>
+                    <p>
+                      Las matrices anti-simétricas también dan otra descripción del
+                      espacio de funciones bilineales alternantes. No es coincidencia
+                      de que ambos espacios tengan las misma dismensión. Se puede mostrar
+                      que como espacios vectoriales son isomorfos. Un isomorfismo
+                      se puede dar de la siguiente manera.
+                    </p>
+                    <p>
+                      Si \(A\) es una matriz anti-simétrica definimos la función
+                      bilineal alternante como
+                      \[
+                      \varphi_A(P,Q)=(AP)\cdot Q
+                      \]
+                    </p>
+                    <p>
+                      Si \(\varphi\) es una función bilineal alternante entonces
+                      la matriz \(A_\varphi\) dada por
+                      \[
+                      A_\varphi[i,j]=\varphi(i,j)
+                      \]
+                      resulta se una matriz anti-simétrica.
+                    </p>
+
+                  </div>
 
 
 
