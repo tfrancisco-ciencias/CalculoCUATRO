@@ -85,12 +85,407 @@
       </div>
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-
-        </p>
-
+        <h2 class="number-title">  Ejercicio </h2>
+          <p>
+            Prueba que, con las operaciones usuales de suma
+            de funciones y multiplicación escalar, \(\Lambda^2(\mathbb{R}^n)\) es un espacio vectorial.
+          </p>
       </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:bilinealesAlternantesR2dim1"> Ejercicio </h2>
+        <p>
+          Recuerda que por el  <a href="S9.html#Ejer:detBilineal"> Ejercicio 9.14</a>
+          podemos pensar al determinante cómo un elemento de \(\Lambda^{2}(\mathbb{R}^2)\).
+        </p>
+        <p>
+          Demuestra que, para toda \(\varphi\in \Lambda^2(\mathbb{R}^2)\)
+          existe una constante \(c\in \mathbb{R}\) tal que
+          \[
+          \varphi=c\det
+          \]
+          En otras palabra, \(\Lambda^2(\mathbb{R}^2)\) es un espacio vectorial de
+          dimensión 1 y la función determinante forma una base.
+         </p>
+         <p>
+           Sugerencia: por \(e_1,e_2\) denota la base canónica
+           de \(\mathbb{R}^2\). Usando las propiedades de bilinealidad
+           desarrolla
+           \[
+           \varphi(x_1e_1+y_1e_2,x_2e_1+y_2e_2)
+           \]
+           para encontar la \(c\) tal que
+           \[
+           \varphi(x_1e_1+y_1e_2,x_2e_1+y_2e_2)=c(x_1y_2-x_2y_1)
+           \]
+
+          </p>
+      </div>
+
+
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title" id="bilinealInducidaTransLineal"> Ejercicio </h2>
+              <p>
+                Sea \(T:\mathbb{R}^m \to \mathbb{R}^n\) una función lineal
+                y \(\varphi\in \Lambda^2(\mathbb{R}^n)\).
+                Define una nueva función \(\psi: \mathbb{R}^m\times \mathbb{R}^m
+                \to \mathbb{R} \) por
+                \[
+                \psi(P,Q)=\varphi(T(P), T(Q))
+                \]
+                </p>
+                <ol>
+                <li>Prueba que \(\psi \in \Lambda^2(\mathbb{R}^m)\).</li>
+                <li> Considera el caso \(n=2, m=3\) y \(\varphi =\det\).
+                 Tomando \(T\) como: (1) la proyección en el plano \(x,y\);
+                 (2) la proyección en el plano \(x,z\); (3)  la proyección
+                 en el plano \(y,z\); calcula
+                la regla de correspondencia de cada una de las  \(\psi\)
+                resultantes.</li>
+                </ol>
+              </div>
+
+              <div class="ejercicio-box">
+                <h2 class="number-title"> Ejercicio </h2>
+                <p>
+                  Toma \(\varphi\in \Lambda^2(\mathbb{R}^2)\) como \(\varphi =\det\).
+                </p>
+                <p>
+                  Define \(T_i:\mathbb{R}^3\to \mathbb{R}^2\), \(i=1,2,3\)  por
+                  \[
+                  T_1(x,y,z)=(y,z), \quad T_2(x,y,z)=(x,y), \quad T_3(x,y,z)=(x,y)
+                  \]
+                  y define \(\psi_i \in \Lambda^2(\mathbb{R}^3)\) por
+                  \[
+                  \psi_i(P,Q)=\varphi(T_i(P), T_i(Q)), \quad i=1,2,3.
+                  \]
+                  (ver <a href="#Ejer:bilinealInducidaTransLineal">Ejercicio</a> ).
+                </p>
+                <p>
+                  Toma \(\psi= 3\psi_1-2 \psi_2+5\psi_3 \). Calcula
+                  \(\psi(P,Q)\) para \(P=(1,1), Q=(2,1)\).
+                </p>
+              </div>
+
+
+                <div class="definicion-box">
+                  <h2 class="number-title" id="prodExterior2F"> Definición </h2>
+                  <p>
+                    Dadas dos funciones lineales \(f,g:\mathbb{R}^n \to \mathbb{R}\)
+                    definimos su producto cuña o producto exterior como
+                    la función \(f\wedge g: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}\)
+                    dada por
+                    \begin{eqnarray*}
+                    (f \wedge g) (P,Q)
+                    =
+                    \det
+                    \left[
+                    \begin{array}{cc}
+                    f(P) & g(P)\\
+                    f(Q) & g(Q)
+                    \end{array}
+                    \right]
+                    \end{eqnarray*}
+                  </p>
+                  </div>
+
+
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                     Sean \(f,g,h:\mathbb{R}^n\to \mathbb{R}\)
+                     funciones lineales y \(c\) una constante.
+                  </p>
+                    <p>
+                    Prueba:
+                    </p>
+                    <ol>
+                      <li>  \(f\wedge g \in \Lambda^2(\mathbb{R}^n)\).</li>
+                      <li> \(f\wedge g = - g \wedge f\). </li>
+                      <li> \(f\wedge f =0\). </li>
+                      <li>
+                        \( (f+ch)\wedge g= f\wedge g+ c (h\wedge g),
+                        \quad
+                        f \wedge (g+ch)=f\wedge g+ c (f\wedge h).
+                        \)
+                      </li>
+                    </ol>
+
+                  </div>
+
+
+
+                  <div class="ejercicio-box">
+                    <h2  class="number-title"> Ejercicio </h2>
+                    <p>
+                      Sean \(f,g:\mathbb{R}^n \to \mathbb{R}\) dos funciones lineales.
+                      Prueba que \(f\wedge g\) es la función idénticamente cero
+                      si y sólo si  existe un escalar \(c\) tal que \(f=cg\).
+                    </p>
+                  </div>
+
+
+                  <div class="nota-box">
+                    <h2 class="number-title"> Nota </h2>
+                    <p>
+                      Recuerda que por \(dx_i\), \(i=1,\dots, n\), denotamos a la función
+                      de \(\mathbb{R}^n\)  a \(\mathbb{R}\) dada por
+                      \[
+                      dx_i(x_1,\dots, x_n)=x_i
+                      \]
+                      Es decir, \(dx_i\) es la proyección en la \(i\)-ésima
+                      coordenada. También recuerda que \(dx_i\) es lineal.
+                    </p>
+                    <p>
+                    Con las funciones \(dx_i\) y el producto cuña obtenemos toda una
+                    familia de funciones bilineales
+                    \begin{equation}\label{Eqn:todosProductosCuna}
+                    dx_i \wedge dx_j, \quad i,j=1,\dots, n.
+                    \end{equation}
+                    Esta familia es importante por que de ella se puede extraer una
+                    base para \(\Lambda^2(\mathbb{R}^n)\).
+                    </p>
+                    <p>
+                      Primero notamos que \(dx_i\wedge dx_i=0\) y \(dx_i\wedge dx_j=-dx_j\wedge dx_i\).
+                      Así que en términos de conjuntos linealmente independientes el conjunto
+                      \eqref{Eqn:todosProductosCuna} tiene elementos que podemos eliminar. Después
+                      de dicha eliminación nos queda:
+                      \begin{equation}\label{Eqn:baseProductosCuna}
+                      dx_i\wedge dx_j, \quad 1 \leq i < j \leq n.
+                      \end{equation}
+                    </p>
+                    <p>
+                      Por ejemplo, en dimensión \(3\) queda
+                      \[
+                      dx_1\wedge dx_2, \quad dx_1\wedge dx_3,\quad  dx_2\wedge dx_3
+                      \]
+                    </p>
+                    <p>
+                      El propósito de los ejercicios que siguen es probar que el conjunto
+                      dado por \eqref{Eqn:baseProductosCuna} es una base para \(\Lambda^2(\mathbb{R}^n)\).
+                    </p>
+                  </div>
+
+
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title" id="Ejer:lemaDeltaDirectWedge"> Ejercicio </h2>
+
+                    <p>
+                      Sea \(n\geq 2\) un entero. Por
+                      \(\{e_i\}_{1=1}^n\) denotamos
+                      la base canónica de \(\mathbb{R}^n\). Fija \(i,j \in \{1,\dots, n\}\)
+                      con \(i < j  \). Prueba que
+                      \[
+                      (dx_i\wedge dx_j)(e_k,e_l)
+                      =
+                      \left\{
+                        \begin{array}{cc}
+                        1 & k=i, l=j \\
+                        -1 & k=j, l=i \\
+                        0 & \textrm{en otro caso}
+                        \end{array}
+                      \right.
+                      \]
+                    </p>
+
+                  </div>
+
+
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Prueba que el subconjunto
+                      \[
+                      \{dx_i\wedge dx_j: 1\leq i < j \leq n\} \subset \Lambda^2(\mathbb{R^2})
+                      \]
+                      es linealmente independiente.
+                    </p>
+                    <p>
+                      Sugerencia: si tenemos una combinación lineal igualada a cero
+                      \[
+                      \sum_{1\leq i < j \leq n} \alpha_{i,j}dx_i\wedge dx_j=0
+                      \]
+                      valua la función anterior en parejas de la forma
+                      \((e_k,e_l)\) y usa el <a href="Ejer:lemaDeltaDirectWedge">Ejercicio </a>.
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title" id="Ejer:condicionIgualdadBilinealesAlternantes"> Ejercicio </h2>
+                    <p>
+                      Sean \(\varphi, \psi \in \Lambda^2(\mathbb{R}^n)\). Prueba que
+                      las funciones \(\varphi\) y \(\psi\) son iguales si y sólo si
+                      \[
+                      \varphi(e_k, e_l)=\psi(e_k,e_l)
+                      \]
+                      para todos \(1\leq k < l \leq n\).
+                     </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Sea \(\varphi \in \Lambda^2(\mathbb{R}^n)\) fija y arbitraria. Para \(1\leq i< j \leq n\)
+                      denota \(\beta_{i,j}:=\varphi(e_i,e_j)\). Prueba que
+                      \[
+                      \varphi = \sum_{1 \leq i < j \leq n}\beta_{i,j} dx_i \wedge dx_j
+                      \]
+                    </p>
+                    <p>
+                      Sugerencia:  usa el <a href="#Ejer:condicionIgualdadBilinealesAlternantes">
+                        Ejercicio</a> para probar que la igualdad de funciones que se pide.
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title" id="cardinalidadBase"> Ejercicio </h2>
+                    <p>
+                      Denotamos \(\mathbb{Z}^+=\{1,2,\dots\}\). Fija \(n\in \mathbb{Z}^+\)
+                      con \(n\geq 2\). Prueba que la cardinalidad
+                      de
+                      \begin{equation}\label{Eqn:conjuntoAux}
+                      \{(i,j)\in \mathbb{Z}^+\times \mathbb{Z}^+: 1\leq i< j \leq n\}
+                      \end{equation}
+                      es \(\sum_{k=1}^{n-1} k\) .
+                    </p>
+                    <p>
+                      Concluye que la cardindalidad de
+                      \[
+                      \{dx_i\wedge dx_j : 1 \leq i < j \leq n\}
+                      \]
+                      es \(\frac{n(n-1)}{2}\).
+                    </p>
+                    <p>
+                      Sugerencia: dibuja el conjunto \eqref{Eqn:conjuntoAux}
+                      como subconjunto de  \(\mathbb{Z}^+\times \mathbb{Z}^+\).
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Prueba que el conjunto
+                    \[
+                    \{ dx_i\wedge dx_j : 1\leq i < j \leq n \}
+                    \]
+                    es una base para \(\Lambda^2(\mathbb{R}^n)\).
+                  </p>
+                  <p>
+                    Concluye que \(\Lambda^2(\mathbb{R}^n)\) es un espacio
+                    vectorial de dimensión \(\frac{n(n-1)}{2}\).
+                  </p>
+                  <p>Nota
+                    en particular que \(\Lambda^2(\mathbb{R}^2)\) tiene
+                    dimensión \(\frac{n(n-1)}{2}=\frac{2(2-1)}{2}=1\), lo cual
+                    concuerda con el ejercicio <a href="#Ejer:bilinealesAlternantesR2dim1">Ejercicio</a>
+                  </p>
+                  </div>
+
+                  <div class="definicion-box">
+                    <h2 class="number-title"> Definición </h2>
+                    <p>
+                      Dada una matriz \(A\),  por \(A[i,j]\)
+                      denotamos su entrada \((i,j)\) (\(i\)-ésimo
+                      renglón, \(j\)-ésima columna). La matriz transpuesta
+                      de \(A\), denotada \(A^t\) se define como la matriz con
+                      entradas
+                      \[
+                      A^t[i,j]:=A[j,i].
+                      \]
+                      Es decir, es la matriz que obtenemos al reflejar la matriz
+                      \(A\) con respcto a la diagonal principal.
+                    </p>
+                    <p>
+                      Una matriz \(A\in M_n(\mathbb{R})\) se llama anti-simétrica
+                      si \(A^t=-A\).
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title" id="Ejer:propiedadAdjunto"> Ejercicio </h2>
+                    <p>
+                      Sea \(A\in M_n(\mathbb{R})\). Prueba
+                      \[
+                      (AP)\cdot (Q)=(P)\cdot (A^tQ), \quad \forall P,Q\in \mathbb{R}^n
+                      \]
+                      donde \(AP\) denota el producto de la matriz \(A\) por el vector \(P\)
+                      y \(\cdot\) indica el producto punto.
+                    </p>
+                    </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Prueba que el subconjunto
+                      \[
+                      \{A\in M_n(\mathbb{R}^n): \textrm{\(A\) es anti-simétrica}\}
+                      \]
+                      es un subespacio de \(M_n(\mathbb{R}^n)\).
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Fija \(n\geq 2\). Dados \(i,j\in \{1,\dots, n\}\), por
+                      \(E_{i,j}\) denotamos a la matriz de \(n\times n\) que
+                      tiene todas las entradas cero, excepto por la del  renglón
+                      \(i\) y columno \(j\), donde tiene un 1.
+                    </p>
+                    <p>
+                      Prueba que:
+                      <ol>
+                      <li>
+                      \(
+                      \{ E_{i,j}: 1\leq i < j \leq n\}
+                      \)
+                      es una base para el subespacio de matrices anti-simétricas.
+                    </li>
+                      <li>
+                        La dimensión del subespacio de matrices anti-simétricas
+                        es \(\frac{n(n-1)}{2}\).
+                      </li>
+                    </ol>
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title" id="deMatrizABilineal"> Ejercicio </h2>
+                    <p>
+                      Sea \(A\in M_n(\mathbb{R})\) una matriz anti-simétrica. Define
+                      \(\varphi: \mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}\) por
+                      \[
+                      \varphi(P,Q)=(AP)\cdot (Q)
+                      \]
+
+                    </p>
+                    <p>
+                      Prueba que \(\varphi \in \Lambda^2(\mathbb{R}^n)\).
+                    </p>
+                    <p>
+                      Sugerencia: para probar que \(\varphi\) es alternante
+                      usa el <a href="#Ejer:propiedadAdjunto">Ejercicio</a>.
+                    </p>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title" id="deMatrizABilineal"> Ejercicio </h2>
+                    <p>
+                      Continuando con la misma notación que en el ejercicio anterior,
+                      encuentra una matriz \(A\) de \(2\times 2\) tal que
+                      \[
+                      (AP)\cdot Q= \det[P,Q],\quad \forall P,Q\in\mathbb{R}^2
+                      \]
+                    </p>
+                  </div>
+
+
 
 
 <!---- acaba contenido --->
