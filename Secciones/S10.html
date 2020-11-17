@@ -98,6 +98,89 @@
             Prueba que, con las operaciones usuales de suma
             de funciones y multiplicación escalar, \(\Lambda^2(\mathbb{R}^n)\) es un espacio vectorial.
           </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+
+
+            <p>
+            Tenemos que \(\Lambda^{2}(\mathbb{R}^{n})\) es un subconjunto
+            del espacio vectorial de las funciones definidas en
+            \(\mathbb{R}^{n}\times \mathbb{R}^{n}\) que toman valores reales,
+            a este espacio vectorial lo denotaremos por
+            \(F(\mathbb{R}^{n}\times \mathbb{R}^{n}, \mathbb{R})\).
+            Para demostrar que \(\Lambda^{2}(\mathbb{R}^{n})\) es un espacio
+            vectorial, basta demostar que  \(\Lambda^{2}(\mathbb{R}^{n})\)
+            es un subespacio vectorial de \(F(\mathbb{R}^{n}\times \mathbb{R}^{n},
+            \mathbb{R})\).
+            </p>
+            <p>
+            Entonces primero demostremos que
+            \(0 \in \Lambda^{2}(\mathbb{R}^{n})\),
+            donde \(0\) denota a la función constante cero.
+          </p>
+            <p>
+            Sean \(P, Q, R \in \mathbb{R}^{n}\) y sean
+            \(c, d \in \mathbb{R}\), entonces \(0(cP + dQ, R) = 0 \) y
+            \( c\cdot 0(P, R) + d \cdot 0(Q, R) = c \cdot 0 + d \cdot 0 = 0\),
+            es decir
+            \[
+            0(P + Q, R) = c \cdot 0(P, R) + d \cdot 0(Q, R)
+            \]
+            De manera análoga, \(0(P , cR + dQ) = c\cdot0(P, R) + d\cdot0(P, Q)\).
+            Además \(0(P, Q) = -0(Q, P)\) ya que \(0(P, Q)= 0(Q,P) = 0.\)
+          </p>
+            <p>
+            Por lo tanto, \(0 \in \Lambda^{2}(\mathbb{R}^{n})\).
+          </p>
+            <p>
+            Sean \(\varphi, \phi \in \Lambda^{2}(\mathbb{R}^{n})\) y
+            \(a \in \mathbb{R}\). Veamos que
+            \(\varphi + a\phi \in \Lambda^{2}(\mathbb{R}^{n}).\)
+          </p>
+            <p>
+            Sean \(P, Q, R \in \mathbb{R}^{n}\), y sean
+            \(c, d \in \mathbb{R}\). Entonces,
+            \begin{eqnarray*}
+            (\varphi + a\phi) (cP + dQ, R)
+            & := &
+            \varphi (cP + dQ, R) + a\phi(cP + dQ, R) \\
+            & := &
+            \varphi (cP + dQ, R) + a\phi(cP + dQ, R) \\
+            & = &
+            c\varphi (P, R) + d\varphi(Q, R) + a( c\phi(P,R) + d\phi(Q,R) ) \\
+            & = &
+            c( \varphi (P, R) + a \phi(P,R)) + d(\varphi(Q, R) + a \phi(Q,R) ) \\
+            & = &
+            c(\varphi + a\phi)(P,R) + d(\varphi + a\phi)(Q, R)
+            \end{eqnarray*}
+          </p>
+          <p>
+            De manera análoga, se tiene que
+            \[(\varphi + a\phi)(P, cQ+ dR)
+            =
+            c(\varphi(P,Q) + a\phi(P,Q)) + d((\varphi(P,R)
+            + a\phi(P,R)).\]
+          </p>
+
+             <p>
+               Por otro lado, usando la altenancia de \(\varphi\) y \(\phi\),
+             \[(\varphi + a\phi)(P,R)
+             =
+             \varphi(P,R) + a\phi(P,R)
+             =
+            -\varphi(R,P) - a\phi(R,P)
+            =
+            -(\varphi + a\phi)(R, P) .\]
+          </p>
+          <p>
+            Por lo tanto,  \(\varphi + a\phi \in \Lambda^{2}(\mathbb{R}^{n}).\)
+          </p>
+          <p>
+            Por lo tanto, \(\Lambda^{2}(\mathbb{R}^{n})\) es un subespacio vectorial.
+          </p>
+
+          </div>
       </div>
 
 
@@ -299,14 +382,42 @@
                       =
                       \left\{
                         \begin{array}{cc}
-                        1 & k=i, l=j \\
-                        -1 & k=j, l=i \\
+                        1/2 & k=i, l=j \\
+                        -1/2 & k=j, l=i \\
                         0 & \textrm{en otro caso}
                         \end{array}
                       \right.
                       \]
                     </p>
+                    <button class="respButton hvr-grow" > Respuesta </button>
+                    <div class="resp-box">
 
+
+                            <p>Sean  \(i,j \in \lbrace 1, . . . , n \rbrace\) con
+                            \(i < j\). Si \(k=i \) y \( l=j, \) entonces
+                            \begin{equation*}
+                            (dx_i \wedge dx_j)(e_i, e_j) = \frac{1}{2}\det \left[
+                            \begin{array}{cccc}
+                            dx_i(e_i)  &  dx_j(e_i) \\
+                            dx_i(e_j) & dx_j(e_j)
+                            \end{array} \right] = \frac{1}{2}\det \left[
+                            \begin{array}{cccc}
+                            1  & 0 \\
+                            0 & 1
+                            \end{array} \right] = \frac{1}{2}.
+                            \end{equation*}
+                          </p>
+                          <p>
+                            Si \(k=j \) y \( l=i\), entonces
+                            \((dx_i \wedge dx_j)(e_j, e_i) = -(dx_j \wedge dx_i)(e_j, e_i)= -1/2\).
+                          </p>
+                            <p>
+                            En cualquier otro caso,
+                            \(dx_i(e_k) = dx_i(e_l) = 0\) y \(dx_j(e_k) = dx_j(e_l) = 0\).
+                            Por lo tanto, \((dx_i \wedge dx_j)(e_k, e_l) = 0\).
+                          </p>
+
+                    </div>
                   </div>
 
 
