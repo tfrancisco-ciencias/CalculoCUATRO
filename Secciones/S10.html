@@ -447,7 +447,7 @@
                       <ol>
                       <li>
                       \[
-                      (AP)\cdot (Q)=(P)\cdot (A^tQ), \quad \forall P,Q\in \mathbb{R}^n
+                      (AP)\cdot Q= P\cdot (A^tQ), \quad \forall P,Q\in \mathbb{R}^n
                       \]
                       donde \(AP\) denota el producto de la matriz \(A\) por el vector \(P\)
                       y \(\cdot\) indica el producto punto.
@@ -463,7 +463,120 @@
                       para toda \(1\leq i < j \leq n\).
                     </li>
                     </p>
+
+                    <button class="respButton hvr-grow" > Respuesta </button>
+                    <div class="resp-box">
+                    <p>
+                    Inciso 1.
+                    </p>
+
+                    <p>
+                      Primero escribimos las coordenadas de \(P\) y \(Q\)
+                      como
+                      \[
+                      P=(p_1,\dots, p_n), \quad Q=(q_1,\dots, q_n).
+                      \]
+                    </p>
+                    <p>
+                      Primero vamos a desarrollar \( (AP)\cdot Q\). Por
+                      simplicidad denotamos \(AP=R=(r_1,\dots,r_n).\) Por la
+                      definición del
+                      producto de matriz por vector tenemos
+                      \[
+                      r_i=\sum_{j=1}^n A[i,j]p_j
+                      \]
+                      Entonces
+                      \begin{eqnarray}
+                      (AP)\cdot Q&=&R\cdot Q  \nonumber \\
+                                &=&\sum_{i=1}^n r_iq_i  \nonumber \\
+                                &=& \sum_{i=1}^n \sum_{j=1}^n A[i,j]p_jq_i \label{Eqn:aux1PropiedadesAdjunto}
+                      \end{eqnarray}
+                    </p>
+                    <p>
+                      Ahora vamos a desarrollar \( P\cdot (A^tQ) \) de manera similar.
+                    </p>
+                    <p>
+                      Por definición del producto de una matriz por vector,
+                      tomando \(A^tQ=S=(s_1,\dots, s_n)\), tenemos
+                      \[
+                      s_i=\sum_{j=1}^n A^t[i,j]q_j=\sum_{j=1}^n A[j,i]q_j
+                      \]
+                      nota que en la última igualdad se utilizó la definición
+                      de \(A^t\).
+                    </p>
+                    <p>
+                      Finalmente
+                      \begin{eqnarray}
+                      P\cdot (A^tQ)&=&P\cdot S \nonumber\\
+                                  &=& \sum_{i=1}^n p_i s_i  \nonumber \\
+                                  &=& \sum_{i=1}^n\sum_{j=1}^n A[j,i]p_iq_j  \label{Eqn:aux2PropiedadesAdjunto}
+                      \end{eqnarray}
+                    </p>
+                    <p>
+                      Comparando \eqref{Eqn:aux1PropiedadesAdjunto} y \eqref{Eqn:aux2PropiedadesAdjunto}
+                      obtenemos el inciso 1.
+                    </p>
+
+                    <p>
+                      Inciso 2.
+                    </p>
+                    <p>
+                      Para probar la igualadad entre las matrices debemos probar
+                      que iguales entrada por entrada.
+                    </p>
+
+                    <p>
+                      Por la definición  de la transpuesta
+                      \[
+                      (cA+B)^t[i,j]=(cA+B)[j,i].
+                      \]
+                      Por la definición de la suma y multiplicación escalar de
+                      matrices tenemos
+                      \begin{equation}\label{Eqn:aux3PropiedadesAdjunto}
+                      (cA+B)[j,i]=cA[j,i]+B[j,i].
+                      \end{equation}
+                    </p>
+                    <p>
+                      De manera similar,
+                      \begin{equation}\label{Eqn:aux4PropiedadesAdjunto}
+                      (cA^t+B^t)[i,j]=cA^t[i,j]+B^t[i,j]=cA[j,i]+B[j,i]
+                      \end{equation}
+                    </p>
+                    <p>
+                      Comparando \eqref{Eqn:aux3PropiedadesAdjunto}
+                      y \eqref{Eqn:aux4PropiedadesAdjunto} concluimos
+                      que \( (cA+B)^t=cA^t+B^t\).
+                    </p>
+                    <p>
+                      Inciso 3.
+                    </p>
+                    <p>
+                      Por definición, \(A\) es anti-simétrica si y sólo si,
+                      para toda \(1\leq i,j\leq n\),
+                      \[
+                      A^t[i,j]=-A[i,j] \Leftrightarrow A[j,i]=-A[j,i]
+                      \]
+                      Pero notamos que, cuando \(i=j\), \(A[i,i]=-A[i,i]\) lo
+                      que implica \(A[i,i]=0\). Además, la condición
+                      \(A[j,i]=-A[i,j]\), para toda \(1\leq i,j \leq n\)
+                      implica que los valores de \(A[i,j]\), para \( j \leq i\)
+                      están completamente determinados por los valores
+                      de \(A[i,j]\), con \(i < j\). Por lo que
+                      \begin{eqnarray*}
+                      & A[j,i]=-A[j,i] \quad \forall i,j, \textrm{con} \quad 1\leq i,j \leq n  \\
+                      & \Updownarrow \\
+                      & \left\{
+                        \begin{array}{cc}
+                          A[i,i]=0, & \forall i, \textrm{con} \quad 1\leq i \leq n \\
+                          A[i,j]=-A[j,i], & \forall  i,j, \textrm{con} \quad 1\leq i < j \leq n
+                          \end{array}
+                      \right\}
+                      \end{eqnarray*}
+                      lo cual prueba el inciso 3.
+                    </p>
+                  </div>
                     </div>
+
 
                   <div class="ejercicio-box">
                     <h2 class="number-title"> Ejercicio </h2>
