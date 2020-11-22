@@ -72,37 +72,579 @@
 
     <div class="flexbox">
 
-      <h1 class="card "> Cálculo de la integral en 2-formas constantes </h1>
+      <h1 class="card "> Cálculo de integrales para 2-formas constantes </h1>
 
 
+
+  <div class="nota-box">
+    <h2 class="number-title"> Introducción </h2>
+    <p>
+      Recordemos que una 2-forma constante en \(\mathbb{R}^n\), denotada \(\omega\),
+      no es otra cosa que una función bilineal alternante
+      \(
+      \varphi: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}
+      \)
+      y que definimos la integral de \(\omega\) sobre un
+      triángulo dirigido \(\triangle(P,Q,R)\) como
+      \begin{equation}\label{Eqn:defIntegral}
+      \int_{\triangle(P,Q,R) }\omega=\varphi(Q-P,Q-R)
+      \end{equation}
+      En esta sección nos enfocamos en: (1) métodos para
+      calcular esta integral y (2) extender esta integral a
+      superficies poligonales i.e. conjuntos formados por
+      <a href="S9.html#Nota:aditividadTriangulos">sumas de triángulos dirigidos</a>.
+    </p>
+    <p>
+      Nota: en el caso de las 2-formas \(dx_i\wedge dx_j \), para simplificar
+      la notación se escribe
+      \[
+      \int_{\triangle(P,Q,R)}dx_idx_j=\int_{\triangle(P,Q,R)}dx_i\wedge dx_j
+      \]
+    </p>
+  </div>
 
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
-      Sea \(\omega\) una 2-forma constante en \(\mathbb{R}^3\).
-      Por \(C\) denotamos un cubo en \(\mathbb{R}^3\). Prueba
+      En este ejercicio se ve que las diferentes formas de expresar
+      el triángulo dirigido \(\triangle(P,Q,R)\) no afectan a la
+      integral \eqref{Eqn:defIntegral}.
+    </p>
+    <p>
+      Sea \(\varphi:\mathbb{R}^n\times \mathbb{R}^n\to \mathbb{R}\)
+      una función bilineal alternante. Prueba que
       \[
-      \int_C \omega = 0.
+      \varphi(Q-P,R-P)=\varphi(R-Q,P-Q)=\varphi(P-R,Q-S)
+      \]
+    </p>
+    <p>
+      Nota: si \(\omega\) es la 1-forma constante asociada a \(\varphi\)
+      lo anterior se puede escribir como
+      \[
+      \int_{\triangle(P,Q,R) }\omega=\int_{\triangle(Q,R,P) }\omega=
+      \int_{\triangle(R,P,Q) }\omega
       \]
     </p>
   </div>
 
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
-      <p>
-      Considera \(\varphi \in \Lambda^2(\mathbb{R}^n)\)
-      y \(A\) una matriz de \(n\times n\). Prueba
-      que para todos \(P,Q\in \mathbb{R}^n\)
+
+    <p>
+      Sean \(\omega, \eta\) 2-formas constantes en \(\mathbb{R}^n\)
+      y \(c\in \mathbb{R}\) un escalar. Prueba
       \[
-        \varphi(AP,AQ)=\det(A)\varphi(P,Q)
+      \int_{\triangle(P,Q,R)}\omega+c\eta=\int_{\triangle(P,Q,R)}\omega +
+      c \int_{\triangle(P,Q,R)} \eta
       \]
+    </p>
+    <p>
+      Sugerencia: si  \(\varphi\) es la forma bilineal asociada
+      a \(\omega\) y \(\psi\) es la forma bilineal asociada a
+      \(\eta\) usa que \(\varphi+ c\psi\) es la forma bilineal asociada
+      a \(\omega+c\eta\).
     </p>
   </div>
 
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Para los triángulos dirigidos y 2-formas dados
+        calcula las  integrales \(\int_{\triangle(P,Q,R}\omega\).
+        <ol>
+          <li> \(P=(1,0,0), Q=(0,1,0), R=(1,1,1)\), \(\omega=2dydz+dzdx-3dxdy\) </li>
+          <li> \(P=(-1,2,1), Q=(0,1,2), R=(1,-1,1)\), \(\omega=-dxdy+2dydz-5dxdz\).</li>
+          <li> \(P=(1,0,1,0), Q=(0,1,0,0), R=(1,1,1,1)\), \(\omega=2dx_1dx_4-3dx_2dx_3+dx_3dx_4\) </li>
+        </ol>
+      </p>
+    </div>
 
-<!-- acaba contenido -->
+
+    <div class="definicion-box">
+      <h2 class="number-title" id="Def:matricesElementales"> Definición </h2>
+      <p>
+        Una matriz  se llama elemental si
+        se puede obtener de la matriz identidad por medio de una de las
+        siguientes operaciones:
+        <ol>
+          <li> Intercambiar dos filas.</li>
+          <li> Sumar a una fila un multiplo de otra fila. </li>
+          <li> Multiplicar una fila por una constante no cero. </li>
+        </ol>
+      </p>
+      <p>
+        Por ejemplo, para matrices de \(2\times 2\) las matrices elementales
+        son necesariamente de la forma
+        \begin{eqnarray*}
+        & & \left[
+        \begin{array}{cc}
+        0 & 1 \\
+        1 & 0
+        \end{array}
+        \right]
+        \\
+        & & \left[
+        \begin{array}{cc}
+        1 & c \\
+        0 & 1
+        \end{array}
+        \right],
+        \quad
+        \left[
+        \begin{array}{cc}
+        1 & 0 \\
+        c & 1
+        \end{array}
+        \right], \quad c\in \mathbb{R}
+        \\
+        & & \left[
+        \begin{array}{cc}
+        c & 0 \\
+        0 & 1
+        \end{array}
+        \right],
+        \quad
+        \left[
+        \begin{array}{cc}
+        1 & 0 \\
+        0 & c
+        \end{array}
+        \right], \quad c\in \mathbb{R}, c \ne 0
+        \end{eqnarray*}
+
+
+      </p>
+
+      <!--<p>
+        De manera geneal, por \(n\geq 2\) denotamos a un entero y por \(E_{i,j}\),
+        \(1\leq i,j \leq n\), denotamos a la matriz de \(n\times n\)
+        con todas las entradas igual a cero excepto en el renglón \(i\)
+        columna \(j\), donde tiene 1. Entonces las matrices elementales
+        son de la forma
+        <ol>
+          <li> para \(i_1\ne i_2\),
+        \[
+        \left(\sum_{i=1, i=\ne i_1,i_2}^n E_{i,i}\right)+E_{i_1,i_2}+E_{i_2,i_2}
+        \]
+          </li>
+
+        <li> Si \(I\) es la matriz identidad y \(i_1,\ne i_2\)
+          \[
+          I+c E_{i_1,i_2}
+          \]
+        </li>
+        <li> Si \(c\ne 0\)
+          \[
+            \left(\sum_{i=1, i\ne i_1}^n E_{i,i}\right)+ cE_{i_1,i_1}
+          \]
+
+        </li>
+      </p>-->
+    </div>
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+          <p>
+          Sea \(A\) una matriz  de \(2\times 2\) y
+          \(\varphi \in \Lambda^2(\mathbb{R}^2)\). Prueba
+          que para todos \(P,Q\in \mathbb{R}^2\)
+          \[
+            \varphi(AP,AQ)=\det(A)\varphi(P,Q)
+          \]
+        </p>
+        <p>
+          Sugerencia: sea \(B\) la matriz de \(2\times 2\)
+          cuyas columnas son los vectores \(P,Q\). Nota que
+          \(AB\) es la matriz cuyas columnas son los vectores
+          \(AP,AQ\). Luego usa la propiedad del determinante que
+          dice \(\det(AB)=\det(A)\det(B)\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:valuationPullbacks"> Ejercicio </h2>
+        <p>
+          Este ejercicio es la semilla de dónde brotará el teorema
+          del cambio de variable en dimensión-2.
+        </p>
+        <p>
+          Sea \(A\) una matriz de  \(2\times 2\), \(P_0\in \mathbb{R}^n\)
+          un punto fijo y consdiera la función
+          afín \(T:\mathbb{R}^2\to \mathbb{R}^2\) dada por \(T(P)=AP+P_0\).
+
+        </p>
+        <p>
+          Sea \(\omega\) una 2-forma constante en \(\mathbb{R}^n\). Prueba
+          \[
+          \int_{\triangle(T(P),T(Q),T(R))} \omega =\det(A)\int_{\triangle(P,Q,R)}\omega
+          \]
+        </p>
+        <p>
+          Sugerencia: usa el ejercicio anterior.
+        </p>
+      </div>
+
+      <!--<div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\varphi\in \Lambda^2(\mathbb{R}^n)\) y
+          \(T:\mathbb{R}^n\to \mathbb{R}^n\) una función lineal.
+          La función bilineal alternante \(\psi:\mathbb{R}^n\times \mathbb{R}^n
+          \to \mathbb{R}\) dada por
+          \[
+          \psi(P,Q)=\varphi(TP,TQ)
+          \]
+          se llama el pullback de \(\varphi\) bajo \(T\)
+          y se denota \(T^*\varphi\).
+        </p>
+        <p>
+          Si \(\omega\) es la 2-forma constante asociada a \(\varphi\)
+          por \(T^*\omega\) denotamos a la 2-forma constante asociada
+          a \(T^*\varphi\) y se llama el pullback de \(\omega\) bajo \(T\).
+        </p>
+      </div>
+    -->
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Este ejercicio prueba que el resultado en
+        <a href="Ejer:valuationPullbacks">Ejercicio</a>
+        no es válido para 2-formas en \(\mathbb{R}^3\).
+      </p>
+      <p>
+        Considera la 2-forma constante en \(\mathbb{R}^3\)
+        \(dx\wedge dy\). Encuentra una matriz elemental
+        \(E\) y puntos \(P,Q\in \mathbb{R}^3\) tal que
+        \[
+        (dx\wedge dy)(EP,EQ)\neq \det(E)(dx \wedge dy)(P,Q)
+        \]
+      </p>
+      <!--<p>
+        La forma adecuada de generalizar el
+        <a href="Ejer:valuationPullbacks">Ejercicio</a>
+        es tomando \(n\)-formas constantes en \(\mathbb{R}^n\)
+        (noten que las dimensiones son las mismas). Las
+        \(n\)-formas se verán más adelante.
+      </p>-->
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+
+      <p>
+        Este ejercicio es la forma correcta de generalizar
+        el <a href="Ejer:valuationPullbacks">Ejercicio</a>,
+        en  \(\mathbb{R}^n\), con \(n\geq 3\).
+      </p>
+
+      <p>
+        Fija \(k,l\in\{ 1,\dots, n\}\) con \(k< l\) y
+        sea \(A\) una matriz de \(n \times n\). Prueba
+        que para todos \(P,Q\in \mathbb{R}^n\)
+        que
+        \[
+        (dx_k \wedge dx_l)(AP,AQ)=
+        \sum_{1\leq i < j \leq n}
+        \det
+        \left[
+          \begin{array}{cc}
+          A[k,i] & A[k,j]\\
+          A[l,i] & A[l,j]
+          \end{array}
+        \right] (dx_i \wedge dx_j)(P,Q)
+        \]
+
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+
+      <p>
+        Sea \(A\) una matriz de \(n\times n\), \(P_0\in \mathbb{R}^n\)
+        un punto fijo y considera la función afin
+        \(T:\mathbb{R}^n\to \mathbb{R}^n\), \(T(P)=AP+P_0\).
+      </p>
+      <p>
+        Considera la 2-forma en \(\mathbb{R}^n\), \(dx_k \wedge dx_l\),
+        con \(1\leq k < l \leq n\). Prueba:
+        \[
+        \int_{\triangle(T(P),T(Q),T(R))}dx_k\wedge dx_l=\sum_{1\leq i < j \leq n} \det
+        \left[
+          \begin{array}{cc}
+          A[k,i] & A[k,j]\\
+          A[l,i] & A[l,j]
+          \end{array}
+        \right]\int_{\triangle(P,Q,R)} dx_i \wedge dx_j
+        \]
+
+      </p>
+      <p>
+        Sugerencia: usa el ejercicio anterior.
+      </p>
+    </div>
+
+    <div class="definicion-box">
+      <h2 class="number-title"> Definición </h2>
+      <p>
+        Una <b>supreficie polinogal</b> en \(\mathbb{R}^n\) es un subconjunto
+        de \(\mathbb{R}^n\) que se obtiene al sumar una cantidd finita
+        de triángulos dirigidos.
+      </p>
+      <p>
+        Ejemplos: cubos, tetrahedros.
+
+      </p>
+      <p>
+        Es importante notar que una superficie poligonal
+        es la unión de objetos 2-dimensionales (<b>caras</b>),
+        objetos 1-dimensionales (<b>aristas</b>) y objetos 0-dimensionales
+        (<b>vértices</b>).
+      </p>
+      <p>La unión de las aristas
+        que pertenecen a una sóla cara forma <b>la frontera de
+        la superficie</b>. Si la superficie
+        se denota por \(\mathbb{S}\) su frontera se denota por \(\partial \mathbb{S}\).
+      <p>
+        <p>
+          Una <b>superficie  poligonal se llama cerrada</b> si su frontera es vacía.
+          Por ejemplo un cubo o un tetrahedro.
+        </p>
+
+        <p>
+          Dados cuatro puntos no co-planares, \(P,Q,R,S\), por
+          \(\mathbb{Te}(P,Q,R,S)\) denotamos al tetrahedro generado
+          por \(P,Q,R,S\), con la orientación inducida por
+          el triángulo orientado \(\triangle(P,Q,R)\).
+        </p>
 
     </div>
+
+
+
+    <div class="definicion-box">
+      <h2 class="number-title"> Definición </h2>
+      <p>
+        Sean \(\mathbb{S}\) una superficie poligonal orientada en \(\mathbb{R}^n\)
+        y \(\omega\) una 2-forma constante en \(\mathbb{R}^n\). Supongamos que \(S\) es la suma de los triángulos
+        orientados  \( \{ \triangle(P_\alpha,Q_\alpha,R_\alpha) \}_{\alpha=1}^N\).
+      <p>
+      </p>Se define
+        la integral de \(\omega\) sobre \(\mathbb{S}\) como
+        \[
+        \int_{\mathbb{S}}\omega =\sum_{\alpha=1}^N
+        \int_{\triangle(P_\alpha, Q_\alpha, R_\alpha)}\omega
+        \]
+      </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \(\mathbb{S}\) una superficie poligonal en
+        \(\mathbb{R}^n\). Sea \(T:\mathbb{R}^n\to \mathbb{R}^n\)
+        una transformación afin dada por \(T(P)=AP+P_0\). Por
+        \(T[\mathbb{S}]\) denotamos la superficie poligonal que
+        se obtiene al aplicar \(T\) a cada uno de los triángulos
+        orientados que forman a \(\mathbb{S}\).
+       </p>
+       <p>
+         Fija \(1\leq k < l \leq n\). Prueba
+         \[
+         \int_{T[\mathbb{S}]}dx_k \wedge dx_l =\sum_{1\leq i< j \leq n}
+         \det\left[
+           \begin{array}{cc}
+           A[k,i] & A[k,j]\\
+           A[l,i] & A[l,j]
+           \end{array}
+         \right]
+         \int_{\mathbb{S}}dx_i \wedge dx_j
+         \]
+       </p>
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Fija un entero \(n \geq 3\),
+      sea \(\{e_1,\dots, e_n\}\), la base canónica en
+      \(\mathbb{R}^n\) y  fija tres elementos distintos
+      \(e_{i_1},e_{i_2}\) y \(e_{i_3}\) en  ésta base.
+    </p>
+    <ol>
+    <li>
+      Fija \(1\leq k < l \leq n\). Prueba:
+      \[
+      \int_{\mathbb{Te}(O,e_{i_1},e_{i_2},e_{i_3})} dx_k \wedge dx_l =0
+      \]
+    </li>
+    <li>
+      Fija \(1\leq k < l \leq n\) y sean
+      \(P,Q,R,S\) tres puntos no co-planares. Prueba:
+      \[
+      \int_{\mathbb{Te}(P,Q,R,S)}dx_k \wedge dx_l=0
+      \]
+      Sugerencia: usa el ejercicio anterior.
+    </li>
+    <li>
+      Sea \(\omega \in \Lambda^2(\mathbb{R}^n)\)
+      y \(P,Q,R,S\) tres puntos no co-planares. Prueba:
+      \[
+      \int_{\mathbb{Te}(P,Q,R,S)} \omega =0
+      \]
+      Sugerencia: usa el inciso anerior junto con el hecho de que
+      \(\{dx_i\wedge dx_j: 1\leq i < j \leq n\}\) forma
+      una base para \(\Lambda^2(\mathbb{R}^n)\).
+    </li>
+    </div>
+
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \(\omega\) una 2-forma constante en \(\mathbb{R}^3\).
+        Por \(\mathbb{S}\) denotamos un cubo unitario en \(\mathbb{R}^3\). Prueba
+        \[
+        \int_{\mathbb{S}} \omega = 0.
+        \]
+      </p>
+    </div>
+
+
+    <div class="definicion-box">
+      <h2 class="number-title"> Definición </h2>
+      <p>
+        Recordamos que, dada una función diferenciable
+        \(f:\mathbb{R}^n \to \mathbb{R}\), se define su
+        derivada exterior como la 1-forma dada por
+        \[
+        df= \sum_{i=1}^n (\partial_{x_i}f) dx_i
+        \]
+        Nota que en general  \(df\) no es una 1-forma constante, pero,
+        si \(f\) es una función lineal entonces cada parcial
+        \(\partial_{x_i}f\) sí es una constante.
+      </p>
+        <p>
+          Considera una 1-forma  en \(\mathbb{R}^n\)
+          \[
+          \omega= \sum_{i=1}^n f_i dx_i
+          \]
+          donde cada \(f_i:\mathbb{R}^n\to \mathbb{R}\) es una
+          función lineal.
+        </p>
+        <p>Definimos la <b>derivada exterior</b> de
+          \(\omega\), denotada \(d\omega\) como la
+          2-forma constante dada por
+          \[
+          d\omega= \sum_{i=1}^n df \wedge dx_i
+          \]
+
+        </p>
+        <p>
+          Nota que \(\omega\) es una 1-forma pero
+          \(d\omega\) es una 2-forma.
+        </p>
+        <p>
+          Por ejemplo, si consideramos
+          la 1-forma en \(\mathbb{R}^3\)
+          \[
+          \omega=(2x+y)dx+ (6x-3y)dy+  (x+z)dz
+          \]
+          entonces, usando que las derivadas
+          exteriores de las funciones coordenadas son
+          \begin{eqnarray*}
+          d(2x+y)=2dx+dy, \\
+          d(6x-3y)=6dx-3dy\\
+          d(x+z)=dx+dy
+          \end{eqnarray*}
+          y usando las propiedades del producto cuña del
+          <a> Ejercicio</a>, tenemos
+          \begin{eqnarray*}
+          d\omega &=& ( 2dx+dy  )\wedge dx+(6dx-3dy)\wedge dy+(dx+dz)\wedge dz \\
+          &=& dy\wedge dx+ 6 dx\wedge dy +dx\wedge dz \\
+          &=& 5dx \wedge dy+dx\wedge dz
+          \end{eqnarray*}
+        </p>
+    </div>
+
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para cada una de las 1-formas en \(\mathbb{R}^3\) calcula
+            su derivada exterior.
+          </p>
+          <ol>
+            <li> \(\omega= (3x-2y+4z)dx+(-3x+6y-2z)dy+(4x+2y+6z)dz \) </li>
+
+            <li> \(\omega= (x+y+z)dx+(x-y+z)dy+(-x-y-z)dz \) </li>
+          </ol>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera la 2-forma constante en \(\mathbb{R}^3\)
+            \[
+            \eta=Adx\wedge dy+Bdy\wedge dz +C dx\wedge dz
+            \]
+            Prueba que la 1-forma
+            \[
+            \omega = -Aydx-Bzdy-Cxdz
+            \]
+            satisface
+            \[
+            d\omega=\eta
+            \]
+          </p>
+        </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" id="Ejer:gaussPoligoonales"> Ejercicio </h2>
+      <p>
+        Considera una 1-forma  en \(\mathbb{R}^n\)
+        \[
+        \omega= \sum_{i=1}^n f_i dx_i
+        \]
+        donde cada \(f_i:\mathbb{R}^n\to \mathbb{R}\) es una
+        función lineal.
+      </p>
+        <p>
+          Sea \(\mathbb{S}\) una superficie poligonal con
+          \(\partial \mathbb{S} \ne \emptyset\). Prueba que:
+          \[
+          \int_{\mathbb{S}} d\omega =\int_{\partial \mathbb{S}} \omega
+          \]
+        </p>
+    </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Por \(\mathbb{S}\) denotamos la superficie poligonal
+            formada por el cubo unitario sin la tapa.
+          </p>
+
+          <p>
+              Usa el <a href="#Ejer:gaussPoligoonales">Ejercicio</a>
+              para calcular
+              \[
+              \int_{\mathbb{S}} -dxdy +4dydz +4dxdz
+              \]
+          </p>
+        </div>
+<!-- acaba contenido -->
+
 
   </body>
 
