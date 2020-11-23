@@ -383,7 +383,7 @@
       <p>
         Considera la 2-forma constante en \(\mathbb{R}^3\)
         \(dx\wedge dy\). Encuentra una
-        <a href="Def:matricesElementales">matriz elemental</a>
+        <a href="#Def:matricesElementales">matriz elemental</a>
 
         \(E\) y puntos \(P,Q\in \mathbb{R}^3\) tal que
         \[
@@ -413,20 +413,121 @@
         Fija \(k,l\in\{ 1,\dots, n\}\) con \(k< l\) y
         sea \(A\) una matriz de \(n \times n\). Prueba
         que para todos \(P,Q\in \mathbb{R}^n\):
-        \[
+        \begin{equation}\label{Eqn:valuationPullbacks}
         (dx_k \wedge dx_l)(AP,AQ)=
-        \sum_{1\leq i < j \leq n}
+        \sum_{1\leq r < s \leq n}
         \det
         \left[
           \begin{array}{cc}
-          A[k,i] & A[k,j]\\
-          A[l,i] & A[l,j]
+          A[k,r] & A[k,s]\\
+          A[l,r] & A[l,s]
           \end{array}
-        \right] (dx_i \wedge dx_j)(P,Q)
-        \]
+        \right] (dx_r \wedge dx_s)(P,Q)
+        \end{equation}
 
       </p>
+
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp-box">
+
+
+      <p>
+        Vamos a empezar por el lado derecho de \eqref{Eqn:valuationPullbacks} y vamos
+        a terminar en el izquierdo.
+      </p>
+      <p>
+        Por definición del producto cuña
+        \begin{eqnarray*}
+        (dx_k \wedge dx_l)(AP,AQ)&=&
+        \frac{1}{2}
+        \det
+        \left[
+        \begin{array}{cc}
+        dx_{k}(AP) & dx_l(AP) \\
+        dx_{k}(AQ) & dx_l(AQ)
+        \end{array}
+        \right]
+        \\
+        &=& \frac{1}{2}(dx_k(AP)dx_l(AQ) - dx_l(AP)dx_k(AQ))
+        \end{eqnarray*}
+        Pero, por la definición de producto de matriz por vector
+        \begin{eqnarray*}
+        dx_k(AP)=\sum_{j=1}^n A[k,j]p_j, \\
+        dx_k(AQ)=\sum_{j=1}^n A[k,j]q_j.
+        \end{eqnarray*}
+        Por lo tanto
+        \begin{eqnarray*}
+        dx_k(AP)dx_l(AQ) - dx_l(AP)dx_k(AQ)&=&
+        \left( \sum_{j_1=1}^n A[k,j_1]p_{j_1} \right)
+        \left( \sum_{j_2=1}^n A[l,j_2]q_{j_2} \right) \\
+        &-&
+        \left( \sum_{j_3=1}^n A[l,j_3]p_{j_3} \right)
+        \left( \sum_{j_4=1}^n A[k,j_4]q_{j_4} \right) \\
+        &=& \sum_{1\leq j_1, j_2 \leq n} A[k,j_1]A[l,j_2] p_{j_1} q_{j_2} \\
+        &-& \sum_{ 1\leq j_3, j_4 \leq n} A[l,j_3] A[k,j_4] p_{j_3} q_{j_4}
+        \end{eqnarray*}
+      </p>
+      <p>
+        En la última resta hay muchas cancelaciones. Los sumandos
+        cuando \(j_1=j_2\) del primer termino se cancelan con
+        los sumando cuando \(j_3=j_4\) del segudo. Resultando
+      </p>
+      \begin{eqnarray}
+      dx_k(AP)dx_l(AQ) - dx_l(AP)dx_k(AQ)&=&
+      \sum_{1\leq j_1< j_2 \leq n} A[k,j_1]A[l,j_2] p_{j_1} q_{j_2} \label{Eqn:aux2}\\
+      &+& \sum_{1\leq j_2< j_1 \leq n} A[k,j_1]A[l,j_2] p_{j_1} q_{j_2} \label{Eqn:aux3}\\
+      &-& \sum_{ 1\leq j_3 < j_4 \leq n} A[l,j_3] A[k,j_4] p_{j_3} q_{j_4} \label{Eqn:aux4}\\
+      &-& \sum_{ 1\leq j_4 < j_3 \leq n} A[l,j_3] A[k,j_4] p_{j_3} q_{j_4} \label{Eqn:aux5}
+      \end{eqnarray}
+
+      <p>
+        Agrupando las ecuaciones \eqref{Eqn:aux2} con \eqref{Eqn:aux5} y
+        renombrando índices tenemos
+
+        \begin{eqnarray}
+         \begin{array}{c}
+         \sum_{1\leq j_1< j_2 \leq n} A[k,j_1]A[l,j_2] p_{j_1} q_{j_2} \\
+         - \sum_{ 1\leq j_4 < j_3 \leq n} A[l,j_3] A[k,j_4] p_{j_3} q_{j_4}
+         \end{array}
+         =\sum_{1\leq r< s\leq n }A[k,r]A[l,s](p_rq_s-p_sq_r) \label{Eqn:aux6}
+        \end{eqnarray}
+
+        Similarmente con las ecuaciones \eqref{Eqn:aux3} y \eqref{Eqn:aux4}
+        \begin{eqnarray}
+         \begin{array}{c}
+         \sum_{1\leq j_2< j_1 \leq n} A[k,j_1]A[l,j_2] p_{j_1} q_{j_2} \\
+         - \sum_{ 1\leq j_3 < j_4 \leq n} A[l,j_3] A[k,j_4] p_{j_3} q_{j_4}
+         \end{array}
+         &=&\sum_{1\leq r< s\leq n }A[k,s]A[l,r](p_sq_r-p_rq_s) \nonumber \\
+         &=& \sum_{1\leq r< s\leq n } - A[k,s]A[l,r](p_rq_s-p_sq_r) \label{Eqn:aux7}
+        \end{eqnarray}
+        De \eqref{Eqn:aux6} y \eqref{Eqn:aux7} obtenemos
+        \begin{eqnarray*}
+        \frac{1}{2}(dx_k(AP)dx_l(AQ) - dx_l(AP)dx_k(AQ))&=&
+        \sum_{1\leq r< s\leq n }(A[k,r]A[l,s]-A[k,s]A[l,r])\frac{(p_rq_s-p_sq_r)}{2}
+        \end{eqnarray*}
+      </p>
+      <p>
+        Finalmente, \eqref{Eqn:valuationPullbacks} se obtiene notando
+        \[
+        A[k,r]A[l,s]-A[k,s]A[l,r]=
+        \det
+        \left[
+        \begin{array}{cc}
+        A[k,r] & A[k,s] \\
+        A[l,r] & A[l,s]
+        \end{array}
+        \right]
+        \]
+        y
+        \[
+        \frac{(p_rq_s-p_sq_r)}{2} =
+        (dx_r \wedge dx_s)(P,Q)
+        \]
+      </p>
     </div>
+    </div>
+
 
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:cambioVariable2DRn"> Ejercicio </h2>
@@ -502,7 +603,7 @@
 
         </p>
         <p>
-          Otro video más informal sobre superficies poligonales y videojuegos. 
+          Otro video más informal sobre superficies poligonales y videojuegos.
           <div class="video flexbox">
             <a href="https://youtu.be/U93RImC-by4" target="_blank"> Video </a>
           </div>
