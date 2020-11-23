@@ -263,7 +263,7 @@
 
 
       </p>
-
+      </div>
       <!--<p>
         De manera geneal, por \(n\geq 2\) denotamos a un entero y por \(E_{i,j}\),
         \(1\leq i,j \leq n\), denotamos a la matriz de \(n\times n\)
@@ -289,7 +289,7 @@
 
         </li>
       </p>-->
-    </div>
+
 
 
 
@@ -340,11 +340,11 @@
           \]
         </p>
         <p>
-          Sugerencia: usa  la <a href="#Eqn:defIntegral">Definición</a> y
+          Sugerencia: usa  la  Definición \eqref{Eqn:defIntegral} y
           el ejercicio anterior.
         </p>
         <p>
-          El triángulo \(\triangle(T(P),T(Q),T(R))\) puede
+          Nota: El triángulo \(\triangle(T(P),T(Q),T(R))\) puede
           denotarse \(T(\triangle(P,Q,R))\). La idea de ésta notación es
           que el triángulo \(\triangle(P,Q,R)\) se transforma
           en \(\triangle(T(P),T(Q),T(R))\) al aplciarle \(T\).
@@ -377,12 +377,14 @@
       <h2 class="number-title"> Ejercicio </h2>
       <p>
         Este ejercicio prueba que el resultado en el
-        <a href="#Ejer:valuationPullbacks">Ejercicio</a>
+        <a href="#Ejer:valuationPullbacks">Ejercicio 11.6</a>
         no es válido para 2-formas en \(\mathbb{R}^3\).
       </p>
       <p>
         Considera la 2-forma constante en \(\mathbb{R}^3\)
-        \(dx\wedge dy\). Encuentra una matriz elemental
+        \(dx\wedge dy\). Encuentra una
+        <a href="Def:matricesElementales">matriz elemental</a>
+
         \(E\) y puntos \(P,Q\in \mathbb{R}^3\) tal que
         \[
         (dx\wedge dy)(EP,EQ)\neq \det(E)(dx \wedge dy)(P,Q)
@@ -403,7 +405,7 @@
 
       <p>
         Este ejercicio es la forma correcta de generalizar
-        el <a href="#Ejer:valuationPullbacks">Ejercicio</a>,
+        el <a href="#Ejer:valuationPullbacks">Ejercicio 11.6</a>,
         en  \(\mathbb{R}^n\), con \(n\geq 3\).
       </p>
 
@@ -427,7 +429,7 @@
     </div>
 
     <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
+      <h2 class="number-title" id="Ejer:cambioVariable2DRn"> Ejercicio </h2>
 
       <p>
         Sea \(A\) una matriz de \(n\times n\), \(P_0\in \mathbb{R}^n\)
@@ -499,6 +501,14 @@
           </div>
 
         </p>
+        <p>
+          Otro video más informal sobre superficies poligonales y videojuegos. Por
+          cierto, espero que ya entiendan, almenos teoréticamente, porqué se
+          usan triángulos en los videojuegos.
+          <div class="video flexbox">
+            <a href="https://youtu.be/U93RImC-by4" target="_blank"> Video </a>
+          </div>
+        </p>
     </div>
 
 
@@ -548,6 +558,10 @@
          \int_{\mathbb{S}}dx_i \wedge dx_j.
          \]
        </p>
+       <p>
+         Sugerencia: usa el <a href="#Ejer:cambioVariable2DRn"> Ejercicio 11.10</a>
+         junto con la definición \eqref{Eqn:defIntegralSupPoli}.
+       </p>
     </div>
 
     <div class="ejercicio-box">
@@ -564,6 +578,8 @@
       \[
       \int_{\mathbb{Te}(O,e_{i_1},e_{i_2},e_{i_3})} dx_k \wedge dx_l =0.
       \]
+      Sugerencia: usa el
+      <a href="S10.html#Ejer:lemaDeltaDirectWedge">Ejercicio 10.10</a>
     </li>
     <li>
       Fija \(1\leq k < l \leq n\) y sean
@@ -704,6 +720,10 @@
           \[
           \int_{\mathbb{S}} d\omega =\int_{\partial \mathbb{S}} \omega.
           \]
+          </p>
+          <p>
+            Nota: este ejercicio es una breve mirada a lo que serán los
+            teoremas de Green, Gauss  y Stokes.
           </p>
           <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
