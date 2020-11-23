@@ -114,17 +114,46 @@
       Sea \(\varphi:\mathbb{R}^n\times \mathbb{R}^n\to \mathbb{R}\)
       una función bilineal alternante. Prueba que
       \[
-      \varphi(Q-P,R-P)=\varphi(R-Q,P-Q)=\varphi(P-R,Q-R)
+      \varphi(Q-P,R-P)=\varphi(R-Q,P-Q)=\varphi(P-R,Q-R).
       \]
     </p>
     <p>
-      Nota: si \(\omega\) es la 1-forma constante asociada a \(\varphi\)
-      lo anterior se puede escribir como
+      Nota: si \(\omega\) es la 2-forma constante asociada a \(\varphi\)
+      lo anterior se puede escribir como:
       \[
       \int_{\triangle(P,Q,R) }\omega=\int_{\triangle(Q,R,P) }\omega=
-      \int_{\triangle(R,P,Q) }\omega
+      \int_{\triangle(R,P,Q) }\omega.
       \]
     </p>
+    <button class="respButton hvr-grow"> Respuesta </button>
+    <div class="resp-box">
+      <p>
+        Por el Ejercicio 9.22 y la alternacia de \(\varphi\) tenemos que:
+
+        \begin{equation*}
+        \varphi(Q - P, R - P) = - \varphi(P - Q, R - Q) = \varphi(R - Q, P - Q).
+        \end{equation*}
+      </p>
+      <p>
+        Es decir, \(\varphi(Q - P, R- P) = \varphi(R - Q, P - Q)\).
+      </p>
+      <p>
+        Nuevamente usando el Ejercicio 9.22 y la alternacia de \(\varphi\) se sigue que:
+        \begin{equation*}
+        \varphi(R - Q, P - Q) = - \varphi(Q - R, P - R) =  \varphi(P - R, Q - R).
+        \end{equation*}
+      </p>
+      <p>
+        Es decir \(\varphi(R - Q, P - Q) = \varphi(P - R, Q - R)\).
+        Por lo tanto,
+        \[
+        \varphi(Q - P, R - P) =
+        \varphi(R - Q, P - Q) =
+        \varphi(P - R, Q - R) .
+        \]
+      </p>
+    </div>
+
   </div>
 
   <div class="ejercicio-box">
@@ -135,15 +164,29 @@
       y \(c\in \mathbb{R}\) un escalar. Prueba
       \[
       \int_{\triangle(P,Q,R)}\omega+c\eta=\int_{\triangle(P,Q,R)}\omega +
-      c \int_{\triangle(P,Q,R)} \eta
+      c \int_{\triangle(P,Q,R)} \eta.
       \]
     </p>
-    <p>
-      Sugerencia: si  \(\varphi\) es la forma bilineal asociada
-      a \(\omega\) y \(\psi\) es la forma bilineal asociada a
-      \(\eta\) usa que \(\varphi+ c\psi\) es la forma bilineal asociada
-      a \(\omega+c\eta\).
-    </p>
+
+
+    <button class="respButton hvr-grow"> Respuesta </button>
+    <div class="resp-box">
+      <p>
+        Sea \(\varphi\) la forma bilineal asociada a \(\omega\) y \(\psi\)
+        la forma bilineal asociada a \(\eta\).
+        Entonces \(\varphi + c\psi\) es la forma bilineal asociada a
+        \(\omega + c\eta\).
+      </p>
+      <p>Por lo tanto,
+        \begin{eqnarray*}
+        \int_{\bigtriangleup(P,Q,R)}\omega + c\eta & = & (\varphi + c\psi)(Q - P, R - P) \\
+        & = & \varphi(Q - P, R - P) + c\psi(Q - P, R - P) \\
+        & = & \int_{\bigtriangleup(P,Q,R)} \omega + c\int_{\bigtriangleup(P,Q,R)}\eta
+        \end{eqnarray*}
+      </p>
+      </p>
+    </div>
+
   </div>
 
     <div class="ejercicio-box">
@@ -257,9 +300,9 @@
           <p>
           Sea \(A\) una matriz  de \(2\times 2\) y
           \(\varphi \in \Lambda^2(\mathbb{R}^2)\). Prueba
-          que para todos \(P,Q\in \mathbb{R}^2\)
+          que, para todos \(P,Q\in \mathbb{R}^2\):
           \[
-            \varphi(AP,AQ)=\det(A)\varphi(P,Q)
+            \varphi(AP,AQ)=\det(A)\varphi(P,Q).
           \]
         </p>
         <p>
@@ -291,13 +334,20 @@
 
         </p>
         <p>
-          Sea \(\omega\) una 2-forma constante en \(\mathbb{R}^n\). Prueba
+          Sea \(\omega\) una 2-forma constante en \(\mathbb{R}^n\). Prueba:
           \[
-          \int_{\triangle(T(P),T(Q),T(R))} \omega =\det(A)\int_{\triangle(P,Q,R)}\omega
+          \int_{\triangle(T(P),T(Q),T(R))} \omega =\det(A)\int_{\triangle(P,Q,R)}\omega.
           \]
         </p>
         <p>
-          Sugerencia: usa el ejercicio anterior.
+          Sugerencia: usa  la <a href="#Eqn:defIntegral">Definición</a> y
+          el ejercicio anterior.
+        </p>
+        <p>
+          El triángulo \(\triangle(T(P),T(Q),T(R))\) puede
+          denotarse \(T(\triangle(P,Q,R))\). La idea de ésta notación es
+          que el triángulo \(\triangle(P,Q,R)\) se transforma
+          en \(\triangle(T(P),T(Q),T(R))\) al aplciarle \(T\).
         </p>
       </div>
 
@@ -326,7 +376,7 @@
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
-        Este ejercicio prueba que el resultado en
+        Este ejercicio prueba que el resultado en el
         <a href="#Ejer:valuationPullbacks">Ejercicio</a>
         no es válido para 2-formas en \(\mathbb{R}^3\).
       </p>
@@ -360,8 +410,7 @@
       <p>
         Fija \(k,l\in\{ 1,\dots, n\}\) con \(k< l\) y
         sea \(A\) una matriz de \(n \times n\). Prueba
-        que para todos \(P,Q\in \mathbb{R}^n\)
-        que
+        que para todos \(P,Q\in \mathbb{R}^n\):
         \[
         (dx_k \wedge dx_l)(AP,AQ)=
         \sum_{1\leq i < j \leq n}
@@ -408,9 +457,6 @@
       <h2 class="number-title"> Definición </h2>
       <p>
         Una <b>superficie poligonal</b> en \(\mathbb{R}^n\) es un subconjunto
-        de \(\mathbb{R}^n\) que se obtiene al sumar una cantidad finita
-        de triángulos dirigidos.
-        Una <b>superficie poligonal</b> en \(\mathbb{R}^n\) es un subconjunto
         de \(\mathbb{R}^n\) que se obtiene:
         <ol>
           <li>al sumar una cantidd finita
@@ -446,7 +492,13 @@
           por \(P,Q,R,S\), con la orientación inducida por
           el triángulo orientado \(\triangle(P,Q,R)\).
         </p>
+        <p>
+          Para una explicación más visual ver el
+          <div class="video flexbox">
+            <a href="https://youtu.be/le9gefgCaBA" target="_blank"> Video </a>
+          </div>
 
+        </p>
     </div>
 
 
@@ -460,10 +512,16 @@
       <p>
       </p>Se define
         la integral de \(\omega\) sobre \(\mathbb{S}\) como
-        \[
+        \begin{equation}\label{Eqn:defIntegralSupPoli}
         \int_{\mathbb{S}}\omega =\sum_{\alpha=1}^N
         \int_{\triangle(P_\alpha, Q_\alpha, R_\alpha)}\omega
-        \]
+        \end{equation}
+      </p>
+      <p>
+        Por la propiedad de <b>aditividad</b>  de la <a href="S9.html#Def:informal2F">Definición 9.5</a>
+        la definición en   \eqref{Eqn:defIntegralSupPoli}
+        no depende de la familia de triángulos que usemos para
+        construir a \(\mathbb{S}\).
       </p>
     </div>
 
@@ -478,7 +536,7 @@
         orientados que forman a \(\mathbb{S}\).
        </p>
        <p>
-         Fija \(1\leq k < l \leq n\). Prueba
+         Fija \(1\leq k < l \leq n\). Prueba:
          \[
          \int_{T[\mathbb{S}]}dx_k \wedge dx_l =\sum_{1\leq i< j \leq n}
          \det\left[
@@ -487,7 +545,7 @@
            A[l,i] & A[l,j]
            \end{array}
          \right]
-         \int_{\mathbb{S}}dx_i \wedge dx_j
+         \int_{\mathbb{S}}dx_i \wedge dx_j.
          \]
        </p>
     </div>
@@ -504,14 +562,14 @@
     <li>
       Fija \(1\leq k < l \leq n\). Prueba:
       \[
-      \int_{\mathbb{Te}(O,e_{i_1},e_{i_2},e_{i_3})} dx_k \wedge dx_l =0
+      \int_{\mathbb{Te}(O,e_{i_1},e_{i_2},e_{i_3})} dx_k \wedge dx_l =0.
       \]
     </li>
     <li>
       Fija \(1\leq k < l \leq n\) y sean
       \(P,Q,R,S\) tres puntos no co-planares. Prueba:
       \[
-      \int_{\mathbb{Te}(P,Q,R,S)}dx_k \wedge dx_l=0
+      \int_{\mathbb{Te}(P,Q,R,S)}dx_k \wedge dx_l=0.
       \]
       Sugerencia: usa el ejercicio anterior.
     </li>
@@ -519,7 +577,7 @@
       Sea \(\omega \in \Lambda^2(\mathbb{R}^n)\)
       y \(P,Q,R,S\) tres puntos no co-planares. Prueba:
       \[
-      \int_{\mathbb{Te}(P,Q,R,S)} \omega =0
+      \int_{\mathbb{Te}(P,Q,R,S)} \omega =0.
       \]
       Sugerencia: usa el inciso anterior junto con el hecho de que
       \(\{dx_i\wedge dx_j: 1\leq i < j \leq n\}\) forma
@@ -580,14 +638,14 @@
           \omega=(2x+y)dx+ (6x-3y)dy+  (x+z)dz
           \]
           entonces, usando que las derivadas
-          exteriores de las funciones coordenadas son
+          exteriores de las funciones coordenadas son:
           \begin{eqnarray*}
           d(2x+y)=2dx+dy, \\
-          d(6x-3y)=6dx-3dy\\
-          d(x+z)=dx+dy
+          d(6x-3y)=6dx-3dy,\\
+          d(x+z)=dx+dy,
           \end{eqnarray*}
           y usando las propiedades del producto cuña del
-          <a> Ejercicio</a>, tenemos
+          <a href="S10.html#Ejer:propieadesFunBilAlt"> Ejercicio 10.7</a>, tenemos
           \begin{eqnarray*}
           d\omega &=& ( 2dx+dy  )\wedge dx+(6dx-3dy)\wedge dy+(dx+dz)\wedge dz \\
           &=& dy\wedge dx+ 6 dx\wedge dy +dx\wedge dz \\
@@ -606,27 +664,27 @@
             su derivada exterior.
           </p>
           <ol>
-            <li> \(\omega= (3x-2y+4z)dx+(-3x+6y-2z)dy+(4x+2y+6z)dz \) </li>
+            <li> \(\omega= (3x-2y+4z)dx+(-3x+6y-2z)dy+(4x+2y+6z)dz \) .</li>
 
-            <li> \(\omega= (x+y+z)dx+(x-y+z)dy+(-x-y-z)dz \) </li>
+            <li> \(\omega= (x+y+z)dx+(x-y+z)dy+(-x-y-z)dz \) .</li>
           </ol>
         </div>
 
         <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
+          <h2 class="number-title" id="Ejer:antiderivada2FConstante"> Ejercicio </h2>
           <p>
-            Considera la 2-forma constante en \(\mathbb{R}^3\)
+            Considera la 2-forma constante en \(\mathbb{R}^3\):
             \[
-            \eta=Adx\wedge dy+Bdy\wedge dz +C dx\wedge dz
+            \eta=Adx\wedge dy+Bdy\wedge dz +C dx\wedge dz.
             \]
             Prueba que la 1-forma
             \[
-            \omega = -Aydx-Bzdy-Cxdz
+            \omega = -Aydx-Bzdy-Cxdz,
             \]
             satisface
-            \[
-            d\omega=\eta
-            \]
+            \(
+            d\omega=\eta.
+            \)
           </p>
         </div>
 
@@ -635,7 +693,7 @@
       <p>
         Considera una 1-forma  en \(\mathbb{R}^n\)
         \[
-        \omega= \sum_{i=1}^n f_i dx_i
+        \omega= \sum_{i=1}^n f_i dx_i,
         \]
         donde cada \(f_i:\mathbb{R}^n\to \mathbb{R}\) es una
         función lineal.
@@ -644,9 +702,15 @@
           Sea \(\mathbb{S}\) una superficie poligonal con
           \(\partial \mathbb{S} \ne \emptyset\). Prueba que:
           \[
-          \int_{\mathbb{S}} d\omega =\int_{\partial \mathbb{S}} \omega
+          \int_{\mathbb{S}} d\omega =\int_{\partial \mathbb{S}} \omega.
           \]
-        </p>
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/d_QKliDmq8U" target="_blank"> Video </a>
+            </div>
+          </div>
     </div>
 
         <div class="ejercicio-box">
@@ -657,7 +721,8 @@
           </p>
 
           <p>
-              Usa el <a href="#Ejer:gaussPoligoonales">Ejercicio</a>
+              Usa el <a href="#Ejer:gaussPoligoonales">Ejercicio 11.19</a>
+              y el ejercicio <a href="#Ejer:antiderivada2FConstante"> Ejercicio 11.18</a>
               para calcular
               \[
               \int_{\mathbb{S}} -dxdy +4dydz +4dxdz
