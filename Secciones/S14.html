@@ -1,0 +1,115 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 13 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 13 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> Superficies parametrizadas  </h1>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+
+        </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Una superficie parametrizada en una función
+          clase \(C^1\), \(r: T \to \mathbb{R}^3\)
+          donde \(T\subset \mathbb{R}^2\) tiene interior
+          no vacío.
+        </p>
+        <p>
+          Nota: si \(T\) no es abierto decimos que
+          \(r:T\to \mathbb{R}^3\) es clase \(C^1\) en \(T\)
+          si existe \(U\), un abierto de \(\mathbb{R}^2\)
+          con \(T \subset U\) y una función
+          \(\tilde{r}:U\to \mathbb{R}^3\), tal que
+          \(\tilde{r}\) restringida a \(T\) coincide con \(r\).
+        </p>
+        <p>
+          A veces a la función \(r\) se le llama una parametrización
+          y a su imagen, denotada \(r(T)\), se la llama la
+          superficie parametrizada.
+        </p>
+      </div>
+<!-- acaba contenido -->
+
+    </div>
+
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
