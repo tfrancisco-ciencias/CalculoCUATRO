@@ -72,7 +72,7 @@
 
     <div class="flexbox">
 
-      <h1 class="card "> Title  </h1>
+      <h1 class="card "> La integral de Riemann sobre rectángulos  </h1>
 
       <div class="nota-box">
         <h2 class="number-title"> Introducción </h2>
@@ -407,7 +407,7 @@
           \int_\mathcal{R}f =\sum_{i=1}^n\sum_{j=1}^m f_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
           \]
           esto se sigue directamente del
-          <a href="#Ejer:monotoniaIntegralEscalonadas">Ejercicio</a>
+          <a href="#Ejer:monotoniaIntegralEscalonadas">Ejercicio 12.10</a>
           y la definición en \eqref{Eqn:defIntegralEscalonada}
         </p>
       </div>
@@ -484,6 +484,61 @@
           </p>
 
         </p>
+
+                <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+        <p>
+          Para iniciar tomamos cualesquiera funciones escalonadas
+          \(s,t:\mathcal{R}\to \mathbb{R}\) tal que
+          \(s \leq f \leq t\). Si fijamos \(y\in [c,d]\) se sigue que:
+          \[
+          s(x,y)\leq f(x,y) \leq t(x,y),  \quad  \forall x\in [a,b].
+          \]
+          Por nuestra suposición la función \(x\mapsto f(x,y)\) es integrable
+          por lo tanto podemos integrar las desigualdades anteriores, pues
+          son integrales 1-dimensionales, para obtener
+          \begin{equation}\label{Eqn:auxFubiniPreliminar}
+          \int_{a}^b s(x,y)dx \leq  A(y) \leq \int_a^b t(x,y)dx
+          \end{equation}
+          (recuerda que definimos \(A(y)=\int_a^b f(x,y)dx\)).
+
+        </p>
+        <p>
+          En este punto es importante notar que la función
+          \(y \mapsto \int_a^b s(x,y)dx\) es una función de 1-variable
+          y es escalonada. Razón: supongamos que
+          \(s\) toma el valor \(s_{i,j}\) en el subrectángulo abierto
+          \((x_{i-1},x_i)\times(y_{j-1},y_j)\), entonces  para
+          \(y\in (y_{j-1},y_j) \) tenemos
+          \[
+          \int_a^b s(x,y)dx=\sum_{i=1}^n s_{i,j}(x_i-x_{i-1})
+          \]
+          Análogamente la función \(y \mapsto \int_a^b t(x,y)dx\) es
+          escalonada.
+        </p>
+        <p>
+          Ahora, también por nuestra suposición tenemos que la función \(A(y)\) es
+          integrable, asi que podemos integrar las desigualdades en
+          \eqref{Eqn:auxFubiniPreliminar} y obtener
+          \[
+          \int_c^d\left( \int_a^b s(x,y)dx \right)dy \leq \int_c^dA(y)
+          \leq  \int_c^d\left( \int_a^b t(x,y)dx \right)dy.
+          \]
+          Por el <a href=""> Ejercicio 12.7</a> podemos reescribir lo anterior
+          como
+
+          \[
+          \int_\mathcal{R} s \leq \int_c^dA(y)
+          \leq  \int_\mathcal{R} t.
+          \]
+          De la desigualdad anterior, tomando en cuenta de que
+          \(s,t\) son arbitrarias, por el   <a href="">Ejercicio 12.3</a>
+          concluimos que
+          \[
+          \int_\mathcal{R}f= \int_c^dA(y)dy.
+          \]
+        </p>
+      </div>
       </div>
 
 
@@ -551,6 +606,44 @@
           \]
           entonce \(f\) es integrable.
         </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+        <p>
+          Para probar que \(f\) es integable, según la definición, debemos
+          de demostrar
+          \[
+          \underline{I(f)}=\overline{I(f)},
+          \]
+          para lo cual es suficiente probar que, para toda \(\varepsilon >0\):
+          \begin{equation}\label{Eqn:auxLemaIntegrabilidad}
+          |\overline{I(f)}-\underline{I(f)}| < \varepsilon.
+          \end{equation}
+          Dada \(\varepsilon>0\) usamos la hipótesis del ejercicio para encontrar
+          \(s,t:\mathcal{R}\to \mathbb{R}\) funciones escalonadas con
+          \(s\leq f \leq t\) y que satisfagan
+          \[
+          \int_\mathcal{R}t-\int_\mathcal{R}s < \varepsilon.
+          \]
+          Por definición de integral  superior e inferior y usando
+          las desigualdades \(s\leq f \leq t\)
+          obtenemos
+          \[
+          \int_\mathcal{R}s \leq \underline{I(f)}\leq \overline{I(f)}
+          \leq \int_\mathcal{R} t
+          \]
+          es decir, las integrales inferior y superior están en el intervalo
+          cerrado
+          \[
+          \left[ \int_\mathcal{R}s, \int_\mathcal{R}t \right]
+          \]
+          por lo que
+          \[
+          |\overline{I(f)}-\underline{I(f)}|  \leq \int_\mathcal{R}t-\int_{\mathcal{R}}s <\varepsilon
+          \]
+          lo cual prueba \eqref{Eqn:auxLemaIntegrabilidad}.
+        </p>
+      </div>
       </div>
 
       <div class="teorema-box">
@@ -580,9 +673,9 @@
           Dada una  \(\varepsilon >0\) existe una \(\delta >0\) que satisface:
         </p>
         <p>
-          si \((x_1,y_1), (x_2,y_2)\in \mathcal{R}\) satisfacen
-          \(\|(x_1,y_1)-(x_2,y_2) \| <\delta\) entonces
-          \(|f(x_1,y_1)-f(x_2,y_2)|< \varepsilon\).
+          si \((x,y), (u,v)\in \mathcal{R}\) satisfacen
+          \(\|(x,y)-(u,v) \| <\delta\) entonces
+          \(|f(x,y)-f(u,v)|< \varepsilon\).
         </p>
       </div>
 
@@ -609,10 +702,10 @@
                 todo \(\mathbb{R}\). Entonces
                 \[
                 \int_\mathcal{R} f = \lim_{\|\mathbb{P}\|\to 0} \sum_{i=1}^n\sum_{j=1}^m
-                f(x_i^*,y_j^*)(x_i-x_{i-1})(y_j-y_{j-1})
+                f(\tilde{x_i},\tilde{y_j})(x_i-x_{i-1})(y_j-y_{j-1})
                 \]
                 donde \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n , 1\leq j \leq m \}\)
-                y \((x_i^*,y_j^*)\) son puntos en \([x_{i-1}, x_i]\times [y_{j-1},y_j]\).
+                y \((\tilde{x_i},\tilde{y_j})\) son puntos en \([x_{i-1}, x_i]\times [y_{j-1},y_j]\).
               </p>
             </div>
 <!-- acaba contenido -->
