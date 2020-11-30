@@ -327,6 +327,76 @@
           \int_{\mathcal{R}}cs+t = c\int_{\mathcal{R}}s + \int_\mathcal{R}t
           \]
         </p>
+
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+                          <p>
+
+                Probemos antes la siguiente afirmación.
+                Sea \(h\) una función escalonada y sea
+                \(\mathbb{P}_h\) la partición asociada a \(h\).
+                Si \(\mathbb{P}\) es una partición que refina a
+                \(\mathbb{P}_h\) entonces
+                \begin{equation}
+                \int_{\mathcal{R}} h =
+                \sum_{i=1}^{n}\sum_{j=1}^{m}h_{ij}(y_i - y_{i-1})(y_{j}^{\prime}
+                - y_{j-1}^{\prime})
+                \end{equation}
+
+                donde \([y_{i-1}, y_i ] \times [y_{i-1}^{\prime},
+                y_{i}^{\prime}]\) son los rectángulos inducidos por \(\mathbb{P}\).
+              </p>
+              <p>
+                Primero simplifiquemos la notación. Sean
+                \(\lbrace A_i : i \in \lbrace1,. . . , l \rbrace \rbrace \)
+                la colección de rectángulos inducidos por \(\mathbb{P}\)
+                y  \(\lbrace B_i : i \in \lbrace1,. . . , r \rbrace \rbrace\)
+                la colección de rectángulos inducidos por \(\mathbb{P}_h\),
+                denotamos por \(m(R)\) al área del rectángulo \(R\).
+                Por ejemplo, si
+                \(A_k =  [y_{i-1}, y_i ] \times [y_{i-1}^{\prime}, y_{i}^{\prime}]\)
+                entonces \(m(A_k) = (y_i - y_{i-1})(y_{j}^{\prime} - y_{j-1}^{\prime})\).
+                Entonces la ecuación (1) es de la siguiente manera,
+                \[ \int_{\mathcal{R}} h  = \sum_{i=1}^{l}h_i m(A_i) ,\]
+                donde \(h_i\) es el valor que toma la función \(h\) en
+                el rectángulo \(A_i\). Por la definición de la  integral tenemos que
+                \[\int_{\mathcal{R}} h  = \sum_{i=1}^{r}h_i m(B_i). \]
+              </p>
+              <p>
+                Por otro lado, como \(\mathbb{P}\) refina a \(\mathbb{P}_h\), cada
+                rectángulo \(B_i\) es de la forma \(B_i = \bigcup_{k=1}^{p_i}A_{i_k} \)
+                además \(m(B_i) = \sum_{k=1}^{p_i}m(A_{i_k})\). Lo cual implica que
+                \(\bigcup_{i=1}^{l}A_i = \bigcup_{i=1}^{r}B_i =
+                \bigcup_{i=1}^{r}\left(\bigcup_{k=1}^{p_i}A_{i_k}\right)\)
+                y para cada rectángulo \(A_{i_k}\) la función \(h\) toma el valor
+                \(h_i\). Por lo tanto
+                \[\sum_{i=1}^{l} h_i m(A_i) = \sum_{i=1}^{r} \sum_{k=1}^{p_i} h_i m(A_{i_k})
+                = \sum_{i=1}^{r} h_i m(B_i) \]
+
+                Por lo tanto, \( \int_{\mathcal{R}} h  = \sum_{i=1}^{l}h_i m(A_i).\)
+              </p>
+                <p>
+                Como \(s\) y \(t\) son funciones escalonadas existen particiones
+                \(\mathbb{P}\) y \(\tilde{\mathbb{P}}\) de \(s\) y \(t\) respectivamente tales que son
+                constantes en los subrectángulos generados por dichas particiones.
+                También tenemos que \(\mathbb{P}\vee \tilde{\mathbb{P}}\) es la partición asociada
+                a \(cs + t\) y como \(\mathbb{P}\vee \tilde{\mathbb{P}}\) refina tanto a
+                \(\mathbb{P}\) como a \(\tilde{\mathbb{P}}\), entonces por la afirmación anterior
+                tenemos
+                \begin{eqnarray*}
+                \int_{\mathcal{R}} cs + t & = & \sum_{i=1}^{n}\sum_{j=1}^{m}(cs_{ij}
+                + t_{ij})(z_i - z_{i-1})(z_{j}^{\prime} - z_{j-1}^{\prime}) \\
+                & = &  c\sum_{i=1}^{n}\sum_{j=1} ^{m} s_{ij}(z_i - z_{i-1})(z_{j}^{\prime}
+                - z_{j-1}^{\prime}) +
+                \sum_{i=1}^{n}\sum_{j=1} ^{m} t_{ij}(z_i - z_{i-1})(z_{j}^{\prime}
+                - z_{j-1}^{\prime}) \\
+                & = & c\int_{\mathcal{R}}s + \int_{\mathcal{R}}t
+                \end{eqnarray*}
+
+               donde \([z_{i-1}, z_i] \times [z_{j-1}^{\prime}, z_{j}^{\prime}]\)
+               son los rectángulos inducidos por \(\mathbb{P}\vee \tilde{\mathbb{P}}\).
+              </p>
+            </div>
       </div>
 
 
@@ -449,6 +519,35 @@
           I=\int_\mathcal{R} f.
           \]
         </p>
+
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+        <p>
+        Supongamos que existe un número \(I\) tal que
+        \begin{equation*}
+        \int_{\mathcal{R}} s \leq I \leq \int_{\mathcal{R}} t
+        \end{equation*}
+
+        donde  \(s,t : \mathcal{R} \rightarrow \mathbb{R}\) son
+        funciones escalonadas tal que \(s \leq f \leq t\). Entonces
+        \(I\)  es una cota superior de
+        \(\lbrace \int_{\mathcal{R}} s :  s \leq f  \rbrace \) donde
+        \(s\) es una función escalonada. Por lo tanto,
+        \(\underline{I(f)} \leq I\). De igual manera tenemos que \(I\)
+        es una cota inferior del conjunto
+        \(\lbrace \int_{\mathcal{R}} t :  f \leq t  \rbrace \)
+        donde \(t\) es una función escalonada, lo cuál implica que
+        \(I \leq \overline{I(f)}\).
+      </p>
+      <p>
+        Como \(f\) es integrable,
+        \( \underline{I(f)} = \overline{I(f)}\).
+        Entonces \(I \leq  \overline{I(f)} = \underline{I(f)}  \leq I\),
+        es decir \(I = \underline{I(f)} = \overline{I(f)}\).
+        Por lo tanto
+        \[I = \int_{\mathcal{R}} f.\]
+      </p>
+    </div>
       </div>
 
       <div class="ejercicio-box">
