@@ -73,8 +73,31 @@
     <div class="flexbox">
 
       <h1 class="card "> Title  </h1>
+      <p>
+      Supongamos que existe un número \(I\) tal que
+      \begin{equation*}
+      \int_{\mathcal{R}} s \leq I \leq \int_{\mathcal{R}} t
+      \end{equation*}
 
-      
+      donde  \(s,t : \mathcal{R} \rightarrow \mathbb{R}\) son
+      funciones escalonadas tal que \(s \leq f \leq t\). Entonces
+      \(I\)  es una cota superior de
+      \(\lbrace \int_{\mathcal{R}} s :  s \leq f  \rbrace \) donde
+      \(s\) es una función escalonada. Por lo tanto,
+      \(\underline{I(f)} \leq I\). De igual manera tenemos que \(I\)
+      es una cota inferior del conjunto
+      \(\lbrace \int_{\mathcal{R}} t :  f \leq t  \rbrace \)
+      donde \(t\) es una función escalonada, lo cuál implica que
+      \(I \leq \overline{I(f)}\).
+    </p>
+    <p>
+      Como \(f\) es integrable,
+      \( \underline{I(f)} = \overline{I(f)}\).
+      Entonces \(I \leq  \overline{I(f)} = \underline{I(f)}  \leq I\),
+      es decir \(I = \underline{I(f)} = \overline{I(f)}\).
+      Por lo tanto
+      \[I = \int_{\mathcal{R}} f.\]
+    </p>
     </div>
 
   </body>
