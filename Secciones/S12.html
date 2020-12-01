@@ -122,7 +122,7 @@
             de dos intervalos, \([x_{i-1}, x_i]\times [y_{j-1}, y_j]\),
             y usamos que la integral sobre un rectángulo de la 2-forma
             que es el determinante es el área, la aproximación de la
-            integral es una doble suma del a forma:
+            integral es una doble suma de la forma:
             \begin{equation}\label{Eqn:sumasRiemann2D}
             \sum_{i=1}^n\sum_{j=1}^m f(x_i^*,y_j^*)(x_i-x_{i-1})(y_j-y_{j-1})
             \end{equation}
@@ -145,7 +145,7 @@
            la integral de Riemann en dos dimensiones.
          </p>
          <p>
-           Vamos a iniciar con los diminios más sencillos, los rectángulos.
+           Vamos a iniciar con los dominios más sencillos, los rectángulos.
          </p>
       </div>
 
@@ -241,7 +241,7 @@
           <p>
             La integral de \(s\) sobre \(\mathcal{R}\) se define como
           \begin{equation}\label{Eqn:defIntegralEscalonada}
-          \int_\mathcal{R} s =\sum_{i=1}^n\sum_{j=1}^n s_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
+          \int_\mathcal{R} s =\sum_{i=1}^n\sum_{j=1}^m s_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
           \end{equation}
           donde \(s_{i,j}\) es el valor de \(s\) en el rectángulo
           abierto \((x_{i-1},x_i)\times (y_{j-1}, y_j)\).
@@ -417,7 +417,7 @@
           y \(s:\mathcal{R}\to \mathbb{R}\) una función escalonada.
         </p>
         <p>
-          Si \(\mathcal{R}\) se subdivida en dos rectángulos
+          Si \(\mathcal{R}\) se subdivide en dos rectángulos
           \(\mathcal{R}_1\), \(\mathcal{R}_2\) prueba
           \[
           \int_\mathcal{R}s = \int_{\mathcal{R}_1}s +\int_{\mathcal{R}_2} s
@@ -430,7 +430,7 @@
         <p>
           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
           \(s,t:\mathcal{R}\to\mathbb{R}\) funciones escalonadas.
-          Prueba que si \(s(x.y)\leq t(x.y)\) para toda \(x,y\in \mathcal{R}\)
+          Prueba que si \(s(x,y)\leq t(x,y)\) para toda \(x,y\in \mathcal{R}\)
           entonces
           \[
           \int_\mathcal{R} s \leq \int_\mathcal{R} t
@@ -450,7 +450,7 @@
           \[
           \underline{I(f)}=\sup\left\{ \int_\mathcal{R} s : s \leq f \right\}
           \]
-          donde el supermo se toma sobre las funciones escalonadas
+          donde el supremo se toma sobre las funciones escalonadas
           \(s:\mathcal{R} \to \mathbb{R}\).
         </p>
         <p>
@@ -458,7 +458,7 @@
           \[
           \overline{I(f)}=\inf\left\{ \int_\mathcal{R} t : f \leq t \right\}
           \]
-          donde el supermo se toma sobre las funciones escalonadas
+          donde el ínfimo se toma sobre las funciones escalonadas
           \(s:\mathcal{R} \to \mathbb{R}\).
         </p>
         <p>
