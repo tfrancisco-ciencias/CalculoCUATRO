@@ -762,7 +762,7 @@
 
 
       <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        <h2 class="number-title" id="Ejer:continuidadUniforme"> Ejercicio </h2>
         <p>
           Toma \(\mathcal{R}=[a,b]\times [c,d]\) y
           \(f: \mathcal{R}\to \mathbb{R}\) una función continua en todo
@@ -796,19 +796,42 @@
             Entonces \(A:[c,d]\to \mathbb{R}\) es una función continua.
           </p>
 
-          <!--<button class="respButton hvr-grow"> Respuesta </button>
+          <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
-            <div class="video flexbox">
-              <a href="https://youtu.be/lCcqRTPUnxM" target="_blank"> Video </a>
-            </div>
-          </div> -->
 
+          <p>
+            Vamos a usar \(\varepsilon\)'s y \(\delta\)'s para probar
+            la continuidad de \(A\).
+          </p>
+          <p>
+            Fijamos \(y_0\in [c,d]\) y una \(\varepsilon>0\). Por
+            el <a href="#Ejer:continuidadUniforme">Ejercicio 12.18</a>
+            existe \(\delta >0\) tal que para puntos \((x,y), (u,v)\in \mathcal{R}\):
+            satisfacen \(\) entonces
+            \begin{equation}\label{Eqn:auxContinuindadRebandas}
+            \|(x,y)-(u,v)\|< \delta \Rightarrow |f(x,y)-f(u,v)|< \frac{\varepsilon}{2(b-a)}.
+            \end{equation}
+            Esta \(\delta\) es la que sirve para la continuidad. Es decir,
+            tomamos \(y\in [c,d]\) con \(|y-y_0|<\delta\) y debemos de probar
+            que \(|A(y)-A(y_0)|< \varepsilon\).
+          </p>
+          <p>
+            Usando las propiedades de la integral 1-dimensional tenemos
+            \begin{eqnarray*}
+            |A(y)-A(y_0)| &=&\left| \int_a^b f(x,y) dx - \int_a^b f(x,y_0)dx \right| \\
+            &=& \left| (f(x,y)-f(x,y_0))dx \right| \\
+            &\leq & \int_a^b |f(x,y)-f(x,y_0)|dx
+            \end{eqnarray*}
+            Pero notamos que \(\| (x,y)-(x,y_0) \|=|y-y_0|< \delta\), por
+            lo tanto por \eqref{Eqn:auxContinuindadRebandas} obtenemos
+            \[
+            |f(x,y)-f(x,y_0)| < \frac{\varepsilon}{b-a} \quad , \forall x\in [a,b]
+            \Rightarrow \int_a^b|f(x,y)-f(x,y)|dx \leq \int_a^b \frac{\varepsilon}{2(b-a)}dx=\frac{\varepsilon}{2}
+            \]
+            Por lo tanto obtenemos \(|A(y)-A(y_0)|< \varepsilon\).
 
-
-
-
-
-
+          </p>
+          </div>
       </div>
 
 
