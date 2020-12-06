@@ -911,6 +911,153 @@
             </div>
 
 
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                            Calcula la integrales de las siguientes funciones.
+                            Recuerda que \(\lfloor x \rfloor\) denota el mayor entero
+                            menor o igual a \(x\).
+                          </p>
+                          <ol>
+                            <li> \(\int_{\mathcal{R}} \lfloor x\rfloor \lfloor y \rfloor\),
+                            \(\mathcal{R}=[0,2]\times [0,2]\). </li>
+                            <li> \(\int_{\mathcal{R}} \lfloor x+y \rfloor\),
+                              \(\mathcal{R}=[0,3]\times [0,3]\) </li>
+                            <li> \(\int_{\mathcal{R}} \sqrt{\lfloor x+y \rfloor}\),
+                            \(\mathcal{R}=[0,3]\times [0,3]\). </li>
+                            </ol>
+                        </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Calcula la integrales de las siguientes funciones. Puedes
+                      suponer que todas las funciones que aparecen son integrables.
+                    </p>
+                    <ol>
+                      <li> \(\int_{\mathcal{R}}|3x+2y|\), \(\mathcal{R}=[0,2]\times [-3,3]\). </li>
+                      <li> \(\int_{\mathcal{R}} |\cos(x+y)|\),
+                        \(\mathcal{R}=[0,\pi]\times [0,\pi]\) </li>
+                      <li> \(\int_{\mathcal{R}} \sqrt{x+y}\),
+                      \(\mathcal{R}=[0,1]\times [0,4]\). </li>
+
+                      <li> \(\int_{\mathcal{R}} y^{-3}e^{tx/y}\),
+                        \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Calcula la integrales de las siguientes funciones. Puedes
+                      suponer que todas las funciones que aparecen son integrables.
+                    </p>
+                    <ol>
+                      <li> \(\mathcal{R}=[0,1]\times [0,1]\)
+                        \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        x+2y & \textrm{si \(x^2 \leq y \leq 2x^2\)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+                      </li>
+
+                      <li> \(\mathcal{R}=[-1,1]\times [-1,1]\)
+                        \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        2x^2+2y^2 & \textrm{si \(x^2 + y^2 \leq 1 \)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+                      </li>
+
+                      <li> \(\mathcal{R}=[1,2]\times [1,4]\)
+
+                          \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        \frac{(x+y)^{-2}}{2} & \textrm{si \(x \leq y \leq 2x\)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+
+                      </li>
+                    </ol>
+                  </div>
+
+
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                            Sean \(f:[a,b]\to \mathbb{R}\),
+                            \(g:[c,d]\to \mathbb{R}\) dos funciones continuas,
+                            denota \(\mathcal{R}=[a,b]\times [c,d]\) y define
+                            \(h:\mathcal{R}\to \mathbb{R}\) por \(h(x,y)=f(x)g(y)\).
+                          </p>
+                          <p>
+                            Expresa la integral \(\int_{\mathcal{R}} h(x,y)\)
+                            en términos de las integrales de \(f\) y de \(g\).
+                          </p>
+
+                        </div>
+
+
+                       <div class="ejercicio-box">
+                         <h2 class="number-title"> Ejercicio </h2>
+
+                         <p>
+                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                           \(f,g:\mathcal{R} \to \mathbb{R}\) funciones acotadas
+                           e integrables en \(\mathcal{R}\) tal que
+                           \(f(x,y)\leq g(x,y)\), para toda \((x,y)\in \mathcal{R}\).
+                         </p>
+                         <p>
+                           Prueba que \(\int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g\).
+                         </p>
+
+                       </div>
+
+                       <div class="ejercicio-box">
+                         <h2 class="number-title"> Ejercicio </h2>
+
+                         <p>
+                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                           \(f:\mathcal{R}\to \mathbb{R}\) una función continua. Fija
+                           \(\varepsilon >0\) y sea \(\delta >0\) la delta del
+                           <a href="S12.html#">Ejercicio 12.18</a>
+
+                         </p>
+
+                         <p>
+                           Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\)
+                           una partición de \(\mathcal{R}\) tal que \(\| \mathbb{P}\|\leq \delta/\sqrt{2}\).
+                         </p>
+                         <p>
+                           Considera  funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales que
+                           \begin{eqnarray*}
+                           s(x,y)=\min_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}\\
+                           t(x,y)=\max_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}
+                           \end{eqnarray*}
+                           donde \(\mathcal{R}_{i,j}=[x_{i-1}, x_i]\times [y_{j-1}, y_j]\).
+                         </p>
+                         <p>
+                           Prueba que
+                           \[
+                           \int_{\mathcal{R}} t -\int_{\mathcal{R}} s \leq \varepsilon A
+                           \]
+                           donde \(A\) es el área de \(\mathcal{R}\).
+                         </p>
+                       </div>
+
+
           <div class="nota-box">
             <h2 class="number-title"> Conclusión </h2>
             <p>
