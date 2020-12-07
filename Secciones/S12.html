@@ -946,6 +946,21 @@
                         \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
                       </li>
                     </ol>
+
+
+                    <button class="respButton hvr-grow"> Respuesta inciso 3</button>
+                    <div class="resp-box">
+                      <p>
+                        Por el Teorema 12.20 tenemos que
+                        \begin{eqnarray*}
+                        \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
+                        & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
+                        & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
+                        & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
+                        \end{eqnarray*}
+                      </p>
+                    </div>
+
                   </div>
 
                   <div class="ejercicio-box">
@@ -990,6 +1005,46 @@
 
                       </li>
                     </ol>
+
+
+                  <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+                  <div class="resp-box">
+                  <p>
+                    El dominio de \(f\) es el que se encuentra entre la gráfica verde
+                    (\(y= 2x^{2}\))  y la gráfica roja (\(y = x^{2}\)),
+
+                    <div class="imagen-box flexbox">
+                      <img src="./Images/Fig25-1.png" alt="Dominio25-1" width="270" height="230">
+                    </div>
+
+
+                    Tenemos que la condición del dominio es \(x^{2} \leq y \leq 2x^{2}\)
+                    la cual es equivalente a \(\frac{\sqrt{y}}{\sqrt{2}} \leq x \leq \sqrt{y}\).
+                    Entonces fijando \(y \in [0, 1]\) y tamando
+                    \begin{equation*}
+                    A(y) = \int_{0}^{1}f(x, y)dx
+                    \end{equation*}
+
+                    Por la regla de correspondecia de \(f\) simplificamos
+                    \begin{eqnarray*}
+                    A(y) & = & \int_{\frac{\sqrt{y}}{\sqrt{2}}}^{\sqrt{y}} x + 2y dx \\
+                     & = & \frac{1}{2}\left(y - \frac{y}{2}\right) + 2y\left(\sqrt{y} -
+                     \frac{\sqrt{y}}{\sqrt{2}}\right) \\
+                     & = & \frac{y}{4} + \sqrt{2}\left(\sqrt{2} - 1\right)y^{\frac{3}{2}}
+                    \end{eqnarray*}
+
+                    Suponiendo que \(f\) es integrable, entonces por el ejercicio 12.5 tenemos
+                    \begin{eqnarray*}
+                    \int_{R} f & = & \int_{0}^{1} A(y) dy \\
+                     & = & \int_{0}^{1} \frac{y}{4} + \sqrt{2}\left(\sqrt{2} -
+                     1\right)y^{\frac{3}{2}} dy \\
+                     & = & \frac{1}{8} + \frac{2\sqrt{2}(\sqrt{2} - 1)}{5}\\
+                     & = & \frac{37 -16\sqrt{2}}{40}
+                    \end{eqnarray*}
+
+
+                  </p>
+                </div>
                   </div>
 
 
