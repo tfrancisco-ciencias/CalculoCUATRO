@@ -83,8 +83,8 @@
           En esta sección expandimos la integral para funciones acotadas
           cuyo dominio no necesariamente es un rectángulo si no subconjuntos
           más generales. Las subconjuntos  que vamos a considerar
-          van a ser conjuntos cerrados del plano, con interior no vacío
-          y cuya frontera, de cierta forma, no tiene area. Para esto es necesario
+          van a ser conjuntos cerrados y acotados del plano, con interior no vacío
+          y cuya frontera, de cierta forma, no tiene area. Para esto último es necesario
           introducir los subconjuntos de contenido cero.
 
         </p>
@@ -106,7 +106,7 @@
             <li> la suma de las áreas de los \(\mathcal{R}_i\)
             es menor que \(\varepsilon\):
           \[
-          \sum_{i=1}^N Area(\mathcal{R}_i)< \varepsilon.
+          \sum_{i=1}^N \textrm{Area}(\mathcal{R}_i)< \varepsilon.
           \]
           </li>
           </ul>
@@ -128,7 +128,7 @@
           \times
           \left[y_0-\frac{\sqrt{\delta}}{2},y_0+\frac{\sqrt{\delta}}{2}\right]
           \]
-          contiene a \((x_0,y_0)\) y \(Area(\mathcal{R})=\delta< \varepsilon\)
+          contiene a \(\{(x_0,y_0)\}\) y \(Area(\mathcal{R})=\delta< \varepsilon\)
         </p>
         <p>
           Más en general,  un conjunto finito de puntos
@@ -140,7 +140,7 @@
           \times
           \left[y_i-\frac{\sqrt{\delta}}{2\sqrt{n}},y_i+\frac{\sqrt{\delta}}{2\sqrt{n}}\right]
           \]
-          cubren a \(A\) y \(\sum_{i=1}^n Area(\mathcal{R}_i)=\delta<\varepsilon\).
+          cubren a \(A\) y \(\sum_{i=1}^n \textrm{Area}(\mathcal{R}_i)=\delta<\varepsilon\).
         </p>
       </div>
 
@@ -290,12 +290,12 @@
            <p>
              Es importante notar que, por el
              <a href="S12.html#Ejer:PropIntegral">Ejercicio 12.27-2</a>,
-             ésta definición no depende del rectángulos \(\mathcal{R}\)
+             ésta definición no depende del rectángulo \(\mathcal{R}\)
              que usemos para encerrar a \(\mathcal{S}\).
            </p>
 
            <p>
-             Otras notaciones para \(\int_{\mathcal{S}}f\) incluyen
+             Otras notaciones para \(\int_{\mathcal{S}}f\) incluyen:
              \[
              \int \int_{\mathcal{S}} f(x,y)dxdy, \quad \int_{\mathcal{S}}f dA.
              \]
@@ -356,7 +356,7 @@
             Consideremos dos funciones \(g_1,g_2:[a,b]\to \mathbb{R}\)
             con la propiedad de que \(g_1(t)\leq g_2(t)\),
             para toda \(t\in [a,b]\). Para dichas funciones definimos
-            la región de Tipo I
+            la región de Tipo I:
             \[
             \mathcal{S}=\{(x,y)\in \mathbb{R}^2: x\in [a,b], g_1(x)\leq y \leq g_2(x)\}.
             \]
@@ -364,8 +364,8 @@
           <p>
             De manera similar, si tenemos dos funciones \(h_1,h_2:[c,d]\to \mathbb{R}\)
             con la propiedad de que \(h_1(t)\leq h_2(t)\),
-            para toda \(t\in [a,b]\),  definimos
-            la región de Tipo II
+            para toda \(t\in [c,d]\),  definimos
+            la región de Tipo II:
             \[
             \mathcal{S}=\{(x,y)\in \mathbb{R}^2: y\in [c,d], h_1(x)\leq y \leq h_2(x)\}.
             \]
@@ -688,7 +688,7 @@
             \]
           </p>
           <p>
-            Ahora sí, podemos hacer la cuanta:
+            Ahora sí, podemos hacer la cuenta:
             \begin{eqnarray*}
             \int_0^y 2\cos(y^2)dx=2\cos(y^2)\int_0^y 1 dx = 2y\cos(y^2)
             \end{eqnarray*}
