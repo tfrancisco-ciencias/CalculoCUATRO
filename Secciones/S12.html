@@ -439,7 +439,7 @@
       </div>
 
       <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
+        <h2 class="number-title" id="Def:RIntegragleRectang"> Definición </h2>
         <p>
           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
           \(f:\mathcal{R} \to \mathbb{R}\) una función acotada, es decir,
@@ -1103,16 +1103,37 @@
 
 
                        <div class="ejercicio-box">
-                         <h2 class="number-title"> Ejercicio </h2>
+                         <h2 class="number-title" id="Ejer:PropIntegral"> Ejercicio </h2>
 
                          <p>
                            Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
                            \(f,g:\mathcal{R} \to \mathbb{R}\) funciones acotadas
-                           e integrables en \(\mathcal{R}\) tal que
-                           \(f(x,y)\leq g(x,y)\), para toda \((x,y)\in \mathcal{R}\).
-                         </p>
-                         <p>
-                           Prueba que \(\int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g\).
+                           e integrables en \(\mathcal{R}\).
+
+                           <ol>
+                             <li>
+                               Sea \(c\in \mathcal{R}\) una constante. Prueba que
+                               la función \(f+cg\) es integrable y que
+                               \[
+                               \int_{\mathcal{R}} f+cg = \int_{\mathcal{R}}f +
+                               c\int_{\mathcal{R}}g.
+                               \]
+                             </li>
+                            <li>
+                              Supongamos que \(\mathcal{R}\) se subdivide
+                              en dos rectángulos \(\mathcal{R}_1\) y \(\mathcal{R}_2\).
+                              Prueba
+                              \[
+                              \int_{\mathcal{R}} f = \int_{\mathcal{R}_1}f
+                              + \int_{\mathcal{R}_2}f.
+                              \]
+                            </li>
+                            <li>
+                              Prueba que si
+                              \(f(x,y)\leq g(x,y)\), para toda \((x,y)\in \mathcal{R}\),
+                              entonces \(\int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g\).
+                            </li>
+                         </ol>
                          </p>
 
                        </div>

@@ -40,11 +40,11 @@
     <!-- This part restart counter of cards to start at N+1 -->
     <style>
       body.card {
-        counter-reset: sectionCounter N cardCounter;
+        counter-reset: sectionCounter 12 cardCounter;
       }
 
       h1.card {
-        counter-reset: sectionCounter N cardCounter;
+        counter-reset: sectionCounter 12 cardCounter;
       }
     </style>
 
@@ -72,12 +72,664 @@
 
     <div class="flexbox">
 
-      <h1 class="card "> Más ejemplos  </h1>
+      <h1 class="card "> La integral de Riemann sobre
+      regiones más generales  </h1>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          En la <a href="S12.html">Sección 12</a> se introdujo
+          la integral de funciones acotadas cuyo dominio eran rentángulos.
+          En esta sección expandimos la integral para funciones acotadas
+          cuyo dominio no necesariamente es un rectángulo si no subconjuntos
+          más generales. Las subconjuntos  que vamos a considerar
+          van a ser conjuntos cerrados del plano, con interior no vacío
+          y cuya frontera, de cierta forma, no tiene area. Para esto es necesario
+          introducir los subconjuntos de contenido cero.
+
+        </p>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(A\) un subconjunto acotado de \(\mathbb{R}^2\).
+          El subconjunto \(A\) tiene contenido cero si:
+        </p>
+        <p>
+          Para toda \(\varepsilon >0\) existe una familia
+          de rectánngulos \(\{\mathcal{R}_i\}_{i=1}^N\) tal que
+          <ul>
+            <li> \(A\) está cubierto por los
+              \(\mathcal{R}_i\):
+            \(A \subset \cup_{i=1}^N \mathcal{R}_i\). </li>
+            <li> la suma de las áreas de los \(\mathcal{R}_i\)
+            es menor que \(\varepsilon\):
+          \[
+          \sum_{i=1}^N Area(\mathcal{R}_i)< \varepsilon.
+          \]
+          </li>
+          </ul>
+        </p>
+        <p>
+          La idea es que un subconjunto de contenido cero tiene
+          "area cero". Ponemos area entre comillas pues el conjunto
+          \(A\) puede ser muy complicado (un fractal o un
+          conjunto tipo Cantor) y no necesariamente tenemos una
+           noción de área para dicho conjunto.
+        </p>
+        <p>
+          Por ejemplo, cualquier punto \((x_0,y_0)\in \mathbb{R}^2\)
+          tiene contenido cero pues dado \(\varepsilon >0\), si
+          tomamos \(\delta >0\) con \(\delta < \varepsilon\), el rectángulo
+          \[
+          \mathcal{R}=
+          \left[x_0-\frac{\sqrt{\delta}}{2},x_0+\frac{\sqrt{\delta}}{2}\right]
+          \times
+          \left[y_0-\frac{\sqrt{\delta}}{2},y_0+\frac{\sqrt{\delta}}{2}\right]
+          \]
+          contiene a \((x_0,y_0)\) y \(Area(\mathcal{R})=\delta< \varepsilon\)
+        </p>
+        <p>
+          Más en general,  un conjunto finito de puntos
+          \(A=\{(x_i,y_i)\}_{i=1}^n\) tiene contenido cero pues
+          los rectángulos
+          \[
+          \mathcal{R}_i=
+          \left[x_i-\frac{\sqrt{\delta}}{2\sqrt{n}},x_i+\frac{\sqrt{\delta}}{2\sqrt{n}}\right]
+          \times
+          \left[y_i-\frac{\sqrt{\delta}}{2\sqrt{n}},y_i+\frac{\sqrt{\delta}}{2\sqrt{n}}\right]
+          \]
+          cubren a \(A\) y \(\sum_{i=1}^n Area(\mathcal{R}_i)=\delta<\varepsilon\).
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          <ol>
+            <li> Sea \(A\subset \mathbb{R}^2\) un conjunto acotado
+              de contenido cero. Prueba que todo \(B\subset A\)
+              también tiene contenido cero.
+            </li>
+            <li>
+              Sean \(A_1,\dots , A_m\) una cantidad finita de
+              subconjuntos acotados y de contenido cero de \(\mathbb{R}^2\).
+              Prueba que la unión, \(\cup_{i=1}^m A_i\), es de contenido
+              cero.
+            </li>
+          </ol>
+        </p>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+            Considera el segmento de recta parametrizado por
+            \(\gamma:[0,1]\to \mathbb{R}^2\), \(\gamma(t)=(1-t)P+tQ\),
+            donde \(P,Q\in \mathbb{R}^2\) son dos puntos fijos. Prueba
+            que
+            \[
+            A:=\{\gamma(t): t\in [0,1]\}
+            \]
+            tiene contenido cero.
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera una función continua
+        \(f:[a,b]\to \mathbb{R}\). Este ejercicio prueba que la gráfica de \(f\),
+        \[
+        A:=\{(t,f(t)): t \in [a,b] \} \subset \mathbb{R}^2
+        \]
+        tiene contenido cero.
+      </p>
+      <ol>
+        <li>
+          Fija \(\varepsilon >0\). Prueba que  existe
+          una \(\delta >0\) tal que, si \(s,t\in [a,b]\) satisfacen
+          \(|s-t|< \delta\), entonces \(|f(s)-f(t)|<\frac{\varepsilon }{b-a} \).
+          <p>
+            Sugerencia: \(f\) es continua en el compacto \([a,b]\).
+          </p>
+        </li>
+        <li>
+          Sea \(\mathbb{P}=\{a=t_0< t_1 < \cdots < t_n=b\}\) una
+          partición homogenea de \([a,b]\) con \(\|\mathbb{P}\| < \delta\).
+          <p>
+            Para \(i=1,2,\dots, n\) denota:
+          \[
+          m_i=\min_{t\in [t_{i-1}, t_i]}\{f(t) \}, \quad
+          M_i=\max_{t\in [t_{i-1},t_i]}\{f(t)\}.
+          \]
+          Considera los rectángulos
+          \(
+          \mathcal{R}_i= [t_{i-1},t_i] \times [m_i, M_i].
+          \)
+          Prueba que
+          \[
+          \sum_{i=1}^n Area(\mathcal{R}_i)< \varepsilon.
+          \]
+          </p>
+        </li>
+        <li>
+          Prueba que
+          \[
+          A\subset \cup_{i=1}^n \mathcal{R}_i.
+          \]
+        </li>
+        <li>
+          Concluye que \(A\) tiene contenido cero.
+        </li>
+      </ol>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que los siguientes subconjuntos de \(\mathbb{R}^2\)
+          tienen contenido cero. Sugerencia: describe los subconjuntos
+          como uniones finitas de gráficas de funciones continuas.
+        </p>
+        <ol>
+        <li>
+          \(A=\{ (x,y): \frac{(x-x_0)^2}{a}+\frac{(y-y_0)^2}{b}=1 \}\),
+          donde \(a,b>0\).
+        </li>
+        <li>
+          \(A=\{ (x,y): |x|+|y|=1 \}\).
+        </li>
+        <li>
+          \(A=\{(x,y): x^4+y^4=1\}\).
+        </li>
+        </ol>
+      </div>
+
+        <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Considera una función acotada \(f:[a,b]\times [c,d]\to \mathbb{R}\).
+        </p>
+        <p>
+          Si el conjunto de discontinuidades de \(f\) tiene contenido
+          cero entonces \(f\) es integrable.
+        </p>
+
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title" id="Def:IntegralRegionesGen"> Definición </h2>
+          <p>
+            Sea \(\mathcal{S}\subset \mathbb{R}^2\) un subconjunto acotado
+            con interior distinto del vacío y
+            \(f:\mathcal{S}\to \mathbb{R}\) una función acotada. Encerremos a \(\mathcal{S}\)
+            en un rectángulo \(\mathcal{R}\) y definamos
+            \(\tilde{f}:\mathcal{R}\to \mathbb{R}\) por
+            \[
+            \tilde{f}(x,y)=\left\{
+              \begin{array}{cc}
+              f(x,y) & \textrm{si \((x,y)\in \mathcal{S}\)},\\
+              0 & \textrm{ en otro caso.}
+              \end{array}
+              \right.
+            \]
+            Decimos que \(f\) es integragle si \(\tilde{f}\)
+            es integrable, en el sentido de la
+            <a href="S12.html#Def:RIntegragleRectang">Definición 12.12</a>.
+            Además, si \(\tilde{f}\) es integrable, definimos la integral de
+            \(f\) como:
+            \[
+            \int_{\mathcal{S}} f :=\int_{\mathcal{R}}\tilde{f}.
+            \]
+
+           </p>
+           <p>
+             Es importante notar que, por el
+             <a href="S12.html#Ejer:PropIntegral">Ejercicio 12.27-2</a>,
+             ésta definición no depende del rectángulos \(\mathcal{R}\)
+             que usemos para encerrar a \(\mathcal{S}\).
+           </p>
+
+           <p>
+             Otras notaciones para \(\int_{\mathcal{S}}f\) incluyen
+             \[
+             \int \int_{\mathcal{S}} f(x,y)dxdy, \quad \int_{\mathcal{S}}f dA.
+             \]
+           </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\mathcal{S}\subset \mathbb{R}^2\) un conjunto cerrado,
+            acotado y con interior no vacío. Sean
+            \(f,g:\mathcal{S}\to \mathbb{R}\) funciones acotadas e integrables.
+          </p>
+          <ol>
+            <li>
+              Prueba que la función \(f+cg\), donde \(c\in \mathbb{R}\) es una constate,
+              es integrable y que
+              \[
+              \int_{\mathcal{S}} f+cg = \int_{\mathcal{S}}f + c \int_{\mathcal{S}}g.
+              \]
+            </li>
+            <li>
+              Prueba que si \(f(x,y)\leq g(x,y)\) para toda
+              \((x,y)\in \mathcal{S}\) entonces
+              \[
+              \int_{\mathcal{S}} f \leq \int_{\mathcal{S}} g.
+              \]
+            </li>
+          </ol>
+        </div>
+
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <p>
+            Gracias al Teorema 13.7 podemos dar condiciones bastante comunes
+            para que una integral exista. Por ejemplo, si \(\mathcal{S}\subset \mathbb{R}^2\)
+            es un subconjunto cerrado, con  interior no vacío, de tal forma que
+            \(\partial \mathcal{S}\) tiene contenido cero, entonces
+            \(\int_{\mathcal{S}} f\) existe para cualquier función \(f\)
+            que sea continua en el interior de \(\mathcal{S}\), pues: la
+            función \(\tilde{f}\) de la Definición 13.7 es continua en todos lados
+            excepto tal vez en \(\partial \mathcal{S}\) pero ésta tiene contenido
+            cero,así que por el Teorema 13.7, \(\int_{\mathcal{S}}f\) existe.
+          </p>
+          <p>
+            Ya que tenemos una definición de la integral para regiones
+            más generales que rectángulos ahora necestiamos herramientas
+            para poder calcularlas. Para este objetivo se introducen las
+            regiones de tipo I y II.
+          </p>
+
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Consideremos dos funciones \(g_1,g_2:[a,b]\to \mathbb{R}\)
+            con la propiedad de que \(g_1(t)\leq g_2(t)\),
+            para toda \(t\in [a,b]\). Para dichas funciones definimos
+            la región de Tipo I
+            \[
+            \mathcal{S}=\{(x,y)\in \mathbb{R}^2: x\in [a,b], g_1(x)\leq y \leq g_2(x)\}.
+            \]
+          </p>
+          <p>
+            De manera similar, si tenemos dos funciones \(h_1,h_2:[c,d]\to \mathbb{R}\)
+            con la propiedad de que \(h_1(t)\leq h_2(t)\),
+            para toda \(t\in [a,b]\),  definimos
+            la región de Tipo II
+            \[
+            \mathcal{S}=\{(x,y)\in \mathbb{R}^2: y\in [c,d], h_1(x)\leq y \leq h_2(x)\}.
+            \]
+          </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:IntRegionesI"> Teorema </h2>
+          <p>
+            Sean \(g_1,g_2:[a,b]\to \mathbb{R}\) dos funciones continuas
+            en todo \([a,b]\) con la propiedad de que \(g_1(t)\leq g_2(t)\),
+            para toda \(t\in [a,b]\). Considera la región de Tipo I
+            \[
+            \mathcal{S}=\{(x,y): x\in [a,b],  g_1(x)\leq y \leq g_2(x)\}.
+            \]
+          </p>
+          <p>
+            Sea \(f:\mathcal{S} \to \mathbb{R}\) una función acotada y
+            supongamos que \(f\) es continua en el interior de \(\mathcal{S}\).
+          </p>
+          <p>
+            Entonces \(f\) es integrable y la integral se puede calcular
+            como la integral iterada:
+            \[
+            \int_{\mathcal{S}}f = \int_a^b \left(\int_{g_1(x)}^{g_2(x)}f(x,y)dy  \right)dx.
+            \]
+          </p>
+        </div>
+
+
+        <div class="nota-box">
+          <h2 class="number-title" id="Nota:IntRegionesII"> Nota </h2>
+          <p>
+            Hay un resultado similar al Teorema anterior para regiones de Tipo II.
+          </p>
+          <p>
+            Sean \(h_1,h_2:[c,d]\to \mathbb{R}\) dos funciones continuas
+            en todo \([c,d]\) con la propiedad de que \(h_1(t)\leq h_2(t)\),
+            para toda \(t\in [c,d]\). Considera la región de Tipo II
+            \[
+            \mathcal{S}=\{(x,y): y\in [c,d],  h_1(y)\leq x \leq h_2(y)\}.
+            \]
+          </p>
+          <p>
+            Sea \(f:\mathcal{S} \to \mathbb{R}\) una función acotada y
+            supongamos que \(f\) es continua en el interior de \(\mathcal{S}\).
+          </p>
+          <p>
+            Entonces \(f\) es integrable y la integral se puede calcular
+            como la integral iterada:
+            \[
+            \int_{\mathcal{S}}f = \int_c^d \left(\int_{h_1(y)}^{h_2(y)}f(x,y)dx  \right)dy.
+            \]
+          </p>
+        </div>
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          En ciertas ocaciones, la región \(\mathcal{S}\) no es
+          una región del Tipo I o II, pero se puede expresar como
+          la unión de dichas regiones  de tal forma que la intersección
+          de los uniendos tiene contenido cero.
+        </p>
+        <p>
+          Por ejemplo
+          en el caso de un anillo
+          \[
+          \mathcal{S}=\{(x,y): r\leq x^2+y^2 \leq R\}
+          \]
+          tenemos que \(\mathcal{S}=\mathcal{S}_1\cup \mathcal{S}_2\),
+          donde
+          \[
+          \mathcal{S}_1=\{(x,y): -R \leq x \leq R, g_1(x) \leq  y \leq g_2(x)\},
+          \]
+          \[
+          \mathcal{S}_2=\{(x,y): -R\leq x \leq R,  -g_2(x) \leq  y \leq -g_1(x)\},
+          \]
+          y las funciones \(g_1, g_2:[-R,R]\to \mathbb{R}\) están dadas por
+          \[
+          g_1(x)=\left\{
+            \begin{array}{cc}
+            0 & -R \leq x \leq -r \\
+            \sqrt{r^2-x^2} & -r \leq x \leq r \\
+            0 & r \leq x \leq R
+            \end{array}
+            \right.
+          \]
+          \[
+            g_2(x)=\sqrt{R^2-x^2}.
+          \]
+        </p>
+        <p>
+          En casos como estos, usando el <a href="S12.html#Ejer:PropIntegral">Ejercicio 12.27-2</a>
+          tenemos que:
+          \[
+          \int_{\mathcal{S}} f = \int_{\mathcal{S}_1}f + \int_{\mathcal{S}_2} f.
+          \]
+          Es muy importante enfatizar que, para que la ecuación anterior sea válida,
+          la intersección entre las partes \(\mathcal{S}_1\) y
+          \(\mathcal{S}_2\) debe ser de contenido cero.
+        </p>
+      </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Calcula las siguientes integrales usando el Teorema 13.12.
+          </p>
+          <p>
+            Nota: determina cómo expresar las regiones dadas en términos
+            de regiones Tipo I, Tipo II o uniones de dichas regiones.
+          </p>
+          <ol>
+            <li>
+              \(\int_{\mathcal{S}}xy^2 \), donde
+              \(\mathcal{S}\) es la región acotada encerrada por las
+              parábolas \(y=x^2-16\) y \(y=-x^2+9\).
+            </li>
+            <li>
+              \(\int_{\mathbb{S}} 2x+y \), donde \(\mathcal{S}\) es
+              la región acotada encerrada por las gráficas de
+              \(y=|x|\) y \(y=6-|x-3|\).
+            </li>
+            <li>
+              \(\int_{\mathcal{S}}e^{2x+5y}\), donde
+              \(\mathcal{S}=\{(x,y): |x|+|y|\leq 1\}\).
+            </li>
+
+            <li>
+              \(\int_{\mathcal{S}} xy\), donde
+              \(\mathcal{S}\) es la región acotada encerrada
+              por la recta \(y=2x-2\) y la parábola
+              \(2y^2=x-6\).
+            </li>
+            <li>
+              \(\int_{\mathcal{S}} x^3 \), donde
+              \(\mathcal{S}\) es la región encerrada por el triángulo con vértices
+              \((1,1), (6,1)\) y \((4,8)\).
+            </li>
+          </ol>
+        </div>
+
+        <div class="nota-box">
+          <h2 class="number-title"> Area y volúmen </h2>
+          <p>
+            Podemos usar la integral en <a href="Def:IntegralRegionesGen">Definición 13.7 </a>
+            para calcular areas y volúmenes.
+          </p>
+          <p>
+            De cálculo 2, sabemos que si tenemos dos funciones continuas
+            \(f,g:[a,b]\to \mathbb{R}\) con la propiedad de que
+            \(f\leq g\) entonces la integral \(\int_{a}^b (g(t)-f(t))dt\) representa
+            el área entre las gráficas de \(f\) y \(g\). Si \(\mathcal{S}\)
+            es la región de Tipo I determinada por \(f\) y \(g\) entonces
+            tenemos, por el <a href="#Teo:IntRegionesI">Teorema 13.12 </a> que:
+
+            \[
+            \int_{\mathcal{S}}1 = \int_a^b\left(\int_{f(x)}^{g(x)} 1 dy \right)dx
+            = \int_a^b (g(t)-f(t))dt.
+            \]
+            Es decir, \(\int_{\mathcal{S}}1 = \textrm{Area}(\mathcal{S})\).
+           </p>
+           <p>
+             Por lo tanto, podemos definir el área de \(\mathcal{S}\) simplemente
+             como \(\int_{\mathcal{S}}1\), SIEMPRE y CUANDO ésta última integral exista.
+           </p>
+           <p>
+             Con respecto al volumen, si iniciamos con una función integrable
+             \(f:\mathcal{S}\to \mathbb{R}\), con la propiedad de que \(f\geq 0\),
+             la gráfica de \(f\) está por arriba del plano \(xy\) y podemos
+             considerar el volumen que está por debajo de la gráfica de \(f\). Si
+             aproximamos este volumen por cajas por debajo de la gráfica y tomamos
+             el supremo sobre la cantidad de cajas vemos que obtenemos la integral
+             inferior de \(f\), la cual coincide con \(\int_{\mathcal{S}}f\),
+             al ser \(f\) integrable.
+           </p>
+
+           <p>
+             Por lo tanto, podemos pensar a \(\int_{\mathcal{S}}f\) como el
+             volumen que está por debajo de la gráfica de \(f\).
+           </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\mathcal{S}\subset \mathbb{R}^2\) un cerrado acotado
+            con interior no vacío y \(f:\mathcal{S}\to \mathbb{R}\)
+            una función acotada e integrable.
+          </p>
+          <p>
+            <ol>
+              <li>
+                Si \(f\) es constante igual a \(c\) prueba que
+                \[ \int_{\mathcal{S}}f = c \textrm{Area}(\mathcal{S}).\]
+              </li>
+              <li>
+                Si existen constantes, \(m,M\), tal que
+                \(m \leq f(x,y)\leq M\), para toda \((x,y)\in \mathcal{S}\),
+                prueba que
+                \[
+                m\textrm{Area}(S)\leq \int_{\mathcal{S}} f \leq M \textrm{Area}(\mathcal{S}).
+                \]
+              </li>
+            </ol>
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Calcula el volumen del sólido encerrado por el elipsoide
+            \[
+            \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1
+            \]
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Usando integración, calcula el volumen bajo la gráfica
+            de las siguientes funciones sobre las regiones dadas.
+          </p>
+          <ol>
+            <li>
+              \(f(x,y)=2x^2+2y^2\), \(\mathcal{S}=\{(x,y): |x|\leq 1, |y|\leq 1 \}\).
+            </li>
+            <li>
+              \(f(x,y)=5x-y\), \(\mathcal{S}=\{(x,y): 4x^2+9y^2\leq 36, x\geq 0, y\geq 0\}\).
+            </li>
+          </ol>
+        </div >
 
 
 
+                <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Usando consideraciones geométricas, como area, volumen y simetría,
+                    calcula las sigueintes integrales.
+                  </p>
+                  <ol>
+                    <li>
+                      \(\int_{\mathcal{S}} 3 +x \), donde \(\mathcal{S}=\{(x,y): -4 \leq x \leq 4,  0\leq y \leq \sqrt{16-x^2}\}\)
+                    </li>
+                    <li>
+                      \(\int_{\mathcal{S}} x^3+y^3+\sqrt{a^2-x^2}\), donde
+                      \(\mathcal{S}=[-a,a]\times [-a,a]\), y
+                      \(a\) es una constante positiva.
+                    </li>
+                    <li>
+                      \(\int_{\mathcal{S}}\sqrt{r^2-x^2-y^2} \), donde
+                      \(\mathcal{S}=\{(x,y): x^2+y^2 \leq r^2 \}\).
+                    </li>
+                  </ol>
 
-          
+                </div>
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Cambio en el orden de integración </h2>
+          <p>
+            El  <a href="S12.html#Ejer:Fubinni"> Ejercicio 12.15 </a> nos asegura que,
+            a sabiendas de que la función \(f:\mathcal{R}=[a,b]\times [c,d] \to \mathbb{R}\)
+            es integrable, tenemos dos opciones para reducir
+            \(\int_{\mathcal{R}} f\) a una integral doble iterada, a saber
+            \[
+            \int_{\mathcal{R}} f =\int_a^b \left( \int_c^d f(x,y) dy\right)dx
+            =\int_c^d \left(\int_a^b f(x,y)dx\right)dy
+            \]
+            después podemos usar el <a  href="#Teo:IntRegionesI"> Teorema 13.12 </a> o
+            la  <a href="#Nota:IntRegionesII"> Nota 13.11 </a> para reducir un poco más
+            las integrales interiores.
+          <p>
+          <p>
+            Lo interesante es que el orden en que se integra puede
+            facilitar o complicar las cuentas de las integrales.
+          </p>
+          <p>
+            Por ejemplo, consideremos la integral
+            \[
+            \int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
+            \]
+            Si intentamos evaluar la integral iterada la primera
+            integral es \(\int 2\cos(y^2)dy\), la cual no se puede
+            poner en términos de funciones elementales. Necesitamos
+            cambiar el orden de integración.
+          </p>
+          <p>
+            Primero encontramos la región \(\mathcal{S}\) la cual
+            nos da la integral iterada \(\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx\).
+            Usando los límites de integración proponemos
+            \[
+            \mathcal{S}=\{(x,y): 0 \leq x \leq 1, \quad x \leq y \leq 1 \}
+            \]
+            Por lo que, viendo a \(\mathcal{S}\) como una región de Tipo I, tenemos
+            \[
+            \int_{\mathcal{S}} 2\cos(y^2)=\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
+            \]
+            Pero también podemos ver a \(\mathcal{S}\) como una región de
+            Tipo II mediante
+            \[
+            \mathcal{S}=\{(x,y): 0\leq y \leq 1, \quad 0 \leq x \leq y \}.
+            \]
+            Es importante notar que para pasar de región Tipo I a región de
+            Tipo II siempre hay que dibujar las regiones y a partir del dibujo
+            hay que intercambiar los papeles de \(x\) e \(y\) para poder
+            reescribir la región de otra forma.
+          </p>
+          <p>
+            Una ves que escribimos a \(\mathcal{S}\) como una región del Tipo II
+            podemos escribir
+            \[
+            \int_{\mathcal{S}}2\cos(y^2) = \int_0^1\left(\int_{0}^y 2\cos(y^2) dx\right)dy
+            \]
+          </p>
+          <p>
+            Ahora sí, podemos hacer la cuanta:
+            \begin{eqnarray*}
+            \int_0^y 2\cos(y^2)dx=2\cos(y^2)\int_0^y 1 dx = 2y\cos(y^2)
+            \end{eqnarray*}
+            luego con un cambio de variable, \(u=y^2\)
+            \[
+            \int_0^1 2y\cos(y^2)dy=\int_{0}^1 \cos(u)du=\sen(u) |_{0}^1=\sen(1)
+            \]
+            Por lo tanto, podemos concluir
+            \[
+              \int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx=\sen(1).
+            \]
+          </p>
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            En los siguientes ejercicios asume que \(f\) es una función
+            no negativa definida sobre una región \(\mathcal{S}\) y continua.
+            La integral \(\int_{\mathcal{S}}f\) se reduce a la integral
+            iterada que se muestra. En cada caso haz un bosquejo de la
+            región \(\mathcal{S}\) e  intercambia los límites de integración.
+          </p>
+          <ol>
+            <li>
+              \(\int_0^1\left(\int_{y^2}^{2y} f(x,y) dx\right) dy\).
+            </li>
+            <li>
+              \(\int_{-1}^{1} \left( \int_{-\sqrt{1-x^2}}^{1-x^2} f(x,y) dy\right)dx \).
+            </li>
+            <li>
+              \(\int_{1}^{e} \left( \int_{0}^{\log(x)}f(x,y)dy \right) dx \).
+            </li>
+            <li>
+              \(\int_{0}^{4} \left( \int_{-\sqrt{4-y}}^{(y-4)/2} f(x,y) dx\right) dy\).
+            </li>
+          </ol>
+        </div>
+
+
+
 
 <!--- acaba contenido --->
 

@@ -82,6 +82,78 @@
       </div>
 
 
+
+
+              <div class="definicion-box">
+                <h2 class="number-title"> Definición </h2>
+                <p>
+                  Ya que tenemos una noción de integral 2-dimensional
+                  podemos usarla para definir la integral de 2-formas más generales,
+                  no sólo las 2-formas constantes. Iniciamos con 2-formas en
+                  \(\mathbb{R}^2\).
+                </p>
+                <p>
+                  Siguiendo el esquema de la sección 2, vamos a definir
+                  una 2-forma (no constante) como una función que a un punto
+                  del plano le asigna una función bilineal alternante.
+                </p>
+                <p> En
+                  notación, si \(S\subset \mathbb{R}^2\) es el dominio
+                  de la 2-forma \(\omega\) entonces:
+                  \[
+                  \omega: S \to \Lambda^2(\mathbb{R}^2).
+                  \]
+                  Es decir, a cada \(P\in S\) se le asigna una función bilineal
+                  alternante, la cual denotamos por \(\omega_P\). Como se mencionó en la introducción
+                  de la  <a href="S12.html">Sección 12</a> el
+                  espacio \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión 1 así que usando
+                  la base \(dx\wedge dy\), podemos escribir a una 2-forma como
+                  \[
+                  \omega_P = A(P) dx\wedge dy \quad \textrm{ó} \quad \omega_P=A(P)dxdy
+                  \]
+                  donde \(A:S \to \mathbb{R}\) es una función. Cuando \(A\) es
+                  constante recuperamos la definición de 2-formas constantes de
+                  la <a href="S11.html"> Sección 11</a>, pero en general \(A\) no tiene
+                  porqué ser una función constante. Por ejemplo, \(A\)
+                  es una función continua decimos que \(\omega\) es una
+                  2-forma continua; si \(S\) es abierto y \(A\) es diferenciable
+                  en \(S\), llamamos a \(\omega\) una 2-forma diferenciable;
+                  si \(A\) es clase \(C^1\) llamamos a \(\omega\) una 2-forma
+                  clase \(C^1\), etc.
+                </p>
+                <p>
+                  Finalmente, si \(\mathcal{S}\subset \mathbb{R}^2\) tiene interior
+                  no vacío, \(\partial \mathcal{S}\) tiene contenido cero y
+                  \(A\) es continua en el interior de \(\mathcal{S}\) definimos
+                  \[
+                  \int_{\mathcal{S}} \omega := \int_{\mathcal{S}} A
+                  \]
+                  tomando en cuenta de que  \(\omega=Adxdy\).
+                </p>
+              </div>
+
+              <div class="nota-box">
+                <h2 class="number-title"> El teorema de Green </h2>
+              </div>
+
+              <div class="teorema-box">
+                <h2 class="number-title"> Teorema </h2>
+                <p>
+                  Sea \(U\subseteq \mathbb{R}^2\) un abierto y
+                  \(\mathcal{S}\subset U\) un conjunto cerrado con interior no vacío
+                  tal que \(\partial \mathcal{S} \subset U\) es una curva orientada, cerrada,
+                  simple, suave a trozos.
+                </p>
+                <p>
+                  Supongamos que \(\omega\) es una 1-forma clase \(C^1\)
+                  definida en \(U\). Entonces
+                  \[
+                  \int_{\mathcal{S}} d\omega  = \int_{\partial \mathcal{S}} \omega
+                  \]
+                </p>
+              </div>
+
+
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
         <p>
