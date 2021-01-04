@@ -75,69 +75,6 @@
       <h1 class="card "> Title  </h1>
       <p>
 
-        <p>
-        Primero vamos a determinar y después a graficar la región \(S\) de
-        la integral iterada
-        \(\int_0^1\left(\int_{y^{2}}^{2y}f(x,y)dx\right)dy\).
-        </p>
-
-        <p>
-          Tenemos que
-          \[
-          S = \lbrace (x, y) \in \mathbb{R}^{2} : y \in [0, 1],
-          y^{2} \leq x \leq 2y \rbrace
-          \]
-
-          es claro que \(S\) representada de esta manera es una región de
-          Tipo II y de manera gr\'afica tenemos
-          </p>
-
-          <div class="imagen-box flexbox">
-            <img src="./Images/U.png" alt="U" width="500" height="300">
-          </div>
-
-          <p>
-          Ahora procederemos a cambiar los límites de integración.
-          Podemos dividir a la región \(S\) en dos subregiones
-          \(S_1\) y \(S_2\) como lo muestra la imagen
-          </p>
-
-          <div class="imagen-box flexbox">
-            <img src="./Images/V.png" alt="V" width="500" height="300">
-          </div>
-
-          <p>
-          Tenemos que
-          \begin{eqnarray*}
-          S_1 & = & \left\lbrace (x, y) \in \mathbb{R}^{2} :
-          x \in [0, 1], \frac{x}{2} \leq y \leq \sqrt{x} \right\rbrace \\
-          S_2 & = & \left\lbrace (x, y) \in \mathbb{R}^{2} :
-          x \in [1, 2], \frac{x}{2} \leq y \leq 1 \right\rbrace
-          \end{eqnarray*}
-          </p>
-
-          <p>
-          Por lo tanto,
-          \[
-          \int_0^1\left(\int_{y^{2}}^{2y}f(x,y)dx\right)dy = \int_{S_1} f + \int_{S_2} f
-          \]
-
-          donde
-          \[ \int_{S_1} f = \int_0^1\left(\int_{\frac{x}{2}}^{\sqrt{x}}f(x,y) dy\right)dx
-          \hspace{0.5cm} \text{ y} \hspace{0.5cm}  \int_{S_2} f
-          = \int_1^2\left(\int_{\frac{x}{2}}^{1}f(x,y) dy\right)dx
-          \]
-          </p>
-
-        <p>
-          Por lo tanto,
-          \[
-          \int_0^1\left(\int_{y^{2}}^{2y}f(x,y)dx\right)dy
-          = \int_0^1\left(\int_{\frac{x}{2}}^{\sqrt{x}}f(x,y) dy\right)dx
-          + \int_1^2\left(\int_{\frac{x}{2}}^{1}f(x,y) dy\right)dx
-          \]
-        </p>
-
       </p>
     </div>
 
