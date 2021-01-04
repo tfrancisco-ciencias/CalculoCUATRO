@@ -510,6 +510,83 @@
               \((1,1), (6,1)\) y \((4,8)\).
             </li>
           </ol>
+
+          <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+          <div class="resp-box">
+            <p>Primero vamos a graficar la región \(S\) y obtener los puntos
+            de intersección de las gráficas \(y = \mid x \mid \) y
+            \(y = 6 - \mid x-3 \mid\). Entonces graficando obtenemos,
+          </p>
+
+           <div class="imagen-box flexbox">
+             <img src="./Images/T.png" alt="T" width="500" height="300">
+           </div>
+
+           <p>Ahora vamos a obtener los puntos de intersecci\'on \(A\) y \(B\).
+           Tenemos que si \(x < 0\), entonces
+           \(y = \mid x \mid = -x \) y si \(x < 3\), entonces
+           \(y = 6 - \mid x-3 \mid = 6 - ( -( x-3 )) = 3 + x \). Esto implica, que si \(y = \mid x \mid = 6 - \mid x-3 \mid \) y \(x <0\), entonces \(-x = 3 + x\), es decir \(x = -\frac{3}{2}\) y \( y = \frac{3}{2}\), lo cual implica que \(A = (-\frac{3}{2}, \frac{3}{2})\). Por otro lado, si \(0 < x \), entonces  \(y = \mid x \mid = x \) y si \(3 < x\), entonces \(y = 6 - \mid x-3 \mid = 6 - ( x - 3 ) = 9 - x \).  Esto implica, que si \(y = \mid x \mid = 6 - \mid x-3 \mid \) y \(3 < x\), entonces \(x = 9 - x\), es decir \(x = \frac{9}{2}\) y
+           \(y = \frac{9}{2} \), lo cual implica que
+           \(B =( \frac{9}{2},  \frac{9}{2})\).
+         </p>
+          <p>
+           Para calcular la integral \(\int_S 2x + y\) dividiremos la
+           región \(S\) en tres subregiones \(R_1\), \(R_2\) y \(R_3\),
+           tal que \(S = R_1 \cup R_2 \cup R_3\) como lo muestra la gráfica.
+         </p>
+
+           <div class="imagen-box flexbox">
+             <img src="./Images/S.png" alt="S" width="400" height="300">
+           </div>
+           <p>
+           Tenemos que
+           \begin{eqnarray*}
+           R_1 & = & \left\lbrace (x, y) \in \mathbb{R}^{2}
+           : x \in \left[-\frac{3}{2}, 0\right],
+           -x \leq y \leq 3 + x \right\rbrace \\
+           R_2 & = & \left\lbrace (x, y) \in \mathbb{R}^{2}
+           : x \in [0, 3], x \leq y \leq 3 + x \right\rbrace \\
+           R_3 & = & \left\lbrace (x, y) \in \mathbb{R}^{2}
+           : x \in \left[3, \frac{9}{2}\right], x \leq y \leq 9
+            - x \right\rbrace
+           \end{eqnarray*}
+          </p>
+            <p>
+           Es claro que \(S\) la estamos representando como una región de
+           Tipo I. Adem\'as,
+           \[
+           \int_S 2x + y dA
+           = \int_{R_1} 2x + y dA + \int_{R_2} 2x + y dA
+           + \int_{R_3} 2x + y dA
+           \]
+            </p>
+            <p>
+           Entonces,
+           \begin{eqnarray*}
+           \int_{R_1} 2x + y dA & = & \int_{-\frac{3}{2}}^{0}\left(\int_{-x}^{3
+             + x}(2x + y)dy\right)dx
+             = \int_{-\frac{3}{2}}^{0} 2x(3 + 2x) + \frac{(3 + x)^{2}
+             - x^{2}}{2} dx
+             = \frac{9}{8} \\
+           \int_{R_2} 2x + y dA & = & \int_{0}^{3}\left(\int_{x}^{3 + x}(2x + y)dy\right)dx
+           = \int_{0}^{3} 6x + \frac{(3 + x)^{2} - x^{2}}{2} dx
+           = 54 \\
+           \int_{R_3} 2x + y dA & = & \int_{3}^{\frac{9}{2}}\left(\int_{x}^{9 - x}(2x + y)dy\right)dx
+           = \int_{3}^{\frac{9}{2}}2x(9 - 2x) + \frac{(9 - x)^{2}
+           - x^{2}}{2} dx = \frac{207}{8}
+           \end{eqnarray*}
+         </p>
+          <p>
+           Por lo tanto,
+           \[
+           \int_S 2x + y dA =  \frac{9}{8} +
+           54 + \frac{207}{8} = 81
+           \]
+         </p>
+
+
+          </div>
+
         </div>
 
         <div class="nota-box">
@@ -726,6 +803,75 @@
               \(\int_{0}^{4} \left( \int_{-\sqrt{4-y}}^{(y-4)/2} f(x,y) dx\right) dy\).
             </li>
           </ol>
+
+          <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+          <div class="resp-box">
+
+            <p>
+            Primero vamos a determinar y después a graficar la región \(S\) de
+            la integral iterada
+            \(\int_0^1\left(\int_{y^{2}}^{2y}f(x,y)dx\right)dy\).
+            </p>
+
+            <p>
+              Tenemos que
+              \[
+              S = \lbrace (x, y) \in \mathbb{R}^{2} : y \in [0, 1],
+              y^{2} \leq x \leq 2y \rbrace
+              \]
+
+              es claro que \(S\) representada de esta manera es una región de
+              Tipo II y de manera gr\'afica tenemos
+              </p>
+
+              <div class="imagen-box flexbox">
+                <img src="./Images/U.png" alt="U" width="500" height="300">
+              </div>
+
+              <p>
+              Ahora procederemos a cambiar los límites de integración.
+              Podemos dividir a la región \(S\) en dos subregiones
+              \(S_1\) y \(S_2\) como lo muestra la imagen
+              </p>
+
+              <div class="imagen-box flexbox">
+                <img src="./Images/V.png" alt="V" width="500" height="300">
+              </div>
+
+              <p>
+              Tenemos que
+              \begin{eqnarray*}
+              S_1 & = & \left\lbrace (x, y) \in \mathbb{R}^{2} :
+              x \in [0, 1], \frac{x}{2} \leq y \leq \sqrt{x} \right\rbrace \\
+              S_2 & = & \left\lbrace (x, y) \in \mathbb{R}^{2} :
+              x \in [1, 2], \frac{x}{2} \leq y \leq 1 \right\rbrace
+              \end{eqnarray*}
+              </p>
+
+              <p>
+              Por lo tanto,
+              \[
+              \int_0^1\left(\int_{y^{2}}^{2y}f(x,y)dx\right)dy = \int_{S_1} f + \int_{S_2} f
+              \]
+
+              donde
+              \[ \int_{S_1} f = \int_0^1\left(\int_{\frac{x}{2}}^{\sqrt{x}}f(x,y) dy\right)dx
+              \hspace{0.5cm} \text{ y} \hspace{0.5cm}  \int_{S_2} f
+              = \int_1^2\left(\int_{\frac{x}{2}}^{1}f(x,y) dy\right)dx
+              \]
+              </p>
+
+            <p>
+              Por lo tanto,
+              \[
+              \int_0^1\left(\int_{y^{2}}^{2y}f(x,y)dx\right)dy
+              = \int_0^1\left(\int_{\frac{x}{2}}^{\sqrt{x}}f(x,y) dy\right)dx
+              + \int_1^2\left(\int_{\frac{x}{2}}^{1}f(x,y) dy\right)dx
+              \]
+            </p>
+
+          </div>
+
         </div>
 
 
