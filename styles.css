@@ -328,8 +328,8 @@ h2.number-title:before{/* for clearness this should be named like card-title*/
     border: 10px;
     margin: auto;
     font-size: 20px;
-    width: 10%;
-    height: 10%;
+    width: auto;
+    height: auto;
     align-content: center;
 }
 
