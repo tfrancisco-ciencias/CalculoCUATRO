@@ -670,6 +670,11 @@
              al ser \(f\) integrable.
            </p>
 
+
+           <div class="imagen-box flexbox">
+             <img src="./Images/VolumenViaIntegral.png" alt="T" width="500" height="300">
+           </div>
+
            <p>
              Por lo tanto, podemos pensar a \(\int_{\mathcal{S}}f\) como el
              volumen que está por debajo de la gráfica de \(f\).
@@ -758,7 +763,9 @@
           <p>
             El  <a href="S12.html#Ejer:Fubinni"> Ejercicio 12.15 </a> nos asegura que,
             a sabiendas de que la función \(f:\mathcal{R}=[a,b]\times [c,d] \to \mathbb{R}\)
-            es integrable, tenemos dos opciones para reducir
+            es integrable, y que las funciones
+            \(A(y)=\int_{a}^bf(x,y)dx, B(x)=\int_{c}^d f(x,y)dy\) son integrable,
+            tenemos dos opciones para reducir
             \(\int_{\mathcal{R}} f\) a una integral doble iterada, a saber
             \[
             \int_{\mathcal{R}} f =\int_a^b \left( \int_c^d f(x,y) dy\right)dx
@@ -789,6 +796,12 @@
             \[
             \mathcal{S}=\{(x,y): 0 \leq x \leq 1, \quad x \leq y \leq 1 \}
             \]
+
+            <div class="imagen-box flexbox">
+              <img src="./Images/STipoI.png" alt="T" width="500" height="300">
+            </div>
+
+
             Por lo que, viendo a \(\mathcal{S}\) como una región de Tipo I, tenemos
             \[
             \int_{\mathcal{S}} 2\cos(y^2)=\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
@@ -798,6 +811,12 @@
             \[
             \mathcal{S}=\{(x,y): 0\leq y \leq 1, \quad 0 \leq x \leq y \}.
             \]
+
+            <div class="imagen-box flexbox">
+              <img src="./Images/STipoII.png" alt="T" width="500" height="300">
+            </div>
+
+
             Es importante notar que para pasar de región Tipo I a región de
             Tipo II siempre hay que dibujar las regiones y a partir del dibujo
             hay que intercambiar los papeles de \(x\) e \(y\) para poder
