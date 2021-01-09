@@ -1,0 +1,9 @@
+Para futuras versiones del curso:
+- Seccion 2 deberia ser "1-formas en general"
+- Ampliar la seccion de trayectorias parametrizadas suaves
+- Juntar "la integral con respecto a longitud de arco" y
+"aplicaciones de la integral de linea",
+para tener mas espacio y vanzar mas en el temario
+- Juntar "teoremas fundamentales de la integral de linea" y
+ "una condicion suficiente para que una 1-forma sea exacta"
+ -
