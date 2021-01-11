@@ -632,6 +632,45 @@
 
                 </li>
                 </ol>
+
+                <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+                <div class="resp-box">
+                <p>
+                  Sea \(\mathbb{F} = (-\partial_yg, \partial_xg)\),
+                  esto implica que \(\mathbb{F}^{\bot} = \nabla g\).
+                  Entonces por el Ejercicio 14.15-2,
+                  tenemos que
+                  \[
+                  \int_\gamma\mathbb{F}\cdot d\gamma
+                  =
+                  \int_\gamma\left(\mathbb{F}^{\bot}\cdot\mathbb{n}\right)ds
+                  =
+                  \int_\gamma\left(\nabla g\cdot\mathbb{n}\right)ds
+                  =
+                  \int_\gamma\partial_{\mathbb{n}}g ds .
+                  \]
+                </p>
+                <p>
+                  Por otro lado, por el Teorema de Green tenemos
+                  \[
+                  \int_\gamma\mathbb{F}\cdot d\gamma
+                  =
+                  \int_S\left[\partial_x(\partial_xg) -
+                  \partial_y(-\partial_yg)\right]dxdy
+                  = \int_S\left(\partial_x^{2}g
+                  + \partial_y^{2}g\right)dxdy
+                  =  \int_S  \nabla^{2}g dxdy .
+                  \]
+                </p>
+                <p>
+                  Por lo tanto,
+                  \[
+                  \int_\gamma\partial_{\mathbb{n}}g ds
+                  = \int_S  \nabla^{2}g dxdy .
+                  \]
+                </p>
+              </div>
+
               </div>
 
 
