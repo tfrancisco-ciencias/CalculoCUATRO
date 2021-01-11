@@ -389,6 +389,117 @@
                     recorrido en el sentido positivo.
                   </li>
                 </ol>
+
+                <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+                <div class="resp-box">
+
+                  <p>
+                  Resolviendo de manera directa la integral de línea,
+                  debemos primero parametrizar el círculo con centro en
+                  el orígen y de radio \(r >0\).
+                  Sea \(\gamma : [0, 2\pi] \subseteq \mathbb{R}
+                  \rightarrow \mathbb{R}^{2}\) definida como
+                  \(\gamma(t) = (r\cos(t), r\sen(t))\),
+                  es claro que \(\gamma\)  recorre de manera
+                  positiva al círculo y
+                  \(\gamma^{\prime}(t) = (-r\sen(t), r\cos(t))\).
+                </p>
+                <p>
+
+                        Por lo tanto,
+                        \begin{eqnarray*}
+                        \int_\gamma (Ax + By)dx + (Cx + Dy)dy
+                         & = &  \int_0^{2\pi}[(Ar\cos(t) + Br\sen(t))(-r\sen(t)) \\
+                          & & + (Cr\cos(t) + Dr\sen(t))(r\cos(t))]dt \\
+                        & = & \int_0^{2\pi}r^{2}[-A\cos(t)\sen(t) - B\sen^{2}(t) \\
+                        & & +  C\cos^2(t)+ D\sen(t)\cos(t)] dt \\
+                        & = & \int_0^{2\pi}r^{2}\left[-\frac{A\sen(2t)}{2}
+                         -  \frac{B(1 - \cos(2t))}{2} \right. \\
+                         & & \left. + \frac{C(1 + \cos(2t))}{2}
+                         +  \frac{D\sen(2t)}{2}\right] dt \\
+                         & = &  \int_0^{2\pi}r^{2}\left[\frac{C - B}{2}\right] dt \\
+                         & = &  2\pi r^{2}\left[\frac{C - B}{2}\right] \\
+                         & = & \pi r^{2}[C - B]
+                        \end{eqnarray*}
+
+                  La cuarta igualdad se sigue de
+                  \[
+                  \int_{0}^{2\pi}\cos(2t) dt
+                  = \int_{0}^{2\pi}\sen(2t) dt = 0
+                  \]
+                </p>
+                <p>
+                  Por lo tanto,
+                  \(\int_\gamma (Ax + By)dx + (Cx + Dy)dy =  \pi r^{2}[C - B]\).
+                </p>
+                <p>
+                  Por otro lado, usando el Teorema de Green tenemos que
+                  \[
+                  \int_\gamma (Ax + By)dx + (Cx + Dy)dy
+                  =
+                  \int_D[\partial_x(Cx + Dy) - \partial_y(Ax + By)]dA
+                  \]
+
+                  donde \(D\) es la región encerrada por la curva
+                  \(\gamma\), es decir
+                  \(D = \lbrace (x, y) \in \mathbb{R}^{2} :
+                   x^{2} + y^{2} \leq r \rbrace\).
+                 </p>
+                 <p>
+                   Además \(\partial_x(Cx + Dy) = C\) y
+                   \(\partial_y(Ax + By) = B\).
+                   Por lo tanto,
+                   \begin{eqnarray*}
+                   \int_\gamma (Ax + By)dx + (Cx + Dy)dy
+                   & = & \int_D[C - B] dA  \\
+                   & = & [C - B]\int_D 1 dA \\
+                   & = & [C - B]\text{Area}(D) \\
+                   &=& \pi r^{2}[C - B]
+                   \end{eqnarray*}
+                   ya que \(\int_D 1 dA = \text{Area}(D) = \pi r^{2}\).
+                 </p>
+                 <p>
+                 </b>Nota</b>: Si queremos comprobar que
+                 \(\int_D 1 dA = \pi r^{2}\), entonces a la
+                 región \(D\) la podemos representar como una
+                 región de Tipo I, es decir
+                 \( D = \lbrace(x, y)\in \mathbb{R}^{2} :
+                 x\in[-r, r],
+                 -\sqrt{r^{2} - x^{2}} \leq y \leq \sqrt{r^{2} - x^{2}}
+                 \rbrace\).
+               </p>
+               <p>
+                 Por lo tanto
+                 \[
+                 \int_D 1 dA =
+                 \int_{-r}^r\left(\int_{-\sqrt{r^{2} - x^{2}}}^{\sqrt{r^{2}
+                 - x^{2}}}1 dy\right)dx = \int_{-r}^r 2\sqrt{r^{2} - x^{2}}dx
+                 = 2\int_{-r}^r \sqrt{r^{2} - x^{2}} dx
+                 \]
+               </p>
+                 <p>
+                  Como \(\sqrt{r^{2} - x^{2}}\) es una función par
+                 tenemos que
+                 \(\int_{-r}^r \sqrt{r^{2} - x^{2}} dx
+                 = 2\int_0^{r}\sqrt{r^{2} - x^{2}} dx\)
+                 y tomando el cambio de variable \(x = r\sen(t)\)
+                 ( \(dx = r\cos(t)dt\)),
+                 tenemos
+                 \[
+                 \int_D 1 dA = 4\int_0^{\frac{\pi}{2}}r^2\cos^{2}(t)dt
+                 = 4r^2\int_0^{\frac{\pi}{2}}
+                 \left(\frac{1 + \cos(2t)}{2}\right)dt =
+                 \pi r^{2} .
+                 \]
+               </p>
+               <p>
+                 Por lo tanto, \(\int_D 1 dA = \pi r^{2}\).
+               </p>
+
+
+                </div>
+
+
               </div>
 
               <div class="ejercicio-box">
