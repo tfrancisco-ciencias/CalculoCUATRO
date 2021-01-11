@@ -174,22 +174,51 @@
 
 
                 <p>
-                  Sea \(\mathcal{S}\subset \mathbb{R}^2\)  un subconjunto compacto
-                  con interior no vacío tal que \(\partial \mathcal{S}\)
-                  tiene contenido cero. La región \(\mathcal{S}\) va a tener
-                  dos posibles orientaciones las cuáles se pueden determinar como:
+                  Sea \(\mathcal{S}\subset \mathbb{R}^2\). Decimos que
+                  \(\mathcal{S}\) es una <b>región orientada</b> si:
+                  <ol>
+                  <li>
+                  \(\mathcal{S}\) es un subconjunto compacto
+                  con interior no vacío,
+                  </li>
+                  <li>
+                  \(\partial \mathcal{S}\) es una
+                  curva orientada cerrada simple (ver <a href="S3.html#Def:curvaParametrizada"> Definición 3.2 </a>)
+                  </li>
+                   <li>
+                  La orientación de  \(\partial \mathcal{S}\) es tal que
+                  alguna de las siguientes dos situaciones ocurre:
+
                   <ul>
-                    <li> Si recorremos \(\mathcal{S}\) de tal forma que
-                    nuestra mano izquierda queda dentro de la región
-                    \(\mathcal{S}\) decimos que \(\mathcal{S}\) tiene
-                    orientación poitiva; si nuestra mano izquiera
-                    quede afuera de la región decimos que tiene
-                    orientación negativa.</li>
+                    <li>
+                    "Si nos paramos sobre"  \(\partial \mathcal{S}\) y la recorremos
+                    con su orientación dada nuestra mano izquierda queda
+                    dentro de la región \(\mathcal{S}\) ( en cuyo
+                    caso decimos que \(\mathcal{S}\) tiene
+                    orientación poitiva).
+                    </li>
+                    <li>
+                    Nuestra mano izquiera
+                    queda afuera de la región \(\mathcal{S}\) (en cuyo caso
+                    decimos que tiene \(\mathcal{S}\) tiene
+                    orientación negativa).
+                    </li>
                   </ul>
+                </li>
+                </ol>
+                <p>
+                  La noción de región orientada es una generalización de triángulo
+                  orientado. Así como es posible "sumar" triángulos orientados también
+                  es posible sumar superficies orientadas, pegandolas a lo largo de partes
+                  de su frontera, siempre y cuando la suma sea compatible, es decir,
+                  hay cancelaciones sobre la parte que se pegue y el resultado es otra
+                  vez una región orientada.
+                </p>
                 </p>
                   <p>
-                  Sea \(\omega:S\to \Lambda^2(\mathbb{R}^2)\) una 2-forma continua en
-                  \(S\) y supongamos que podemos escribir a \(\omega\)  como
+                  Sea \(\mathcal{S}\) una región orientada y
+                  \(\omega:\mathcal{S}\to \Lambda^2(\mathbb{R}^2)\) una 2-forma continua en
+                  \(\mathcal{S}\) y supongamos que podemos escribir a \(\omega\)  como
                   \(Adx\wedge dy\), donde \(A:S \to \mathbb{R}\) es
                   una función continua.
                 </p>
@@ -210,6 +239,39 @@
                   \int_{\mathcal{S}}\omega:= -\int_{\mathcal{S}}A
                   \]
                 </p>
+                <p>
+                  Con esta definición de integral para 2-formas continuas
+                  tenemos las mismas propiedades que para la integral de línea.
+                </p>
+                <ol>
+                  <li> Si \(\mathcal{S}\) es en sí una curva orientable cerrada
+                    simple entonces
+                    \[
+                    \int_{\mathcal{S}}\omega =0
+                    \]
+                    simplemente porque \(\mathcal{S}=\partial \mathcal{S}\)
+                    y ésta última tiene contenido cero.
+                  </li>
+                  <li>
+                    Si \(\mathcal{S}_1\) y \(\mathcal{S}_2\), son regiones
+                    orientadas que se pueden sumar (denotamos por
+                    \(\mathcal{S}_1\vee \mathcal{S}_2\) su suma) entonces
+                    \[
+                    \int_{\mathcal{S}_1\vee \mathcal{S}_1}\omega =
+                    \int_{\mathcal{S}_1} \omega +
+                    \int_{\mathcal{S}_2}\omega
+                    \]
+                    Esta propiedad es resultado del <a href="S12.html#Ejer:PropIntegral"> Ejercicio 12.27</a> .
+                  </li>
+                  <li>
+                    Finalmente, por definición
+                    \[
+                    \int_{\mathcal{S}} \omega = -\int_{\mathcal{S}'} \omega
+                    \]
+                    si \(\mathcal{S}\) y \(\mathcal{S}'\) son iguales pero con
+                    orientación contraria.
+                  </li>
+                </ol>
               </div>
 
               <div class="definicion-box">
@@ -303,7 +365,7 @@
               </div>
 
               <div class="teorema-box">
-                <h2 class="number-title"> Teorema </h2>
+                <h2 class="number-title"> Teorema de Green</h2>
                 <p>
                   Sea \(U\subseteq \mathbb{R}^2\) un abierto y
                   \(\mathcal{S}\subset U\) un conjunto cerrado con interior no vacío
@@ -326,6 +388,14 @@
                   \int_{\partial \mathcal{S}} Adx+Bdy
                   \]
                 </p>
+
+
+                         <button class="respButton hvr-grow"> Demostración </button>
+                         <div class="resp-box">
+                           <div class="video flexbox">
+                             <a href="https://youtu.be/jHBBBXOjrkM" target="_blank"> Video </a>
+                           </div>
+                         </div>
               </div>
 
               <div class="ejercicio-box">
@@ -692,7 +762,7 @@
 
 
               <div class="teorema-box">
-                <h2 class="number-title"> Teorema </h2>
+                <h2 class="number-title"> Teorema (Green versión 2) </h2>
                 <p>
                   Sean \(\gamma_0, \gamma_1, \dots, \gamma_n\)
                   curvas cerradas simples, suaves a trozos, orientadas
@@ -733,10 +803,18 @@
                   \sum_{k=1}^n \int_{\gamma_k}Adx+Bdy
                   \]
                 </p>
+
+
+                  <button class="respButton hvr-grow"> Demostración </button>
+                    <div class="resp-box">
+                      <div class="video flexbox">
+                        <a href="https://youtu.be/n4hGJ2MZ894" target="_blank"> Video </a>
+                      </div>
+                    </div>
               </div>
 
               <div class="teorema-box">
-                <h2 class="number-title"> Teorema </h2>
+                <h2 class="number-title"> Teorema (de invariancia)</h2>
                 <p>
                   Sea \(U\subset \mathbb{R}^2\) un  abierto conexo y
                   \(\omega\) una 1-forma <b>cerrada</b> clase \(C^1\) en \(U\).
@@ -763,6 +841,14 @@
                     \int_{\gamma_1} \omega= \int_{\gamma_2}\omega
                     \]
                   </p>
+
+
+                    <button class="respButton hvr-grow"> Demostración </button>
+                      <div class="resp-box">
+                          <div class="video flexbox">
+                            <a href="https://youtu.be/rdgfGbpwYoY" target="_blank"> Video </a>
+                          </div>
+                      </div>
               </div>
 
               <div class="ejercicio-box">
