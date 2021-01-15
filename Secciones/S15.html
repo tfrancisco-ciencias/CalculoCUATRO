@@ -40,11 +40,11 @@
     <!-- This part restart counter of cards to start at N+1 -->
     <style>
       body.card {
-        counter-reset: sectionCounter 13 cardCounter;
+        counter-reset: sectionCounter 14 cardCounter;
       }
 
       h1.card {
-        counter-reset: sectionCounter 13 cardCounter;
+        counter-reset: sectionCounter 14 cardCounter;
       }
     </style>
 
@@ -72,113 +72,102 @@
 
     <div class="flexbox">
 
-      <h1 class="card "> Superficies parametrizadas  </h1>
+      <h1 class="card "> Integrales de superficie </h1>
 
       <div class="nota-box">
         <h2 class="number-title"> Introducción </h2>
         <p>
-
+          Las integrales de superficie son la generalización de las
+          integrales sobre regiones orientadas que se presentaron
+          en la sección anterior. La diferencia  ahora es que
+          vamos a "encajar" y "doblar" la región orientada en un espacio de
+          dimensión más grande. Estas regiones encajadas serán lo que llamaremos
+          superficies (los objetos 2-dimensionales a los cuales vamos a calcular su integral).
         </p>
+        <p>
+          Ejemplos naturales de superficies son esferas o cubos y existen varias formas de definir
+          las.
+        </p>
+        <p>
+          De manera implíticta, mediante ecuaciones. Por ejemplo
+          para la esfera de radio \(r>0\) centrada en el origen
+           \[
+           \mathcal{S}=\{(x,y,z)\in \mathbb{R}^3: x^2+y^2+z^2=r^2\};
+           \]
+         </p>
+          <p>
+            De manera paramétrica, análogo a las curvas parametrizadas
+            de la <a href="S3.html">Sección 3 </a>. Para la esfera del ejemplo anterior una representación
+            paramétrica sería:
+            \begin{eqnarray*}
+            & & \mathbb{r}:[0,\pi]\times [0,2\pi]\to \mathbb{R}^3,\\
+            & & \mathbb{r}(\theta,\varphi)=(r\cos(\varphi)\sin(\theta), r\sin(\varphi)\sin(\theta), r\cos(\theta))
+            \end{eqnarray*}
+            Desde este punto de vista, la superficie realmente es la <b>imagen</b> de
+            la función \(\mathbb{r}\).
+          </p>
+          <p>
+            Resulta que, para las cuentas, ésta última descripción es muy útil,
+            así que empezamos con esta definición.
+          </p>
       </div>
 
 
 
-
-              <div class="definicion-box">
-                <h2 class="number-title"> Definición </h2>
-                <p>
-                  Ya que tenemos una noción de integral 2-dimensional
-                  podemos usarla para definir la integral de 2-formas más generales,
-                  no sólo las 2-formas constantes. Iniciamos con 2-formas en
-                  \(\mathbb{R}^2\).
-                </p>
-                <p>
-                  Siguiendo el esquema de la sección 2, vamos a definir
-                  una 2-forma (no constante) como una función que a un punto
-                  del plano le asigna una función bilineal alternante.
-                </p>
-                <p> En
-                  notación, si \(S\subset \mathbb{R}^2\) es el dominio
-                  de la 2-forma \(\omega\) entonces:
-                  \[
-                  \omega: S \to \Lambda^2(\mathbb{R}^2).
-                  \]
-                  Es decir, a cada \(P\in S\) se le asigna una función bilineal
-                  alternante, la cual denotamos por \(\omega_P\). Como se mencionó en la introducción
-                  de la  <a href="S12.html">Sección 12</a> el
-                  espacio \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión 1 así que usando
-                  la base \(dx\wedge dy\), podemos escribir a una 2-forma como
-                  \[
-                  \omega_P = A(P) dx\wedge dy \quad \textrm{ó} \quad \omega_P=A(P)dxdy
-                  \]
-                  donde \(A:S \to \mathbb{R}\) es una función. Cuando \(A\) es
-                  constante recuperamos la definición de 2-formas constantes de
-                  la <a href="S11.html"> Sección 11</a>, pero en general \(A\) no tiene
-                  porqué ser una función constante. Por ejemplo, \(A\)
-                  es una función continua decimos que \(\omega\) es una
-                  2-forma continua; si \(S\) es abierto y \(A\) es diferenciable
-                  en \(S\), llamamos a \(\omega\) una 2-forma diferenciable;
-                  si \(A\) es clase \(C^1\) llamamos a \(\omega\) una 2-forma
-                  clase \(C^1\), etc.
-                </p>
-                <p>
-                  Finalmente, si \(\mathcal{S}\subset \mathbb{R}^2\) tiene interior
-                  no vacío, \(\partial \mathcal{S}\) tiene contenido cero y
-                  \(A\) es continua en el interior de \(\mathcal{S}\) definimos
-                  \[
-                  \int_{\mathcal{S}} \omega := \int_{\mathcal{S}} A
-                  \]
-                  tomando en cuenta de que  \(\omega=Adxdy\).
-                </p>
-              </div>
-
-              <div class="nota-box">
-                <h2 class="number-title"> El teorema de Green </h2>
-              </div>
-
-              <div class="teorema-box">
-                <h2 class="number-title"> Teorema </h2>
-                <p>
-                  Sea \(U\subseteq \mathbb{R}^2\) un abierto y
-                  \(\mathcal{S}\subset U\) un conjunto cerrado con interior no vacío
-                  tal que \(\partial \mathcal{S} \subset U\) es una curva orientada, cerrada,
-                  simple, suave a trozos.
-                </p>
-                <p>
-                  Supongamos que \(\omega\) es una 1-forma clase \(C^1\)
-                  definida en \(U\). Entonces
-                  \[
-                  \int_{\mathcal{S}} d\omega  = \int_{\partial \mathcal{S}} \omega
-                  \]
-                </p>
-              </div>
 
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
         <p>
-          Una superficie parametrizada en una función
-          clase \(C^1\), \(r: T \to \mathbb{R}^3\)
-          donde \(T\subset \mathbb{R}^2\) tiene interior
-          no vacío.
+          Una <b>superficie parametrizada suave</b> es una función
+          clase \(C^1\), \(\mathbb{r}: \mathcal{R} \to \mathbb{R}^3\)
+          donde \(\mathcal{R}\subset \mathbb{R}^2\) es
+          una región orientada conexa. En muchas ocaciones
+          \(\mathcal{R}\) es un rectángulo, orientado positivamente.
         </p>
         <p>
-          Nota: si \(T\) no es abierto decimos que
-          \(r:T\to \mathbb{R}^3\) es clase \(C^1\) en \(T\)
+          Nota:  decimos que
+          \(r:\mathcal{R} \to \mathbb{R}^3\) es clase \(C^1\) en \(\mathcal{R}\)
           si existe \(U\), un abierto de \(\mathbb{R}^2\)
-          con \(T \subset U\) y una función
+          con \(\mathcal{R} \subset U\) y una función
           \(\tilde{r}:U\to \mathbb{R}^3\), tal que
-          \(\tilde{r}\) restringida a \(T\) coincide con \(r\).
+          \(\tilde{r}\) restringida a \(\mathcal{R}\) coincide con \(r\).
         </p>
         <p>
-          A veces a la función \(r\) se le llama una parametrización
-          y a su imagen, denotada \(r(T)\), se la llama la
-          superficie parametrizada.
+          Por conveniencia a la función \(\mathbb{r}\) se le llama una parametrización
+          y a su imagen, denotada \(\mathbb{r}(\mathcal{R})\),
+          superficie.
         </p>
       </div>
+
+        <div class="nota-box">
+          <h2 class="number-title"> Orientación  </h2>
+
+        </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+          <p>
+            \begin{eqnarray*}
+            \int_{\mathcal{S}} A dx\wedge dy + B dy\wedge dz + C dx\wedge dz=
+            \int_{\mathcal{R}}A(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}\\
+            +\int_{\mathcal{R}}B(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}\\
+            +\int_{\mathcal{R}}C(\mathbb{r}(u,v))\frac{\partial(X,Z)}{\partial(u,v)}
+            \end{eqnarray*}
+          </p>
+
+      </div>
+
+
+
+
 <!-- acaba contenido -->
 
     </div>
+
+
+
 
   </body>
 
