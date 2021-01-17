@@ -128,9 +128,9 @@
         <p>
           Nota:  decimos que
           \(r:\mathcal{R} \to \mathbb{R}^3\) es clase \(C^1\) en \(\mathcal{R}\)
-          si existe \(U\), un abierto de \(\mathbb{R}^2\)
-          con \(\mathcal{R} \subset U\) y una función
-          \(\tilde{r}:U\to \mathbb{R}^3\), tal que
+          si existe \(V\), un abierto de \(\mathbb{R}^2\)
+          con \(\mathcal{R} \subset V\) y una función
+          \(\tilde{r}:V\to \mathbb{R}^3\), tal que
           \(\tilde{r}\) restringida a \(\mathcal{R}\) coincide con \(r\).
         </p>
         <p>
@@ -146,22 +146,378 @@
         </div>
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Para las siguientes superficies parametrizadas calcula su producto
+          fundamental.
+        </p>
+        <ol>
+          <li>
+            Plano: \(\mathbb{r}(u,v)=(x_0,y_0,z_0)+u(a_1,a_2,a_3)+v(b_1,b_2,b_3)\).
+          </li>
+          <li>
+            Esfera: \(\mathbb{r}(u,v)=(r\cos(v)\sin(u), r\sin(v)\sin(u), r\cos(u))\),
+            donde \(r>0\) es el radio.
+          </li>
+          <li>
+            Paraboloide elíptico: \(\mathbb{r}(u,v)=(a u \cos(v),bu\sin(v), u^2)\)
+            donde \(a,b >0\) son constantes.
+           </li>
+           <li>
+             Elipsoide: \(\mathbb{r}(u,v)=(a\sin(u)\cos(v), b\sin(u)\sin(v), c \cos(u))\),
+             donde \(a,b,c>0\).
+           </li>
+           <li>
+             Superficie de revolución: \(\mathbb{r}(u,v)=(u\cos(v), u\sin(v), f(u))\),
+             donde \(f\) es una función de una variable con \(f \geq 0\).
+            </li>
+            <li>
+              Toro: \(\mathbb{r}(u,v)=((a+b\cos(u))\sin(v), (a+b\cos(u))\cos(v), b\sin(u))\),
+              donde \(a,b >0\).
+            </li>
+        </ol>
+      </div>
+
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
           <p>
+            Sea \(U\subset \mathbb{R}^3\) un conjunto abierto y
+            sea \(\eta\) una 2-forma continua en \(U\). Supongamos
+            que en la base \(\{dx\wedge dy, dy\wedge dz, dx\wedge dz\}\) podemos
+            escribir \(\eta =Fdx\wedge dy +Gdy\wedge dz + H dx \wedge dz\).
+          </p>
+
+          <p>
+            Sea \(\mathcal{R}\subset \mathbb{R}^2\) una región,
+            \(\mathbb{r}:\mathcal{R} \to \mathbb{R}^3\) una superficie
+            parametrizada suave con \(\mathbb{r}(\mathcal{R})\subset U\) y
+            denotemos \(\mathbb{r}(u,v)=(X(u,v),Y(u,v),Z(u,v))\),
+            \(\mathcal{S}=\mathbb{r}(\mathcal{R})\).
+          </p>
+          <p>
+            Definimos la integral de \(\eta\) sobre la
+            superficie \(\mathcal{S}\),  como:
             \begin{eqnarray*}
-            \int_{\mathcal{S}} A dx\wedge dy + B dy\wedge dz + C dx\wedge dz=
-            \int_{\mathcal{R}}A(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}\\
-            +\int_{\mathcal{R}}B(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}\\
-            +\int_{\mathcal{R}}C(\mathbb{r}(u,v))\frac{\partial(X,Z)}{\partial(u,v)}
+            \int_{\mathcal{S}}\eta=\int_{\mathcal{S}} F dx\wedge dy + G dy\wedge dz + H dx\wedge dz=
+            \int_{\mathcal{R}}F(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}\\
+            +\int_{\mathcal{R}}G(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}\\
+            +\int_{\mathcal{R}}H(\mathbb{r}(u,v))\frac{\partial(X,Z)}{\partial(u,v)}
             \end{eqnarray*}
           </p>
 
       </div>
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <ol>
+        <li>
+          <p>
+            Calcula
+            \[
+            \int_{\mathcal{S}} xdx+ydy+zdz
+            \]
+            donde \(\mathcal{S}\) es la región triangular
+            con vértices \((1,0,0), (0,0,1)\) y \((0,0,1)\)
+            y vector normal con componente \(z >0\). 
+          </p>
+        </li>
+        <li>
+        <p>
+          Calcula
+          \[
+          \int_{\mathcal{S}} x^2 dx\wedge dy +xz dy\wedge dz  - yz dx\wedge dz
+          \]
+
+        donde \(\mathcal{S}\) es la esfera \(x^2+y^2+y^2=r^2\), con vector
+        normal apuntando hacia afuera.
+        </p>
+        </li>
+      </ol>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{S}\) la superficie determinada por la gráfica
+          de una función de clase \(C^1\), \(f\). Es decir, una parametrización
+          de \(\mathcal{S}\) es \(\mathbb{r}(x,y)=(x,y,f(x,y))\),
+          donde \((x,y)\in \mathcal{R}\), \(\mathcal{R}\subset \mathbb{R}^2\)
+          es una región y \(f:\mathcal{R}\to \mathbb{R}\) es una función clase \(C^1\).
+        </p>
+        <p>
+          Sea \(\varphi: U \to \mathbb{R}\) continua en
+          \(U\), donde \(U\subset \mathbb{R}^3\) es tal que \(\mathcal{S}\subset U\).
+          Usa la parametrización anterior para probar
+        </p>
+          <ol>
+              <li>
+                \[
+                \int_{\mathcal{S}}\varphi dx\wedge dy = \int_{\mathcal{R}}\varphi(x,y,f(x,y))dxdy
+                \]
+              </li>
+              <li>
+                \[
+                \int_{\mathcal{S}} \varphi dy \wedge dz = - \int_{\mathcal{R}} \varphi(x,y,f(x,y))\partial_xf(x,y)dxdy
+                \]
+              </li>
+              <li>
+                \[
+                \int_{\mathcal{S}} \varphi dx \wedge dz = \int_{\mathcal{R}} \varphi(x,y,f(x,y))\partial_yf(x,y)dxdy
+                \]
+              </li>
+          </ol>
+        </p>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema de Stokes </h2>
+
+
+          <p>
+            Sea \(\mathcal{R}\subset \mathbb{R}^2\) una región,
+            \(\mathbb{r}:\mathcal{R} \to \mathbb{R}^3\) una superficie
+            parametrizada suave y \(\mathcal{S}=\mathbb{r}(\mathcal{R})\).
+          </p>
+
+          <p>
+            Sea \(U\subset \mathbb{R}^3\) un conjunto abierto y
+            sea \(\omega\) una 1-forma clase \(C^1\) en \(U\) tal que
+            \(\mathcal{S}\subset U\).
+          </p>
+
+          <p>
+            Entonces
+            \[
+            \int_{\mathcal{S}}d\omega = \int_{\partial \mathcal{S}} \omega
+            \]
+            Si escribimos \(\omega= Adx+Bdy + C dz\)
+            la identidad anterior se puede escribir como
+            \[
+            \int_{\mathcal{S}} (\partial_xB-\partial_yA)dx\wedge dy+(\partial_y C - \partial_zB)dy\wedge dz
+            +(\partial_xC-\partial_zA)dx\wedge dz=
+            \int_{\partial \mathcal{S}} A dx + Bdy+Cdz
+            \]
+          </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Usa el Teorema de Stokes para calcular la integral
+          de superficie, \(\int_{\mathcal{S}} d\eta\).
+        </p>
+        <ol>
+          <li>
+            \(\mathcal{S}\) es la semi-esfera \(x^2+y^2+z^2 =1\), \(z\geq 0\),
+            con vector normal apuntando hacia afuera y
+            \(\eta= y^3dx+ x^2ydy+ xzdz \).
+          </li>
+          <li>
+            \(\mathcal{S}\) consiste en las cinco caras del cubo
+            \(0\leq x \leq a, 0\leq y \leq a, 0 \leq z \leq a\), donde
+            \(a>0\), con vector normal apuntando hacia afuera y
+            \(\eta= (xy-z)dx+yzdy+(x^2-y^2)dz\).
+          </li>
+          <li>
+            \(\mathcal{S}\) consiste de las tres caras del tetrahedro,
+            que no están sobre el plano (xz), determinado por
+            los tres planos coordenados y el plano \(2x+y+5z=5\), con
+            vector normal apuntando hacia afuera del tetrahedro y
+            \(\eta=(xy^2)dx+(x-z)dy+(x^2y-z)dz\).
+          </li>
+        </ol>
+
+      </div>
 
 
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}\subset \mathbb{R}^2\) una región orientada y
+           \(\mathbb{T}:U \to \mathbb{R}^2\) un campo vectorial,
+          clase \(C^1\) en \(U\), donde \(U\) es un abierto de
+          \(\mathbb{R}^2\) que contiene a \(\mathcal{R}\).
+        </p>
+          <p>
+            Denotamos \(\mathbb{T}(u,v)=(X(u,v),Y(u,v))\) y
+            supongamos que el Jacobiano de \(\mathbb{T}\), denotado
+            \[
+            \frac{\partial(X,Y)}{\partial(u,v)}:=
+            \det\left[
+              \begin{array}{cc}
+              \partial_uX & \partial_v X \\
+              \partial_u Y & \partial_v Y
+              \end{array}
+            \right]
+            \]
+            nunca se anula en \(\mathcal{R}\).
+          </p>
+          <p>
+            Aplicando el Teorema de la Función Inversa se puede probar que,
+            bajo estas suposiciones \(\tilde{\mathcal{R}}:=\mathbb{T}(\mathcal{S})\)
+            es una región.
+          </p>
+        <p>
+          Prueba que
+          \[
+          \int_{\tilde{\mathcal{R}}}1 dx\wedge dy=\int_{\mathcal{R}}\frac{\partial(X,Y)}{\partial(u,v)} du\wedge dv
+          \]
+        </p>
+
+      </div>
+
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Area superficial </h2>
+        </div>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) una
+          superficie parametrizada suave y denotemos \(S=\mathbb{r}(\mathcal{R})\).
+        </p>
+        <p>
+          Se define la ára de \(\mathcal{S}\) como:
+          \[
+          \textrm{Area}(\mathcal{S})=
+          \int_{\mathcal{R}} \left\| \partial_u \mathbb{r} \times \partial_v \mathbb{r} \right\| dudv
+          \]
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Supongamos que la superficie \(\mathcal{S}\) es la gráfica de \(f\), una
+          función clase \(C^1\), es decir
+          \[
+          \mathcal{S}=\{(x,y,z): (x,y)\in \mathcal{R}: z=f(x,y)\}
+          \]
+          donde \(\mathcal{R}\subset \mathbb{R}^2\) es una región y
+          \(f:\mathcal{R}\to \mathbb{R}\) es clase \(C^1\) en \(\mathcal{R}\).
+        </p>
+        <p>
+          Prueba que
+          \[
+          \textrm{Area}(S)=\int_{\mathcal{R}} \sqrt{1+ (\partial_x f)^2 + (\partial_y f)^2}dxdy
+          \]
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <ol>
+          <li>
+            Calcula el área de la superficie que se obtiene al cortar el
+            plano \(x+y+z=a\) con el cilindro \(x^2+y^2=a^2\), donde \(a>0\).
+          </li>
+          <li>
+            Calcula el área de la superficie que se obtiene al cortar la
+            esfera \(x^2+y^2+z^2=r^2\) con el  cilindro \(x^2+y^2=rx\), donde \(r>0\).
+          </li>
+        </ol>
+      </div>
+
+
+
+      <div class="nota-box">
+          <h2 class="number-title"> Integral con respecto al área </h2>
+      </div>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Supongamos que \(\mathbb{r}:\mathcal{R} \to \mathbb{R}^3\)
+          es una superficie parametrizada suave y denotamos \(\mathcal{S}=\mathbb{r}(\mathcal{S})\).
+        </p>
+        <p>
+          Sea \(f:\mathbb{S}\to \mathbb{R}\) una función continua en \(\mathcal{S}\).
+          Definimos la integral, con respecto al área de \(f\), como
+
+          \[
+          \int_{\mathcal{S}}f dS= \int_{\mathcal{R}} f(\mathbb{r}(u,v))
+          \left\| \partial_u \mathbb{r}\times \partial_v \mathbb{r} \right\| dudv
+          \]
+        </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Calcula las integrales con respecto al área.
+        </p>
+        <ol>
+          <li>
+            \(\int_{\mathcal{S}} 2y dS\), donde \(S\) es el helicoide
+            con parametrización \(\mathbb{r}(u,v)=(u\cos(v), u\sen(v), v)\)
+            \(0\leq u \leq 1 , 0\leq  v \leq \pi\).
+          </li>
+          <li>
+            \(\int_{\mathcal{S}}x^2yz^2 dS\), donde
+            \(S\) es la parte del plano \(z=1+2x+3y\) que está por
+            arriba del rectángulo \([0,3]\times [0,1]\).
+          </li>
+          <li>
+            \(\int_{\mathcal{S}} (x+y) dS\), donde \(\mathbb{S}\) es la
+            región triángular con vértices \((1,0,0), (0,-2,0), (0,0,2)\).
+          </li>
+
+        </ol>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Este ejercicio relaciona las integrales con respecto
+          al área con las integrales de 2-formas.
+        </p>
+        <p>
+          Sea \(U \subset \mathbb{R}^3\) un abierto y considera
+          \(\mathbb{F}=(F,G,H):U\to \mathbb{R}^3\), un campo clase \(C^1\)
+          sobre \(U\).
+        </p>
+        <p>
+          Sea \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) una superficie
+          parametrizada suave, con \(S:=\mathbb{r}(\mathcal{R})\subset U\)
+          con vector normal \(\mathbb{n}\).
+        </p>
+        <p> Prueba que
+          \[
+          \int_{\mathcal{S}}(\mathbb{F}\cdot \mathbb{n}) dS =
+          \int_{\mathbb{S}} F dy\wedge dz+ G dz \wedge dx + H dx\wedge dy
+          \]
+        </p>
+      </div>
+
+
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Por \(\mathcal{S}\) denotamos a la media esfera dada por
+                \(x^2+y^2+z^2 = 1\), con \(z \geq 0\) y
+                vector normal \(\mathbb{n}\) apuntando hacia afura. Sea
+                \(\mathbb{F}=(x,y,0)\). Calcula \(\int_{\mathcal{S}} (\mathbb{F}\cdot \mathbb{n})dS\).
+              </p>
+
+
+            </div>
 <!-- acaba contenido -->
 
     </div>
