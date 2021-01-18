@@ -96,7 +96,7 @@
           obteniendo "superficies suaves a trozos".
         </p>
         <p>
-          Ejemplos naturales de superficies son esferas. Existen varias formas de definir
+          Ejemplos naturales de superficies son esferas, hemisferios. Existen varias formas de definir
           una superficie pero mencionamos sólo dos.
         </p>
         <ol>
@@ -104,7 +104,7 @@
           <li> De manera <b>implíticta</b>, mediante ecuaciones. Por ejemplo
           para la esfera de radio \(r>0\) centrada en el origen
            \[
-           \mathcal{S}=\{(x,y,z)\in \mathbb{R}^3: x^2+y^2+z^2=r^2\};
+           \mathcal{S}=\{(x,y,z)\in \mathbb{R}^3: x^2+y^2+z^2=r^2\}.
            \]
           </li>
 
@@ -146,9 +146,9 @@
           \(\mathbb{r}: \mathcal{R} \to \mathbb{R}^n\) tal que
           <ol>
             <li> \(\mathcal{S}\) no se auto-corta. </li>
-            <li>  \(\mathcal{R}\subset \mathbb{R}^2\) es una región, </li>
-            <li> \(\mathbb{r}(\mathcal{R})=\mathcal{S}\), </li>
-            <li>  para todo punto de \(\mathcal{R}\),
+            <li>  \(\mathcal{R}\subset \mathbb{R}^2\) es una región. </li>
+            <li> \(\mathbb{r}(\mathcal{R})=\mathcal{S}\). </li>
+            <li>  Para todo punto de \(\mathcal{R}\),
             las parciales de \(\mathbb{r}\) en el punto forman un
             conjunto linealmente independiente. Este punto será
             importante en la orientación, que se verá más adelante.</li>
@@ -165,19 +165,24 @@
         <p>
           Notas:
           <ul>
+            <li>
+              A la función \(\mathbb{r}\) se le llama una parametrización.
+            </li>
             <li> La condición de que la superficie no se auto-corta es
             informal. La manera formal de enunciar esta condición es con topología
             y dice: todo punto de la superficie adminte una vecindad que es
             homeomorfa a un abierto de \(\mathbb{R}^2\). </li>
+            <li> Si la parametrización \(\mathbb{r}\) es inyectiva
+            entonces la condición 1 de la definición se cumple
+            inmediatamente. Pero a la inversa no es necesariamente cierta
+            como lo muestra el ejemplo de abajo. </li>
             <li>Decimos que una función \(r:\mathcal{R} \to \mathbb{R}^3\) es clase \(C^1\) en \(\mathcal{R}\)
           si existe \(V\), un abierto de \(\mathbb{R}^2\)
           con \(\mathcal{R} \subset V\) y una función
           \(\tilde{r}:V\to \mathbb{R}^3\), tal que
           \(\tilde{r}\) restringida a \(\mathcal{R}\) coincide con \(r\).
           </li>
-          <li>
-            A la función \(\mathbb{r}\) se le llama una parametrización
-          </li>
+
           <li>
             En muchos casos \(\mathcal{R}\) es un rectángulo.
           </li>
@@ -197,7 +202,7 @@
           Es claro \(\mathcal{S}\) no se corta asi misma, que \(\mathbb{r}\)  es clase \(C^1\) y
           que \(\mathbb{r}(\mathcal{S})=\mathcal{S}\). La única condición
           de la <a href="#Def:Superficie">Definición</a> que hace
-          falta por checar es la 3.
+          falta por checar es la última.
         </p>
       </p>
           Las parciales
@@ -213,11 +218,20 @@
         <p>
           Calculando directamente el producto cruz tenemos
           \[
-          \partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r}=a\cos(\varphi)\mathbb{r}(\theta,\varphi)
+          (\partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r})(\theta,\varphi)=
+          \left|
+          \begin{array}{ccc}
+          \mathbb{i}  & \mathbb{j}  &  \mathbb{k} \\
+          r\cos(\varphi)\cos(\theta) & r\sin(\varphi)\cos(\theta) & -r\sen(\theta) \\
+          -r\sin(\varphi)\sin(\theta) & r\cos(\varphi)\sin(\theta) & r\cos(\theta)
+          \end{array}
+          \right|
+          =
+          a\cos(\varphi)\mathbb{r}(\theta,\varphi)
           \]
           el cual siempre es distinto de cero. Por lo tanto
           \( \{\partial_\theta \mathbb{r}, \partial_\varphi\mathbb{r}\}\) forma
-          un conjunto linealmente independiete y se satisface la condición 3.
+          un conjunto linealmente independiete.
         </p>
 
       </div>
