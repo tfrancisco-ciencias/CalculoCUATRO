@@ -343,6 +343,118 @@
         </p>
         </li>
       </ol>
+
+      <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+        <div class="resp-box">
+
+          <p>
+            Primero parametricemos la región \(S\). Graficamente
+            \(S\) es de la forma,
+            <div class="imagen-box flexbox">
+              <img src="./Images/G.png" alt="G" width="400" height="300">
+            </div>
+
+            Tenemos que la ecuación del plano que contiene a la región
+            \(S\) es  \(\textbf{n}\cdot((x, y, z) - p_0) = 0\)
+            donde \(p_0\) es un punto del plano
+            (a saber \(p_0 = (1,0,0)\)) y \(\textbf{n}\) es el vector normal
+            del plano que apunta hacia afuera, entonces
+            \(\textbf{n} = v_1 \times v_2 \) donde
+            \(v_1 = (0, 1, 0) - (1, 0, 0) \) y
+            \(v_2 = (0, 0, 1) - (1, 0, 0) \), es decir,
+            \(v_1 = (-1, 1, 0)\) y \(v_2 = (-1, 0, 1). \).
+            Por lo tanto, \(\textbf{n} = (1, 1, 1) \) y  la ecuación del
+            plano es de la forma \(z = 1 -x -y\).
+          </p>
+
+          <p>
+            Lo siguiente es proyectar los puntos de la región \(S\) en el plano
+            \(XY\), a dicha región la denotamos por \(R\), podemos considerar
+            \(R \subseteq \mathbb{R}^2\) la cual está delimitada por
+            \(x \in[0, 1]\) y \(0 \leq y \leq 1 -x\), es decir,
+            \[
+            R = \lbrace (x, y) \in \mathbb{R}^2 :
+            x\in [0, 1], 0 \leq y \leq 1 -x \rbrace.
+            \]
+          </p>
+          <p>
+            Por lo tanto, la parametrización de la región \(S\) es de la
+            forma \(\mathbb{r} : R \subseteq \mathbb{R}^2 \rightarrow
+            S \subseteq \mathbb{R}^3  \)
+            dada por
+            \(\mathbb{r}(u, v) = (x(u, v), y(u,v), z(u,v))
+            = (u, v, 1 -u -v)\)
+            para \((u,v) \in R\), esto implica que
+            \( \partial_u\mathbb{r} = (1, 0, -1) \) y
+            \(\partial_v\mathbb{r} = (0, 1, -1). \).
+            Además
+            \[
+            \frac{\partial(x, y)}{\partial(u, v)}
+            = \det \left[\begin{array}{cccc}
+            1  & 0  \\
+            0 &  1
+            \end{array} \right] = 1,
+            \frac{\partial(y, z)}{\partial(u, v)}
+            = \det \left[\begin{array}{cccc}
+            0  & 1  \\
+            -1 &  -1
+            \end{array} \right] = 1
+            \hspace{0.3cm} \text{ y }
+            \hspace{0.3cm} \frac{\partial(x, z)}{\partial(u, v)}
+            = \det \left[\begin{array}{cccc}
+            1 & 0  \\
+            -1 &  -1
+            \end{array} \right] = -1
+            \]
+          </p>
+          <p>
+            Tenemos que
+            \begin{eqnarray*}
+            \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz & = &
+            \int_R u \frac{\partial(x, y)}{\partial(u, v)}
+            + \int_R v \frac{\partial(y, z)}{\partial(u, v)}
+            + \int_R (1 -u -v)  \frac{\partial(x, z)}{\partial(u, v)} \\
+            & = & \int_R u dA + \int_R v dA + \int_R (u + v -1) dA
+            \end{eqnarray*}
+          </p>
+            Como \( \int_R (u + v -1) dA  =
+            \int_R u dA + \int_R v dA - \int_R 1dA \)  y
+            \( \int_R 1dA = A(R) = \frac{1}{2}\). Entonces tenemos
+            \begin{eqnarray*}
+            \int_R u dA + \int_R v dA + \int_R (u + v -1) dA
+            & = & 2\int_R u dA + 2\int_R v dA - \frac{1}{2}
+            \end{eqnarray*}
+
+            donde,
+            \[
+            \int_R u dA  = \int_0^1\left(\int_0^{1-u}u dv\right)du
+            = \int_0^1 u(1-u) du = \frac{1}{2} - \frac{1}{3}.
+            \]
+            y
+            \[
+            \int_R v dA = \int_0^{1}\left(\int_0^{1-u}v dv\right)du
+            = \int_0^1 \frac{(1 - u)^2}{2} du  = \frac{1}{6}.
+            \]
+            </p>
+            <p>
+            Entonces,
+            \[
+            2\int_R u dA + 2\int_R v dA - \frac{1}{2} =
+            2\left(\frac{1}{2} - \frac{1}{3}\right) + \frac{1}{3}
+            - \frac{1}{2} = \frac{1}{6} .
+            \]
+            </p>
+            <p>
+            Por lo tanto,
+            \[
+            \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz
+            = \frac{1}{6}.
+            \]
+            </p>
+
+
+        </div>
+
       </div>
 
 
@@ -641,6 +753,89 @@
           </li>
 
         </ol>
+
+        <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+          <div class="resp-box">
+
+            <p>
+              Sea \(f: S \rightarrow \mathbb{R}\) definida como
+              \(f(x, y, z) = 2y \), entonces
+              \(f(\mathbb{r}(u,v)) = 2u\sen(v)\).
+            </p>
+            <p>
+              Por lo tanto,
+              \[
+              \int_S 2ydS =  \int_R 2u\sen(v)
+              \Vert \partial_u\mathbb{r} \times \partial_v\mathbb{r}
+              \Vert dudv
+              \]
+
+              donde \(R = [0, 1] \times [0, \pi]\).
+            </p>
+              <p>
+              Primero empezaremos por calcular
+              \( \partial_u\mathbb{r}\) y
+              \( \partial_v\mathbb{r}\),
+              seguido de calcular
+              \(\partial_u\mathbb{r} \times \partial_v\mathbb{r}\)
+              y  calcular \(\Vert \partial_u\mathbb{r} \times
+              \partial_v\mathbb{r} \Vert\),
+              por último desarrollamos y calculamos  \(\int_S 2ydS\).
+            </p>
+
+            <p>
+              Entonces tenemos que
+              \( \partial_u\mathbb{r} = (\cos(v), \sen(v), 0) \)
+              y \(\partial_v\mathbb{r} = (-u\sen(v), u\cos(v), 1) \),
+              lo cual implica que
+              \begin{equation*}
+              \partial_u\mathbb{r} \times \partial_v\mathbb{r} =
+              \left\vert
+              \begin{array}{cccc}
+              \textbf{i}  & \textbf{j} & \textbf{k}  \\
+              \cos(v) & \sen(v)  & 0 \\
+              -u\sen(v) & u\cos(v) & 1
+              \end{array}
+              \right\vert
+              = \sen(v)\textbf{i} -\cos(v)\textbf{j} + u\textbf{k}.
+              \end{equation*}
+
+              es decir,
+              \(\partial_u\mathbb{r} \times \partial_v\mathbb{r}
+              = (\sen(v), -\cos(v), u)\).
+              Entonces,
+              \[
+              \Vert \partial_u\mathbb{r} \times \partial_v\mathbb{r} \Vert
+              = \sqrt{\sen^2(v) + \cos^2(v) + u^{2}} = \sqrt{1 + u^{2}}
+              \]
+              </p>
+              <p>
+                Por lo tanto,
+                \begin{eqnarray*}
+                \int_R 2u\sen(v) \Vert
+                \partial_u\mathbb{r} \times \partial_v\mathbb{r}
+                \Vert dudv & = &
+                \int_0^\pi\left(\int_0^1 2u\sen(v)\sqrt{1 + u^{2}}du\right)dv \\
+                & = & \int_0^\pi\sen(v)\left(\int_0^1 2u\sqrt{1 + u^{2}}du\right)dv \\
+                & = & \left(\int_0^1 2u\sqrt{1 + u^{2}}du\right)\left(\int_0^\pi\sen(v)dv\right) \\
+                & = &  \frac{4}{3}(2\sqrt{2} - 1)
+                \end{eqnarray*}
+
+                ya que,
+                \[
+                \int_0^1 2u\sqrt{1 + u^{2}}du = \frac{2}{3}(2\sqrt{2} - 1)
+                \hspace{0,5cm} \text{ y } \hspace{0,5cm}
+                \int_0^\pi\sen(v)dv = 2.
+                \]
+              </p>
+              <p>Por lo tanto:
+                \[
+                \int_S 2ydS = \frac{4}{3}(2\sqrt{2} - 1) .
+                \]
+              </p>
+
+
+          </div>
       </div>
 
 
