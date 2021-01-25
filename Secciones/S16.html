@@ -40,11 +40,11 @@
     <!-- This part restart counter of cards to start at N+1 -->
     <style>
       body.card {
-        counter-reset: sectionCounter 14 cardCounter;
+        counter-reset: sectionCounter 15 cardCounter;
       }
 
       h1.card {
-        counter-reset: sectionCounter 14 cardCounter;
+        counter-reset: sectionCounter 15 cardCounter;
       }
     </style>
 
@@ -166,8 +166,14 @@
           es invertible o el Jacobiano no se anula excepto en un conjunto
           de contenido cero.
         </p>
-      </div>
 
+        <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/08dKKWq7x50" target="_blank"> Video </a>
+            </div>
+          </div>
+        </div>
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -186,7 +192,7 @@
           <li>
             Calcula la integral
             \[
-            \int_{\mathcal{S}} e^{(y-x)(y+x)}dx\wedge dy
+            \int_{\mathcal{S}} e^{(y-x)/(y+x)}dx\wedge dy
             \]
             donde \(\mathcal{S}\) es el triángulo por la línea
             \(x+y=3\) y los ejes coordenados, orientado positivamente.
@@ -200,6 +206,83 @@
           </li>
         </ol>
         </p>
+
+        <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+          <div class="resp-box">
+
+            <p>
+            De manera gráfica la región \(S\) es de la forma,
+
+
+            <div class="imagen-box flexbox">
+              <img src="./Images/N.png" alt="N" width="350" height="250">
+            </div>
+
+
+            </p>
+            <p>
+              Ahora procedemos en hacer un cambio de variable.
+              Haciendo \( u = x + y \) y \( v = y - x \), tenemos que
+              \( x = \frac{u - v}{2}\) y \( y = \frac{u + v}{2} \).
+              Por lo tanto, proponemos el siguiente cambio de variable,
+              \(\mathbb{T}: R \subseteq \mathbb{R}^{2} \rightarrow \mathbb{R}^{2} \)
+              definida como \(\mathbb{T}(u, v) = \left(\frac{u - v}{2}, \frac{u + v}{2}\right)\)
+              y que cumple, \(\mathbb{T}[R] = S\). Ahora procederemos a
+              encontrar a la región \(R\).
+            </p>
+
+            <p>
+            Tenemos que si \(x = 0\), entonces \( v = u\), si \( y  = 0 \),
+            entonces \( v = -u\), y si \( x + y = 3\), entonces \( u = 3\).
+            Por lo tanto, la región \(R\) tal que \(\mathbb{T}[R] = S\),
+            es el triángulo formado por las rectas \( v = u\),  \( v = -u \)
+            y \( u = 3\), es decir, de manera más explícita
+            \[
+            R = \lbrace (u, v)\in \mathbb{R}^2 : u \in [0, 3], -u \leq v \leq u
+            \rbrace
+            \]
+           </p>
+            <p>
+            Y de manera gráfica, \(R\) es,
+
+            <div class="imagen-box flexbox">
+              <img src="./Images/M.png" alt="M" width="400" height="300">
+            </div>
+
+            </p>
+            <p>
+            Por otro lado, \begin{equation*}
+            J_{\mathbb{T}} = \det \left[
+            \begin{array}{cccc}
+            \partial_u x &  \partial_{v} x \\
+            \partial_u y & \partial_{v} y
+            \end{array} \right] = \det \left[
+            \begin{array}{cccc}
+            \frac{1}{2}  & -\frac{1}{2} \\
+            \frac{1}{2} & \frac{1}{2}
+            \end{array} \right] = \frac{1}{2}.
+            \end{equation*}
+            </p>
+            <p>
+            Por lo tanto, usando el Teorema del cambio de variable,
+            \begin{eqnarray*}
+            \int_S e^{(y - x)/(y + x)} dx \wedge dy  & = & \int_R e^{v/u}|J_{\mathbb{T}}| du \wedge dv = \frac{1}{2}\int_0^3\left(\int_{-u}^{u}e^{v/u} dv\right) du  \\
+             & = & \frac{1}{2}\int_0^3 u(e - e^{-1}) du = \frac{9}{4}(e - e^{-1})
+            \end{eqnarray*}
+            </p>
+            <p>
+            Por lo tanto,
+            \[
+            \int_S e^{(y - x)/(y + x)} dx \wedge dy
+            = \frac{9}{4}(e - e^{-1}).
+            \]
+            </p>
+
+
+          </div>
+
+
+
       </div>
 
 
@@ -225,15 +308,27 @@
             \]
           </li>
             <li>
-            Calcula las integrales dobles integral
+            Calcula la integral doble
             \[
             \int_{0}^{2}\left( \int_{0}^{\sqrt{2x-x^2}} x^2+y^2 dy \right)dx
             \]
-
-            \[
-            \int_{0}^1 \left( \int_{0}^{x}\sqrt{x^2+y^2}dy \right)dx
-            \]
           </li>
+          <li>
+            Encuentra el volumen bajo la gráfica del paraboloide
+            \(9z=x^2+y^2\), que está por arriba del disco
+            \(x^2+y^2  \leq 4\).
+          </li>
+
+
+          <button class="respButton hvr-grow"> Respuesta inciso 2 </button>
+            <div class="resp-box">
+              <div class="video flexbox">
+                <a href="https://youtu.be/lW2KYYJ4a5g" target="_blank"> Video </a>
+              </div>
+            </div>
+          </div>
+
+
         </ol>
       </div>
 
@@ -267,6 +362,62 @@
           </ol>
         </p>
 
+        <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+          <div class="resp-box">
+
+                  <p>
+                  Considerando el siguiente cambio de variable
+                  \(\mathbb{T} : [0, 1] \times [0, 2\pi] \subseteq \mathbb{R}^{2}
+                  \rightarrow \mathbb{R}^{2}\) definida como
+                  \(\mathbb{T}(r, \theta) = \left(\frac{5}{2}r\cos(\theta),
+                  \frac{5}{3}r\sen(\theta)\right)\), es decir,
+                  \(x = \frac{5}{2}r\cos(\theta) \) y
+                  \( y = \frac{5}{3}r\sen(\theta)\).
+                  Además \(\mathbb{T}[[0, 1] \times [0, 2\pi]] = R\).
+                  </p>
+                  <p>
+                    Por otro lado,
+                    \begin{equation*}
+                    J_{\mathbb{T}} = \det \left[
+                    \begin{array}{cccc}
+                    \partial_r x &  \partial_{\theta} x \\
+                    \partial_r y & \partial_{\theta} y
+                    \end{array} \right] = \det \left[
+                    \begin{array}{cccc}
+                    \frac{5}{2}\cos(\theta)  & -\frac{5}{2}r\sen(\theta) \\
+                    \frac{5}{3}\sen(\theta) & \frac{5}{3}r\cos(\theta)
+                    \end{array} \right] = \frac{25}{6}r.
+                    \end{equation*}
+                  </p>
+                  <p>
+                    Por lo tanto, usando el Teorema del cambio de variable,
+                    \begin{eqnarray*}
+                    \int_R 3x^2 dx\wedge dy & = & \int_{[0, 1] \times [0, 2\pi]} 3\left(\frac{5}{2}r\cos(\theta)\right)^{2}\left(\frac{25}{6}r\right) dr \wedge d\theta  \\
+                    & = & \frac{625}{8}\int_0^1\left(\int_0^{2\pi} r^3\cos^2(\theta) d\theta \right) dr \\
+                    & = & \frac{625}{8}\int_0^1 r^3\left(\int_0^{2\pi} \cos^2(\theta) d\theta \right) dr \\
+                    & = & \frac{625}{8}\left(\int_0^{2\pi} \cos^2(\theta) d\theta \right) \left(\int_0^1 r^3 dr \right) \\
+                    & = & \frac{625}{32}\pi
+                    \end{eqnarray*}
+
+                    ya que
+                    \[
+                    \int_0^1 r^3 dr = \frac{1}{4} \hspace{,5 cm} \text{ y }
+                    \hspace{,5 cm} \int_0^{2\pi} \cos^2(\theta) d\theta
+                    =
+                    \int_0^{2\pi} \frac{1 + \cos(2\theta)}{2} d\theta  = \pi
+                    \]
+                    </p>
+                    <p>
+                      Por lo tanto,
+                      \[
+                      \int_R 3x^2 dx\wedge dy = \frac{625}{32}\pi .
+                      \]
+
+                    </p>
+
+
+          </div>
+
       </div>
 
       <div class="ejercicio-box">
@@ -297,9 +448,9 @@
               Usa un cambio de variable en coordenadas polares y usa
               las desigualdades anteriores para probar
               \[
-              \lim_{r\ to \infty} A(r)=\sqrt{\pi}
+              \lim_{r\to \infty} A(r)=\sqrt{\pi}
               \]
-              Esto prueba que \(\int_0^\infty e^{-u^2}du = \frac{\sqrt{\pi}}{2}\)
+              Esto prueba que \(\int_{-\infty}^\infty e^{-u^2}du = \sqrt{\pi}\).
             </li>
           </ol>
 
