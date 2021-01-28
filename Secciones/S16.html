@@ -178,16 +178,18 @@
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Considera el cambio de variable linera \(\mathbb{T}:\mathbb{R}^2 \to
+          Considera el cambio de variable lineal \(\mathbb{T}:\mathbb{R}^2 \to
           \mathbb{R}^2\),\(\mathbb{T}(u,v)=(au+bv,cu+dv)\) con Jacobiano
           distinto de cero.
           <ol>
           <li>
           Prueba que
           \[
-          \int_{\mathbb{\mathcal{S}}} f(x,y)dx \wedge dy =
-          \int_{\mathcal{S}} f(au+bv,au+bv) du\wedge dv
+          \int_{\mathbb{\mathbb{T}(\mathcal{S})}} f(x,y)dx \wedge dy =
+          (ad-bc)\int_{\mathcal{S}} f(au+bv,au+bv) du\wedge dv
           \]
+          donde \(\mathcal{S}\subset \mathbb{R}^2\) es una región
+          orientada.
           </li>
           <li>
             Calcula la integral
@@ -202,7 +204,9 @@
             \[
             \int_{\mathcal{S}} (x-y)^2\sin^2(x+y)dx \wedge dy
             \]
-            usando un cambio de variable adecuado.
+            usando un cambio de variable adecuado, donde
+            \(\mathcal{S}\) es el paralelogramo con vértices
+            \((\pi,0),(2\pi,\pi),(\pi,2\pi),(0,\pi)\).
           </li>
         </ol>
         </p>
@@ -326,7 +330,7 @@
                 <a href="https://youtu.be/lW2KYYJ4a5g" target="_blank"> Video </a>
               </div>
             </div>
-          
+
 
 
         </ol>
