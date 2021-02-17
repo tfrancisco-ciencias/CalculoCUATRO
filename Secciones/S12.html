@@ -1,0 +1,1204 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 11 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 11 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> La integral de Riemann sobre rectángulos  </h1>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Introducción </h2>
+        <p>
+          En esta sección iniciamos el estudio de las integrales de
+          2-formas y para introducir las ideas y conceptos nos enfocamos en
+          2-formas en \(\mathbb{R}^2\). Nota: la diferencia técnica
+          entre 2-formas en \(\mathbb{R^2}\) y 2-formas en \(\mathbb{R}^n\), \(n\geq 3\),
+          es análoga a la que se ve entre los ejercicios 11.6 y 11.9.
+        </p>
+        <p>
+          Hemos visto que  \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión
+          1 y que la función determinante es una base. Por lo tanto
+          toda 2-forma constante se ve de la forma
+          \[
+          \omega=A \det
+          \]
+          donde \(A\) es una constante.
+        </p>
+        <p>
+          De manera análoga a lo que hicimos con 1-formas, vamos a
+          definir a una 2-forma, sobre un subconjunto \(D\subset \mathbb{R}^2\),
+          como una función que asigna a cada punto de \(D\) una
+          2-forma constante. Formalmente una 2-forma
+          es una función \(\omega:D \to \Lambda^2(\mathbb{R}^2)\).
+          Por lo tanto, una 2-forma se puede escribir
+          \[
+          \omega_P=A(P)\det
+          \]
+          donde ahora \(A:D \subset \mathbb{R}^2\to \mathbb{R}\) es una función.
+         </p>
+         <p>
+           Es muy útil notar que con esta definición hay una biyección
+           entre las 2-formas definidas en \(D\) y el conjunto de
+           funciones de \(D\) a \(\mathbb{R}\). Ya que a las funciones
+           usualmente se les denota como \(f\), vamos a usar \(f\) en vez de \(A\).
+         </p>
+         <p>
+            Tratando de copiar lo que hicimos para la integral de 1-formas,
+            queremos aproximar \(D\) mediante una suma de triángulos dirigidos.
+            Pero, ya que estamos acostumbrados al sistema cartesiano de coordenadas,
+            es más sencillo para las cuentas usar rectángulos.
+          </p>
+          <p>
+            Si denotamos
+            los rectángulos como el producto cartensiano
+            de dos intervalos, \([x_{i-1}, x_i]\times [y_{j-1}, y_j]\),
+            y usamos que la integral sobre un rectángulo de la 2-forma
+            que es el determinante es el área, la aproximación de la
+            integral es una doble suma de la forma:
+            \begin{equation}\label{Eqn:sumasRiemann2D}
+            \sum_{i=1}^n\sum_{j=1}^m f(x_i^*,y_j^*)(x_i-x_{i-1})(y_j-y_{j-1})
+            \end{equation}
+            donde \((x_i^*,y_i^*)\) es un punto en el rectángulo
+            \([x_{i-1}, x_i]\times[y_i,y_{i-1}]\).
+          </p>
+            <p>Notar que antes,
+            para 1-formas, al hacer más fina la aproximación, teníamos
+            sumas que tendían al infinito y, gracias a la integral de Riemann,
+            podíamos asegurar que el límite era una integral,  ver
+             <a href="S4.html#Eqn:limiteSumaRimeann"> introducción de la
+             sección 4.</a>
+
+         </p>
+         <p>
+           Nuestro problema ahora es que no tenemos una integral en dos
+           dimensiones que nos permita encontrar límites de sumas
+           del tipo \eqref{Eqn:sumasRiemann2D}. El propósito de esta sección es formalizar
+           las ideas presentadas en esta introducción para introducir
+           la integral de Riemann en dos dimensiones.
+         </p>
+         <p>
+           Vamos a iniciar con los dominios más sencillos, los rectángulos.
+         </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) un rectángulo en
+          \(\mathbb{R}^2\). Una partición de \(\mathcal{R}\) es
+          el producto cartesiano de particiones de
+          sus lados. Es decir, si
+          \[
+          \mathbb{P}_1=\{a=x_0< \cdots < x_n=b  \}, \quad
+          \mathbb{P}_2=\{c=y_0< \cdots < y_m= d \},
+          \]
+          son particiones de \([a,b]\) y \([c,d]\), respectivamente,
+          entonces
+          \[
+          \mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2=
+          \{ (x_i,y_j):  1 \leq i \leq n, 1\leq j \leq m \}
+          \]
+          es una partición de \(\mathcal{R}\).
+        </p>
+        <p> La partición
+          \(\mathbb{P}\) parte a \(\mathcal{R}\) en \(nm\)
+          subrectángulos, \([x_{i-1}, x_i]\times [y_{i-1},y_i]\).
+          El rectángulo abierto \((x_{i-1},x_i)\times (y_{j-i},y_j)\)
+          se llama un subrectángulo abierto de \(\mathcal{R}\).
+        </p>
+        <p>
+          Se dice que una partición \(\mathbb{P}'\) de \(\mathcal{R}\)
+          refina a \(\mathbb{P}\) si \(\mathbb{P}\subseteq \mathbb{P}'\).
+        </p>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:particionConjunta"> Ejercicio </h2>
+        <p>
+          Sean \(\mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2\),
+          \(\tilde{\mathbb{P}}=\tilde{\mathbb{P}}_1\times \tilde{\mathbb{P}}_2\)
+          dos particiones de \(\mathcal{R}=[a,b]\times [c,d]\). Definimos
+          \[
+          \mathbb{P}\vee \tilde{\mathbb{P}}=
+          (\mathbb{P}_1\cup \tilde{\mathbb{P}}_1)\times (\mathbb{P}_2\cup \tilde{\mathbb{P}}_2)
+          \]
+          Prueba que \(\mathbb{P}\vee \tilde{\mathbb{P}}\) refina
+          tanto a \(\mathbb{P}\) como a \(\tilde{\mathbb{P}}\).
+        </p>
+      </div>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}\subset \mathbb{R}^2\) un rectángulo. Una
+          función \(s:\mathcal{R}\to \mathbb{R}\) se llama
+          <b>escalonada</b> si existe una partición \(\mathbb{P}\) de \(\mathcal{R}\)
+          tal que \(s\) es constante en los subrectángulos abiertos de
+          \(\mathbb{P}\).
+        </p>
+        <p>
+          Por ejemplo, toda función constante es una función escalonada.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}\) un rectángulo y
+          \(s,t:\mathcal{R}\to \mathbb{R}\) dos funciones escalonadas
+          y \(c\in \mathbb{R}\) una constante. Prueba
+          que las funciones  \(cs+t\) y \(st\) son escalonadas.
+        </p>
+        <p>
+          Sugerencia: si \(\mathbb{P}_s\) y \(\mathbb{P}_t\)
+          son las particiones asociadas a \(s\) y a \(t\) respectivamente
+          considera \(\mathbb{P}_s\vee \mathbb{P}_t\). Ver
+          <a href="#Ejer:particionConjunta"> Ejercicio 12.3</a>.
+        </p>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\subset \mathbb{R}^2\) un rectángulo
+            y \(s:\mathcal{R} \to \mathbb{R}\) una función escalonada,
+            con partición \(\mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2\),
+            \(\mathbb{P}_1=\{a=x_0<\cdots < x_n=b\},
+            \mathbb{P}_2=\{c=y_0<\cdots < y_m=d\}\).
+          </p>
+          <p>
+            La integral de \(s\) sobre \(\mathcal{R}\) se define como
+          \begin{equation}\label{Eqn:defIntegralEscalonada}
+          \int_\mathcal{R} s =\sum_{i=1}^n\sum_{j=1}^m s_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
+          \end{equation}
+          donde \(s_{i,j}\) es el valor de \(s\) en el rectángulo
+          abierto \((x_{i-1},x_i)\times (y_{j-1}, y_j)\).
+        </p>
+
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          Si pensamos al rectángulo \([a,b]\times [c,d]\) como un
+          rectángulo orientado positivamente ésta orientación
+          induce orientaciones en los subrectángulos generados
+          por una partición \(\mathbb{P}=\{(x_i,y_i): 1\leq i \leq n, 1\leq j \leq m\}\).
+          Si consideramos la 1-forma constante  \(\omega_{i,j}=s_{i,j}\det\)
+          tenemos
+          \[
+          \int_{\square R_{i,j}}\omega_{i,j}=s_{i,j}(x_i-x_{i-1})(y_j-y_{j-i})
+          \]
+          donde \(\square R_{i,j}\) es el rectángulo \([x_{i-1},x_i]\times [y_{j-1},y_j]\)
+          orientado positivamente.
+        </p>
+        <p>
+          Por lo tanto, la integral definida en \eqref{Eqn:defIntegralEscalonada}
+          es la extensión natural que se obtiene usando la aditividad que se busca para
+          la integral de las 2-formas.
+        </p>
+        <p>
+          Nota también que en esta sección nos olvidamos de la orientación
+          pues estamos tratando siempre con rectángulos orientados positivamente.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(s:\mathcal{R}\to \mathbb{R}\) una función escalonada.
+        </p>
+        <p>
+          Para cada \(y\in [c,d]\) fija considera la función
+          \[
+          x\in [a,b] \mapsto s(x,y) \in \mathbb{R}.
+          \]
+          Nota que esta función de una variable, es escalonada y
+          por lo tanto integrable. Denotamos su integral por
+          \[
+          A(y)=\int_{a}^b s(x,y)dx.
+          \]
+        </p>
+        <p>
+          De manera similar, fijando una \(x\in [a,b]\), considerando
+          la función
+          \[
+          y\in [c,d] \mapsto s(x,y)
+          \]
+          obtenemos una función de una variable, escalonada. Denotamos
+          su integral por
+          \[
+          B(x)=\int_c^d s(x,y)dy.
+          \]
+        </p>
+        <p>
+          Prueba
+          \[
+          \int_\mathcal{R} s = \int_c^d A(y)dy=\int_a^b B(x)dx.
+          \]
+          La ecuación anterior se puede escribir como
+          \[
+          \int_\mathcal{R}s = \int_c^d \left( \int_a^b s(x,y)dx \right)dy=
+          \int_a^b \left( \int_c^d s(x,y)dy \right)dx.
+          \]
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/VZn1U9fm4hA" target="_blank"> Video </a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\),
+          \(s,t:\mathcal{R}\to\mathbb{R}\) funciones escalonadas
+          y \(c\in \mathbb{R}\). Prueba
+          \[
+          \int_{\mathcal{R}}cs+t = c\int_{\mathcal{R}}s + \int_\mathcal{R}t
+          \]
+        </p>
+
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+                          <p>
+
+                Probemos antes la siguiente afirmación.
+                Sea \(h\) una función escalonada y sea
+                \(\mathbb{P}_h\) la partición asociada a \(h\).
+                Si \(\mathbb{P}\) es una partición que refina a
+                \(\mathbb{P}_h\) entonces
+                \begin{equation}
+                \int_{\mathcal{R}} h =
+                \sum_{i=1}^{n}\sum_{j=1}^{m}h_{ij}(y_i - y_{i-1})(y_{j}^{\prime}
+                - y_{j-1}^{\prime})
+                \end{equation}
+
+                donde \([y_{i-1}, y_i ] \times [y_{i-1}^{\prime},
+                y_{i}^{\prime}]\) son los rectángulos inducidos por \(\mathbb{P}\).
+              </p>
+              <p>
+                Primero simplifiquemos la notación. Sean
+                \(\lbrace A_i : i \in \lbrace1,. . . , l \rbrace \rbrace \)
+                la colección de rectángulos inducidos por \(\mathbb{P}\)
+                y  \(\lbrace B_i : i \in \lbrace1,. . . , r \rbrace \rbrace\)
+                la colección de rectángulos inducidos por \(\mathbb{P}_h\),
+                denotamos por \(m(R)\) al área del rectángulo \(R\).
+                Por ejemplo, si
+                \(A_k =  [y_{i-1}, y_i ] \times [y_{i-1}^{\prime}, y_{i}^{\prime}]\)
+                entonces \(m(A_k) = (y_i - y_{i-1})(y_{j}^{\prime} - y_{j-1}^{\prime})\).
+                Entonces la ecuación (1) es de la siguiente manera,
+                \[ \int_{\mathcal{R}} h  = \sum_{i=1}^{l}h_i m(A_i) ,\]
+                donde \(h_i\) es el valor que toma la función \(h\) en
+                el rectángulo \(A_i\). Por la definición de la  integral tenemos que
+                \[\int_{\mathcal{R}} h  = \sum_{i=1}^{r}h_i m(B_i). \]
+              </p>
+              <p>
+                Por otro lado, como \(\mathbb{P}\) refina a \(\mathbb{P}_h\), cada
+                rectángulo \(B_i\) es de la forma \(B_i = \bigcup_{k=1}^{p_i}A_{i_k} \)
+                además \(m(B_i) = \sum_{k=1}^{p_i}m(A_{i_k})\). Lo cual implica que
+                \(\bigcup_{i=1}^{l}A_i = \bigcup_{i=1}^{r}B_i =
+                \bigcup_{i=1}^{r}\left(\bigcup_{k=1}^{p_i}A_{i_k}\right)\)
+                y para cada rectángulo \(A_{i_k}\) la función \(h\) toma el valor
+                \(h_i\). Por lo tanto
+                \[\sum_{i=1}^{l} h_i m(A_i) = \sum_{i=1}^{r} \sum_{k=1}^{p_i} h_i m(A_{i_k})
+                = \sum_{i=1}^{r} h_i m(B_i) \]
+
+                Por lo tanto, \( \int_{\mathcal{R}} h  = \sum_{i=1}^{l}h_i m(A_i).\)
+              </p>
+                <p>
+                Como \(s\) y \(t\) son funciones escalonadas existen particiones
+                \(\mathbb{P}\) y \(\tilde{\mathbb{P}}\) de \(s\) y \(t\) respectivamente tales que son
+                constantes en los subrectángulos generados por dichas particiones.
+                También tenemos que \(\mathbb{P}\vee \tilde{\mathbb{P}}\) es la partición asociada
+                a \(cs + t\) y como \(\mathbb{P}\vee \tilde{\mathbb{P}}\) refina tanto a
+                \(\mathbb{P}\) como a \(\tilde{\mathbb{P}}\), entonces por la afirmación anterior
+                tenemos
+                \begin{eqnarray*}
+                \int_{\mathcal{R}} cs + t & = & \sum_{i=1}^{n}\sum_{j=1}^{m}(cs_{ij}
+                + t_{ij})(z_i - z_{i-1})(z_{j}^{\prime} - z_{j-1}^{\prime}) \\
+                & = &  c\sum_{i=1}^{n}\sum_{j=1} ^{m} s_{ij}(z_i - z_{i-1})(z_{j}^{\prime}
+                - z_{j-1}^{\prime}) +
+                \sum_{i=1}^{n}\sum_{j=1} ^{m} t_{ij}(z_i - z_{i-1})(z_{j}^{\prime}
+                - z_{j-1}^{\prime}) \\
+                & = & c\int_{\mathcal{R}}s + \int_{\mathcal{R}}t
+                \end{eqnarray*}
+
+               donde \([z_{i-1}, z_i] \times [z_{j-1}^{\prime}, z_{j}^{\prime}]\)
+               son los rectángulos inducidos por \(\mathbb{P}\vee \tilde{\mathbb{P}}\).
+              </p>
+            </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\)
+          y \(s:\mathcal{R}\to \mathbb{R}\) una función escalonada.
+        </p>
+        <p>
+          Si \(\mathcal{R}\) se subdivide en dos rectángulos
+          \(\mathcal{R}_1\), \(\mathcal{R}_2\) prueba
+          \[
+          \int_\mathcal{R}s = \int_{\mathcal{R}_1}s +\int_{\mathcal{R}_2} s
+          \]
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:monotoniaIntegralEscalonadas"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(s,t:\mathcal{R}\to\mathbb{R}\) funciones escalonadas.
+          Prueba que si \(s(x,y)\leq t(x,y)\) para toda \(x,y\in \mathcal{R}\)
+          entonces
+          \[
+          \int_\mathcal{R} s \leq \int_\mathcal{R} t
+          \]
+        </p>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:RIntegragleRectang"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f:\mathcal{R} \to \mathbb{R}\) una función acotada, es decir,
+          existe \(M>0\) tal que \(|f(x,y)|\leq M\), para toda \((x,y)\in \mathcal{R}\).
+        </p>
+        <p>
+          Definimos la integral inferior de \(f\) como
+          \[
+          \underline{I(f)}=\sup\left\{ \int_\mathcal{R} s : s \leq f \right\}
+          \]
+          donde el supremo se toma sobre las funciones escalonadas
+          \(s:\mathcal{R} \to \mathbb{R}\).
+        </p>
+        <p>
+          Definimos la integral superior de \(f\) como
+          \[
+          \overline{I(f)}=\inf\left\{ \int_\mathcal{R} t : f \leq t \right\}
+          \]
+          donde el ínfimo se toma sobre las funciones escalonadas
+          \(t:\mathcal{R} \to \mathbb{R}\).
+        </p>
+        <p>
+          Nota que siempre es posible encontrar funciones escalonadas
+          por abajo y por arriba de \(f\), pues al ser \(f\) acotada
+          podemos tomar \(s\) como la función constante \(-M\) y \(t\)
+          como la función constante \(M\).
+        </p>
+        <p>
+          Decimos que \(f:\mathcal{R}\to \mathbb{R}\) es Riemann integrable,
+          o simplemente integrable, si las
+          integrales inferior y superior coinciden. Definimos
+          \[
+          \int_\mathcal{R} f = \overline{I(f)}=\underline{I(f)}
+          \]
+        </p>
+        <p>
+          Por ejemplo, si \(f\) es una función simple, con
+          partición \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\),
+          y con valor \(f_{i,j}\) en el subrectángulo abierto
+          \((x_{i-1},x_i)\times (y_{j-i},y_j)\)
+          entonces
+          \(f\) es integrable con
+          \[
+          \int_\mathcal{R}f =\sum_{i=1}^n\sum_{j=1}^m f_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
+          \]
+          esto se sigue directamente del
+          <a href="#Ejer:monotoniaIntegralEscalonadas">Ejercicio 12.11</a>
+          y la definición en \eqref{Eqn:defIntegralEscalonada}
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+          Sea \(\mathcal{R}=[0,1]\times [0,1]\) y define
+          \(f:\mathcal{R}\to \mathbb{R}\) por
+          \[
+          f(x,y)=\left\{
+            \begin{array}{cc}
+            1 & \textrm{si \(x=y\)}\\
+            0 & \textrm{si \(x\ne y\)}
+            \end{array}
+            \right.
+          \]
+          Prueba, usando la definición, que \(f\) es integrable
+          y que \(\int_\mathcal{R}f =0\).
+        </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y supongamos
+          que \(f:\mathcal{R}\to \mathbb{R}\) es
+          una función acotada e integrable en \(\mathcal{R}\).
+        </p>
+        <p>
+          Si existe un número \(I\) tal que
+          \[
+          \int_\mathcal{R}s \leq I \leq \int_\mathcal{R}t
+          \]
+          para todas las funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\)
+          con \(s\leq f \leq t\), entonces
+          \[
+          I=\int_\mathcal{R} f.
+          \]
+        </p>
+
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+        <p>
+        Supongamos que existe un número \(I\) tal que
+        \begin{equation*}
+        \int_{\mathcal{R}} s \leq I \leq \int_{\mathcal{R}} t
+        \end{equation*}
+
+        donde  \(s,t : \mathcal{R} \rightarrow \mathbb{R}\) son
+        funciones escalonadas tal que \(s \leq f \leq t\). Entonces
+        \(I\)  es una cota superior de
+        \(\lbrace \int_{\mathcal{R}} s :  s \leq f  \rbrace \) donde
+        \(s\) es una función escalonada. Por lo tanto,
+        \(\underline{I(f)} \leq I\). De igual manera tenemos que \(I\)
+        es una cota inferior del conjunto
+        \(\lbrace \int_{\mathcal{R}} t :  f \leq t  \rbrace \)
+        donde \(t\) es una función escalonada, lo cuál implica que
+        \(I \leq \overline{I(f)}\).
+      </p>
+      <p>
+        Como \(f\) es integrable,
+        \( \underline{I(f)} = \overline{I(f)}\).
+        Entonces \(I \leq  \overline{I(f)} = \underline{I(f)}  \leq I\),
+        es decir \(I = \underline{I(f)} = \overline{I(f)}\).
+        Por lo tanto
+        \[I = \int_{\mathcal{R}} f.\]
+      </p>
+    </div>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:Fubinni"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
+          \(f:[a,b] \times [c,d]\to \mathbb{R}\) una función acotada tal que
+          <ol>
+          <li>
+            \(f\) es integrable en \(\mathcal{R}\).
+          </li>
+          <li>
+            para cada \(y\in [c,d]\), la integral 1-dimensional
+            \(\int_a^bf(x,y)dx\) existe. Denotemos esta integral
+            por \(A(y)\).
+          </li>
+          </ol>
+          <p>
+            Si la integral \(\int_c^d A(y)dy\) existe entonces
+            \[
+            \int_\mathcal{R}f  = \int_c^d A(y)dy.
+            \]
+            Lo anterior se puede escribir
+            \[
+            \int_\mathcal{R}f  = \int_c^d \left( \int_a^b f(x,y)dx \right)dy.
+            \]
+          </p>
+          <p>
+            Un resultado similar es válido si se supone que
+            para toda \(x\in [a,b]\), la integral
+            \(B(x):=\int_c^d f(x,y)dy\) existe y la función \(B(x)\)
+            es integrable.
+          </p>
+
+        </p>
+
+                <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+        <p>
+          Para iniciar tomamos cualesquiera funciones escalonadas
+          \(s,t:\mathcal{R}\to \mathbb{R}\) tal que
+          \(s \leq f \leq t\). Si fijamos \(y\in [c,d]\) se sigue que:
+          \[
+          s(x,y)\leq f(x,y) \leq t(x,y),  \quad  \forall x\in [a,b].
+          \]
+          Por nuestra suposición la función \(x\mapsto f(x,y)\) es integrable
+          por lo tanto podemos integrar las desigualdades anteriores, pues
+          son integrales 1-dimensionales, para obtener
+          \begin{equation}\label{Eqn:auxFubiniPreliminar}
+          \int_{a}^b s(x,y)dx \leq  A(y) \leq \int_a^b t(x,y)dx
+          \end{equation}
+          (recuerda que definimos \(A(y)=\int_a^b f(x,y)dx\)).
+
+        </p>
+        <p>
+          En este punto es importante notar que la función
+          \(y \mapsto \int_a^b s(x,y)dx\) es una función de 1-variable
+          y es escalonada. Razón: supongamos que
+          \(s\) toma el valor \(s_{i,j}\) en el subrectángulo abierto
+          \((x_{i-1},x_i)\times(y_{j-1},y_j)\), entonces  para
+          \(y\in (y_{j-1},y_j) \) tenemos
+          \[
+          \int_a^b s(x,y)dx=\sum_{i=1}^n s_{i,j}(x_i-x_{i-1})
+          \]
+          Análogamente la función \(y \mapsto \int_a^b t(x,y)dx\) es
+          escalonada.
+        </p>
+        <p>
+          Ahora, también por nuestra suposición tenemos que la función \(A(y)\) es
+          integrable, asi que podemos integrar las desigualdades en
+          \eqref{Eqn:auxFubiniPreliminar} y obtener
+          \[
+          \int_c^d\left( \int_a^b s(x,y)dx \right)dy \leq \int_c^dA(y)
+          \leq  \int_c^d\left( \int_a^b t(x,y)dx \right)dy.
+          \]
+          Por el <a href=""> Ejercicio 12.7</a> podemos reescribir lo anterior
+          como
+
+          \[
+          \int_\mathcal{R} s \leq \int_c^dA(y)
+          \leq  \int_\mathcal{R} t.
+          \]
+          De la desigualdad anterior, tomando en cuenta de que
+          \(s,t\) son arbitrarias, por el   <a href="">Ejercicio 12.3</a>
+          concluimos que
+          \[
+          \int_\mathcal{R}f= \int_c^dA(y)dy.
+          \]
+        </p>
+      </div>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para cada una de las siguientes funciones y
+            rectángulos, usa el
+            <a href="#Ejer:Fubinni">Ejercicio 12.15</a>  para
+            calcular \(\int_\mathcal{R}f\). Puedes suponer
+            que todas las funciones que se presentan
+            son integrables.
+
+          </p>
+          <ol>
+            <li>
+              \(f(x,y)=xy(x^2+y)\), \(\mathcal{R}=[0,1]\times [0,2]\).
+            </li>
+            <li>
+              \(f(x,y)=\sqrt{xy}+x\), \(\mathcal{R}=[0,9]\times [0,1]\).
+            </li>
+            <li>
+              \(f(x,y)=\sin(x+y)\), \(\mathcal{R}=[0,\pi]\times [0,\pi]\).
+            </li>
+            <li>
+              \[
+              f(x,y)=
+              \left\{
+                \begin{array}{cc}
+                1+x-y & \frac{x}{4} \leq y \leq \frac{x}{2} \\
+                0 &  \textrm{en otro caso}
+                \end{array}
+              \right.
+              \]
+              \(\mathcal{R}=[0,2]\times [0,1]\).
+            </li>
+
+            <li>
+              \[
+              f(x,y)=
+              \left\{
+                \begin{array}{cc}
+                x+y &  x^2\leq y \leq x \\
+                0 &  \textrm{en otro caso}
+                \end{array}
+              \right.
+              \]
+              \(\mathcal{R}=[0,1]\times [0,1]\).
+            </li>
+          </ol>
+          <button class="respButton hvr-grow"> Respuesta de 1 y 4</button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/wV5vwTSo3HY" target="_blank"> Video </a>
+            </div>
+          </div>
+        </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f:\mathcal{R}\to \mathbb{R}\) una función acotada.
+        </p>
+        <p>
+          Si para toda \(\varepsilon >0\) existen funciones
+          escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales
+          que \(s\leq f \leq t\) y tal que
+          \[
+          \int_\mathcal{R}t - \int_\mathcal{R} s \leq  \varepsilon
+          \]
+          entonce \(f\) es integrable.
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+        <p>
+          Para probar que \(f\) es integable, según la definición, debemos
+          de demostrar
+          \[
+          \underline{I(f)}=\overline{I(f)},
+          \]
+          para lo cual es suficiente probar que, para toda \(\varepsilon >0\):
+          \begin{equation}\label{Eqn:auxLemaIntegrabilidad}
+          |\overline{I(f)}-\underline{I(f)}| < \varepsilon.
+          \end{equation}
+          Dada \(\varepsilon>0\) usamos la hipótesis del ejercicio para encontrar
+          \(s,t:\mathcal{R}\to \mathbb{R}\) funciones escalonadas con
+          \(s\leq f \leq t\) y que satisfagan
+          \[
+          \int_\mathcal{R}t-\int_\mathcal{R}s < \varepsilon.
+          \]
+          Por definición de integral  superior e inferior y usando
+          las desigualdades \(s\leq f \leq t\)
+          obtenemos
+          \[
+          \int_\mathcal{R}s \leq \underline{I(f)}\leq \overline{I(f)}
+          \leq \int_\mathcal{R} t
+          \]
+          es decir, las integrales inferior y superior están en el intervalo
+          cerrado
+          \[
+          \left[ \int_\mathcal{R}s, \int_\mathcal{R}t \right]
+          \]
+          por lo que
+          \[
+          |\overline{I(f)}-\underline{I(f)}|  \leq \int_\mathcal{R}t-\int_{\mathcal{R}}s <\varepsilon
+          \]
+          lo cual prueba \eqref{Eqn:auxLemaIntegrabilidad}.
+        </p>
+      </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:continuidadUniforme"> Ejercicio </h2>
+        <p>
+          Toma \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f: \mathcal{R}\to \mathbb{R}\) una función continua en todo
+          \(\mathcal{R}\).
+        </p>
+        <p>
+          Dada una  \(\varepsilon >0\) existe una \(\delta >0\) que satisface:
+        </p>
+        <p>
+          si \((x,y), (u,v)\in \mathcal{R}\) satisfacen
+          \(\|(x,y)-(u,v) \| <\delta\) entonces
+          \(|f(x,y)-f(u,v)|< \varepsilon\).
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/lCcqRTPUnxM" target="_blank"> Video </a>
+          </div>
+        </div>
+</div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+            \(f:\mathcal{R}\to \mathbb{R}\) una función continua en
+            todo \(\mathcal{R}\). Para cada \(y\in [c,d]\) definimos
+            \[
+            A(y)=\int_a^bf(x,y)dx
+            \]
+            Entonces \(A:[c,d]\to \mathbb{R}\) es una función continua.
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+
+          <p>
+            Vamos a usar \(\varepsilon\)'s y \(\delta\)'s para probar
+            la continuidad de \(A\).
+          </p>
+          <p>
+            Fijamos \(y_0\in [c,d]\) y una \(\varepsilon>0\). Por
+            el <a href="#Ejer:continuidadUniforme">Ejercicio 12.18</a>
+            existe \(\delta >0\) tal que para puntos \((x,y), (u,v)\in \mathcal{R}\):
+            satisfacen \(\) entonces
+            \begin{equation}\label{Eqn:auxContinuindadRebandas}
+            \|(x,y)-(u,v)\|< \delta \Rightarrow |f(x,y)-f(u,v)|< \frac{\varepsilon}{2(b-a)}.
+            \end{equation}
+            Esta \(\delta\) es la que sirve para la continuidad. Es decir,
+            tomamos \(y\in [c,d]\) con \(|y-y_0|<\delta\) y debemos de probar
+            que \(|A(y)-A(y_0)|< \varepsilon\).
+          </p>
+          <p>
+            Usando las propiedades de la integral 1-dimensional tenemos
+            \begin{eqnarray*}
+            |A(y)-A(y_0)| &=&\left| \int_a^b f(x,y) dx - \int_a^b f(x,y_0)dx \right| \\
+            &=& \left| (f(x,y)-f(x,y_0))dx \right| \\
+            &\leq & \int_a^b |f(x,y)-f(x,y_0)|dx
+            \end{eqnarray*}
+            Pero notamos que \(\| (x,y)-(x,y_0) \|=|y-y_0|< \delta\), por
+            lo tanto por \eqref{Eqn:auxContinuindadRebandas} obtenemos
+            \[
+            |f(x,y)-f(x,y_0)| < \frac{\varepsilon}{b-a} \quad , \forall x\in [a,b]
+            \Rightarrow \int_a^b|f(x,y)-f(x,y)|dx \leq \int_a^b \frac{\varepsilon}{2(b-a)}dx=\frac{\varepsilon}{2}
+            \]
+            Por lo tanto obtenemos \(|A(y)-A(y_0)|< \varepsilon\).
+
+          </p>
+          </div>
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f:\mathcal{R}\to \mathbb{R}\) una función continua en
+          todo \(\mathbb{R}\). Entonces \(f\) es integrable sobre
+          \(\mathcal{R}\) y la integral se puede calcular como
+          integrales iteradas mediante:
+          \[
+          \int_\mathcal{R} f = \int_a^b\left( \int_c^d f(x,y)dy\right)dx=
+          \int_c^d\left( \int_a^b f(x,y)dx\right)dy
+          \]
+        </p>
+
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/Laa2nDMffa8" target="_blank"> Video </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m \}\)
+          una partición de \(\mathcal{R}=[a,b]\times [c,d]\).
+          La norma de la partición, denotada \(\|\mathbb{P}\|\), se define
+          como
+          \[
+          \|\mathbb{P}\|=\max_{1\leq i \leq n, 1\leq j \leq m}\{ x_i-x_{i-1}, y_j-y_{j-1} \}
+          \]
+          es decir, es la longitud más grande de los lados de los subrectángulos
+          de \(\mathbb{P}\).
+        </p>
+      </div>
+
+            <div class="teorema-box">
+              <h2 class="number-title"> Teorema </h2>
+              <p>
+                Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                \(f:\mathcal{R}\to \mathbb{R}\) una función continua en
+                todo \(\mathbb{R}\). Entonces
+                \begin{equation}\label{Eqn:auxSumasRiemann}
+                \int_\mathcal{R} f = \lim_{\|\mathbb{P}\|\to 0} \sum_{i=1}^n\sum_{j=1}^m
+                f(\tilde{x_i},\tilde{y_j})(x_i-x_{i-1})(y_j-y_{j-1})
+                \end{equation}
+                donde \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n , 1\leq j \leq m \}\)
+                y \((\tilde{x_i},\tilde{y_j})\) son puntos en \([x_{i-1}, x_i]\times [y_{j-1},y_j]\).
+              </p>
+              <p>
+                Nota: ¿Cómo se entiende el límite \eqref{Eqn:auxSumasRiemann}? De la siguiente
+                manera: para toda \(\varepsilon >0\) existe
+                \(\delta >0\) tal que si \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1 \leq j \leq m\}\) es una partición de
+                \(\mathcal{R}\) con \(\|P\| < \delta\) entonces:
+                \[
+                \left| \int_\mathcal{R}f -
+                \left( \sum_{i=1}^n\sum_{j=1}^m
+                f(\tilde{x_i},\tilde{y_j})(x_i-x_{i-1})(y_j-y_{j-1}) \right)  \right|<\varepsilon
+                \]
+                para cualesquiera puntos \((\tilde{x}_i, \tilde{y}_j)\in [x_{i-1},x_i]\times [y_{j-1},y_J]\).
+              </p>
+
+              <button class="respButton hvr-grow"> Respuesta </button>
+              <div class="resp-box">
+                <div class="video flexbox">
+                  <a href="https://youtu.be/GNhX_5TJfBs" target="_blank"> Video </a>
+                </div>
+              </div>
+
+
+            </div>
+
+
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                            Calcula la integrales de las siguientes funciones.
+                            Recuerda que \(\lfloor x \rfloor\) denota el mayor entero
+                            menor o igual a \(x\).
+                          </p>
+                          <ol>
+                            <li> \(\int_{\mathcal{R}} \lfloor x\rfloor \lfloor y \rfloor\),
+                            \(\mathcal{R}=[0,2]\times [0,2]\). </li>
+                            <li> \(\int_{\mathcal{R}} \lfloor x+y \rfloor\),
+                              \(\mathcal{R}=[0,3]\times [0,3]\) </li>
+                            <li> \(\int_{\mathcal{R}} \sqrt{\lfloor x+y \rfloor}\),
+                            \(\mathcal{R}=[0,3]\times [0,3]\). </li>
+                            </ol>
+                            <p>
+                              Sugerencia: si \(\mathcal{R}\) es un polígono en el
+                              plano y \(f\) es igual a una constante \(c\) sobre \(\mathcal{R}\)
+                              entonces \(\int_{\mathcal{R}f}=c * \textrm{área}(\mathcal{R})\)
+                            </p>
+                            <button class="respButton hvr-grow"> Respuesta de 2 </button>
+                            <div class="resp-box">
+                              <div class="video flexbox">
+                                <a href="https://youtu.be/T5801bIJMA4" target="_blank"> Video </a>
+                              </div>
+                            </div>
+                        </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Calcula la integrales de las siguientes funciones. Puedes
+                      suponer que todas las funciones que aparecen son integrables.
+                    </p>
+                    <ol>
+                      <li> \(\int_{\mathcal{R}}|3x+2y|\), \(\mathcal{R}=[0,2]\times [-3,3]\). </li>
+                      <li> \(\int_{\mathcal{R}} |\cos(x+y)|\),
+                        \(\mathcal{R}=[0,\pi]\times [0,\pi]\) </li>
+                      <li> \(\int_{\mathcal{R}} \sqrt{x+y}\),
+                      \(\mathcal{R}=[0,1]\times [0,4]\). </li>
+
+                      <li> \(\int_{\mathcal{R}} y^{-3}e^{tx/y}\),
+                        \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
+                      </li>
+                    </ol>
+
+                    <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+                    <div class="resp-box">
+                      <div class="video flexbox">
+                        <a href="https://youtu.be/yd87EErkg8I" target="_blank"> Video </a>
+                      </div>
+                    </div>
+<br>
+                    <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+                    <div class="resp-box">
+                      <div class="video flexbox">
+                        <a href="https://youtu.be/S1aNwrgNWwc" target="_blank"> Video </a>
+                      </div>
+                    </div>
+
+                    <br>
+
+                    <button class="respButton hvr-grow"> Respuesta inciso 3</button>
+                    <div class="resp-box">
+                      <p>
+                        Por el Teorema 12.20 tenemos que
+                        \begin{eqnarray*}
+                        \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
+                        & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
+                        & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
+                        & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
+                        \end{eqnarray*}
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Calcula la integrales de las siguientes funciones. Puedes
+                      suponer que todas las funciones que aparecen son integrables.
+                    </p>
+                    <ol>
+                      <li> \(\mathcal{R}=[0,1]\times [0,1]\)
+                        \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        x+2y & \textrm{si \(x^2 \leq y \leq 2x^2\)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+                      </li>
+
+                      <li> \(\mathcal{R}=[-1,1]\times [-1,1]\)
+                        \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        2x^2+2y^2 & \textrm{si \(x^2 + y^2 \leq 1 \)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+                      </li>
+
+                      <li> \(\mathcal{R}=[1,2]\times [1,4]\)
+
+                          \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        \frac{(x+y)^{-2}}{2} & \textrm{si \(x \leq y \leq 2x\)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+
+                      </li>
+                    </ol>
+
+
+                  <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+                  <div class="resp-box">
+                  <p>
+                    El dominio de \(f\) es el que se encuentra entre la gráfica verde
+                    (\(y= 2x^{2}\))  y la gráfica roja (\(y = x^{2}\)),
+
+                    <div class="imagen-box flexbox">
+                      <img src="./Images/Fig25-1.png" alt="Dominio25-1" width="270" height="230">
+                    </div>
+
+
+                    Tenemos que la condición del dominio es \(x^{2} \leq y \leq 2x^{2}\)
+                    la cual es equivalente a \(\frac{\sqrt{y}}{\sqrt{2}} \leq x \leq \sqrt{y}\).
+                    Entonces fijando \(y \in [0, 1]\) y tamando
+                    \begin{equation*}
+                    A(y) = \int_{0}^{1}f(x, y)dx
+                    \end{equation*}
+
+                    Por la regla de correspondecia de \(f\) simplificamos
+                    \begin{eqnarray*}
+                    A(y) & = & \int_{\frac{\sqrt{y}}{\sqrt{2}}}^{\sqrt{y}} x + 2y dx \\
+                     & = & \frac{1}{2}\left(y - \frac{y}{2}\right) + 2y\left(\sqrt{y} -
+                     \frac{\sqrt{y}}{\sqrt{2}}\right) \\
+                     & = & \frac{y}{4} + \sqrt{2}\left(\sqrt{2} - 1\right)y^{\frac{3}{2}}
+                    \end{eqnarray*}
+
+                    Suponiendo que \(f\) es integrable, entonces por el ejercicio 12.5 tenemos
+                    \begin{eqnarray*}
+                    \int_{R} f & = & \int_{0}^{1} A(y) dy \\
+                     & = & \int_{0}^{1} \frac{y}{4} + \sqrt{2}\left(\sqrt{2} -
+                     1\right)y^{\frac{3}{2}} dy \\
+                     & = & \frac{1}{8} + \frac{2\sqrt{2}(\sqrt{2} - 1)}{5}\\
+                     & = & \frac{37 -16\sqrt{2}}{40}
+                    \end{eqnarray*}
+
+
+                  </p>
+                </div>
+
+                <br>
+                <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+                <div class="resp-box">
+                  <div class="video flexbox">
+                    <a href="https://youtu.be/uPrEWBLTXd4" target="_blank"> Video </a>
+                  </div>
+                </div>
+
+
+
+                  </div>
+
+
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                            Sean \(f:[a,b]\to \mathbb{R}\),
+                            \(g:[c,d]\to \mathbb{R}\) dos funciones continuas,
+                            denota \(\mathcal{R}=[a,b]\times [c,d]\) y define
+                            \(h:\mathcal{R}\to \mathbb{R}\) por \(h(x,y)=f(x)g(y)\).
+                          </p>
+                          <p>
+                            Expresa la integral \(\int_{\mathcal{R}} h(x,y)\)
+                            en términos de las integrales de \(f\) y de \(g\).
+                          </p>
+
+                        </div>
+
+
+                       <div class="ejercicio-box">
+                         <h2 class="number-title" id="Ejer:PropIntegral"> Ejercicio </h2>
+
+                         <p>
+                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                           \(f,g:\mathcal{R} \to \mathbb{R}\) funciones acotadas
+                           e integrables en \(\mathcal{R}\).
+
+                           <ol>
+                             <li>
+                               Sea \(c\in \mathcal{R}\) una constante. Prueba que
+                               la función \(f+cg\) es integrable y que
+                               \[
+                               \int_{\mathcal{R}} f+cg = \int_{\mathcal{R}}f +
+                               c\int_{\mathcal{R}}g.
+                               \]
+                             </li>
+                            <li>
+                              Supongamos que \(\mathcal{R}\) se subdivide
+                              en dos rectángulos \(\mathcal{R}_1\) y \(\mathcal{R}_2\).
+                              Prueba
+                              \[
+                              \int_{\mathcal{R}} f = \int_{\mathcal{R}_1}f
+                              + \int_{\mathcal{R}_2}f.
+                              \]
+                            </li>
+                            <li>
+                              Prueba que si
+                              \(f(x,y)\leq g(x,y)\), para toda \((x,y)\in \mathcal{R}\),
+                              entonces \(\int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g\).
+                            </li>
+                         </ol>
+                         </p>
+
+                       </div>
+
+                       <div class="ejercicio-box">
+                         <h2 class="number-title"> Ejercicio </h2>
+
+                         <p>
+                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                           \(f:\mathcal{R}\to \mathbb{R}\) una función continua. Fija
+                           \(\varepsilon >0\) y sea \(\delta >0\) la delta del
+                           <a href="S12.html#Ejer:continuidadUniforme">Ejercicio 12.18</a>
+
+                         </p>
+
+                         <p>
+                           Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\)
+                           una partición de \(\mathcal{R}\) tal que \(\| \mathbb{P}\|\leq \delta/\sqrt{2}\).
+                         </p>
+                         <p>
+                           Considera  funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales que
+                           \begin{eqnarray*}
+                           s(x,y)=\min_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}\\
+                           t(x,y)=\max_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}
+                           \end{eqnarray*}
+                           donde \(\mathcal{R}_{i,j}=[x_{i-1}, x_i]\times [y_{j-1}, y_j]\).
+                         </p>
+                         <p>
+                           Prueba que
+                           \[
+                           \int_{\mathcal{R}} t -\int_{\mathcal{R}} s \leq \varepsilon A
+                           \]
+                           donde \(A\) es el área de \(\mathcal{R}\).
+                         </p>
+                       </div>
+
+
+          <div class="nota-box">
+            <h2 class="number-title"> Conclusión </h2>
+            <p>
+              Para definir la integral de 2-formas no constantes resulta
+              necesario tener una generalización de la integral de Riemann
+              1-dimensional (la de cálculo 2). Muchas de las ideas para definir
+              la integral doble o la integral 2-dimensional son similares al
+              caso 1-dimensional (por ejemplo integrales superiores e inferiores).
+              A pesar de que hay muchas similitudes (por ejemplo toda
+              función continua en dos variables es también integrable) hay diferencias
+              importantes pues ahora el cálculo de la integrales dobles se traduce
+              a integrales iteradas.
+            </p>
+              <p>
+              La manera inicial de presentar la integral de Riemann 2-dimensional
+              es con dominios rectangulares pero más adelante se generalizará a
+              dominios más generales. Las técnicas de integración se refinarán
+              para dichos dominios más generales y en particular el método de
+              integrales iteradas también se refinará para estas regiones.
+            </p>
+          </div>
+
+
+<!-- acaba contenido -->
+    </div>
+
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->

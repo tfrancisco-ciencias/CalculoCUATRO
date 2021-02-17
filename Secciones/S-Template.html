@@ -12,7 +12,7 @@
     <!-- This part is for jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- This part is to load main.js -->
-    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="../main.js"></script>
 
     <!-- Next part is for new coomands -->
 
@@ -33,7 +33,7 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" , href="./styles.css" />
+    <link rel="stylesheet" , href="../styles.css" />
 
 
 
@@ -56,12 +56,12 @@
   <header class="main-header">
     <nav class="top-nav">
       <ul>
-        <li> <a href="./Home.html"> Inicio </a> </li>
-        <li> <a href="./Secciones.html"> Secciones </a> </li>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
       </ul>
     </nav>
 
-    <h1 class="calculo-title"> Cálculo UNO</h1>
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
 
   </header>
 
@@ -72,10 +72,27 @@
 
     <div class="flexbox">
 
+      <h1 class="card "> Title  </h1>
+
+
+      Por lo tanto,
+      \begin{eqnarray*}
+      \int_\gamma (Ax + By)dx + (Cx + Dy)dy
+       & = &  \int_0^{2\pi}[(Ar\cos(t) + Br\sen(t))(-r\sen(t)) \\
+        & & + (Cr\cos(t) + Dr\sen(t))(r\cos(t))]dt \\
+      & = & \int_0^{2\pi}r^{2}[-A\cos(t)\sen(t) - B\sen^{2}(t) \\
+      & & +  C\cos^2(t)+ D\sen(t)\cos(t)] dt \\
+      & = & \int_0^{2\pi}r^{2}\left[-\frac{A\sen(2t)}{2}
+       -  \frac{B(1 - \cos(2t))}{2} + \frac{C(1 + \cos(2t))}{2}
+       +  \frac{D\sen(2t)}{2}\right] dt \\
+       & = &  \int_0^{2\pi}r^{2}\left[\frac{C - B}{2}\right] dt \\
+       & = &  2\pi r^{2}\left[\frac{C - B}{2}\right] \\
+       & = & \pi r^{2}[C - B]
+      \end{eqnarray*}
+
+
+
     </div>
-
-
-
 
   </body>
 

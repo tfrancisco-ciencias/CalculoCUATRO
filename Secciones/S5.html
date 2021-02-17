@@ -1,0 +1,929 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at N+1 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 4 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 4 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> La integral con respecto a longitud de arco  </h1>
+
+      <div class="nota-box">
+        <h2 class="number-title"> Introducción  </h2>
+        <p>
+          La integral con respecto a longitud de arco es otro
+          tipo de herramienta que asigna números  a objetos
+          1-dimensionales (aunque en éste caso es más
+          ilustrativo pensar que asigna  masas o pesos
+          a objetos 1-dimensionales). Vamos
+          a motivar la definición desde el punto de vista del
+          siguiente problema.
+        </p>
+
+        <p>
+          ¿Cómo encontrar
+          la masa de un cable si su densidad en cada punto es
+          conocida?
+        </p>
+        <p>
+          Para empezar a resolver éste problema modelamos el
+          cable con una  trayectoria suave, \(\alpha:[a,b]\to\mathbb{R}^3\).
+          Es importante notar que estamos suponiendo que el grosor del cable
+          no es relevante, por eso lo tratamos como un objeto  1-dimensional.
+          La densidad se modela con una función continua \(\rho(x,y,z)\).
+        </p>
+
+        <p>
+          Veamos
+          primero el caso de densidad constante en un cable que es un segmento
+          de línea recta. En este caso la masa es simplemente
+          la longitud del cable por la densidad.
+          <div class="imagen-box flexbox">
+            <img src="./Images/DensidadC.png" alt="DensidadC" width="230" height="230">
+          </div>
+        </p>
+
+        <p>
+          Ahora supongamos que el cable está curveado
+          y que la densidad no es constante. En este caso
+          tenemos a la mano la vieja técnica Arquimedeana de
+          partir el cable en pedazos pequeños y estimar la
+          masa de cada pedazo como en el caso anterior.
+        </p>
+        <div class="imagen-box flexbox">
+          <img src="./Images/DensidadV.png" alt="DensidadV" width="250" height="250">
+        </div>
+        Donde los puntos \(t_i^*\in [t_i, t_{i-1}]\) son cualesquiera,
+        pues ya que la densidad es continua el valor de \(\rho(\alpha(t_i^*))\)
+        no debería varia mucho en el intervalo \([t_{i-1},t_i]\). Con
+        esto podemos estimar la masa total del cable por:
+        \[
+        \sum_{i=1}^n \rho(\alpha(t_i^*))\| \alpha(t_i)-\alpha(t_{i-1})\|.
+        \]
+      </p>
+
+      <p>
+      Ahora
+      viene un paso  crucial y algo que Arquímides no
+      podría haber hecho, pues se necesita el cálculo de Newton.
+      Vamos a aplicar el <a href="https://en.wikipedia.org/wiki/Mean_
+      value_theorem#Mean_value_theorem_for_vector-valued_functions"
+      target="_blank">Teorema del Valor Medio para funciones
+      vectoriales</a>.
+      </p>
+      <p>
+        El teorema del valor medio dice que dada una función
+        \(\alpha:[a,b]\to \mathbb{R}^n\),
+        continua en \([a,b]\), diferenciable con derivada
+        continua en \((a,b)\), existe un punto
+        \(c\in (a,b)\) para el cual
+        \[
+        \| \alpha(b)-\alpha(a)\| \leq \|\alpha'(c)\| (b-a)
+        \]
+      </p>
+
+      <p>Aplicando la desigualdad anterior
+      a los intervalos \([t_{i-1},t_i]\)  obtenemos que existen
+      puntos \(c_i\in (t_{i-1},t_i)\) para los cuales
+      \(\|\alpha(t_i)-\alpha(t_{i-1})\| \leq
+      \|\alpha'(c_i)\| (t_i-t_{i-1})\). Entonces
+      podemos estimar la masa
+      del cable mediante
+      \begin{equation}\label{Eqn:AproxIntLArc}
+      \sum_{i=1}^n \rho(\alpha(c_i))\|\alpha'(c_i)\| (t_{i}-t_{i-1})
+      \end{equation}
+      donde nota que ahora tomamos ventaja
+      de la flexibilidad de los puntos \(t_i^*\) y tomamos
+      \(t_i^*=c_i\).
+      </p>
+      <p>
+        Si observamos detenidamente la ecuación \eqref{Eqn:AproxIntLArc}, se puede ver
+         que es una suma de Rimann para la función
+         \(t \mapsto \rho(\alpha(t))\|\alpha'(t)\|\). Por lo tanto,
+         usando que tanto \(\rho\) como \(\alpha'\) son continuas, cuando
+         tomamos el número de puntos que tienda a infinito, digamos
+         en una partición uniforme, obtenemos que la estimación se
+         aproxima a
+         \[
+         \int_a^b \rho(\alpha(t))\|\alpha'(t) \| dt.
+         \]
+         Dicha expresión es la que se va a definir como la
+         integral de \(\rho\), a lo largo de \(\alpha\), con respecto a
+         longitud de arco.
+       </p>
+      </div>
+
+
+      <div class="definicion-box">
+          <h2 class="number-title" id="Def:Int_LArc"> Definición </h2>
+          <p>
+            Consideremos \(\alpha:[a,b]\to \mathbb{R}^n\)
+            una curva suave y sea \(f\) una función que toma valores escalares
+            de tal forma que la composición \(f\circ \alpha\) sea continua
+            en \([a,b]\).
+            <p>
+            <p>
+            La integral con respecto a longitd
+            de arco de \(f\) a lo largo de
+            \(\alpha\) se define como
+            \[
+            \int_\alpha f ds=\int_a^b f(\alpha(t))\| \alpha'(t)\|dt.
+            \]
+            Nota: Por costumbre, se usa  \(ds\)
+            para denotar la integral por longitud de arco.
+            </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Demuestra que
+        \[
+        \int_\alpha (a+bx+cy+dxy+ex^2+fy^2 )ds=2\pi r a+ \pi r^3(e+f)
+        \]
+        donde \(a,b,c,d,e,f\) son constantes y
+        \(\alpha\) es la circunferencia de radio \(r\) y centrada
+        en el origen.
+
+
+
+        <button class="respButton hvr-grow"> Respuesta</button>
+      <div class="resp-box">
+
+        Prueba.  Primero parametricemos una circunferencia de radio \(r \)
+        \(( \text{ con }  r > 0)\) y con centro en el origen. Sea
+        \(\alpha : [0, 2\pi ] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\)
+        definida como \[ \alpha (t) = (r \cos(t), r \sen(t)) \]
+
+        Es claro que \(\alpha\) parametriza la circunferencia de radio \(r\) y con
+        centro en el origen. Además \(\alpha^{\prime}(t) = (-r \sen(t), r \cos(t))\).
+        Por lo tanto
+        \[
+        \| \alpha^{\prime}(t) \| =
+        \sqrt{(-r \sen(t))^{2} + (r \cos(t))^{2}} = r
+        \]
+
+        Ahora podemos desarrollar la siguiente integral,
+        \begin{eqnarray*}
+        & & \int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds \\
+         &=&
+        \int_{0}^{2\pi}\big[ a + b(r\cos(t)) + c(r\sen(t)) + dr^{2}\cos(t)\sen(t) \\
+        &  &
+        \hspace{ 3pt} + er^{2}\cos^{2}(t) + fr^{2}\sen^{2}(t) \big] \cdot r  dt \\
+        & = &
+        r \int_{0}^{2\pi}\Bigg[ a + br\cos(t) + cr\sen(t) + dr^{2}\dfrac{\sen(2t)}{2} \\
+        &  & \hspace{3pt} + er^{2}\left(\dfrac{1 + \cos(2t)}{2}\right)
+        + fr^{2}\left(\dfrac{1 -\cos(2t)}{2}\right) \Bigg] dt \\
+        & = &
+        r  \int_{0}^{2\pi}\Bigg[ a + \dfrac{er^{2}}{2} + \dfrac{fr^{2}}{2} \Bigg] dt \\
+        & = & 2\pi r\Bigg[ a + \dfrac{er^{2}}{2} + \dfrac{fr^{2}}{2} \Bigg] \\
+        & = & 2\pi ra + \pi r^{3}(e +f) \hspace{3pt}
+        \end{eqnarray*}
+
+        La tercera igualdad es consecuencia de que
+        \[
+        \int_{0}^{2\pi}\cos(t) dt = \int_{0}^{2\pi}\sen(t) dt
+        = \int_{0}^{2\pi}\cos(2t) dt = \int_{0}^{2\pi}\sen(2t) dt = 0
+        \]
+
+        Por lo tanto \(\int_{\alpha}(a + bx +  cy + dxy + ex^{2} + fy^{2}) ds
+        = 2\pi ra + \pi r^{3}(e +f)\).
+
+
+
+
+      </div>
+
+
+
+      </div>
+
+
+      <div class="nota-box">
+          <h2 class="number-title">  Nota </h2>
+          <p>
+            Al igual que en el caso de las integrales
+            de línea, es importante notar que la integral
+            con respecto a longitud de arco NO depende de
+            la parametrización de la curva. El siguiente ejercicio
+            demuestra precisamente esto.
+          </p>
+
+          <p>
+            Continuando con las parametrizaciones, hay una diferencia muy importante
+            entre las integrales de línea y las integrales con respecto a
+            longitud de arco pues para éstas últimas su signo NO cambia si se
+            cambia la orientación. Podemos decir que <b>las integrales
+            con respecto longitud de arco "no ven" la orientación de la curva</b>.
+            Pensando en el ejemplo de la masa como una integral con respecto
+            a longitud de arco esto tiene sentido, pues la masa no cambia
+            no importa cómo veamos el objeto (de izquierda a derecha, de
+            arriba hacia abajo etc).
+          </p>
+
+
+      </div>
+
+      <div class="ejercicio-box">
+          <h2 class="number-title" id="Ejer:invarianzaIintLongArc"> Ejercicio </h2>
+          <p>
+            Sean \(\alpha:[a,b]\to \mathbb{R}^n\) y
+            \(\beta:[c,d]\to \mathbb{R}^n\) dos curvas suaves,
+            equivalentes y \(f\) una
+            función continua definida sobre la
+            traza de dichas curvas. Demuestra que, sin importar que
+            \(\alpha\) y \(\beta\) tengas orientaciones
+            iguales o distintas, siempre se tiene que
+            \[
+            \int_\alpha f ds= \int_\beta f ds.
+            \]
+            No podemos dejar de enfatizar que este ejercicio muestra
+            que:
+            <div style="text-align:center;">
+            <b > "la integral con respecto a longitud de arco
+              no depende de la parametrización de la curva""</b>
+            </div>
+            <div style="text-align:center;">
+            <b > "la integral con respecto a longitud de arco
+              NO cambia si se invierte la orientación de la curva""</b>
+            </div>
+          </p>
+
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box">
+              <p>
+              Según la definición
+              \[
+              \int_\alpha f ds= \int_a^b f(\alpha(t))\| \alpha'(t)\| dt,
+              \]
+              \[
+              \int_\beta f ds= \int_a^b f(\beta(\tau))\|\beta'(\tau)\| d\tau.
+              \]
+              por lo que debemos de probar
+              \[
+              \int_a^b f(\alpha(t))\| \alpha'(t)\| dt=
+              \int_a^b f(\beta(\tau))\|\beta'(\tau)\| d\tau.
+              \]
+              </p>
+              <p>
+              Pero recordemos que \(\alpha\) y \(\beta\) son curvas
+              equivalentes, por lo tanto, existe \(u:[a,b]\to [c,d]\)
+              clase \(C^1\), cuya derivada nunca se anula y
+              tal que \(\beta(u(t))=\alpha(t)\)
+              para toda \(t\in [a,b]\). Por la regla de la cadena
+              \[
+              \alpha'(t)=\beta'(u(t))u'(t)\Rightarrow \|\alpha'(t)\|=
+              |u'(t)|\|\beta'(u(t))\|
+              \]
+              y por lo tanto
+              \[
+              \int_a^b f(\alpha(t))\| \alpha'(t)\| dt=
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt.
+              \]
+              Por lo que debemos de probar
+              \[
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt=
+              \int_c^d f(\beta(\tau))\|\beta'(\tau)\| d\tau.
+              \]
+              En este punto tenemos dos casos.
+              </p>
+
+              <p>
+                Primer caso: \(u'(t)>0\) para toda \(t\in (a,b)\).
+              </p>
+              <p>
+              En este caso \(|u'(t)|=u(t)\) y
+              \[
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt
+              =\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt.
+              \]
+              Además \(u\) es estrictamente creciente
+              y por lo tanto \(u(a)=c, u(b)=d\). Entonces, por el teorema
+              del cambio de variable (con \(\tau=u(t)\))
+              \[
+              \begin{eqnarray*}
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+              &=&
+              \int_{u(a)}^{u(b)} f(\beta(\tau))\|\beta'(\tau)\| d\tau \\
+              &=&\int_{c}^{d} f(\beta(u))\|\beta'(\tau)\| d\tau.
+              \end{eqnarray*}
+              \]
+              </p>
+              <p>
+              Segundo caso: \(u'(t)< 0\) para toda \(t\in (a,b)\).
+              </p>
+              <p>
+              Este caso es el interesante pues aparecerá un cambio de
+              signo. En efecto, ya que la derivada es negativa
+              \(|u'(t)|=-u(t)\) y
+              \[
+              \int_a^b f(\beta(u(t)))\|\beta'(u(t))\||u'(t)|dt=
+              -\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt.
+              \]
+
+              Además, \(u\) es estricamente decreciente y
+              por lo tanto \(u(a)=d\) y \(u(b)=c\). Entonces, por el
+              teorema del cambio de variable (con \(\tau=u(t)\))
+              \[
+              \begin{eqnarray*}
+              -\int_a^b f(\beta(u(t)))\|\beta'(u(t))\|u'(t)dt
+              &=&
+              -\int_{u(a)}^{u(b)} f(\beta(\tau))\|\beta'(\tau)\|d\tau\\
+              &=&-\int_{d}^c f(\beta(\tau))\|\beta'(\tau) \|d\tau \\
+              &=&\int_{c}^d f(\beta(\tau))\|\beta'(\tau) \|d\tau.
+              \end{eqnarray*}
+              \]
+              Nota el cambio de orden en los límites de integración
+              y la cancelación del signo menos.
+              </P>
+
+
+            </div>
+      </div>
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Calcula las siguientes integrales con respecto a longitud de arco.
+            <ol>
+              <li>
+                \[
+                \int_\alpha xe^{yz}
+                \]
+                donde \(\alpha\)
+                es el segmento de recta que une \((0,0,0)\)
+                con \((2,-3,-5)\)
+              </li>
+              <li>
+                \[
+                  \int_\alpha xy^4 ds
+                \]
+                donde \(\alpha\) es la cuarta parte de la circunferencia \(x^2+y^2=9\)
+                que está en el primer cuadrante.
+              </li>
+              <li>
+                \[
+                  \int_\alpha x^2+y^2+z^2ds
+                \]
+                donde \(\alpha(t)=(e^{2x},\cos(t),\sen(t))\), \(0\leq t \leq \pi\).
+              </li>
+              </ol>
+
+          </p>
+
+
+      </div>
+
+
+                    <div class="ejercicio-box">
+                        <h2 class="number-title"> Ejercicio   </h2>
+                        <p>
+                          Considera la función escalar \(f(x,y,z)=cx\), donde
+                          \(c\) es una constante. Prueba que si la curva
+                          \(\alpha\) es perpendicular al eje \(x\), es decir
+                          \(\alpha(t)\cdot (1,0,0)=0\) para toda \(t\), entonces
+                          \[
+                          \int_\alpha f(x,y,z)ds=0
+                          \]
+                        </p>
+                    </div>
+
+
+
+        <div class="nota-box">
+            <h2 class="number-title"> Nota </h2>
+            <p>
+              Es crucial señalar que es muy importante cómo se recorre
+              la curva para el resultado de la integral con respecto a
+              longitud de arco. Por ejemplo, si la curva se recorre múltiples
+              veces el resultado de la integral de línea muy probablemente
+              dependerá de cuantas veces se recorre. El siguiente ejercicio
+              ilustra esto.
+            </p>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Para \(n\in \mathbb{Z}\) considera la trayectoria
+              \(\alpha_n(t)=(\cos(nt),\sen(nt))\), \(0\leq t \leq 2\pi\)
+              (el circulo unitario recorrido \(n\)-veces). Prueba
+
+              \begin{eqnarray*}
+              \int_{\alpha_n} 1 ds&=&2\pi |n| \\
+              \int_{\alpha_n} x^2ds&=& \int_{\alpha_n} y^2ds =\pi |n|\\
+              \end{eqnarray*}
+
+              Nota que la \(n\) aparece con valor absoluto.
+            </p>
+
+            <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box">
+              <div class="video flexbox">
+                <a href="https://youtu.be/lXsIUgvNMDA" target="_blank"> Video </a>
+                </div>
+              </div>
+        </div>
+
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Prueba que
+            <ol>
+            <li> Si \(\alpha\) es el segmento de recta
+            que une el punto \((r,0)\) con \((0,r)\), (con \(r>0\)) entonces:
+            \[
+            \int_\alpha (x+y)ds=\sqrt{2}r^2.
+            \]
+            </li>
+            <li>
+              Si \(\beta\) es el segmento de circunferencia
+              de \(x^2+y^2=r^2\), que une \((r,0)\) con \((0,r)\),
+              (con \(r>0\)) y que está por arriba del eje de las \(x\) entonces:
+            \[
+            \int_\beta (x+y)ds=2r^2.
+            \]
+            </li>
+           </ol>
+          </p>
+
+
+            <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box">
+              <div class="video flexbox">
+                <a href="https://youtu.be/HuqWne66_v4" target="_blank"> Video </a>
+                </div>
+              </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Por \(\alpha\) denotamos una circunferencia
+            centrada en el origen de radio \(r>0\).
+          </p>
+          <p>
+            <ol>
+            <li>Prueba
+            \[
+            \int_\alpha x^2 ds= \frac{1}{2}\int_\alpha (x^2+y^2)ds.
+            \]
+            </li>
+
+            <li>Para un entero
+            \(n\geq 1\), se cumple:
+            \[
+            \int_\alpha (x^2+y^2)^n ds=2\pi r^{2n+1}.
+            \]
+            </li>
+            </ol>
+          </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio MATLAB </h2>
+          <p>
+          Calcula
+          <ol>
+          <li>
+          \[
+          \int_\alpha x^3y^2z
+          \]
+          donde \(\alpha=(e^{-t}\cos(6t), e^{-t}\sin(6t), e^{-t})\)
+          con \(0\leq t \leq 2\pi\).
+          </li>
+          <li>
+            \[
+            \int_\alpha e^{xyz}ds
+            \]
+            donde \(\alpha\) es el segmento de recta que
+            une \((1,1,1)\) con \((2,3,4)\).
+          </li>
+          </ol>
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta inciso 1 </button>
+          <div class="resp-box">
+              <div class="video flexbox"> <a href="https://youtu.be/wPM6cxFTnps" target="_blank">Video</a> </div>
+
+          </div>
+
+
+
+      </div>
+
+
+      <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+
+          <p>
+            Para un cable, tendido a lo largo de una curva \(\alpha\), con
+            densidad continua \(\rho(x,y,z)\) (masa por unidad de volumen) en el punto
+            \((x,y,z)\), se define la
+            <b>masa</b> del cable como
+            \[
+            \textrm{Masa}:=\int_\alpha \rho(x,y,z)ds.
+            \]
+            <p>
+            <p>
+            Las coordenadas de su <b>centro de masa (o centroide)</b>, denotadas
+            \((\bar{x},\bar{y}, \bar{z})\),
+            están dadas por
+            \[
+            \bar{x}=\frac{1}{M}\int_\alpha x \rho(x,y,z)ds,
+            \]
+            \[
+            \bar{y}=\frac{1}{M}\int_\alpha y \rho(x,y,z)ds,
+            \]
+            \[
+            \bar{z}=\frac{1}{M}\int_\alpha z \rho(x,y,z)ds.
+            \]
+            Si recordamos que una integral es en el fondo un promedio,
+            estas definiciones tienen sentido pues estamos tomando simplemente
+            el promedio de la masa que se distribuye a lo largo del eje \(x\),
+            \(y\) o \(z\).
+            </p>
+            <p>
+            Dado un eje \(L\) en el espacio, el momento de incercia con respecto a \(L\)
+            se define como
+            \[
+            \int_\alpha (\lambda(x,y,z))^2 \rho(x,y,z)ds
+            \]
+            donde \(\lambda(x,y,z)\) denota la distancia del punto
+            \((x,y,z)\) al eje  \(L\).
+          </p>
+          <p>
+            Nota: si el cable "está aplanado", la función densidad sólo depende
+            de dos variables \(\rho(x,y)\) y las integrales anteriores se ajustán a sólo
+            dos variables, desapareciendo la coordenada \(z\).
+          </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Considera un cable helicoidal dado por  \(\alpha(t)=(a\cos(t),a\sen(t),bt)\),
+              \(0  \leq t \leq 2\pi\). Si la densidad está dada por
+              \(\rho(x,y,z)=x^2+y^2+z^2\) calcula:
+              <ol>
+                <li> Su masa. </li>
+                <li> Su centro de masa. </li>
+                <li> Su momento de inercia con respecto
+                  al eje \(z\). </li>
+              </ol>
+            </p>
+
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+                          <div class="video flexbox">
+                            <a href="https://youtu.be/iLuv2od-69s" target="_blank"> Video </a>
+                            </div>
+                          </div>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>Considera un cable, de forma semicircular de radio \(r>0\), de
+        densidad constante.</p>
+        <ol>
+          <li>
+            Encuentra \(M\), la masa del cable.
+          </li>
+          <li>
+            Prueba que el centroide del cable cae en el eje de simetría
+            del cable a una distancia \(2r/\pi\) de su centro.
+          </li>
+          <li>
+            Prueba que el momento de incercia, con respecto al diámetro
+            que une los extremos del cable, es \(\frac{1}{2}r^2M\).
+          </li>
+        </ol>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://www.youtube.com/watch?v=gFWEb3Pjwao" target="_blank"> Video </a>
+            </div>
+          </div>
+      </div>
+
+            <div class="definicion-box">
+            <h2 class="number-title"> Definición </h2>
+            <p>
+            Sea \(f:U\to \mathbb{R}\) una función continua
+            en \(U\).  Si \(\beta:[a,b] \to \mathbb{R}\) es una trayectoria parametrizada
+            suave a trozos (con traza contenida en \(U\)) y
+            \( \{a=t_0< \cdots < t_n=b \}\) es una partición de \([a,b]\)
+            tal que \(\beta\) restringida a \([t_{j-1}, t_{j}]\) es suave, definimos
+            \[
+            \int_\beta f ds = \sum_{j=1}^n \int_{\beta_j} f ds
+            \]
+            donde \(\beta_j\) es simplemente la restricción de \(\beta\)
+            al intervalo \([t_{j-1},t_j]\).
+            </p>
+            <p>
+              Al igual que con
+              la integral de línea
+              ésta definición no depende de la partición de \([a,b]\) que se tome.
+            </p>
+            </div>
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Calcula las siguientes integrales con respecto a la longitud de
+            arco.
+            <ol>
+              <li>
+                \[
+                \int_\alpha e^yds
+                \]
+                donde \(\alpha\) es la parte de la gráfica de
+                \(|x|+|y|=2\) que está por arriba del eje de las \(x\).
+              </li>
+              <li>
+                \[
+                \int_\alpha xy ds
+                \]
+                donde \(\alpha\) está dada como en la figura de abajo.
+                <div class="imagen-box flexbox">
+                <img src="./Images/S5Fig1.png" alt="Fig1" width="230" height="230">
+                </div>
+              </li>
+              <li>
+                \[
+                \int_\alpha x ds
+                \]
+                donde \(\alpha(t)=(\cos^3(t),\sen^3(t))\), \(0\leq t \leq 2\pi\).
+                La curva se muestra en la figura de abajo.
+                <div class="imagen-box flexbox">
+                <img src="./Images/S5Fig2.png" alt="Fig1" width="230" height="230">
+                </p>
+              </li>
+            </ol>
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta de 1 </button>
+        <div class="resp-box">
+
+
+          Prueba.  Primero notemos que la gráfica de \(|x| + |y| = 2\) que está
+          por arriba del eje de las \(x\), son los segmentos de recta que van de
+          \(P_1 = (2,0) \) a \(P_2 =(0,2)\) y de \(P_2 \) a \(P_3 = (-2,0)\).
+          Entonces parametricemos estos segmentos. Sean
+          \(\alpha_1, \alpha_2 : [0,1] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\)
+          definidas como:
+          \begin{eqnarray*}
+          \alpha_1 (t) = (2 -2t, 2t) & \Rightarrow & \alpha_{1}^{\prime}(t)
+          =
+          (-2, 2) \hspace{,5cm} \left(\parallel \alpha_{1}^{\prime}(t) \parallel
+          =
+          2\sqrt{2}\right) \\
+          \alpha_2 (t) = (-2t, 2 -2t) & \Rightarrow &  \alpha_{2}^{\prime}(t)
+          =
+          (-2, -2) \hspace{,5cm} \left(\parallel \alpha_{2}^{\prime}(t) \parallel = 2\sqrt{2}\right)
+          \end{eqnarray*}
+
+          Es claro que \(\alpha_1\)  parametriza el segmento
+          \(\overrightarrow{P_1 P_2}\) y \(\alpha_2\) parametriza el segmento
+          \(\overrightarrow{P_2 P_3}\). A partir de tales funciones \(\alpha_{i}\)
+          podemos parametrizar la región en cuestión. Sea
+          \(\alpha : [0, 2] \subseteq \mathbb{R} \rightarrow \mathbb{R}^{2}\) una
+          función definida como:
+
+          \begin{equation*}
+          \alpha (t) =  \left\{
+          \begin{array}{cccc}
+          \alpha_{1}(t)  & \text{ si } t \in [0, 1]  \\
+          \alpha_{2}(t - 1) & \text{ si } t \in [1, 2]
+          \end{array} \right.
+          \end{equation*}
+
+          La función \(\alpha\) es una curva suave a trozos. Entonces podemos calcular
+          la integral con respecto a la longitud de arco,
+
+          \begin{equation*}
+          \int_{\alpha}e^{y} ds = \int_{\alpha_{\vert_{[0, 1]}}}e^{y} ds +
+          \int_{\alpha_{\vert_{[1, 2]}}}e^{y} ds
+          \end{equation*}
+          donde \(\alpha_{\vert_{[0, 1]}}\) y \(\alpha_{\vert_{[1, 2]}}\)
+          son las restricción de \(\alpha\) en los intervalos \([0, 1]\) y \( [1,2]\)
+          respectivamente. Es importante notar que \(\alpha_{\vert_{[i -1, i]}}\) es
+          \textbf{equivalente} a \(\alpha_{i}\) con \(i = 1, 2\). Por lo tanto, por el
+          \textbf{Ejercicio 5.5} se tiene que para cada \(i = 1, 2\)
+
+          \begin{equation*}
+          \int_{\alpha_{\vert_{[i -1, i]}}}e^{y} ds = \int_{\alpha_{i}}e^{y} ds
+          \end{equation*}
+
+          Entonces se sigue que
+          \begin{eqnarray*}
+          \int_{\alpha}e^{y} ds & = &  \int_{\alpha_{1}}e^{y} ds +
+          \int_{\alpha_{2}}e^{y} ds   \\
+          & = &
+          \int_{0}^{1}e^{2t} \cdot \parallel \alpha_{1}^{\prime}(t) \parallel dt
+          + \int_{0}^{1}e^{2 -2t} \cdot \parallel \alpha_{2}^{\prime}(t) \parallel dt \\
+          & = &
+          \int_{0}^{1}2\sqrt{2}e^{2t} dt + \int_{0}^{1}2\sqrt{2}e^{2 -2t} dt \\
+          & = &
+          \sqrt{2}(e^{2} -1) -\sqrt{2}(1 -e^{2}) \\
+          & = &
+          2\sqrt{2}(e^{2} -1)
+          \end{eqnarray*}
+
+          Por lo tanto \(\int_{\alpha}e^{y} ds  = 2\sqrt{2}(e^{2} -1)\).
+        </div>
+
+      </div>
+
+
+
+                <div class="ejercicio">
+                    <h2 class="number-title" > Ejercicio </h2>
+
+                    <p>Sea \(\alpha\)
+                    una curva parametrizada suave a trozos  y
+                    \(f,g\) dos funciones que toman valores escalares
+                    para las cuales las composiciones \(f\circ \alpha\)
+                    y \(f\circ \beta\) son continuas. Prueba
+                    \[
+                    \int_\alpha (c f + g ) ds = c \int_\alpha f ds + \int_\alpha g ds
+                    \]
+                    donde \(c\in \mathbb{R}\) es un escalar arbitrario.
+                    </p>
+                    <p>
+                      Esta propiedad se conoce como la linealidad de la integral.
+                    </p>
+                </div>
+
+      <div class="ejercicio">
+          <h2 class="number-title" id="Ejer:aditividadIntLArc"> Ejercicio </h2>
+          <p>Sean
+          \(\alpha\) y \(\beta\) dos curvas parametrizadas suaves de tal
+          forma que el punto final de \(\alpha\)
+          conicide con el punto inicial de \(\beta\). Sea \(f\)
+          una función que toma valores escalares tal que las composiciones
+          \(f\circ \alpha\) y \(f\circ \beta\) son funciones
+          continuas en sus respectivos dominios.
+          Demuestra que
+          \[
+          \int_{\alpha \vee \beta} f ds  =\int_\alpha f ds+ \int_\beta f ds
+          \]
+        </p>
+          <p>Donde \(\alpha \vee \beta\) se toma como en el
+          <a href="S3.html#Ejer:unionCurvas">ejercicio</a>.
+        </p>
+      </div>
+
+
+
+
+
+
+              <div class="nota-box">
+                  <h2 class="number-title"> Conclusión </h2>
+                  <p>
+                    La integral con respecto la longitud de arco es una forma
+                    más de asignar números a objetos 1-dimensionales que mide
+                    aspectos distintos a la integral de línea. Una de las
+                    diferencias importantes es que la integral con respecto
+                    a longitud de arco NO ve orientaciones, es decir,
+                    \(\int_\alpha f ds\) no cambia si cambiamos la
+                    orienteción de \(\alpha\).
+                  </p>
+
+                  <p>
+                    Sin embargo sí hay algunas propiedades que la integral
+                    con respecto longitud de arco comparte con la integral de
+                    línea.
+                    <ol>
+                      <li> La integral sobre puntos es cero:
+                      \[
+                      \int_{\alpha} f ds=0
+                      \]
+                      cuando \(\gamma\) es un punto. Esto es consecuencia
+                      directa de la <a href="S5.html#Def:Int_LArc">Definición 5.2 </a>,
+                      pues si \(\alpha\) es un punto, digamos \(P_0\),
+                      tenemos \(\alpha(t)=P_0\) para toda \(t\)
+                      y por lo tanto \(\alpha'(t)=0\) y \(\|\alpha'(t)\|=0\)
+                      para toda \(t\).
+                   </li>
+                   <li>
+                     Aditividad
+                     \[
+                     \int_{\alpha\vee \beta} fds = \int_\alpha f ds+ \int_\beta f ds
+                     \]
+                      siempre y cuando el punto final de \(\alpha\) coincida con el
+                      punto inicial de \(\beta\).
+
+                     Esta propiedad  es el  <a href="S5.html#Ejer:aditividadIntLArc">Ejercicio 5.19</a>
+                   </li>
+                   </ol>
+                  </p>
+                  <p>
+                    Finalmente, el nombre de integral con respecto a longitud de arco
+                    porque la integral \(\int_\alpha 1 ds\) resulta que es igual a la
+                    longitud de la curva \(\alpha\). Lo anterior se verá más adelante.
+                  </p>
+              </div>
+
+      <!--  <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio  </h2>
+            <p>
+              Considera una función continua \(f:[a,b] \to \mathbb{R}\),
+              clase \(C^1\) en \((a,b)\). Prueba que la longitud
+              de arco de la gráfica de \(f\) está dada por
+              \[
+              \int_a^b \sqrt{1+(f'(u))^2}du
+              \]
+              Sugerencia: considera la trayectoria parametrizada
+              \(\alpha(t)=(t,f(t))\).
+        </div> -->
+
+
+
+
+    </div>
+
+  </body>
+
+  </html>
+
+  <!--     //////////////////////////          --->
