@@ -61,7 +61,7 @@
       </ul>
     </nav>
 
-    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+    <h1 class="calculo-title"> Cálculo UNO</h1>
 
   </header>
 
@@ -72,131 +72,10 @@
 
     <div class="flexbox">
 
-      <h1 > Primer Teorema Fundamental de las integrales de línea  </h1>
-
-
-        <div class="nota-box">
-          <p>
-          Primero escribimos las funciones coordenadas de \(\mathbb{F}\) como
-          \[
-          \mathbb{F}=(f_1,\dots, f_n).
-          \]
-          Lo que debemos de probar es que \(f\) es diferenciable
-          en \(U\) y que \(\partial_{x_j} f= f_j\).
-        </p>
-        <p>
-          Para probar que una función es diferenciable es suficiente
-          probar que las derivadas parciales existen y son continuas
-          (ver por ejemplo
-          <a href="https://en.wikipedia.org/wiki/Differentiable_function#Differentiability_in_higher_dimensions"
-           target="_blank">Wikipedia</a> o Bartle, <i>Elements of
-           real analysis</i>, Teorema 20.7). Entonces
-          si probamos las identidades
-          \[
-          \partial_{x_j} f= f_j, \quad j=1, \dots, n,
-          \]
-          matamos dos pájaros de un tiro pues probamos que, (1)
-          las parcieles existen y (2) son continuas (pues cada
-          \(f_j\) es continiua por suposición del Teorema).
-        </p>
-        <p>
-          Así pues, fijamos \(j\) y probamos
-          \[
-          \partial_{x_j}f(Q) = f_j(Q) \quad \textrm{ para todo  \(Q\in U\)}
-          \]
-          que, usando la definición de derivada parcial,
-          es equivalente a probar que
-          \[
-          \lim_{h\to 0} \frac{f(Q+he_j)-f(Q)}{h}=f_j(Q)
-          \]
-          donde \(e_j\) es el vector canónico con 1 en la entrada \(j\).
-        </p>
-        <p>
-          Ahora nos enfocamos en el cociente diferencial
-          \[
-          \frac{f(Q+he_j)-f(Q)}{h}
-          \]
-          donde suponemos que \(h \ne 0\) y es suficientemente chico
-          para que \(Q+he_j \in U\) (aquí es donde se usa que \(U\) es abierto,
-          por ejemplo si tomamos \(r>0\) tal que la bola
-          centrada en \(Q\) de radio \(r\) esté contenida en \(U\)
-          vamos a pedir que \(|h|< r\) ).
-        </p>
-        <p>
-          Por la propiedad de aditividad de la integral de línea podemos escribir
-          \[
-          f(Q+he_j)-f(Q)=\int_{\beta} \mathbb{F}\cdot d\beta
-          \]
-          donde \(\beta\) es cualquier trayectoria contenida en \(U\)
-          que va de \(Q\) a \(Q+he_j\). En particular podemos tomar
-          \(\beta\) el segmento de recta que une \(Q\) con \(Q+he_j\) (aquí
-          usamos la hipótesis que la integral de línea no depende de
-          trayectoria que una dos puntos dados) :
-          \[
-          \beta(t)=Q + t(Q+he_j-Q), \quad t\in [0,1]
-          \]
-
-          Haciendo la cuenta, si escribimos \(Q=(q_1,\dots, q_n)\), tenemos
-          \[
-          \beta(t)=Q + t(Q+he_j-Q)=Q+the_j=(q_1,\dots,q_{j-1} , q_j+th,q_{j+1},\dots ,q_n)
-          \]
-          Por lo tanto, si por \(\beta_j\) denotamos la \(j\)-ésima  función
-          coodenada de \(\beta\), resulta que \(\beta_i'=0\) para toda
-          \(i\ne j\), que \(\beta_j(t)=q_j+th\) y  que \(\beta_j'(t)=h\).
-        </p>
-        <p>
-          Por lo tanto al calcula la integral de línea obtenemos
-          \begin{eqnarray*}
-          \int_\beta \mathbb{F}\cdot d\beta
-          &=&
-          \int_0^1 \sum_{i=1}^n f_i(\beta(t))\beta_i'(t)dt \\
-          &=& \int_0^1 f_j(q_1,\dots,q_{j}+th, \dots, q_n ) h dt
-          \end{eqnarray*}
-
-        </p>
-        <p>
-          Antes de proseguir con el cociente diferencial, vamos a
-          hacer un cambio de variable en la integral anterior. Tomando
-          \(u=th\), \(du=hdt\) y
-          \[
-          \int_0^1 f_j(q_1,\dots,q_j+th, \dots, q_n)hdt
-          =\int_0^{h} f_j(q_1,\dots, q_j+u, \dots, q_n)du
-          \]
-          Para aplicar el Primer Teorema Fundamental de Cálculo más
-          adelante definimos la función
-          \[
-          g(h)=\int_0^{h} f_j(q_1,\dots, q_j+u, \dots, q_n)du,
-          \quad \textrm{ para \(|h|< r\)}
-          \]
-        </p>
-        <p>
-        Con esta notación podemos expresar el cocient diferencial como
-        \begin{eqnarray*}
-        \frac{f(Q+he_j)-f(Q)}{h}
-        &=&
-        \frac{1}{h}\int_\beta \mathbb{F}\cdot \beta \\
-        &=& \frac{g(h)-g(0)}{h}
-        \end{eqnarray*}
-        </p>
-        <p>
-          El último paso es probar el siguiente límite
-          \[
-          \lim_{h\to 0} \frac{g(h)-g(0)}{h}=f_j(Q)
-          \]
-          pero, ya que \(f_j\) es continua, por el Primer
-          Teorema Fundamental del Cálculo obtenemos que
-          \(g\) es diferenciable y que
-          \[
-          \lim_{h\to 0} \frac{g(h)-g(0)}{h}=g'(0)=f_j(q_1,\dots, q_j+0, \dots, q_n)=f_j(Q)
-          \]
-        </p>
-        </div>
-
     </div>
 
 
 
-    </div>
 
   </body>
 
