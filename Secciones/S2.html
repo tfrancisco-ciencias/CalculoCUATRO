@@ -1,0 +1,734 @@
+<! DOCTYPE html>
+  <html lang="es">
+
+
+
+  <head>
+    <!-- Following part is mathjax, for latex-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    <!-- Next part is for new coomands -->
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+
+
+    <!-- This part restart counter of cards to start at 2 -->
+    <style>
+      body.card {
+        counter-reset: sectionCounter 1 cardCounter;
+      }
+
+      h1.card {
+        counter-reset: sectionCounter 1 cardCounter;
+      }
+    </style>
+
+  </head>
+
+
+  <!-- Top Menu -->
+
+  <header class="main-header">
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="../Home.html"> Inicio </a> </li>
+        <li> <a href="../Secciones.html"> Secciones </a> </li>
+      </ul>
+    </nav>
+
+    <h1 class="calculo-title"> Cálculo CUATRO</h1>
+
+  </header>
+
+  <!-- Contenido empieza abajo -->
+
+
+  <body class="fondo card ">
+
+    <div class="flexbox">
+
+      <h1 class="card "> \(1\)-formas diferenciables  </h1>
+
+
+      <div class="definicion">
+        <h2 class="card" id="Def:1formaDif"> Definición </h2>
+        <p>
+          <ol>
+            <li> Sea \( S \) un subconjunto  \(\mathbb{R}^n\). Una <b>1-forma</b>
+              en \(S \), denotada por \(\omega\), es una función tal que
+          a cada punto \(P\) de \(S\) le asocia una 1-forma constante
+          denotada \(\omega_P\). Si escribimos a la 1-forma en coordenadas \(dx_j\)
+          obtenemos
+          \[
+          \omega_P=A_1(P)dx_1+A_2(P)dx_2 + \cdots + A_n(P)dx_n
+          \]
+          donde las \(A_j\) son funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\).
+          </li>
+          <li> Si todas las funciones \(A_1,\dots, A_n:S\to \mathbb{R}\)
+            son continuas en \(S\) decimos que \(\omega\) es una 1-forma
+            continua.
+          </li>
+          <li>Si \(S=U\), un conjunto abierto de \(\mathbb{R}^n\)
+          y las todas funciones \(A_1,\dots, A_n:U\to \mathbb{R}\)
+          son diferenciables, decimos que \(\omega\)
+          es una 1-forma diferenciable en \(U\).
+          </li>
+          </ol>
+          <p>Con ésta notación
+          se escribe:
+          \[
+          \omega=A_1dx_1+A_2dx_2+\cdots +A_ndx_n
+          \]
+          </p>
+          <p>
+          Por ejemplo \(\omega= ydx+ xdy\) es una 1-forma diferenciable en \(\mathbb{R}^2\) y
+          \(\eta = \sqrt{y}dx+\sqrt{x}dy \) es una 1-forma
+          diferenciable en \((0,\infty)\times (0,\infty)\). En estos ejemplos,
+          tenemos que las 1-formas constantes, en el punto \((9,16)\in \mathbb{R}^2\),
+          son respectivamente:
+          \[
+          \omega_{(9,16)}=16dx+9dy, \quad \eta_{(9,16)}=4dx+3dy
+          \]
+        </p>
+        <p>
+          <b>Nota:</b> si además las funciones \(A_1,\dots, A_n\) son
+          clase \(C^k\) en \(U\) (para algún \(k=1,2,\dots\)) decimos
+          que la 1-forma diferenciable es clase \(C^k\).
+        </p>
+        <div class=" flexbox video">
+            <a href="https://youtu.be/NMXclu8IxMg" target="_blank" class="hvr-grow"> Video </a>
+        </div>
+      </div>
+
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        Considera la 1-forma diferenciable, \(\omega = (2x+y)dx-(6x+2y)dy\). Encuentra
+        los puntos \(R\) para los cuales:
+        <ol>
+          <li> \(\omega_R= 3dx+4dy\). </li>
+          <li> \(\omega_R = 0 \). </li>
+          <li> \(\omega_R= dx \). </li>
+        </ol>
+
+
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp">
+
+
+        <p>Primero encontremos \(R\) tal que \(\omega_{R} = 3dx + 4dy\).
+        Entonces tenemos que resolver el siguiente sistema de ecuaciones:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 3 \\
+        -6x & -2y & = & 4 \\
+        \end{array} \right.
+        \]
+
+
+        <p>El cual tiene como única solución \(x = -5 \) y \( y = 13\), es decir el
+          punto \(R\) tal que \(\omega_{R} = 3dx + 4dy\), es  \(R = (-5,13)\).
+        </p>
+
+        <p>Ahora encontremos \(R\) tal que \(\omega_{R} = 0\).
+          Nuevamente  tenemos que resolver el siguiente sistema de ecuaciones:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 0 \\
+        -6x & -2y & = & 0 \\
+        \end{array} \right.
+        \]
+
+        <p>No es difícil verificar que este sistema tiene como única solución a
+          \(x = 0 \) y \( y = 0\), es decir el punto \(R\) tal que \( \omega_{R} = 0\),
+          es  \(R = (0,0)\).
+        </p>
+
+        <p>Por último, encontremos \(R\) tal que \(\omega_{R} = dx\).
+          Entonces el sistema de ecuaciones a resolver es el siguiente:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 1 \\
+        -6x & -2y & = & 0 \\
+        \end{array} \right.
+        \]
+
+
+        <p>El cual tiene como única solución \(x = -1 \) y \( y = 3\), es decir el
+          punto \(R\) tal que \(\omega_{R} = dx\), es  \(R = (-1,3)\).
+        </p>
+
+
+      </div>
+
+    </div>
+
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        <p>
+          Considera la 1-forma diferenciable, \(\omega=3x^2dx+(y^2+1)dy\). Para los
+          siguientes puntos \(P,Q,R\) y tomando la 1-forma constante \(\omega_R\)
+          calcula \(\int_{\overrightarrow{PQ}} \omega_R \).
+        </p>
+        <ol>
+          <li> \(P=(0,0), Q=(1,1), R= (1/2,1/2) \). </li>
+          <li> \(P=(0,4), Q=(2,2), R= (-1,-1) \). </li>
+          <li> \(P=(0,y), Q=(x,y+1), R=(a,b) \) . </li>
+        </ol>
+
+
+
+        <button class="respButton hvr-grow " > Respuesta </button>
+        <div class="resp">
+        <p>
+          <li> Siguiendo la <a href="#Def:1formaDif"> Definición 2.1</a>, en este caso se tiene que
+            \[ \omega_{(1/2,1/2)} = 3(1/2)^2 dx + ((1/2)^2 + 1) dy = \frac{3}{4} dx + \frac{5}{4} dy \]
+            Luego, de la conclusión en la Sección 1 se sigue:
+            \[
+            \int_{\seg{PQ}}\omega_{(1/2,1/2)} = \frac{3}{4}(1 -0)+ \frac{5}{4}(1-0) = \frac{3}{4}+ \frac{5}{4} = 2
+            \]
+            donde \( P=(0,0), Q=(1,1) \)
+          </li>
+          <li> Similarmente, para este inciso se obtiene que: \( \omega_{(-1,-1)} = 3dx + 2dy \) y
+            \(\displaystyle\int_{\seg{PQ}}\omega_{(-1,-1)} = 2\)
+          </li>
+          <li>
+            Finalmente, y de manera análoga se verífica que: \( \omega_{(a,b)} = 3a^{2} dx + (b^{2} + 1) dy\) y
+            \(\displaystyle\int_{\seg{PQ}}\omega_{(a,b)} = 3 a^{2} x + (b^2 + 1)\)
+          </li>
+
+          </ol>
+        </p>
+        </div>
+
+      </div>
+
+
+
+      <div class="nota">
+        <h2 class="card"> Nota </h2>
+        <p>
+          Es buen momento para ver la notación \(dx_j\) otra vez. En la sección
+          pasada, justo al final en la conclusión, se usaba \(dx_j\) para denotar 1-forma constante que es la proyección
+          sobre la
+          \(j\)-ésima coordenada, es decir
+          \[
+          dx_j(p_1,\dots, p_n)=p_j
+          \]
+
+          Pero de ahora en adelante \(dx_j\) va a denotar la 1-forma
+          diferenciable tal que, a cada punto \(p\) del dominio, le
+          asigna la 1-forma constante que es la proyección a la \(j\)-ésima
+          coordenada. Por ejemplo, si escribieramos todos los parámetros
+          para \(dx_j\) tendríamos
+          \[
+          (dx_j)_{(q_1,\dots, q_n)}(p_1,\dots, p_n)=p_j
+          \]
+          donde \((q_1,\dots, q_n)\) es un punto cualquier.
+        </p>
+        <p>
+          Esta distinción puede pensarse como la que se hace entre una
+          una constante y la función constante. Por ejemplo en la función
+          \(f(x)=3\), la función \(f\) sería \(dx_j\) y
+          el 3 sería la proyección en la coordenada j.
+        </p>
+      </div>
+
+
+
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        Considera las 1-formas diferenciables \(\omega=xdx+ydy\)
+        y \(\eta=ydx+xdy\). Toma
+        puntos cualesquiera \(P=(x_0,y_0), Q=(x_1,y_1)\) y
+        denota por \(R\) a su punto medio. Paras las 1-formas
+        constantes \(\omega_R\) y \(\eta_R\) prueba que
+        \begin{eqnarray*}
+        \int_{\seg{PQ}}\omega_R &=&\frac{1}{2}(x_1^2-x_0^2+y_1^2-y_0^2 ) \\
+        \int_{\seg{PQ}}\eta_R &=& \frac{1}{2}(x_1y_1-x_0y_0)
+        \end{eqnarray*}
+      </div>
+
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        Considera las 1-formas diferenciable \(\omega = -ydx+xdy\)
+        y \(\eta=ydx+xdy\). Por
+        \(P_1,P_2, P_3\) y \(P_4\) denotamos los vértices de un rectángulo
+        centrado en el origen y por \(R_i\) el punto medio de \(\seg{P_{i}P_{i+1}} \), \(i=1,2,3,4 \)
+        donde por conveción ponemos \(P_5=P_1\).
+
+        Prueba que:
+        <ol>
+          <li>
+            \[
+            \sum_{i=1}^4 \int_{\overrightarrow{ P_iP_{i+1} } }\omega_{R_i} = 2A
+            \]
+            donde \(A\) es el área del rectángulo.
+          </li>
+
+          <li>
+            \[
+            \sum_{i=1}^4 \int_{\overrightarrow{P_iP_{i+1}}}\eta_{R_i} =0
+            \]
+          </li>
+        </ol>
+      </div>
+
+
+
+      <div class="definicion">
+        <h2 class="card" id="Def:derivadaExterior"> Definición </h2>
+        <p>
+          Sea \(U \subseteq \mathbb{R}^n\) un abierto.
+          Dada \(f: U \to \mathbb{R}\), una función de clase \(C^1\), su
+          <b>derivada exterior</b>, denotada \(df\), se define como la
+          1-forma diferenciable dada por
+          \[
+          df= \partial_{x_1}f dx_1+ \partial_{x_2}f dx_2+\cdots + \partial_{x_n}f dx_n
+          \]
+          donde \(\partial_{x_j}f\) denota la derivada parcial de \(f\)
+          con respecto a la variable \(x_j\).
+        </p>
+        <p>
+          Por ejemplo, si \(f(x,y,z)=xy+y^2z\), su derivada exterior es
+          \[
+          df= y dx + (x+2yz)dy+ y^2 dz
+          \]
+          además, si \(P=(1,-2,\pi)\) entonces
+          \[
+          (df)_P=-2dx+(1-4\pi)dy+4dz
+          \]
+        </p>
+
+        <p>
+          <b> Nota: </b> para que \(df\) sea una 1-forma <b>diferenciable</b>
+          (según la <a href="#Def:1formaDif"> definición de 1-forma diferenciable </a>)
+          debemos pedir que cada \(\partial_{x_j}f \),
+          \(j=1,\dots, n\), sea diferenciable, lo cual pasa si la función
+          \(f\) con la que empezamos es clase \(C^2\).
+        </p>
+      </div>
+
+
+
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        Para cada una de las siguientes funciones, encuentra la derivada
+        exterior y encuentra los puntos \(P\) para los cuales \(df_P=0\).
+        <ol>
+          <li> \(f(x,y,z)= x^2+y^2+z^2 +xy+xz \). </li>
+          <li> \(f(x,y)=e^{xy}\). </li>
+          <li> \(f(x_1,\dots, x_n) = \sum_{i=1}^n (x_1+x_i)^2\). </li>
+        </ol>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+
+        <div class="resp">
+
+          <p>Resolvamos 1. Primero encontremos las parciales de \(f\) con respecto a
+            \(x\), \(y\) y \(z\). Entonces sacando las parciales tenemos
+          </p>
+          \[
+          \begin{array}{ccccc}
+          \partial_{x}f(x, y, z) & = & 2x & +y & +z  \\
+          \partial_{y}f(x, y, z) & = & 2y & +x \\
+          \partial_{z}f(x, y, z)& = & 2z & +x
+          \end{array}
+          \]
+
+          Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df = (2x + y + z)dx + (2y + x)dy + (2z + x)dz
+          \]
+
+          <p>Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones:
+          </p>
+
+          \[
+           \left\{
+          \begin{array}{ccccc}
+          2x & +y & +z & = & 0 \\
+          x & +2y &  & = & 0 \\
+          x &  & +2z & = & 0
+          \end{array} \right.
+          \]
+
+          <p> Tal sistema de ecuaciones tiene como única solución a \(x = 0\),
+            \(y = 0 \) y \( z = 0\). Por lo tanto el  punto \(P\) tal que \(df_{P} = 0\), es
+            \(P = (0,0,0)\).
+          </p>
+
+          <p>Ahora veamos 2. Nuevamente sacamos las parciales de \(f\) con respecto de
+            \(x\) y \(y\), las cuales son,
+          </p>
+          \[
+          \begin{array}{ccc}
+          \partial_{x}f(x, y) & = & ye^{xy} \\
+          \partial_{y}f(x, y) & = & xe^{xy} \\
+          \end{array}
+          \]
+
+          <p>Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df =  ye^{xy} dx +  xe^{xy} dy
+          \]
+
+          Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones.
+          </p>
+
+          \[
+           \left\{
+          \begin{array}{ccccc}
+          ye^{xy} & = & 0 \\
+          xe^{xy} & = & 0
+          \end{array} \right.
+          \]
+
+          <p>Como \(e^{xy} > 0\) para toda \((x,y) \in \mathbb{R}^{2}\).
+            Entonces la única solución al sistema de ecuaciones es \(x = 0\) y \(y = 0\).
+            Por lo tanto el  punto \(P\) tal que \(df_{P} = 0\), es  \(P = (0,0)\).
+          </p>
+
+          <p>Por último resolvamos 3. Sacamos las parciales de \(f\) con respecto de
+            \(x_{1}, . . . , x_{n}\), las cuales son,
+          </p>
+          \[
+          \begin{array}{ccc}
+          \partial_{x_{1}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) \\
+          \partial_{x_{2}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 2(x_{1} + x_{2}) \\
+           & \vdots &  \\
+          \partial_{x_{n}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 2(x_{1} + x_{n})
+          \end{array}
+          \]
+
+
+          <p>Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df = \left( 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) \right)dx_{1} + 2(x_{1} + x_{2})dx_{2} + . . . + 2(x_{1} + x_{n}) dx_{n}
+          \]
+
+          <p>Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones.
+          </p>
+          \[
+           \left\{
+          \begin{array}{ccc}
+           8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) & = & 0 \\
+           2(x_{1} + x_{2}) & = & 0 \\
+            \vdots &  & \\
+           2(x_{1} + x_{n}) & = & 0
+          \end{array} \right.
+          \]
+
+          <p>Como \(2(x_{1} + x_{i}) = 0\) para \(2 \leq i \leq n\), se sigue que
+          \(\sum_{i=2}^{n}2(x_{1} + x_{i})  =  0\). Lo cual implica que
+          \(8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i})  = 8x_{1}\).
+          Pero por otro lado \( 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i})  = 0\),
+          es decir \(x_{1} = 0\). Lo cual implica que para \(2 \leq i \leq n\),
+           \(x_{i} = 0\) ya que \(2(x_{1} + x_{i}) = 0\) y \(x_{1} = 0\).
+          </p>
+
+          <p>Por lo tanto la única solución al sistema de ecuaciones es
+          \(x_{i} = 0\) para toda \(1 \leq i \leq n\). Es decir que el  punto
+          \(P\) tal que \(df_{P} = 0\), es  \(P = (0,0, . . . ,0)\).
+          </p>
+
+
+        </div>
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="card" id="Ejer:DerivadaCeroConstanteBolas"> Ejercicio </h2>
+        <p>
+          Por \(B_r(P)\) denotamos la bola abierta en \(\mathbb{R}^n\)
+          centrada en \(P\) y de radio \(r\). Sea \(f:B_r(P) \to \mathbb{R}\)
+          una función clase \(C^1\). Demuestra que si \(df =0 \)
+          entonces \(f\) es una función constante.
+
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+                  <div class="video flexbox">
+                    <a href="https://youtu.be/TCWvtH_Mp5A" target="_blank"> Video </a>
+                    </div>
+                  </div>
+      </div>
+
+      <div class="definicion">
+        <h2 class="card" id="Def:1formaExacta"> Definición </h2>
+        <p>Una 1-forma diferenciable \(\omega \) se
+          llama <b>exácta</b> si existe una función diferenciable \(f\) tal que
+          \[
+          df = \omega
+          \]
+          Si escribimos \(\omega = A_1 dx_1 + \cdots + A_n dx_n\),
+          lo anterior equivale a encontrar una función \(f\) tal que
+          \begin{equation}\label{Eqn:1-formaExacta}
+          \partial_{x_1}f=A_1 , \cdots, \partial_{x_n} f=A_n
+          \end{equation}
+          En el fondo, decidir si una 1-forma es
+          exácta se traduce en resolver el sistema de ecuaciones
+          diferenciales \eqref{Eqn:1-formaExacta}.
+          A decir  verda el nombre de exácta viene de ecuaciones diferenciales, como se menciona
+          en el ejercicio siguiente.
+        </p>
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+
+        <p>
+          Una ecuación diferencial de la forma
+          \begin{equation}\label{Eqn:EcuDifExact}
+          M(x,y)+N(x,y)\frac{dy}{dx}=0
+          \end{equation}
+          se llama exácta, si existe una función escalar \(f(x,y) \) tal que
+          \[
+          \partial_x f(x,y)=M(x,y) \quad \textrm{y} \quad \partial_y f(x,y)=N(x,y).
+          \]
+          Si es que pudíesemos multiplicar \eqref{Eqn:EcuDifExact}
+          por \(dx\) tendríamos que el lado izquierdo es \(Mdx+Ndy\), una 1-forma
+          diferencial. Lo anterior claro está es sólo un truco para
+          recordar que a toda ecuación diferencial de la forma
+          \eqref{Eqn:EcuDifExact} le podemos asociar una 1-forma. En esta notación la condición de que la ecuación
+          diferencial sea exácta es lo mismo que la 1-forma sea exácta.
+        </p>
+        <p>Supongamos que \(U \subseteq \mathbb{R}^2\) es un
+          abierto y \(F,G: U \to \mathbb{R}\) son funciones
+          clase \(C^1\) en \(U\) y que \(G\) nunca se anula en \(U \).
+
+          Consideremos la ecuación diferencial
+          \[
+          \begin{equation}\label{Eqn:EcuDifExactEjer}
+          F(x,y)-G(x,y)\frac{dy}{dx}=0
+          \end{equation}
+          \]
+          donde \(y\) denota una función que depende de \(x\).
+
+          A ésta ecuación diferencial le asociamos la 1-forma
+          \[
+          \omega = Fdx-Gdy
+          \]
+          Supongamos que existe
+          una función clase \(C^1\), \(f:U \to \mathbb{R}\), tal que
+          \(\omega=df\) (es decir, \(\omega\)
+          es exácta). Prueba que las
+          curvas de nivel de \(f\) son soluciones de la ecuación diferencial
+          \eqref{Eqn:EcuDifExactEjer}.
+
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+
+          <div class="resp">
+            Ya que suponemos que \(df = Fdx- Gdy\), se sigue
+            (de la definición de <a href="#Def:derivadaExterior">derivada exterior</a>)
+            que
+            \[
+            \partial_x f = F \quad  \textrm{y} \quad \partial_y f=-G
+            \]
+            en \( U \).
+
+            Ahora consideremos una curva de nivel de \(f\)
+            \[
+            S=\{(x,y): f(x,y)=c\}
+            \]
+            y tomemos un punto \( (x_0,y_0)\in S\) arbitrario.
+
+            Ya que \(G\) no se anula en \(U\) y \(\partial_yf(x_0,y_0)=-G(x_0,y_0)\ne 0\)
+            por el teorema de la función inversa existe una vecindad de \(x_0\)
+             y una función \(y\), definida  y diferenciable en ésta vecindad tal que
+             \[
+             f(x,y(x))=c.
+             \]
+
+             Derivando la ecuación anterior con respecto a \(x\) (usando la regla de la cadena )
+             llegamos a que
+             \begin{eqnarray*}
+             0&= \partial_xf(x,y(x))+\partial_yf(x,y(x))y'(x)=F(x,y(x))-G(x,y(x))\frac{dy(x)}{dx} \\
+             &\Rightarrow \frac{F(x,y(x))}{G(x,y(x))}=\frac{dy(x)}{dx}
+             \end{eqnarray*}
+             y por lo tanto \(y\) es una solución para (1).
+
+
+
+          </div>
+      </div>
+
+
+
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+        <p>Para las siguientes 1-formas diferenciables sobre \(\mathbb{R}^2\)
+          encuentra cuales son exáctas y trata de escribirlas de la
+          forma \(df\), donde \(f\) es una función clase \(C^1\).
+        </p>
+        <ol>
+          <li> \(3y dx+ 3xdy \). </li>
+          <li> \( 7xdx+6ydy \).</li>
+          <li> \( -ydx + x dy \).</li>
+        </ol>
+      </div>
+
+      <div class="ejercicio">
+        <h2 class="card"> Ejercicio </h2>
+
+        Sea \(U \subseteq \mathbb{R}^n\) un subconjunto abierto y
+        \(\omega = \sum_{j=1}^n A_jdx_j\) una 1-forma diferenciable
+        sobre \( U \). Dada \(f: U\to \mathbb{R}\) una función clase \(C^1\)
+        definimos el producto de \(f\) con \(\omega\) como la
+        1-forma diferenciable en \(U\) tal que, para \(P\in U\):
+        \[
+        \eta_P= f(P)A_1(P)dx_1+f(P)A_2(P)dx_2+\cdots + f(P)A_n(P)dx_n.
+        \]
+
+        Prueba que si \(f,g:U \to \mathbb{R}\) son clase \(C^1\)
+        en \(U\) entonces
+        \[
+        d(fg)=fdg+g df
+        \]
+        donde \(df\) y \(dg\) denotan las <a href="#Def:derivadaExterior">derivadas exteriores</a>
+        de \(f\) y \(g\) respectivamente.
+
+
+        <button class="respButton hvr-grow"> Respuesta  </button>
+        <div class="resp">
+        <p>
+          Inmediatamente de la <a href="#Def:derivadaExterior"> Definición 2.7</a> se sigue que:
+          \[ d (fg) = \partial_{x_1} (fg) dx_1 + \partial_{x_2} (fg) dx_2 + \cdots +
+          \partial_{x_n}(fg)
+          d_{x_n} \]
+        </p>
+
+        <p>
+          Sin embargo, para cada \( i=1,2,\ldots, n \) sabemos que \( \partial_{x_i} (fg) = f \partial_{x_i} (g) + g
+          \partial_{x_i} (f)\), por lo tanto
+        </p>
+        <p>
+          \begin{align*} d(fg) &= \sum_{i=1}^n [ f \partial_{x_i} (g) + g
+          \partial_{x_i} (f) ] dx_{i}\\ &= \sum_{i=1}^n f \partial_{x_i} (g) dx_{i} + \sum_{i=1}^n g
+          \partial_{x_i} (f) dx_{i}\\
+          &= f dg + g df
+          \end{align*}
+          donde la última igualdad se tiene por la definición del producto de una función con una \(1\)- forma
+          diferenciable.
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="ejercicio">
+        <h2 class="card" id="Def:1formacerrada"> Ejercicio </h2>
+        <p>Sea \(U \subseteq \mathbb{R}^2\) y \(\omega=Adx+Bdy\) una 1-forma
+          diferencial sobre \(U\). Decimos que \(\omega \) es <b>cerrada</b> si
+          \[
+          \partial_y A= \partial_x B, \quad \textrm{en \(U\)}.
+          \]
+        </p>
+        Prueba que toda 1-forma diferenciable clase \(C^1\) y exácta
+        es también cerrada.
+        <p>
+          Sugerencia: igualdad de las derivadas parciales mixtas.
+        </p>
+
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title" id="Conclu:S2"> Conclusión </h2>
+        <p>
+        Recordemos que el conjunto de funcions lineales
+        que van de \(\mathbb{R}^n\) a \(\mathbb{R}\) está
+        denotado por \((\mathbb{R}^n)^*\) (y es llamado el dual). Con
+        ésta notación, una 1-forma diferenciable definida
+        en el abierto \(U \subseteq \mathbb{R}^n\)es una función
+        \begin{eqnarray*}
+        \omega:U &\to & (\mathbb{R}^n)^* \\
+        P &\mapsto & \omega_P
+        \end{eqnarray*}
+        de tal forma que al escribir \(\omega_P\) como
+        combinación lineal de la base \(\{dx_1,\dots, dx_n\}\)
+        \[
+          \omega_P=A_1(P)dx_1+\cdots +A_n(P)dx_n
+        \]
+        las funciones \(A_j:U \to \mathbb{R}\), \(j=1,\dots, n\),
+        son diferenciables en \(U\).
+        </p>
+        <p> Para terminar queremos resaltar una observación que permite
+          intercambiar el punto de vista entre 1-formas  y
+          campos vectoriales:
+        </p>
+        <p>
+          <div style="text-align:center;">
+            <b>"Hay una biyección entre 1-formas diferenciables
+          y campos vectoriales diferenciables"</b>
+          </div>
+          Para ver esto, recordemos que un campo vectorial,
+          definido en \(U\subseteq \mathbb{R}^n\), es una función
+          vectorial \(\mathbb{F}:U\to \mathbb{R}^n\) y es diferenciable
+          si, cuando escribimos sus coordenadas \(\mathbb{F}=(f_1,\dots, f_n)\),
+          las funciones \(f_1,\dots, f_n\), son funciones diferenciables en \(U\). Entonces la biyección
+          entre 1-formas diferenciables en \(U\) y campos vectoriales
+          diferenciable en \(U\) está dada por:
+          \[
+          \omega= A_1dx_1+\cdots +A_ndx_n \Leftrightarrow \mathbb{F}=(A_1,\dots, A_n)
+          \]
+
+        </p>
+      </div>
+
+
+<!-- poner interpretacion de \| \alpha'\| de Lax-Tarrel, pag. 281 ->
+
+<!-- termina contenido -->
+
+
+    </div>
+
+  </body>
+
+  </html>
+
+  <!------     //////////////////////////          --->
