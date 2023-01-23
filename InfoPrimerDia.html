@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          }
+        }
+      };
+    </script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="style.css" />
+
+    
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo TRES</h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="./Home.html"> Inicio  </a> </li>
+              <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="./Secciones.html"> Secciones  </a> </li>
+              <li> <a href="./ExternalLinks.html"> Links </a> </li>
+              
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title>Información general</title>
+    
+  </head>
+
+  <body class="fondo-body" >
+
+ 
+
+<title>Información general</title>
+
+<div class="info-box">
+  <h2> Dinámica del curso </h2>
+    <p> 
+      El curso será en modo presencial (salvo indicaciones de la Facultad de Ciencias). Nota: el la página de la 
+      Facultad puede aparecer que el curso es en línea pero hasta el momento (<span id="date">  </span>), es presencial.
+    </p>
+   
+    <p>
+      En la medida de lo posible se grabarán las clases y subirán los videos en el google classroom.
+    </p>
+  
+    <p>
+      Para la evaluación se presentarán tres exámenes parciales y quizzes semanales. Se dejarán 
+      tareas las cuales no se califican pero sirven de práctica para los exámenes.
+    </p>
+    <h2> Horario </h2>
+    <p>
+      <span id="horario"> 
+        
+          Clases: lunes, martes, miércoles, 11.30-13.00.
+        
+      
+          Ayudantías: jueves, viernes, 11-12.30.
+        
+        </span>
+    </p>
+  <h2> Plataformas </h2>
+    <ul>
+      <li> Google classroom </li>
+        <p>
+          Se usará para organizar el material del curso: lista de ejercicios,
+          videos, notas de clase, material de lectura, anuncios.
+           Pudes usar el <a href="https://classroom.google.com/c/NTM3MjAzNzk3NTkx?cjc=dbhejro">Link de invitación</a>
+           para unirte.
+        </p>
+        <p>
+          Nota: Usar su correo de ciencias para inscribirse a Google classroom. 
+        </p>
+        <li>
+          Página del curso.
+        </li>
+        <p>
+          Esta que estas leyendo. Su usará para publicar ejercicios resueltos y resultados principales.
+        </p>
+
+    </ul>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- <h3>Uso de celulares</h3>
+<p>NO se permite el uso de teléfonos celulares dentro del salón de clase. Por favor,
+apaguen o silencien su celular. Durante exámenes, todos los teléfonos celulares
+deben ser apagados o silenciados antes de empezar.
+Los mensajes de texto durante clase son una distracción para ustedes
+y los demás, así que NO están permitidos.</p>-->
+
+<script>
+  function randomColor(){
+      const dateTitle=document.getElementById("date")
+      const timeTitle=document.getElementById("horario")
+      r = Math.floor(Math.floor(Math.random()*225))
+      g = Math.floor(Math.floor(Math.random()*225))
+      b = Math.floor(Math.floor(Math.random()*225))
+      stringC=["rgb(",r,",",g,",",b,")"].join("")    
+  
+  
+      const date= new Date()
+      const ano= date.getFullYear()
+      const mes=  ("0" + (date.getMonth()+1)).slice(-2) //slice help  for double digits//
+      const dia= ("0"+date.getDate()).slice(-2) 
+      
+      dateTitle.textContent =`${ano}-${mes}-${dia}`
+      dateTitle.style.color=stringC
+      timeTitle.style.color=stringC
+      return  ["rgb(",r,",",g,",",b,")"].join("")
+  }
+
+  $(document).ready(function() {
+    setInterval(randomColor,1000)
+  });
+</script>
+
+      </div>
+
+    </div>
+  </body>
+</html>
