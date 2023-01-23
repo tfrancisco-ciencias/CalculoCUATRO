@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter 0 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 0 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo CUATRO </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 1 </title>
+    </head>
+
+      <h1 class="number-title flexbox"> La integral de Riemann en 2-D </h1>     
+
+      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+  
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Ejer:Fubinni"> Teorema  </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
+          \(f:[a,b] \times [c,d]\to \mathbb{R}\) una función acotada tal que
+          <ol>
+          <li>
+            \(f\) es integrable en \(\mathcal{R}\).
+          </li>
+          <li>
+            para cada \(y\in [c,d]\), la integral 1-dimensional
+            \(\int_a^bf(x,y)dx\) existe. Denotemos esta integral
+            por \(A(y)\).
+          </li>
+          </ol>
+          <p>
+            Si la integral \(\int_c^d A(y)dy\) existe entonces
+            \[
+            \int_\mathcal{R}f  = \int_c^d A(y)dy.
+            \]
+            Lo anterior se puede escribir
+            \[
+            \int_\mathcal{R}f  = \int_c^d \left( \int_a^b f(x,y)dx \right)dy.
+            \]
+          </p>
+          <p>
+            Un resultado similar es válido si se supone que
+            para toda \(x\in [a,b]\), la integral
+            \(B(x):=\int_c^d f(x,y)dy\) existe y la función \(B(x)\)
+            es integrable. Es decir 
+            \[
+            \int_\mathcal{R}f  = \int_a^b \left( \int_c^d f(x,y)dy \right)dx.
+            \]
+          </p>
+
+        </p>
+        </div>
+
+
+
+      <div class="coro-box">
+        <h2 class="number-title" id="Ejer:Fubinni"> Corolario </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
+          \(f:[a,b] \times [c,d]\to \mathbb{R}\) una función continua.
+          
+            Entonces \(f\)  es integrable y 
+            \[
+            \int_{\mathcal{R}}f(x,y)=\int_a^b \int_c^d f(x,y)dydx=\int_c^d \int_a^b f(x,y)dxdy
+            \]
+          
+        </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para cada una de las siguientes funciones y
+            rectángulos
+            calcula \(\int_\mathcal{R}fdA\). Puedes suponer
+            que todas las funciones que se presentan
+            son integrables.
+
+          </p>
+          <ol>
+            <li>
+              \(f(x,y)=xy(x^2+y)\), \(\mathcal{R}=[0,1]\times [0,2]\).
+            </li>
+            <li>
+              \(f(x,y)=\sqrt{xy}+x\), \(\mathcal{R}=[0,9]\times [0,1]\).
+            </li>
+            <li>
+              \(f(x,y)=\sin(x+y)\), \(\mathcal{R}=[0,\pi]\times [0,\pi]\).
+            </li>
+            <li>
+              \[
+              f(x,y)=
+              \left\{
+                \begin{array}{cc}
+                1+x-y & \frac{x}{4} \leq y \leq \frac{x}{2} \\
+                0 &  \textrm{en otro caso}
+                \end{array}
+              \right.
+              \]
+              \(\mathcal{R}=[0,2]\times [0,1]\).
+            </li>
+
+            <li>
+              \[
+              f(x,y)=
+              \left\{
+                \begin{array}{cc}
+                x+y &  x^2\leq y \leq x \\
+                0 &  \textrm{en otro caso}
+                \end{array}
+              \right.
+              \]
+              \(\mathcal{R}=[0,1]\times [0,1]\).
+            </li>
+          </ol>
+          <button class="respButton hvr-grow"> Respuesta de 1 y 4</button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/wV5vwTSo3HY" target="_blank"> Video </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Calcula la integrales de las siguientes funciones.
+            Recuerda que \(\lfloor x \rfloor\) denota el mayor entero
+            menor o igual a \(x\).
+          </p>
+          <ol>
+            <li> \(\int_{\mathcal{R}} \lfloor x\rfloor \lfloor y \rfloor\),
+            \(\mathcal{R}=[0,2]\times [0,2]\). </li>
+            <li> \(\int_{\mathcal{R}} \lfloor x+y \rfloor\),
+              \(\mathcal{R}=[0,3]\times [0,3]\) </li>
+            <li> \(\int_{\mathcal{R}} \sqrt{\lfloor x+y \rfloor}\),
+            \(\mathcal{R}=[0,3]\times [0,3]\). </li>
+            </ol>
+            <p>
+              Sugerencia: si \(\mathcal{R}\) es un polígono en el
+              plano y \(f\) es igual a una constante \(c\) sobre \(\mathcal{R}\)
+              entonces \(\int_{\mathcal{R}f}=c * \textrm{área}(\mathcal{R})\)
+            </p>
+            <button class="respButton hvr-grow"> Respuesta de 2 </button>
+            <div class="resp-box">
+              <div class="video flexbox">
+                <a href="https://youtu.be/T5801bIJMA4" target="_blank"> Video </a>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Calcula la integrales de las siguientes funciones. Puedes
+            suponer que todas las funciones que aparecen son integrables.
+          </p>
+          <ol>
+            <li> \(\int_{\mathcal{R}}|3x+2y|\), \(\mathcal{R}=[0,2]\times [-3,3]\). </li>
+            <li> \(\int_{\mathcal{R}} |\cos(x+y)|\),
+              \(\mathcal{R}=[0,\pi]\times [0,\pi]\) </li>
+            <li> \(\int_{\mathcal{R}} \sqrt{x+y}\),
+            \(\mathcal{R}=[0,1]\times [0,4]\). </li>
+
+            <li> \(\int_{\mathcal{R}} y^{-3}e^{tx/y}\),
+              \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
+            </li>
+          </ol>
+
+          <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/yd87EErkg8I" target="_blank"> Video </a>
+            </div>
+          </div>
+<br>
+          <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/S1aNwrgNWwc" target="_blank"> Video </a>
+            </div>
+          </div>
+
+          <br>
+
+          <button class="respButton hvr-grow"> Respuesta inciso 3</button>
+          <div class="resp-box">
+            <p>
+              Por el Teorema 12.20 tenemos que
+              \begin{eqnarray*}
+              \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
+              & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
+              & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
+              & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
+              \end{eqnarray*}
+            </p>
+          </div>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Calcula la integrales de las siguientes funciones. Puedes
+            suponer que todas las funciones que aparecen son integrables.
+          </p>
+          <ol>
+            <li> \(\mathcal{R}=[0,1]\times [0,1]\)
+              \begin{eqnarray*}
+              f(x,y)=\left\{
+                \begin{array}{cc}
+              x+2y & \textrm{si \(x^2 \leq y \leq 2x^2\)} \\
+              0  & \textrm{en otro caso}
+              \end{array}
+              \right.
+              \end{eqnarray*}
+            </li>
+
+            <li> \(\mathcal{R}=[-1,1]\times [-1,1]\)
+              \begin{eqnarray*}
+              f(x,y)=\left\{
+                \begin{array}{cc}
+              2x^2+2y^2 & \textrm{si \(x^2 + y^2 \leq 1 \)} \\
+              0  & \textrm{en otro caso}
+              \end{array}
+              \right.
+              \end{eqnarray*}
+            </li>
+
+            <li> \(\mathcal{R}=[1,2]\times [1,4]\)
+
+                \begin{eqnarray*}
+              f(x,y)=\left\{
+                \begin{array}{cc}
+              \frac{(x+y)^{-2}}{2} & \textrm{si \(x \leq y \leq 2x\)} \\
+              0  & \textrm{en otro caso}
+              \end{array}
+              \right.
+              \end{eqnarray*}
+
+            </li>
+          </ol>
+
+
+        <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+        <div class="resp-box">
+        <p>
+          El dominio de \(f\) es el que se encuentra entre la gráfica verde
+          (\(y= 2x^{2}\))  y la gráfica roja (\(y = x^{2}\)),
+
+          <div class="imagen-box flexbox">
+            <img src="./Images/Fig25-1.png" alt="Dominio25-1" width="270" height="230">
+          </div>
+
+
+          Tenemos que la condición del dominio es \(x^{2} \leq y \leq 2x^{2}\)
+          la cual es equivalente a \(\frac{\sqrt{y}}{\sqrt{2}} \leq x \leq \sqrt{y}\).
+          Entonces fijando \(y \in [0, 1]\) y tamando
+          \begin{equation*}
+          A(y) = \int_{0}^{1}f(x, y)dx
+          \end{equation*}
+
+          Por la regla de correspondecia de \(f\) simplificamos
+          \begin{eqnarray*}
+          A(y) & = & \int_{\frac{\sqrt{y}}{\sqrt{2}}}^{\sqrt{y}} x + 2y dx \\
+           & = & \frac{1}{2}\left(y - \frac{y}{2}\right) + 2y\left(\sqrt{y} -
+           \frac{\sqrt{y}}{\sqrt{2}}\right) \\
+           & = & \frac{y}{4} + \sqrt{2}\left(\sqrt{2} - 1\right)y^{\frac{3}{2}}
+          \end{eqnarray*}
+
+          Suponiendo que \(f\) es integrable, entonces por el ejercicio 12.5 tenemos
+          \begin{eqnarray*}
+          \int_{R} f & = & \int_{0}^{1} A(y) dy \\
+           & = & \int_{0}^{1} \frac{y}{4} + \sqrt{2}\left(\sqrt{2} -
+           1\right)y^{\frac{3}{2}} dy \\
+           & = & \frac{1}{8} + \frac{2\sqrt{2}(\sqrt{2} - 1)}{5}\\
+           & = & \frac{37 -16\sqrt{2}}{40}
+          \end{eqnarray*}
+
+
+        </p>
+      </div>
+
+      <br>
+      <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+      <div class="resp-box">
+        <div class="video flexbox">
+          <a href="https://youtu.be/uPrEWBLTXd4" target="_blank"> Video </a>
+        </div>
+      </div>
+
+
+
+        </div>
+
+
+
+              <div class="ejercicio-box">
+                <h2 class="number-title"> Ejercicio </h2>
+                <p>
+                  Sean \(f:[a,b]\to \mathbb{R}\),
+                  \(g:[c,d]\to \mathbb{R}\) dos funciones continuas,
+                  denota \(\mathcal{R}=[a,b]\times [c,d]\) y define
+                  \(h:\mathcal{R}\to \mathbb{R}\) por \(h(x,y)=f(x)g(y)\).
+                </p>
+                <p>
+                  Expresa la integral \(\int_{\mathcal{R}} h(x,y)\)
+                  en términos de las integrales de \(f\) y de \(g\).
+                </p>
+
+              </div>
+
+
+
+              <div class="ejercicio-box">
+                <h2 class="number-title"> Ejercicio </h2>
+                <p>
+                  Calcula la integrales de las siguientes funciones. 
+                </p>
+                <ol>
+                  <li>
+                    \(\int_{\mathcal{R}} y\sen(xy)dA\), \(\mathcal{R}=[1,2]\times [0,\pi]\).
+                  </li>
+                  <li>
+                    \(\int_{\mathcal{R}} xe^{x^2+y}dA\), \(\mathcal{R}=[-1,1]\times [1,2]\).
+                  </li>
+                  <li>
+                    \(\int_{\mathcal{R}} xy^2\sec^2(xy^3)dA\), \(\mathcal{R}=[1,\pi]\times [\pi, 2\pi]\).
+                  </li>
+                </ol>
+        
+                </div>
+
+
+          <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+              Calcula los siguientes volúmenes.
+            </p>
+            <ol>
+              <li>
+                El volumen determinado por el paraboliode elíptico \(x^2+2y^2+z=16\) delimitado 
+                por los planos \(x=2,y=3\).
+              </li>
+              <li>
+                El volumen en el primer octante determinado por la gráfica de 
+                \(z=x\sec^2(y)\), \(z=0,x=0,x=2,y=0,y=\pi/4\).
+              </li>
+              <li>
+                El volumen determinado por la gráfica de \(z=2+x^2+(y-2)^2\) y los planos
+                \(z=1\), \(x=-1,x=1\), \(y=0,y=1\). 
+              </li>
+            </ol>
+
+          </div>      
+
+
+
+
+      </body>
+
+
+
+
+
+
