@@ -54,6 +54,7 @@
         h1.number-title{
           counter-reset: sectionCounter 2 cardCounter ;
         }
+        
       </style>
   
     <!-- Top Menu  -->
@@ -259,6 +260,54 @@
                 \end{array}
                 \right]=2x^2-(-2y)(y-2x)=2x^2+2y^2-4xy
                 \]
+            </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+            <h2 class="number-title"> Teorema </h2> 
+            <p>
+                Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto y 
+                \(T:U\to \mathbb{R}^n\) una función clase \(C^1\) con la 
+                característica de que el Jacobiano \(J_T\) no se anula en \(U\). Si 
+                \(\mathcal{D}\subseteq U\) es un conjunto abierto con interior no vacío 
+                y \(f\) es una función continua definida en \(T(\mathcal{D})\) entonces 
+                \[
+                \int_{T(\mathcal{D})} f = \int_{\mathcal{D}} (f\circ T )|J_T|
+                \]
+            </p>
+
+        </div>
+
+
+        <div class="coro-box">
+            <h2 class="number-title"> Corolario</h2>
+            <h3> Coordenadas cilíndricas </h3>
+            <p>Para coordenadas cilíndricas \(T:(0,\infty)\times (0,2\pi)\times (-\infty,\infty) \to \mathbb{R}^3\),
+                \[
+                T(r,\theta,z)=(r\cos(\theta),r\sen(\theta),z)
+                \]
+                se tiene que 
+                \[
+                    \int_{T(\mathcal{D})}f(x,y,z)dx\otimes dy \otimes dz=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r,\theta)}^{u_2(r,\theta)}f(r\cos(\theta),r\sen(\theta))rdzdrd\theta
+                \]
+                donde \(\mathcal{D}=\{(r,\theta,z): \alpha \leq \theta \leq \beta, h_1(\theta)\leq r \leq h_2(\theta), u_1(r,\theta)\leq z \leq u_2(r,\theta)\}\).
+                
+            </p>
+            <h3> Coordenadas cilíndricas</h3>
+            <p>
+                Para coordenadas cilíndricas \(T:(0,\infty)\times (0,2\pi)\times (0,\pi) \to \mathbb{R}\)
+                \[
+                T(\rho, \theta, \phi)=(\rho\sen(\phi)\cos(\theta),\rho\sen(\phi)\sen(\theta), \rho\cos(\phi))
+                \]
+                se tiene que 
+                
+                    \[
+                     \int_{T(\mathcal{D})}f(x,y,z)dx\otimes dy \otimes dz=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r,\theta)}^{u_2(r,\theta)}f(r\cos(\theta),r\sen(\theta))\rho^2\sen(\phi) d\phi d\rho d\theta
+                    \]
+                
+                donde \(\mathcal{D}=\{(\rho,\theta,\phi): \alpha \leq \theta \leq \beta, h_1(\theta)\leq \rho \leq h_2(\theta), u_1(\rho,\theta)\leq \phi \leq u_2(\rho,\theta)\}\).
             </p>
 
         </div>
