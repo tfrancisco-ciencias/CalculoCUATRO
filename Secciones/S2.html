@@ -169,6 +169,11 @@
                 con \( 0< a< b \), \(0\leq \theta_1 < \theta_2 < 2\pi\) y 
                 tomemos  \(\mathcal{S}=\mathbb{r}(\mathcal{R})\). 
             </p>
+              <p>
+                <div class="imagen-box flexbox">
+                  <img src="./Images/Sec2-img4.png" alt="Polares" width="500" height="auto">
+                </div>
+              </p>
             <p>
                 Supongamos que \(f\) es una función continua en \(\mathcal{S}\). Entonces 
                 \[
@@ -204,23 +209,31 @@
         <h2 class="number-title"> Ejercicio </h2>
 
         <p>
-          Para  \(r>0\) denota
+          Para  \(s>0\) denota
           \[
-          A(r)=\int_{-r}^r e^{-u^2}du
+          A(s)=\int_{-s}^s e^{-u^2}du
           \]
+
+          <div class="imagen-box flexbox">
+            <img src="./Images/Sec2-img2.png" alt="Gaussiana" width="300" height="auto-corta">
+          </div>
           <ol>
             <li>
               Prueba que
               \[
-              (A(r))^2=\int_{\mathcal{R}}e^{-(x^2+y^2)}dx\otimes dy
+              (A(s))^2=\int_{\mathcal{R}}e^{-(x^2+y^2)}dx\otimes dy
               \]
-              donde \(\mathcal{R}=[-r,r]\times [-r,r]\)
+              donde \(\mathcal{R}=[-s,s]\times [-s,s]\).
+
+              <div class="imagen-box flexbox">
+                <img src="./Images/Sec2-img3.png" alt="Gaussiana2D" width="300" height="auto-corta">
+              </div>
             </li>
             <li>
               Si \(C_1\) y \(C_2\) son discos de tal forma que
               \(C_1 \subset \mathcal{R}\subset C_2\). Prueba que
               \[
-              \int_{C_1} e^{-(x^2+y^2)}  \leq (A(r))^2 \leq \int_{C_2} e^{-(x^2+y^2)}
+              \int_{C_1} e^{-(x^2+y^2)}  \leq (A(s))^2 \leq \int_{C_2} e^{-(x^2+y^2)}
               \]
             </li>
 
@@ -228,13 +241,103 @@
               Usa un cambio de variable en coordenadas polares y usa
               las desigualdades anteriores para probar
               \[
-              \lim_{r\to \infty} A(r)=\sqrt{\pi}
+              \lim_{s\to \infty} A(s)=\sqrt{\pi}
               \]
               Esto prueba que \(\int_{-\infty}^\infty e^{-u^2}du = \sqrt{\pi}\).
             </li>
           </ol>
 
         </p>
+
+        <button class="respButton hvr-grow"> Inciso 1</button>
+        <div class="resp-box">
+        <p>
+          Aplicando directamente el <a href="./S1.html#Teo:Fubinni"> Teorema de Fubini  </a> resulta 
+          \[
+          \int_{\mathcal{R}}e^{-(x^2+y^2)}dx\otimes dy = \int_{-s}^{s}\left( \int_{-s}^s e^{-(x^2+y^2)}dx\right)dy
+          \]
+          y por las propiedades de la exponencial \(e^{-(x^2+y^2)}=e^{-x^2}e^{-y^2}\), así que haciendo las 
+          integrales interadas obtenemos 
+          \begin{eqnarray*} 
+          \int_{-s}^{s}\left( \int_{-s}^s e^{-(x^2+y^2)}dx\right)dy&=& \int_{-s}^s \left( \int_{-s}^se^{-x^2}e^{-y^2} dx\right)dy \\
+          &=& \int_{-s}^s \left( e^{-y^2}\int_{-s}^se^{-x^2} dx\right)dy \\
+          &=& \int_{-s}^s e^{-y^2}A(s)dy
+          \end{eqnarray*}
+          donde en la última identidad usamos la definición de \(A(s)\). Notamos que \(A(s)\) es constante con respecto a 
+          \(y\) por lo tanto podemos sacarla de la última integral y usando de nuevo la definición de \(A(s)\) obtenemos 
+          \begin{eqnarray*}
+          \int_{-s}^{s}\left( \int_{-s}^s e^{-(x^2+y^2)}dx\right)dy&=&A(s)\int_{-s}^{s}e^{-y^2}dy  \\
+          &=& A(s)^2
+          \end{eqnarray*}
+        </p>
+        </div>
+
+        <button class="respButton hvr-grow"> Inciso 2</button>
+        <div class="resp-box">
+        <p>
+          Definamos las funciones \(f,g,h: C_2 \to \mathbb{R}\) por 
+          \begin{eqnarray*} 
+          f(x,y)&=&\left\{
+              \begin{array}{cc}  
+              e^{-(x^2+y^2)} & (x,y)\in C_1 \\
+              0 & \textrm{otro caso }
+              \end{array}
+            \right. 
+            \\
+            g(x,y)&=&\left\{ 
+              \begin{array}{cc} 
+              e^{-(x^2+y^2)} & (x,y)\in \mathcal{R} \\
+              0 & \textrm{otro caso }
+              \end{array}
+            \right. 
+            \\
+            h(x,y)&=&e^{-(x^2+y^2)} 
+          \end{eqnarray*}
+          Entonces se tiene que \(f \leq g \leq h\) y por <a href="./S1.html#Teo:MonotoniaIntegral">Monotonía de la integral </a>
+          \[
+          \int_{C_2} f \leq \int_{C_2} g \leq \int_{C_2} h
+          \]
+          de lo cual se sigue que 
+          \[
+          \int_{C_1}e^{-(x^2+y^2)} \leq \int_{\mathcal{R}} e^{-(x^2+y^2)} \leq \int_{C_2}e^{-(x^2+y^2)}
+          \]
+          y por el inciso anterior concluimos 
+          \[
+          \int_{C_1}e^{-(x^2+y^2)} \leq A(s)^2 \leq \int_{C_2}e^{-(x^2+y^2)}
+          \]
+        </p>
+        </div>
+
+        <button class="respButton hvr-grow"> Inciso 3</button>
+        <div class="resp-box">
+        <p>
+          Primero notamos que el radio de \(C_1\) es \(s\) y el radio de \(C_2\) es \(\sqrt{2}s\). Ahora, 
+          usando el Teorema de cambio de variable en coordenadas polares llegamos a 
+          \begin{eqnarray*} 
+          \int_{C_1}e^{-(x^2+y^2)}&=& \int_{0}^{2\pi}\int_{0}^{s} e^{-r^2}r  drd\theta \\
+          &=& \left( \int_{0}^{2\pi} 1 d\theta \right)\left( \int_{0}^s e^{-r^2}rdr\right) \\
+          &=& 2\pi \int_{0}^{s}e^{-r^2}rdr \\
+          &=& \pi\int_0^{s^2} e^{-u}du
+          \end{eqnarray*}
+          donde en la última identidad usamos el cambio de variable \(u=r^2\). Calculando la última integral obtenemos 
+          \(\int_0^{s^2} e^{-u}du= -e^{-s^2}+e^0=1-e^{-s^2}\) y por lo tanto 
+          \[
+          \int_{C_1}e^{-(x^2+y^2)}=\pi(1-e^{-s^2})
+          \]
+          De manera similar 
+          \[
+          \int_{C_2}e^{-(x^2+y^2)}=\pi(1-e^{-(\sqrt{2}s)^2})
+          \]
+          Finalmente del inciso anterior 
+          \[
+          \pi(1-e^{-s^2}) \leq A(s)^2 \leq \pi(1-e^{-(\sqrt{2}s)^2})
+          \]
+          por lo que al tomar límite cuando \(s\to \infty\) y usar la ley del sandwich concluimos 
+          \[
+          \lim_{s\to \infty}A(s)^2=\pi \Rightarrow \lim_{s\to \infty} A(s)=\sqrt{\pi}
+          \]
+        </p>
+        </div>
       </div>
 
 
@@ -248,6 +351,25 @@
           \]
         </p>
 
+        <button class="respButton hvr-grow"> Respuesta</button>
+        <div class="resp-box">
+        <p>
+          Para \(s >0\)  consideramos la integral 
+          \[
+            \int_{-s}^s e^{-(t-\mu)^2/(2\sigma^2)}dt
+          \]
+          y el cambio de variable \(u=(t-\mu)/(\sqrt{2}\sigma)\) para obtener 
+          \[
+          \int_{-s}^s e^{-(t-\mu)^2/(2\sigma^2)}dt= \sqrt{2}\sigma \int_{-(s-\mu)/(\sqrt{2}\sigma)}^{(s-\mu)/(\sqrt{2}\sigma)}e^{-u^2}du
+          \]
+          tomando límite cuando \(s\to \infty\) y usando el ejercicio anterior llegamos a 
+          \begin{eqnarray*}
+          \lim_{s\to \infty}\int_{-s}^s e^{-(t-\mu)^2/(2\sigma^2)}dt&=&\sqrt{2}\sigma \lim_{s\to \infty} \int_{-(s-\mu)/(\sqrt{2}\sigma)}^{(s-\mu)/(\sqrt{2}\sigma)}e^{-u^2}du \\
+          &=& \sqrt{2}\sigma \sqrt{\pi}\\
+          \Rightarrow \frac{1}{\sigma \sqrt{2\pi}}\int_{-\infty}^{\infty} e^{-(t-\mu)^2/(2\sigma^2)} &=&1
+          \end{eqnarray*}
+        </p>
+        </div>
       </div>
 
         <div class="definicion-box">
@@ -275,9 +397,9 @@
                         \(\int_{-\infty}^\infty f(t)dt=1\)
                         Nota: se entiende 
                         \[
-                        \int_{-\infty}^\infty f(t)dt=\lim_{n,m\to \infty}\int_{-n}^{m}f(t)dt
+                        \int_{-\infty}^\infty f(t)dt=\lim_{n \to \infty}\int_{-n}^{n}f(t)dt
                         \]
-                        suponiendo que para todos naturales \(n,m\), \(\int_{-n}^mf(t)dt\) existe. 
+                        suponiendo que para todo naturale \(n\), \(\int_{-n}^nf(t)dt\) existe. 
                     </li>
                 </ol>
             </p>

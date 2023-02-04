@@ -671,7 +671,7 @@
       </div>
 
       <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+        <h2 class="number-title" id="Teo:LinealidadIntegral"> Teorema </h2>
         <h3>
           Linealidad de la integral 
         </h3>
@@ -683,6 +683,28 @@
             \int_{\mathcal{D}}f+\alpha g = \int_{\mathcal{D}}f+ \alpha \int_{\mathcal{D}}g
             \]
           </p>
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:MonotoniaIntegral"> Teorema</h2>
+        <h3> Monotonía de la integral</h3>
+        <p>
+          Sea \(\mathcal{D}\subseteq \mathbb{R}^2\) una región compacta con interior no vacío y 
+          \(f,g:\mathcal{D}\to \mathbb{R}\) dos funciones Riemann integrables en \(\mathcal{D}\). Si 
+          se cumple que \(f(x,y)\leq g(x,y)\) para todo \((x,y)\in \mathcal{D}\)
+          entonces 
+          \[
+          \int_{\mathcal{D}} f \leq \int_{\mathcal{D}} g
+          \]
+        </p>
+        <p>
+          Nota: el mismo resultado es válido si \(f(x,y)\leq g(x,y)\) para todo 
+          \((x,y)\in \mathcal{D}\) excepto un conjunton de contenido cero.
+        </p>
+
+
+
       </div>
 
       <div class="ejercicio-box">
@@ -827,7 +849,7 @@
           \(f\leq g\) entonces la integral \(\int_{a}^b (g(t)-f(t))dt\) representa
           el área entre las gráficas de \(f\) y \(g\). Si \(\mathcal{S}\)
           es la región de Tipo I determinada por \(f\) y \(g\) entonces
-          tenemos, por el <a href="#Teo:IntRegionesI">Teorema 13.12 </a> que:
+          tenemos, por el <a href="#Teo:IntRegionesI">Teorema 1.13 </a> que:
 
           \[
           \int_{\mathcal{S}}1 = \int_a^b\left(\int_{f(x)}^{g(x)} 1 dy \right)dx
