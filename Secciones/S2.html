@@ -399,7 +399,7 @@
                         \[
                         \int_{-\infty}^\infty f(t)dt=\lim_{n \to \infty}\int_{-n}^{n}f(t)dt
                         \]
-                        suponiendo que para todo naturale \(n\), \(\int_{-n}^nf(t)dt\) existe. 
+                        suponiendo que para todo natural \(n\), \(\int_{-n}^nf(t)dt\) existe. 
                     </li>
                     <li>
                       \(\mathbb{P}(a\leq X \leq b)\) se calcula como 
@@ -506,9 +506,10 @@
             <p>
                 Dos variables aleatorias, \(X,Y\), se llaman independientes si 
                 \[
-                \mathbb{P}( X\in \mathcal{D} \quad \textrm{y} \quad Y\in \mathcal{D})=
-                \mathbb{P}(X\in \mathcal{D})\mathbb{P}(Y\in \mathcal{D})
+                \mathbb{P}( a\leq X \leq b \quad \textrm{y} \quad c \leq Y \leq d)=
+                \mathbb{P}(a \leq X\leq b)\mathbb{P}(c \leq Y\leq d)
                 \]
+                para todos \(a< b, c< d\).
             </p>
             <p>
                 Si las variables aleatorias \(X\) y \(Y\) tienen funciones de densidad de probabilidad
@@ -517,9 +518,9 @@
                 \[
                 f(x,y)=f_X(x)f_Y(y)
                 \]
-                Es decir 
+                Es decir, para toda región \(\mathcal{D}\subseteq \mathbb{R}^2\): 
                 \[
-                \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}}f_X(x)f_Y(y)dx\otimes dy
+                \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}}f_X(x)f_Y(y)dx\otimes dy.
                 \]
             </p>
         </div>
@@ -551,14 +552,8 @@
                 Supon que \(X,Y\) son variables aleatorias independientes. \(X\) tiene una función 
                 de densidad normal con media \(\mu=45\) y varianza \(\sigma=0.5\), 
                 \(Y\) tiene una densidad normal con media \(\mu=25\) y varianza \(\sigma=0.3\). Calcula 
-                <ol>
-                    <li>
-                        \(\mathbb{P}(30\leq X \leq 50, 20\leq Y \leq 30)\)
-                    </li>
-                    <li>
-                        \(\mathbb{P}(10\leq X+Y \leq 60)\).
-                    </li>
-                </ol>
+                \(\mathbb{P}(30\leq X \leq 50, 20\leq Y \leq 30)\)
+                
             </p>
 
         </div>
@@ -633,6 +628,14 @@
 
             <div class="imagen-box flexbox">
               <img src="./Images/Sec2-img5.png" alt="Superficies" width="700" height="250">
+            </div>
+
+            <p>
+              No ejemplos. 
+            </p>
+
+            <div class="imagen-box flexbox">
+              <img src="./Images/Sec2-img8.png" alt="NOSuperficies" width="500" height="250">
             </div>
     
             <p>
@@ -785,6 +788,20 @@
               tenemos sólo dos orientaciones: \(N=\mathbb{n}\) ó \(N=-\mathbb{n}\).
             </p>
   
+            <p>
+              Ejemplo superficie orientable. 
+            </p>
+            <div class="imagen-box flexbox">
+              <img src="./Images/Sec2-img10.png" alt="Orientable" width="500" height="250">
+            </div>
+
+            <p>
+              Ejemplo superficie no orientable.
+            </p>
+            <div class="imagen-box flexbox">
+              <img src="./Images/Sec2-img9.png" alt="NoOrientable" width="500" height="250">
+            </div>
+
           </div>
   
   
@@ -913,8 +930,8 @@
             </p>
             <ol>
                 <li>
-                    La parte del cilindro \(y^2+z^2=16\) que está sobre el 
-                    rectángulo \((0,0), (0,1), (1,2),(1,1)\).
+                    La parte del cilindro \(y^2+z^2=16\) que está sobre el plano \(xy\) y delimitada por los planos 
+                    \(x=0,x=1\).
                 </li>
                 <li>
                     La parte del paraboloide \(z=9-x^2-y^2\) que está por arriba 
