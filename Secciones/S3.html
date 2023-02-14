@@ -318,6 +318,39 @@
         </div>
 
 
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Reescribe la integral iterada en las otras 5 formas equivalentes (\(f\) denota
+                una función continua sobre el dominio adecuado). 
+            </p>
+            <ol>
+                <li>
+                    \(\int_{0}^1\int_y^1\int_0^y f(x,y,z)dzdxdy\)
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_0^1\int_y^1\int_0^z f(x,y,z)dxdzdy\)
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_0^1 \int_{0}^{1-x^2}\int_{0}^{1-x}f(x,y,z)dydzdx\)
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(\int_0^1 \int_{\sqrt{x}}^{1}\int_{0}^{1-y}f(x,y,z)dzdydx\)
+                </li>
+            </ol>
+
+        </div>
+
+
         <div class="definicion-box">
             <h2 class="number-title"> Definición  </h2>
             <p>
@@ -415,7 +448,7 @@
                     \]
                     donde \(A\) es una matriz de \(n\times n\) y \(p\in \mathbb{R}^n\) es un vector fijo. Entonces 
                     \[
-                    J_T=A
+                    J_T=\det(A)
                     \]
                 </li>
                 
@@ -436,6 +469,10 @@
                 \]
             </p>
 
+
+            <div class="imagen-box flexbox">
+                <img src="./Images/Sec3-img7.png" alt="CambioVar" width="500" height="300">
+              </div>
         </div>
 
 
@@ -448,9 +485,9 @@
                 \]
                 se tiene que 
                 \[
-                    \int_{T(\mathcal{D})}f=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r,\theta)}^{u_2(r,\theta)}f(r\cos(\theta),r\sen(\theta))rdzdrd\theta
+                    \int_{T(\mathcal{S})}f=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r,\theta)}^{u_2(r,\theta)}f(r\cos(\theta),r\sen(\theta))rdzdrd\theta
                 \]
-                donde \(\mathcal{D}=\{(r,\theta,z): \alpha \leq \theta \leq \beta, h_1(\theta)\leq r \leq h_2(\theta), u_1(r,\theta)\leq z \leq u_2(r,\theta)\}\).
+                donde \(\mathcal{S}=\{(r,\theta,z): \alpha \leq \theta \leq \beta, h_1(\theta)\leq r \leq h_2(\theta), u_1(r,\theta)\leq z \leq u_2(r,\theta)\}\).
                 
             </p>
             <h3> Coordenadas esféricas</h3>
@@ -462,10 +499,10 @@
                 se tiene que 
                 
                     \[
-                     \int_{T(\mathcal{D})}f=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r,\theta)}^{u_2(r,\theta)}f(\rho\cos(\theta),\rho\sen(\theta))\rho^2\sen(\phi) d\phi d\rho d\theta
+                     \int_{T(\mathcal{S})}f=\int_{\alpha}^{\beta}\int_{h_1(\theta)}^{h_2(\theta)}\int_{u_1(r,\theta)}^{u_2(r,\theta)}f(\rho\cos(\theta),\rho\sen(\theta))\rho^2\sen(\phi) d\phi d\rho d\theta
                     \]
                 
-                donde \(\mathcal{D}=\{(\rho,\theta,\phi): \alpha \leq \theta \leq \beta, h_1(\theta)\leq \rho \leq h_2(\theta), u_1(\rho,\theta)\leq \phi \leq u_2(\rho,\theta)\}\).
+                donde \(\mathcal{S}=\{(\rho,\theta,\phi): \alpha \leq \theta \leq \beta, h_1(\theta)\leq \rho \leq h_2(\theta), u_1(\rho,\theta)\leq \phi \leq u_2(\rho,\theta)\}\).
             </p>
 
         </div>
