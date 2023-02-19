@@ -298,14 +298,14 @@
             
             </p>
             <p>
-              Notación. Se usa  \(ds\) ó \(d|\alpha|\)
+              Notación. Se usa  \(ds\) ó \(|d\alpha|\)
             para denotar la integral con respecto a  longitud de arco:
             \[
             \int_\alpha f ds :=\int_a^b f(\alpha(t))\| \alpha'(t)\|dt,
             \]
             ó
             \[
-            \int_\alpha f d|\alpha| :=\int_a^b f(\alpha(t))\| \alpha'(t)\|dt.
+            \int_\alpha f |d\alpha| :=\int_a^b f(\alpha(t))\| \alpha'(t)\|dt.
             \]
             
             </p>
@@ -439,7 +439,7 @@
             equivalentes y supongamos que su traza está contenida en \(D\). Sea \(f:D\to \mathbb{R}\) una
             función continua. Demuestra que
             \[
-            \int_\alpha f d|\alpha|= \int_\beta f d|\beta|.
+            \int_\alpha f |d\alpha|= \int_\beta f |d\beta|.
             \]
             No podemos dejar de enfatizar que este ejercicio muestra
             que:
@@ -988,12 +988,25 @@
                     una curva parametrizada suave a trozos, cuya traza está contenida en \(D\)  y
                     \(f,g:D\to \mathbb{R}\) dos funciones continuas en \(D\). Prueba
                     \[
-                    \int_\alpha (c f + g ) d|\alpha| = c \int_\alpha f d|\alpha| + \int_\alpha g d|\alpha|
+                    \int_\alpha (c f + g ) |d\alpha| = c \int_\alpha f |d\alpha| + \int_\alpha g |d\alpha|
                     \]
                     donde \(c\in \mathbb{R}\) es un escalar arbitrario.
                     </p>
+                    <button class="respButton hvr-grow"> Demostración </button>
+                    <div class="resp-box">
+                    <p> 
+                      Por definición:
+                      \begin{eqnarray*} 
+                      \int_\alpha (c f + g ) |d\alpha|&=& \int_{a}^b (cf(\alpha(t))+g(\alpha(t)))\|\alpha'(t)\|dt \\
+                      &=& c \int_{a}^b f(\alpha(t))\|\alpha'(t)\|dt
+                      + \int_a^b g(\alpha(t))\|\alpha'(t)\|dt \\
+                      &=& c\int_{\alpha}f|d\alpha|+ \int_{\alpha} g |d\alpha|
+                      \end{eqnarray*}
+                    </p>
+                    </div>
                     
                 </div>
+
 
                 <div class="teorema-box">
                   <h2 class="number-title" id="Teo:ValorMedioCurvas"> Teorema </h2>
@@ -1005,6 +1018,8 @@
                     \|\alpha(b)-\alpha(a)\| \leq (b-a)\|\alpha'(c)\|
                     \]
                   </p>
+                  <button class="respButton hvr-grow"> Demostración </button>
+                  <div class="resp-box">
                   <p>
                     Si \(\alpha(a)=\alpha(b)\) la desigualdad del resultado es claro, así que 
                     podemos suponer \(\alpha(a)\ne \alpha(b)\).
@@ -1015,8 +1030,8 @@
                     g(t)=(\alpha(b)-\alpha(a))\cdot \alpha(t)
                     \]
                     Ya que \(\alpha\) es una curva suave se sigue que \(g\) es 
-                    continua en \([a,b]\) y diferenciable en \((a,b)\), cunpliendo 
-                    las hipótesis del <a href="#Teo:ValorMedioDerivada">Teorema del valor medio para derivadas</a> 
+                    continua en \([a,b]\) y diferenciable en \((a,b)\), cumpliendo 
+                    las hipótesis del <a href="https://tfrancisco-ciencias.github.io/CalculoUNO/Secciones/S15.html#Teo:ValorMedioDerivada">Teorema del valor medio para derivadas</a> 
                     y por lo tanto existe un \(c\in (a,b)\) que satisface 
                     \[
                     g(b)-g(a)=g'(c)(b-a)
@@ -1045,6 +1060,7 @@
                     \|\alpha(b)-\alpha(a)\|\leq (b-a) \| \alpha'(c)\|
                     \]
                   </p>
+                  </div>
 
                 </div>
 
