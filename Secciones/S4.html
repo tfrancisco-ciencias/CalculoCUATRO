@@ -1005,6 +1005,46 @@
                     \|\alpha(b)-\alpha(a)\| \leq (b-a)\|\alpha'(c)\|
                     \]
                   </p>
+                  <p>
+                    Si \(\alpha(a)=\alpha(b)\) la desigualdad del resultado es claro, así que 
+                    podemos suponer \(\alpha(a)\ne \alpha(b)\).
+                  </p>
+                  <p>
+                    Definimos la función \(g:[a,b]\to \mathbb{R}\) por 
+                    \[
+                    g(t)=(\alpha(b)-\alpha(a))\cdot \alpha(t)
+                    \]
+                    Ya que \(\alpha\) es una curva suave se sigue que \(g\) es 
+                    continua en \([a,b]\) y diferenciable en \((a,b)\), cunpliendo 
+                    las hipótesis del <a href="#Teo:ValorMedioDerivada">Teorema del valor medio para derivadas</a> 
+                    y por lo tanto existe un \(c\in (a,b)\) que satisface 
+                    \[
+                    g(b)-g(a)=g'(c)(b-a)
+                    \]
+                    pero 
+                    \begin{eqnarray*} 
+                    g(b)-g(a)&=&(\alpha(b)-\alpha(a))\cdot \alpha(b)-(\alpha(b)-\alpha(a))\cdot \alpha(a)\\
+                    &=& (\alpha(b)-\alpha(a))\cdot (\alpha(b)-\alpha(a)) \\
+                    &=& \|\alpha(b)-\alpha(a)\|^2
+                    \end{eqnarray*}
+                    y el segundo término es 
+                    \begin{eqnarray*}
+                    g'(c)(b-a)&=&(b-a) [(\alpha(b)-\alpha(a))\cdot \alpha'(c)]
+                    \end{eqnarray*}
+                    y por la desigualdad de Cauchy-Schwartz ésta  última igualdad implica 
+                    \[
+                    |(b-a) [(\alpha(b)-\alpha(a))\cdot \alpha'(c)]| \leq (b-a)\| \alpha(b)-\alpha(a)\| \|\alpha'(c)\|
+                    \]
+                    Substituyendo ésta información en el Teorema del valor medio llegamos a 
+                    \begin{eqnarray*} 
+                    \|\alpha(b)-\alpha(a)\|^2 \leq (b-a)\|\alpha(b)-\alpha(a)\| \| \alpha'(c)\|
+                    \end{eqnarray*}
+                    Ya  que \(\alpha(a)\ne \alpha(b)\) podemos cancelar \(\|\alpha(b)-\alpha(b)\|\)
+                    y concluir 
+                    \[
+                    \|\alpha(b)-\alpha(a)\|\leq (b-a) \| \alpha'(c)\|
+                    \]
+                  </p>
 
                 </div>
 
