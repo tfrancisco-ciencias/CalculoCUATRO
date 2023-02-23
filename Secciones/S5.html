@@ -49,10 +49,10 @@
     <!-- This part restart counter of cards to start at n+1 -->
     <style>
         body.number-title{
-          counter-reset: sectionCounter 3 cardCounter ;
+          counter-reset: sectionCounter 4 cardCounter ;
         }
         h1.number-title{
-          counter-reset: sectionCounter 3 cardCounter ;
+          counter-reset: sectionCounter 4 cardCounter ;
         }
       </style>
   
@@ -76,7 +76,7 @@
         </header>
 
       <!-- This part is for title in tab-->
-      <title id="Sec"> § 4 </title>
+      <title id="Sec"> § 5 </title>
     </head>
 
     <!-- Contenido empieza abajo-->
@@ -88,97 +88,7 @@
 
 
 
-      <div class="nota-box">
-        <h2 class="number-title"> Introducción </h2>
-        
-      <p>Intuitivamente
-        una curva o trayectoria es on objeto en donde sólo tenemos un
-        parametro de libertad para movernos. Por ejemplo, si nos imaginamos
-        viajando sobre la curva sólo tendríamos dos opciones
-        para movernos, para adelante o para atrás (como una hormiga
-        moviendose sobre un cable muy delgado). Matemáticamente ya se han
-        topado con objetos así (líneas rectas, círculos), pero hay que
-        ser cuidadosos pues hay objetos que parecerían curvas pero
-        para los cuales las herramientas del cálculo diferencial e integral
-        que desarrollaremos no son las mejores (por ejemplo
-        <a href="https://en.wikipedia.org/wiki/Koch_snowflake">el
-        copo de nieve de Koch</a>).
-
-
-      </p>
-      <p>
-        Vamos a ver con más detalle los ejemplos de la línea recta y
-        el círculo para llegar una definición satisfactoria de
-        objetos 1-dimensionales que vamos a poder manejar.
-      </p>
-      <p>
-        Una línea recta, en el plano, está dada por una ecuación de la forma
-        \(y=mx+b\), donde \(m\) es la pendiente y \(b\) la intersección
-        con el eje \(y\). Para ser más específicos la recta consiste en
-        el conjunto
-        \[
-        L=\{(x,y)\in \mathbb{R}^2: y=mx+b\}.
-        \]
-      </p>
-      <p>
-        De manera similar, un círculo centrado en \((x_0,y_0)\) y
-        radio \(r>0\) es el conjunto
-        \[
-        C=\{(x,y)\in \mathbb{R}^2: (x-x_0)^2+(y-y_0)^2=r^2\}.
-        \]
-      </p>
-      <p>
-        Podríamos intentar definir una curva en el espacio \(\mathbb{R}^n\)
-        como un subconjunto de \(\mathbb{R}^n\) que satisface ciertas
-        ecuaciones algebráicas (como en \(C\) y \(L\)). Aunque este camino es posible,
-        para el cálculo diferencial e integral esta definición presenta algunos problemas. Uno,
-        que realmente es técnico y se pude resolver, es que con esta
-        definición podríamos obtener objetos muy grandes y grande quiere
-        decir no compacto, como \(L\). Otro problema más de fondo es que
-        dichas descripciones de curvas no vienen con una orientación integrada
-        y ya establecimos que la orientación es muy importante en la integral
-        que queremos definir. Por ejemplo, en el círculo \(C\) hay dos orientaciones,
-        en el sentido contrario a las manecillas del reloj (llamado sentido
-        positivo) o en el sentido de las manecillas del reloj (llamado sentido
-        negativo).
-      </p>
-      <p>
-        Por lo tanto, necestiamos una descripción de objetos como \(L\)
-        (o cachos de \(L\)) y \(C\) que nos de tanto el conjunto como
-        su orientación. Volvamos al ejemplo del círculo.
-      </p>
-        <p>Otra manera
-        de describir al círculo es con las ecuaciones paramétricas
-        \[
-        x=r\cos(t)+x_0, \quad y=r\sin(t)+y_0, \quad t\in [0,2\pi].
-        \]
-        Nota que entonces
-        \[
-        C=\{(r\cos(t)+x_0,r\sen(t)+y_0): t\in [0,1]\}
-        \]
-        lo cual está bien pues no hemos perdido información sobre \(C\), pero
-        ya ganamos la orientación. ¿Dónde está la orientación? En el  intervalo
-        \([0,2\pi]\). En efecto, en \([0,2\pi]\) 0 es el primer punto y
-        \(2\pi\) es el último, es decir, la orientación está dada por
-        el orden del intervalo. La orientación de \([0,2\pi]\) la pensamos
-        que va de izquierda a derecha. Ahora, si empezamos a dibujar
-        los puntos \(x=r\cos(t)+x_0\) y \(y=r\sen(t)+y_0\) empezando por
-        \(t=0\) y vamos moviendo \(t\) hacia \(2\pi\) el círculo \(C\) se dibuja
-        en el sentido contrario a las manecillas del reloj.
-      </p>
-      <p>
-        Entonces, con esta descripción paramétrica de
-        tenemos dos cosas, el conjunto \(C\) (que se va a llamar
-        la trza) y la orientación. Además
-        la descripción paramétrica está dada mediante funciones de una variable,
-         específicamente las funciones \(x(t)=r\cos(t)+x_0\)
-         y \(y(t)=r\sen(t)+y_0\), para las
-        cuales el cálculo diferencial e integral está perfectamente
-        diseñado . ¡Esta descripción es la ideal para definir curvas para nosotros
-        y es la que sirve para hacer las cuentas!
-      </p>
-      </div>
-
+      
 
 <div class="ejercicio-box">
   <h2 class="number-title" id="Ejer:invertirOrientacion"> Ejercicio </h2>
@@ -209,25 +119,6 @@
   </ol>
 </div>
 
-<div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-    <p>
-      La noción de curvas equivalentes se puede extender
-      a curvas suaves a trozos. Decimos que dos curvas
-      suaves a trozos, \(\alpha:[a,b]\to \mathbb{R}^n\)
-      y \(\beta:[c,d]\to \mathbb{R}^n\), son equivalentes
-      si existe particiones \(\{a=t_0 < \cdots < t_n=b\}\),
-      y \(\{c=\tilde{t}_0 < \cdots < \tilde{t}_n =d \}\),
-      de \([a,b]\) y \([c,d]\) respectivamente,
-      tal que para toda \(j=1,\dots, n\),
-      \(\alpha_j\) y \(\beta_j\) son curvas suaves
-      y equivalentes (de acuerdo con la <a href="#Def:curvasEquiv">Definicion 4.5</a>),
-      donde \(\alpha_j\) denota la restriccióßn
-      de \(\alpha_j\) a \([t_{j-1},t_j]\)
-      y \(\beta_j\) la restricción de \(\beta\)
-      a \([\tilde{t}_{j-1}, \tilde{t}_j]\).
-    </p>
-</div>
 
 
 <div class="ejercicio-box">
@@ -256,56 +147,37 @@
 
 
 
-<div class="definicion-box">
-    <h2 class="number-title"> Definición</h2>
-    <p>
-        Por una curva orientada suave  vamos a entender un subsoncjunto \(C\subset \mathbb{R}^n\)
-        para el cual existe una función clase \(C^1\), \(\gamma:[a,b]\to \mathbb{R}^n\), tal que 
-        \(C\) es la traza de \(\gamma\). La orientación de \(C\) es la inducida por la 
-        parametrización \(\gamma\). 
-    </p>
-    <p>
-        Nota: a veces se puede dar la definición de  \(C\) mediante palabras (por ejemplo 
-        el círculo unitario recorrido en el sentido de las manecillas del reloj) y a partir de 
-        ésta se puede dar una parametrización; en otras ocasiones se da directamente la 
-        parametrización y ésta define la curva \(C\) con su orientación. 
-    </p>
-
-</div>
-
 
   <div class="definicion-box">
     <h2 class="number-title" id="Def:Int_Lin"> Definición</h2>
     <p>
-        Sea \(U \subseteq \mathbb{R}^n\) un abierto. 
-        Dado un campo vectorial \(\mathbb{A}:U\to \mathbb{R}^n \) podemos denotarlo como 
-        \[
-        \mathbb{A}=\sum_{j=1}^n A_j\mathbf{e}_j
-        \]
-        donde cada \(A_j\) es una función con valores reales y \(\mathbf{e}_j\) representa 
-        el \(j\)-ésimo vector canónico.
+        Sea \(U \subseteq \mathbb{R}^n\) un abierto y 
+         \(\mathbb{F}:U\to \mathbb{R}^n \) un campo vectorial, con funciones 
+         coordenadas \(\mathbb{F}=(F_1,\dots, F_n)\).
     </p>
     <p>
-     Supongamos que tenemos \(C\subseteq U\) una <b>curva orientada suave</b>. Tomemos una 
-     parametrización de la curva orientada \(C\) dada por 
-    \(\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))\), \(t\in [a,b]\) 
+     Supongamos que tenemos \(\alpha:[a,b]\to \mathbb{R}^n\) es  una <b>curva orientada suave</b>
+     cuya traza está contenida en \(U\). 
     </p>
     <p>
-        Si el campo \(\mathbb{A}\) es continuo en \(C\) definimos 
-         la integral de línea
-        de \(\mathbb{A}\) a lo largo de \(C \) como
+      Definimos la integral de \(\mathbb{F}\) a lo largo de \(\alpha\) como 
         \[
-        \int_C \mathbb{A}  =\int_a^b \sum_{j=1}^n A_j(\gamma(t))\gamma_j'(t)dt
+        \int_a^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt  
         \]
     </p>
     <p>
-        Nota que el integrando anterior es el producto punto 
-        \(\mathbb{A}\cdot \gamma'\)
-        por lo que también se usa la notación 
+      Si escribimos las funciones coordenadas de \(\mathbb{F}=(F_1,\dots, F_n)\) y las 
+      de \(\alpha(t)=(a_1(t),\dots, a_n(t))\) la 
+      integral de línea se calcua como 
+      \[
+      \sum_{i=1}^n \int_{a}^b F_i(\alpha(t))a_i'(t)dt 
+      \]
+    <p>
+        Notación:
         \[
-        \int_{C }\mathbb{A}\cdot d\gamma \quad \textrm{ó} \quad \int_{\gamma}\mathbb{A}\cdot d\gamma
+        \int_{\alpha}\mathbb{F}\cdot d\gamma 
         \]
-        para denotar la integral de línea.
+        
     </p>
   </div>
 
@@ -321,17 +193,17 @@
         </p>
         <p>Sea \(\mathbb{A}\) un campo  diferenciable en el abierto
         \(U\) y supon  que \( \alpha:[a,b]\to \mathbb{R}^n, \beta:[c,d]\to \mathbb{R}^n\),
-        son dos trayectorias parametrizadas suaves con la misma traza \(C\) contenida en \(U\) y que
-        son <a href="#Def:curvasEquiv">equivalentes</a>.
+        son dos trayectorias parametrizadas suaves con la misma traza  contenida en \(U\) y que
+        son <a href="./S4.html#Def:curvasEquiv">equivalentes</a>.
         </p>
         <p>
           Demuestra que si \(\alpha\) y \(\beta\) tienen la misma orientación entonces
         \[
-        \int_C \mathbb{A} \cdot d\alpha  = \int_C \mathbb{A}\cdot d\beta
+        \int_\alpha  \mathbb{A} \cdot d\alpha  = \int_\beta \mathbb{A}\cdot d\beta
         \]
         y que si tienen orientaciones distintas entonces
         \[
-        \int_C \mathbb{A} \cdot d\alpha  = -\int_C \mathbb{A}\cdot d\beta
+        \int_\alpha \mathbb{A} \cdot d\alpha  = -\int_\beta  \mathbb{A}\cdot d\beta
         \] 
     </p>
 
