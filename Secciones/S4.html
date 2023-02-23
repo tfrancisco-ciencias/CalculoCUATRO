@@ -953,6 +953,69 @@
       </div>
 
 
+      <div class="nota-box">
+        <h2> Nota </h2>
+        <h3> Longitud de una curva </h3>
+        <p>
+          Dada una curva continua  \(\alpha:[a,b]\to \mathbb{R}^n\) un problema 
+          es clacular su longitud. Una solución aproximada a este problema 
+          es dividir la curva en pequeños segmentos y aproximar la longitud de 
+          cada segmento por la longitud del segmento de recta que uno a sus extremos.
+        </p>
+        <p>
+          \[
+          \textrm{Longitud}(\alpha)\approx \sum_{i=1}^n \|\alpha(t_i)-\alpha(t_{i-1}) \|
+          \]
+          donde \(a=t_0 < t_1 < \cdots < t_{n-1}< t_n=b\) es una partición del 
+          intervalo \([a,b]\) y la aproximación es cada vez mejor si \(n\) tiende a infinito 
+          y los puntos de la partición se distribuyen uniformemente en \([a,b]\).
+        </p>
+        <p>
+          Si \(\alpha\) es suave por el  <a href="#Teo:ValorMedioCurvas">Teorema del valor medio para curvas  </a> podemos estimar cada sumando como 
+          \[
+          \|\alpha(t_i)-\alpha(t_{i-1}) \| \approx \| \alpha'(c_i)\| (t_{i}-t_{i-1})
+          \]
+          donde \(c_i\in (t_{i-1}, t_i)\). Por lo tanto 
+        </p>
+        <p>
+          \[
+          \textrm{Longitud}(\alpha)\approx \sum_{i=1}^n \|\alpha'(c_i) \|(t_{i-1}-t_i)
+          \]
+
+        </p>
+        <p>
+          Tomando en cuenta de que  \(\alpha'\) es continua y si tomamos la partición uniforme 
+          en \([a,b]\) sabemos (cálculo 2) que 
+          \[
+          \lim_{n\to \infty} \sum_{i=1}^n \|\alpha'(c_i) \|(t_{i-1}-t_i)=\int_a^b \|\alpha'(t)\|dt
+          \]
+        </p>
+        <p>
+          Por lo anterior se define la longitd de una curva suave \(\alpha:[a,b]\to \mathbb{R}^n\) como 
+          \[
+          L(\alpha)=\int_{a}^b \|\alpha'(t)\|dt. 
+          \]
+        </p>
+        <p> Ejemplos </p>
+        <ul>
+          <li>
+            El ejemplo más sencillo es un segmento de recta. Claramente 
+            el segmento de recta que une \(p\) a \(q\) tiene longitud \(\|p-q\|\). 
+            Ahora vamos a obtener el mismo resultado mediante una parametrización. Al parametrizar el 
+            segmento de recta  llegamos a 
+            \[
+            \alpha(t)=p+t(q-p), \quad 0\leq t \leq 1
+            \] 
+            Entonces \(\alpha'(t)=q-p\) y por lo tanto 
+            \[
+            L(\alpha)=\int_{0}^1 \|\alpha'(t)\|dt=\int_0^1 \|p-q\| dt = \|p-q\|.
+            \]
+          </li>
+        </ul>
+
+      </div>
+
+
   <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
@@ -1116,6 +1179,10 @@
                   </div>
 
                 </div>
+
+
+
+
 
       <!--<div class="ejercicio">
           <h2 class="number-title" id="Ejer:aditividadIntLArc"> Ejercicio </h2>
