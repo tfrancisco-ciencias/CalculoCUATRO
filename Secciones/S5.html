@@ -54,6 +54,7 @@
         h1.number-title{
           counter-reset: sectionCounter 4 cardCounter ;
         }
+        
       </style>
   
     <!-- Top Menu  -->
@@ -81,12 +82,29 @@
 
     <!-- Contenido empieza abajo-->
   <body>
-      <h1 class="number-title flexbox">  Integrales de línea   </h1>     
+      <h1 class="number-title flexbox"> La integral de línea  </h1>     
+ 
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+ <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
 
+<div class="definicion-box">
+  <h2 class="number-title"> Definición</h2>
 
+  <p>
+    Sean \(\alpha:[a,b]\to \mathbb{R}^n, \beta:[c,d]\to \mathbb{R}^n\) dos curvas suaves equivalentes y 
+    supongamos que \(u:[a,b]\to [c,d]\) implementa la equivalencia.  Se dice que tienen:
+    <ol>
+      <li>
+        la misma orientación si \(u'>0\) en \((a,b)\),
+      </li>
+      <li>
+        orientaciones opuestas si \(u' < 0 \) en \((a,b)\).
+      </li>
+    </ol>
+  </p>
 
+</div>
 
       
 
@@ -165,22 +183,70 @@
         \int_a^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt  
         \]
     </p>
+    
+    <p>
+      Ya que la integral de línea involucra un producto punto se usa la notación 
+      \[
+        \int_{\alpha}\mathbb{F}\cdot d\alpha : =\int_{a}^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt
+        \]
+    </p>
+    <p>
+      La definición anterior se puede extender para curvas suaves a trozos.
+    </p>
+    <p>
+      Si
+    \(\beta:[a,b] \to \mathbb{R}\) es una trayectoria parametrizada
+    suave a trozos y
+    \( \{a=t_0< \cdots < t_n=b \}\) es una partición de \([a,b]\)
+    tal que \(\beta\) restringida a \([t_{j-1}, t_{j}]\) es suave, definimos
+    \[
+    \int_\beta \mathbb{F}d\beta = \sum_{j=1}^n \int_{\beta_j} \mathbb{F}d\beta_j
+    \]
+    donde \(\beta_j\) es simplemente la restricción de \(\beta\)
+    al intervalo \([t_{j-1},t_j]\).
+    </p>
+    <p>
+      Usando la propiedad de la integral que dice
+      \[
+      \int_a^b f(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx
+      \]
+      donde \(f\) es una función integrable en \([a,b]\)
+      y \(c\in [a,b]\) es un punto cualquiera, se obtiene que
+      ésta definición no depende de la partición de \([a,b]\) que se tome.
+    </p>
+    </p>
+
+  </div>
+
+
+  <div class="nota-box">
+    <h2 class="number-title"> Notación </h2>
+    
     <p>
       Si escribimos las funciones coordenadas de \(\mathbb{F}=(F_1,\dots, F_n)\) y las 
       de \(\alpha(t)=(a_1(t),\dots, a_n(t))\) la 
       integral de línea se calcua como 
       \[
-      \sum_{i=1}^n \int_{a}^b F_i(\alpha(t))a_i'(t)dt 
+      \int_a^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt  = \sum_{i=1}^n \int_{a}^b F_i(\alpha(t))a_i'(t)dt 
       \]
+      
+    </p>
     <p>
-        Notación:
-        \[
-        \int_{\alpha}\mathbb{F}\cdot d\gamma 
-        \]
-        
+      También se usa la notación 
+      \[
+      \int_\alpha F_1dx_1+\cdots F_ndx_n
+      \]
+      pues cada sumando \(F_idx_i\) se entiende como \(F(a_i(t))a_i'(t)\), en la expresión de arriba. 
+    </p>
+    <p>
+      Así por ejemplo la integrales 
+      \[
+      \int_{\alpha} xdx-2ydy, \, \int_\alpha -2ydx+xdy 
+      \]
+      son las  integrales sobre \(\alpha\) de los campos  \(\mathbf{F}(x,y)=(x,-2y)\),
+      \(\mathbf{G}(x,y)=(-2y,x)\), respectivamente.
     </p>
   </div>
-
 
   <div class="lema-box">
     <h2 class="number-title" id="Lema:IndependenciaParam"> Lema </h2>
@@ -237,19 +303,41 @@
 
 </div>
 
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:integrelLineaDesCauchy"> Ejercicio </h2>
+    <p>Sea \(\mathbb{F}=(F_1,\dots, F_n)\) un campo vectorial constante y
+    sea \(\alpha:[a,b]\to \mathbb{R}^n\) una trayectoria
+    parametrizada suave a trozos.
+    <ol>
+      <li>Prueba que
+    \[
+    \int_\alpha \mathbb{F}d\alpha = F\cdot (\alpha(b)-\alpha(a))
+    \]
+    Nota: el lado derecho es el producto punto.
+    </li>
+    <li> Prueba que
+      \[
+      \int_\alpha \mathbb{F}d\alpha = \| F\|\| \alpha(b)-\alpha(a)\| \cos(\theta)
+      \]
+      donde \(\theta\) es el ángulo entre \(F\)
+      y \(\alpha(b)-\alpha(a)\).
+    </li>
+    </p>
+</div>
+
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
       <p>
-      Sea \(\mathbb{A}=A_1\mathbf{e}_1+A_2\mathbf{e}_2\) un campo  diferenciable definido
-      en todo \(\mathbb{R}^2\). Por \(C\) denotamos la
+       Por \(\alpha\) denotamos la
       circunferencia de radio \(r\) centrada en el origen,
       recorrida una vez en el sentido contrario a las
       menecillas del reloj (sentido positivo).
       Demuestra que
       \[
-      \int_C \mathbb{A} = r\left(\int_0^{2\pi}A_2((r\cos(t),r\sen(t)))\cos(t)-A(_1(r\cos(t),r\sen(t)))\sen(t)dt
+      \int_\alpha A_1dx+A_2dy = r\left(\int_0^{2\pi}A_2(\alpha(t))\cos(t)-A_1(\alpha)\sen(t)dt
       \right)\]
-      Concluye que, si \(A_1\) y \(A_2\) son funciones constantes, entonces \(\int_C \mathbb{A}=0\).
+      Concluye que, si \(A_1\) y \(A_2\) son funciones constantes, entonces \(\int_\alpha A_1dx+A_2dy=0\).
       </p>
   </div>
 
@@ -257,14 +345,12 @@
 
   <div class="ejercicio-box">
     <h2 class="number-title" id="Ejer:ejemploCerrada"> Ejercicio </h2>
-    <p>En \(\mathbb{R}^2\setminus \{0\}\) considera el campo  clase \(C^1\)
-    \[
-    \mathbb{F}= -\frac{y}{x^2+y^2}\mathbf{e}_1 + \frac{x}{x^2+y^2}\mathbf{e}_2
-    \]
+    <p>
+      
     Para \(n\) un entero considera la curva \(\alpha_n(t)=(r\cos(nt), r\sen(nt))\)
     con \(t\in [0,2\pi]\) y \(r>0\) es un número fijo. Prueba que
     \[
-    \int_{\alpha_n} \mathbb{F} = 2\pi n
+    \int_{\alpha_n} -\frac{y}{x^2+y^2} dx+ \frac{x}{x^2+y^2}dy  = 2\pi n
     \]
     En particular, esto prueba que si \(n\ne m\) entonces
     las curvas \(\alpha_n\) y \(\alpha_m \) NO son equivalente
@@ -285,55 +371,80 @@
 
 
 
-<div class="definicion-box">
-    <h2 class="number-title" id="Def:Ext_Int_Lin"> Definición  </h2>
-    <p>La definición de integral de línea se extiende de curvas suaves a
-    curvas suaves a trozos de la siguiente manera. Si
-    \(\beta:[a,b] \to \mathbb{R}\) es una trayectoria parametrizada
-    suave a trozos y
-    \( \{a=t_0< \cdots < t_n=b \}\) es una partición de \([a,b]\)
-    tal que \(\beta\) restringida a \([t_{j-1}, t_{j}]\) es suave, definimos
-    \[
-    \int_\beta \mathbb{F}= \sum_{j=1}^n \int_{\beta_j} \mathbb{F}
-    \]
-    donde \(\beta_j\) es simplemente la restricción de \(\beta\)
-    al intervalo \([t_{j-1},t_j]\).
-    </p>
-    <p>
-      Usando la propiedad de la integral que dice
-      \[
-      \int_a^b f(x)dx=\int_a^cf(x)dx+\int_c^bf(x)dx
-      \]
-      donde \(f\) es una función integrable en \([a,b]\)
-      y \(c\in [a,b]\) es un punto cualquiera, se obtiene que
-      ésta definición no depende de la partición de \([a,b]\) que se tome.
-    </p>
-  </div>
 
 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
 
-  <div class="ejercicio-box">
-    <h2 class="number-title" id="Ejer:integrelLineaDesCauchy"> Ejercicio </h2>
-      <p>Sea \(\mathbb{F}=\sum_{j=1}^n F_jdx_j\) un campo vectorial constante y
-      sea \(\alpha:[a,b]\to \mathbb{R}^n\) una trayectoria
-      parametrizada suave a trozos.
-      <ol>
-        <li>Prueba que
-      \[
-      \int_\alpha \mathbb{F}d\alpha = F\cdot (\alpha(b)-\alpha(a))
-      \]
-      Nota: el lado derecho es el producto punto.
-      </li>
-      <li> Prueba que
-        \[
-        \int_\alpha \mathbb{F}d\alpha = \| F\|\| \alpha(b)-\alpha(a)\| \cos(\theta)
-        \]
-        donde \(\theta\) es el ángulo entre \(F\)
-        y \(\alpha(b)-\alpha(a)\).
-      </li>
-      </p>
-      
+
+  Calcula \(\int_{\alpha}\mathbb{F}\cdot d\alpha\).
+  <ol>
+    <li> \(\mathbb{F}(x,y,z)=(0,x^2,yz)\), \(\alpha\)
+    el segmento de recta que va de \((0,0,0)\)  a \((1,1,1)\).
+   </li>
+   <li> \(\mathbb{F}(x,y)=\frac{1}{x^2+y^2+1}(x,\sqrt{y}) \),
+     \(\alpha\) el segmento de curva de la parábola
+      \(y=x^2\) que va de \((0,0)\) a \((1,1)\).
+    </li>
+    <li>
+      \(\mathbb{F}=\nabla f\), donde \(f(x,y,z)=xy+yx\)
+      y \(\alpha\) es la circunferencia centrada en el origen,
+      de radio 1, recorrida en el sentido positivo.
+    </li>
+    <li>
+      \(\mathbb{F}(x,y,z)=(x,y,xy)\), \(\alpha\)
+      el segmento de  hélice dado por \(\alpha(t)=(\cos(t),\sen(t), t)\)
+    \(0 \leq t \leq \pi\).
+    </li>
+    </ol>
 </div>
+
+
+
+
+
+      
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \(\mathbb{F}: U\to \mathbb{R}^n\) un campo vectorial continuo y 
+        \(\alpha:[a,b]\to U\) una curva suave a trozos. Entonces 
+        \[
+        \left|  
+        \int_{\alpha}\mathbb{F} \cdot d\alpha 
+        \right|
+        \leq \int_{\alpha}\|F\| |d\alpha|
+        \]
+      </p>
+
+    </div>
+
+    <div class="ejercicio-box">
+      <h2 class="number-title" > Ejercicio </h2>
+      <p>
+        Este ejercicio prueba que la integral de línea recupera la 
+        integral con respecto a longitud de arco.
+      </p>
+      <p>
+        Sea \(\alpha:[a,b]\to \mathbb{R}^n\) una curva suave cuyo vector tangente 
+        no se anula  y 
+       \(f:D\to \mathbb{R}\) una función escalar y supongamos que 
+       \(D\) contiene la traza de \(\alpha\).
+      </p>
+      <p>
+        Definimos el campo vectorial sobre la traza de \(\alpha\) como 
+        \(\mathbb{F}(\alpha(t))=f(\alpha(t))\frac{1}{\|\alpha'(t)\|}\alpha'(t)\).
+      </p>
+      <p>
+        Prueba que 
+        \[
+        \int_{\alpha}\mathbb{F}\cdot d\alpha = \int_{\alpha}f |d\alpha|
+        \]
+      </p>
+
+    </div>
+
+
 
 
 </body>
