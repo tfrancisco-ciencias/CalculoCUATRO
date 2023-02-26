@@ -125,21 +125,30 @@
     donde \(\alpha\) es la curva y \(\mathbb{F}\) el campo.
   </p>
   <p>
-
+    La definición anterior tiene la ventaja de que es compatible con la nocaicón de trabajo. Si una 
+    fuerza constante \(\mathbb{F}\) mueve un objeto una distancia \(d\) el trabajo es 
+    \(\mathbb{F} d\). Si el objeto se mueve a lo largo de una curva y la fuerza no es constante 
+    podemos dividir la trayectoria en pequeños trozos y en cada trozo el trabajo es 
+    \[
+    W_i\approx \mathbb{F}(\alpha(t_i^*))\cdot (\alpha(t_i)-\alpha(t_{i-1}))
+    \] 
+    donde \(t_i^*\in [t_{i-1},t_i]\) es un punto que aproxima la fuerza en dicho segmento. 
+  </p>
+  <p>
+    Usando el <a href="./S4.html#Teo:ValorMedioCurvas">Teorema del valor medio para curvas </a> podemos estimar 
+    \[
+    W_i\approx \mathbb{F}(\alpha(t_i^*))\cdot \alpha'(c_i)(t_i-t_{i-1})
+    \]
+    al sumar y tomar límite podemos definir el trabajo realizado por  \(\mathbb{F}\) al mover una partícula 
+    a lo largo de 
+    \(\alpha\) como 
+    \[
+    W=\lim_{n\to \infty} \sum_{i=1}^n \mathbb{F}(\alpha(t_i^*))\cdot \alpha'(c_i)(t_i-t_{i-1})=\int_a^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt
+    \]
+  </p>
   </p>
  </div>
 
-<div class="definicion-box">
-  <h2 class="number-title"> Definición </h2>
-  <p>
-    Si una particula se mueve siguiendo la trayectoria \(\alpha:[a,b]\to \mathbb{R}\), 
-    bajo la acción de un campo \(\mathbb{F}\), el trabajo realizado por el campo se define como 
-    \[
-    \int_a^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt
-    \]
-  </p>
-
-</div>
 
 <div class="ejercicio-box">
   <h2  class="number-title"> Ejercicio </h2>
@@ -187,6 +196,11 @@
       </li>
     </ol>
   </p>
+  <p>
+    Dada una curva suave \(\alpha:[a,b]\to \mathbb{R}^n\)  podemos darle dos orientaciones: 
+    positiva es cuando \(\alpha(a)\) es el punto inicial y \(\alpha(b)\) el punto final 
+    y negativa, cuando \(\alpha(b)\) es el punto inicial y \(\alpha(a)\) el punto final.
+  </p>
 
 </div>
 
@@ -229,8 +243,8 @@
   <div class="definicion-box">
     <h2 class="number-title" id="Def:Int_Lin"> Definición</h2>
     <p>
-        Sea \(U \subseteq \mathbb{R}^n\) un abierto y 
-         \(\mathbb{F}:U\to \mathbb{R}^n \) un campo vectorial, con funciones 
+        Sea \(U \subseteq \mathbb{R}^n\)  y 
+         \(\mathbb{F}:U\to \mathbb{R}^n \) un campo vectorial continuo, con funciones 
          coordenadas \(\mathbb{F}=(F_1,\dots, F_n)\).
     </p>
     <p>
