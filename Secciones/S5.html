@@ -139,30 +139,6 @@
 
 
 
-<div class="ejercicio-box">
-  <h2 class="number-title" id="Ejer:unionCurvas"> Ejercicio </h2>
-  Dadas dos trayectorias suaves \(\alpha:[a,b]\to \mathbb{R}^n,
-  \beta:[c,d]\to \mathbb{R}^n\) con la propiedad de que
-  \(\alpha(b)=\beta(c)\) (una termina donde la otra empieza) definimos:
-  \[
-  \alpha \vee \beta :[0,1] \to \mathbb{R}^n
-  \]
-  por
-  \[
-  (\alpha \vee \beta )(t)=\left\{
-  \begin{array}{cc}
-  \alpha((b-a)(2t)+a) & t\in [0,1/2] \\
-  \beta((d-c)(2t-1)+c) & t\in [1/2,1]
-  \end{array}
-  \right.
-  \]
-
-  Prueba que si \(\alpha\) es equivalente a \(\tilde{\alpha}\)
-  y \(\beta\) es equivalente a \(\tilde{\beta}\) entonces
-  \(\alpha \vee \beta\) es equivalente a
-  \(\tilde{\alpha} \vee \tilde{\beta}\).
-</div>
-
 
 
 
@@ -312,13 +288,13 @@
     <ol>
       <li>Prueba que
     \[
-    \int_\alpha \mathbb{F}d\alpha = F\cdot (\alpha(b)-\alpha(a))
+    \int_\alpha \mathbb{F}\cdot d\alpha = F\cdot (\alpha(b)-\alpha(a))
     \]
     Nota: el lado derecho es el producto punto.
     </li>
     <li> Prueba que
       \[
-      \int_\alpha \mathbb{F}d\alpha = \| F\|\| \alpha(b)-\alpha(a)\| \cos(\theta)
+      \int_\alpha \mathbb{F}\cdot d\alpha = \| F\|\| \alpha(b)-\alpha(a)\| \cos(\theta)
       \]
       donde \(\theta\) es el ángulo entre \(F\)
       y \(\alpha(b)-\alpha(a)\).
@@ -382,42 +358,152 @@
     <li> \(\mathbb{F}(x,y,z)=(0,x^2,yz)\), \(\alpha\)
     el segmento de recta que va de \((0,0,0)\)  a \((1,1,1)\).
    </li>
+   <p>
+
+   </p>
    <li> \(\mathbb{F}(x,y)=\frac{1}{x^2+y^2+1}(x,\sqrt{y}) \),
      \(\alpha\) el segmento de curva de la parábola
       \(y=x^2\) que va de \((0,0)\) a \((1,1)\).
     </li>
+    <p></p>
     <li>
       \(\mathbb{F}=\nabla f\), donde \(f(x,y,z)=xy+yx\)
       y \(\alpha\) es la circunferencia centrada en el origen,
       de radio 1, recorrida en el sentido positivo.
     </li>
+    <p>
+
+    </p>
     <li>
       \(\mathbb{F}(x,y,z)=(x,y,xy)\), \(\alpha\)
       el segmento de  hélice dado por \(\alpha(t)=(\cos(t),\sen(t), t)\)
     \(0 \leq t \leq \pi\).
     </li>
+    <p></p>
+    <li>
+      \(\mathbb{F}(x,y)=(x,y)\), donde \(\alpha(t)=(\cos^3(t),\sen^3(t))\), \(0\leq t \leq 2\pi\).
+    </li>
+    <p>
+
+    </p>
+    <li>
+      \(\mathbb{F}(x,y,z)=(y,x,z)\), donde \(\alpha\) es la intersección de 
+      las superficies \(x^2+y^2+z^2=2(x+y), x+y=2\), en la dirección contraria a las 
+      manecillas del reloj, cuando \(\alpha\) es vista desde el origen. 
+    </li>
     </ol>
 </div>
 
 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(\alpha\) la curva intersección de las superficies 
+    \(x^2+y^2+z^2=2(x+y)\) y \(x+y=a\), con \(0\leq a \leq 2\), recorrida 
+    en el sentido contrario a las manecillas del reloj, vista desde el origen. 
+  </p>
+  
+  <p>
+    Encuentra el \(a\in [0,2]\) para la cual 
+    \[
+    \int_\alpha ydx+zdy+xdz
+    \]
+    es máxima.
+  </p>
+
+</div>
 
 
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Calcula las integrales de línea.
+  </p>
+  <ol>
+    <li>
+      \(\int_\alpha  (x+2y)dx+(2x-5y)dy\), donde \(\alpha\) es la circunferencia 
+      \(x^2+y^2=r^2\), recorrida una vez en el sentido positivo.
+    </li>
+    <p></p>
+    <li>
+      \(\int_\alpha \frac{dx+dy}{|x|+|y|}\), donde \(\alpha\) es la frontera del 
+      cuadrado con vértices \((a,a), (-a,a), (-a,-a), (a,-a)\), recorrido en ese orden.
+    </li>
+    <p></p>
+    <li>
+      \(\int_\alpha \frac{y^2}{\sqrt{x^2-1}}dx-xdy\) donde \(\alpha\) que va de \((1,0)\) a \((3,\sqrt{8})\) siguiendo la curva 
+      \(x^2-y^2=1\).
+    </li>
+    <p></p>
+    <li>
+      \(\int_\alpha y^2dx+(x+z)dy+(y+x)dz\), donde \(\alpha\) es la curva 
+      intersección de las superficies \(x^2+y^2=4\) y \(x+y+z=1\), recorrido en el sentido
+      positivo visto desde el origen.
+    </li>
+    <p></p>
+    <li>  
+      \(\int_\alpha (2y+1)dx+zdy+\ln(x+1)dz\), donde \(\alpha\) es la curva intersección de las 
+      superficies \(y=z^2,x=3z\) desde \(z=1\) a \(z=2\).
+    </li>
+    <p></p>
+    <li>
+      \(\int_\alpha \frac{x}{\sqrt{x^2+y^2}}dx + \frac{y}{\sqrt{x^2+y^2}}dy\), 
+      donde \(\alpha\) va desde \((-1,2)\) a \((2,5)\) a lo largo de la parábola 
+      \(y=1+x^2\).
+    </li>
+  </ol>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio</h2>
+  <p>
+    Las siguientes gráficas muestran un campo vectorial y una curva orientada. Trata de evaluar si 
+    la integral de línea sobre la curva es positiva, negativa o cero.
+  </p>
+  <ul>
+    <li>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec5-img1.png" alt="EjemploIL" width="400" height="auto">
+      </div>
+    </li>
+    <p></p>
+    <li>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec5-img2.png" alt="EjemploIL" width="400" height="auto">
+      </div>
+    </li>
+    <p></p>
+    <li>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec5-img3.png" alt="EjemploIL" width="400" height="auto">
+      </div>
+    </li>
+    <li>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec5-img4.png" alt="EjemploIL" width="400" height="auto">
+      </div>
+    </li>
+    <p></p>
+    <p></p>
+  </ul>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(\alpha:[a,b]\to \mathbb{R}^n\) una curva suave. Prueba que 
+    \[
+    \int_\alpha \alpha \cdot d\alpha =\frac{1}{2}\left( \|\alpha(b)\|^2-\|\alpha(a)\||^2\right)
+    \]
+  </p>
+
+</div>
 
       
-    <div class="ejercicio-box">
-      <h2 class="number-title"> Ejercicio </h2>
-      <p>
-        Sea \(\mathbb{F}: U\to \mathbb{R}^n\) un campo vectorial continuo y 
-        \(\alpha:[a,b]\to U\) una curva suave a trozos. Entonces 
-        \[
-        \left|  
-        \int_{\alpha}\mathbb{F} \cdot d\alpha 
-        \right|
-        \leq \int_{\alpha}\|F\| |d\alpha|
-        \]
-      </p>
-
-    </div>
 
     <div class="ejercicio-box">
       <h2 class="number-title" > Ejercicio </h2>
@@ -445,6 +531,174 @@
     </div>
 
 
+
+    <div class="ejercicio-box">
+      <h2 class="number-title"> Ejercicio </h2>
+      <p>
+        Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial y 
+        \(\alpha:[a,b]\to \mathbb{R}^n\) una curva suave con traza contenida en \(U\).
+      </p>
+      <ol>
+        <li>
+          Si \(\mathbb{F}\) es perpendicular a \(\alpha'\) prueba que 
+          \[
+          \int_{\alpha}\mathbb{F}\cdot d\alpha =0
+          \]
+        </li>
+        <li>
+          Si \(\mathbb{F}\) es paralelo a \(\alpha'\) prueba que 
+          \[
+          \int_{\alpha}\mathbb{F}\cdot d\alpha =\int_\alpha \|\mathbb{F}\| |d\alpha|
+          \]
+        </li>
+
+      </ol>
+
+    </div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    La trayectoria de una partícula de masa \(m\) en el tiempo está descrita por una trayectoria \(\alpha(t)\),  
+    bajo la acción de un campo de fuerza \(\mathbb{F}\). Si la velocidad de la 
+    partícula es \(v(t)\), su velocidad cinética está dada por 
+    \(\frac{1}{2}mv^2(t)\). 
+  </p>
+  <p>
+    Prueba que el cambio en la energía cinética en un intervalo dado 
+     es igual  al trabajo realizado por la fuerza.
+  </p>
+  <button class="respButton hvr-grow"> Respuesta </button>
+            <div class="resp-box">
+  <p>
+    Si la partícula se mueve del tiempo \(t=t_1\) a \(t=t_2\) el trabajo realizado es 
+    \[
+    \int_{t_1}^{t_2} \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt 
+    \] 
+    Debemos de probar 
+    \[
+    \int_{t_1}^{t_2} \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt =\frac{1}{2}mv^2(t_2)-\frac{1}{2}mv^2(t_1)
+    \] 
+    donde \(v(t)=\|\alpha'(t)\|\).
+  </p>
+  <p>
+    Por la segunda ley del movimiento de Newton 
+    
+    \begin{eqnarray*} 
+    F(\alpha(t))&=&m\alpha''(t) \\
+    \Rightarrow \mathbb{F}(\alpha(t))\cdot \alpha'(t)&=&m\alpha''(t)\cdot \alpha'(t) 
+    \end{eqnarray*}
+    pero se cumple la identidad
+    \[
+    \frac{d}{dt}(\alpha'(t)\cdot \alpha'(t))=2 \alpha'(t)\cdot \alpha''(t) 
+    \]
+    por lo que podemos escribir 
+    \begin{eqnarray*} 
+    \mathbb{F}(\alpha(t))\cdot \alpha'(t)&=&\frac{1}{2}m \frac{d}{dt}(\alpha'(t)\cdot \alpha'(t)) \\
+    &=&
+    \frac{1}{2}\frac{d}{dt}\|\alpha'(t)\|^2\\
+    &=&\frac{1}{2}m \frac{d}{dt}v^2(t)
+    \end{eqnarray*}
+    por lo que 
+    \begin{eqnarray*} 
+    \int_{t_1}^{t_2} \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt &=&\int_{t_1}^{t_2} \frac{1}{2}m\frac{d}{dt}v^2(t) dt \\
+    &=&
+    \frac{1}{2}mv^2(t_2)-\frac{1}{2}mv^2(t_1)
+    \end{eqnarray*}
+  </p>
+  </div>
+
+</div>
+
+<div class="definicion-box">
+  <h2 class="number-title"> Definición  </h2>
+  <p>
+    Dadas dos trayectorias suaves a trozos \(\alpha:[a,b]\to \mathbb{R}^n,
+  \beta:[c,d]\to \mathbb{R}^n\) con la propiedad de que
+  \(\alpha(b)=\beta(c)\) (una termina donde la otra empieza) definimos:
+  \[
+  \alpha \vee \beta :[0,1] \to \mathbb{R}^n
+  \]
+  por
+  \[
+  (\alpha \vee \beta )(t)=\left\{
+  \begin{array}{cc}
+  \alpha((b-a)(2t)+a) & t\in [0,1/2] \\
+  \beta((d-c)(2t-1)+c) & t\in [1/2,1]
+  \end{array}
+  \right.
+  \]
+  </p>
+  <p>
+    Nota que \(\alpha \vee \beta\) también es una curva suave a trozos.
+  </p>
+
+</div>
+
+<div class="ejercicio-box">
+  <h2 class="number-title" id="Ejer:unionCurvas"> Ejercicio </h2>
+  
+
+  Prueba que si \(\alpha\) es equivalente a \(\tilde{\alpha}\)
+  y \(\beta\) es equivalente a \(\tilde{\beta}\) entonces
+  \(\alpha \vee \beta\) es equivalente a
+  \(\tilde{\alpha} \vee \tilde{\beta}\).
+</div>
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sean \(\mathbb{F},\mathbb{G}:U\to \mathbb{R}^n\) dos campos vectoriales continuos 
+    y \(\alpha:[a,b]\to \mathbb{R}^n\) una curva suave con traza en \(U\). Entonces 
+    \[
+    \int_\alpha (c\mathbb{F}+\mathbb{G})\cdot d\alpha= c\int_\alpha \mathbb{F}\cdot d\alpha
+    +\int_\alpha \mathbb{G}\cdot d\alpha 
+    \]
+  </p>
+
+</div>
+
+
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema  </h2>
+  <p>
+    Sea \(\mathbb{F}: U\to \mathbb{R}^n\) un campo vectorial continuo y 
+    \(\alpha:[a,b]\to U\) una curva suave a trozos. Entonces 
+    \[
+    \left|  
+    \int_{\alpha}\mathbb{F} \cdot d\alpha 
+    \right|
+    \leq \int_{\alpha}\|F\| |d\alpha|
+    \]
+  </p>
+  <p>
+    En particular, si existe una \(M>0\) tal que \(\| \mathbb{F}(x,y,z)\| \leq M\)
+    para todo \((x,y,z)\) en la traza de \(\alpha\)
+    entonces 
+    \[
+    \left| \int_{\alpha}\mathbb{F} \cdot d\alpha 
+    \right|
+    \leq M \textrm{Longitud}(\alpha)
+    \]
+  </p>
+
+</div>
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+     Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo continuo y  \(\alpha, \beta\) dos curvas orientadas
+     suaves a trozos con trazas contenidas en \(U\). Si el punto final de \(\alpha\) conincide con el 
+     punto final de \(\beta\) prueba que 
+     \[
+     \int_{\alpha \vee \beta }\mathbb{F} \cdot d(\alpha \vee \beta)=\int_\alpha \mathbb{F}\cdot d\alpha 
+     +\int_\beta \mathbb{F}\cdot d\beta 
+     
+     \]
+  </p>
+
+</div>
 
 
 </body>
