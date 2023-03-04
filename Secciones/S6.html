@@ -1,82 +1,93 @@
-<! DOCTYPE html>
-  <html lang="es">
+<!DOCTYPE html PUBLIC >
 
-
-
-  <head>
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Following part is mathjax, for latex-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
     <!-- This part is for jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
     <!-- This part is to load main.js -->
     <script type="text/javascript" src="../main.js"></script>
 
-    <!-- Next part is for new coomands -->
 
+    <!-- Next part is for new coomands -->
     <script>
       window.MathJax = {
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
 
-
-
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
 
     <!-- CSS -->
 
     <link rel="stylesheet" , href="../styles.css" />
 
-
-
-    <!-- This part restart counter of cards to start at N+1 -->
+    <!-- This part restart counter of cards to start at n+1 -->
     <style>
-      body.card {
-        counter-reset: sectionCounter 5 cardCounter;
-      }
+        body.number-title{
+          counter-reset: sectionCounter 5 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 5 cardCounter ;
+        }
+        
+      </style>
+  
+    <!-- Top Menu  -->
 
-      h1.card {
-        counter-reset: sectionCounter 5 cardCounter;
-      }
-    </style>
 
-  </head>
+        <header class="main-header">
+          <h1> Cálculo CUATRO </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
 
-
-  <!-- Top Menu -->
-
-  <header class="main-header">
-    <nav class="top-nav">
-      <ul>
-        <li> <a href="../Home.html"> Inicio </a> </li>
-        <li> <a href="../Secciones.html"> Secciones </a> </li>
-      </ul>
-    </nav>
-
-    <h1 class="calculo-title"> Cálculo CUATRO</h1>
-
-  </header>
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 6 </title>
+    </head>
 
   <!-- Contenido empieza abajo -->
 
+  <body>
+    <h1 class="number-title flexbox"> Teoremas fundamentales de la integral de línea  </h1>     
 
-  <body class="fondo card ">
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-    <div class="flexbox">
-
-
-
-
-
-      <h1 class="card "> Teoremas fundamentales de las integrales de línea </h1>
 
 
 
@@ -196,7 +207,7 @@
         <h2 class="number-title"> Nota  </h2>
         <p>
           Existe una definición más general que la dada en
-          <a href="#Def:conjuntoConexo"> Definición </a> de conjuntos conexos.
+          <a href="#Def:conjuntoConexo"> Definición 6.2</a> de conjuntos conexos.
           (ver por ejemplo
           <a href="https://es.wikipedia.org/wiki/Conjunto_conexo"> conexidad
           en espacios topológicos</a>). Afortunadamente, para conjuntos
@@ -205,7 +216,7 @@
           conexos </b>.
         </p>
         <p>
-          Los conjuntos abiertos conexos son los que van a reemplazar a los
+          Los conjuntos abiertos y conexos son los que van a reemplazar a los
           intervalos de la forma \((a,b)\).
         </p>
         <p>
@@ -227,10 +238,17 @@
             <ol>
               <!--<li> \(S=\{(x,y): x^2+y^2< 4, (x-2)^2+y^2< 1 \}\) .</li>-->
               <li> \(S=\{ (x,y): x^2+y^2> 1, |y|< 1/2  \} \). </li>
+              <p></p>
               <li> \(S=\{(x,y): x^2+y^2> 2 , x^2+(y-5)^2> 1\}\).  </li>
+              <p></p>
               <li>  \(S=\{(x,y): x+2y >1, -x+6y< 3  \}\) .</li>
+              <p></p>
               <li> \(S=\{(x,y): x^2-y^2>1, y>0 \} \). </li>
-              <li> \(S=\{(x,y): x^2+y^2< 1 \} \cup \{(x,y): (x-2)^2+y^2< 1 \}\).
+              <p></p>
+              <li> \(S=\{(x,y): x^2+y^2< 1 \} \cup \{(x,y): (x-2)^2+y^2< 1 \}\).</li>
+              <p></p>
+              <li>
+                \(S=\{(x,y): 0< x, 0 < y < 1/x  \}\)
               </li>
             </ol>
           </p>
@@ -258,29 +276,44 @@
             <h2 class="number-title"> Ejercicio </h2>
           <p>
           Da ejemplos de dos conjuntos abierto conexos, no vacíos,
-          tales que su intersección sea: (1) conexa; (2) disconexa.
+          tales que su intersección sea:
+          <ol>
+            <li>
+              conexa;
+            </li>
+            <li>
+              disconexa;
+            </li>
+          </ol> 
           </p>
         </div>
 
-        <div class="ejercicio-box" id="Ejer:dfCeroConstante">
+
+        <div class="lema-box" id="Ejer:dfCeroConstante">
           <h2 class="number-title"> Ejercicio </h2>
-          <p>
-          Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto conexo
-          no vacío y  \(f:U\to \mathbb{R}\) una función diferenciable
-          tal que \( df=0\) (<a href="S2.html#Def:derivadaExterior"
-          target="_blank">derivada exterior</a>). Prueba que \(f\) es constante
-          en \(U\).
-          </p>
-          <!--<p>
-            Sugerencia: usa el <a href="S2.html#Ejer:DerivadaCeroConstanteBolas">
-              Ejercicio 2.9</a>
-            para probar que, para cualquier \(P\in U\) existe
-            una bola \(B_{r_P}(P)\subseteq U\) donde \(f\) es constante
-            en \(B_{r_P}(P)\).
-            Después usa la conexidad de \(U\) para probar que
-            es la misma constante para cualesquiera  bolas.
-          </p>-->
-          <button class="respButton hvr-grow"> Respuesta </button>
+          <ol>
+            <li>
+              <p>
+                Sea \(B_r(p)\) una bola abierta centrada en \(p\) y 
+                \(f:B_r(p)\to \mathbb{R}\) una función diferenciable que 
+                satisface \(\nabla f=0\) en \(p\). Prueba que \(f\) es constante en \(B_r(p)\).
+              </p>
+    
+            </li>
+            <p></p>
+            <li>
+              <p>
+                Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto conexo
+                no vacío y  \(f:U\to \mathbb{R}\) una función diferenciable
+                tal que \( \nabla f=0\). Prueba que \(f\) es constante
+                en \(U\).
+                </p>
+                
+            </li>
+          </ol>
+          
+          <button class="respButton hvr-grow"> Respuesta inciso 2 </button>
+          
                 <div class="resp-box">
                   <div class="video flexbox">
                     <a href="https://youtu.be/qimO6k_wa3k" target="_blank"> Video </a>
@@ -295,14 +328,17 @@
                   <p>Un campo vectorial \(\mathbb{F}\) se llama campo conservativo
                   o campo gradiente si existe una función escalar
                   diferenciable \(f\) tal que
-                  \(\mathbb{F}=\nabla f\). Por ejemplo, si
+                  \(\mathbb{F}=\nabla f\). 
+                  </p>
+                  <p>
+                    Por ejemplo, si
                   \(\mathbb{F}(x,y,z)=(f_1(x,y,z),f_2(x,y,z),f_3(x,y,z))\)
                   que \(f\) satisfaga \(\nabla f=\mathbb{F}\) quiere decir:
                   \[
                   \partial_x f = f_1, \quad \partial_y f = f_2, \quad \partial_z f= f_3.
                   \]
                   </p>
-                  <p>
+                  <!--<p>
                   En el lenguaje de 1-formas, si
                   \(\omega\) es la 1-forma asociada al campo \(\mathbb{F}\),
                   decir que \(\mathbb{F}\) sea campo conservativo es equivalente
@@ -311,12 +347,11 @@
                   \[
                   (\partial_x f)dx+ (\partial_y f )dy+(\partial_z f)dz.
                   \]
-                  </p>
+                  </p>--> 
                   <p>
                     A una función escalar  \(f\) que cumple
-                    \(\nabla f=\mathbb{F}\) ó \(df=\omega\) se le llama una
-                    función potencial de \(\mathbb{F}\)
-                  ó  de \(\omega\), respectivamente.
+                    \(\nabla f=\mathbb{F}\)  se le llama una
+                    función potencial de \(\mathbb{F}\).
                   </p>
                   <p>
 
@@ -334,8 +369,8 @@
             así que \(\mathbb{F}\) y su antiderivada son de "distintas especies".
           </p>
           <p>
-            Los ejercicios que siguen se enfocan en funciones potenciales,
-            campos conservativos y 1-formas exáctas.
+            Los ejercicios que siguen se enfocan en funciones potenciales y 
+            campos conservativos. 
           </p>
         </div>
 
@@ -343,20 +378,17 @@
           <h2 class="number-title" id="Ejer:necesidad1FormaExacta3D"> Ejercicio </h2>
           <p>
             Por \(U\) denotamos un abierto no vacío de \(\mathbb{R}^3\). Supongamos
-            que \(\omega=Adx+Bdy+Cdz\) es una 1-forma diferenciable  clase \(C^1\) en \(U\).
+            que \(\mathbb{F}=(A,B,C)\) es un campo diferenciable  clase \(C^1\) en \(U\).
           </p>
           <p>
             Prueba que si existe \(f:U\to \mathbb{R}\) diferenciable en \(U\) tal que
-            \(df=\omega\) entonces
+            \(\nabla f=\mathbb{F}\) entonces
             \[
             \partial_y A= \partial_x B, \quad \partial_z A =\partial_x C,\quad
             \partial_z B= \partial_y C \quad \textrm{en \(U\)}
             \]
           </p>
-          <p>
-            Sugerencia: este ejercicio es muy parecido al
-            <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>.
-          </p>
+          
 
         </div>
 
