@@ -883,7 +883,7 @@
 <div class="definicion-box">
   <h2 class="number-title"> Definición  </h2>
   <p>
-    Dadas dos trayectorias suaves a trozos \(\alpha:[a,b]\to \mathbb{R}^n,
+    Dadas dos trayectorias orientadas positivamente suaves a trozos \(\alpha:[a,b]\to \mathbb{R}^n,
   \beta:[c,d]\to \mathbb{R}^n\) con la propiedad de que
   \(\alpha(b)=\beta(c)\) (una termina donde la otra empieza) definimos:
   \[
@@ -900,19 +900,92 @@
   \]
   </p>
   <p>
-    Nota que \(\alpha \vee \beta\) también es una curva suave a trozos.
+    Nota: \(\alpha \vee \beta\) también es una curva suave a trozos.
+  </p>
+  
+
+</div>
+
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>
+  <h3> Orientación de \(\alpha \vee \beta \)</h3>
+  <p>
+    En la definición anterior ¿dónde se usó que las curvas están orientadas positivamente?
+    Se usó cuando decimos que "una comienza donde la 
+    otra termina". Es decir dadas \(\alpha:[a,b]\to \mathbb{R}^n\) y
+    \(\beta:[c,d]\to \mathbb{R}^n\), orientadas 
+    positivamente, \(\alpha(a)\) es punto inicial, \(\alpha(b)\) final y 
+    \(\beta(c)\) es inicial, \(\beta(d)\) final. Lo que 
+    requerimos es que el punto final de una sea el punto inicial de la otra.
+  </p>
+
+  <p>
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec5-img8.png" alt="unionCruvas" width="300" height="auto">
+      </div>
+  </p>
+
+  <p>
+    Una vez observado esto podemos dar la orientación positiva a 
+    \(\alpha \vee \beta\), es decir \((\alpha \vee \beta)(0) \) es el punto inicial y
+    \((\alpha \vee \beta)(1)\) el punto final. Nota que ésta orientación 
+    \(\alpha\) y \((\alpha \vee \beta)\) empiezan igual, 
+    \(\beta\) y \((\alpha \vee \beta )\) terminan igual. Lo anterior 
+    se puede resumir diciendo que la orientación de \(\alpha \vee \beta\)
+    es compatible con ls orientaciones originales de \(\alpha\) y \(\beta\).
+  </p>
+
+
+  <p>
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec5-img9.png" alt="unionCruvas2" width="400" height="auto">
+      </div>
+  </p>
+  
+  <p>
+    Si las curvas están orientadas negativamente se puede definir 
+    \(\alpha \vee \beta \) de igual manera simplemente revertiendo las orientaciones 
+    de cada una y al final dar la orientación negativa a \(\alpha \vee \beta\). 
+    Lo más importante es que la orientacíon de \(\alpha \vee \beta\) sigue 
+    siendo compatible con la orientación original de \(\alpha\) y \(\beta\).
+  </p>
+  <p>
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec5-img10.png" alt="unionCruvas" width="300" height="auto">
+      </div>
+  </p>
+  <p>
+    Finalmente, si las curvas no tienen la misma orientación se puede jugar
+    cambiando la orientación de una para poder definir \(\alpha \vee \beta\)
+    aunque la orientación que se de a \(\alpha \vee \beta\) no será compatible 
+    con las dos orientaciones de \(\alpha\) y \(\beta\), sólo con una.  
+  </p>
+  <p>
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec5-img11.png" alt="unionCruvas" width="300" height="auto">
+      </div>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec5-img12.png" alt="unionCruvas" width="300" height="auto">
+        </div>
   </p>
 
 </div>
 
 <div class="ejercicio-box">
   <h2 class="number-title" id="Ejer:unionCurvas"> Ejercicio </h2>
-  
-
-  Prueba que si \(\alpha\) es equivalente a \(\tilde{\alpha}\)
-  y \(\beta\) es equivalente a \(\tilde{\beta}\) entonces
+  <p>
+    Sean \(\alpha\) y \(\beta\) curvas orientadas positivamente 
+    tal que \(\alpha\) termina donde \(\beta\) comienza.
+  </p>
+  <p>
+    Prueba que si \(\alpha\) es equivalente a \(\tilde{\alpha}\)
+  y \(\beta\) es equivalente a \(\tilde{\beta}\) (con las equivalencias
+  preservando la orientación) entonces
   \(\alpha \vee \beta\) es equivalente a
   \(\tilde{\alpha} \vee \tilde{\beta}\).
+  </p>
+
+  
 </div>
 
 <div class="teorema-box">
@@ -925,7 +998,19 @@
     +\int_\alpha \mathbb{G}\cdot d\alpha 
     \]
   </p>
-
+  <button class="respButton hvr-grow"> Demostración </button>
+  <div class="resp-box">
+  <p>
+    Directamente por la definición de integral de línea 
+    \begin{eqnarray*} 
+    \int_\alpha (c\mathbb{F}+\mathbb{G})\cdot d\alpha &=& \int_a^b [(c \mathbb{F}+\mathbb{G})(\alpha(t))]\cdot \alpha'(t)dt \\
+    &=& \int_a^b [c \mathbb{F}(\alpha(t))+\mathbb{G}(\alpha(t))]\cdot \alpha'(t)dt \\
+    &=& \int_a^b \left( c \mathbb{F}(\alpha(t))\cdot \alpha'(t) +\mathbb{G}(\alpha(t))\cdot \alpha'(t)\right)dt \\
+    &=& \int_a^b  c \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt +\int_a^b \mathbb{G}(\alpha(t))\cdot \alpha'(t) dt \\
+    &=&\int_\alpha c \mathbb{F}\cdot d\alpha + \int_\alpha \mathbb{G}\cdot d\alpha
+    \end{eqnarray*}
+  </p>
+  </div>
 </div>
 
 
@@ -943,23 +1028,63 @@
     \]
   </p>
   <p>
-    En particular, si existe una \(M>0\) tal que \(\| \mathbb{F}(x,y,z)\| \leq M\)
-    para todo \((x,y,z)\) en la traza de \(\alpha\)
+    En particular, si existe una \(M>0\) tal que \(\| \mathbb{F}(\alpha(t))\| \leq M\)
+    para todo \(t\in [a,b]\)
     entonces 
     \[
     \left| \int_{\alpha}\mathbb{F} \cdot d\alpha 
     \right|
-    \leq M \textrm{Longitud}(\alpha)
+    \leq M \, \textrm{Longitud}(\alpha)
     \]
   </p>
+  <button class="respButton hvr-grow"> Demostración</button>
+      <div class="resp-box">
 
+  <p>
+    Directamente de la definición de la integral de línea 
+    \begin{eqnarray*} 
+    \left| 
+    \int_{\alpha}\mathbb{F} \cdot d\alpha 
+    \right|&=&
+    \left| 
+    \int_a^b \mathbb{F}(\alpha(t))\cdot \alpha'(t)dt 
+    \right|\\
+    &\leq & \int_{a}^b |\mathbb{F}(\alpha(t))\cdot \alpha'(t)|dt 
+    \end{eqnarray*}
+    done en la última desigualdad usamos la monotonía de la integral 
+    de Riemann-1D.
+  </p>
+  <p>
+    Por la desigualdad de Cauchy-Schwartz, 
+    \(|\mathbb{F}(\alpha(t))\cdot \alpha'(t)| \leq \|\mathbb{F}(\alpha(t))\|\|\alpha'(t)\|\),
+    para toda \(t\in [a,b]\). Integrando la desigualdad anterior y por lo antes calculado llegamos a 
+    \begin{eqnarray*} 
+    \left| 
+    \int_{\alpha}\mathbb{F} \cdot d\alpha 
+    \right|&\leq &
+    \int_a^b \| \mathbb{F}(\alpha(t))\| \|\alpha'(t)\|dt \\
+    &=& \int_{\alpha}\| \mathbb{F}\| |d\alpha|
+    \end{eqnarray*}
+    donde la última igualdad es simplemente la definición de la integral 
+    por longitud de arco.
+  </p>
+  <p>
+    Finalmente si \(\|\mathbb{F}(\alpha(t))\|\leq M\) para todo \(t\in [a,b]\) se sigue 
+    de la propidad de monotonía de la integral de Riemann-1D que 
+    \begin{eqnarray*} 
+    \int_a^b \| \mathbb{F}(\alpha(t))\| \|\alpha'(t)\|dt & \leq &  \int_a^b M \|\alpha'(t)\|dt\\
+    &=& M\int_a^b \|\alpha'(t)\|dt  \\
+    &=& M \, \textrm{Longitd}(\alpha)
+    \end{eqnarray*}
+  </p>
+  </div>
 </div>
 
 <div class="teorema-box">
   <h2 class="number-title"> Teorema </h2>
   <p>
      Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo continuo y  \(\alpha, \beta\) dos curvas orientadas
-     suaves a trozos con trazas contenidas en \(U\). Si el punto final de \(\alpha\) conincide con el 
+     suaves a trozos con trazas contenidas en \(U\). Si el punto final de \(\alpha\) coincide con el 
      punto final de \(\beta\) prueba que 
      \[
      \int_{\alpha \vee \beta }\mathbb{F} \cdot d(\alpha \vee \beta)=\int_\alpha \mathbb{F}\cdot d\alpha 
