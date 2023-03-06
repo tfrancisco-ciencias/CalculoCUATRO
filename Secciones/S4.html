@@ -967,14 +967,95 @@
 
 
       <div class="nota-box">
-        <h2> Nota </h2>
+        <h2 class="number-title"> Nota </h2>
         <h3> Longitud de una curva </h3>
         <p>
           Dada una curva continua  \(\alpha:[a,b]\to \mathbb{R}^n\) un problema 
-          es clacular su longitud. Una solución aproximada a este problema 
+          es calcular su longitud. Una solución aproximada a este problema 
           es dividir la curva en pequeños segmentos y aproximar la longitud de 
-          cada segmento por la longitud del segmento de recta que uno a sus extremos.
+          cada segmento por la longitud del segmento de recta que uno a sus extremos. Veamos 
+          primero un problema concreto.
         </p>
+        <h3> Ejemplo </h3>
+        <p>
+          Consideamos la curva que es el segmento de la parábola
+          \(y=x^2\) de \((0,0)\) a \((1,1)\). Parametrizamos
+          esta curva por \(\alpha(t)=(t,t^2)\) con \(t\in [0,1]\). El
+          problmea que queremos resolver es encontrar su longitd. La idea
+          es la gran idea de Arquímides, descomponer la curva en pedazos
+          más sencillos. Si partimos la curva en muchos pedazos iguales,
+          a la larga cada pedazo es casí una línea recta.
+        </p>
+  
+        <p>
+          Partir la curva es, formalmente, dar una partición
+          \(\{0=t_0< t_1< \dots < t_n=1\}\) de \([0,1]\) y considerar
+          los segmentos de la curva que van de \(\alpha(t_{i-1})\)
+          a \(\alpha(t_i)\). Podemos aproximar la longitud de este
+          segmento por \(\|\alpha(t_i)-\alpha(t_{i-1}) \|\). Por lo tanto
+          la longitud de toda la curva se puede aproximar como
+          \[
+          \sum_{i=1}^n \|\alpha(t_i)-\alpha(t_{i-1}) \|
+          \]
+          Ahora vamos a hacer la cuenta para simplificar los sumandos:
+          \begin{eqnarray*}
+          \|\alpha(t_i)-\alpha(t_{i-1}) \|
+          &=&
+          \sqrt{(t_i-t_{i-1})^2+(t_i^2-t_{i-1}^2)^2} \\
+          &=& \sqrt{(t_i-t_{i-1})^2+(t_i-t_{i-1})^2(t_i+t_{i+1})^2  }\\
+          &=& (t_i-t_{i-1})\sqrt{1+(t_i+t_{i+1})^2}
+          \end{eqnarray*}
+          Entonce la aproximación es
+          \[
+          \sum_{i=1}^n (t_i-t_{i-1})\sqrt{1+(t_i+t_{i+1})^2},
+          \]
+          la cual pede no decirnos mucho pero si le preguntamos a Riemann
+          nos va a decir que es una aproximación de una integral. En efecto
+          si escribimos
+          \begin{eqnarray*}
+          \sqrt{1+(t_i+t_{i+1}^2)}
+          &=&
+          \sqrt{1+\left(\frac{2(t_i+t_{i-1})}{2}\right)^2}\\
+          &=&
+          \sqrt{1+4(t_i^*)^2}
+          \end{eqnarray*}
+          donde \(t_i^*=(t_i+t_{i-1}/2)\) es le punto medio del intervalo
+          \([t_{i-1},t_i]\), la aproximación de la longitd de la curva es
+          \begin{equation}\label{Eqn:SumaRiemann}
+          \sum_{i=1}^n (t_i-t_{i-1})\sqrt{1+4(t_i^*)^2}
+          \end{equation}
+          la cual es una suman de Riemann de la función \(f(t)=\sqrt{1+4t^2}\).
+          Si tomamos particiones uniformes y tomamos el número de puntos
+          en la partición que tienda a infinito la suma de Riemann \eqref{Eqn:SumaRiemann}
+          tiende a
+          \[
+          \int_0^1 \sqrt{1+4t^2}dt
+          \]
+          y entonces podemos decir que la longitud de la curva va a ser esta integral.
+        </p>
+       
+        <p>
+          Para encontrar el valor preciso de \(\int_0^1 \sqrt{1+4t^2}dt\) primero
+          hacemos el cambio de variable \(u=2t\), con \(du=2dt\) para obtener
+          \[
+          \int_0^1\sqrt{1+4t^2}dt=\frac{1}{2}\int_0^{2}\sqrt{1+u^2}du
+          \]
+          Esta última integral se puede hacer por substitución hiperbólica
+          o usar tablas de integrales para obtener
+          \[
+          \frac{1}{2}\int_0^{2}\sqrt{1+u^2}du=\frac{1}{2}
+          \left( \sqrt{5}+\frac{1}{2}\ln(2+\sqrt{5})  \right)
+          \]
+        </p>
+  
+        <h3> Caso general </h3>
+        <p>
+          Las cuentas de este ejercicio se pueden adaptarse para una
+          curva más general usando el Teorema del Valor Medio para derivadas
+          de funciones de varias variables y la misma idea de aproximar con poligonales.
+        </p>
+  
+
         <p>
           <div class="imagen-box flexbox">
             <img src="./Images/Sec4-img1.png" alt="Poligonal" width="500" height="250">
@@ -1107,6 +1188,31 @@
           \(\alpha(t)=(t,f(t))\).
     </div>
 
+
+
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Considera una elipse parametrizada por
+      \(\alpha(t)=(a\cos(t),b\sen(t))\), \(0\leq t \leq 2\pi\)
+      con \( 0 < b < a \). Muestra que la longitud de arco
+      de la elipse es
+      \[
+      L=4b\int_0^{\pi/4} \sqrt{1+e^2\sin^2(t)}dt
+      \]
+      donde \(e=\frac{\sqrt{a^2-b^2}}{b}\) (llamada la
+      excentricidad de la elipse).
+    </p>
+    <p>
+      Este tipo de integrales se llama
+      <a href="https://en.wikipedia.org/wiki/Elliptic_integral"
+      target="_blank">integrales
+      elípticas </a>. Excepto por casos sencillos
+      no se pueden integrar mediante funciones elementales
+      y son toda una area de estudio.
+    </p>
+</div>
+
   <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
     <p>
@@ -1141,6 +1247,7 @@
       </p>
 
   </div>
+
 
 
 
