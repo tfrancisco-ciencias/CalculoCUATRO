@@ -119,8 +119,8 @@
         <p>
           En particular, si \(f\) es continua en \([a,b]\), \(F'=f\). En este caso
             se puede pensar que el Primer TF nos asegura que para cualquier función
-            continua podemos encontrar una antiderivada. En el contexto de 1-formas
-            o campos vectoriales, primero tenemos que decir cuales
+            continua podemos encontrar una antiderivada. En el contexto de 
+            campos vectoriales, primero tenemos que decir cuales
             son las antiderivadas. Una vez hecho esto el Primer TF va
             a decir que toda 1-forma ó campo continuo admite una antiderivada.
           </p>
@@ -429,100 +429,6 @@
         </div>
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>Para las siguientes 1-formas, determina si son exáctas o no. Si lo
-          son encuentra una función potencial.
-          </p>
-          <ol>
-            <li> \(\omega=(y^2\sen(x)+z^4)dx +(x^2y-3xy)dy+(y^2-x^2+6z)dz\).</li>
-            <li> \(\omega=(2x+2y+3yz)dx+(2x-z^2+3xz)dy+(-2zy+3xy)dz\). </li>
-            <li>  \(\omega=(2xy+y-2yz)dx+(x^2+x-2xz+6z)dy+(6y-2xy)dz\) .</li>
-            <li> \(\omega=(2x\cos(x^2+y^2)-y\sen(xy))dx+(2y\cos(x^2+y^2)-x\sen(xy))dy\). </li>
-            <li> \(\omega=(\frac{2x}{x^2+y^2z^2})dx-(\frac{2yz^2}{x^2+y^2z^2})dy
-              +(\frac{2y^2z}{x^2+y^2z^2})dz \) .</li>
-          </ol>
-          <p>
-            Sugerencia: <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>
-            o <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.6</a>
-            son útiles para probar que una 1-forma NO es exácta. Si crees que
-            hay una función potencial trata de encontrarla integrando y/o diferenciando.
-          </p>
-
-
-                  <button class="respButton hvr-grow"> Respuesta de 1 y 2 </button>
-                    <div class="resp-box">
-
-                <p>
-                  Inciso 1.
-                </p>
-                </p>
-                Sean \(A(x,y,z)  =  y^{2}\sen (x) + z^{4}\),
-                \(B(x,y,z)  =  x^{2}y - 3xy\)  y
-                \( C(x,y,z)  =  y^{2} - x^{2} + 6z\).
-                Entonces \(\omega = Adx + Bdy + Cdz\).
-               </p>
-              <p>
-                Calculando la parcial de \(A\) con respecto de \(y\)
-                y la parcial de \(C\) con repecto de \(x\), obtenemos
-                \begin{eqnarray*}
-                  \partial_{y}A(x,y,z) & = & 2y\sen (x) \\
-                  \partial_{x}B(x,y,z) & = & 2xy -3y
-                \end{eqnarray*}
-                Concluimos que no necesariamente
-                \(\partial_{y}A = \partial_{x}B\).
-                Si consideramos \(p = (0,1,0)\), entonces
-                \(\partial_{y}A(p) = 0 \) y \( \partial_{x}B(p) = -3\),
-                es decir \(\partial_{y}A \neq \partial_{x}B\).
-                Por lo tanto, por el
-                <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.10</a>
-                concluimos que \(\omega\) no es exacta.
-              </p>
-              <p>
-                Inciso 2.
-              </p>
-              <p>
-                Sean \(A(x,y,z)  =  2x + 2y + 3yz\), \(B(x,y,z)  =  2x -z^{2} + 3xz\)
-                 y \(C(x,y,z)  = -2zy + 3xy\). Entonces \(\omega = Adx + Bdy + Cdz\).
-                 Si consideramos la siguiente función
-                 \(f : \mathbb{R}^{2} \rightarrow \mathbb{R}\) difinida como
-                 \[
-                 f (x,y) = x^{2} + 2xy + 3xyz -yz^{2}.
-                 \]
-                Es fácil comprobar que   \(\partial_{x}f = A\),
-                \( \partial_{y}f = B \) y \( \partial_z f = C\).
-                Por lo tanto podemos concluir que \(\omega\) es exácta.
-              </p>
-              <p>
-                Veamos ahora el proceso de obtener dicha función, \(f\),
-                la cual se obtiene  integrando las funciones \(A, B\) y  \(C\),
-                ya que la existencia de \(f\) implica que
-                \( f = \int Adx = \int Bdy = \int C dz \).
-              </p>
-              <p>
-                Así que
-                \begin{eqnarray*}
-                \int A dx & = & x^{2} + 2xy + 3xyz + F(y,z)  \\
-                \int B dy & = & 2xy -yz^{2} +3xyz + G(x,z) \\
-                \int C dz & = & -yz^{2} + 3xyz  + H(x,y)
-                \end{eqnarray*}
-
-                Donde \(F\), \(G\) y \(H\) son funciones.
-              </p>
-              <p>
-                Para que \(\int Adx = \int Bdy \), se tiene que
-                \(F(y, z) = -yz^{2}\) y \(G(x,z) = x^{2}\).
-                Por otra parte, si \(\int C dz  =  \int Adx \) y
-                \( \int C dz  = \int Bdy\),  implica que \(H(x,y) = x^{2} + 2xy\).
-                Obtenemos que apartir de estas funciones (\(F, G\) y  \(H\))
-                que \(\int Adx = \int Bdy = \int C dz \).
-                Por lo tanto si definimos
-                \(f(x,y) = \int A dx = x^{2} + 2xy + 3xyz -yz^{2}\),
-                obtenemos que \(f\) es la función potencial buscada.
-              </p>
-              </div>
-        </div>
-
 
 
 
@@ -566,7 +472,11 @@
                     <p>
                       Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo no vacío.
                       Si \(f,g:U\to \mathbb{R}\) son dos funciones potenciales
-                      de \(\omega\). Prueba que \(f-g\) es constante.
+                      de un campo vectorial 
+                      \(\mathbb{F}: U\to \mathbb{R}^n\) entonces \(f=g\).
+                    </p>
+                    <p>
+
                     </p>
                     <p>
                       Sugerencia: usa el  <a href="#Ejer:dfCeroConstante">Ejercicio 6.7</a>.
@@ -579,7 +489,7 @@
             <ol>
               <li>
                 Sea \(g:[0,\infty)\to \mathbb{R}\), cotinua en \([0,\infty)\)
-                y diferenciable en \((0,\infty)\). Define
+                y diferenciable en \((0,\infty)\). Define \(f:\mathbb{R}^2\to \mathbb{R}\) por 
                 \(f(x,y)=g(\|(x,y)\|)\). Prueba que,
                 para \((x,y)\ne (0,0)\)
                 \[
@@ -599,7 +509,7 @@
               </p>
               <p>
                 Sugerencia: usa el inciso anterior con \(g\)
-                definida como \(g(r)=\int_0^r R(t)tdt\) para después encontrar
+                definida como \(g(r)=\int_0^r R(t)tdt\) para ayudarte a encontrar
                 una función potencial de \(\mathbb{F}\)
               </p>
               </li>
@@ -608,43 +518,6 @@
         </div>
 
 
-
-              <!--  <div class="ejercicio-box">
-                  <h2 class="number-title"> Ejercicio </h2>
-                  <p>
-                    Las siguientes 1-formas son variantes de la 1-forma
-                    exácta
-                    \[
-                    d\left(-\frac{1}{\|(x,y,z)\|}\right)=\frac{x}{\|(x,y,z)\|^3}dx
-                    +\frac{y}{\|(x,y,z)\|^3}dy
-                    +\frac{z}{\|(x,y,z)\|^3}dz
-                    \]
-                    Usa esto para encontrar funciones potenciales.
-                  </p>
-                  <ol>
-                    <li>
-                      \[
-                    \omega=  \frac{\pi x}{\|(x,y,z)\|^3}dx
-                    +\frac{\pi y}{\|(x,y,z)\|^3}dy
-                    +\frac{\pi z}{\|(x,y,z)\|^3}dz
-                    \]
-                  </li>
-                    <li>
-                      \[
-                    \omega=  \frac{x-2}{\|(x-2,y+3,z)\|^3}dx
-                      +\frac{y+3}{\|(x-2,y+3,z)\|^3}dy
-                      +\frac{z}{\|(x-2,y+3,z)\|^3}dz
-                      \]
-                    </li>
-                  <li>
-                      \[
-                      \omega=\frac{3x+3}{\|(x+1,y-1,z+7)\|^3}dx
-                      +\frac{3y-3}{\|(x+1,y-1,z+7)\|^3}dy
-                      +\frac{3z-21}{\|(x+1,y-1,z+7)\|^3}dz
-                      \]
-                    </li>
-                  </ol>
-                </div>-->
 
 
         <div class="teorema-box" id="Teo:2TF">
@@ -657,11 +530,10 @@
               con traza contenida en \(U\) se cumple:
             </p>
             <p>
-              En notación de 1-formas:
+              <!--En notación de 1-formas:
               \[
               \int_\alpha df = f(\alpha(b))-f(\alpha(a))
-              \]
-              En notación de campos:
+              \]-->
               \[
               \int_\alpha \nabla f \cdot d\alpha = f(\alpha(b))-f(\alpha(a))
               \]
@@ -688,22 +560,21 @@
                   +\frac{\partial f}{\partial_{x_n}}(\alpha(t))
                   \frac{d x_n}{d t}(t)
                   \]
-                  donde \(\frac{d x_j}{dt}=\alpha_j'\) y tenemos las
-                  funciones coordenadas de \(\alpha=(\alpha_1,\dots, \alpha_n)\).
+                  donde escribimos las funciones coordenadas 
+                  \(\alpha=(a_1,\dots, a_n)\) y \(\frac{d x_j}{dt}=a_j'\).
                   Entonces tenemos
                   \[
-                  \varphi'(t)= \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
-                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t)
+                  \varphi'(t)= \partial_{x_1}f(\alpha(t))a_1'(t)+
+                  \cdots+\partial_{x_n}(\alpha(t))a_n'(t)
                   \]
                   donde el lado derecho de la ecuación anterior es precisamente
-                  el integrando la la integral de línea \(\int_\alpha df=\int_\alpha \partial_{x_1}f dx_1+\cdots+
-                  \partial_{x_n}dx_{x_n} \),
+                  el integrando la la integral de línea \(\int_\alpha \nabla f \cdot d\alpha\)
                   por lo tanto
-                  \begin{equation}\label{Eqn:TFILequation1}
-                  \int_\alpha df =\int_a^b \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
-                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t) dt
-                  =\int_a^b \varphi'(t)dt.
-                  \end{equation}
+                  \begin{eqnarray}
+                  \int_\alpha \nabla f \cdot d\alpha &=& \int_a^b \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
+                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t) dt \\
+                  &=&\int_a^b \varphi'(t)dt. \label{Eqn:TFILequation1}
+                  \end{eqnarray}
                   Por el Segundo Teorema Fundamental de Cálculo, y tomando que
                   \(\alpha'\) es contina (ya que \(f\) y \(\alpha\) son clase \(C^1\))
                   tenemos
@@ -725,11 +596,11 @@
                   restringida a \([t_{i-1},t_i]\) es suave. Por el caso anterior,
                   si \(\alpha_i\) es la restricción a \([t_{i-1},t_i]\), tenemos:
                   \[
-                  \int_{\alpha_i}df=f(\alpha(t_i))-f(\alpha(t_{i-1}))
+                  \int_{\alpha_i} \nabla f \cdot d\alpha_j=f(\alpha(t_i))-f(\alpha(t_{i-1}))
                   \]
                   de donde se sigue
                   \[
-                  \int_\alpha df= \sum_{i=1}^n \int_{\alpha_i}df=\sum_{i=1}^n
+                  \int_\alpha \nabla f \cdot d\alpha = \sum_{i=1}^n \int_{\alpha_i}\nabla f \cdot d\alpha_j =\sum_{i=1}^n
                   f(\alpha(t_i))-f(\alpha(t_{i-1}))=f(\alpha(b))-f(\alpha(a))
                   \]
                   donde la primera identidad es la definición de la integral
@@ -784,36 +655,40 @@
                           </p>
 
 
-                          <button class="respButton hvr-grow"> Respuesta </button>
-                <div class="resp-box">
-                  <div class="video flexbox">
-                    <a href="https://youtu.be/CyYX4NgOn7c" target="_blank"> Video. Respuesta de 1</a>
-                    </div>
-                      <div class="video flexbox">
-                        <a href="https://youtu.be/hCFiGGdZOMM" target="_blank"> Video. Respuesta de 2</a>
-                        </div>
+                          <button class="respButton hvr-grow"> Respuesta inciso 1 </button>
+                          <div class="resp-box">
+                            <div class="video flexbox">
+                              <a href="https://youtu.be/CyYX4NgOn7c" target="_blank"> Video</a>
+                            </div>
+                          </div>
 
-</div>
-                        </div>
+                          <button class="respButton hvr-grow"> Respuesta inciso 2 </button>
+                          <div class="resp-box">
+                            <div class="video flexbox">
+                              <a href="https://youtu.be/hCFiGGdZOMM" target="_blank"> Video</a>
+                          </div>
+                          </div>
+        </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:integralCurvaCerradaCero"> Ejercicio </h2>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo
-            y \(f:U\to \mathbb{R}\) clase \(C^1\) en \(U\). Prueba que
+            y \(f:U\to \mathbb{R}\) clase \(C^1\) en \(U\). Prueba que:
             <ol>
-            <li> Para toda \(\alpha:[a,b]\to U\), curva <b>cerrada</b>,
+            <li> Para toda \(\alpha:[a,b]\to U\), curva orientada  <b>cerrada</b>,
             suave a trozos:
             \[
-            \int_\alpha df=0.
+            \int_\alpha \nabla f \cdot d\alpha =0.
             \]
             </li>
             <li> Si \(\beta \) y \(\gamma\)
-              son dos curvas suaves a trozos (cuyas trazas
-              están contenidas en \(U\)) que empiezan y terminan igual
+              son dos curvas orientadas suaves a trozos (cuyas trazas
+              están contenidas en \(U\)) tal que inician en el mismo punto  y 
+              terminan en el mismo punto 
               entonces
               \[
-              \int_\beta \omega= \int_\gamma \omega
+              \int_\beta \nabla f \cdot d\alpha = \int_\gamma \nabla f  \cdot d\beta 
               \]
             </li>
           </p>
@@ -824,12 +699,12 @@
             Inciso 1
           </p>
           <p>
-            Sea \(\alpha:[a,b]\to U\) curva cerrada, suave a trozos. Ya que \(f\) es \(C^1\)
+            Sea \(\alpha:[a,b]\to U\) curva orientada cerrada suave a trozos. Ya que \(f\) es \(C^1\)
             y \(\alpha\) es suave a trozos (contenida en \(U\)) podemos
             aplicar directamente el <a href="#Teo:2TF">Segundo Teorema Fundamental</a> para integrales
             de línea y obtener
             \[
-            \int_\alpha df= f(\alpha(b))-f(\alpha(a)).
+            \int_\alpha \nabla f \cdot d\alpha = f(\alpha(b))-f(\alpha(a)).
             \]
             Pero, ya que \(\alpha\) es cerrada \(\alpha(a)=\alpha(b)\),
             de donde se sigue que \(\int_\alpha df =0\).
@@ -838,16 +713,16 @@
             Inciso 2.
           </p>
           <p>
-          Sean \(\beta:[a,b]\to U\) y \(\gamma:[c,d]\to U\) curvas
-          suaves a trozos que empiezan y terminan igual.
+          Sean \(\beta:[a,b]\to U\) y \(\gamma:[c,d]\to U\) curvas orientadas 
+          suaves a trozos que cumplen \(\beta(a)=\beta(c)\), \(\beta(b)=\gamma(d)\).
           Ahora definimos \(\tilde{\gamma}: [c,d] \to U \)
-          como \(\gamma (t) = \beta(a+b -t)\), por el
-          <a href="./S3.html#Ejer:invertirOrientacion"> Ejercicio 3.6</a> \(\tilde{\gamma}\)
+          como \(\tilde{\gamma} (t) = \beta(c+d -t)\), por el
+          <a href="./S5.html#Ejer:invertirOrientacion"> Ejercicio 5.5</a> \(\tilde{\gamma}\)
           invierte la orientación.
-          Por lo tanto por el <a href="./S4.html#Ejer:orientacion">Ejercicio 4.4</a>
+          Por lo tanto por el  <a href="./S5.html#Lema:IndependenciaParam">Lema 5.9</a>
 
           \begin{equation*}
-          \int_{\tilde{\gamma}}\omega = -\int_{\gamma}\omega
+          \int_{\tilde{\gamma}}\nabla f \cdot d\tilde{\gamma} = -\int_{\gamma}\nabla f \cdot d\gamma
           \end{equation*}
 
           Por otro lado, ya que \(\beta\) y
@@ -857,7 +732,7 @@
           (suave a trozos). Entonces por el primer inciso
 
           \begin{equation*}
-          \int_{\beta \vee \tilde{\gamma}}\omega = \int_{\beta \vee \tilde{\gamma}}df = 0,
+          \int_{\beta \vee \tilde{\gamma}}\nabla f \cdot d(\beta \vee \tilde{\gamma}) = 0,
           \end{equation*}
 
 
@@ -865,19 +740,19 @@
             <img src="./Images/Ejer19Loop.png" alt="CurvaCerrada" width="300" height="230">
             </div>
 
-          Y por el <a href="S4.html#Ejer:aditividad">Ejercicio 4.12</a> obtenemos
+          Y por el <a href="./S5.html#Teo:aditividadCurvas">Teorema 5.31</a> obtenemos
 
           \begin{eqnarray*}
-          \int_{\beta \vee \tilde{\gamma}}\omega
+          \int_{\beta \vee \tilde{\gamma}}\nabla f \cdot d(\beta \vee \tilde{\gamma})
           & = &
-          \int_{\beta}\omega + \int_{\tilde{\gamma}}\omega \\
-          & = & \int_{\beta}\omega - \int_{\gamma}\omega
+          \int_{\beta}\nabla f\cdot d\beta  + \int_{\tilde{\gamma}}\nabla f \cdot d\tilde{\gamma} \\
+          & = & \int_{\beta}\nabla f \cdot d\beta  - \int_{\gamma}\nabla f \cdot d\gamma 
           \end{eqnarray*}
 
-          Por lo tanto \(\int_{\beta}\omega - \int_{\gamma}\omega = 0\).
-          Es decir \(\int_{\beta}\omega = \int_{\gamma}\omega\).
+          Por lo tanto \(\int_{\beta}\nabla f d\beta - \int_{\gamma}\nabla f \cdot d\gamma  = 0\).
+          Es decir \(\int_{\beta}\nabla f \cdot d\beta  = \int_{\gamma}\nabla f \cdot d\gamma\).
           Por lo tanto, hemos demostrado que la integral de línea de
-          \(\omega\) es independiente de la trayectoria.
+          \(\nabla f\) es independiente de la trayectoria.
         </div>
         </div>
 
@@ -905,14 +780,14 @@
           <button class="respButton hvr-grow"> Respuesta de 1 </button>
             <div class="resp-box">
                     <p>
-                    Sea \(\omega := (3x^{2}e^{-y})dx + (-x^{3}e^{-y} + y)dy\),
-                    es claro que \(\omega\) es una 1-forma diferenciable. Además si consideramos
+                    Sea \(\mathbb{F}(x,y) := (3x^{2}e^{-y}, -x^{3}e^{-y} + y)\),
+                    es claro que \(\mathbb{F}\) es un campo diferenciable. Además si consideramos
                     la siguiente función \(f(x,y) = x^{3}e^{-y} + \frac{y^{2}}{2}\)
-                    obtenemos que \(\omega = df\), es decir \(\omega\) es exácta.
+                    obtenemos que \(\mathbb{F} = \nabla f \), es decir \(\mathbb{F}\) es exácta.
                     </p>
                     <p>
                       Antes de proseguir con el ejercicio, recordemos cómo se
-                      obtiene \(f\). Recordemos que \(df=\omega\) implica
+                      obtiene \(f\). Recordemos que \(\nabla f=\mathbb{F}\) implica
                       \[
                       \partial_x f = 3x^2e^{-y}, \quad \partial_y = -x^{3}e^{-y}+y
                       \]
@@ -934,8 +809,8 @@
                     </p>
                     <p>
                       Ya que hemos probado que existe \(f\), clase \(C^1\)
-                      con \(\omega=df\), aplicando el
-                      <a href="#Ejer:integralCurvaCerradaCero">Ejercicio 6.19</a>,
+                      con \(\mathbb{F}=\nabla f\), aplicando el
+                      <a href="#Ejer:integralCurvaCerradaCero">Ejercicio 6.18</a>,
                       concluimos que la integral de línea no depende
                       de la trayectoria que une \((1,1)\) con \((2,3)\).
                     </p>
@@ -948,7 +823,7 @@
                     integrales de línea obtenemos
 
                     \begin{eqnarray*}
-                    \int_{\alpha}\omega  =  \int_{\alpha}df & = & f(2,3) - f(1,1) \\
+                    \int_{\alpha}\mathbb{F} \cdot d \alpha  =  \int_{\alpha}\nabla f \cdot d\alpha   & = & f(2,3) - f(1,1) \\
                      & = & 8e^{-3} +\dfrac{9}{2} - \left(e^{-1} + \dfrac{1}{2} \right) \\
                      & = & 8e^{-3} -e^{-1} + 4
                     \end{eqnarray*}
@@ -960,14 +835,19 @@
                 <div class="ejercicio-box">
                   <h2 class="number-title" id="Ejer:formaCerradaNoExacta"> Ejercicio </h2>
                     <p>
-                    Considera la 1-forma
+                    Para \((x,y)\ne (0,0)\) considera el campo diferencial 
                     \[
-                    \omega = -\frac{y}{x^2+y^2}dx+ \frac{x}{x^2+y^2}dy
+                    \mathbb{F}(x,y)=\left(  -\frac{y}{x^2+y^2}, \frac{x}{x^2+y^2}\right)
                     \]
                     y toma
                     \[
-                    U=\mathbb{R}^2\setminus \{(x,y): y=0, \quad x\leq 0\}.
+                    U=\mathbb{R}^2\setminus \{(x,y):  x<  0\}.
                     \]
+                    <p>
+                      <div class="imagen-box flexbox">
+                        <img src="./Images/Sec5-img13.png" alt="U" width="400" height="230">
+                        </div>
+                     </p> 
                     <ol>
                      <li> Dado un punto \((x,y)\in U\), sus coordenadas se pueden
                        escribir como:
@@ -983,15 +863,21 @@
                           \arctan(y/x) & y\geq 0, x>0 \\
                           \pi/2 & y>0, x=0 \\
                           \arctan(y/x)+\pi & y> 0,  x< 0 \\
-                          \arctan(y/x) & y< 0, x> 0 \\
+                          \arctan(y/x)-\pi & y< 0, x < 0 \\
                           -\pi/2 &  y< 0, x=0 \\
-                          \arctan(y/x)-\pi & y< 0, x< 0
+                          \arctan(y/x) & y< 0, x > 0
                           \end{array}
                           \right.
                           \]
 
                           Recuerda que la función \(\arctan\) toma valores
                           en el intervalo \((-\pi/2,\pi/2)\).
+
+                          <p>
+                            <div class="imagen-box flexbox">
+                              <img src="./Images/Sec5-img14.png" alt="U" width="400" height="230">
+                              </div>
+                           </p> 
                       </li>
                       <li>
                         Del inciso anterior prueba que
@@ -999,8 +885,8 @@
                         \partial_x \theta (x,y)= -\frac{y}{x^2+y^2}, \quad
                         \partial_y \theta (x,y)= \frac{x}{x^2+y^2}
                         \]
-                        Por lo que \(\theta\) es una función potencial de \(\omega\),
-                        es decir \(\omega\) es exácta.
+                        Por lo que \(\theta\) es una función potencial de \(\mathbb{F}\) en \(U\).
+                        
                         <p>
                           Sugerencia: El caso difícil es tomar las
                           parciales en el punto \((0,y)\), \(y\ne 0\) . Para estos
@@ -1024,15 +910,15 @@
                         </p>
                       </li>
                       <li>
-                        Por el ejercicio 4.6, si \(\alpha\) es el circulo unitario
+                        Por el <a href="./S5.html#Ejer:ejemploCerrada"> Ejercicio 5.13</a>, si \(\alpha\) es el circulo unitario
                         recorrido en el sentido positivo
                         \[
-                        \int_\alpha \omega = 2\pi
+                        \int_\alpha \mathbb{F}\cdot d\alpha= 2\pi
                         \]
                         Sin embargo, por el Segundo Teorema Fundamental
-                        de integrales de línea, la integral de una 1-forma
-                        exácta sobre una trayectoria cerrada es cero
-                        (ver <a href="#Ejer:integralCurvaCerradaCero"> Ejercicio 6.19 </a>). ¿Dónde
+                        de integrales de línea, la integral de un campo conservativo 
+                        sobre una trayectoria cerrada es cero
+                        (ver <a href="#Ejer:integralCurvaCerradaCero"> Ejercicio 6.18 </a>). ¿Dónde
                         está el error?
                       </li>
                     </ol>
@@ -1076,10 +962,20 @@
               <p>
               Primero escribimos las funciones coordenadas de \(\mathbb{F}\) como
               \[
-              \mathbb{F}=(f_1,\dots, f_n).
+              \mathbb{F}=(F_1,\dots, F_n).
               \]
-              Lo que debemos de probar es que \(f\) es diferenciable
-              en \(U\) y que \(\partial_{x_j} f= f_j\).
+              Lo que debemos de probar es que la función  \(f\) definida arriba 
+              satisface :
+             <ol>
+              <li>
+                es diferenciable
+                en \(U\)
+              </li>
+              <li>
+                y que \(\partial_{x_j} f= F_j\) para toda \(j=1,\dots,n\).
+              </li>
+             </ol>
+               
             </p>
             <p>
               Para probar que una función es diferenciable es suficiente
@@ -1087,24 +983,25 @@
               (ver por ejemplo
               <a href="https://en.wikipedia.org/wiki/Differentiable_function#Differentiability_in_higher_dimensions"
                target="_blank">Wikipedia</a> o Bartle, <i>Elements of
-               real analysis</i>, Teorema 20.7). Entonces
+               real analysis</i>, Teorema 20.7 ó 
+               <a href="https://tfrancisco-ciencias.github.io/CalculoTRES/Secciones/S9.html#Teo:C1ImplicaDif"> Teorema 9.10 (cálculo 3)</a> ). Entonces
               si probamos las identidades
               \[
-              \partial_{x_j} f= f_j, \quad j=1, \dots, n,
+              \partial_{x_j} f= F_j, \quad j=1, \dots, n,
               \]
-              matamos dos pájaros de un tiro pues probamos que, (1)
-              las parcieles existen y (2) son continuas (pues cada
-              \(f_j\) es continiua por suposición del Teorema).
+              matamos dos pájaros de un tiro pues probamos que, 
+              las parcieles existen y que son continuas (pues cada
+              \(F_j\) es continiua por suposición del Teorema).
             </p>
             <p>
               Así pues, fijamos \(j\) y probamos
               \[
-              \partial_{x_j}f(Q) = f_j(Q) \quad \textrm{ para todo  \(Q\in U\)}
+              \partial_{x_j}f(Q) = F_j(Q) \quad \textrm{ para todo  \(Q\in U\)}
               \]
               que, usando la definición de derivada parcial,
               es equivalente a probar que
               \[
-              \lim_{h\to 0} \frac{f(Q+he_j)-f(Q)}{h}=f_j(Q)
+              \lim_{h\to 0} \frac{f(Q+he_j)-f(Q)}{h}=F_j(Q)
               \]
               donde \(e_j\) es el vector canónico con 1 en la entrada \(j\).
             </p>
@@ -1133,21 +1030,28 @@
               \beta(t)=Q + t(Q+he_j-Q), \quad t\in [0,1]
               \]
 
+              <p>
+                <div class="imagen-box flexbox">
+                  <img src="./Images/Sec5-img15.png" alt="Fig1TFIL-1" width="400" height="250">
+                </div>
+              </p>
               Haciendo la cuenta, si escribimos \(Q=(q_1,\dots, q_n)\), tenemos
-              \[
-              \beta(t)=Q + t(Q+he_j-Q)=Q+the_j=(q_1,\dots,q_{j-1} , q_j+th,q_{j+1},\dots ,q_n)
-              \]
-              Por lo tanto, si por \(\beta_j\) denotamos la \(j\)-ésima  función
-              coodenada de \(\beta\), resulta que \(\beta_i'=0\) para toda
-              \(i\ne j\), que \(\beta_j(t)=q_j+th\) y  que \(\beta_j'(t)=h\).
+              \begin{eqnarray*} 
+              \beta(t)&=& Q + t(Q+he_j-Q)\\
+              &=& Q+the_j\\
+              &=& (q_1,\dots,q_{j-1} , q_j+th,q_{j+1},\dots ,q_n)
+              \end{eqnarray*}
+              Por lo tanto, si por \(b_j\) denotamos la \(j\)-ésima  función
+              coodenada de \(\beta\), resulta que \(b_i'=0\) para toda
+              \(i\ne j\), que \(b_j(t)=q_j+th\) y  que \(b_j'(t)=h\).
             </p>
             <p>
               Por lo tanto al calcula la integral de línea obtenemos
               \begin{eqnarray*}
               \int_\beta \mathbb{F}\cdot d\beta
               &=&
-              \int_0^1 \sum_{i=1}^n f_i(\beta(t))\beta_i'(t)dt \\
-              &=& \int_0^1 f_j(q_1,\dots,q_{j}+th, \dots, q_n ) h dt
+              \int_0^1 \sum_{i=1}^n F_i(\beta(t))b_i'(t)dt \\
+              &=& \int_0^1 F_j(q_1,\dots,q_{j}+th, \dots, q_n ) h dt
               \end{eqnarray*}
 
             </p>
@@ -1156,13 +1060,13 @@
               hacer un cambio de variable en la integral anterior. Tomando
               \(u=th\), \(du=hdt\) y
               \[
-              \int_0^1 f_j(q_1,\dots,q_j+th, \dots, q_n)hdt
-              =\int_0^{h} f_j(q_1,\dots, q_j+u, \dots, q_n)du
+              \int_0^1 F_j(q_1,\dots,q_j+th, \dots, q_n)hdt
+              =\int_0^{h} F_j(q_1,\dots, q_j+u, \dots, q_n)du
               \]
               Para aplicar el Primer Teorema Fundamental de Cálculo más
-              adelante definimos la función
+              adelante definimos la función auxiliar 
               \[
-              g(h)=\int_0^{h} f_j(q_1,\dots, q_j+u, \dots, q_n)du,
+              g(h)=\int_0^{h} F_j(q_1,\dots, q_j+u, \dots, q_n)du,
               \quad \textrm{ para \(|h|< r\)}
               \]
             </p>
@@ -1171,20 +1075,20 @@
             \begin{eqnarray*}
             \frac{f(Q+he_j)-f(Q)}{h}
             &=&
-            \frac{1}{h}\int_\beta \mathbb{F}\cdot \beta \\
+            \frac{1}{h}\int_\beta \mathbb{F}\cdot  d \beta \\
             &=& \frac{g(h)-g(0)}{h}
             \end{eqnarray*}
             </p>
             <p>
               El último paso es probar el siguiente límite
               \[
-              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=f_j(Q)
+              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=F_j(Q)
               \]
-              pero, ya que \(f_j\) es continua, por el Primer
+              pero, ya que \(F_j\) es continua, por el Primer
               Teorema Fundamental del Cálculo obtenemos que
               \(g\) es diferenciable y que
               \[
-              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=g'(0)=f_j(q_1,\dots, q_j+0, \dots, q_n)=f_j(Q)
+              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=g'(0)=F_j(q_1,\dots, q_j+0, \dots, q_n)=F_j(Q)
               \]
             </p>
             </div>
@@ -1217,19 +1121,19 @@
           <h2 class="number-title"id="Ejer:equivFormaExacta"> Ejercicio  </h2>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
-            \(\omega\) una 1-forma, donde las funciones coordenadas
+            \(\mathbb{F}\) un campo vectorial  donde las funciones coordenadas
             son continuas en \(U\). Prueba que
             las siguientes condiciones son equivalentes:
             <ol>
-              <li>\(\omega\) es exácta. </li>
-              <li> Para toda \(\alpha\),  curva cerrada suave a trozos
+              <li>\(\mathbb{F}\) es conservativo. </li>
+              <li> Para toda \(\alpha\),  curva orientada cerrada suave a trozos
                    con traza contenida en \(U\):
                    \[
-                   \int_\alpha\omega =0.
+                   \int_\alpha\mathbb{F} \cdot d\alpha=0.
                    \]
               </li>
               <li>
-                La integral \(\int_\beta \omega \) sólo depende
+                La integral \(\int_\beta \mathbb{F} \cdot d\beta \) sólo depende
                 del punto inicial y punto final de \(\beta\)
                 (curva suave a trozos, con traza contenida en
                 \(U\)).
@@ -1252,24 +1156,26 @@
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
-            Considera la 1-forma
+            Considera el campo vectorial 
             \[
-            \omega=(Ex+Fy)dx+(Gx+Hy)dy
+            \mathbb{F}(x,y)=\left(Ex+Fy, Gx+Hy\right)
             \]
             donde \(E,F,G,H\in \mathbb{R}\) son constantes.
-            Prueba que \(\omega\) es exácta si y sólo si \(F=G\). En caso
+            Prueba que \(\mathbb{F}\) es conservativo si y sólo si \(F=G\). En caso
             de que sea exácta encuentra una función potencial.
           </p>
           <p>
-            Sugerencia: usa el <a href="S4.html#Ejer:carac1FormasCerradasLineales">
-              Ejercicio 4.15 </a>
+            Sugerencia: si \(\mathbb{F}\) es conservativo usa la igualdad de las 
+            derivadas parciales mixtas de la función potencial. Si \(F=G\) prueba 
+            que la integral \(\int_\alpha \mathbb{F}\cdot d\alpha=0\) 
+            para toda curva orientada cerrada suave a trozos.
           </p>
-          <button class="respButton hvr-grow"> Respuesta </button>
+          <!--<button class="respButton hvr-grow"> Respuesta </button>
                 <div class="resp-box">
                   <div class="video flexbox">
                     <a href="https://youtu.be/HuhYoh_PXVU" target="_blank"> Video </a>
                     </div>
-                  </div>
+                  </div>-->
         </div>
 
 

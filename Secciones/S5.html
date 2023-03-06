@@ -84,7 +84,7 @@
   <body>
       <h1 class="number-title flexbox"> La integral de línea  </h1>     
  
-<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
  <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
@@ -1028,7 +1028,8 @@
     \]
   </p>
   <p>
-    En particular, si existe una \(M>0\) tal que \(\| \mathbb{F}(\alpha(t))\| \leq M\)
+    En particular, si \(\mathbb{F}\) está acotada 
+    sobre la traza de \(\alpha\), es decir existe una \(M>0\) tal que \(\| \mathbb{F}(\alpha(t))\| \leq M\)
     para todo \(t\in [a,b]\)
     entonces 
     \[
@@ -1069,7 +1070,7 @@
     por longitud de arco.
   </p>
   <p>
-    Finalmente si \(\|\mathbb{F}(\alpha(t))\|\leq M\) para todo \(t\in [a,b]\) se sigue 
+    Finalmente si  \(\|\mathbb{F}(\alpha(t))\|\leq M\) para todo \(t\in [a,b]\) se sigue 
     de la propidad de monotonía de la integral de Riemann-1D que 
     \begin{eqnarray*} 
     \int_a^b \| \mathbb{F}(\alpha(t))\| \|\alpha'(t)\|dt & \leq &  \int_a^b M \|\alpha'(t)\|dt\\
@@ -1081,7 +1082,7 @@
 </div>
 
 <div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
+  <h2 class="number-title" id="Teo:aditividadCurvas"> Teorema </h2>
   <p>
      Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo continuo y  \(\alpha, \beta\) dos curvas orientadas
      suaves a trozos con trazas contenidas en \(U\). Si el punto final de \(\alpha\) coincide con el 

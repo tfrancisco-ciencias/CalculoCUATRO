@@ -1188,6 +1188,142 @@
       
               </div>
       
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>Para las siguientes 1-formas, determina si son exáctas o no. Si lo
+          son encuentra una función potencial.
+          </p>
+          <ol>
+            <li> \(\omega=(y^2\sen(x)+z^4)dx +(x^2y-3xy)dy+(y^2-x^2+6z)dz\).</li>
+            <li> \(\omega=(2x+2y+3yz)dx+(2x-z^2+3xz)dy+(-2zy+3xy)dz\). </li>
+            <li>  \(\omega=(2xy+y-2yz)dx+(x^2+x-2xz+6z)dy+(6y-2xy)dz\) .</li>
+            <li> \(\omega=(2x\cos(x^2+y^2)-y\sen(xy))dx+(2y\cos(x^2+y^2)-x\sen(xy))dy\). </li>
+            <li> \(\omega=(\frac{2x}{x^2+y^2z^2})dx-(\frac{2yz^2}{x^2+y^2z^2})dy
+              +(\frac{2y^2z}{x^2+y^2z^2})dz \) .</li>
+          </ol>
+          <p>
+            Sugerencia: <a href="S2.html#Def:1formacerrada"> Ejercicio 2.14 </a>
+            o <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.6</a>
+            son útiles para probar que una 1-forma NO es exácta. Si crees que
+            hay una función potencial trata de encontrarla integrando y/o diferenciando.
+          </p>
+
+
+                  <button class="respButton hvr-grow"> Respuesta de 1 y 2 </button>
+                    <div class="resp-box">
+
+                <p>
+                  Inciso 1.
+                </p>
+                </p>
+                Sean \(A(x,y,z)  =  y^{2}\sen (x) + z^{4}\),
+                \(B(x,y,z)  =  x^{2}y - 3xy\)  y
+                \( C(x,y,z)  =  y^{2} - x^{2} + 6z\).
+                Entonces \(\omega = Adx + Bdy + Cdz\).
+               </p>
+              <p>
+                Calculando la parcial de \(A\) con respecto de \(y\)
+                y la parcial de \(C\) con repecto de \(x\), obtenemos
+                \begin{eqnarray*}
+                  \partial_{y}A(x,y,z) & = & 2y\sen (x) \\
+                  \partial_{x}B(x,y,z) & = & 2xy -3y
+                \end{eqnarray*}
+                Concluimos que no necesariamente
+                \(\partial_{y}A = \partial_{x}B\).
+                Si consideramos \(p = (0,1,0)\), entonces
+                \(\partial_{y}A(p) = 0 \) y \( \partial_{x}B(p) = -3\),
+                es decir \(\partial_{y}A \neq \partial_{x}B\).
+                Por lo tanto, por el
+                <a href="#Ejer:necesidad1FormaExacta3D">Ejercicio 6.10</a>
+                concluimos que \(\omega\) no es exacta.
+              </p>
+              <p>
+                Inciso 2.
+              </p>
+              <p>
+                Sean \(A(x,y,z)  =  2x + 2y + 3yz\), \(B(x,y,z)  =  2x -z^{2} + 3xz\)
+                 y \(C(x,y,z)  = -2zy + 3xy\). Entonces \(\omega = Adx + Bdy + Cdz\).
+                 Si consideramos la siguiente función
+                 \(f : \mathbb{R}^{2} \rightarrow \mathbb{R}\) difinida como
+                 \[
+                 f (x,y) = x^{2} + 2xy + 3xyz -yz^{2}.
+                 \]
+                Es fácil comprobar que   \(\partial_{x}f = A\),
+                \( \partial_{y}f = B \) y \( \partial_z f = C\).
+                Por lo tanto podemos concluir que \(\omega\) es exácta.
+              </p>
+              <p>
+                Veamos ahora el proceso de obtener dicha función, \(f\),
+                la cual se obtiene  integrando las funciones \(A, B\) y  \(C\),
+                ya que la existencia de \(f\) implica que
+                \( f = \int Adx = \int Bdy = \int C dz \).
+              </p>
+              <p>
+                Así que
+                \begin{eqnarray*}
+                \int A dx & = & x^{2} + 2xy + 3xyz + F(y,z)  \\
+                \int B dy & = & 2xy -yz^{2} +3xyz + G(x,z) \\
+                \int C dz & = & -yz^{2} + 3xyz  + H(x,y)
+                \end{eqnarray*}
+
+                Donde \(F\), \(G\) y \(H\) son funciones.
+              </p>
+              <p>
+                Para que \(\int Adx = \int Bdy \), se tiene que
+                \(F(y, z) = -yz^{2}\) y \(G(x,z) = x^{2}\).
+                Por otra parte, si \(\int C dz  =  \int Adx \) y
+                \( \int C dz  = \int Bdy\),  implica que \(H(x,y) = x^{2} + 2xy\).
+                Obtenemos que apartir de estas funciones (\(F, G\) y  \(H\))
+                que \(\int Adx = \int Bdy = \int C dz \).
+                Por lo tanto si definimos
+                \(f(x,y) = \int A dx = x^{2} + 2xy + 3xyz -yz^{2}\),
+                obtenemos que \(f\) es la función potencial buscada.
+              </p>
+              </div>
+        </div>
+
+
+
+
+              <div class="ejercicio-box">
+                  <h2 class="number-title"> Ejercicio </h2>
+                  <p>
+                    Las siguientes 1-formas son variantes de la 1-forma
+                    exácta
+                    \[
+                    d\left(-\frac{1}{\|(x,y,z)\|}\right)=\frac{x}{\|(x,y,z)\|^3}dx
+                    +\frac{y}{\|(x,y,z)\|^3}dy
+                    +\frac{z}{\|(x,y,z)\|^3}dz
+                    \]
+                    Usa esto para encontrar funciones potenciales.
+                  </p>
+                  <ol>
+                    <li>
+                      \[
+                    \omega=  \frac{\pi x}{\|(x,y,z)\|^3}dx
+                    +\frac{\pi y}{\|(x,y,z)\|^3}dy
+                    +\frac{\pi z}{\|(x,y,z)\|^3}dz
+                    \]
+                  </li>
+                    <li>
+                      \[
+                    \omega=  \frac{x-2}{\|(x-2,y+3,z)\|^3}dx
+                      +\frac{y+3}{\|(x-2,y+3,z)\|^3}dy
+                      +\frac{z}{\|(x-2,y+3,z)\|^3}dz
+                      \]
+                    </li>
+                  <li>
+                      \[
+                      \omega=\frac{3x+3}{\|(x+1,y-1,z+7)\|^3}dx
+                      +\frac{3y-3}{\|(x+1,y-1,z+7)\|^3}dy
+                      +\frac{3z-21}{\|(x+1,y-1,z+7)\|^3}dz
+                      \]
+                    </li>
+                  </ol>
+                </div>
+
   
             <!--<div class="ejercicio">
               <h2 class="ejercicio"> Ejercicio </h2>
