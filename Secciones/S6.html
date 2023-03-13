@@ -132,10 +132,10 @@
         </p>
         <p>
           Supongamos que \(f:[a,b]\to \mathbb{R}\) es continua en
-          \([a,b]\). Si \(G:[a,b]\to \mathbb{R}\) es diferenciable
-          en \((a,b)\) y \(G'(x)=f(x)\) para toda \(x\in (a,b)\), entonces
+          \([a,b]\). Si \(F:[a,b]\to \mathbb{R}\) es diferenciable
+          en \((a,b)\) y \(F'(x)=f(x)\) para toda \(x\in (a,b)\), entonces
           \[
-          \int_c^d f(x)dx=G(d)-G(c)
+          \int_c^d f(x)dx=F(d)-F(c)
           \]
           para cualesquiera puntos \(c,d\in (a,b)\).
         </p>
@@ -839,13 +839,21 @@
                     \[
                     \mathbb{F}(x,y)=\left(  -\frac{y}{x^2+y^2}, \frac{x}{x^2+y^2}\right)
                     \]
+
+                    <p>
+                      <div class="imagen-box flexbox">
+                        <img src="./Images/Sec6-img1.png" alt="U" width="450" height="auto">
+                        </div>
+                     </p> 
+                    
+
                     y toma
                     \[
                     U=\mathbb{R}^2\setminus \{(x,y):  x<  0\}.
                     \]
                     <p>
                       <div class="imagen-box flexbox">
-                        <img src="./Images/Sec5-img13.png" alt="U" width="400" height="230">
+                        <img src="./Images/Sec6-img2.png" alt="U" width="400" height="230">
                         </div>
                      </p> 
                     <ol>
@@ -875,7 +883,7 @@
 
                           <p>
                             <div class="imagen-box flexbox">
-                              <img src="./Images/Sec5-img14.png" alt="U" width="400" height="230">
+                              <img src="./Images/Sec6-img3.png" alt="U" width="400" height="230">
                               </div>
                            </p> 
                       </li>
@@ -1032,7 +1040,7 @@
 
               <p>
                 <div class="imagen-box flexbox">
-                  <img src="./Images/Sec5-img15.png" alt="Fig1TFIL-1" width="400" height="250">
+                  <img src="./Images/Sec6-img4.png" alt="Fig1TFIL-1" width="400" height="250">
                 </div>
               </p>
               Haciendo la cuenta, si escribimos \(Q=(q_1,\dots, q_n)\), tenemos
@@ -1117,8 +1125,8 @@
                   </p>
                 </div>
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"id="Ejer:equivFormaExacta"> Ejercicio  </h2>
+        <div class="teorema-box">
+          <h2 class="number-title"id="Ejer:equivFormaExacta"> Teorema  </h2>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
             \(\mathbb{F}\) un campo vectorial  donde las funciones coordenadas
@@ -1155,18 +1163,19 @@
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
+          
           <p>
             Considera el campo vectorial 
             \[
-            \mathbb{F}(x,y)=\left(Ex+Fy, Gx+Hy\right)
+            \mathbb{F}(x,y)=\left(A(x,y), B(x,y)\right),\, (x,y)\in \mathbb{R}^2
             \]
-            donde \(E,F,G,H\in \mathbb{R}\) son constantes.
-            Prueba que \(\mathbb{F}\) es conservativo si y sólo si \(F=G\). En caso
+            donde \(A\)  y \(B\) son funciones lineales.
+            Prueba que \(\mathbb{F}\) es conservativo si y sólo si \(\partial_y A =\partial_x B\). En caso
             de que sea exácta encuentra una función potencial.
           </p>
           <p>
             Sugerencia: si \(\mathbb{F}\) es conservativo usa la igualdad de las 
-            derivadas parciales mixtas de la función potencial. Si \(F=G\) prueba 
+            derivadas parciales mixtas de la función potencial. Si \(\partial_y A =\partial_x B\) prueba 
             que la integral \(\int_\alpha \mathbb{F}\cdot d\alpha=0\) 
             para toda curva orientada cerrada suave a trozos.
           </p>
