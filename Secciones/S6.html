@@ -1189,6 +1189,83 @@
 
 
 
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(U\) un abierto de \(\mathbb{R}^n\) y \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
+            clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
+            donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
+          </p>
+          <p>
+            Si \(\mathbb{F}\) es conservativo entonces 
+            \[
+            \partial_{x_i} f_j = \partial_{x_j}f_i
+            \]
+            para todos \(i,j\).
+          </p>
+
+        </div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Este ejercicio muestra que el regreso del teorema anterior no es cierto.
+          </p>
+
+          <p>
+            Considera el campo vectorial \(\mathbb{F}(x,y)=(A(x,y),B(x,y))\) con 
+            \[
+            A(x,y)=-\frac{y}{x^2+y^2}, \, B(x,y)=\frac{x}{x^2+y^2}.
+            \]
+            definido en \(\mathbb{R}^2\setminus \{(0,0)\}\).
+            
+          </p>
+          <p>
+            Prueba que \(\partial_yA=\partial_xB\) 
+            pero \(\mathbb{F}\) no es conservativo.
+          </p>
+
+        </div>
+
+
+        <div class="lema-box">
+          <h2 class="number-title"> Lema </h2>
+          <p>
+            Sea \(J=[a_1,b_1]\times \cdots \times [a_n,b_n]\times [a,b] \subset \mathbb{R}^{n+1}\).
+            Los puntos en \(J\) los denotaremos como \((x,t)\) donde 
+            \(x=(x_1,\dots, x_n) \in [a_1,b_1]\times \cdots \times [a_n,b_n] \) y \(t\in [a,b]\).
+          </p>
+          <p>
+            Supongamos que \(A: J\to \mathbb{R}\) es continua en \(J\) y definamos 
+            \(B:[a_1,b_1]\times\cdots \times  [a_n,b_n]\to \mathbb{R}\) por 
+            \[
+            B(x)=\int_a^b A(x,t)dt.
+            \]
+            Entonces 
+            \[
+            \partial_{x_j}B(x)=\int_a^b \partial_{x_j}A(x,t)dt.
+            \]
+          </p>
+
+        </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema  </h2>
+          <p>
+            Sea \(U\) un abierto y convexo de \(\mathbb{R}^n\). Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
+            clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
+            donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
+          </p>
+          <p>
+            \(\mathbb{F}\) es conservativo si y sólo si 
+            \[
+            \partial_{x_i} f_j = \partial_{x_j}f_i
+            \]
+            para todos \(i,j\).
+          </p>
+
+        </div>
+
                 <div class="nota-box">
                   <h2 class="number-title"> Conclusión </h2>
                   <p>
