@@ -473,7 +473,7 @@
                       Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo no vacío.
                       Si \(f,g:U\to \mathbb{R}\) son dos funciones potenciales
                       de un campo vectorial 
-                      \(\mathbb{F}: U\to \mathbb{R}^n\) entonces \(f\) y (g\) difieren por una constante.
+                      \(\mathbb{F}: U\to \mathbb{R}^n\) entonces \(f\) y \(g\) difieren por una constante.
                     </p>
                     <p>
 
@@ -1228,26 +1228,187 @@
         </div>
 
 
-        <div class="lema-box">
-          <h2 class="number-title"> Lema </h2>
+
+
+        <div class="prop-box">
+          <h2  class="number-title"> Lema (diferenciación dentro
+            de la  integral) </h2>
+
+
           <p>
-            Sea \(J=[a_1,b_1]\times \cdots \times [a_n,b_n]\times [a,b] \subset \mathbb{R}^{n+1}\).
-            Los puntos en \(J\) los denotaremos como \((x,t)\) donde 
-            \(x=(x_1,\dots, x_n) \in [a_1,b_1]\times \cdots \times [a_n,b_n] \) y \(t\in [a,b]\).
+            Supón que tenemos definida una función escalar
+            \(\varphi: U\times (c,d) \to \mathbb{R}\), donde
+            \(U\) es un conjunto abierto no vacío de \(\mathbb{R}^n\). Suponemos
+            que \(\varphi\) es una función clase \(C^1\) en \(U\times (c,d)\).
           </p>
           <p>
-            Supongamos que \(A: J\to \mathbb{R}\) es continua en \(J\) y definamos 
-            \(B:[a_1,b_1]\times\cdots \times  [a_n,b_n]\to \mathbb{R}\) por 
+            A los puntos de \(U\times (c,d)\) los vamos a denotar
+            \( (X,t) \)  donde \(X=(x_1,\dots, x_n)\in U\) y \(t\in (c,d)\).
+          </p>
+          <p>
+            Fija un intervalo cerrado
+            \([a,b]\subset (c,d)\) y define la función escalar \(\phi:U\to \mathbb{R}\) por
             \[
-            B(x)=\int_a^b A(x,t)dt.
+            \phi(X)=\int_a^b \varphi(X,t)dt
             \]
-            Entonces 
+
+            Entonces las derivadas parciales
+            de \(\phi\) existen en \(U\) y
             \[
-            \partial_{x_j}B(x)=\int_a^b \partial_{x_j}A(x,t)dt.
+            \partial_{x_j} \phi(X) = \int_a^b \partial_{x_j}\varphi(X,t)dt
             \]
           </p>
 
-        </div>
+          <button class="respButton hvr-grow"> Demostración  </button>
+          <div class="resp-box">
+
+            <p>
+              Fijamos un  \(j=1,\dots, n\) y por
+              \(e_j\) denotamos el
+              \(j\)-ésimo vector canónico. Para probar el resultado tenemos
+              que probar
+              \[
+              \lim_{h\to 0 }\frac{\phi(X+te_j)-\phi(X)}{h}=
+              \int_a^b \partial_{x_j}\varphi(X,t)dt,
+              \]
+              el cual es equivalente a
+              \begin{equation}\label{Eqn:auxLimiteCero}
+              \lim_{h\to 0 }
+              \left|
+              \frac{\phi(X+te_j)-\phi(X)}{h}
+              -\int_a^b \partial_{x_j}\varphi(X,t)dt
+              \right|
+              =0.
+              \end{equation}
+
+              Para probar el límite anterior vamos
+              a proceder en dos pasos. En el primer paso
+              vamos a reescribir el cociente diferencial
+              de \(\phi\) como una integral. En el segundo paso probamos \eqref{Eqn:auxLimiteCero}
+            </p>
+            <p>
+              Primer paso.
+            </p>
+            <p>
+              Antes de iniciar fijamos un radio \(r>0\) tal que
+              la bola abierta centrada en \(X\) y radio \(r\) esté contenida en \(U\). De aquí en
+              adelante vamos a estar considerando sólo puntos en esta bola.
+            </p>
+            <p>
+              Por definición de \(\phi\), usando linealidad de la
+              integral tenemos
+              \[
+              \frac{\phi(X+he_j)-\phi(X)}{h}=
+              \int_a^b \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}dt
+              \]
+              para \(h \ne 0\) y \(|h|< r\).
+            </p>
+            <p>
+              Ahora aplicamos el Teorema del Valor Medio para
+              derivadas para obtener
+              \begin{equation}\label{Eqn:auxTVM}
+              \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}=\partial_{x_j}\varphi(X(h,t),t)
+              \end{equation}
+              donde \(X(h,t)\) es un punto en el segmento de línea
+              que une \(X+he_j\) con \(X\) y depende de \(h\) y de \(t\).
+            </p>
+            <p>
+              Nota: para obtener la identidad \eqref{Eqn:auxTVM} se considera la función
+              \(g(h)=\varphi(X+he_j,t)\), para la variable \(h\) tomada en
+              \((-r,r)\) y se usa que
+              \(g'(h)=\partial_{x_j}\varphi(X+he_j,t)\).
+            </p>
+            <p>
+              Por lo tanto, de \eqref{Eqn:auxTVM} concluimos que el cociente
+              diferencial para \(\phi\) se puede escribir como
+              \begin{equation}\label{Eqn:auxCocienteDif}
+              \frac{\phi(X+he_j,t)-\phi(X,t)}{h}
+              =
+              \int_a^b \partial_{x_j}\varphi(X(h,t),t)dt
+              \end{equation}
+
+              Aquí termina el paso 1.
+            </p>
+            <p>
+              Paso 2.
+            </p>
+            <p>
+              Concluimos de \eqref{Eqn:auxCocienteDif} que el término
+              dentro del valor absoluto en \eqref{Eqn:auxLimiteCero}
+              lo podemos acotar como
+              \[
+              \left|
+              \frac{\phi(X+te_j)-\phi(X)}{h}
+              -\int_a^b \partial_{x_j}\varphi(X,t)dt
+              \right|
+              \leq
+              \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
+              \]
+              Por lo tanto para probar \eqref{Eqn:auxLimiteCero} es
+              suficiente probar
+              \begin{equation}\label{Eqn:auxLimiteCeroDos}
+              \lim_{h\to 0}
+              \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
+              =0
+              \end{equation}
+              el cual probamos con  \(\varepsilon\) y \(\delta\). Fijamos
+              \(\varepsilon>0\).
+            </p>
+            <p>
+              Hasta este momento no hemos usado el hecho de que \(\varphi\)
+              es clase \(C^1\), ahorita es el momento. Por
+              \(\bar{B}_{r/2}(X)\) denotamos la bola cerrada centrada
+              en \(X\) y radio \(r/2\). Considera el compacto
+              \(\bar{B}_{r/2}(X)\times [a,b]\). Tenemos que
+              \(\bar{B}_{r/2}(X)\times [a,b] \subset U \times (c,d)\)
+              y ya que \(\partial_{x_j}\varphi\) es continua
+              en \(U\times (c,d)\) resulta que
+              es uniformemente continua en \(\bar{B}_{r/2}(X)\times [a,b]\).
+            </p>
+            <p>
+              Usando que \(\partial_{x_j}\varphi\) es uniformemente continua
+              en \(\bar{B}_{r/2}(X)\times [a,b]\), para nuestra \(\varepsilon\)
+              existe \(\delta >0\) tal que si \((Y,s) \)  y \((Z,u)\)
+              son puntos en \(\bar{B}_{r/2}(X)\times [a,b] \)
+              \begin{equation}\label{Eqn:auxContinuidadUnif}
+              \| (Y,s)-(Z,u)\| < \delta
+              \Rightarrow
+              |\partial_{x_j}\varphi(Y,s)
+              -
+              \partial_{x_j}\varphi(Z,u)|
+              <
+              \frac{\varepsilon}{b-a}
+              \end{equation}
+            </p>
+            <p>
+              Tomamos
+              \(h\) con \(0< |h|<\delta\)  y \(t\in [a,b]\) arbitrarios. Tomando
+              \((Y,s)=(X,t)\) y \((Z,u)=(X(h,t),t)\) resulta
+              \[
+              \| (Y,s)-(Z,u)\|= \|X-X(h,t) \| \leq |h|
+              \]
+              donde la última igualdad se debe a que \(X(h,t)\) está en
+              el segmento de recta que  une \(X\) con \(X+he_j\). Ya que
+              \(|h|< \delta\) de \eqref{Eqn:auxContinuidadUnif} concluimos
+              \[
+              |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|
+              < \frac{\varepsilon}{b-a}
+              \]
+              para toda \(t\in [a,b]\). Integrando con respecto a \(t\)
+              llegamos a que
+              \[
+              \int_a^b |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|dt
+              <\varepsilon
+              \]
+              para toda \(0<|h|<\delta\), lo cual prueba \eqref{Eqn:auxLimiteCeroDos}.
+            </p>
+
+            </div>
+    </div>
+
+
+
+
 
         <div class="teorema-box">
           <h2 class="number-title"> Teorema  </h2>
@@ -1258,13 +1419,58 @@
           </p>
           <p>
             \(\mathbb{F}\) es conservativo si y sólo si 
-            \[
+            \begin{equation}\label{Eqn:condicionSuficiente}
             \partial_{x_i} f_j = \partial_{x_j}f_i
-            \]
+            \end{equation}
             para todos \(i,j\).
           </p>
 
         </div>
+
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <p>
+            La demostración del Teorema 6.28 da un método para encontrar
+            funciones potenciales. Si
+            el campo \(\mathbb{F}\) está definido en un dominio
+            convexo y satisface la condición \eqref{Eqn:condicionSuficiente}
+            entonces
+            una función potencial puede encontrarse como
+            \[
+            f(x)=\int_0^1 \mathbb{F}(x_0+t(x-x_0)) \cdot (x-x_0)dt
+            \]
+            donde \(x_0\) es un punto fijo del dominio de \(\mathbb{F}\).
+          </p>
+        </div>
+  
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para los siguientes campos vectoriales:
+            <ul>
+              <li> comprueba que se satisfacen la
+            condición \eqref{Eqn:condicionSuficiente} del Teorema.
+            </li>
+            <li> usa el método de la Nota 8.10  para encontrar
+            una función potencial.
+            </li>
+            <li>
+              finalmente comprueba directamente que el gradiente del
+              potencial  es igual al campo.
+              </li>
+            </ul>
+            <ol>
+              <li> \(\mathbb{F}(x,y,z)=(4xy-3x^2z^2+1,2x^2+2,-2x^3-3z^2) \). </li>
+              <li> \(\mathbb{F}(x,y,z)=(6xy-6xyz+12xy^2-12x^2y^3z,
+                3x^2-3x^2z+12x^2y-12x^3y^2z,-3x^2y-4x^3y^3)\). </li>
+            </ol>
+            Sugerencia: en el método de la Nota 6.29 toma  \(x_0=0\).
+          </p>
+  
+        </div>
+  
 
                 <div class="nota-box">
                   <h2 class="number-title"> Conclusión </h2>
