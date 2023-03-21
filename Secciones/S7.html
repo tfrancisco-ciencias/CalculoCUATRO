@@ -92,6 +92,7 @@
 
 <div class="definicion-box">
     <h2 class="number-title"> Definición </h2>
+    <h3>Curva de Jordan</h3>
     
     <p>
         Una curva suave a trozos \(\alpha:[a,b]\to \mathbb{R}\) se llama:
@@ -130,6 +131,10 @@
         <div class="imagen-box flexbox">
             <img src="./Images/Sec7-img4.png" alt="CurvaCerrada" width="300" height="230">
             </div>
+    </p>
+
+    <p>
+      Una curva suave a trozos, cerrada, simple se conoce como una curva de Jordan.
     </p>
 </div>
 
@@ -211,6 +216,33 @@
     </div>
   </div>
 
+
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema </h2>
+    <p>
+      Toda curva de Jordan descompone a el plano en dos regiones abiertas conexas
+      una acotada y una no acotada teniendo a la curva como la frontera de cada una 
+      de las regiones. 
+    </p>
+    <p>
+      La región acotada se conoce como el interior de la curva y la no acotada 
+      el exterior de la curva.
+    </p>
+
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-img6.png" alt="CurvaJordan" width="400" height="auto">
+      </div>
+    <p>
+      Nota: a pesar de que el resultado es intuitivo la prueba del teorema 
+      no es sencilla y no se verá. 
+    </p>
+    <p>
+      Para más información ver <a href="https://en.wikipedia.org/wiki/Jordan_curve_theorem#:~:text=In%20topology%2C%20the%20Jordan%20curve,and%20far%20away%20exterior%20points.">Wikipedia</a>
+    </p>
+  </div>
+
+
 <div class="teorema-box">
     <h2 class="number-title"> Teorema de Green</h2>
     <p>
@@ -240,59 +272,29 @@
       \int_{\mathcal{S}} (\partial_xQ - \partial_y P) dx\otimes dy=
       \int_{\partial \mathcal{S}} Pdx+Qdy
       \]
+
     </p>
+
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-img7.png" alt="TeoGreen" width="400" height="auto">
+      </div>
 </div>
 
 <div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
+  <h2 class="number-title"> Ejercicio</h2>
   <p>
-    Sea \(\gamma \subset \mathbb{R}^2\) una curva cerrada orientada positivamente,
-    simple, suave a trozos. Sea \(\mathcal{S}\) la región encerrada por
-    \(\gamma\). Prueba que
+    Este ejercicio muestra el uso del Teorema de Green para calcular integrales de línea.
+  </p>
+  <p>
+    Calcula la integral de línea
     \[
-    \textrm{Area}(\mathcal{S})=\frac{1}{2}\int_{\gamma} xdy-ydx
+      \int_{\gamma} (a_1+b_1xy+c_1y^2)dx+(a_2+b_2xy+c_2x^2)dy
     \]
+    donde \(\gamma\) es el cuadrado con vértices \((0,0),(1,0), (0,1), (1,1)\) recorrido 
+    en el sentido positivo.
   </p>
-  <button class="respButton hvr-grow"> Respuesta </button>
-  <div class="resp-box">
-    <div class="video flexbox">
-      <a href="https://youtu.be/ArWqnJ_y8dY" target="_blank"> Video </a>
-    </div>
-  </div>
 
 </div>
-
-
-
-
-<div class="ejercicio-box">
-  <h2 class="number-title"> Ejercicio </h2>
-  <p>
-    <ol>
-      <li> Por \(\gamma\) denotamos el segmento de recta que une
-        \((x_1,y_1)\) con \((x_2,y_2)\). Prubea directamente que
-        \[
-        \int_{\gamma}xdy-ydx=x_1y_2-x_2y_1
-        \]
-      </li>
-      <li>
-        Si los vértices de un polígono \(\mathcal{P}\), recorridos en el
-        sentido positivo, son \((x_1,y_1),\dots, (x_n,y_n)\),
-        prueba que su área es
-        \begin{eqnarray*}
-        \textrm{Area}(\mathcal{P})=\frac{1}{2}\left( (x_1y_2-x_2y_1)+(x_2y_3-x_3y_2)+\\
-        \cdots + (x_{n-1}y_n-x_ny_{n-1})+(x_ny_1-x_1y_n) \right)
-        \end{eqnarray*}
-      </li>
-    </ol>
-  </p>
-  <p>
-    Sugerencia: usa el ejercico anterior.
-  </p>
-</div>
-
-
-
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio </h2>
@@ -433,7 +435,7 @@
       Usa el Teorema de Green para calcular para calcular
       \(\int_{\gamma} e^{y^2}dx+xdy\), cuando \(\gamma\) es:
       <ol>
-        <li> El cuadrado con vértices \((0,0), (2,0), (2,2), (,2)\),
+        <li> El cuadrado con vértices \((0,0), (2,0), (2,2), (0,2)\),
         recorrido positivamente.
       </li>
       <li>
@@ -453,12 +455,67 @@
         <a href="https://youtu.be/4OATFlurgRM" target="_blank"> Video </a>
       </div>
     </div>
+</div>
 
-
-
-
-
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(\gamma \subset \mathbb{R}^2\) una curva cerrada orientada positivamente,
+    simple, suave a trozos. Sea \(\mathcal{S}\) la región encerrada por
+    \(\gamma\). Prueba que
+    \[
+    \textrm{Area}(\mathcal{S})=\frac{1}{2}\int_{\gamma} xdy-ydx
+    \]
+  </p>
+  <button class="respButton hvr-grow"> Respuesta </button>
+  <div class="resp-box">
+    <div class="video flexbox">
+      <a href="https://youtu.be/ArWqnJ_y8dY" target="_blank"> Video </a>
+    </div>
   </div>
+
+</div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    <ol>
+      <li> Por \(\gamma\) denotamos el segmento de recta que une
+        \((x_1,y_1)\) con \((x_2,y_2)\). Prueba directamente que
+        \[
+        \int_{\gamma}xdy-ydx=x_1y_2-x_2y_1
+        \]
+      </li>
+      <li>
+        Sea \(\mathcal{P}\) un polígono de tal forma que 
+        \(\partial(\mathcal{P})\) sea una curva suave a trozos, cerrada simple. 
+        Si los vértices de \(\mathcal{P}\), recorridos en el
+        sentido positivo, son \((x_1,y_1),\dots, (x_n,y_n)\),
+        prueba que su área es
+        \begin{eqnarray*}
+        \textrm{Area}(\mathcal{P})=\frac{1}{2}\left( (x_1y_2-x_2y_1)+(x_2y_3-x_3y_2)+\\
+        \cdots +(x_ny_1-x_1y_n) \right)
+        \end{eqnarray*}
+      </li>
+    </ol>
+  </p>
+  <p>
+    Sugerencia: usa el ejercico anterior.
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+  
 
 
 
@@ -609,6 +666,30 @@
   </div>
 
 
+  <div class="ejercicio-box">
+    <h2 class="number-title"> Ejercicio </h2>
+    <p>
+      Sea \(U\subseteq \mathbb{R}^2\) un abierto y  \(u,v:U\to \mathbb{R}\)
+      funciones de clase \(C^2\). Sea \(S\subset U\) un compacto con interior no vacío 
+      tal que \(\partial S\) es una curva de Jordan. Supón que \(\partial S\) está 
+      orientada positivamente. Prueba 
+    </p>
+    <ol>
+      <li>
+        \(\int_{\partial S} uv dx + uv dy = \int_S \left\{ v\left( \partial_xu - \partial_yu\right)+ u(\partial_xv-\partial_yv) \right\}dx\otimes dy\)
+      </li>
+      <p>
+
+      </p>
+      <li>
+        \(\frac{1}{2} \int_{\partial S} (v\partial_xu -u \partial_xv)dx+ (u\partial_yv -v \partial_yu)dy=
+        \int_S \left\{ u\partial^2_{xy}v-v\partial_{xy}^2u  \right\}dx\otimes dy\)
+      </li>
+    </ol>
+
+  </div>
+
+
   <div class="teorema-box">
     <h2 class="number-title"> Teorema (Green versión 2) </h2>
     <p>
@@ -652,6 +733,10 @@
       \]
     </p>
 
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-img8.png" alt="TeoGreen" width="400" height="auto">
+      </div>
+
 
       <button class="respButton hvr-grow"> Demostración </button>
         <div class="resp-box">
@@ -665,11 +750,11 @@
     <h2 class="number-title"> Teorema (de invariancia)</h2>
     <p>
       Sea \(U\subset \mathbb{R}^2\) un  abierto conexo y
-      \(\omega\) una 1-forma <b>cerrada</b> clase \(C^1\) en \(U\).
+      \(\mathbb{F}\) un campo vectorial <b>conservativo</b> clase \(C^1\) en \(U\).
     <p>
       <p>
-        Sean \(\gamma_1, \gamma_2\) dos curvas
-        cerradas simples, suaves a trozos que satisfacen:
+        Sean \(\gamma_1, \gamma_2\) dos curvas suaves a trozos,
+        cerradas, simples,  que satisfacen:
         <ol>
           <li> \(\gamma_1\) y \(\gamma_2\) tienen la
           misma orientación, </li>
@@ -686,7 +771,7 @@
       <p>
         Entonces
         \[
-        \int_{\gamma_1} \omega= \int_{\gamma_2}\omega
+        \int_{\gamma_1} \mathbb{F} \cdot d\gamma_1= \int_{\gamma_2}\mathbb{F} \cdot d\gamma_2
         \]
       </p>
 
@@ -726,14 +811,14 @@
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
-      Sea \(\omega\) una 1-forma <b>cerrada</b> clase
+      Sea \(\mathbb{F}\) un campo vectorial clase
       \(C^1\) en todo \(\mathbb{R}^2\).
     </p>
     <ol>
       <li> Sea \(U=\{(x,y): 1< x^2+y^2 < 2\}\) y sea
       \(\gamma\) una curva orientada cerrada simple, contenida
     en \(A\) ¿Cuántos posibles valores distintos
-    puede tomar la integral \(\int_{\gamma} \omega ?\)</li>
+    puede tomar la integral \(\int_{\gamma} \mathbb{F}\cdot d\gamma\)</li>
     <li>
       Sea \(V\) un conjunto abierto, conexo con exáctamente tres
       hoyos, por ejemplo \(V=D \setminus (D_{-1}\cup D_{1})\) donde
@@ -749,6 +834,24 @@
   </div>
 
 
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema de Green (forma vectorial)</h2>
+    <p>
+      Sea \(U\subseteq \mathbb{R}^2\) un abierto y \(\mathbb{F}:U\to \mathbb{R}^2\)
+      un campo clase \(C^1\). 
+    </p>
+    <p>
+      Si \(S\subset U\) es un compacto con interior no vacío tal que 
+      \(\partial S\) es una curva de Jordan, orientada positivamente, 
+      entonces
+
+      \[
+      \int_{\partial S} \mathbb{F} \cdot ds = \int_S (\nabla \times \mathbb{F})\cdot k dx\otimes dy
+      \]
+    </p>
+
+  </div>
 <!--termina contenido -->
 
   </body>
