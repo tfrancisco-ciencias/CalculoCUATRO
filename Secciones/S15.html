@@ -74,20 +74,17 @@
 
       <h1 class="card "> Integrales de superficie </h1>
 
+
+
       <div class="nota-box">
-        <h2 class="number-title"> Introducción </h2>
-        <p>
-          Las integrales de superficie son la generalización de las
-          integrales sobre regiones orientadas que se presentaron
-          en la sección anterior. La diferencia  ahora es que
-          vamos a "encajar" y "doblar" la región orientada en un espacio de
-          dimensión más grande. Estas regiones encajadas serán lo que llamaremos
-          superficies (los objetos 2-dimensionales a los cuales vamos a calcular su integral).
-        </p>
+
+        <h2 class="number-title"> Nota  </h2>
+        <h3> Superficies suaves</h3>
+        
         <p>
           De manera  informal, una superficie es un subconjunto que satisface:
           <ul>
-            <li> de manera local se parece a un pedazo de \(\mathbb{R}^2\),
+            <li> localmente se parece a un pedazo de \(\mathbb{R}^2\),
                   es decir, tiene dimensión 2;</li>
             <li> todo punto de la superficie admite un plano tangente. </li>
           </ul>
@@ -122,8 +119,23 @@
         </ol>
           <p>
             Resulta que, para las cuentas, ésta última descripción es muy útil,
-            así que empezamos con esta definición.
+            así que es la que usamos en <a href="./S2.html#Def:Superficie">Definición 2.15</a> la cual 
+            reproducimos a continuación. 
           </p>
+          <p>
+            Decimos que un subconjunto \(\mathcal{S} \subset \mathbb{R}^n\) es una <b>superficie
+            suave parametrizada</b>, si existe una función clase \(C^1\),
+            \(\mathbb{r}: \mathcal{R} \to \mathbb{R}^n\) tal que
+            <ol>
+              <li>  \(\mathcal{R}\subset \mathbb{R}^2\) es una región (subconjunto compacto con interior no vacío). </li>
+              <li> \(\mathbb{r}(\mathcal{R})=\mathcal{S}\). </li>
+              <li> \(\mathcal{S}\) no se auto-corta. </li>
+              <li>  Todo punto de \(\mathcal{S}\) admite un plano tangente.
+              </li>
+            </ol>
+          </p>
+
+          <p>Nota </p>
           <p>
             Una de las formas más generales de definir una supreficie, que se generaliza
             a más de dos dimensiones, es mediante el concepto de
@@ -137,159 +149,203 @@
 
 
 
-
-      <div class="definicion-box">
-        <h2 class="number-title" id="Def:Superficie"> Definición </h2>
+      <div  class="nota-box">
+        <h2 class="number-title"> Motivación </h2>
         <p>
-          Decimos que un subconjunto \(\mathcal{S} \subset \mathbb{R}^n\) es una <b>superficie
-          suave</b>, si existe una función clase \(C^1\),
-          \(\mathbb{r}: \mathcal{R} \to \mathbb{R}^n\) tal que
-          <ol>
-            <li> \(\mathcal{S}\) no se auto-corta. </li>
-            <li>  \(\mathcal{R}\subset \mathbb{R}^2\) es una región. </li>
-            <li> \(\mathbb{r}(\mathcal{R})=\mathcal{S}\). </li>
-            <li>  Para todo punto de \(\mathcal{R}\),
-            las parciales de \(\mathbb{r}\) en el punto forman un
-            conjunto linealmente independiente. Este punto será
-            importante en la orientación, que se verá más adelante.</li>
-          </ol>
+          La integral de superficie se puede interpretar como el promedio 
+          de un flujo que atraviesa una superficie. 
         </p>
-
-
         <p>
-          A veces se da directamente la función
-          \(\mathbb{r}\) y decimos que un <b>superficie parametrizada suave</b>
-          es una función clase \(C^1\), \(\mathbb{r}: \mathcal{R} \to \mathbb{R}^n\).
+          Supongamos que \(\mathcal{R}=[a,b]\times [c,d]\) y 
+          \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) es una parametrización clase 
+          \(C^1\) de la superficie \(\mathcal{S}\). Para facilitar la notación vamos a 
+          suponer que \(\mathbb{r}\) depende de las variables \(u\) y \(v\). 
+        </p>
+        <p>
+          Por otro lado supongamos que el campo vectorial 
+          \(\mathbb{F}:\mathbb{R}^3 \to \mathbb{R}^3\) modela 
+          las valocidades de un flujo.
         </p>
 
         <p>
-          Notas:
+          Ahora supongamos que dividimos \(\mathcal{R}\) en \(n^2\) subrectángulos 
+          pequeños, \(\mathcal{R}_{i,j}\), \(1\leq i,j \leq n\). Vamos a analizar 
+          el flujo que pasa através de \(\mathcal{R}_{i,j}\) que al ser pequeño 
+          tiene la ventaja de que \(\mathbb{F}\) y \(\mathbb{r}\) son  prácticamente constantes en \(\mathcal{R}_{i,j}\).
+        </p>
+        <p>
+          Por \(\Delta u\) vamos a denotar la longitud del lado horizontal de \(\mathcal{R}_{i,j}\)
+          y por \(\Delta v\) la longitud de su lado vertical. 
+        </p>
+        <p>
+          Ahora consideramos el paralelogramo formado por los vectores \(\Delta u \partial_u \mathbb{r}\)
+          y \(\Delta v \partial_v \mathbb{r}\) colocado sobre el plano tangente de \(\mathcal{S}\). Si queremos 
+          ver el flujo a través de \(\mathbb{R}_{i,j}\) consideramos el paralelepipedo formado por los vectores 
+          \(\Delta u \partial_u \mathbb{r}(p_{i,j}), \Delta v \partial_v \mathbb{r}(p_{i,j})\) y \(\mathbb{F}(p_{i,j})\)
+          donde \(p_{i,j}\in \mathcal{R}\) es un punto arbitrario. El volumen 
+          de dicho paralelepipedo está dado por el triple producto 
+          \[
+          \mathbb{F}(p_{i,j}) \cdot (\Delta u \partial_u \mathbb{r}(p_{i,j}) \times \Delta v \partial_v \mathbb{r}(p_{i,j}))=\mathbb{F}(p_{i,j})\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+          \]
+
+        </p>
+        <p>
+          Nota.
+        </p>
+        <p>
+          El vector \(\partial_u \mathbb{r}\times \partial_v \mathbb{r}\) es perpendicular a la superficie 
+          y si pensamos que "apunta hacia afuera de la superficie" tenemos dos casos: 
           <ul>
             <li>
-              A la función \(\mathbb{r}\) se le llama una parametrización.
+              si \(\mathbb{F}\) "apunta hacia afuera de la superficie" el producto 
+              \(\mathbb{F}\cdot (\partial_u \mathbb{r}\times \partial_v \mathbb{r})\)
+              es positivo y podemos pensar que el flujo sale de la superficie. 
             </li>
-            <li> La condición de que la superficie no se auto-corta es
-            informal. La manera formal de enunciar esta condición es con topología
-            y dice: todo punto de la superficie adminte una vecindad que es
-            homeomorfa a un abierto de \(\mathbb{R}^2\). </li>
-            <li> Si la parametrización \(\mathbb{r}\) es inyectiva
-            entonces la condición 1 de la definición se cumple
-            inmediatamente. Pero a la inversa no es necesariamente cierta
-            como lo muestra el ejemplo de abajo. </li>
-            <li>Decimos que una función \(r:\mathcal{R} \to \mathbb{R}^3\) es clase \(C^1\) en \(\mathcal{R}\)
-          si existe \(V\), un abierto de \(\mathbb{R}^2\)
-          con \(\mathcal{R} \subset V\) y una función
-          \(\tilde{r}:V\to \mathbb{R}^3\), tal que
-          \(\tilde{r}\) restringida a \(\mathcal{R}\) coincide con \(r\).
-          </li>
-
-          <li>
-            En muchos casos \(\mathcal{R}\) es un rectángulo.
-          </li>
-        </ul>
+            <li>
+              si \(\mathbb{F}\) "apunta hacia dentro de la superficie" el producto 
+              \(\mathbb{F}\cdot (\partial_u \mathbb{r}\times \partial_v \mathbb{r})\)
+              es negativo y podemos pensar que el flujo entra a la superficie. 
+            </li>
+          </ul>
+          
         </p>
         <p>
-          Ejemplo.
-        </p>
-        <p>
-          Para el caso  de la esfera
-          \(\mathcal{S}=\{(x,y,z): x^2+y^2+z^2=r^2\}\),
-          en la introducción dimos la parametrización:
-          \begin{eqnarray*}
-          & & \mathbb{r}:[0,\pi]\times [0,2\pi]\to \mathbb{R}^3,\\
-          & & \mathbb{r}(\theta,\varphi)=(r\cos(\varphi)\sin(\theta), r\sin(\varphi)\sin(\theta), r\cos(\theta)).
-          \end{eqnarray*}
-          Es claro \(\mathcal{S}\) no se corta asi misma, que \(\mathbb{r}\)  es clase \(C^1\) y
-          que \(\mathbb{r}(\mathcal{S})=\mathcal{S}\). La única condición
-          de la <a href="#Def:Superficie">Definición</a> que hace
-          falta por checar es la última.
-        </p>
-      </p>
-          Las parciales
-          de \(\mathbb{r}\) en un punto cualquiera \((\theta,\varphi)\) son
-          \begin{eqnarray*}
-          \partial_\theta \mathbb{r}  (\theta,\varphi)= (r\cos(\varphi)\cos(\theta), r\sin(\varphi)\cos(\theta), -r\sen(\theta)) \\
-          \partial_\varphi \mathbb{r} (\theta, \varphi)=(-r\sin(\varphi)\sin(\theta), r\cos(\varphi)\sin(\theta), r\cos(\theta))
-          \end{eqnarray*}
-          Para checar que éstos dos vectores forman un conjunto linealmente
-          independiente vamos usar un truco de cálculo 3: si su producto cruz
-          es distinto de cero entonces los vectores son linealmente independiente.
-        </p>
-        <p>
-          Calculando directamente el producto cruz tenemos
+          Por lo tanto la suma 
           \[
-          (\partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r})(\theta,\varphi)=
-          \left|
-          \begin{array}{ccc}
-          \mathbb{i}  & \mathbb{j}  &  \mathbb{k} \\
-          r\cos(\varphi)\cos(\theta) & r\sin(\varphi)\cos(\theta) & -r\sen(\theta) \\
-          -r\sin(\varphi)\sin(\theta) & r\cos(\varphi)\sin(\theta) & r\cos(\theta)
-          \end{array}
-          \right|
-          =
-          a\cos(\varphi)\mathbb{r}(\theta,\varphi)
+          \sum_{i,j=1}^n \mathbb{F}(p_{i,j})\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
           \]
-          el cual siempre es distinto de cero. Por lo tanto
-          \( \{\partial_\theta \mathbb{r}, \partial_\varphi\mathbb{r}\}\) forma
-          un conjunto linealmente independiete.
+          es la cantidad neta del flujo que pasa por la superficie \(\mathcal{S}\).
+          </p>
+          <p>
+            Tomando el límite cuando \(n\to \infty\) tenemos que 
+            \[
+            \sum_{i,j=1}^n \mathbb{F}(p_{i,j})\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+            \to \int_{\mathcal{R}} \mathbb{F}(u,v)\cdot (\partial_u \mathbb{r}(u,v)\times \mathbb{r}_v(u,v))du\otimes dv
+            \]
+          </p>
+      </div>
+
+
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <h3> Integral de superficie </h3>
+        <p>
+          Sea \(\mathcal{S} \subset \mathbb{R}^3\) una superficie parametrizada suave 
+          y sea \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) una parametrización clase 
+          \(C^1\) de \(\mathcal{S}\).
+        </p>
+        <p>
+          Sea \(\mathbb{F}:\mathcal{S} \to \mathbb{R}^3\) un campo vectorial continua en \(\mathcal{S}\).
+        </p>
+        <p>
+          Definimos la integral de superficie de \(\mathbb{F}\) sobre \(\mathcal{S}\) como 
+          \[
+          \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}=\int_{\mathcal{R}} \mathbb{F}(u,v)\cdot (\partial_u\mathbb{r}\times \partial_v\mathbb{r})(u,v)du\otimes dv
+          \]
+          también se puede denotar \(\int_{\mathbb{r} } \mathbb{F}\cdot d\mathbb{r}\).
         </p>
 
       </div>
 
-        <div class="nota-box">
-          <h2 class="number-title" id="Def:Orientacion"> Orientación  </h2>
-          <p>
-            Si \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) es una superficie
-            suave parametrizada, digamos \(\mathbb{r}\) depende de las
-            variables \((u,v)\in \mathcal{R}\), el producto cruz
-            \[
-            \partial_u \mathbb{r}\times \partial_v\mathbb{r}
-            \]
-            se conoce como el <b>producto fundamental</b> de la superficie y tiene
-            un interpretación geométrica que veremos enseguida.
-          </p>
 
-          <p>
-            Las derivadas parciales \(\partial_u \mathbb{r}\) y \(\partial_v\mathbb{r}\),
-            valuadas en un punto \((u_0,v_0)\), pueden verse como vectores tangentes a la superficie
-            en el punto \(\mathbb{r}(u_0,v_0)\). Ya que además estamos suponiendo que
-            \(\{\partial_u \mathbb{r}(u_0,v_0),\partial_v \mathbb{r}(u_0,v_0)\}\) es
-            linealmente independiente resulta que es también una base para el
-            palno tangente en \(\mathbb{r}(u_0,v_0)\). Pero, el producto cruz
-            entre dos vectores en \(\mathbb{R}^3\) es perpendicular a ambos vectores,
-            por lo tanto podemos pensar al producto fundamental
-            \(\partial_u \mathbb{r}\times \partial_v \mathbb{r}\) como un vector normal
-            a la superficie.
-          </p>
-          <p>
-            Dada \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) una superficie parametrizada
-            suave, el vector
-            \[
-            \mathbb{n}:=\frac{1}{\|\partial_u \mathbb{r}\times \partial_v\mathbb{r} \|}\partial_u \mathbb{r}\times \partial_v\mathbb{r}
-            \]
-            se llama un <b>vector normal unitario</b> a la superficiie.
-          </p>
 
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
         <p>
-            Una <b>orientación</b> para \(\mathcal{S}\), la superficie dada por \(\mathbb{r}\), es simplemente
+          Por \(\mathcal{S}\) denotamos el hemosferio de la esfera de radio \(a\) dado por 
+           \(x^2+y^2+z^2=a^2, z\geq 0\). Sea \(\mathbb{F}(x,y,z)=(x,y,0)\). Calcula 
+           \(\int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}\) usando: 
+           <ol>
+            <li>
+              la pareametrización \(\mathbb{r}(u,v)=(\sen(u)\cos(v),\sen(u)\sen(v),\cos(u))\), 
+            </li>
+            <li>
+             la representación explícita \(z=\sqrt{a^2-x^2-y^2}\).
+            </li>
+           </ol>
+        </p>
+
+      </div>
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+          Por \(\mathcal{S}\) denotamos la superficie cuya frontera está formada 
+          por los vértices del triángulo \((a,0,0),(0,a,0),(0,0,a)\) donde \(a>0\). 
+          Sea  \(\mathbb{F}(x,y,z)=(x,y,z)\).Calcula 
+           \(\int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}\) usando: 
+           <ol>
+            <li>
+              la pareametrización \(\mathbb{r}(u,v)=(a(u+v),a(u-v),a(1-2u))\), 
+            </li>
+            <li>
+             una representación explícita de la forma  \(z=f(x,y)\).
+            </li>
+           </ol>
+        </p>
+
+      </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title" id="Def:Orientacion"> Definición   </h2>
+          <h3> Orientación </h3>
+
+          <p>
+            Sea \(\mathcal{S}\subset \mathbb{R}^3\) una superficie suave parametrizada.
+          </p>
+          <p>
+            Una <b>orientación</b> para \(\mathcal{S}\) es simplemente
             una función \(N:\mathcal{S}\to \mathbb{R}^3\) tal que:
             <ol>
               <li> \(N\) es continua en todo \(\mathcal{S}\), </li>
-              <li> para todo punto \(P\in \mathcal{S}\), \(\|N(P)\|=1\), </li>
-              <li> para todo punto \(P\in \mathcal{S}\), \(N(P)\) es perpendicular al plano tangente en \(P\). </li>
+              <li> para todo punto \(p \in \mathcal{S}\), \(\|N(p)\|=1\), </li>
+              <li> para todo punto \(p\in \mathcal{S}\), \(N(p)\) es perpendicular al plano tangente en \(p\). </li>
             </ol>
-            Para una superficie \(\mathcal{S}\), con parametrización \(\mathbb{r}\),
-            tenemos sólo dos orientaciones: \(N=\mathbb{n}\) ó \(N=-\mathbb{n}\).
           </p>
 
+          <p>
+            Sea \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) es una parametrización clase \(C^1\) para 
+            \(\mathcal{S}\) y digamos que \(\mathbb{r}\) depende de las
+            variables \((u,v)\in \mathcal{R}\), el producto cruz de las derivadas parciales, 
+            \[
+            \partial_u \mathbb{r}\times \partial_v\mathbb{r}
+            \]
+            es el  <a href="./S2.html#Def:ProductoFundamental">producto fundamental</a> de la superficie y 
+            geométricamente se puede interpretar como un vector perpendicular a la superficie.
+          </p>
+
+          <p>
+           Por lo tanto  el vector
+            \[
+            \mathbb{n}:=\frac{1}{\|\partial_u \mathbb{r}\times \partial_v\mathbb{r} \|}\partial_u \mathbb{r}\times \partial_v\mathbb{r}
+            \]
+            es un <b>vector normal unitario</b> a la superficiie.
+          </p>
+          <p>
+            En conclusión, dada una superficie suave parametrizada por \(\mathbb{r}\) con la propiedad 
+            de que el producto cruz \(\partial_u\mathbb{r}\times \partial_v \mathbb{r}\) nunca se anula 
+            sólo existen dos orientaciones para la superficie 
+            \[
+            N=\mathbb{n} \quad \textrm{ó}\quad N=-\mathbb{n}.
+            \]
+
+          </p>
+        
         </div>
 
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Para las siguientes superficies parametrizadas calcula su producto
-          fundamental.
+          Para las siguientes superficies parametrizadas calcula las dos posibles orientaciones.
         </p>
         <ol>
           <li>
@@ -315,43 +371,152 @@
               Toro: \(\mathbb{r}(u,v)=((a+b\cos(u))\sin(v), (a+b\cos(u))\cos(v), b\sin(u))\),
               donde \(a,b >0\).
             </li>
-        </ol>
-
-        <button class="respButton hvr-grow"> Respuesta de 5 </button>
-        <div class="resp-box">
-          <div class="video flexbox">
-            <a href="https://youtu.be/I6LBHMq7mP4" target="_blank"> Video </a>
-          </div>
-        </div>
+          </ol>
 
       </div>
 
+
+
       <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
+        <h2 class="number-title"> Definición</h2>
+        
+        <p>
+          Dos funciones clase \(C^1\), \(\mathbb{r}_1:\mathcal{R}_1 \to \mathbb{R}^3\),
+          \(\mathbb{r}_2:\mathcal{R}_2 \to \mathbb{R}^3\), se llaman equivalentes si 
+          existe una función \(T:\mathcal{R}_1 \to \mathbb{R}_2\) tal que 
+          <ul>
+            <li>
+              \(T\) es clase \(C^1\) en \(\mathcal{R}_1\),
+            </li>
+            <li>
+              \(T(\mathcal{R}_1)=\mathcal{R}_2\),
+            </li>
+            <li>
+              la matriz de derivadas parciales,  \(D_pT\), cumple que su determinante no se anula para todo \(p\in \mathcal{R}_1\), 
+            </li>
+            <li>
+              para todo \(p\in \mathcal{R}_1\), \(\mathbb{r}_2(T(p))=\mathbb{r}_1(p)\).
+            </li>
+          </ul>
+
+        </p>
+
+        <p>
+          Decimos que \(\mathbb{r}_1\) y \(\mathbb{r}_2\) tienen la misma orientación si 
+          \(\det(D_pT)>0\) para todo \(p\) y decimos que tienen orientaciones contrarias si 
+          \(\det(D_pT)< 0\) para todo \(p\).
+        </p>
+
+      </div>
+
+     <!-- <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
+      
           <p>
-            Sea \(U\subset \mathbb{R}^3\) un conjunto abierto y
-            sea \(\eta\) una 2-forma continua en \(U\). Supongamos
-            que en la base \(\{dx\wedge dy, dy\wedge dz, dx\wedge dz\}\) podemos
-            escribir \(\eta =Fdx\wedge dy +Gdy\wedge dz + H dx \wedge dz\).
+            Sea \(\mathcal{S}\) una superficie orientada, con orientación \(N:\mathcal{S}\to \mathbb{R}^3\). 
+            Sean 
+            \(\mathbb{r}_i:\mathcal{R}\to \mathbb{R}^3\),\(i=1,2\), dos parametrizaciones de 
+            \(\mathcal{S}\) clase \(C^1\).
+          </p>
+        
+          <p>
+            Si Si \(\mathbb{r}_1\) y \(\mathbb{r}_2\) tienen la misma orientación entonces 
+            \[
+            \partial_u\mathbb{r}
+            \]
           </p>
 
-          <p>
-            Sea \(\mathcal{R}\subset \mathbb{R}^2\) una región,
-            \(\mathbb{r}:\mathcal{R} \to \mathbb{R}^3\) una superficie
-            parametrizada suave con \(\mathbb{r}(\mathcal{R})\subset U\) y
-            denotemos \(\mathbb{r}(u,v)=(X(u,v),Y(u,v),Z(u,v))\),
-            \(\mathcal{S}=\mathbb{r}(\mathcal{R})\).
-          </p>
-          <p>
-            Definimos la integral de \(\eta\) sobre la
-            superficie \(\mathcal{S}\),  como:
-            \begin{eqnarray*}
-            \int_{\mathcal{S}}\eta=\int_{\mathcal{S}} F dx\wedge dy + G dy\wedge dz + H dx\wedge dz=
-            \int_{\mathcal{R}}F(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}\\
-            +\int_{\mathcal{R}}G(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}\\
-            +\int_{\mathcal{R}}H(\mathbb{r}(u,v))\frac{\partial(X,Z)}{\partial(u,v)}
-            \end{eqnarray*}
-          </p>
+      </div>-->
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \(\mathcal{S}\) una superficie suave parametrizada y sean 
+          \(\mathbb{r}_i:\mathcal{R}\to \mathbb{R}^3\),\(i=1,2\), dos parametrizaciones de 
+          \(\mathcal{S}\) clase \(C^1\).
+        </p>
+        <p>
+          Sea \(\mathbb{F}:\mathcal{S}\to \mathbb{R}^3\) un campo vectorial continuo. 
+        </p>
+        <p>
+          Si \(\mathbb{r}_1\) y \(\mathbb{r}_2\) tienen la misma orientación entonces 
+          \[
+          \int_{\mathbb{r}_1}\mathbb{F}\cdot d \mathbb{r}_1=\int_{\mathbb{r}_2}\mathbb{F}\cdot d \mathbb{r}_2
+          \]
+        </p>
+        <p>
+          Si \(\mathbb{r}_1\) y \(\mathbb{r}_2\) tienen orientaciones contrarias entonces 
+          \[
+          \int_{\mathbb{r}_1}\mathbb{F}\cdot d \mathbb{r}_1=-\int_{\mathbb{r}_2}\mathbb{F}\cdot d \mathbb{r}_2
+          \]
+        </p>
+
+      </div>
+
+      
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        
+        <p>
+          Supongamos que \(\mathbb{S}\) es una superficie suave parametrizada por 
+          la función clase \(C^1\), \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\). Si escribimos 
+          las funciones coordendas de \(\mathbb{r}\)
+          \[
+          \mathbb{r}(u,v)=(X(u,v),Y(u,v),Z(u,v))
+          \]
+          entonces 
+          \[
+          \partial_u\mathbb{r}\times \partial_v\mathbb{r} =\left(\frac{\partial(Y,Z)}{\partial(u,v)},\frac{\partial(Z,X)}{\partial(u,v)},\frac{\partial(X,Y)}{\partial(u,v)}\right)
+          \]
+          donde  usamos la notación 
+          \begin{eqnarray*} 
+          \frac{\partial(Y,Z)}{\partial(u,v)} =
+          \det 
+          \left[ 
+          \begin{array}{cc} 
+          \partial_u Y & \partial_u Z \\
+          \partial_v Y & \partial_v Z 
+          \end{array}
+          \right]\\
+          \frac{\partial(Z,X)}{\partial(u,v)} =
+          \det 
+          \left[ 
+          \begin{array}{cc} 
+          \partial_u Z & \partial_u X \\
+          \partial_v Z & \partial_v X 
+          \end{array}
+          \right]\\
+          \frac{\partial(X,Y)}{\partial(u,v)} =
+          \det 
+          \left[ 
+          \begin{array}{cc} 
+          \partial_u X & \partial_u Y \\
+          \partial_v X & \partial_v Y 
+          \end{array}
+          \right]
+          \end{eqnarray*}
+        </p>
+        <p>
+          Por lo tanto, si el campo tiene funciones coordenadas \(\mathbb{F}=(P,Q,R)\) entonces 
+          \begin{eqnarray*} 
+          \int_{\mathbb{r}}\mathbb{F}\cdot d\mathbb{r}&=&\int_{\mathcal{R}}P(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}du\otimes dv \\
+          &+&\int_{\mathcal{R}}Q(\mathbb{r}(u,v)) \frac{\partial(Z,X)}{\partial(u,v)}du\otimes dv \\
+          &+& \int_{\mathcal{R}}R(\mathbb{r}(u,v)) \frac{\partial(X,Y)}{\partial(u,v)}du\otimes dv \\
+          \end{eqnarray*}
+        </p>
+        <p>
+          Por simplicidad denotamos 
+          \begin{eqnarray*} 
+          \int_{\mathcal{S}} P(x,y,z)dy\wedge dz &=& \int_{\mathcal{R}}P(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}du\otimes dv \\
+          \int_{\mathcal{S}} Q(x,y,z)dz\wedge dx &=& \int_{\mathcal{R}}Q(\mathbb{r}(u,v))\frac{\partial(Z,X)}{\partial(u,v)}du\otimes dv \\
+          \int_{\mathcal{S}} R(x,y,z)dx\wedge dy &=& \int_{\mathcal{R}}R(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}du\otimes dv \\
+          \end{eqnarray*}
+          y entonces podemos escribir con esta notación 
+          \[
+          \int_{\mathcal{S}}\mathbb{F}\cdot d\mathcal{S}=\int_{\mathcal{S}} Pdy\wedge dz+Q dz\wedge dx + R dx\wedge dy
+          \]
+        </p>
 
       </div>
 
@@ -363,7 +528,7 @@
           <p>
             Calcula
             \[
-            \int_{\mathcal{S}} xdx+ydy+zdz
+            \int_{\mathcal{S}} xdx\wedge dy +ydy\wedge dz +zdx\wedge dz 
             \]
             donde \(\mathcal{S}\) es la región triangular
             con vértices \((1,0,0), (0,0,1)\) y \((0,0,1)\)
@@ -497,6 +662,8 @@
       </div>
 
 
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
@@ -532,13 +699,14 @@
       </div>
 
       <div class="definicion-box">
-        <h2 >Definición </h2>
+        <h2 class="number-title"> Definición </h2>
+        <h3> Superficie con frontera </h3>
         <p>
           Sea \(\mathcal{S}\) una supreficie con la característica  que admite una
           parametrización \(\mathcal{r}:\mathcal{R}\to \mathbb{R}^3\)
           con la propiedad de que \(\mathbb{r}(\partial \mathcal{R})\)
-          sea una curva suave. La frontera de
-          \(\mathcal{S}\), denotada \(\partial \mathcal{S}\) se define como
+          sea una curva suave. En este caso decimos que \(\mathcal{S}\)
+          es una superficie con frontera, denotada \(\partial \mathcal{S}\), la cual  se define como
           la imagen de \(\partial \mathcal{R}\) bajo la paremtrización
           \(\mathbb{r}\), es decir \(\partial \mathcal{S}=\mathbb{r}(\partial \mathcal{R})\)
         </p>
@@ -708,7 +876,7 @@
 
 
 
-      <div class="definicion-box">
+      <!--<div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
         <p>
           Dada \(\mathcal{S}\), una superficie suave parametrizada
@@ -759,7 +927,7 @@
           </div>
         </div>
 
-      </div>
+      </div>-->
 
 
 
@@ -790,7 +958,7 @@
             por lo tanto, copiando la definición de  integral con respecto a longitud
             de arco tenemos una expresión
             \[
-            \int_{\mathcal{R}} (\rho\circ \mathbb{r}) \|\partial_u \mathbb{r}\times \partial_v \mathbb{r} \| dudv
+            \int_{\mathcal{R}} (\rho\circ \mathbb{r}) \|\partial_u \mathbb{r}\times \partial_v \mathbb{r} \| du\otimes dv
             \]
             donde ahora \(\rho\) es una función continua definida sobre
             la superficie.
@@ -799,24 +967,26 @@
 
 
 
-      <div class="definicion-box">
-        <h2 class="number-title"> Definición </h2>
-        <p>
-          Supongamos que \(\mathbb{r}:\mathcal{R} \to \mathbb{R}^3\)
-          es una superficie parametrizada suave y denotamos \(\mathcal{S}=\mathbb{r}(\mathcal{R})\).
-        </p>
-        <p>
-          Sea \(f:\mathcal{S}\to \mathbb{R}\) una función continua en \(\mathcal{S}\).
-          Definimos la integral, con respecto al área de \(f\), como
 
-          \[
-          \int_{\mathcal{S}}f dS= \int_{\mathcal{R}} f(\mathbb{r}(u,v))
-          \left\| \partial_u \mathbb{r}\times \partial_v \mathbb{r} \right\| dudv.
-          \]
-          Otra notación incluye \(\int_{\mathcal{S}}f dA\).
-        </p>
 
-      </div>
+
+    <div class="definicion-box">
+      <h2 class="number-title"> Definición</h2>
+      <h3> Integral con respecto area superficial </h3>
+      <p>
+        Sea \(\mathcal{S}\subset \mathbb{R}^3\) una superficie suave parametrizada 
+        con parametrización clase \(C^1\) \(\mathbb{r}:\mathcal{R} \to \mathbb{R}^3\).
+      </p>
+      <p>
+        Dada una función escalar \(f:\mathcal{S}\to \mathbb{R}\), continua sobre 
+        \(\mathcal{S}\), definimos la integral de \(f\) con respecto area superficial como 
+        \[
+        \int_{\mathcal{S}}f |d\mathcal{S}|=\int_{\mathcal{R}}f(\mathbb{r}(u,v))\|\partial_u \mathbb{r}\times \partial_v\mathbb{r} \|du\otimes dv
+        \]
+        también se puede denotar como \(\int_{\mathbb{r}}f |d\mathbb{r}|\).
+      </p>
+
+    </div>
 
 
       <div class="ejercicio-box">
@@ -826,17 +996,17 @@
         </p>
         <ol>
           <li>
-            \(\int_{\mathcal{S}} 2y dS\), donde \(S\) es el helicoide
+            \(\int_{\mathcal{S}} 2y |dS|\), donde \(S\) es el helicoide
             con parametrización \(\mathbb{r}(u,v)=(u\cos(v), u\sen(v), v)\)
             \(0\leq u \leq 1 , 0\leq  v \leq \pi\).
           </li>
           <li>
-            \(\int_{\mathcal{S}}x^2yz^2 dS\), donde
+            \(\int_{\mathcal{S}}x^2yz^2 |dS|\), donde
             \(S\) es la parte del plano \(z=1+2x+3y\) que está por
             arriba del rectángulo \([0,3]\times [0,1]\).
           </li>
           <li>
-            \(\int_{\mathcal{S}} (x+y) dS\), donde \(\mathbb{S}\) es la
+            \(\int_{\mathcal{S}} (x+y) |dS|\), donde \(\mathbb{S}\) es la
             región triángular con vértices \((1,0,0), (0,-2,0), (0,0,2)\).
           </li>
 
@@ -853,7 +1023,7 @@
             <p>
               Por lo tanto,
               \[
-              \int_S 2ydS =  \int_R 2u\sen(v)
+              \int_S 2y|dS| =  \int_R 2u\sen(v)
               \Vert \partial_u\mathbb{r} \times \partial_v\mathbb{r}
               \Vert dudv
               \]
@@ -868,7 +1038,7 @@
               \(\partial_u\mathbb{r} \times \partial_v\mathbb{r}\)
               y  calcular \(\Vert \partial_u\mathbb{r} \times
               \partial_v\mathbb{r} \Vert\),
-              por último desarrollamos y calculamos  \(\int_S 2ydS\).
+              por último desarrollamos y calculamos  \(\int_S 2y|dS|\).
             </p>
 
             <p>
@@ -918,7 +1088,7 @@
               </p>
               <p>Por lo tanto:
                 \[
-                \int_S 2ydS = \frac{4}{3}(2\sqrt{2} - 1) .
+                \int_S 2y|dS| = \frac{4}{3}(2\sqrt{2} - 1) .
                 \]
               </p>
 
@@ -945,7 +1115,7 @@
         </p>
         <p> Prueba que
           \[
-          \int_{\mathcal{S}}(\mathbb{F}\cdot \mathbb{n}) dS =
+          \int_{\mathcal{S}}(\mathbb{F}\cdot \mathbb{n}) |dS| =
           \int_{\mathbb{S}} F dy\wedge dz+ G dz \wedge dx + H dx\wedge dy
           \]
         </p>
@@ -959,7 +1129,7 @@
                 Por \(\mathcal{S}\) denotamos a la media esfera dada por
                 \(x^2+y^2+z^2 = 1\), con \(z \geq 0\) y
                 <a href="#Def:Orientacion">vector normal unitario</a> \(\mathbb{n}\) apuntando hacia afura. Sea
-                \(\mathbb{F}=(x,y,0)\). Calcula \(\int_{\mathcal{S}} (\mathbb{F}\cdot \mathbb{n})dS\).
+                \(\mathbb{F}=(x,y,0)\). Calcula \(\int_{\mathcal{S}} (\mathbb{F}\cdot \mathbb{n})|dS|\).
               </p>
 
 
