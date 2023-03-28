@@ -187,7 +187,7 @@
 
         <p>
           <div class="imagen-box flexbox">
-            <img src="./Images/Sec8-img1.png" alt="SuperficieCampo" width="350" height="auto">
+            <img src="./Images/Sec8-img1.png" alt="SuperficieCampo" width="500" height="auto">
             </div>
         </p>
         <p>
@@ -204,25 +204,25 @@
 
         <p>
           <div class="imagen-box flexbox">
-            <img src="./Images/Sec8-img2.png" alt="SmallPart" width="400" height="auto">
+            <img src="./Images/Sec8-img2.png" alt="SmallPart" width="500" height="auto">
             </div>
         </p>
         <p>
           Ahora consideramos el paralelogramo formado por los vectores \(\Delta u \partial_u \mathbb{r}\)
           y \(\Delta v \partial_v \mathbb{r}\) colocado sobre el plano tangente de \(\mathcal{S}\). Si queremos 
           ver el flujo a través de \(\mathbb{R}_{i,j}\) consideramos el paralelepipedo formado por los vectores 
-          \(\Delta u \partial_u \mathbb{r}(p_{i,j}), \Delta v \partial_v \mathbb{r}(p_{i,j})\) y \(\mathbb{F}(p_{i,j})\)
+          \(\Delta u \partial_u \mathbb{r}(p_{i,j}), \Delta v \partial_v \mathbb{r}(p_{i,j})\) y \(\mathbb{F}(\mathbb{r}(p_{i,j}))\)
           donde \(p_{i,j}\in \mathcal{R}\) es un punto arbitrario. El volumen 
           de dicho paralelepipedo está dado por el triple producto 
           \[
-          \mathbb{F}(p_{i,j}) \cdot (\Delta u \partial_u \mathbb{r}(p_{i,j}) \times \Delta v \partial_v \mathbb{r}(p_{i,j}))=\mathbb{F}(p_{i,j})\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+          \mathbb{F}(\mathbb{r}(p_{i,j})) \cdot (\Delta u \partial_u \mathbb{r}(p_{i,j}) \times \Delta v \partial_v \mathbb{r}(p_{i,j}))=\mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
           \]
 
         </p>
 
         <p>
           <div class="imagen-box flexbox">
-            <img src="./Images/Sec8-img3.png" alt="Volume" width="300" height="auto">
+            <img src="./Images/Sec8-img3.png" alt="Volume" width="500" height="auto">
             </div>
         </p>
         <p>
@@ -248,15 +248,15 @@
         <p>
           Por lo tanto la suma 
           \[
-          \sum_{i,j=1}^n \mathbb{F}(p_{i,j})\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+          \sum_{i,j=1}^n \mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
           \]
           es la cantidad neta del flujo que pasa por la superficie \(\mathcal{S}\).
           </p>
           <p>
             Tomando el límite cuando \(n\to \infty\) tenemos que 
             \[
-            \sum_{i,j=1}^n \mathbb{F}(p_{i,j})\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
-            \to \int_{\mathcal{R}} \mathbb{F}(u,v)\cdot (\partial_u \mathbb{r}(u,v)\times \mathbb{r}_v(u,v))du\otimes dv
+            \sum_{i,j=1}^n \mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+            \to \int_{\mathcal{R}} \mathbb{F}(\mathbb{r}(u,v))\cdot (\partial_u \mathbb{r}(u,v)\times \mathbb{r}_v(u,v))du\otimes dv
             \]
           </p>
       </div>
@@ -279,7 +279,7 @@
         <p>
           Definimos la integral de superficie de \(\mathbb{F}\) sobre \(\mathcal{S}\) como 
           \[
-          \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}=\int_{\mathcal{R}} \mathbb{F}(u,v)\cdot (\partial_u\mathbb{r}\times \partial_v\mathbb{r})(u,v)du\otimes dv
+          \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}=\int_{\mathcal{R}} \mathbb{F}(\mathbb{r}(u,v))\cdot (\partial_u\mathbb{r}\times \partial_v\mathbb{r})(u,v)du\otimes dv
           \]
           también se puede denotar \(\int_{\mathbb{r} } \mathbb{F}\cdot d\mathbb{r}\).
         </p>
@@ -422,7 +422,7 @@
         <p>
           Dos funciones clase \(C^1\), \(\mathbb{r}_1:\mathcal{R}_1 \to \mathbb{R}^3\),
           \(\mathbb{r}_2:\mathcal{R}_2 \to \mathbb{R}^3\), se llaman equivalentes si 
-          existe una función \(T:\mathcal{R}_1 \to \mathbb{R}_2\) tal que 
+          existe una función \(T:\mathcal{R}_1 \to \mathbb{R}^3\) tal que 
           <ul>
             <li>
               \(T\) es clase \(C^1\) en \(\mathcal{R}_1\),
@@ -743,9 +743,17 @@
         <p>
           Sea \(\mathcal{S}\) una supreficie con la característica  que admite una
           parametrización \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\)
-          con la propiedad de que \(\partial R\) es una curva de Jordan y 
-          \(\mathbb{r}(\partial \mathcal{R})\)
-          sea una curva suave a trozos. En este caso decimos que \(\mathcal{S}\)
+          con las propiedades de que 
+          <ol>
+            <li>
+              \(\partial R\) es una curva de Jordan,
+            </li>
+            <li>
+              \(\mathbb{r}(\partial \mathcal{R})\)
+                sea una curva suave a trozos.
+            </li>
+          </ol>  
+           En este caso decimos que \(\mathcal{S}\)
           es una superficie con frontera, denotada \(\partial \mathcal{S}\), la cual  se define como
           \(\partial \mathcal{S}=\mathbb{r}(\partial \mathcal{R})\)
         </p>
@@ -798,7 +806,7 @@
             &+& \int_{\mathcal{S}}(\partial_y C - \partial_zB)dy\wedge dz\\
             &+& \int_{\mathcal{S}}(\partial_zA-\partial_xC)dz\wedge dx
             \end{eqnarray*}
-            donde \(\partial S=\mathbb{r}\partial \mathcal{R}\) tiene la orientación inducida por \(\mathbb{r}\)
+            donde \(\partial S=\mathbb{r}(\partial \mathcal{R})\) tiene la orientación inducida por \(\mathbb{r}\)
             tomando a \(\partial R\) con la orientación positiva. 
           </p>
 
@@ -806,7 +814,7 @@
 
         <p>
           <div class="imagen-box flexbox">
-            <img src="./Images/Sec8-img4.png" alt="Stokes" width="300" height="auto">
+            <img src="./Images/Sec8-img4.png" alt="Stokes" width="500" height="auto">
             </div>
         </p>
           <p>
@@ -1148,26 +1156,44 @@
       </div>
 
 
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{S}\subset \mathbb{R}^3\) una superficie suave parametrizada.
+        </p>
+        <p>
+          Sea \(\mathbb{F}:\mathcal{S}\to \mathbb{R}^3\) un campo vectorial 
+          continuo. Prueba que 
+          \[
+          \left|\int_{\mathcal{S}}\mathbb{F}\cdot d\mathcal{S} \right| \leq \int_{\mathcal{S}}\|\mathbb{F} \| |d\mathcal{S}|
+          \]
+        </p>
+
+      </div>
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
           Este ejercicio relaciona las integrales con respecto
-          al área con las integrales de 2-formas.
+          al área con las integrales de superficie. 
         </p>
         <p>
           Sea \(U \subset \mathbb{R}^3\) un abierto y considera
-          \(\mathbb{F}=(F,G,H):U\to \mathbb{R}^3\), un campo clase \(C^1\)
+          \(\mathbb{F}:U\to \mathbb{R}^3\), un campo clase \(C^1\)
           sobre \(U\).
         </p>
         <p>
-          Sea \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) una superficie
-          parametrizada suave, con \(S:=\mathbb{r}(\mathcal{R})\subset U\)
-          con <a href="#Def:Orientacion">vector normal unitario</a> \(\mathbb{n}\).
+          Sea \(S\subset \mathbb{R}^3\) una superficie
+          parametrizada suave con parametrización clase \(C^1\)
+          \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) y
+          con <a href="#Def:Orientacion">vector normal unitario</a>.
         </p>
         <p> Prueba que
           \[
           \int_{\mathcal{S}}(\mathbb{F}\cdot \mathbb{n}) |dS| =
-          \int_{\mathbb{S}} F dy\wedge dz+ G dz \wedge dx + H dx\wedge dy
+          \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}
           \]
         </p>
       </div>
@@ -1179,10 +1205,52 @@
               <p>
                 Por \(\mathcal{S}\) denotamos a la media esfera dada por
                 \(x^2+y^2+z^2 = 1\), con \(z \geq 0\) y
-                <a href="#Def:Orientacion">vector normal unitario</a> \(\mathbb{n}\) apuntando hacia afura. Sea
+                <a href="#Def:Orientacion">vector normal unitario</a> \(\mathbb{n}\) apuntando hacia afuera. Sea
                 \(\mathbb{F}=(x,y,0)\). Calcula \(\int_{\mathcal{S}} (\mathbb{F}\cdot \mathbb{n})|dS|\).
               </p>
 
+
+            </div>
+
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio</h2>
+              <p>
+                Sea \(S\) la porción del  cilíndro \(x^2+y^2=1\) con \(a\leq z \leq b\)
+                orientada de tal forma que el vector normal apunta hacia afuera.              
+              </p>
+              <p>
+                Sea \(U\) un abierto que contenga a \(\mathcal{S}\) y 
+                \(\mathbb{F}:\mathbb{R}^3 \to \mathbb{R}^3\) un campo vectorial clase 
+               \(C^1\).
+              </p>
+
+              <p>
+                Prueba que 
+                \[
+                \int_{\mathcal{S}}(\nabla \times \mathbb{F})\cdot d\mathcal{S}=\int_{\gamma_1} \mathbb{F} \cdot d\gamma_1 
+                +\int_{\gamma_2} \mathbb{F}\cdot d\gamma_2
+                \]
+                donde \(\gamma_1\) es la circunferencia de la base del cilíndro 
+                recorrida en el sentido negativo y \(\gamma_2\) es la circunferencia del techo del cilíndro 
+                recorrida en el sentido positivo.
+              </p>
+            </div>
+            
+            <div class="ejercicio-box">
+              <h2 class="number-title"> Ejercicio </h2>
+              <p>
+                Sea \(\mathcal{S}\) la superficie cilíndrica con tapa formada por 
+                \(\mathcal{S}_1\cup \mathcal{S}_2\), donde 
+                \(\mathcal{S}_1\) es la parte del cilíndro \(x^2+y^2=1\) con \(0\leq z \leq 1\)
+                y \(\mathcal{S}_2\) es el hemisferio de la esfera 
+                \(x^2+y^2+(z-1)^2=1\) con \(z\geq 1\).
+              </p>
+              <p>
+                Sea \(\mathbb{F}=(zx+z^2y+x,z^3yx+y,z^4x^2)\).
+              </p>
+              <p>
+                Calcula \(\int_{\mathcal{S}} (\nabla \times \mathbb{F}) \cdot d\mathcal{S} \).
+              </p>
 
             </div>
 <!-- acaba contenido -->
