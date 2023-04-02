@@ -905,6 +905,61 @@
   </p>
   </div>
 
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+    <p>
+      Dado un campo vectorial clase \(C^1\) sobre un abierto, 
+      \(\mathbb{F}=(A,B,C):U\to \mathbb{R}^3\), se define su rotacional como 
+      el campo vectorial sobre \(U\) con regla de correspondencia 
+      \begin{eqnarray*} 
+      \nabla \times \mathbb{F}&=& \det \left[ 
+      \begin{array}{cc} 
+      i & j & k  \\
+      \partial_x  & \partial_y & \partial_z \\
+      A & B & C 
+      \end{array}
+      \right] \\
+      &=&(\partial_yC - \partial_zB, \partial_zA - \partial_xC, \partial_xB- \partial_yA )
+
+      \end{eqnarray*}
+    </p>
+
+    <p>
+      La idea es que \(\nabla \times \mathbb{F}\) mide la rotación infinitesimal del campo. Para 
+      visualizar lo anterior se fija una esfera muy chica en un punto del espacio 
+      y se deja que el campo \(\mathbb{F}\) actue sobre la esfera, sin que esta se mueva, sólo 
+      haciendo que \(\mathbb{F}\) la rote en el mismo lugar (pensando al campo como un fluido).  
+    </p>
+    <p>
+      Por ejemplo, para el campo \(\mathbb{F}=(-y,x+yx,0)\) su rotacional es 
+      \(\nabla \times \mathbb{F} =(0,0,2+y)\). Una representación gráfica del campo y su rotacional 
+      son, respectivamente 
+
+      <p>
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img13.png" alt="VectorField" width="300" height="auto">
+          </div>
+       </p> 
+
+
+       <p>
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img14.png" alt="Rotational" width="300" height="auto">
+          </div>
+       </p> 
+    </p>
+    <p>
+
+    </p>
+    <p>
+      Nota que el rotacional no es una sola linea que pasa por el centro de las curvas de \(\mathbb{F}\)
+      si no una serie de rectas paraleleas, lo intuitivamente dice que al colocar una 
+      esfera fija en un punto del espacio ésta rotara teniendo a dicha recta como eje de rotación.
+    </p>
+  </div>
+
+
   <div class="teorema-box">
     <h2 class="number-title"> Teorema de Green (forma vectorial)</h2>
     <p>
