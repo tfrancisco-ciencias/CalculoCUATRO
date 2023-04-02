@@ -491,6 +491,96 @@
           \]
         </p>
 
+        <p>
+          Al ser \(\mathbb{r}_1\) y \(\mathbb{r}_2\) equivalentes existe \(T:\mathcal{R}_1 \to \mathbb{R}^2\)
+          función clase \(C^1\) tal que \(T(\mathcal{R}_1)=\mathcal{R}_2\), \(\mathbb{r}_2\circ T = \mathbb{r}_1\) y la matriz de derivadas 
+          parciales \(D_pT\) tiene determinante que nunca se anula. 
+        </p>
+        <p>
+          Caso 1: \(T\) preserva la orientación. 
+        </p>
+        <p>
+          En este caso debemos de probar 
+          \begin{eqnarray*} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_1(u,v))\cdot 
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \\
+          &=&
+          \int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
+          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)du\otimes dv 
+          \end{eqnarray*}
+          La idea es ir modificando la integral sobre \(\mathcal{R}_1\)
+          hasta obtener una expresión donde la igualdad anterior sea clara.
+          </p>
+          <p>Usando  \(\mathbb{r}_1=\mathbb{r}_2\circ T \) lo anterior se puede reescribir como 
+
+          \begin{eqnarray} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \nonumber\\
+          &=&
+          \int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
+          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)du\otimes dv \label{Eqn:Aux2ReparametrizacionSup}
+          \end{eqnarray}
+          lo cual empieza a tener cara de que podemos aplicar el 
+          <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable</a> pero 
+          necesitamos encontrar la relación entre 
+          \((\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)\)
+          y \((\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)\). Para 
+          encontrar la relación anterior usamos la regla de la cadena.
+        </p>
+        <p>
+          Usando \(\mathbb{r}_2\circ T=\mathbb{r}_1\)  y la regla de la cadena obtenemos 
+          que para todo \(p=(u,v)\in \mathcal{R}_1\):
+          \begin{equation}\label{Eqn:Aux1ReparametrizacionSup}
+          (D_{T(p)}\mathbb{r}_2)(D_pT)=D_{p}\mathbb{r}_1
+          \end{equation}
+          donde el lado izquierdo es multiplicación de matrices.
+        </p>
+        <p>
+          Redordando cómo se obtiene la matriz de darivadas parciales tenemos que 
+          \[
+          D_p\mathbb{r}_1=[ \partial_u \mathbb{r}_1(p), \partial_v \mathbb{r}_1(p) ]
+          \]
+          donde ponemos los vectores \(\partial_u \mathbb{r}_1(p)\) y 
+          \(\partial_v \mathbb{r}_1(p)\) como columnas.
+        </p>
+        <p>
+          Pero por \eqref{Eqn:Aux1ReparametrizacionSup} y el <a>Lema </a>
+          obtenemos 
+          \[
+          (\det D_pT) (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))=(\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)
+          \]
+          substituyendo ésta igualdad obtenemos 
+          \begin{eqnarray*} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+          (\partial_u\mathbb{r}_1\times \partial_v\mathbb{r}_1)(u,v)du\otimes dv \\
+          &= & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv 
+          \end{eqnarray*}
+        </p>
+        <p>
+          En este punto es donde entra la orientación. Ya que \(T\) preserva la orientación, 
+          \(\det D_pT >0\) para todo \(p=(u,v)\in \mathcal{R}_1\) y por lo tanto el valor absoluto de 
+          su Jacobiano es \(|J_T(u,v)|=|\det D_{p}T|=\det D_pT\) y podemos reescribir
+          \begin{eqnarray*} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv \\
+         & =& \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv 
+          \end{eqnarray*}
+        </p>
+        <p>
+          Después de todas las modificaciones concluimos que \eqref{Eqn:Aux2ReparametrizacionSup}
+          (la ecuación que debemos probar) es equivalente a 
+          \begin{eqnarray*} 
+         & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv \\
+           &=&\int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
+           (\partial_u \mathbb{r}_2\times \partial_v \mathbb{r}_2)(u,v)du\otimes dv
+          \end{eqnarray*}
+          la cual es cierta por el <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable </a>.
+        </p>
+
+        
       </div>
 
       
@@ -818,7 +908,7 @@
             </div>
         </p>
           <p>
-            Usando el rotacional podemos reescribir el teorema como 
+            Usando el <a href="./S7.html#Def:Rotacional">rotacional</a> podemos reescribir el teorema como 
             \[
             \int_{\partial S} \mathbb{F}\cdot d\partial S= \int_S (\nabla \times  \mathbb{F})\cdot dS  
             \]
