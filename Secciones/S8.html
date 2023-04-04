@@ -350,23 +350,73 @@
             </ol>
           </p>
 
+          <h3> Superficie orientable</h3>
           <p>
-            Sea \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) es una parametrización clase \(C^1\) para 
-            \(\mathcal{S}\) y digamos que \(\mathbb{r}\) depende de las
-            variables \((u,v)\in \mathcal{R}\), el producto cruz de las derivadas parciales, 
-            \[
-            \partial_u \mathbb{r}\times \partial_v\mathbb{r}
-            \]
-            es el  <a href="./S2.html#Def:ProductoFundamental">producto fundamental</a> de la superficie y 
-            geométricamente se puede interpretar como un vector perpendicular a la superficie.
+            Una superficie suave parametrizada se llama orientable si admite una función 
+            orientación. 
           </p>
 
           <p>
-           Por lo tanto  el vector
+            Ejemplo.
+          </p>
+          <p>
+            La esfera \(\mathcal{S}=\{(x,y,z): x^2+y^2+z^2=1\}\) es una superficie orientable pues 
+            la función \(N(x,y,z)=(x,y,z)\) satisface:
+            <ol>
+              <li>
+                es continua,
+              </li>
+              <li>
+                \(\|N(x,y,z)\|=1\) para todo \((x,y,z)\in \mathcal{S}\),
+              </li>
+              <li>
+                \(N(x,y,z)=(x,y,z)\) es perpendicular al plano tangente a \(\mathcal{S}\) 
+                en \((x,y,z)\) (pues los radios son perpendiculares al plano tangente).
+              </li>
+            </ol>
+            Por lo tanto \(N\) es una orientación de la esfera. 
+          </p>
+          <p>
+            No ejemplo.
+          </p>
+          <p>
+            La banda de Møbius no es orientable. La idea para probarlo es suponer que sí es 
+            orientable, digamos que \(N\) es una orientación,  y mover  el vector \(N(p)\)
+            sobre la superficie dando una vuelta completa notando que al regresar al inicio 
+            el vetor \(N(p)\) apunta en sentido contrario.
+          </p>
+          <p>
+            Nota.
+          </p>
+          <p>
+            Determinar si una superficie es orientable o no es un problema en sí mismo. Como el 
+            ejemplo de la banda de Møbius muestra la orientabilidad es una propiedad global 
+            de la superficie es decir es una propiedad que toma en cuenta toda la forma de la superficie. 
+          </p>
+          
+          
+        </div>
+
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <p>
+            Sea \(\mathcal{S}\) una superficie suave parametrizada y supongamos que 
+            existe una parametrización clase \(C^1\) de \(\mathcal{S}\), 
+            \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\) con la característica que su 
+            <a href="./S2.html#Def:ProductoFundamental">producto fundamental</a>
+            nunca se anula 
+
+            \[
+            (\partial_u \mathbb{r}\times \partial_v\mathbb{r})(p)\ne 0, \quad \forall p\in \mathcal{R}
+            \]
+
+          </p>
+          <p>
+           Recordando que el producto fundamental es perpendicular al plano tangente se sigue que el vector
             \[
             \mathbb{n}:=\frac{1}{\|\partial_u \mathbb{r}\times \partial_v\mathbb{r} \|}\partial_u \mathbb{r}\times \partial_v\mathbb{r}
             \]
-            es un <b>vector normal unitario</b> a la superficiie.
+            es un <b>vector normal unitario</b> a la superficiie y además es una función continua.
           </p>
           <p>
             En conclusión, dada una superficie suave parametrizada por \(\mathbb{r}\) con la propiedad 
@@ -378,6 +428,7 @@
 
           </p>
         
+
         </div>
 
 
@@ -491,28 +542,33 @@
           \]
         </p>
 
+        <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
         <p>
           Al ser \(\mathbb{r}_1\) y \(\mathbb{r}_2\) equivalentes existe \(T:\mathcal{R}_1 \to \mathbb{R}^2\)
           función clase \(C^1\) tal que \(T(\mathcal{R}_1)=\mathcal{R}_2\), \(\mathbb{r}_2\circ T = \mathbb{r}_1\) y la matriz de derivadas 
           parciales \(D_pT\) tiene determinante que nunca se anula. 
         </p>
         <p>
+          La idea es ir modificando la integral  \(\int_{\mathbb{r}_1}\mathbb{F}\cdot d\mathbb{r}_1\)
+          hasta obtener \(\int_{\mathbb{r}_2}\mathbb{F}\cdot d\mathbb{r}_2\) ó 
+          \(-\int_{\mathbb{r}_2}\mathbb{F}\cdot d\mathbb{r}_2\), según sea la orientación.
+        </p>
+        <p>
+          Usando  \(\mathbb{r}_1=\mathbb{r}_2\circ T \) tenemos que 
+          \begin{eqnarray*}
+          \int_{\mathbb{r}_1} \mathbb{F}\cdot \mathbb{r}_1 
+          &=& \int_{\mathcal{R}_1}\mathbb{F}(\mathbb{r}_1(u,v))\cdot (\partial_u \mathbb{r}_1 \times \partial_v\mathbb{r}_1)(u,v)du\otimes dv \\
+          &=&  \int_{\mathcal{R}_1}\mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+          (\partial_u \mathbb{r}_1 \times \mathbb{r}_1)(u,v)du\otimes dv 
+          \end{eqnarray*}
+        </p>
+        <p>
           Caso 1: \(T\) preserva la orientación. 
         </p>
         <p>
           En este caso debemos de probar 
-          \begin{eqnarray*} 
-          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_1(u,v))\cdot 
-          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \\
-          &=&
-          \int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
-          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)du\otimes dv 
-          \end{eqnarray*}
-          La idea es ir modificando la integral sobre \(\mathcal{R}_1\)
-          hasta obtener una expresión donde la igualdad anterior sea clara.
-          </p>
-          <p>Usando  \(\mathbb{r}_1=\mathbb{r}_2\circ T \) lo anterior se puede reescribir como 
-
+          
           \begin{eqnarray} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
           (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \nonumber\\
@@ -579,7 +635,51 @@
           \end{eqnarray*}
           la cual es cierta por el <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable </a>.
         </p>
-
+        <p>
+          Caso 2: \(T\) invierte la orientación. 
+        </p>
+        <p>
+          En este caso 
+          debemos de probar 
+          \begin{eqnarray} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \nonumber\\
+          &=&
+          -\int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
+          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)du\otimes dv \label{Eqn:Aux3ReparametrizacionSup}
+          \end{eqnarray}
+          
+          Todo es similar hasta la ecuación 
+          \begin{eqnarray*} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \\
+          &=& \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv 
+          \end{eqnarray*}
+        </p>
+        <p>
+          Ya que \(T\) invierte la orientación, 
+          \(\det D_pT < 0\) para todo \(p=(u,v)\in \mathcal{R}_1\) y por lo tanto el valor absoluto de 
+          su Jacobiano es \(|J_T(u,v)|=|\det D_{p}T|=-\det D_pT\) por lo que 
+          \begin{eqnarray*} 
+          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv \\
+         & =- & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv 
+          \end{eqnarray*}
+        </p>
+        <p>
+          Después de todas las modificaciones concluimos que \eqref{Eqn:Aux3ReparametrizacionSup}
+          (la ecuación que debemos probar) es equivalente a 
+          \begin{eqnarray*} 
+         & & -\int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv \\
+           &=&-\int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
+           (\partial_u \mathbb{r}_2\times \partial_v \mathbb{r}_2)(u,v)du\otimes dv
+          \end{eqnarray*}
+          la cual es cierta por el <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable </a>.
+        </p>
+        </div>
         
       </div>
 
