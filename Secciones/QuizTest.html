@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question and Answer Example</title>
+    <script>
+        var attemptsLeft = 3;
+        
+        function generateQuestion() {
+            // Generate two random numbers between 0 and 9
+            var num1 = Math.floor(Math.random() * 10);
+            var num2 = Math.floor(Math.random() * 10);
+            
+            // Set the question text to ask for the sum of the two numbers
+            var questionText = "What is the sum of " + num1 + " and " + num2 + "?";
+            document.getElementById("question-text").innerHTML = questionText;
+            
+            // Set the correct answer to the sum of the two numbers
+            var answer = num1 + num2;
+            document.getElementById("answer-field").dataset.answer = answer;
+            
+            // Hide the answer div
+            document.getElementById("answer-div").style.display = "none";
+            
+            // Clear any previous error message
+            document.getElementById("message-div").innerHTML = "";
+            
+            // Reset attempts counter
+            attemptsLeft = 3;
+            document.getElementById("attempts-div").innerHTML = "";
+        }
+        
+        function checkAnswer() {
+            // Get the user's input
+            var userInput = document.getElementById("answer-field").value;
+            
+            // Get the correct answer
+            var correctAnswer = document.getElementById("answer-field").dataset.answer;
+            
+            // Check if the answer is correct
+            if (userInput == correctAnswer) {
+                // Show the answer div
+                document.getElementById("answer-div").style.display = "block";
+                
+                // Hide the message for incorrect answers
+                document.getElementById("message-div").innerHTML = "";
+            }
+            else {
+                // Show a message for incorrect answers
+                attemptsLeft--;
+                var attemptsMessage = "";
+                if (attemptsLeft > 0) {
+                    attemptsMessage = "Sorry, that's not the correct answer. You have " + attemptsLeft + " attempt(s) left.";
+                } else if (attemptsLeft == 0) {
+                    attemptsMessage = "Sorry, that's not the correct answer. This is your last attempt.";
+                } else {
+                    attemptsMessage = "Sorry, out of turns. Resetting question...";
+                    setTimeout(function() {generateQuestion();}, 5000);
+                }
+                document.getElementById("message-div").innerHTML = attemptsMessage;
+            }
+        }
+        
+        function showAnswer() {
+            var correctAnswer = document.getElementById("answer-field").dataset.answer;
+            var answerMessage = "The correct answer is " + correctAnswer + ".";
+            document.getElementById("answer-message-div").innerHTML = answerMessage;
+        }
+    </script>
+    <style>
+        #answer-div, #answer-message-div {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 id="question-text">Click "Generate Question" to start</h2>
+        <button onclick="generateQuestion()">Generate Question</button>
+        <br>
+        <label for="answer-field">Answer:</label>
+        <input type="text" id="answer-field">
+        <button onclick="checkAnswer()">Check Answer</button>
+        <div id="message-div"></div>
+        <div id="attempts-div"></div>
+    </div>
+    <div id="answer-div">
+        <p>Congratulations, you got it right!</p>
+    </div>
+    <div id="answer-message-div">
+        <button onclick="generateQuestion()">Generate New Question</button>
+    </div>
+</body>
+</html>
