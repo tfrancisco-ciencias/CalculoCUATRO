@@ -909,33 +909,35 @@
             \( \partial_u\mathbb{r} = (1, 0, -1) \) y
             \(\partial_v\mathbb{r} = (0, 1, -1). \).
             Además
-            \[
+            \begin{eqnarray*}
             \frac{\partial(x, y)}{\partial(u, v)}
-            = \det \left[\begin{array}{cccc}
+            &=& \det \left[\begin{array}{cccc}
             1  & 0  \\
             0 &  1
-            \end{array} \right] = 1,
+            \end{array} \right] = 1,\\
             \frac{\partial(y, z)}{\partial(u, v)}
-            = \det \left[\begin{array}{cccc}
+            &=& \det \left[\begin{array}{cccc}
             0  & 1  \\
             -1 &  -1
-            \end{array} \right] = 1
-            \hspace{0.3cm} \text{ y }
-            \hspace{0.3cm} \frac{\partial(x, z)}{\partial(u, v)}
-            = \det \left[\begin{array}{cccc}
+            \end{array} \right] = 1,
+            \\
+            \frac{\partial(x, z)}{\partial(u, v)}
+            &=& \det \left[\begin{array}{cccc}
             1 & 0  \\
             -1 &  -1
-            \end{array} \right] = -1
-            \]
+            \end{array} \right] = -1.
+            \end{eqnarray*}
           </p>
           <p>
             Tenemos que
             \begin{eqnarray*}
             \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz & = &
-            \int_R u \frac{\partial(x, y)}{\partial(u, v)}
-            + \int_R v \frac{\partial(y, z)}{\partial(u, v)}
-            + \int_R (1 -u -v)  \frac{\partial(x, z)}{\partial(u, v)} \\
-            & = & \int_R u dA + \int_R v dA + \int_R (u + v -1) dA
+            \int_R u \frac{\partial(x, y)}{\partial(u, v)} \\
+            &+&  \int_R v \frac{\partial(y, z)}{\partial(u, v)} \\
+            &+&  \int_R (1 -u -v)  \frac{\partial(x, z)}{\partial(u, v)} \\
+            & = & \int_R u dA  \\
+            &+& \int_R v dA \\
+            &+& \int_R (u + v -1) dA
             \end{eqnarray*}
           </p>
             Como \( \int_R (u + v -1) dA  =
