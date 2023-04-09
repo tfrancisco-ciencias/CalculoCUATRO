@@ -283,6 +283,16 @@
           \]
           también se puede denotar \(\int_{\mathbb{r} } \mathbb{F}\cdot d\mathbb{r}\).
         </p>
+        <p>
+          Nota.
+        </p>
+        <p>
+          Ya que el integrando es el producto punto \(\mathbb{F}\cdot (\partial_u\mathbb{r} \times \partial_v \mathbb{r})\),
+          al calcular la integral de línea se puede pensar que, en cada punto de la superficie, 
+          proyectamos el campo \(\mathbb{F}\) sobre el vector normal a la superficie \(\partial_u\mathbb{r} \times \partial_v \mathbb{r}\),
+          y después hacemos un promedio.
+          
+        </p>
 
       </div>
 
@@ -1131,21 +1141,7 @@
             donde \(\partial S=\mathbb{r}(\partial \mathcal{R})\) tiene la orientación inducida por \(\mathbb{r}\)
             tomando a \(\partial R\) con la orientación positiva. 
           </p>
-          <p>
-            Notas.
-            <ol>
-              <li>
-                La condición de que \(\mathbb{r}\) sea clase \(C^2\) es sólo técnica (para poder 
-                demostrar el teorema) pero se puede cambiar a que sea 
-                clase \(C^1\).
-              </li>
-              <li>
-                El teorema sigue siendo cierto si la  superficie \(\mathcal{S}\) se cambia de suave a 
-                 suave a trozos.
-              </li>
-            </ol>
-          </p>
-        
+          
 
 
 
@@ -1160,6 +1156,23 @@
             \int_{\partial S} \mathbb{F}\cdot d\partial S= \int_S (\nabla \times  \mathbb{F})\cdot dS  
             \]
           </p>
+
+          <p>
+            Notas.
+            <ol>
+              <li>
+                La condición de que \(\mathbb{r}\) sea clase \(C^2\) es sólo técnica (para poder 
+                demostrar el teorema) pero se puede cambiar a que sea 
+                clase \(C^1\).
+              </li>
+              <li>
+                El teorema sigue siendo cierto si la  superficie \(\mathcal{S}\) se cambia de suave a 
+                 suave a trozos (por ejemplo 5 caras de un cubo) o si \(\partial S\) es una unión de curvas suaves a trozos
+                 (por ejemplo la mitad de un toro).
+              </li>
+            </ol>
+          </p>
+        
 
           <button class="respButton hvr-grow"> Demostración </button>
             <div class="resp-box">
@@ -1194,6 +1207,11 @@
             los tres planos coordenados y el plano \(2x+y+5z=5\), con
             vector normal apuntando hacia afuera del tetrahedro y
             \(\mathbb{F}=(xy^2, x-z, x^2y-z)\).
+          </li>
+          <li>
+            \(\mathcal{S}\) es la mitad del elipsoide \(4x^2+y^2+4z^2=4\) con 
+            \(y\geq 0\) orientada con el vector normal apuntando hacia afuera y 
+            \(\mathbb{F}=(e^{xy},e^{xz},x^2z)\).
           </li>
         </ol>
 
