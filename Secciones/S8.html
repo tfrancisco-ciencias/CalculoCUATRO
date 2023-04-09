@@ -445,6 +445,23 @@
 
         </div>
 
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio</h2>
+          <p>
+            Sea \(D\subset \mathbb{R}^2\) un subconunto compacto con interior no vacío, 
+            \(U\subseteq \mathbb{R}^2\) un subconjunto abierto y 
+            \(f:U \to \mathbb{R}\) una función clase \(C^1\) en \(U\).
+          </p>
+          <p>
+            Prueba que la gráfica de \(f\) restringida a \(D\):
+            \[
+            \mathcal{S}=\{(x,y,f(x,y)): (x,y)\in D\}
+            \]
+            es una superficie orientable.
+          </p>
+
+        </div>
+
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -504,6 +521,18 @@
           </ul>
 
         </p>
+        <p>
+          <div class="imagen-box flexbox">
+            <img src="./Images/Sec8-img10.png" alt="HemisferioCambioCoord" width="400" height="auto">
+            </div>
+        </p>
+        <p>
+          Nota.
+        </p>
+        <p>
+          Es útil pensar a las funciones \(\mathbb{r}_1\) y \(\mathbb{r}_2\) como funciones coordenadas. En este 
+          contexto la transformación \(T\) es simplemente un cambio de coordenadas.
+        </p>
 
         <p>
           Decimos que \(\mathbb{r}_1\) y \(\mathbb{r}_2\) tienen la misma orientación si 
@@ -550,11 +579,29 @@
       </div>-->
 
 
+      <div class="lema-box">
+        <h2 class="number-title" id="Lema:ProdCruzDet"> Lema </h2>
+        <p>
+          Sean \(A,B\)  matrices de \(3\times 2\) y \(C\) una matriz de 
+          \(2\times 2\). Por \(A_1,A_2\) denotamos las 
+          columnas de \(A\) y de manera similar lo hacemos con \(B\). Si se tiene la relación 
+          \[
+          BC=A
+          \]
+          entonces 
+          \[
+          (B_1\times B_2)\det(C)=(A_1\times A_2)
+          \]
+
+        </p>
+
+      </div>
+
       <div class="teorema-box">
         <h2 class="number-title"> Teorema </h2>
         <p>
           Sea \(\mathcal{S}\) una superficie suave parametrizada y sean 
-          \(\mathbb{r}_i:\mathcal{R}\to \mathbb{R}^3\),\(i=1,2\), dos parametrizaciones de 
+          \(\mathbb{r}_i:\mathcal{R}\to \mathbb{R}^3\),\(i=1,2\), dos parametrizaciones equivalentes de 
           \(\mathcal{S}\) clase \(C^1\).
         </p>
         <p>
@@ -631,7 +678,7 @@
           \(\partial_v \mathbb{r}_1(p)\) como columnas.
         </p>
         <p>
-          Pero por \eqref{Eqn:Aux1ReparametrizacionSup} y el <a>Lema </a>
+          Pero por \eqref{Eqn:Aux1ReparametrizacionSup} y el <a href="#Lema:ProdCruzDet">Lema </a>
           obtenemos 
           \[
           (\det D_pT) (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))=(\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)
