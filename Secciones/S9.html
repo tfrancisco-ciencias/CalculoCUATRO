@@ -172,7 +172,7 @@
     
   </p>
   <p>
-    Sea \(V\) la región  encerrada por la superficie \(\mathcal{S}\).
+    Sea \(V\) la región  encerrada por la superficie \(\mathcal{S}\). 
   </p>
   <p>
     Sea \(U\subseteq \mathbb{R}^3\) es un abierto que contiene a \(V\) y 
@@ -182,12 +182,47 @@
     Si \(\mathcal{S}\) tiene la orientación del vector normal apuntando hacia afuera
     entonces 
     \[
-    \int_V div(\mathbb{F})dx\otimes dy\otimes dz = \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}
+    \int_V (\nabla \cdot \mathbb{F})dx\otimes dy\otimes dz = \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}
     \]
   </p>
-
+<p>
+  En términos de 
+    fronteras lo anterior lo podemos escribir como \(\partial V = \mathcal{S}\) y el resultado 
+    se puede reescribir como 
+    \[
+    \int_V (\nabla \cdot \mathbb{F})dx\otimes dy\otimes dz = \int_{\partial V } \mathbb{F}\cdot d\partial V
+    \]
+    lo cual muestra las similitudes con el Teorema de Green y el Teorema de Stokes.
+</p>
+<p>
+  Nota.
+</p>
+<p>
+  El teorema sigue siendo válido si suponemos que  \(\mathcal{S}\) se una superficie suave a trozos, 
+  orientable, cerrada, simple (como por ejemplo un cubo).
+</p>
 </div>
 
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Comprueba el Teorema de Gauss para los siguientes volúmenes y el campo
+    \(\mathbb{F}(x,y,z)=Ax+By+Cz\), donde \(A,B,C\) son constantes.
+  </p>
+  <ol>
+    
+    <li>
+      \(V=[0,1]\times [0,1]\times [0,1]\) donde \(\partial V\) está orientada 
+      con el vector normal apuntando hacia afuera.
+     </li>
+     <li>
+      \(V=\{(x,y,z): x^2+y^2+z^2 \leq 1\}\) donde \(\partial V\) está orientada con el 
+      vector normal que apunta hacia afuera.
+    </li>
+  </ol>
+
+</div>
 
 <div class="teorema-box">
   <h2 class="number-title" id="Teo:InterpretacionDiv"> Teorema  </h2>
@@ -205,6 +240,53 @@
     div(F)(a)=\lim_{t\to 0} \frac{1}{|V(t)|}\int_{S(t)} \mathbb{F}\cdot dS
     \]
   </p>
+
+</div>
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(\mathcal{S}\) una superficie orientable cerrada simple,
+    \(\mathbb{n}\) el vector normal a \(\mathcal{S}\) apuntando hacia afuera 
+    y \(V\) la región encerrada por \(\mathcal{S}\).
+    Sea \(U\) un abierto que contiene a \(\mathcal{S}\).
+    Dada una función escalar \(f:U\to\mathbb{R}\), clase \(C^1\), la derivada direccional 
+    de \(f\) en la dirección 
+    \(\mathbb{n}\) se define como \(\partial f/\partial \mathbb{n}=\nabla f \cdot \mathbb{n}\).
+  </p>
+
+  <p>
+    Prueba las siguientes indentidades. Pudes suponer la continuidad de todas las derivadas parciales que 
+    aparecen.
+  </p>
+  <ol>
+    <li>
+      \(\int_{\mathcal{S}}\frac{\partial f}{\partial \mathbb{n}}d\mathcal{S}=\int_V \nabla^2 f dx\otimes dy\otimes dz\).
+    </li>
+    <p></p>
+    <li>
+      \(\int_{\mathcal{S}}\frac{\partial f}{\partial \mathbb{n}}d\mathcal{S}=0\) si \(f\) es armónica en \(V\).
+    </li>
+    <p></p>
+    <li>
+      \(\int_{\mathcal{S}} f \frac{\partial g}{\partial \mathbb{n}}d\mathcal{S}=\int_V f\nabla^2 g dx\otimes dy\otimes dz + \int_V \nabla f \cdot \nabla g dx\otimes dy\otimes dz\)
+    </li>
+    <p></p>
+    <li>
+      \(\int_{\mathcal{S}}\left( f\frac{\partial g}{\partial \mathbb{n}} - g \frac{\partial f}{\partial \mathbb{n}}\right)d\mathcal{S}=\int_V (f\nabla^2g- g\nabla^2f) dx\otimes dy\otimes dz\)
+    </li>
+    <p></p>
+    <li>
+      si \(f,g\) son armónicas en \(V\):
+      \[\int_{\mathcal{S}} f\frac{\partial g}{\partial \mathbb{n}}d\mathcal{S} =\int_{\mathcal{S}} g\frac{\partial f}{d\mathbb{n}}d\mathcal{S}\]
+    </li>
+    <p></p>
+    <li>
+      \(\int_{\mathcal{S}} f\frac{\partial f}{\partial \mathbb{n}}d\mathcal{S}=\int_V \|\nabla f\|^2 dx\otimes dy\otimes dz\), si 
+      \(f\) es armómica en \(V\).
+    </li>
+  </ol>
 
 </div>
 
