@@ -356,4 +356,71 @@
 
 </div>
 
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+  <p>
+    Sea \(S\) una superficie suave a trozos, orientable, cerrada, simple y sea 
+    \(V\) la región en \(\mathbb{R}^3\) tal que \(\partial V = S\).
+  </p>
+  <p>
+    Prueba que 
+    \[
+    \int_{S} \mathbb{I} \cdot dS = 3 \textrm{volumen}(V)
+    \]
+    con \(\mathbb{I}(x,y,z)=(x,y,z)\).
+  </p>
+
+</div>
+
+<div class="nota-box">
+  <h2 class="number-title"> Nota </h2>
+  <h3> Generalizaciones del Teorema de Gauss </h3>
+  <p>
+    Como en el caso del Teorema de Green tenemos una generalización 
+    muy similar.
+  </p>
+  <p>
+    Supongamos que \(S\) es una superficie suave a trozos, orientable, cerrada simple y sea 
+    \(V\) la región que encierra . Supongamos que \(S_1,\dots, S_n\) son superficies suaves a trozos,
+    orientables, cerradas y simples con \(S_i \subset V\), \(i=1,\dots, n\). Sean \(V_i\)
+    las regiones encerradas por \(S_i\) y sea  
+    \(W\) la región de los puntos que estás en \(V\) pero no  \(V_i\),
+    es decir \(W=V\cap \cap_{i=1}^n V_i^c\). 
+  </p>
+  <p>
+    Sea \(\mathbb{F}:U\to \mathbb{R}^3\) un campo clase \(C^1\) con \(W \subset U\).
+  </p>
+  <p>
+    Si las superficies están orientadas con el vector normal que apunta hacia afuera entonces 
+    \[
+    \int_{W}div(\mathbb{F})dx\otimes dy\otimes dz= \int_{S}\mathbb{F}\cdot dS-\sum_{i=1}^n \int_{S_i}\mathbb{F}\cdot dS_i
+    \]
+  </p>
+
+</div>
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea \(S\) una superficie suave a trozos, orientable, cerrada, simple  con \((0,0,0)\notin S\) y sea 
+    \(V\) la región encerrada por \(S\).
+  </p>
+  <p>
+    Denotamos \(\mathbb{I}(x,y,z)=(x,y,z)\). Entonces 
+    \begin{eqnarray*} 
+    \int_{S} \frac{1}{\|\mathbb{I}\|^3}\mathbb{I} \cdot dS = 
+    \left\{ 
+      \begin{array}{cc}
+        0 & (0,0,0)\notin V \\
+        4\pi & (0,0,0)\in V
+      \end{array}
+    \right.
+    \end{eqnarray*}
+  </p>
+
+</div>
+
+
 </body>
