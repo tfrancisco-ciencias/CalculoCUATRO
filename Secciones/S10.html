@@ -1,812 +1,1363 @@
-<! DOCTYPE html>
-  <html lang="es">
+<!DOCTYPE html PUBLIC >
 
-
-
-  <head>
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Following part is mathjax, for latex-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
     <!-- This part is for jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
     <!-- This part is to load main.js -->
     <script type="text/javascript" src="../main.js"></script>
 
-    <!-- Next part is for new coomands -->
 
+    <!-- Next part is for new coomands -->
     <script>
       window.MathJax = {
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
 
-
-
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
 
     <!-- CSS -->
 
     <link rel="stylesheet" , href="../styles.css" />
 
-
-
-    <!-- This part restart counter of cards to start at N+1 -->
+    <!-- This part restart counter of cards to start at n+1 -->
     <style>
-      body.card {
-        counter-reset: sectionCounter 9 cardCounter;
-      }
+        body.number-title{
+          counter-reset: sectionCounter 9 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 9 cardCounter ;
+        }
+        
+      </style>
+  
+    <!-- Top Menu  -->
 
-      h1.card {
-        counter-reset: sectionCounter 9 cardCounter;
-      }
-    </style>
 
-  </head>
+        <header class="main-header">
+          <h1> Cálculo CUATRO </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
 
-
-  <!-- Top Menu -->
-
-  <header class="main-header">
-    <nav class="top-nav">
-      <ul>
-        <li> <a href="../Home.html"> Inicio </a> </li>
-        <li> <a href="../Secciones.html"> Secciones </a> </li>
-      </ul>
-    </nav>
-
-    <h1 class="calculo-title"> Cálculo CUATRO</h1>
-
-  </header>
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 10 </title>
+    </head>
 
   <!-- Contenido empieza abajo -->
 
+  <body>
+    <h1 class="number-title flexbox"> \(1-\textrm{Formas}\)  </h1>     
 
-  <body class="fondo card ">
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
-    <div class="flexbox">
 
-      <h1 class="card "> El espacio de funciones bilineales alternantes  </h1>
 
       <div class="nota-box">
         <h2 class="number-title"> Introducción </h2>
+        <p>En esta sección se presentan ejercicios cuyo
+          objetivo es introducir \(1\)-formas y (tal vez más
+          importante) la integral de \(1\)-formas.
+        </p>
+        <p> Al final de la sección concluiremos que
+          las \(1\)-formas son bastante sencillas
+          (van a resultar ser simplemente funciones lineales) pero lo
+          importante es cómo las \(1\)-formas nos ayudan a
+          definir una integral 1-dimensional (integral de línea).
+        </p>
+        <p> De manera muy general, una integral 1-dimensional
+          es una función que asigna números a objetos 1-dimensionales.
+          Esta función no es cualquier función, sino que se le
+          pide que cumpla ciertas condiciones de aditividad, orientabilidad
+          y continuidad.
+          Se empiezan con los objetos uno dimensionales más sencillos
+          (los segmentos de recta) y con \(1\)-formas constantes (también las más sencillas).
+        </p>
+
+        <div class="video flexbox">
+          <a href="https://youtu.be/D-8CXiCrlY8" target="_blank"> Video </a>
+        </div>
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+
         <p>
-          En la sección 9 vimos que las nociones geométricas sobre la integral
-          de 2-formas constantes nos llevan a las funciones bilineales alternantes. En
-          esta sección se estudian las funciones bilineales desde el punto
-          de vista de álgebra lineal. De especial importancia es encontrar una
-          base explícita para el espacio de las funciones bilineales alternantes.
+          Los objetos uno dimensionales más sencillos son los
+          segmentos de rectas, así que es bueno tener una definición y
+          notación para ellos.
         </p>
         <p>
-          Recordamos que denotamos:
+          Un segmento de recta dirigido en \(\mathbb{R}^n\) es un segmento donde
+          se especifíca el punto inicial y el punto final.
+        </p>
+
+        <p>
+          Si \(P\) es el punto inicial y \(Q\) es el punto final, el segmento
+          de \(P\) a \(Q\), denotado por \(\overrightarrow{PQ}\) es
         </p>
         \[
-        \Lambda^2(\mathbb{R}^n):=\{\varphi:\mathbb{R}^n\times \mathbb{R}^n \to
-        \mathbb{R}| \textrm{\(\varphi\) es bilineal y alternante }\}
+        \overrightarrow{PQ}=\{(1-t)P+tQ: t\in [0,1]\}
         \]
-      </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title">  Ejercicio </h2>
-          <p>
-            Prueba que, con las operaciones usuales de suma
-            de funciones y multiplicación escalar, \(\Lambda^2(\mathbb{R}^n)\) es un espacio vectorial.
-          </p>
-
-          <button class="respButton hvr-grow"> Respuesta </button>
-          <div class="resp-box">
-
-
-            <p>
-            Tenemos que \(\Lambda^{2}(\mathbb{R}^{n})\) es un subconjunto
-            del espacio vectorial de las funciones definidas en
-            \(\mathbb{R}^{n}\times \mathbb{R}^{n}\) que toman valores reales,
-            a este espacio vectorial lo denotaremos por
-            \(F(\mathbb{R}^{n}\times \mathbb{R}^{n}, \mathbb{R})\).
-            Para demostrar que \(\Lambda^{2}(\mathbb{R}^{n})\) es un espacio
-            vectorial, basta demostar que  \(\Lambda^{2}(\mathbb{R}^{n})\)
-            es un subespacio vectorial de \(F(\mathbb{R}^{n}\times \mathbb{R}^{n},
-            \mathbb{R})\).
-            </p>
-            <p>
-            Entonces primero demostremos que
-            \(0 \in \Lambda^{2}(\mathbb{R}^{n})\),
-            donde \(0\) denota a la función constante cero.
-          </p>
-            <p>
-            Sean \(P, Q, R \in \mathbb{R}^{n}\) y sean
-            \(c, d \in \mathbb{R}\), entonces \(0(cP + dQ, R) = 0 \) y
-            \( c\cdot 0(P, R) + d \cdot 0(Q, R) = c \cdot 0 + d \cdot 0 = 0\),
-            es decir
-            \[
-            0(P + Q, R) = c \cdot 0(P, R) + d \cdot 0(Q, R)
-            \]
-            De manera análoga, \(0(P , cR + dQ) = c\cdot0(P, R) + d\cdot0(P, Q)\).
-            Además \(0(P, Q) = -0(Q, P)\) ya que \(0(P, Q)= 0(Q,P) = 0.\)
-          </p>
-            <p>
-            Por lo tanto, \(0 \in \Lambda^{2}(\mathbb{R}^{n})\).
-          </p>
-            <p>
-            Sean \(\varphi, \phi \in \Lambda^{2}(\mathbb{R}^{n})\) y
-            \(a \in \mathbb{R}\). Veamos que
-            \(\varphi + a\phi \in \Lambda^{2}(\mathbb{R}^{n}).\)
-          </p>
-            <p>
-            Sean \(P, Q, R \in \mathbb{R}^{n}\), y sean
-            \(c, d \in \mathbb{R}\). Entonces,
-            \begin{eqnarray*}
-            (\varphi + a\phi) (cP + dQ, R)
-            & := &
-            \varphi (cP + dQ, R) + a\phi(cP + dQ, R) \\
-            & := &
-            \varphi (cP + dQ, R) + a\phi(cP + dQ, R) \\
-            & = &
-            c\varphi (P, R) + d\varphi(Q, R) + a( c\phi(P,R) + d\phi(Q,R) ) \\
-            & = &
-            c( \varphi (P, R) + a \phi(P,R)) + d(\varphi(Q, R) + a \phi(Q,R) ) \\
-            & = &
-            c(\varphi + a\phi)(P,R) + d(\varphi + a\phi)(Q, R)
-            \end{eqnarray*}
-          </p>
-          <p>
-            De manera análoga, se tiene que
-            \[(\varphi + a\phi)(P, cQ+ dR)
-            =
-            c(\varphi(P,Q) + a\phi(P,Q)) + d((\varphi(P,R)
-            + a\phi(P,R)).\]
-          </p>
-
-             <p>
-               Por otro lado, usando la altenancia de \(\varphi\) y \(\phi\),
-             \[(\varphi + a\phi)(P,R)
-             =
-             \varphi(P,R) + a\phi(P,R)
-             =
-            -\varphi(R,P) - a\phi(R,P)
-            =
-            -(\varphi + a\phi)(R, P) .\]
-          </p>
-          <p>
-            Por lo tanto,  \(\varphi + a\phi \in \Lambda^{2}(\mathbb{R}^{n}).\)
-          </p>
-          <p>
-            Por lo tanto, \(\Lambda^{2}(\mathbb{R}^{n})\) es un subespacio vectorial.
-          </p>
-
-          </div>
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:bilinealesAlternantesR2dim1"> Ejercicio </h2>
         <p>
-          Recuerda que por el  <a href="S9.html#Ejer:detBilineal"> Ejercicio 9.14</a>
-          podemos pensar al determinante cómo un elemento de \(\Lambda^{2}(\mathbb{R}^2)\).
+          Una función \(\gamma: I \to \mathbb{R}^n\),
+          donde \(I\) es un intervalo de \(\mathbb{R}\), se llama una parametrización
+          de \(\overrightarrow{PQ}\) si
+          \[
+          \overrightarrow{PQ}=\{ \gamma(t) : t\in I \}.
+          \]
+          Un mismo segmento puede tener varias parametrizaciones.
+          Por ejemplo, \(\gamma(t)=(1-t)P+tQ\) es una parametrización
+          de \(\overrightarrow{PQ}\), pero también los es
+          \(\eta(t)=(1-t^2)P+t^2Q\).
+        </p>
+
+
+      </div>
+
+
+
+
+      <!--<div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Define \(l=\|P-Q\|\). Encuentra \(\gamma\), una parametrización
+        de \(\overrightarrow{PQ}\), con dominio \([0,l]\).
+      </div>--> 
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p> Cuando uno busca qué es una \(1\)-forma
+          (por ejemplo
+          <a href="https://es.wikipedia.org/wiki/1-forma" target="_blank"> en wikipedia</a>)
+          se encuentra uno con definiciones avanzadas o expresiones de la forma
+          \[
+          A_1 dx_1+A_2dx_2+\cdots + A_n dx_n.
+          \]
+          Por ejemplo, una \(1\)-forma en
+          \(\mathbb{R}^3\) es una expresión de la forma
+          \[
+          Adx+Bdy+Cdz
+          \]
+        </p>
+        <p> Para explicarlas vamos a enfocarnos no en lo que son si no
+          en lo que hacen.
+        </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:1forma"> Definición (informal) </h2>
+        Sin definir qué es, vamos a denotar por \(\omega\)
+        a una \(1\)-forma. La idea es que \(\omega\)
+        va a hacer algo a los segmentos dirigidos,
+        el resultado de este algo es un número real.
+        Por \(\omega[\seg{PQ}]\) vamos a denotar
+        dicho resultado. No
+        va a ser una asignación arbitraria si no que
+        debe de seguir las siguientes reglas:
+
+        <ol>
+          <li> \( \omega[\overrightarrow{PP}]=0\); </li>
+          <li> (aditividad) si \(P,Q,R\) son tres puntos en \(\mathbb{R}^n\) entonces
+            \[
+            \omega[\seg{PQ}]+\omega[\seg{QR}]=\omega[\seg{PR} ]
+            \]
+          </li>
+          <li> (respeta orientaciones) \(\omega[\overrightarrow{QP}]=
+            -\omega[\overrightarrow{PQ}]\).</li>
+          <li> (invariante bajo traslaciones)
+            Si \(S\) es un vector fijo y denotamos \(P_S=P+S\),
+            \(Q_S=Q+S\) entonces
+            \[
+            \omega[\seg{PQ}]=\omega[\seg{P_SQ_S}]
+            \]
+        </ol>
+        <p> Si \(\omega\) satisface estas condiciones
+          se llama \(1\)-forma constante. Intuición: si uno se imagina que \(\omega\)
+          "recorre" el segmento \(\seg{PQ}\), estas reglas no son
+          tan misteriosas.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>Supongamos que \(\omega\) es una \(1\)-forma constante
+          que satisface:
+        </p>
+        \[
+        \omega[\seg{OR}]=-1, \, \omega[\seg{PQ}]=3,
+        \]
+        <p>
+          donde \(O\) denota a el origen, \(R=(2,0),
+          P=(4,2)\) y \( Q=(4,6)\).
+        </p>
+        </ol>
+        <li> Encuentra el valor de \(\omega[\seg{OS}]\),
+          donde \(S=(2,4)\).
+        </li>
+        <li> Para todo \(n\in \mathbb{Z}\) encuentra el
+          valor de \(\omega[\seg{OP_n}]\), donde \(P_n=(n,0)\).
+        </li>
+        </ol>
+
+
+        <p>
+
+        </p>
+
+        <button class="respButton"> Respuesta </button>
+        <div class="resp-box">
+          <p>
+            <ul>
+              <li> Para el primer inciso, si empezamos usando la aditividad
+                de \(\omega \) obtenemos:
+          </p>
+          \[
+          \omega[\seg{OS}]=\omega[\seg{OR}]+\omega[\seg{RS}]=-1+\omega[\seg{RS}]
+          \]
+          <p>
+            Ahora trasladamos \(\seg{RS}\) hacia \(\seg{PQ}\) de la siguiente forma:
+          </p>
+          \[
+          R+(2,2)=P, \, S+(2,2)=Q
+          \]
+          <p>
+            De la invarianza de \(\omega\) bajo
+            traslaciones llegamos \(\omega[\seg{RS}]=\omega[\seg{PQ}]=3\) y concluimos
+          </p>
+          \[
+          \omega[\seg{OS}]=-1+3=2.
+          \]
+
+          <p>
+            </li>
+
+            <li> Para el segundo inciso notamos que, para
+              \(n \) natural, la aditividad de \(\omega\) nos da:
+          </p>
+          \[
+          \omega[\seg{OP_n}]=n\omega[\seg{OP_1}],
+          \quad \omega[\seg{OP_{-n}}]=n\omega[\seg{OP_{-1}}]
+          \]
+          <p>
+            Además, ya que \(\omega\) es invariante bajo traslaciones,
+            sumando \((1,0)\) llegamos a \( \omega[\seg{OP_{-1}}]=\omega[P_1O] \).
+
+            De lo anterior concluimos que, para todo \(n\in \mathbb{Z}\),
+            \[
+            \omega[\seg{OP_n}]=n\omega[\seg{OP_1}]
+            \]
+
+            Así, sólo resta encontrar el valor de \(\omega[\seg{OP_1}]\). Pero
+            \[
+            \omega[\seg{OP_1}]+\omega[\seg{P_1P_2}]=\omega[\seg{OR}]=-1
+            \]
+            y \(\omega[\seg{OP_1}]=\omega[\seg{P_1P_2}]\), por lo que
+            \[
+            2\omega[\seg{OP_1}]=-1 \Rightarrow \omega[\seg{OP_1}]=\frac{-1}{2}
+            \]
+          </p>
+          <p>
+            Concluimos que, para todo \(n\in \mathbb{Z}\)
+            \[
+            \omega[\seg{OP_n}]=-\frac{n}{2}
+            \]
+          </p>
+          </li>
+        </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:trabajo"> Ejercicio </h2>
+        Este ejercicio da un ejemplo usando el trabajo.
+
+        Supongamos que tenemos una campo vectorial constante
+        \(\mathbb{F}(x,y,z)=(A,B,C)\), que representa una fuerza en \(\mathbb{R}^3\).
+
+        Mover una partícula desde \((x_0,y_0,z_0)\) a \((x_1,y_0,z_0)\), dentro
+        de este campo, representa un trabajo dado por \(A(x_1-x_0)\). De manera
+        similar \(B(y_1-y_0)\) representa el trabajo de moverla
+        desde \( (x_0,y_0,z_0)\) a \( (x_0,y_1,z_0)\) y \( C(z_1-z_0)\)
+        desde \((x_0,y_0,z_0)\) a \((x_0,y_0,z_1)\). En general, moverla
+        desde \( (x_0,y_0,z_0)\) a \((x_1,y_1,z_1)\) representa un
+        trabajo dado por
+        \[
+        A(x_1-x_0)+B(y_1-y_0)+C(z_1-z_0)
+        \]
+
+        Define
+        \[
+        \omega[\seg{PQ}]=A(x_1-x_0)+B(y_1-y_0)+C(z_1-z_0)
+        \]
+        donde \(P=(x_0,y_0,z_0)\) y \(Q=(x_1,y_2,z_1)\).
+
+        Prueba que \(\omega\) satisface todas las
+        condiciones de la <a href="#Def:1forma"> Definición 10.4 </a>.
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Considera la función dada por
+        \[
+        \omega[\seg{PQ}]=x_1^2-x_0^2
+        \]
+        donde \(P=(x_0,y_0,z_0)\) y \(Q=(x_1,y_1,z_1)\).
+
+        <ol>
+          <li> Prueba que \(\omega \) cumple todas, excepto una, de
+            las reglas de <a href="#Def:1forma"> Definición 10.4 </a>.
+          </li>
+          <li>
+            Si en la definición de \(\omega\) tomamos ahora
+            \(x_1^n-x_0^n\) (donde \(n\) es un natural arbitrario)
+            en lugar de \(x_1^2-x_0^2\):
+            <p>¿Sigue siendo válido el inciso anterior?</p>
+            <!--<p>¿Si
+              ahora intercambiamos por \(f(x_1)-f(x_0)\),
+              donde \(f\) es una función de \(\mathbb{R}\)
+              a \(\mathbb{R}\) arbitaria? </p>
+            <p> ¿Qué tal \(f(y_1)-f(y_2)\) ?</p>-->
+          </li>
+        </ol>
+      </div>
+
+
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:linealToforma"> Ejercicio </h2>
+        Una función \(f:\mathbb{R}^n \to \mathbb{R}\)
+        se llama aditiva si satisface que,
+        para cualesquiera dos puntos \(R\) y \(S\)
+        se cumple \(f(R+S)=f(R)+f(S)\).
+
+        Define la acción de \(\omega\) por
+        \[
+        \omega[\seg{PQ}]:=f(Q)-f(P).
+        \]
+        donde \(f\) es aditiva.
+
+        Prueba que esta función satisface todas las
+        condiciones de la <a href="#Def:1forma"> Definición 10.4 </a>.
+        <p>
+          Este ejercicio es importante pues veremos en el siguiente
+          ejercicio que toda acción de una \(1\)-forma constante se puede obtener
+          de esta manera.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:FormaToLineal"> Ejercicio </h2>
+        Sea \(\omega\) una \(1\)-forma constante en \(\mathbb{R}^n\).
+        <ol>
+          <li> Por \(O\) denotamos al origen (el vector cero en
+            \(\mathbb{R}^n\)). Prueba
+            \[
+            \omega[\seg{OP}]+\omega[\seg{OQ}]=\omega[\seg{O(P+Q)}]
+            \]
+          <li> Define \(f:\mathbb{R}^n \to \mathbb{R}\) por
+            \(f(P)=\omega[\seg{OP}]\). Prueba que
+            \(f\) es una función aditiva y que
+            \[
+            \omega[\seg{PQ}]=f(Q)-f(P)
+            \] </li>
+        </ol>
+      </div>
+
+
+      <div class="nota-box">
+        <h2 class="number-title" id="Nota:FormaAndLineal"> Nota </h2>
+        Los dos ejercicios anteriores muestran que
+        hay una relación estrecha entre funciones aditivas
+        (más adelante se verá que se pueden suponer lineales)
+        y \(1\)-formas, es decir, entre la \(\omega \) y la \(f\).
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:AditivaMasContinua"> Ejercicio </h2>
+        <p>
+          Este ejercicio es útil pues da una condición para
+          que una función aditiva sea lineal.
         </p>
         <p>
-          Demuestra que, para toda \(\varphi\in \Lambda^2(\mathbb{R}^2)\)
-          existe una constante \(c\in \mathbb{R}\) tal que
-          \[
-          \varphi=c\det
-          \]
-          En otras palabra, \(\Lambda^2(\mathbb{R}^2)\) es un espacio vectorial de
-          dimensión 1 y la función determinante forma una base.
-         </p>
-         <p>
-           Sugerencia: por \(e_1,e_2\) denota la base canónica
-           de \(\mathbb{R}^2\). Usando las propiedades de bilinealidad
-           desarrolla
-           \[
-           \varphi(x_1e_1+y_1e_2,x_2e_1+y_2e_2)
-           \]
-           para encontar la \(c\) tal que
-           \[
-           \varphi(x_1e_1+y_1e_2,x_2e_1+y_2e_2)=c(x_1y_2-x_2y_1)
-           \]
+          Sea \(f: \mathbb{R}^n \to \mathbb{R}\) una función
+          aditiva (ver <a href="#Ejer:linealToforma"> Ejercicio 10.8 </a>).
+              Prueba:
+              <ol>
+                <li> \(f(0)=0\),</li>
+                <li> \(f(-P)=-f(P)\), </li>
+                <li> para todo \(r\in \mathbb{Q}\)
+                  y \(P\in \mathbb{R}^n\), \(f(rP)=rf(P)\).
+                  <p> Sugerencia: empieza con \(r\) un natural, luego un entero
+                    y finalmente de la forma \(n/m\).</p>
+                </li>
+                <li> Si además suponemos que \(f\) es continua
+                  prueba que \(f\) es una función lineal sobre
+                  \(\mathbb{R}\). </li>
+              </ol>
+        </p>
+      </div>
 
+      <!--
+     <div class="ejercicio-box">
+       <h2 class="number-title" id="Def:1F-canonicas"> Definición </h2>
+       <p>Haciendo referencia al <a href="#Ejer:trabajo"> Ejercicio 1.6  </a>,
+       si tomamos
+       \(B=0\) y \(C=0\) obtenemos una 1-forma, que denotamos
+       \(dx\) y cuya acción está dada por
+       </p>
+       \[
+       dx(\seg{PQ})=x_1-x_0
+       \]
+       <p>con \(P=(x_0,y_0,z_0)\) y \(Q=(x_1,y_1,z_1)\). De manera
+       similar
+       </p>
+       \[
+       dy(\seg{PQ})=y_1-y_0 ,\quad dz(\seg{PQ})=z_1-z_0.
+       \]
+       <p>De manera similar, si estamo en \(\mathbb{R}^n\),
+       por \(dx_j\), \(j=1,\dots, n\), denotamos a  la \(1\)-forma
+       tal que
+       </p>
+       \[
+       dx_j(\seg{PQ})=p_j-q_j
+       \]
+       <p>si \(P=(p_1,\dots, p_n)\), \(Q=(q_1,\dots, q_n)\).</p>
+       <p> Nota: con relación al <a href="#Ejer:FormaToLineal">Ejercicio 1.9</a> y
+         <a href="#Nota:FormaAndLineal">Nota 1.10</a>,
+        es útil ver que la función lineal correspondiente
+        la acción de \(dx_j\) es simplemente la proyección
+        sobre la \(j\)-ésima coordenada. </p>
+     
+-->
+
+
+
+      <div class="ejercicio-box">
+
+        <h2 class="number-title" id="Ejer:1fConstanteContinua"> Ejercicio </h2>
+        <p>Una \(1\)-forma constante \(\omega\), se llama
+          continua si
+
+        \[
+        \lim_{P\to Q}\omega[\seg{PQ}]=0
+        \]
+        </p>
+        <p>
+          Prueba que si \(\omega\) es continua entonces
+
+          \[
+          \lim_{P\to R}\omega[\seg{PQ}]=\omega[\seg{RQ}], \quad
+          \lim_{Q\to R}\omega[\seg{PQ}]=\omega[\seg{PR}]
+          \]
+        </p>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\omega\) una \(1\)-forma constante y
+          continua. Prueba que existe una función lineal
+          \(f:\mathbb{R}^n \to \mathbb{R}\) tal que
+          \[
+          \omega[\seg{PQ}]=f(Q)-f(P)
+          \]
+
+          Sugerencia: usa los ejercicios
+          <a href="#Ejer:FormaToLineal">10.9</a> y
+          <a href="#Ejer:AditivaMasContinua">10.11</a>
+        </p>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>Sea \(\omega\) una \(1\)-forma constante y
+          continua en \(\mathbb{R}^3\). Entonces existen
+          constantes \(A,B,C\in \mathbb{R}\) tal que
+          para todo segmento \(\seg{PQ}\) en \(\mathbb{R}^3\):
+          \[
+          \omega[\seg{PQ}]=A(x_1-x_0)+B(y_1-y_0)+C(z_1-z_0)
+          \]
+          <p>
+            De manera más general, si \(\omega\) es una
+            \(1\)-forma constante y continua en \(\mathbb{R}^n\),
+            entonces existen constantes \(A_1,\dots, A_n \in \mathbb{R}\)
+            tales que
+            \[
+            \omega[\seg{PQ}]=\sum_{j=1}^n A_j(q_j-p_j)
+            \]
+            donde \(P=(p_1,\dots, p_n), Q=(q_1,\dots, q_n)\).
           </p>
+
+          <button class="respButton"> Respuesta </button>
+          <div class="resp-box">
+            <p>
+              Por el ejercicio 1.14, existe una función lineal
+              \(f: \mathbb{R}^3 \to \mathbb{R}\) tal que
+              \[
+              \omega[\seg{PQ}]=f(Q)-f(P)
+              \]
+              Tomamos
+              \[
+              A=f(1,0,0), B=f(0,1,0), C=f(0,1,0)
+              \]
+              Al ser \(f\) lineal tenemos que, para cualquier
+              punto \((x,y,z)\)
+              \begin{eqnarray}
+              f(x,y,z)&=&xf(1,0,0)+yf(0,1,0)+zf(0,0,1)\\
+              &=&Ax+By+Cz
+              \end{eqnarray}
+              Por lo tanto
+              \begin{eqnarray}
+              f(Q)-f(P)&=&Aq_1+Bq_2+Cq_3-(Ap_1+Bp_2+Cp_3) \\
+              &=&A(q_1-p_1)+B(p_2-q_2)+C(q_3-p_3)
+              \end{eqnarray}
+              y concluimos
+              \[
+              \omega(\seg{PQ})=A(q_1-p_1)+B(q_2-p_2)+C(p_3-q_3)
+              \]
+
+            </p>
+          </div>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Dado \(V\), un espacio vectorial sobre \(\mathbb{R}\), denotamos
+        </p>
+        \[
+        V^*=\{\varphi: V \to \mathbb{R}: \textrm{\(\varphi\) es lineal }\}
+        \]
+
+        <p>este conjunto es importante dentro de la teoría y se llama
+          el dual de \(V\).
+        </p>
+        <ol>
+          <li> Demuestra que \(V^*\) es un espacio vectorial. </li>
+          <li> Demuestra que \((\mathbb{R}^n)^*\) tiene dimensión \(n\).
+            Sugerencia: considera las proyecciones de \(\mathbb{R}^n\) a
+            \(\mathbb{R}\).</li>
+        </ol>
+
+        <button class="respButton"> Respuesta </button>
+        <div class="resp-box">
+          <p>
+            <p>Sólo probaremos el segundo inciso.</p>
+            <p> Por \(\pi_j\) vamos a denotar la proyección
+              sobre la coordenada \(j\), es decir
+              \[
+              \pi_j(p_1,\dots p_n)=p_j.
+              \]
+              Sabemos que las \(\pi_j\) son funciones lineales,
+              por lo tanto \(\beta:=\{\pi_1,\dots, \pi_n\} \subset (\mathbb{R}^n)^*\).
+              Afirmamos que \(\beta\) es una base para \((\mathbb{R}^n)^*\)
+            </p>
+            <p> Primero vamos a ver que \(\beta\) es linealmente independiente.
+              Supongamos que
+              \[
+              \varphi= c_1 \pi_1+\cdots c_n\pi_n
+              \]
+              es la función idénticamente cero, es decir, para toda \(P\in \mathbb{R}^n\)
+              \[
+              0=\varphi(P)=c_1\pi_1(P)+\cdots c_n\pi_n(P).
+              \]
+
+              Vamos a denotar por \(e_j\)
+              el vector que tiene todas las entradas cero, excepto por la entrada
+              \(j\), donde tiene un 1 (la base canónica).
+
+              Tomando \(P=e_1\) notamos que \(\pi_j(P)=0\) si \(j\ne 1\)
+              y \(\pi_1(P)=1\). Por lo tanto
+              \[
+              0=\varphi(P)=c_1\pi_1(P)+\cdots + c_n \pi_n(P)=c_1
+              \]
+              por lo que \(c_1=0\).
+
+              De manera similar, tomando \(P=e_j\), obtenemos que
+              \(c_j=0\), para toda \(j=1,\dots, n\) y concluimos que
+              \(\beta\) es linealmente independiente.
+
+            </p>
+            <p>
+              Ahora vamos a probar que \(\beta\) genera a \((\mathbb{R})^n\).
+
+              Tomamos \(\psi \in (\mathbb{R}^n)^*\) fijo y arbitrario. Al ser
+              \(\psi \) una función lineal tenemos que, para toda
+              \(P=(p_1,\dots p_n)\in \mathbb{R}^n\):
+              \[
+              \psi(P)=\psi(\sum_{j=1}^n p_j e_j )=\sum_{j=1}^n p_j \psi(e_j).
+              \]
+
+              Dentemos \(A_j=\psi(e_j)\). Con esta notación
+              \[
+              \psi(P)=\sum_{j=1}^n A_j p_j.
+              \]
+              Pero notamos que, \(\pi_j(P)=p_j\), por lo que podemos reescribir
+              la igualdad anterior como
+              \[
+              \psi(P)=\sum_{j=1}^n A_j \pi_j(P), \quad \forall P\in \mathbb{R}^n,
+              \]
+              es decir, como funciones \(\psi\) y \(\sum_{j=1}A_j \pi_j\)
+              son iguales, por lo que concluimos que \(\beta\) genera a
+              \((\mathbb{R}^n)^*\).
+            </p>
+        </div>
+
+
       </div>
 
 
 
 
 
-            <div class="ejercicio-box">
-              <h2 class="number-title" id="bilinealInducidaTransLineal"> Ejercicio </h2>
-              <p>
-                Sea \(T:\mathbb{R}^m \to \mathbb{R}^n\) una función lineal
-                y \(\varphi\in \Lambda^2(\mathbb{R}^n)\).
-                Define una nueva función \(\psi: \mathbb{R}^m\times \mathbb{R}^m
-                \to \mathbb{R} \) por
-                \[
-                \psi(P,Q)=\varphi(T(P), T(Q))
-                \]
-                </p>
-                <ol>
-                <li>Prueba que \(\psi \in \Lambda^2(\mathbb{R}^m)\).</li>
-                <li> Considera el caso \(n=2, m=3\) y \(\varphi =\det\).
-                 Tomando \(T\) como: (1) la proyección en el plano \(x,y\);
-                 (2) la proyección en el plano \(x,z\); (3)  la proyección
-                 en el plano \(y,z\); calcula
-                la regla de correspondencia de cada una de las  \(\psi\)
-                resultantes.</li>
-                </ol>
-              </div>
 
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Toma \(\varphi\in \Lambda^2(\mathbb{R}^2)\) como \(\varphi =\det\).
-                </p>
-                <p>
-                  Define \(T_i:\mathbb{R}^3\to \mathbb{R}^2\), \(i=1,2,3\)  por
-                  \[
-                  T_1(x,y,z)=(y,z), \quad T_2(x,y,z)=(x,y), \quad T_3(x,y,z)=(x,y)
-                  \]
-                  y define \(\psi_i \in \Lambda^2(\mathbb{R}^3)\) por
-                  \[
-                  \psi_i(P,Q)=\varphi(T_i(P), T_i(Q)), \quad i=1,2,3.
-                  \]
-                  (ver <a href="#Ejer:bilinealInducidaTransLineal">Ejercicio anterior</a> ).
-                </p>
-                <p>
-                  Toma \(\psi= 3\psi_1-2 \psi_2+5\psi_3 \). Calcula
-                  \(\psi(P,Q)\) para \(P=(1,1,2), Q=(2,1,-1)\).
-                </p>
-              </div>
+      <div class="nota-box">
+        <h2 class="number-title"> Nota  </h2>
+        <p>
+          Ahora sí, podemos dar la definición de lo que es una \(1\)-forma
+          y hacer clara la distinción entre lo que es una \(1\)-forma
+          y lo que hace.
+        </p>
+        <p>
+          Una \(1\)-forma constante y continua en \(\mathbb{R}^n\) <b>es</b> simplemente una
+          función lineal de \(\mathbb{R}^n\) a \(\mathbb{R}\).</p>
+        <p>
+          Ahora veamos la notación de las \(dx_j\). Recuerda que la función
+          que se obtiene proyectando sobre la
+          \(j\)-ésima coordenada de
+          \(\mathbb{R}^n\) es una función lineal, la cual vamos a
+          denotar (por el momento) por \(dx_j\), es decir
+          \[
+          dx_j(P)=p_j
+          \]
+          donde \(P=(p_1,\dots, p_n)\).
+        </p>
+        <p> Con esta notación, toda \(1\)-forma constante y continua,  \(\omega\),  
+          es combinación lineal de las proyecciones:
+          \[
+          \omega=A_1dx_1+\cdots + A_n dx_n
+          \]
+          de ahí sale la notación con las \(dx_j\).
+          <p>
+          </p>
+          Nota:
+          en la siguiente sección la notación \(dx_j\)
+          va a significar algo ligeramente distinto.
+        </p>
+        <p> Finalmente, la \(1\)-forma \(\omega\) <b>actua</b>
+          sobre el segmento \(\seg{PQ}\) como:
+          \[
+          \int_{\seg{PQ}}\omega = A_1(q_1-p_1)+\cdots + A_n(q_n-p_n)
+          \]
+          En la notación anterior, \(\omega[\seg{PQ}]=\int_{\seg{PQ}}\omega\).
+        </p>
 
+      </div>
 
-                <div class="definicion-box">
-                  <h2 class="number-title" id="prodExterior2F"> Definición </h2>
-                  <p>
-                    Dadas dos funciones lineales \(f,g:\mathbb{R}^n \to \mathbb{R}\)
-                    definimos su producto cuña o producto exterior como
-                    la función \(f\wedge g: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}\)
-                    dada por
-                    \begin{eqnarray*}
-                    (f \wedge g) (P,Q)
-                    =
-                    \frac{1}{2}\det
-                    \left[
-                    \begin{array}{cc}
-                    f(P) & g(P)\\
-                    f(Q) & g(Q)
-                    \end{array}
-                    \right]
-                    \end{eqnarray*}
-                  </p>
-                  </div>
-
-
-                <div class="ejercicio-box">
-                  <h2 class="number-title" id="Ejer:propieadesFunBilAlt"> Ejercicio </h2>
-                  <p>
-                     Sean \(f,g,h:\mathbb{R}^n\to \mathbb{R}\)
-                     funciones lineales y \(c\) una constante.
-                  </p>
-                    <p>
-                    Prueba:
-                    </p>
-                    <ol>
-                      <li>  \(f\wedge g \in \Lambda^2(\mathbb{R}^n)\).</li>
-                      <li> \(f\wedge g = - g \wedge f\). </li>
-                      <li> \(f\wedge f =0\). </li>
-                      <li>
-                        \( (f+ch)\wedge g= f\wedge g+ c (h\wedge g),
-                        \quad
-                        f \wedge (g+ch)=f\wedge g+ c (f\wedge h).
-                        \)
-                      </li>
-                    </ol>
-
-                    <button class="respButton hvr-grow"> Respuesta </button>
-        <div class="resp-box">
-          <div class="video flexbox">
-            <a href="https://youtu.be/zzfBlwmve1s" target="_blank"> Video </a>
-          </div>
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:1formaDif"> Definición </h2>
+        <p>
+          <ol>
+            <li> Sea \( S \) un subconjunto  \(\mathbb{R}^n\). Una <b>1-forma</b>
+              en \(S \), denotada por \(\omega\), es una función tal que
+          a cada punto \(P\) de \(S\) le asocia una 1-forma constante
+          denotada \(\omega_P\). Si escribimos a la 1-forma en coordenadas \(dx_j\)
+          obtenemos
+          \[
+          \omega_P=A_1(P)dx_1+A_2(P)dx_2 + \cdots + A_n(P)dx_n
+          \]
+          donde las \(A_j\) son funciones \(A_j :U \to \mathbb{R}\), \(j=1,\dots, n\).
+          </li>
+          <li> Si todas las funciones \(A_1,\dots, A_n:S\to \mathbb{R}\)
+            son continuas en \(S\) decimos que \(\omega\) es una 1-forma
+            continua.
+          </li>
+          <li>Si \(S=U\), un conjunto abierto de \(\mathbb{R}^n\)
+          y las todas funciones \(A_1,\dots, A_n:U\to \mathbb{R}\)
+          son diferenciables, decimos que \(\omega\)
+          es una 1-forma diferenciable en \(U\).
+          </li>
+          </ol>
+          <p>Con ésta notación
+          se escribe:
+          \[
+          \omega=A_1dx_1+A_2dx_2+\cdots +A_ndx_n
+          \]
+          </p>
+          <p>
+          Por ejemplo \(\omega= ydx+ xdy\) es una 1-forma diferenciable en \(\mathbb{R}^2\) y
+          \(\eta = \sqrt{y}dx+\sqrt{x}dy \) es una 1-forma
+          diferenciable en \((0,\infty)\times (0,\infty)\). En estos ejemplos,
+          tenemos que las 1-formas constantes, en el punto \((9,16)\in \mathbb{R}^2\),
+          son respectivamente:
+          \[
+          \omega_{(9,16)}=16dx+9dy, \quad \eta_{(9,16)}=4dx+3dy
+          \]
+        </p>
+        <p>
+          <b>Nota:</b> si además las funciones \(A_1,\dots, A_n\) son
+          clase \(C^k\) en \(U\) (para algún \(k=1,2,\dots\)) decimos
+          que la 1-forma diferenciable es clase \(C^k\).
+        </p>
+        <div class=" flexbox video">
+            <a href="https://youtu.be/NMXclu8IxMg" target="_blank" class="hvr-grow"> Video </a>
         </div>
-                  </div>
+      </div>
 
 
-
-                  <div class="ejercicio-box">
-                    <h2  class="number-title"> Ejercicio </h2>
-                    <p>
-                      Sean \(f,g:\mathbb{R}^n \to \mathbb{R}\) dos funciones lineales.
-                      Prueba que \(f\wedge g\) es la función idénticamente cero
-                      si y sólo si  existe un escalar \(c\) tal que \(f=cg\).
-                    </p>
-                  </div>
-
-
-                  <div class="nota-box">
-                    <h2 class="number-title"> Nota </h2>
-                    <p>
-                      Recuerda que por \(dx_i\), \(i=1,\dots, n\), denotamos a la función
-                      de \(\mathbb{R}^n\)  a \(\mathbb{R}\) dada por
-                      \[
-                      dx_i(x_1,\dots, x_n)=x_i
-                      \]
-                      Es decir, \(dx_i\) es la proyección en la \(i\)-ésima
-                      coordenada. También recuerda que \(dx_i\) es lineal.
-                    </p>
-                    <p>
-                    Con las funciones \(dx_i\) y el producto cuña obtenemos toda una
-                    familia de funciones bilineales
-                    \begin{equation}\label{Eqn:todosProductosCuna}
-                    dx_i \wedge dx_j, \quad i,j=1,\dots, n.
-                    \end{equation}
-                    Esta familia es importante por que de ella se puede extraer una
-                    base para \(\Lambda^2(\mathbb{R}^n)\).
-                    </p>
-                    <p>
-                      Primero notamos que \(dx_i\wedge dx_i=0\) y \(dx_i\wedge dx_j=-dx_j\wedge dx_i\).
-                      Así que en términos de conjuntos linealmente independientes el conjunto
-                      \eqref{Eqn:todosProductosCuna} tiene elementos que podemos eliminar. Después
-                      de dicha eliminación nos queda:
-                      \begin{equation}\label{Eqn:baseProductosCuna}
-                      dx_i\wedge dx_j, \quad 1 \leq i < j \leq n.
-                      \end{equation}
-                    </p>
-                    <p>
-                      Por ejemplo, en dimensión \(3\) queda
-                      \[
-                      dx_1\wedge dx_2, \quad dx_1\wedge dx_3,\quad  dx_2\wedge dx_3
-                      \]
-                    </p>
-                    <p>
-                      El propósito de los ejercicios que siguen es probar que el conjunto
-                      dado por \eqref{Eqn:baseProductosCuna} es una base para \(\Lambda^2(\mathbb{R}^n)\).
-                    </p>
-                  </div>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Considera la 1-forma diferenciable, \(\omega = (2x+y)dx-(6x+2y)dy\). Encuentra
+        los puntos \(R\) para los cuales:
+        <ol>
+          <li> \(\omega_R= 3dx+4dy\). </li>
+          <li> \(\omega_R = 0 \). </li>
+          <li> \(\omega_R= dx \). </li>
+        </ol>
 
 
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title" id="Ejer:lemaDeltaDirectWedge"> Ejercicio </h2>
-
-                    <p>
-                      Sea \(n\geq 2\) un entero. Por
-                      \(\{e_i\}_{1=1}^n\) denotamos
-                      la base canónica de \(\mathbb{R}^n\). Fija \(i,j \in \{1,\dots, n\}\)
-                      con \(i < j  \). Prueba que
-                      \[
-                      (dx_i\wedge dx_j)(e_k,e_l)
-                      =
-                      \left\{
-                        \begin{array}{cc}
-                        1/2 & k=i, l=j \\
-                        -1/2 & k=j, l=i \\
-                        0 & \textrm{en otro caso}
-                        \end{array}
-                      \right.
-                      \]
-                    </p>
-                    <button class="respButton hvr-grow" > Respuesta </button>
-                    <div class="resp-box">
+      <button class="respButton hvr-grow"> Respuesta </button>
+      <div class="resp">
 
 
-                            <p>Sean  \(i,j \in \lbrace 1, . . . , n \rbrace\) con
-                            \(i < j\). Si \(k=i \) y \( l=j, \) entonces
-                            \begin{equation*}
-                            (dx_i \wedge dx_j)(e_i, e_j) = \frac{1}{2}\det \left[
-                            \begin{array}{cccc}
-                            dx_i(e_i)  &  dx_j(e_i) \\
-                            dx_i(e_j) & dx_j(e_j)
-                            \end{array} \right] = \frac{1}{2}\det \left[
-                            \begin{array}{cccc}
-                            1  & 0 \\
-                            0 & 1
-                            \end{array} \right] = \frac{1}{2}.
-                            \end{equation*}
-                          </p>
-                          <p>
-                            Si \(k=j \) y \( l=i\), entonces
-                            \((dx_i \wedge dx_j)(e_j, e_i) = -(dx_j \wedge dx_i)(e_j, e_i)= -1/2\).
-                          </p>
-                            <p>
-                            En cualquier otro caso,
-                            \(dx_i(e_k) = dx_i(e_l) = 0\) y \(dx_j(e_k) = dx_j(e_l) = 0\).
-                            Por lo tanto, \((dx_i \wedge dx_j)(e_k, e_l) = 0\).
-                          </p>
+        <p>Primero encontremos \(R\) tal que \(\omega_{R} = 3dx + 4dy\).
+        Entonces tenemos que resolver el siguiente sistema de ecuaciones:
+        </p>
 
-                    </div>
-                  </div>
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 3 \\
+        -6x & -2y & = & 4 \\
+        \end{array} \right.
+        \]
 
 
+        <p>El cual tiene como única solución \(x = -5 \) y \( y = 13\), es decir el
+          punto \(R\) tal que \(\omega_{R} = 3dx + 4dy\), es  \(R = (-5,13)\).
+        </p>
 
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                    <p>
-                      Prueba que el subconjunto
-                      \[
-                      \{dx_i\wedge dx_j: 1\leq i < j \leq n\} \subset \Lambda^2(\mathbb{R^2})
-                      \]
-                      es linealmente independiente.
-                    </p>
-                    <p>
-                      Sugerencia: si tenemos una combinación lineal igualada a cero
-                      \[
-                      \sum_{1\leq i < j \leq n} \alpha_{i,j}dx_i\wedge dx_j=0
-                      \]
-                      valua la función anterior en parejas de la forma
-                      \((e_k,e_l)\) y usa el <a href="Ejer:lemaDeltaDirectWedge">Ejercicio 10.10</a>.
-                    </p>
-                  </div>
+        <p>Ahora encontremos \(R\) tal que \(\omega_{R} = 0\).
+          Nuevamente  tenemos que resolver el siguiente sistema de ecuaciones:
+        </p>
 
-                  <div class="ejercicio-box">
-                    <h2 class="number-title" id="Ejer:condicionIgualdadBilinealesAlternantes"> Ejercicio </h2>
-                    <p>
-                      Sean \(\varphi, \psi \in \Lambda^2(\mathbb{R}^n)\). Prueba que
-                      las funciones \(\varphi\) y \(\psi\) son iguales si y sólo si
-                      \[
-                      \varphi(e_k, e_l)=\psi(e_k,e_l)
-                      \]
-                      para todos \(1\leq k < l \leq n\).
-                     </p>
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 0 \\
+        -6x & -2y & = & 0 \\
+        \end{array} \right.
+        \]
 
-                     <button class="respButton hvr-grow"> Respuesta </button>
-                     <div class="resp-box">
-                       <div class="video flexbox">
-                         <a href="https://youtu.be/-n6gNsi3AS0" target="_blank"> Video </a>
-                       </div>
-                     </div>
-                  </div>
+        <p>No es difícil verificar que este sistema tiene como única solución a
+          \(x = 0 \) y \( y = 0\), es decir el punto \(R\) tal que \( \omega_{R} = 0\),
+          es  \(R = (0,0)\).
+        </p>
+
+        <p>Por último, encontremos \(R\) tal que \(\omega_{R} = dx\).
+          Entonces el sistema de ecuaciones a resolver es el siguiente:
+        </p>
+
+        \[
+         \left\{
+        \begin{array}{cccc}
+        2x & +y & = & 1 \\
+        -6x & -2y & = & 0 \\
+        \end{array} \right.
+        \]
 
 
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                    <p>
-                      Sea \(\varphi \in \Lambda^2(\mathbb{R}^n)\) fija y arbitraria. Para \(1\leq i< j \leq n\)
-                      denota \(\beta_{i,j}:=\varphi(e_i,e_j)\). Prueba que
-                      \[
-                      \varphi = \sum_{1 \leq i < j \leq n}\beta_{i,j} dx_i \wedge dx_j
-                      \]
-                    </p>
-                    <p>
-                      Sugerencia:  usa el <a href="#Ejer:condicionIgualdadBilinealesAlternantes">
-                        Ejercicio 10.12</a> para probar que la igualdad de funciones que se pide.
-                    </p>
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title" id="cardinalidadBase"> Ejercicio </h2>
-                    <p>
-                      Denotamos \(\mathbb{Z}^+=\{1,2,\dots\}\). Fija \(n\in \mathbb{Z}^+\)
-                      con \(n\geq 2\). Prueba que la cardinalidad
-                      de
-                      \begin{equation}\label{Eqn:conjuntoAux}
-                      \{(i,j)\in \mathbb{Z}^+\times \mathbb{Z}^+: 1\leq i< j \leq n\}
-                      \end{equation}
-                      es \(\sum_{k=1}^{n-1} k\) .
-                    </p>
-                    <p>
-                      Concluye que la cardindalidad de
-                      \[
-                      \{dx_i\wedge dx_j : 1 \leq i < j \leq n\}
-                      \]
-                      es \(\frac{n(n-1)}{2}\).
-                    </p>
-                    <p>
-                      Sugerencia: dibuja el conjunto \eqref{Eqn:conjuntoAux}
-                      como subconjunto de  \(\mathbb{Z}^+\times \mathbb{Z}^+\).
-                    </p>
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                  <p>
-                    Prueba que el conjunto
-                    \[
-                    \{ dx_i\wedge dx_j : 1\leq i < j \leq n \}
-                    \]
-                    es una base para \(\Lambda^2(\mathbb{R}^n)\).
-                  </p>
-                  <p>
-                    Concluye que \(\Lambda^2(\mathbb{R}^n)\) es un espacio
-                    vectorial de dimensión \(\frac{n(n-1)}{2}\).
-                  </p>
-                  <p>Nota
-                    en particular que \(\Lambda^2(\mathbb{R}^2)\) tiene
-                    dimensión \(\frac{n(n-1)}{2}=\frac{2(2-1)}{2}=1\), lo cual
-                    concuerda con el ejercicio <a href="#Ejer:bilinealesAlternantesR2dim1">Ejercicio 10.3</a>
-                  </p>
-                  </div>
-
-                  <div class="definicion-box">
-                    <h2 class="number-title"> Definición </h2>
-                    <p>
-                      Dada una matriz \(A\),  por \(A[i,j]\)
-                      denotamos su entrada \((i,j)\) (\(i\)-ésimo
-                      renglón, \(j\)-ésima columna). La matriz transpuesta
-                      de \(A\), denotada \(A^t\) se define como la matriz con
-                      entradas
-                      \[
-                      A^t[i,j]:=A[j,i].
-                      \]
-                      Es decir, es la matriz que obtenemos al intercambiar renglones
-                      y columnas de \(A\).
-                    </p>
-                    <p>
-                      Una matriz \(A\in M_n(\mathbb{R})\) se llama anti-simétrica
-                      si \(A^t=-A\).
-                    </p>
-                  </div>
+        <p>El cual tiene como única solución \(x = -1 \) y \( y = 3\), es decir el
+          punto \(R\) tal que \(\omega_{R} = dx\), es  \(R = (-1,3)\).
+        </p>
 
 
-                  <div class="nota-box">
-                    <h2 class="number-title"> Nota </h2>
-                    <p>
-                      Con la ayuda de las matrices anti-simétricas es posible
-                      dar otra descripción de las funciones bilineales alternantes. Los
-                      ejercicios que siguen están dirigidos a mostrar esta descripción.
-                    </p>
+      </div>
 
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title" id="Ejer:propiedadAdjunto"> Ejercicio </h2>
-                    <p>
-                      Sean \(A,B\in M_n(\mathbb{R})\) y \(c\in \mathbb{R}\) una constante. Prueba:
-                      <ol>
-                      <li>
-                      \[
-                      (AP)\cdot Q= P\cdot (A^tQ), \quad \forall P,Q\in \mathbb{R}^n
-                      \]
-                      donde \(AP\) denota el producto de la matriz \(A\) por el vector \(P\)
-                      y \(\cdot\) indica el producto punto.
-                    </li>
-                    <li>
-                      \[
-                      (cA+B)^t=cA^t+B^t
-                      \]
-                    </li>
-                    <li>
-                      \(A\) es anti-simétrica si y sólo si \(A[i,i]=0\)
-                      para toda \(i=1,\dots, n\) y \(A[j,i]=-A[i,j]\)
-                      para toda \(1\leq i < j \leq n\).
-                    </li>
-                    </p>
-
-                    <button class="respButton hvr-grow" > Respuesta </button>
-                    <div class="resp-box">
-                    <p>
-                    Inciso 1.
-                    </p>
-
-                    <p>
-                      Primero escribimos las coordenadas de \(P\) y \(Q\)
-                      como
-                      \[
-                      P=(p_1,\dots, p_n), \quad Q=(q_1,\dots, q_n).
-                      \]
-                    </p>
-                    <p>
-                      Primero vamos a desarrollar \( (AP)\cdot Q\). Por
-                      simplicidad denotamos \(AP=R=(r_1,\dots,r_n).\) Por la
-                      definición del
-                      producto de matriz por vector tenemos
-                      \[
-                      r_i=\sum_{j=1}^n A[i,j]p_j
-                      \]
-                      Entonces
-                      \begin{eqnarray}
-                      (AP)\cdot Q&=&R\cdot Q  \nonumber \\
-                                &=&\sum_{i=1}^n r_iq_i  \nonumber \\
-                                &=& \sum_{i=1}^n \sum_{j=1}^n A[i,j]p_jq_i \label{Eqn:aux1PropiedadesAdjunto}
-                      \end{eqnarray}
-                    </p>
-                    <p>
-                      Ahora vamos a desarrollar \( P\cdot (A^tQ) \) de manera similar.
-                    </p>
-                    <p>
-                      Por definición del producto de una matriz por vector,
-                      tomando \(A^tQ=S=(s_1,\dots, s_n)\), tenemos
-                      \[
-                      s_i=\sum_{j=1}^n A^t[i,j]q_j=\sum_{j=1}^n A[j,i]q_j
-                      \]
-                      nota que en la última igualdad se utilizó la definición
-                      de \(A^t\).
-                    </p>
-                    <p>
-                      Finalmente
-                      \begin{eqnarray}
-                      P\cdot (A^tQ)&=&P\cdot S \nonumber\\
-                                  &=& \sum_{i=1}^n p_i s_i  \nonumber \\
-                                  &=& \sum_{i=1}^n\sum_{j=1}^n A[j,i]p_iq_j  \label{Eqn:aux2PropiedadesAdjunto}
-                      \end{eqnarray}
-                    </p>
-                    <p>
-                      Comparando \eqref{Eqn:aux1PropiedadesAdjunto} y \eqref{Eqn:aux2PropiedadesAdjunto}
-                      obtenemos el inciso 1.
-                    </p>
-
-                    <p>
-                      Inciso 2.
-                    </p>
-                    <p>
-                      Para probar la igualadad entre las matrices debemos probar
-                      que iguales entrada por entrada.
-                    </p>
-
-                    <p>
-                      Por la definición  de la transpuesta
-                      \[
-                      (cA+B)^t[i,j]=(cA+B)[j,i].
-                      \]
-                      Por la definición de la suma y multiplicación escalar de
-                      matrices tenemos
-                      \begin{equation}\label{Eqn:aux3PropiedadesAdjunto}
-                      (cA+B)[j,i]=cA[j,i]+B[j,i].
-                      \end{equation}
-                    </p>
-                    <p>
-                      De manera similar,
-                      \begin{equation}\label{Eqn:aux4PropiedadesAdjunto}
-                      (cA^t+B^t)[i,j]=cA^t[i,j]+B^t[i,j]=cA[j,i]+B[j,i]
-                      \end{equation}
-                    </p>
-                    <p>
-                      Comparando \eqref{Eqn:aux3PropiedadesAdjunto}
-                      y \eqref{Eqn:aux4PropiedadesAdjunto} concluimos
-                      que \( (cA+B)^t=cA^t+B^t\).
-                    </p>
-                    <p>
-                      Inciso 3.
-                    </p>
-                    <p>
-                      Por definición, \(A\) es anti-simétrica si y sólo si,
-                      para toda \(1\leq i,j\leq n\),
-                      \[
-                      A^t[i,j]=-A[i,j] \Leftrightarrow A[j,i]=-A[j,i]
-                      \]
-                      Pero notamos que, cuando \(i=j\), \(A[i,i]=-A[i,i]\) lo
-                      que implica \(A[i,i]=0\). Además, la condición
-                      \(A[j,i]=-A[i,j]\), para toda \(1\leq i,j \leq n\)
-                      implica que los valores de \(A[i,j]\), para \( j \leq i\)
-                      están completamente determinados por los valores
-                      de \(A[i,j]\), con \(i < j\). Por lo que
-                      \begin{eqnarray*}
-                      & A[j,i]=-A[j,i] \quad \forall i,j, \textrm{con} \quad 1\leq i,j \leq n  \\
-                      & \Updownarrow \\
-                      & \left\{
-                        \begin{array}{cc}
-                          A[i,i]=0, & \forall i, \textrm{con} \quad 1\leq i \leq n \\
-                          A[i,j]=-A[j,i], & \forall  i,j, \textrm{con} \quad 1\leq i < j \leq n
-                          \end{array}
-                      \right\}
-                      \end{eqnarray*}
-                      lo cual prueba el inciso 3.
-                    </p>
-                  </div>
-                    </div>
-
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                    <p>
-                      Prueba que el subconjunto
-                      \[
-                      \{A\in M_n(\mathbb{R}^n): \textrm{\(A\) es anti-simétrica}\}
-                      \]
-                      es un subespacio de \(M_n(\mathbb{R}^n)\).
-                    </p>
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                    <p>
-                      Fija \(n\geq 2\). Dados \(i,j\in \{1,\dots, n\}\), por
-                      \(E_{i,j}\) denotamos a la matriz de \(n\times n\) que
-                      tiene todas las entradas cero, excepto por la del  renglón
-                      \(i\) y columno \(j\), donde tiene un 1.
-                    </p>
-                    <p>
-                      Prueba que:
-                      <ol>
-                      <li>
-                      \(
-                      \{ E_{i,j}-E_{j,i}: 1\leq i < j \leq n\}
-                      \)
-                      es una base para el subespacio de matrices anti-simétricas.
-                    </li>
-                      <li>
-                        La dimensión del subespacio de matrices anti-simétricas
-                        es \(\frac{n(n-1)}{2}\).
-                      </li>
-                    </ol>
-                    </p>
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title" id="deMatrizABilineal"> Ejercicio </h2>
-                    <p>
-                      Sea \(A\in M_n(\mathbb{R})\) una matriz anti-simétrica. Define
-                      \(\varphi: \mathbb{R}^n\times \mathbb{R}^n \to \mathbb{R}\) por
-                      \[
-                      \varphi(P,Q)=(AP)\cdot (Q)
-                      \]
-
-                    </p>
-                    <p>
-                      Prueba que \(\varphi \in \Lambda^2(\mathbb{R}^n)\).
-                    </p>
-                    <p>
-                      Sugerencia: para probar que \(\varphi\) es alternante
-                      usa el <a href="#Ejer:propiedadAdjunto">Ejercicio 10.18</a>.
-                    </p>
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title" id="deMatrizABilineal"> Ejercicio </h2>
-                    <p>
-                      Continuando con la misma notación que en el ejercicio anterior,
-                      encuentra una matriz \(A\) de \(2\times 2\) tal que
-                      \[
-                      (AP)\cdot Q= \det[P,Q],\quad \forall P,Q\in\mathbb{R}^2
-                      \]
-                    </p>
-                  </div>
-
-
-                  <div class="nota-box">
-                    <h2 class="number-title"> Conclusión </h2>
-                    <p>
-                      El conjunto
-                      \[
-                      \Lambda^2(\mathbb{R}^n)=\{\varphi: \mathbb{R}^2\times \mathbb{R}^2\to \mathbb{R}
-                      : \textrm{\(\varphi\) es bilineal y alternante}\}
-                      \]
-                      forma un espacio y con la ayuda del producto cuña tenemos que el conjunto
-                      \[
-                      dx_i\wedge dx_j, \quad 1 \leq i < j \leq n,
-                      \]
-                      forma una base. Es decir, para toda \(\varphi\in \Lambda^2(\mathbb{R}^n)\)
-                      existen constantes \(A_{i,j}\in \mathbb{R}\), con \(1\leq i< j \leq n\), tal que
-                      \[
-                      \varphi=\sum_{1\leq i < j \leq n} A_{i,j}dx_i \wedge dx_j
-                      \]
-                      La descripción anterior será útil para definir 2-formas no constantes.
-                    </p>
-                    <p>
-                      Las matrices anti-simétricas también dan otra descripción del
-                      espacio de funciones bilineales alternantes. No es coincidencia
-                      de que ambos espacios tengan las misma dismensión. Se puede mostrar
-                      que como espacios vectoriales son isomorfos. Un isomorfismo
-                      se puede dar de la siguiente manera.
-                    </p>
-                    <p>
-                      Si \(A\) es una matriz anti-simétrica definimos la función
-                      bilineal alternante como
-                      \[
-                      \varphi_A(P,Q)=(AP)\cdot Q
-                      \]
-                    </p>
-                    <p>
-                      Si \(\varphi\) es una función bilineal alternante entonces
-                      la matriz \(A_\varphi\) dada por
-                      \[
-                      A_\varphi[i,j]=\varphi(i,j)
-                      \]
-                      resulta se una matriz anti-simétrica.
-                    </p>
-
-                  </div>
-
-
-
-<!---- acaba contenido --->
     </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Considera la 1-forma diferenciable, \(\omega=3x^2dx+(y^2+1)dy\). Para los
+          siguientes puntos \(P,Q,R\) y tomando la 1-forma constante \(\omega_R\)
+          calcula \(\int_{\overrightarrow{PQ}} \omega_R \).
+        </p>
+        <ol>
+          <li> \(P=(0,0), Q=(1,1), R= (1/2,1/2) \). </li>
+          <li> \(P=(0,4), Q=(2,2), R= (-1,-1) \). </li>
+          <li> \(P=(0,y), Q=(x,y+1), R=(a,b) \) . </li>
+        </ol>
+
+
+
+        <button class="respButton hvr-grow " > Respuesta </button>
+        <div class="resp">
+        <p>
+          <li> Siguiendo la <a href="#Def:1formaDif"> Definición 2.1</a>, en este caso se tiene que
+            \[ \omega_{(1/2,1/2)} = 3(1/2)^2 dx + ((1/2)^2 + 1) dy = \frac{3}{4} dx + \frac{5}{4} dy \]
+            Luego, de la conclusión en la Sección 1 se sigue:
+            \[
+            \int_{\seg{PQ}}\omega_{(1/2,1/2)} = \frac{3}{4}(1 -0)+ \frac{5}{4}(1-0) = \frac{3}{4}+ \frac{5}{4} = 2
+            \]
+            donde \( P=(0,0), Q=(1,1) \)
+          </li>
+          <li> Similarmente, para este inciso se obtiene que: \( \omega_{(-1,-1)} = 3dx + 2dy \) y
+            \(\displaystyle\int_{\seg{PQ}}\omega_{(-1,-1)} = 2\)
+          </li>
+          <li>
+            Finalmente, y de manera análoga se verífica que: \( \omega_{(a,b)} = 3a^{2} dx + (b^{2} + 1) dy\) y
+            \(\displaystyle\int_{\seg{PQ}}\omega_{(a,b)} = 3 a^{2} x + (b^2 + 1)\)
+          </li>
+
+          </ol>
+        </p>
+        </div>
+
+      </div>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          Es buen momento para ver la notación \(dx_j\) otra vez. En la sección
+          pasada, justo al final en la conclusión, se usaba \(dx_j\) para denotar 1-forma constante que es la proyección
+          sobre la
+          \(j\)-ésima coordenada, es decir
+          \[
+          dx_j(p_1,\dots, p_n)=p_j
+          \]
+
+          Pero de ahora en adelante \(dx_j\) va a denotar la 1-forma
+          diferenciable tal que, a cada punto \(p\) del dominio, le
+          asigna la 1-forma constante que es la proyección a la \(j\)-ésima
+          coordenada. Por ejemplo, si escribieramos todos los parámetros
+          para \(dx_j\) tendríamos
+          \[
+          (dx_j)_{(q_1,\dots, q_n)}(p_1,\dots, p_n)=p_j
+          \]
+          donde \((q_1,\dots, q_n)\) es un punto cualquier.
+        </p>
+        <p>
+          Esta distinción puede pensarse como la que se hace entre una
+          una constante y la función constante. Por ejemplo en la función
+          \(f(x)=3\), la función \(f\) sería \(dx_j\) y
+          el 3 sería la proyección en la coordenada j.
+        </p>
+      </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Considera las 1-formas diferenciables \(\omega=xdx+ydy\)
+        y \(\eta=ydx+xdy\). Toma
+        puntos cualesquiera \(P=(x_0,y_0), Q=(x_1,y_1)\) y
+        denota por \(R\) a su punto medio. Paras las 1-formas
+        constantes \(\omega_R\) y \(\eta_R\) prueba que
+        \begin{eqnarray*}
+        \int_{\seg{PQ}}\omega_R &=&\frac{1}{2}(x_1^2-x_0^2+y_1^2-y_0^2 ) \\
+        \int_{\seg{PQ}}\eta_R &=& \frac{1}{2}(x_1y_1-x_0y_0)
+        \end{eqnarray*}
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Considera las 1-formas diferenciable \(\omega = -ydx+xdy\)
+        y \(\eta=ydx+xdy\). Por
+        \(P_1,P_2, P_3\) y \(P_4\) denotamos los vértices de un rectángulo
+        centrado en el origen y por \(R_i\) el punto medio de \(\seg{P_{i}P_{i+1}} \), \(i=1,2,3,4 \)
+        donde por conveción ponemos \(P_5=P_1\).
+
+        Prueba que:
+        <ol>
+          <li>
+            \[
+            \sum_{i=1}^4 \int_{\overrightarrow{ P_iP_{i+1} } }\omega_{R_i} = 2A
+            \]
+            donde \(A\) es el área del rectángulo.
+          </li>
+
+          <li>
+            \[
+            \sum_{i=1}^4 \int_{\overrightarrow{P_iP_{i+1}}}\eta_{R_i} =0
+            \]
+          </li>
+        </ol>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Def:derivadaExterior"> Definición </h2>
+        <p>
+          Sea \(U \subseteq \mathbb{R}^n\) un abierto.
+          Dada \(f: U \to \mathbb{R}\), una función de clase \(C^1\), su
+          <b>derivada exterior</b>, denotada \(df\), se define como la
+          1-forma diferenciable dada por
+          \[
+          df= \partial_{x_1}f dx_1+ \partial_{x_2}f dx_2+\cdots + \partial_{x_n}f dx_n
+          \]
+          donde \(\partial_{x_j}f\) denota la derivada parcial de \(f\)
+          con respecto a la variable \(x_j\).
+        </p>
+        <p>
+          Por ejemplo, si \(f(x,y,z)=xy+y^2z\), su derivada exterior es
+          \[
+          df= y dx + (x+2yz)dy+ y^2 dz
+          \]
+          además, si \(P=(1,-2,\pi)\) entonces
+          \[
+          (df)_P=-2dx+(1-4\pi)dy+4dz
+          \]
+        </p>
+
+        <p>
+          <b> Nota: </b> para que \(df\) sea una 1-forma <b>diferenciable</b>
+          (según la <a href="#Def:1formaDif"> definición de 1-forma diferenciable </a>)
+          debemos pedir que cada \(\partial_{x_j}f \),
+          \(j=1,\dots, n\), sea diferenciable, lo cual pasa si la función
+          \(f\) con la que empezamos es clase \(C^2\).
+        </p>
+      </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        Para cada una de las siguientes funciones, encuentra la derivada
+        exterior y encuentra los puntos \(P\) para los cuales \(df_P=0\).
+        <ol>
+          <li> \(f(x,y,z)= x^2+y^2+z^2 +xy+xz \). </li>
+          <li> \(f(x,y)=e^{xy}\). </li>
+          <li> \(f(x_1,\dots, x_n) = \sum_{i=1}^n (x_1+x_i)^2\). </li>
+        </ol>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+
+        <div class="resp">
+
+          <p>Resolvamos 1. Primero encontremos las parciales de \(f\) con respecto a
+            \(x\), \(y\) y \(z\). Entonces sacando las parciales tenemos
+          </p>
+          \[
+          \begin{array}{ccccc}
+          \partial_{x}f(x, y, z) & = & 2x & +y & +z  \\
+          \partial_{y}f(x, y, z) & = & 2y & +x \\
+          \partial_{z}f(x, y, z)& = & 2z & +x
+          \end{array}
+          \]
+
+          Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df = (2x + y + z)dx + (2y + x)dy + (2z + x)dz
+          \]
+
+          <p>Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones:
+          </p>
+
+          \[
+           \left\{
+          \begin{array}{ccccc}
+          2x & +y & +z & = & 0 \\
+          x & +2y &  & = & 0 \\
+          x &  & +2z & = & 0
+          \end{array} \right.
+          \]
+
+          <p> Tal sistema de ecuaciones tiene como única solución a \(x = 0\),
+            \(y = 0 \) y \( z = 0\). Por lo tanto el  punto \(P\) tal que \(df_{P} = 0\), es
+            \(P = (0,0,0)\).
+          </p>
+
+          <p>Ahora veamos 2. Nuevamente sacamos las parciales de \(f\) con respecto de
+            \(x\) y \(y\), las cuales son,
+          </p>
+          \[
+          \begin{array}{ccc}
+          \partial_{x}f(x, y) & = & ye^{xy} \\
+          \partial_{y}f(x, y) & = & xe^{xy} \\
+          \end{array}
+          \]
+
+          <p>Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df =  ye^{xy} dx +  xe^{xy} dy
+          \]
+
+          Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones.
+          </p>
+
+          \[
+           \left\{
+          \begin{array}{ccccc}
+          ye^{xy} & = & 0 \\
+          xe^{xy} & = & 0
+          \end{array} \right.
+          \]
+
+          <p>Como \(e^{xy} > 0\) para toda \((x,y) \in \mathbb{R}^{2}\).
+            Entonces la única solución al sistema de ecuaciones es \(x = 0\) y \(y = 0\).
+            Por lo tanto el  punto \(P\) tal que \(df_{P} = 0\), es  \(P = (0,0)\).
+          </p>
+
+          <p>Por último resolvamos 3. Sacamos las parciales de \(f\) con respecto de
+            \(x_{1}, . . . , x_{n}\), las cuales son,
+          </p>
+          \[
+          \begin{array}{ccc}
+          \partial_{x_{1}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) \\
+          \partial_{x_{2}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 2(x_{1} + x_{2}) \\
+           & \vdots &  \\
+          \partial_{x_{n}}f(x_{1}, x_{2}, . . . , x_{n}) & = & 2(x_{1} + x_{n})
+          \end{array}
+          \]
+
+
+          <p>Lo cual nos permite tener la <b>derivada exterior</b> de \(f\), que esta dada por
+          \[
+          df = \left( 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) \right)dx_{1} + 2(x_{1} + x_{2})dx_{2} + . . . + 2(x_{1} + x_{n}) dx_{n}
+          \]
+
+          <p>Lo siguiente es encontrar los puntos \(P\) tal que \(df_{P} = 0\).
+          Y para ello tenemos que resolver el siguiente sistema de ecuaciones.
+          </p>
+          \[
+           \left\{
+          \begin{array}{ccc}
+           8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i}) & = & 0 \\
+           2(x_{1} + x_{2}) & = & 0 \\
+            \vdots &  & \\
+           2(x_{1} + x_{n}) & = & 0
+          \end{array} \right.
+          \]
+
+          <p>Como \(2(x_{1} + x_{i}) = 0\) para \(2 \leq i \leq n\), se sigue que
+          \(\sum_{i=2}^{n}2(x_{1} + x_{i})  =  0\). Lo cual implica que
+          \(8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i})  = 8x_{1}\).
+          Pero por otro lado \( 8x_{1} + \sum_{i=2}^{n}2(x_{1} + x_{i})  = 0\),
+          es decir \(x_{1} = 0\). Lo cual implica que para \(2 \leq i \leq n\),
+           \(x_{i} = 0\) ya que \(2(x_{1} + x_{i}) = 0\) y \(x_{1} = 0\).
+          </p>
+
+          <p>Por lo tanto la única solución al sistema de ecuaciones es
+          \(x_{i} = 0\) para toda \(1 \leq i \leq n\). Es decir que el  punto
+          \(P\) tal que \(df_{P} = 0\), es  \(P = (0,0, . . . ,0)\).
+          </p>
+
+
+        </div>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:DerivadaCeroConstanteBolas"> Ejercicio </h2>
+        <p>
+          Por \(B_r(P)\) denotamos la bola abierta en \(\mathbb{R}^n\)
+          centrada en \(P\) y de radio \(r\). Sea \(f:B_r(P) \to \mathbb{R}\)
+          una función clase \(C^1\). Demuestra que si \(df =0 \)
+          entonces \(f\) es una función constante.
+
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+                  <div class="video flexbox">
+                    <a href="https://youtu.be/TCWvtH_Mp5A" target="_blank"> Video </a>
+                    </div>
+                  </div>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Def:1formaExacta"> Definición </h2>
+        <p>Una 1-forma diferenciable \(\omega \) se
+          llama <b>exácta</b> si existe una función diferenciable \(f\) tal que
+          \[
+          df = \omega
+          \]
+          Si escribimos \(\omega = A_1 dx_1 + \cdots + A_n dx_n\),
+          lo anterior equivale a encontrar una función \(f\) tal que
+          \begin{equation}\label{Eqn:1-formaExacta}
+          \partial_{x_1}f=A_1 , \cdots, \partial_{x_n} f=A_n
+          \end{equation}
+          En el fondo, decidir si una 1-forma es
+          exácta se traduce en resolver el sistema de ecuaciones
+          diferenciales \eqref{Eqn:1-formaExacta}.
+          A decir  verda el nombre de exácta viene de ecuaciones diferenciales, como se menciona
+          en el ejercicio siguiente.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        <p>
+          Una ecuación diferencial de la forma
+          \begin{equation}\label{Eqn:EcuDifExact}
+          M(x,y)+N(x,y)\frac{dy}{dx}=0
+          \end{equation}
+          se llama exácta, si existe una función escalar \(f(x,y) \) tal que
+          \[
+          \partial_x f(x,y)=M(x,y) \quad \textrm{y} \quad \partial_y f(x,y)=N(x,y).
+          \]
+          Si es que pudíesemos multiplicar \eqref{Eqn:EcuDifExact}
+          por \(dx\) tendríamos que el lado izquierdo es \(Mdx+Ndy\), una 1-forma
+          diferencial. Lo anterior claro está es sólo un truco para
+          recordar que a toda ecuación diferencial de la forma
+          \eqref{Eqn:EcuDifExact} le podemos asociar una 1-forma. En esta notación la condición de que la ecuación
+          diferencial sea exácta es lo mismo que la 1-forma sea exácta.
+        </p>
+        <p>Supongamos que \(U \subseteq \mathbb{R}^2\) es un
+          abierto y \(F,G: U \to \mathbb{R}\) son funciones
+          clase \(C^1\) en \(U\) y que \(G\) nunca se anula en \(U \).
+
+          Consideremos la ecuación diferencial
+          \[
+          \begin{equation}\label{Eqn:EcuDifExactEjer}
+          F(x,y)-G(x,y)\frac{dy}{dx}=0
+          \end{equation}
+          \]
+          donde \(y\) denota una función que depende de \(x\).
+
+          A ésta ecuación diferencial le asociamos la 1-forma
+          \[
+          \omega = Fdx-Gdy
+          \]
+          Supongamos que existe
+          una función clase \(C^1\), \(f:U \to \mathbb{R}\), tal que
+          \(\omega=df\) (es decir, \(\omega\)
+          es exácta). Prueba que las
+          curvas de nivel de \(f\) son soluciones de la ecuación diferencial
+          \eqref{Eqn:EcuDifExactEjer}.
+
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+
+          <div class="resp">
+            Ya que suponemos que \(df = Fdx- Gdy\), se sigue
+            (de la definición de <a href="#Def:derivadaExterior">derivada exterior</a>)
+            que
+            \[
+            \partial_x f = F \quad  \textrm{y} \quad \partial_y f=-G
+            \]
+            en \( U \).
+
+            Ahora consideremos una curva de nivel de \(f\)
+            \[
+            S=\{(x,y): f(x,y)=c\}
+            \]
+            y tomemos un punto \( (x_0,y_0)\in S\) arbitrario.
+
+            Ya que \(G\) no se anula en \(U\) y \(\partial_yf(x_0,y_0)=-G(x_0,y_0)\ne 0\)
+            por el teorema de la función inversa existe una vecindad de \(x_0\)
+             y una función \(y\), definida  y diferenciable en ésta vecindad tal que
+             \[
+             f(x,y(x))=c.
+             \]
+
+             Derivando la ecuación anterior con respecto a \(x\) (usando la regla de la cadena )
+             llegamos a que
+             \begin{eqnarray*}
+             0&= \partial_xf(x,y(x))+\partial_yf(x,y(x))y'(x)=F(x,y(x))-G(x,y(x))\frac{dy(x)}{dx} \\
+             &\Rightarrow \frac{F(x,y(x))}{G(x,y(x))}=\frac{dy(x)}{dx}
+             \end{eqnarray*}
+             y por lo tanto \(y\) es una solución para (1).
+
+
+
+          </div>
+      </div>
+
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>Para las siguientes 1-formas diferenciables sobre \(\mathbb{R}^2\)
+          encuentra cuales son exáctas y trata de escribirlas de la
+          forma \(df\), donde \(f\) es una función clase \(C^1\).
+        </p>
+        <ol>
+          <li> \(3y dx+ 3xdy \). </li>
+          <li> \( 7xdx+6ydy \).</li>
+          <li> \( -ydx + x dy \).</li>
+        </ol>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        Sea \(U \subseteq \mathbb{R}^n\) un subconjunto abierto y
+        \(\omega = \sum_{j=1}^n A_jdx_j\) una 1-forma diferenciable
+        sobre \( U \). Dada \(f: U\to \mathbb{R}\) una función clase \(C^1\)
+        definimos el producto de \(f\) con \(\omega\) como la
+        1-forma diferenciable en \(U\) tal que, para \(P\in U\):
+        \[
+        \eta_P= f(P)A_1(P)dx_1+f(P)A_2(P)dx_2+\cdots + f(P)A_n(P)dx_n.
+        \]
+
+        Prueba que si \(f,g:U \to \mathbb{R}\) son clase \(C^1\)
+        en \(U\) entonces
+        \[
+        d(fg)=fdg+g df
+        \]
+        donde \(df\) y \(dg\) denotan las <a href="#Def:derivadaExterior">derivadas exteriores</a>
+        de \(f\) y \(g\) respectivamente.
+
+
+        <button class="respButton hvr-grow"> Respuesta  </button>
+        <div class="resp">
+        <p>
+          Inmediatamente de la <a href="#Def:derivadaExterior"> Definición 2.7</a> se sigue que:
+          \[ d (fg) = \partial_{x_1} (fg) dx_1 + \partial_{x_2} (fg) dx_2 + \cdots +
+          \partial_{x_n}(fg)
+          d_{x_n} \]
+        </p>
+
+        <p>
+          Sin embargo, para cada \( i=1,2,\ldots, n \) sabemos que \( \partial_{x_i} (fg) = f \partial_{x_i} (g) + g
+          \partial_{x_i} (f)\), por lo tanto
+        </p>
+        <p>
+          \begin{align*} d(fg) &= \sum_{i=1}^n [ f \partial_{x_i} (g) + g
+          \partial_{x_i} (f) ] dx_{i}\\ &= \sum_{i=1}^n f \partial_{x_i} (g) dx_{i} + \sum_{i=1}^n g
+          \partial_{x_i} (f) dx_{i}\\
+          &= f dg + g df
+          \end{align*}
+          donde la última igualdad se tiene por la definición del producto de una función con una \(1\)- forma
+          diferenciable.
+          </p>
+        </div>
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Def:1formacerrada"> Ejercicio </h2>
+        <p>Sea \(U \subseteq \mathbb{R}^2\) y \(\omega=Adx+Bdy\) una 1-forma
+          diferencial sobre \(U\). Decimos que \(\omega \) es <b>cerrada</b> si
+          \[
+          \partial_y A= \partial_x B, \quad \textrm{en \(U\)}.
+          \]
+        </p>
+        Prueba que toda 1-forma diferenciable clase \(C^1\) y exácta
+        es también cerrada.
+        <p>
+          Sugerencia: igualdad de las derivadas parciales mixtas.
+        </p>
+
+      </div>
+
+      <div class="nota-box">
+        <h2 class="number-title" id="Conclu:S2"> Conclusión </h2>
+        <p>
+        Recordemos que el conjunto de funcions lineales
+        que van de \(\mathbb{R}^n\) a \(\mathbb{R}\) está
+        denotado por \((\mathbb{R}^n)^*\) (y es llamado el dual). Con
+        ésta notación, una 1-forma diferenciable definida
+        en el abierto \(U \subseteq \mathbb{R}^n\)es una función
+        \begin{eqnarray*}
+        \omega:U &\to & (\mathbb{R}^n)^* \\
+        P &\mapsto & \omega_P
+        \end{eqnarray*}
+        de tal forma que al escribir \(\omega_P\) como
+        combinación lineal de la base \(\{dx_1,\dots, dx_n\}\)
+        \[
+          \omega_P=A_1(P)dx_1+\cdots +A_n(P)dx_n
+        \]
+        las funciones \(A_j:U \to \mathbb{R}\), \(j=1,\dots, n\),
+        son diferenciables en \(U\).
+        </p>
+        <p> Para terminar queremos resaltar una observación que permite
+          intercambiar el punto de vista entre 1-formas  y
+          campos vectoriales:
+        </p>
+        <p>
+          <div style="text-align:center;">
+            <b>"Hay una biyección entre 1-formas diferenciables
+          y campos vectoriales diferenciables"</b>
+          </div>
+          Para ver esto, recordemos que un campo vectorial,
+          definido en \(U\subseteq \mathbb{R}^n\), es una función
+          vectorial \(\mathbb{F}:U\to \mathbb{R}^n\) y es diferenciable
+          si, cuando escribimos sus coordenadas \(\mathbb{F}=(f_1,\dots, f_n)\),
+          las funciones \(f_1,\dots, f_n\), son funciones diferenciables en \(U\). Entonces la biyección
+          entre 1-formas diferenciables en \(U\) y campos vectoriales
+          diferenciable en \(U\) está dada por:
+          \[
+          \omega= A_1dx_1+\cdots +A_ndx_n \Leftrightarrow \mathbb{F}=(A_1,\dots, A_n)
+          \]
+
+        </p>
+      </div>
+
+
+      
+
+
+
+
+
+
+
+
+
 
   </body>
 
   </html>
-
-  <!--     //////////////////////////          --->
