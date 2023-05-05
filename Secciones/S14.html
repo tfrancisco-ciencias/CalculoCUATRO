@@ -1,884 +1,1216 @@
-<! DOCTYPE html>
-  <html lang="es">
+<!DOCTYPE html PUBLIC >
 
-
-
-  <head>
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Following part is mathjax, for latex-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
     <!-- This part is for jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
     <!-- This part is to load main.js -->
     <script type="text/javascript" src="../main.js"></script>
 
-    <!-- Next part is for new coomands -->
 
+    <!-- Next part is for new coomands -->
     <script>
       window.MathJax = {
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
 
-
-
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
 
     <!-- CSS -->
 
     <link rel="stylesheet" , href="../styles.css" />
 
-
-
-    <!-- This part restart counter of cards to start at N+1 -->
+    <!-- This part restart counter of cards to start at n+1 -->
     <style>
-      body.card {
-        counter-reset: sectionCounter 13 cardCounter;
-      }
+        body.number-title{
+          counter-reset: sectionCounter 13 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 13 cardCounter ;
+        }
+        
+      </style>
+  
+    <!-- Top Menu  -->
 
-      h1.card {
-        counter-reset: sectionCounter 13 cardCounter;
-      }
-    </style>
 
-  </head>
+        <header class="main-header">
+          <h1> Cálculo CUATRO </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
 
-
-  <!-- Top Menu -->
-
-  <header class="main-header">
-    <nav class="top-nav">
-      <ul>
-        <li> <a href="../Home.html"> Inicio </a> </li>
-        <li> <a href="../Secciones.html"> Secciones </a> </li>
-      </ul>
-    </nav>
-
-    <h1 class="calculo-title"> Cálculo CUATRO</h1>
-
-  </header>
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 14</title>
+    </head>
 
   <!-- Contenido empieza abajo -->
 
+  <body>
+    <h1 class="number-title flexbox">La integral de Riemann sobre rectángulos  </h1>     
 
-  <body class="fondo card ">
-
-    <div class="flexbox">
-
-      <h1 class="card "> 2-formas en el plano y el Teorema de Green </h1>
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
 
       <div class="nota-box">
-        <h2 class="number-title"> Introducción   </h2>
+        <h2 class="number-title"> Introducción </h2>
         <p>
-          Siguiendo el esquema de la sección 2, vamos a definir
-          una 2-forma (no constante) como una función que asigna,
-          a cada punto del espacio donde está definida,  una
-          función bilineal alternante. Primero vamos a enforcarnos
-          en 2-formas cuyo dominio son subconjuntos de \(\mathbb{R}^2\),
-          pues en secciones posteriores vamos a introducir la integral de objetos
-          2-dimensionales, es decir, superficies.
+          En esta sección iniciamos el estudio de las integrales de
+          2-formas y para introducir las ideas y conceptos nos enfocamos en
+          2-formas en \(\mathbb{R}^2\). Nota: la diferencia técnica
+          entre 2-formas en \(\mathbb{R^2}\) y 2-formas en \(\mathbb{R}^n\), \(n\geq 3\),
+          es análoga a la que se ve entre los ejercicios 11.6 y 11.9.
+        </p>
+        <p>
+          Hemos visto que  \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión
+          1 y que la función determinante es una base. Por lo tanto
+          toda 2-forma constante se ve de la forma
+          \[
+          \omega=A \det
+          \]
+          donde \(A\) es una constante.
+        </p>
+        <p>
+          De manera análoga a lo que hicimos con 1-formas, vamos a
+          definir a una 2-forma, sobre un subconjunto \(D\subset \mathbb{R}^2\),
+          como una función que asigna a cada punto de \(D\) una
+          2-forma constante. Formalmente una 2-forma
+          es una función \(\omega:D \to \Lambda^2(\mathbb{R}^2)\).
+          Por lo tanto, una 2-forma se puede escribir
+          \[
+          \omega_P=A(P)\det
+          \]
+          donde ahora \(A:D \subset \mathbb{R}^2\to \mathbb{R}\) es una función.
+         </p>
+         <p>
+           Es muy útil notar que con esta definición hay una biyección
+           entre las 2-formas definidas en \(D\) y el conjunto de
+           funciones de \(D\) a \(\mathbb{R}\). Ya que a las funciones
+           usualmente se les denota como \(f\), vamos a usar \(f\) en vez de \(A\).
+         </p>
+         <p>
+            Tratando de copiar lo que hicimos para la integral de 1-formas,
+            queremos aproximar \(D\) mediante una suma de triángulos dirigidos.
+            Pero, ya que estamos acostumbrados al sistema cartesiano de coordenadas,
+            es más sencillo para las cuentas usar rectángulos.
+          </p>
+          <p>
+            Si denotamos
+            los rectángulos como el producto cartensiano
+            de dos intervalos, \([x_{i-1}, x_i]\times [y_{j-1}, y_j]\),
+            y usamos que la integral sobre un rectángulo de la 2-forma
+            que es el determinante es el área, la aproximación de la
+            integral es una doble suma de la forma:
+            \begin{equation}\label{Eqn:sumasRiemann2D}
+            \sum_{i=1}^n\sum_{j=1}^m f(x_i^*,y_j^*)(x_i-x_{i-1})(y_j-y_{j-1})
+            \end{equation}
+            donde \((x_i^*,y_i^*)\) es un punto en el rectángulo
+            \([x_{i-1}, x_i]\times[y_i,y_{i-1}]\).
+          </p>
+            <p>Notar que antes,
+            para 1-formas, al hacer más fina la aproximación, teníamos
+            sumas que tendían al infinito y, gracias a la integral de Riemann,
+            podíamos asegurar que el límite era una integral,  ver
+             <a href="S4.html#Eqn:limiteSumaRimeann"> introducción de la
+             sección 4.</a>
+
+         </p>
+         <p>
+           Nuestro problema ahora es que no tenemos una integral en dos
+           dimensiones que nos permita encontrar límites de sumas
+           del tipo \eqref{Eqn:sumasRiemann2D}. El propósito de esta sección es formalizar
+           las ideas presentadas en esta introducción para introducir
+           la integral de Riemann en dos dimensiones.
+         </p>
+         <p>
+           Vamos a iniciar con los dominios más sencillos, los rectángulos.
+         </p>
+      </div>
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) un rectángulo en
+          \(\mathbb{R}^2\). Una partición de \(\mathcal{R}\) es
+          el producto cartesiano de particiones de
+          sus lados. Es decir, si
+          \[
+          \mathbb{P}_1=\{a=x_0< \cdots < x_n=b  \}, \quad
+          \mathbb{P}_2=\{c=y_0< \cdots < y_m= d \},
+          \]
+          son particiones de \([a,b]\) y \([c,d]\), respectivamente,
+          entonces
+          \[
+          \mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2=
+          \{ (x_i,y_j):  1 \leq i \leq n, 1\leq j \leq m \}
+          \]
+          es una partición de \(\mathcal{R}\).
+        </p>
+        <p> La partición
+          \(\mathbb{P}\) parte a \(\mathcal{R}\) en \(nm\)
+          subrectángulos, \([x_{i-1}, x_i]\times [y_{i-1},y_i]\).
+          El rectángulo abierto \((x_{i-1},x_i)\times (y_{j-i},y_j)\)
+          se llama un subrectángulo abierto de \(\mathcal{R}\).
+        </p>
+        <p>
+          Se dice que una partición \(\mathbb{P}'\) de \(\mathcal{R}\)
+          refina a \(\mathbb{P}\) si \(\mathbb{P}\subseteq \mathbb{P}'\).
+        </p>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:particionConjunta"> Ejercicio </h2>
+        <p>
+          Sean \(\mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2\),
+          \(\tilde{\mathbb{P}}=\tilde{\mathbb{P}}_1\times \tilde{\mathbb{P}}_2\)
+          dos particiones de \(\mathcal{R}=[a,b]\times [c,d]\). Definimos
+          \[
+          \mathbb{P}\vee \tilde{\mathbb{P}}=
+          (\mathbb{P}_1\cup \tilde{\mathbb{P}}_1)\times (\mathbb{P}_2\cup \tilde{\mathbb{P}}_2)
+          \]
+          Prueba que \(\mathbb{P}\vee \tilde{\mathbb{P}}\) refina
+          tanto a \(\mathbb{P}\) como a \(\tilde{\mathbb{P}}\).
+        </p>
+      </div>
+
+
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}\subset \mathbb{R}^2\) un rectángulo. Una
+          función \(s:\mathcal{R}\to \mathbb{R}\) se llama
+          <b>escalonada</b> si existe una partición \(\mathbb{P}\) de \(\mathcal{R}\)
+          tal que \(s\) es constante en los subrectángulos abiertos de
+          \(\mathbb{P}\).
+        </p>
+        <p>
+          Por ejemplo, toda función constante es una función escalonada.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}\) un rectángulo y
+          \(s,t:\mathcal{R}\to \mathbb{R}\) dos funciones escalonadas
+          y \(c\in \mathbb{R}\) una constante. Prueba
+          que las funciones  \(cs+t\) y \(st\) son escalonadas.
+        </p>
+        <p>
+          Sugerencia: si \(\mathbb{P}_s\) y \(\mathbb{P}_t\)
+          son las particiones asociadas a \(s\) y a \(t\) respectivamente
+          considera \(\mathbb{P}_s\vee \mathbb{P}_t\). Ver
+          <a href="#Ejer:particionConjunta"> Ejercicio 12.3</a>.
         </p>
       </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
-
-        <p> Sea \( S\subseteq \mathbb{R}^n\), con \(n\geq 2\). Una
-          2-forma sobre \(S\) es una función:
-          \[
-          \omega: S \to \Lambda^2(\mathbb{R}^n).
-          \]
-
-          Es decir, a cada \(P\in S\) se le asigna una función bilineal
-          alternante, la cual denotamos por \(\omega_P\).
-        </p>
-
-        <p> Ahora vamos a enfocarnos en 2-formas en
-          el plano. Como se mencionó en la introducción
-          de la  <a href="S12.html">Sección 12</a> el
-          espacio \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión 1 así que usando
-          la base \(dx\wedge dy\), podemos escribir a una 2-forma valuada
-          en el punto \(P\) como:
-          \[
-          \omega_P = A(P) dx\wedge dy \quad \textrm{ó} \quad \omega_P=A(P)dxdy,
-          \]
-          donde \(A:S \to \mathbb{R}\) es una función.
-        </p>
           <p>
-          Cuando \(A\) es
-          constante recuperamos la definición de 2-formas constantes de
-          la <a href="S11.html"> Sección 11</a>, pero en general \(A\) no tiene
-          porqué ser una función constante.
-        </p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\subset \mathbb{R}^2\) un rectángulo
+            y \(s:\mathcal{R} \to \mathbb{R}\) una función escalonada,
+            con partición \(\mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2\),
+            \(\mathbb{P}_1=\{a=x_0<\cdots < x_n=b\},
+            \mathbb{P}_2=\{c=y_0<\cdots < y_m=d\}\).
+          </p>
           <p>
-          Cuando \(A\)
-          es una función continua sobre \(S\) decimos que \(\omega\) es una
-          2-forma continua.
-        </p>
-          <p>
-          Si \(S\) es abierto y \(A\) es diferenciable
-          en \(S\), llamamos a \(\omega\) una 2-forma diferenciable y
-          si además \(A\) es clase \(C^1\) llamamos a \(\omega\)
-          una 2-forma clase \(C^1\) etc.
+            La integral de \(s\) sobre \(\mathcal{R}\) se define como
+          \begin{equation}\label{Eqn:defIntegralEscalonada}
+          \int_\mathcal{R} s =\sum_{i=1}^n\sum_{j=1}^m s_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
+          \end{equation}
+          donde \(s_{i,j}\) es el valor de \(s\) en el rectángulo
+          abierto \((x_{i-1},x_i)\times (y_{j-1}, y_j)\).
         </p>
 
       </div>
 
       <div class="nota-box">
-        <h2  class="number-title"> Nota </h2>
+        <h2 class="number-title"> Nota </h2>
         <p>
-          Es útil notar que una 2-formas definida en un subconjunto de
-          \(\mathbb{R}^2\) es básicamente una función con valores reales.
-          Esto se sigue de que \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión 1
-          así que una una biyección entre las 2-formas definidas
-          sobre el dominio \(S\) y las funciones definidas sobre \(S\), donde
-          la biyección es, usando la notación de la definición anterior,
-          simplemente \(\omega \leftrightarrow A\).
-        </p>
-        <p>
-          Para dimensiones más grandes la situación cambia
-          completamente. Por ejempo si
-          el dominio \(S\) está contenido en \(\mathbb{R}^3\) entones,
-          usando que \(dx\wedge dy, dx\wedge dz, dy \wedge dz\) es una
-          base para las funciones bilineales alternantes tenemos
+          Si pensamos al rectángulo \([a,b]\times [c,d]\) como un
+          rectángulo orientado positivamente ésta orientación
+          induce orientaciones en los subrectángulos generados
+          por una partición \(\mathbb{P}=\{(x_i,y_i): 1\leq i \leq n, 1\leq j \leq m\}\).
+          Si consideramos la 1-forma constante  \(\omega_{i,j}=s_{i,j}\det\)
+          tenemos
           \[
-          \omega_P=A(P)dx\wedge dy + B(P)dx\wedge dz + C(P)dy\wedge dz
+          \int_{\square R_{i,j}}\omega_{i,j}=s_{i,j}(x_i-x_{i-1})(y_j-y_{j-i})
           \]
-          por lo que ahora se necesitan tres funciones, \(A,B\) y \(C\) para poder
-          describir a \(\omega\).
+          donde \(\square R_{i,j}\) es el rectángulo \([x_{i-1},x_i]\times [y_{j-1},y_j]\)
+          orientado positivamente.
         </p>
+        <p>
+          Por lo tanto, la integral definida en \eqref{Eqn:defIntegralEscalonada}
+          es la extensión natural que se obtiene usando la aditividad que se busca para
+          la integral de las 2-formas.
+        </p>
+        <p>
+          Nota también que en esta sección nos olvidamos de la orientación
+          pues estamos tratando siempre con rectángulos orientados positivamente.
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(s:\mathcal{R}\to \mathbb{R}\) una función escalonada.
+        </p>
+        <p>
+          Para cada \(y\in [c,d]\) fija considera la función
+          \[
+          x\in [a,b] \mapsto s(x,y) \in \mathbb{R}.
+          \]
+          Nota que esta función de una variable, es escalonada y
+          por lo tanto integrable. Denotamos su integral por
+          \[
+          A(y)=\int_{a}^b s(x,y)dx.
+          \]
+        </p>
+        <p>
+          De manera similar, fijando una \(x\in [a,b]\), considerando
+          la función
+          \[
+          y\in [c,d] \mapsto s(x,y)
+          \]
+          obtenemos una función de una variable, escalonada. Denotamos
+          su integral por
+          \[
+          B(x)=\int_c^d s(x,y)dy.
+          \]
+        </p>
+        <p>
+          Prueba
+          \[
+          \int_\mathcal{R} s = \int_c^d A(y)dy=\int_a^b B(x)dx.
+          \]
+          La ecuación anterior se puede escribir como
+          \[
+          \int_\mathcal{R}s = \int_c^d \left( \int_a^b s(x,y)dx \right)dy=
+          \int_a^b \left( \int_c^d s(x,y)dy \right)dx.
+          \]
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/VZn1U9fm4hA" target="_blank"> Video </a>
+          </div>
+        </div>
+
       </div>
 
 
 
-              <div class="definicion-box">
-                <h2 class="number-title"> Definición </h2>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\),
+          \(s,t:\mathcal{R}\to\mathbb{R}\) funciones escalonadas
+          y \(c\in \mathbb{R}\). Prueba
+          \[
+          \int_{\mathcal{R}}cs+t = c\int_{\mathcal{R}}s + \int_\mathcal{R}t
+          \]
+        </p>
+
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+                          <p>
+
+                Probemos antes la siguiente afirmación.
+                Sea \(h\) una función escalonada y sea
+                \(\mathbb{P}_h\) la partición asociada a \(h\).
+                Si \(\mathbb{P}\) es una partición que refina a
+                \(\mathbb{P}_h\) entonces
+                \begin{equation}
+                \int_{\mathcal{R}} h =
+                \sum_{i=1}^{n}\sum_{j=1}^{m}h_{ij}(y_i - y_{i-1})(y_{j}^{\prime}
+                - y_{j-1}^{\prime})
+                \end{equation}
+
+                donde \([y_{i-1}, y_i ] \times [y_{i-1}^{\prime},
+                y_{i}^{\prime}]\) son los rectángulos inducidos por \(\mathbb{P}\).
+              </p>
+              <p>
+                Primero simplifiquemos la notación. Sean
+                \(\lbrace A_i : i \in \lbrace1,. . . , l \rbrace \rbrace \)
+                la colección de rectángulos inducidos por \(\mathbb{P}\)
+                y  \(\lbrace B_i : i \in \lbrace1,. . . , r \rbrace \rbrace\)
+                la colección de rectángulos inducidos por \(\mathbb{P}_h\),
+                denotamos por \(m(R)\) al área del rectángulo \(R\).
+                Por ejemplo, si
+                \(A_k =  [y_{i-1}, y_i ] \times [y_{i-1}^{\prime}, y_{i}^{\prime}]\)
+                entonces \(m(A_k) = (y_i - y_{i-1})(y_{j}^{\prime} - y_{j-1}^{\prime})\).
+                Entonces la ecuación (1) es de la siguiente manera,
+                \[ \int_{\mathcal{R}} h  = \sum_{i=1}^{l}h_i m(A_i) ,\]
+                donde \(h_i\) es el valor que toma la función \(h\) en
+                el rectángulo \(A_i\). Por la definición de la  integral tenemos que
+                \[\int_{\mathcal{R}} h  = \sum_{i=1}^{r}h_i m(B_i). \]
+              </p>
+              <p>
+                Por otro lado, como \(\mathbb{P}\) refina a \(\mathbb{P}_h\), cada
+                rectángulo \(B_i\) es de la forma \(B_i = \bigcup_{k=1}^{p_i}A_{i_k} \)
+                además \(m(B_i) = \sum_{k=1}^{p_i}m(A_{i_k})\). Lo cual implica que
+                \(\bigcup_{i=1}^{l}A_i = \bigcup_{i=1}^{r}B_i =
+                \bigcup_{i=1}^{r}\left(\bigcup_{k=1}^{p_i}A_{i_k}\right)\)
+                y para cada rectángulo \(A_{i_k}\) la función \(h\) toma el valor
+                \(h_i\). Por lo tanto
+                \[\sum_{i=1}^{l} h_i m(A_i) = \sum_{i=1}^{r} \sum_{k=1}^{p_i} h_i m(A_{i_k})
+                = \sum_{i=1}^{r} h_i m(B_i) \]
+
+                Por lo tanto, \( \int_{\mathcal{R}} h  = \sum_{i=1}^{l}h_i m(A_i).\)
+              </p>
                 <p>
-                  Ya que tenemos una noción de integral 2-dimensional
-                  podemos usarla para definir la integral de 2-formas en
-                  \(\mathbb{R}^2\). Vamos a proceder un poco diferente
-                  a lo que se hizo para la integral de línea, pues
-                  vamos a presentar los objetos 2-dimensionales a los
-                  cuales vamos a poder calcular la integral primero de una
-                  manera informal.
-                </p>
+                Como \(s\) y \(t\) son funciones escalonadas existen particiones
+                \(\mathbb{P}\) y \(\tilde{\mathbb{P}}\) de \(s\) y \(t\) respectivamente tales que son
+                constantes en los subrectángulos generados por dichas particiones.
+                También tenemos que \(\mathbb{P}\vee \tilde{\mathbb{P}}\) es la partición asociada
+                a \(cs + t\) y como \(\mathbb{P}\vee \tilde{\mathbb{P}}\) refina tanto a
+                \(\mathbb{P}\) como a \(\tilde{\mathbb{P}}\), entonces por la afirmación anterior
+                tenemos
+                \begin{eqnarray*}
+                \int_{\mathcal{R}} cs + t & = & \sum_{i=1}^{n}\sum_{j=1}^{m}(cs_{ij}
+                + t_{ij})(z_i - z_{i-1})(z_{j}^{\prime} - z_{j-1}^{\prime}) \\
+                & = &  c\sum_{i=1}^{n}\sum_{j=1} ^{m} s_{ij}(z_i - z_{i-1})(z_{j}^{\prime}
+                - z_{j-1}^{\prime}) +
+                \sum_{i=1}^{n}\sum_{j=1} ^{m} t_{ij}(z_i - z_{i-1})(z_{j}^{\prime}
+                - z_{j-1}^{\prime}) \\
+                & = & c\int_{\mathcal{R}}s + \int_{\mathcal{R}}t
+                \end{eqnarray*}
+
+               donde \([z_{i-1}, z_i] \times [z_{j-1}^{\prime}, z_{j}^{\prime}]\)
+               son los rectángulos inducidos por \(\mathbb{P}\vee \tilde{\mathbb{P}}\).
+              </p>
+            </div>
+      </div>
 
 
-                <p>
-                  Sea \(\mathcal{S}\subset \mathbb{R}^2\). Decimos que
-                  \(\mathcal{S}\) es una <b>región orientada</b> si:
-                  <ol>
-                  <li>
-                  \(\mathcal{S}\) es un subconjunto compacto
-                  con interior no vacío,
-                  </li>
-                  <li>
-                  \(\partial \mathcal{S}\) es una
-                  curva orientada cerrada simple (ver <a href="S3.html#Def:curvaParametrizada"> Definición 3.2 </a>)
-                  </li>
-                   <li>
-                  La orientación de  \(\partial \mathcal{S}\) es tal que
-                  alguna de las siguientes dos situaciones ocurre:
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
 
-                  <ul>
-                    <li>
-                    "Si nos paramos sobre"  \(\partial \mathcal{S}\) y la recorremos
-                    con su orientación dada nuestra mano izquierda queda
-                    dentro de la región \(\mathcal{S}\) ( en cuyo
-                    caso decimos que \(\mathcal{S}\) tiene
-                    orientación poitiva).
-                    </li>
-                    <li>
-                    Nuestra mano izquiera
-                    queda afuera de la región \(\mathcal{S}\) (en cuyo caso
-                    decimos que tiene \(\mathcal{S}\) tiene
-                    orientación negativa).
-                    </li>
-                  </ul>
-                </li>
-                </ol>
-                <p>
-                  La noción de región orientada es una generalización de triángulo
-                  orientado. Así como es posible "sumar" triángulos orientados también
-                  es posible sumar superficies orientadas, pegandolas a lo largo de partes
-                  de su frontera, siempre y cuando la suma sea compatible, es decir,
-                  hay cancelaciones sobre la parte que se pegue y el resultado es otra
-                  vez una región orientada.
-                </p>
-                </p>
-                  <p>
-                  Sea \(\mathcal{S}\) una región orientada y
-                  \(\omega:\mathcal{S}\to \Lambda^2(\mathbb{R}^2)\) una 2-forma continua en
-                  \(\mathcal{S}\) y supongamos que podemos escribir a \(\omega\)  como
-                  \(Adx\wedge dy\), donde \(A:S \to \mathbb{R}\) es
-                  una función continua.
-                </p>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\)
+          y \(s:\mathcal{R}\to \mathbb{R}\) una función escalonada.
+        </p>
+        <p>
+          Si \(\mathcal{R}\) se subdivide en dos rectángulos
+          \(\mathcal{R}_1\), \(\mathcal{R}_2\) prueba
+          \[
+          \int_\mathcal{R}s = \int_{\mathcal{R}_1}s +\int_{\mathcal{R}_2} s
+          \]
+        </p>
+      </div>
 
-                  <p>
-                  Si \(\mathcal{S}\) está orientada positivamente,
-                  definimos
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:monotoniaIntegralEscalonadas"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(s,t:\mathcal{R}\to\mathbb{R}\) funciones escalonadas.
+          Prueba que si \(s(x,y)\leq t(x,y)\) para toda \(x,y\in \mathcal{R}\)
+          entonces
+          \[
+          \int_\mathcal{R} s \leq \int_\mathcal{R} t
+          \]
+        </p>
+      </div>
 
-                  \[
-                  \int_{\mathcal{S}} \omega := \int_{\mathcal{S}} A
-                  \]
-                  donde el lado derecho es la integral de Riemann de \(A\).
-                </p>
-                <p>
-                  Si \(\mathcal{S}\) está orientada negativamente
-                  definimos
-                  \[
-                  \int_{\mathcal{S}}\omega:= -\int_{\mathcal{S}}A
-                  \]
-                </p>
-                <p>
-                  Con esta definición de integral para 2-formas continuas
-                  tenemos las mismas propiedades que para la integral de línea.
-                </p>
-                <ol>
-                  <li> Si \(\mathcal{S}\) es en sí una curva orientable cerrada
-                    simple entonces
-                    \[
-                    \int_{\mathcal{S}}\omega =0
-                    \]
-                    simplemente porque \(\mathcal{S}=\partial \mathcal{S}\)
-                    y ésta última tiene contenido cero.
-                  </li>
-                  <li>
-                    Si \(\mathcal{S}_1\) y \(\mathcal{S}_2\), son regiones
-                    orientadas que se pueden sumar (denotamos por
-                    \(\mathcal{S}_1\vee \mathcal{S}_2\) su suma) entonces
-                    \[
-                    \int_{\mathcal{S}_1\vee \mathcal{S}_1}\omega =
-                    \int_{\mathcal{S}_1} \omega +
-                    \int_{\mathcal{S}_2}\omega
-                    \]
-                    Esta propiedad es resultado del <a href="S12.html#Ejer:PropIntegral"> Ejercicio 12.27</a> .
-                  </li>
-                  <li>
-                    Finalmente, por definición
-                    \[
-                    \int_{\mathcal{S}} \omega = -\int_{\mathcal{S}'} \omega
-                    \]
-                    si \(\mathcal{S}\) y \(\mathcal{S}'\) son iguales pero con
-                    orientación contraria.
-                  </li>
-                </ol>
-              </div>
+      <div class="definicion-box">
+        <h2 class="number-title" id="Def:RIntegragleRectang"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f:\mathcal{R} \to \mathbb{R}\) una función acotada, es decir,
+          existe \(M>0\) tal que \(|f(x,y)|\leq M\), para toda \((x,y)\in \mathcal{R}\).
+        </p>
+        <p>
+          Definimos la integral inferior de \(f\) como
+          \[
+          \underline{I(f)}=\sup\left\{ \int_\mathcal{R} s : s \leq f \right\}
+          \]
+          donde el supremo se toma sobre las funciones escalonadas
+          \(s:\mathcal{R} \to \mathbb{R}\).
+        </p>
+        <p>
+          Definimos la integral superior de \(f\) como
+          \[
+          \overline{I(f)}=\inf\left\{ \int_\mathcal{R} t : f \leq t \right\}
+          \]
+          donde el ínfimo se toma sobre las funciones escalonadas
+          \(t:\mathcal{R} \to \mathbb{R}\).
+        </p>
+        <p>
+          Nota que siempre es posible encontrar funciones escalonadas
+          por abajo y por arriba de \(f\), pues al ser \(f\) acotada
+          podemos tomar \(s\) como la función constante \(-M\) y \(t\)
+          como la función constante \(M\).
+        </p>
+        <p>
+          Decimos que \(f:\mathcal{R}\to \mathbb{R}\) es Riemann integrable,
+          o simplemente integrable, si las
+          integrales inferior y superior coinciden. Definimos
+          \[
+          \int_\mathcal{R} f = \overline{I(f)}=\underline{I(f)}
+          \]
+        </p>
+        <p>
+          Por ejemplo, si \(f\) es una función simple, con
+          partición \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\),
+          y con valor \(f_{i,j}\) en el subrectángulo abierto
+          \((x_{i-1},x_i)\times (y_{j-i},y_j)\)
+          entonces
+          \(f\) es integrable con
+          \[
+          \int_\mathcal{R}f =\sum_{i=1}^n\sum_{j=1}^m f_{i,j}(x_i-x_{i-1})(y_j-y_{j-1})
+          \]
+          esto se sigue directamente del
+          <a href="#Ejer:monotoniaIntegralEscalonadas">Ejercicio 12.11</a>
+          y la definición en \eqref{Eqn:defIntegralEscalonada}
+        </p>
+      </div>
 
-              <div class="definicion-box">
-                <h2 class="number-title"> Derivada exterior </h2>
-
-                <p>
-                    La derivada exterior de 1-formas es un buen ejemplo de
-                    2-formas (no constantes).
-                </p>
-                <p>
-                  Sea \(U \subset \mathbb{R}^2\) un conjunto abierto y
-                  sea \(\eta:U \to \Lambda^1(\mathbb{R})\) una 1-forma
-                  diferenciable en \(U\). Escribiendo a \(\eta\) en la
-                  base canónica tenemos
-                  \[
-                  \eta= A dx+ B dy.
-                  \]
-                  La derivada exterior de \(\eta\) se define como
-                  \begin{equation}\label{Eqn:DefDerivadaExterior1Forma}
-                  d\eta= ( \partial_x B-\partial_y A  ) dx \wedge dy
-                  \end{equation}
-                </p>
-                <p>
-                  ¿Por que se define así la derivada exterior? Recordamos
-                  que, para una función diferenciable
-                  \(A: U\to \mathbb{R}\), se define su derivada exterior como
-                  \begin{equation*}
-                  dA= \partial_x A dx+ \partial_y A dy
-                  \end{equation*}
-                  Más adelante se probará que la
-                  derivada exterior es lineal, peor usando por un momento la linealidad
-                  e interpretando el producto cuña como multiplicación,
-                  al aplicar la derivada exterior a  \(Adx+Bdy\) obtenemos
-                  \[
-                  d(Adx+Bdy)=(dA)\wedge dx + (dB)\wedge dy=(\partial_x A dx + \partial_y A dy)\wedge dx
-                  + (\partial_x B dx + \partial_y B dy)\wedge dy
-                  \]
-                  la cual, después de usar las propiedades del
-                  producto cuña, resulta en \eqref{Eqn:DefDerivadaExterior1Forma}.
-
-                </p>
-              </div>
-
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Sea \(U\subseteq \mathbb{R}^2\) un abierto y sen
-                  \(\omega, \eta\) dos 1-formas diferenciables en \(U\).
-                  Prueba
-                  \[
-                  d(\alpha \omega +\eta)= \alpha d\omega+ d\eta
-                  \]
-                  donde \(\alpha \in \mathbb{R}\) es una constante.
-                </p>
-                <p>
-                  Si por \(\Omega^1(U)\) denotamos al conjunto
-                  de 1-formas con derivadas de todos
-                  los ordenes  definidas en \(U\) (es decir,
-                  clase \(C^\infty\))
-                  y por \(\Omega^2(U)\) al conjunto de 2-formas
-                  en \(U\) con derivadas de todos los ordenes, este ejercicio
-                  prueba que
-                  \[
-                  d:\Omega^1(U) \to \Omega^2(U)
-                  \]
-                  es una función lineal.
-                </p>
-              </div>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+          Sea \(\mathcal{R}=[0,1]\times [0,1]\) y define
+          \(f:\mathcal{R}\to \mathbb{R}\) por
+          \[
+          f(x,y)=\left\{
+            \begin{array}{cc}
+            1 & \textrm{si \(x=y\)}\\
+            0 & \textrm{si \(x\ne y\)}
+            \end{array}
+            \right.
+          \]
+          Prueba, usando la definición, que \(f\) es integrable
+          y que \(\int_\mathcal{R}f =0\).
+        </p>
+      </div>
 
 
-              <div class="definicion-box">
-                <h2 class="number-title"> Definición</h2>
-                <p>
-                  Decimos que un subconjunto \(\mathcal{C}\subset \mathbb{R}^2\) es
-                  una curva orientada cerrada simple, si existe  una función continua
-                  \(\gamma:[a,b]\to \mathbb{R}^2\) que satisface:
-                  <ol>
-                    <li> \(\mathcal{C}\) es la traza de \(\gamma\): \(\mathcal{C}=\{\gamma(t):t\in [a,b]\}\),  </li>
-                    <li> cerrada: \(\gamma(a)=\gamma(b)\), </li>
-                    <li> simple: para toda \(t\) en el intervalo semi-cerrado, \(t\in (a,b]\),
-                      se cumple \(\gamma(t_1)\ne \gamma(t_2) \) , </li>
-                  </ol>
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y supongamos
+          que \(f:\mathcal{R}\to \mathbb{R}\) es
+          una función acotada e integrable en \(\mathcal{R}\).
+        </p>
+        <p>
+          Si existe un número \(I\) tal que
+          \[
+          \int_\mathcal{R}s \leq I \leq \int_\mathcal{R}t
+          \]
+          para todas las funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\)
+          con \(s\leq f \leq t\), entonces
+          \[
+          I=\int_\mathcal{R} f.
+          \]
+        </p>
 
-                </p>
-                <p>
-                  Con esta notación denotamos
-                  \[
-                  \int_{\mathcal{C}} \omega = \int_{\gamma} \omega
-                  \]
-                  donde la última integral es la integral de línea usual (<a href="S4.html">Sección 4</a>).
-                </p>
-              </div>
+                        <button class="respButton hvr-grow"> Respuesta </button>
+                        <div class="resp-box">
+        <p>
+        Supongamos que existe un número \(I\) tal que
+        \begin{equation*}
+        \int_{\mathcal{R}} s \leq I \leq \int_{\mathcal{R}} t
+        \end{equation*}
 
-              
+        donde  \(s,t : \mathcal{R} \rightarrow \mathbb{R}\) son
+        funciones escalonadas tal que \(s \leq f \leq t\). Entonces
+        \(I\)  es una cota superior de
+        \(\lbrace \int_{\mathcal{R}} s :  s \leq f  \rbrace \) donde
+        \(s\) es una función escalonada. Por lo tanto,
+        \(\underline{I(f)} \leq I\). De igual manera tenemos que \(I\)
+        es una cota inferior del conjunto
+        \(\lbrace \int_{\mathcal{R}} t :  f \leq t  \rbrace \)
+        donde \(t\) es una función escalonada, lo cuál implica que
+        \(I \leq \overline{I(f)}\).
+      </p>
+      <p>
+        Como \(f\) es integrable,
+        \( \underline{I(f)} = \overline{I(f)}\).
+        Entonces \(I \leq  \overline{I(f)} = \underline{I(f)}  \leq I\),
+        es decir \(I = \underline{I(f)} = \overline{I(f)}\).
+        Por lo tanto
+        \[I = \int_{\mathcal{R}} f.\]
+      </p>
+    </div>
+      </div>
 
-                         <button class="respButton hvr-grow"> Demostración </button>
-                         <div class="resp-box">
-                           <div class="video flexbox">
-                             <a href="https://youtu.be/jHBBBXOjrkM" target="_blank"> Video </a>
-                           </div>
-                         </div>
-              </div>
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:Fubinni"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
+          \(f:[a,b] \times [c,d]\to \mathbb{R}\) una función acotada tal que
+          <ol>
+          <li>
+            \(f\) es integrable en \(\mathcal{R}\).
+          </li>
+          <li>
+            para cada \(y\in [c,d]\), la integral 1-dimensional
+            \(\int_a^bf(x,y)dx\) existe. Denotemos esta integral
+            por \(A(y)\).
+          </li>
+          </ol>
+          <p>
+            Si la integral \(\int_c^d A(y)dy\) existe entonces
+            \[
+            \int_\mathcal{R}f  = \int_c^d A(y)dy.
+            \]
+            Lo anterior se puede escribir
+            \[
+            \int_\mathcal{R}f  = \int_c^d \left( \int_a^b f(x,y)dx \right)dy.
+            \]
+          </p>
+          <p>
+            Un resultado similar es válido si se supone que
+            para toda \(x\in [a,b]\), la integral
+            \(B(x):=\int_c^d f(x,y)dy\) existe y la función \(B(x)\)
+            es integrable.
+          </p>
 
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Sea \(\gamma \subset \mathbb{R}^2\) una curva cerrada orientada positivamente,
-                  simple, suave a trozos. Sea \(\mathcal{S}\) la región encerrada por
-                  \(\gamma\). Prueba que
-                  \[
-                  \textrm{Area}(\mathcal{S})=\frac{1}{2}\int_{\gamma} xdy-ydx
-                  \]
-                </p>
+        </p>
+
                 <button class="respButton hvr-grow"> Respuesta </button>
                 <div class="resp-box">
-                  <div class="video flexbox">
-                    <a href="https://youtu.be/ArWqnJ_y8dY" target="_blank"> Video </a>
-                  </div>
-                </div>
+        <p>
+          Para iniciar tomamos cualesquiera funciones escalonadas
+          \(s,t:\mathcal{R}\to \mathbb{R}\) tal que
+          \(s \leq f \leq t\). Si fijamos \(y\in [c,d]\) se sigue que:
+          \[
+          s(x,y)\leq f(x,y) \leq t(x,y),  \quad  \forall x\in [a,b].
+          \]
+          Por nuestra suposición la función \(x\mapsto f(x,y)\) es integrable
+          por lo tanto podemos integrar las desigualdades anteriores, pues
+          son integrales 1-dimensionales, para obtener
+          \begin{equation}\label{Eqn:auxFubiniPreliminar}
+          \int_{a}^b s(x,y)dx \leq  A(y) \leq \int_a^b t(x,y)dx
+          \end{equation}
+          (recuerda que definimos \(A(y)=\int_a^b f(x,y)dx\)).
 
+        </p>
+        <p>
+          En este punto es importante notar que la función
+          \(y \mapsto \int_a^b s(x,y)dx\) es una función de 1-variable
+          y es escalonada. Razón: supongamos que
+          \(s\) toma el valor \(s_{i,j}\) en el subrectángulo abierto
+          \((x_{i-1},x_i)\times(y_{j-1},y_j)\), entonces  para
+          \(y\in (y_{j-1},y_j) \) tenemos
+          \[
+          \int_a^b s(x,y)dx=\sum_{i=1}^n s_{i,j}(x_i-x_{i-1})
+          \]
+          Análogamente la función \(y \mapsto \int_a^b t(x,y)dx\) es
+          escalonada.
+        </p>
+        <p>
+          Ahora, también por nuestra suposición tenemos que la función \(A(y)\) es
+          integrable, asi que podemos integrar las desigualdades en
+          \eqref{Eqn:auxFubiniPreliminar} y obtener
+          \[
+          \int_c^d\left( \int_a^b s(x,y)dx \right)dy \leq \int_c^dA(y)
+          \leq  \int_c^d\left( \int_a^b t(x,y)dx \right)dy.
+          \]
+          Por el <a href=""> Ejercicio 12.7</a> podemos reescribir lo anterior
+          como
+
+          \[
+          \int_\mathcal{R} s \leq \int_c^dA(y)
+          \leq  \int_\mathcal{R} t.
+          \]
+          De la desigualdad anterior, tomando en cuenta de que
+          \(s,t\) son arbitrarias, por el   <a href="">Ejercicio 12.3</a>
+          concluimos que
+          \[
+          \int_\mathcal{R}f= \int_c^dA(y)dy.
+          \]
+        </p>
+      </div>
+      </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para cada una de las siguientes funciones y
+            rectángulos, usa el
+            <a href="#Ejer:Fubinni">Ejercicio 12.15</a>  para
+            calcular \(\int_\mathcal{R}f\). Puedes suponer
+            que todas las funciones que se presentan
+            son integrables.
+
+          </p>
+          <ol>
+            <li>
+              \(f(x,y)=xy(x^2+y)\), \(\mathcal{R}=[0,1]\times [0,2]\).
+            </li>
+            <li>
+              \(f(x,y)=\sqrt{xy}+x\), \(\mathcal{R}=[0,9]\times [0,1]\).
+            </li>
+            <li>
+              \(f(x,y)=\sin(x+y)\), \(\mathcal{R}=[0,\pi]\times [0,\pi]\).
+            </li>
+            <li>
+              \[
+              f(x,y)=
+              \left\{
+                \begin{array}{cc}
+                1+x-y & \frac{x}{4} \leq y \leq \frac{x}{2} \\
+                0 &  \textrm{en otro caso}
+                \end{array}
+              \right.
+              \]
+              \(\mathcal{R}=[0,2]\times [0,1]\).
+            </li>
+
+            <li>
+              \[
+              f(x,y)=
+              \left\{
+                \begin{array}{cc}
+                x+y &  x^2\leq y \leq x \\
+                0 &  \textrm{en otro caso}
+                \end{array}
+              \right.
+              \]
+              \(\mathcal{R}=[0,1]\times [0,1]\).
+            </li>
+          </ol>
+          <button class="respButton hvr-grow"> Respuesta de 1 y 4</button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/wV5vwTSo3HY" target="_blank"> Video </a>
+            </div>
+          </div>
+        </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f:\mathcal{R}\to \mathbb{R}\) una función acotada.
+        </p>
+        <p>
+          Si para toda \(\varepsilon >0\) existen funciones
+          escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales
+          que \(s\leq f \leq t\) y tal que
+          \[
+          \int_\mathcal{R}t - \int_\mathcal{R} s \leq  \varepsilon
+          \]
+          entonce \(f\) es integrable.
+        </p>
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+        <p>
+          Para probar que \(f\) es integable, según la definición, debemos
+          de demostrar
+          \[
+          \underline{I(f)}=\overline{I(f)},
+          \]
+          para lo cual es suficiente probar que, para toda \(\varepsilon >0\):
+          \begin{equation}\label{Eqn:auxLemaIntegrabilidad}
+          |\overline{I(f)}-\underline{I(f)}| < \varepsilon.
+          \end{equation}
+          Dada \(\varepsilon>0\) usamos la hipótesis del ejercicio para encontrar
+          \(s,t:\mathcal{R}\to \mathbb{R}\) funciones escalonadas con
+          \(s\leq f \leq t\) y que satisfagan
+          \[
+          \int_\mathcal{R}t-\int_\mathcal{R}s < \varepsilon.
+          \]
+          Por definición de integral  superior e inferior y usando
+          las desigualdades \(s\leq f \leq t\)
+          obtenemos
+          \[
+          \int_\mathcal{R}s \leq \underline{I(f)}\leq \overline{I(f)}
+          \leq \int_\mathcal{R} t
+          \]
+          es decir, las integrales inferior y superior están en el intervalo
+          cerrado
+          \[
+          \left[ \int_\mathcal{R}s, \int_\mathcal{R}t \right]
+          \]
+          por lo que
+          \[
+          |\overline{I(f)}-\underline{I(f)}|  \leq \int_\mathcal{R}t-\int_{\mathcal{R}}s <\varepsilon
+          \]
+          lo cual prueba \eqref{Eqn:auxLemaIntegrabilidad}.
+        </p>
+      </div>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title" id="Ejer:continuidadUniforme"> Ejercicio </h2>
+        <p>
+          Toma \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f: \mathcal{R}\to \mathbb{R}\) una función continua en todo
+          \(\mathcal{R}\).
+        </p>
+        <p>
+          Dada una  \(\varepsilon >0\) existe una \(\delta >0\) que satisface:
+        </p>
+        <p>
+          si \((x,y), (u,v)\in \mathcal{R}\) satisfacen
+          \(\|(x,y)-(u,v) \| <\delta\) entonces
+          \(|f(x,y)-f(u,v)|< \varepsilon\).
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/lCcqRTPUnxM" target="_blank"> Video </a>
+          </div>
+        </div>
+</div>
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+            \(f:\mathcal{R}\to \mathbb{R}\) una función continua en
+            todo \(\mathcal{R}\). Para cada \(y\in [c,d]\) definimos
+            \[
+            A(y)=\int_a^bf(x,y)dx
+            \]
+            Entonces \(A:[c,d]\to \mathbb{R}\) es una función continua.
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+
+          <p>
+            Vamos a usar \(\varepsilon\)'s y \(\delta\)'s para probar
+            la continuidad de \(A\).
+          </p>
+          <p>
+            Fijamos \(y_0\in [c,d]\) y una \(\varepsilon>0\). Por
+            el <a href="#Ejer:continuidadUniforme">Ejercicio 12.18</a>
+            existe \(\delta >0\) tal que para puntos \((x,y), (u,v)\in \mathcal{R}\):
+            satisfacen \(\) entonces
+            \begin{equation}\label{Eqn:auxContinuindadRebandas}
+            \|(x,y)-(u,v)\|< \delta \Rightarrow |f(x,y)-f(u,v)|< \frac{\varepsilon}{2(b-a)}.
+            \end{equation}
+            Esta \(\delta\) es la que sirve para la continuidad. Es decir,
+            tomamos \(y\in [c,d]\) con \(|y-y_0|<\delta\) y debemos de probar
+            que \(|A(y)-A(y_0)|< \varepsilon\).
+          </p>
+          <p>
+            Usando las propiedades de la integral 1-dimensional tenemos
+            \begin{eqnarray*}
+            |A(y)-A(y_0)| &=&\left| \int_a^b f(x,y) dx - \int_a^b f(x,y_0)dx \right| \\
+            &=& \left| (f(x,y)-f(x,y_0))dx \right| \\
+            &\leq & \int_a^b |f(x,y)-f(x,y_0)|dx
+            \end{eqnarray*}
+            Pero notamos que \(\| (x,y)-(x,y_0) \|=|y-y_0|< \delta\), por
+            lo tanto por \eqref{Eqn:auxContinuindadRebandas} obtenemos
+            \[
+            |f(x,y)-f(x,y_0)| < \frac{\varepsilon}{b-a} \quad , \forall x\in [a,b]
+            \Rightarrow \int_a^b|f(x,y)-f(x,y)|dx \leq \int_a^b \frac{\varepsilon}{2(b-a)}dx=\frac{\varepsilon}{2}
+            \]
+            Por lo tanto obtenemos \(|A(y)-A(y_0)|< \varepsilon\).
+
+          </p>
+          </div>
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title"> Teorema </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+          \(f:\mathcal{R}\to \mathbb{R}\) una función continua en
+          todo \(\mathbb{R}\). Entonces \(f\) es integrable sobre
+          \(\mathcal{R}\) y la integral se puede calcular como
+          integrales iteradas mediante:
+          \[
+          \int_\mathcal{R} f = \int_a^b\left( \int_c^d f(x,y)dy\right)dx=
+          \int_c^d\left( \int_a^b f(x,y)dx\right)dy
+          \]
+        </p>
+
+
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/Laa2nDMffa8" target="_blank"> Video </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m \}\)
+          una partición de \(\mathcal{R}=[a,b]\times [c,d]\).
+          La norma de la partición, denotada \(\|\mathbb{P}\|\), se define
+          como
+          \[
+          \|\mathbb{P}\|=\max_{1\leq i \leq n, 1\leq j \leq m}\{ x_i-x_{i-1}, y_j-y_{j-1} \}
+          \]
+          es decir, es la longitud más grande de los lados de los subrectángulos
+          de \(\mathbb{P}\).
+        </p>
+      </div>
+
+            <div class="teorema-box">
+              <h2 class="number-title"> Teorema </h2>
+              <p>
+                Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                \(f:\mathcal{R}\to \mathbb{R}\) una función continua en
+                todo \(\mathbb{R}\). Entonces
+                \begin{equation}\label{Eqn:auxSumasRiemann}
+                \int_\mathcal{R} f = \lim_{\|\mathbb{P}\|\to 0} \sum_{i=1}^n\sum_{j=1}^m
+                f(\tilde{x_i},\tilde{y_j})(x_i-x_{i-1})(y_j-y_{j-1})
+                \end{equation}
+                donde \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n , 1\leq j \leq m \}\)
+                y \((\tilde{x_i},\tilde{y_j})\) son puntos en \([x_{i-1}, x_i]\times [y_{j-1},y_j]\).
+              </p>
+              <p>
+                Nota: ¿Cómo se entiende el límite \eqref{Eqn:auxSumasRiemann}? De la siguiente
+                manera: para toda \(\varepsilon >0\) existe
+                \(\delta >0\) tal que si \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1 \leq j \leq m\}\) es una partición de
+                \(\mathcal{R}\) con \(\|P\| < \delta\) entonces:
+                \[
+                \left| \int_\mathcal{R}f -
+                \left( \sum_{i=1}^n\sum_{j=1}^m
+                f(\tilde{x_i},\tilde{y_j})(x_i-x_{i-1})(y_j-y_{j-1}) \right)  \right|<\varepsilon
+                \]
+                para cualesquiera puntos \((\tilde{x}_i, \tilde{y}_j)\in [x_{i-1},x_i]\times [y_{j-1},y_J]\).
+              </p>
+
+              <button class="respButton hvr-grow"> Respuesta </button>
+              <div class="resp-box">
+                <div class="video flexbox">
+                  <a href="https://youtu.be/GNhX_5TJfBs" target="_blank"> Video </a>
+                </div>
               </div>
 
 
+            </div>
 
-                            <div class="ejercicio-box">
-                              <h2 class="number-title"> Ejercicio </h2>
-                              <p>
-                                <ol>
-                                  <li> Por \(\gamma\) denotamos el segmento de recta que une
-                                    \((x_1,y_1)\) con \((x_2,y_2)\). Prubea directamente que
-                                    \[
-                                    \int_{\gamma}xdy-ydx=x_1y_2-x_2y_1
-                                    \]
-                                  </li>
-                                  <li>
-                                    Si los vértices de un polígono, recorridos en el
-                                    sentido positivo, son \((x_1,y_1),\dots, (x_n,y_n)\),
-                                    prueba que su área es
-                                    \[
-                                    A=\frac{1}{2}\left( (x_1y_2-x_2y_1)+(x_2y_3-x_3y_2)+
-                                    \cdots + (x_{n-1}y_n-x_ny_{n-1})+(x_ny_1-x_1y_n) \right)
-                                    \]
-                                  </li>
-                                </ol>
-                              </p>
-                              <p>
-                                Sugerencia: usa el ejercico anterior.
-                              </p>
+
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                            Calcula la integrales de las siguientes funciones.
+                            Recuerda que \(\lfloor x \rfloor\) denota el mayor entero
+                            menor o igual a \(x\).
+                          </p>
+                          <ol>
+                            <li> \(\int_{\mathcal{R}} \lfloor x\rfloor \lfloor y \rfloor\),
+                            \(\mathcal{R}=[0,2]\times [0,2]\). </li>
+                            <li> \(\int_{\mathcal{R}} \lfloor x+y \rfloor\),
+                              \(\mathcal{R}=[0,3]\times [0,3]\) </li>
+                            <li> \(\int_{\mathcal{R}} \sqrt{\lfloor x+y \rfloor}\),
+                            \(\mathcal{R}=[0,3]\times [0,3]\). </li>
+                            </ol>
+                            <p>
+                              Sugerencia: si \(\mathcal{R}\) es un polígono en el
+                              plano y \(f\) es igual a una constante \(c\) sobre \(\mathcal{R}\)
+                              entonces \(\int_{\mathcal{R}f}=c * \textrm{área}(\mathcal{R})\)
+                            </p>
+                            <button class="respButton hvr-grow"> Respuesta de 2 </button>
+                            <div class="resp-box">
+                              <div class="video flexbox">
+                                <a href="https://youtu.be/T5801bIJMA4" target="_blank"> Video </a>
+                              </div>
                             </div>
+                        </div>
 
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Calcula las siguientes integrales mediante dos métodos:
-                  de manera directa y usando el Teorema de Green.
-                </p>
-                <ol>
-                  <li>
-                    \(\int_{\gamma}(Ax+By)dx+ (Cx+Dy)dy \),
-                    donde \(\gamma\) es el círculo centrado en el
-                    origen de radio \(r>0\), recorrido
-                    positivamente y \(A,B,C,D\in \mathbb{R}\) son
-                    constantes.
-                  </li>
-                  <li>
-                    \(\int_{\gamma} (x^3y)dx + (xy^2)dy \), donde \(\gamma\)
-                    es el rectángulo con vértices \((0,0), (3,0), (3,1), (0,1)\),
-                    recorrido en el sentido positivo.
-                  </li>
-                </ol>
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Calcula la integrales de las siguientes funciones. Puedes
+                      suponer que todas las funciones que aparecen son integrables.
+                    </p>
+                    <ol>
+                      <li> \(\int_{\mathcal{R}}|3x+2y|\), \(\mathcal{R}=[0,2]\times [-3,3]\). </li>
+                      <li> \(\int_{\mathcal{R}} |\cos(x+y)|\),
+                        \(\mathcal{R}=[0,\pi]\times [0,\pi]\) </li>
+                      <li> \(\int_{\mathcal{R}} \sqrt{x+y}\),
+                      \(\mathcal{R}=[0,1]\times [0,4]\). </li>
 
-                <button class="respButton hvr-grow"> Respuesta inciso 1</button>
-                <div class="resp-box">
+                      <li> \(\int_{\mathcal{R}} y^{-3}e^{tx/y}\),
+                        \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
+                      </li>
+                    </ol>
 
-                  <p>
-                  Resolviendo de manera directa la integral de línea,
-                  debemos primero parametrizar el círculo con centro en
-                  el orígen y de radio \(r >0\).
-                  Sea \(\gamma : [0, 2\pi] \subseteq \mathbb{R}
-                  \rightarrow \mathbb{R}^{2}\) definida como
-                  \(\gamma(t) = (r\cos(t), r\sen(t))\),
-                  es claro que \(\gamma\)  recorre de manera
-                  positiva al círculo y
-                  \(\gamma^{\prime}(t) = (-r\sen(t), r\cos(t))\).
-                </p>
-                <p>
-
-                        Por lo tanto,
-                        \begin{eqnarray*}
-                        \int_\gamma (Ax + By)dx + (Cx + Dy)dy
-                         & = &  \int_0^{2\pi}[(Ar\cos(t) + Br\sen(t))(-r\sen(t)) \\
-                          & & + (Cr\cos(t) + Dr\sen(t))(r\cos(t))]dt \\
-                        & = & \int_0^{2\pi}r^{2}[-A\cos(t)\sen(t) - B\sen^{2}(t) \\
-                        & & +  C\cos^2(t)+ D\sen(t)\cos(t)] dt \\
-                        & = & \int_0^{2\pi}r^{2}\left[-\frac{A\sen(2t)}{2}
-                         -  \frac{B(1 - \cos(2t))}{2} \right. \\
-                         & & \left. + \frac{C(1 + \cos(2t))}{2}
-                         +  \frac{D\sen(2t)}{2}\right] dt \\
-                         & = &  \int_0^{2\pi}r^{2}\left[\frac{C - B}{2}\right] dt \\
-                         & = &  2\pi r^{2}\left[\frac{C - B}{2}\right] \\
-                         & = & \pi r^{2}[C - B]
-                        \end{eqnarray*}
-
-                  La cuarta igualdad se sigue de
-                  \[
-                  \int_{0}^{2\pi}\cos(2t) dt
-                  = \int_{0}^{2\pi}\sen(2t) dt = 0
-                  \]
-                </p>
-                <p>
-                  Por lo tanto,
-                  \(\int_\gamma (Ax + By)dx + (Cx + Dy)dy =  \pi r^{2}[C - B]\).
-                </p>
-                <p>
-                  Por otro lado, usando el Teorema de Green tenemos que
-                  \[
-                  \int_\gamma (Ax + By)dx + (Cx + Dy)dy
-                  =
-                  \int_D[\partial_x(Cx + Dy) - \partial_y(Ax + By)]dA
-                  \]
-
-                  donde \(D\) es la región encerrada por la curva
-                  \(\gamma\), es decir
-                  \(D = \lbrace (x, y) \in \mathbb{R}^{2} :
-                   x^{2} + y^{2} \leq r \rbrace\).
-                 </p>
-                 <p>
-                   Además \(\partial_x(Cx + Dy) = C\) y
-                   \(\partial_y(Ax + By) = B\).
-                   Por lo tanto,
-                   \begin{eqnarray*}
-                   \int_\gamma (Ax + By)dx + (Cx + Dy)dy
-                   & = & \int_D[C - B] dA  \\
-                   & = & [C - B]\int_D 1 dA \\
-                   & = & [C - B]\text{Area}(D) \\
-                   &=& \pi r^{2}[C - B]
-                   \end{eqnarray*}
-                   ya que \(\int_D 1 dA = \text{Area}(D) = \pi r^{2}\).
-                 </p>
-                 <p>
-                 </b>Nota</b>: Si queremos comprobar que
-                 \(\int_D 1 dA = \pi r^{2}\), entonces a la
-                 región \(D\) la podemos representar como una
-                 región de Tipo I, es decir
-                 \( D = \lbrace(x, y)\in \mathbb{R}^{2} :
-                 x\in[-r, r],
-                 -\sqrt{r^{2} - x^{2}} \leq y \leq \sqrt{r^{2} - x^{2}}
-                 \rbrace\).
-               </p>
-               <p>
-                 Por lo tanto
-                 \[
-                 \int_D 1 dA =
-                 \int_{-r}^r\left(\int_{-\sqrt{r^{2} - x^{2}}}^{\sqrt{r^{2}
-                 - x^{2}}}1 dy\right)dx = \int_{-r}^r 2\sqrt{r^{2} - x^{2}}dx
-                 = 2\int_{-r}^r \sqrt{r^{2} - x^{2}} dx
-                 \]
-               </p>
-                 <p>
-                  Como \(\sqrt{r^{2} - x^{2}}\) es una función par
-                 tenemos que
-                 \(\int_{-r}^r \sqrt{r^{2} - x^{2}} dx
-                 = 2\int_0^{r}\sqrt{r^{2} - x^{2}} dx\)
-                 y tomando el cambio de variable \(x = r\sen(t)\)
-                 ( \(dx = r\cos(t)dt\)),
-                 tenemos
-                 \[
-                 \int_D 1 dA = 4\int_0^{\frac{\pi}{2}}r^2\cos^{2}(t)dt
-                 = 4r^2\int_0^{\frac{\pi}{2}}
-                 \left(\frac{1 + \cos(2t)}{2}\right)dt =
-                 \pi r^{2} .
-                 \]
-               </p>
-               <p>
-                 Por lo tanto, \(\int_D 1 dA = \pi r^{2}\).
-               </p>
-
-
-                </div>
-
-
-              </div>
-
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-
-                <p>
-                  Usa el Teorema de Green para calcular para calcular
-                  \(\int_{\gamma} e^{y^2}dx+xdy\), cuando \(\gamma\) es:
-                  <ol>
-                    <li> El cuadrado con vértices \((0,0), (2,0), (2,2), (,2)\),
-                    recorrido positivamente.
-                  </li>
-                  <li>
-                    El cuadrado con vértices \((-2,-2), (2,-2), (2,2), (-2,2)\),
-                    recorrido positivamente.
-                  </li>
-                  <li>
-                    El círculo de radio \(r>0\) con centro en el origen, orientado
-                    positivamente.
-                  </li>
-                  </ol>
-                </p>
-
-                <button class="respButton hvr-grow"> Respuesta </button>
-                <div class="resp-box">
-                  <div class="video flexbox">
-                    <a href="https://youtu.be/4OATFlurgRM" target="_blank"> Video </a>
-                  </div>
-                </div>
-
-
-
-
-
-              </div>
-
-
-
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Sea \(U\subset \mathbb{R}^2\) un abierto y \(f,g:U \to \mathbb{R}\)
-                  dos funciones clase \(C^1\) en \(U\). Sea \(\gamma\) una curva
-                  orientada cerrada, simple, suave a trozos. Prueba que
-                  \[
-                  \int_{\gamma} (f\nabla g) \cdot d\gamma = - \int_{\gamma} (g \nabla f )\cdot d\gamma
-                  \]
-                  Nota que \(f\nabla g\) y \(g \nabla f\) son campos vectoriales.
-                </p>
-              </div>
-
-              <div class="definicion-box">
-                <h2 class="number-title"> Definición </h2>
-                <p>
-                  Sea \(\gamma:[a,b]\to \mathbb{R}^2\) una curva cerrada simple, suave
-                  a trozos, con la propiedad de que
-                  \(\gamma'(t)\ne 0\), siempre que la derivada \(\gamma'(t)\) existe.
-                </p>
-                <p>
-                  Se define el vector normal unitario a la curva \(\gamma\) como
-                  la función \(\mathbb{n}\) dada por
-                  \[
-                  \mathbb{n}(t)=\frac{1}{\|\gamma'(t)\|}(\gamma_2'(t), -\gamma_1'(t))
-                  \]
-                  Nota: \(\gamma(t)=(\gamma_1(t), \gamma_2(t))\).
-
-                </p>
-                <p>
-                  Sea \(U\subset \mathbb{R}^2\) un conjunto abierto y
-                  \(\varphi:U \to \mathbb{R}\) una función clase \(C^1\). Definimos
-                  la derivada normal de \(\varphi\) a lo largo de \(\gamma\) como
-                  \[
-                  \partial_{\mathbb{n}}\varphi(t)= \nabla\varphi(\gamma(t))\cdot \mathbb{n}(t)
-                  \]
-                </p>
-              </div>
-
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Sea \(\gamma:[a,b]\to \mathbb{R}^2\) una curva cerrada simple, suave
-                  a trozos, con la propiedad de que
-                  \(\gamma'(t)\ne 0\), siempre que la derivada \(\gamma'(t)\) existe.
-                </p>
-                <ol>
-                <li>
-                  Prueba que \(\gamma' \cdot \mathbb{n} =0\). Es decir, el vector
-                  normal es perpendicular al vector velocidad.
-                </li>
-                <li>
-                  Sea \(U\subset \mathbb{R}^2\) un conjunto abierto
-                  con la traza de \(\gamma \) contenida en \( U\). Considera el campo vectorial, clase \(C^1\)
-                  \(\mathbb{F}:U \to \mathbb{R}^2\), \(\mathbb{F}=(A,B)\). Denota
-                  \(\mathbb{F}^\perp=(B,-A)\). Prueba
-                  \[
-                  \int_{\gamma} \mathbb{F}\cdot  d\gamma = \int_{\gamma} (\mathbb{F}^\perp \cdot \mathbb{n}) ds
-                  \]
-                  Nota que el lado izquierdo es una integral de línea y el lado derecho una integral
-                  con respecto a longitud de arco.
-                </li>
-
-                </ol>
-              </div>
-
-
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-
-                <p>
-                  Sea \(U\subset \mathbb{R}^2\) un abierto y \(f,g:U\to \mathbb{R}\)
-                  funciones de clase \(C^2\). Sea \(\gamma:[a,b] \to U\) una
-                  curva suave a trozos, cerrada simple.
-                  Por \(\mathcal{S}\) denotamos a la región formada
-                  por la traza de \(\gamma\) y la región que enciarra
-                  (nota que entonces \(\mathcal{S}\) es un compacto). Prueba las siguientes identidades
-                  que relacionan integrales de línea e integrales de Riemann.
-                </p>
-                  <p>
-                  Recuerda que \(\nabla^2 g= \partial_x^2g + \partial_y^2 g\).
-                </p>
-                <ol>
-                <li>
-                 \(\int_{\gamma} \partial_{\mathbb{n}}g ds = \int_{\mathcal{S}} \nabla^2 g dxdy \)
-                </li>
-                <li>
-                  \(\int_{\gamma} f \partial_{\mathbb{n}}g ds
-                  = \int_{\mathcal{S}} (f \nabla^2 g + (\nabla f)\cdot (\nabla g))dxdy\)
-                </li>
-                <li> La identidad de Green:
-                  \[
-                  \int_{\gamma} (f \partial_{\mathbb{n}}g - g \partial_{\mathbb{n}}f)ds
-                  = \int_{\mathcal{S}} (f \nabla^2 g - g \nabla^2 f)dxdy
-                  \]
-                </li>
-                <li>
-                  Si \(f\) y \(g\) son armónicas, es decir \(\nabla^2f=\nabla^2g=0\),
-                  prueba
-                  \[
-                  \int_{\gamma} f \partial_{\mathbb{n}}g  ds= \int_{\gamma} g \partial_{\mathbb{n}}f ds
-                  \]
-
-                </li>
-                </ol>
-
-                <button class="respButton hvr-grow"> Respuesta inciso 1</button>
-                <div class="resp-box">
-                <p>
-                  Sea \(\mathbb{F} = (-\partial_yg, \partial_xg)\),
-                  esto implica que \(\mathbb{F}^{\bot} = \nabla g\).
-                  Entonces por el Ejercicio 14.15-2,
-                  tenemos que
-                  \[
-                  \int_\gamma\mathbb{F}\cdot d\gamma
-                  =
-                  \int_\gamma\left(\mathbb{F}^{\bot}\cdot\mathbb{n}\right)ds
-                  =
-                  \int_\gamma\left(\nabla g\cdot\mathbb{n}\right)ds
-                  =
-                  \int_\gamma\partial_{\mathbb{n}}g ds .
-                  \]
-                </p>
-                <p>
-                  Por otro lado, por el Teorema de Green tenemos
-                  \[
-                  \int_\gamma\mathbb{F}\cdot d\gamma
-                  =
-                  \int_S\left[\partial_x(\partial_xg) -
-                  \partial_y(-\partial_yg)\right]dxdy
-                  = \int_S\left(\partial_x^{2}g
-                  + \partial_y^{2}g\right)dxdy
-                  =  \int_S  \nabla^{2}g dxdy .
-                  \]
-                </p>
-                <p>
-                  Por lo tanto,
-                  \[
-                  \int_\gamma\partial_{\mathbb{n}}g ds
-                  = \int_S  \nabla^{2}g dxdy .
-                  \]
-                </p>
-              </div>
-
-              </div>
-
-
-              <div class="teorema-box">
-                <h2 class="number-title"> Teorema (Green versión 2) </h2>
-                <p>
-                  Sean \(\gamma_0, \gamma_1, \dots, \gamma_n\)
-                  curvas cerradas simples, suaves a trozos, orientadas
-                  positivamente, con las
-                  siguientes propiedades
-                  <ol>
-                    <li> Cualesquiera dos curvas
-                    no se intersectan, </li>
-                    <li>
-                      Las curvas, \(\gamma_1,\dots, \gamma_n\),
-                      caen dentro del interior de \(\gamma_0\),
-                    </li>
-                    <li>
-                      La curva \(\gamma_i\) está en el exterior
-                      de la curva \(\gamma_j\), para todos \(1\leq i, j \leq n\),
-                      \(i\ne j\).
-                    </li>
-                  </ol>
-                </p>
-                <p>
-                  Por \(\mathcal{S}\) denotamos la región del plano
-                  que consiste de la unión de \(\gamma_0\), con el
-                  subconjunto del interior de \(\gamma_0\) formado por
-                  los puntos que no están en el interior de las curvas
-                  \(\gamma_1,\dots, \gamma_n\).
-                </p>
-
-                <p>
-                  Sean \(A,B :U \to \mathbb{R}\), funciones de clase
-                  \(C^1\) en \(U\), donde \(U\subset \mathbb{R}^2\)
-                  es un conjunto abierto que contiene a \(\mathcal{S}\).
-                </p>
-                <p>
-                  Entonces se tiene que
-                  \[
-                  \int_{\mathcal{S}} (\partial_xB-\partial_yA)dxdy=
-                  \int_{\gamma_0} Adx+Bdy -
-                  \sum_{k=1}^n \int_{\gamma_k}Adx+Bdy
-                  \]
-                </p>
-
-
-                  <button class="respButton hvr-grow"> Demostración </button>
+                    <button class="respButton hvr-grow"> Respuesta inciso 1</button>
                     <div class="resp-box">
                       <div class="video flexbox">
-                        <a href="https://youtu.be/n4hGJ2MZ894" target="_blank"> Video </a>
+                        <a href="https://youtu.be/yd87EErkg8I" target="_blank"> Video </a>
                       </div>
                     </div>
-              </div>
-
-              <div class="teorema-box">
-                <h2 class="number-title"> Teorema (de invariancia)</h2>
-                <p>
-                  Sea \(U\subset \mathbb{R}^2\) un  abierto conexo y
-                  \(\omega\) una 1-forma <b>cerrada</b> clase \(C^1\) en \(U\).
-                <p>
-                  <p>
-                    Sean \(\gamma_1, \gamma_2\) dos curvas
-                    cerradas simples, suaves a trozos que satisfacen:
-                    <ol>
-                      <li> \(\gamma_1\) y \(\gamma_2\) tienen la
-                      misma orientación, </li>
-                      <li>
-                        \(\gamma_2\) caen dentro del interior de \(\gamma_1\),
-                      </li>
-                      <li>
-                        los puntos del interior de  \(\gamma_1\) que caen afuera de
-                        \(\gamma_2\) están en \(U\).
-                      </li>
-
-                    </ol>
-                  </p>
-                  <p>
-                    Entonces
-                    \[
-                    \int_{\gamma_1} \omega= \int_{\gamma_2}\omega
-                    \]
-                  </p>
-
-
-                    <button class="respButton hvr-grow"> Demostración </button>
-                      <div class="resp-box">
-                          <div class="video flexbox">
-                            <a href="https://youtu.be/rdgfGbpwYoY" target="_blank"> Video </a>
-                          </div>
+<br>
+                    <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+                    <div class="resp-box">
+                      <div class="video flexbox">
+                        <a href="https://youtu.be/S1aNwrgNWwc" target="_blank"> Video </a>
                       </div>
-              </div>
+                    </div>
 
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Denota \(U=\{(x,y): (x,y)\ne (0,0)\}\). Define
-                  \(A,B:U \to \mathbb{R}\) por
-                  \[
-                  A(x,y)=\frac{y}{x^2+y^2}, \quad B(x,y)=\frac{-x}{x^2+y^2}
-                  \]
-                  Sea \(\gamma\) una curva orientada cerrada simple,  suave
-                  a trozos contenida en \(U\).
-                </p>
-                <ol>
-                  <li>  Si \((0,0)\) cae en el interior de \(\gamma\)
-                  prueba que  los valores que puede tomar la integral \(\int_{\gamma }Adx+Bdy\)
-                  son \(2\pi, -2\pi\), y explica cuando ocurre cada signo.
-                  </li>
-                  <li>
-                    Calcula el valor de la integral \(\int_{\gamma}Adx+Bdy\)
-                    cuando \((0,0)\) cae en el exterior de \(\gamma\).
-                  </li>
-                </ol>
-              </div>
+                    <br>
+
+                    <button class="respButton hvr-grow"> Respuesta inciso 3</button>
+                    <div class="resp-box">
+                      <p>
+                        Por el Teorema 12.20 tenemos que
+                        \begin{eqnarray*}
+                        \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
+                        & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
+                        & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
+                        & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
+                        \end{eqnarray*}
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div class="ejercicio-box">
+                    <h2 class="number-title"> Ejercicio </h2>
+                    <p>
+                      Calcula la integrales de las siguientes funciones. Puedes
+                      suponer que todas las funciones que aparecen son integrables.
+                    </p>
+                    <ol>
+                      <li> \(\mathcal{R}=[0,1]\times [0,1]\)
+                        \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        x+2y & \textrm{si \(x^2 \leq y \leq 2x^2\)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+                      </li>
+
+                      <li> \(\mathcal{R}=[-1,1]\times [-1,1]\)
+                        \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        2x^2+2y^2 & \textrm{si \(x^2 + y^2 \leq 1 \)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+                      </li>
+
+                      <li> \(\mathcal{R}=[1,2]\times [1,4]\)
+
+                          \begin{eqnarray*}
+                        f(x,y)=\left\{
+                          \begin{array}{cc}
+                        \frac{(x+y)^{-2}}{2} & \textrm{si \(x \leq y \leq 2x\)} \\
+                        0  & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                        \end{eqnarray*}
+
+                      </li>
+                    </ol>
 
 
-              <div class="ejercicio-box">
-                <h2 class="number-title"> Ejercicio </h2>
-                <p>
-                  Sea \(\omega\) una 1-forma <b>cerrada</b> clase
-                  \(C^1\) en todo \(\mathbb{R}^2\).
-                </p>
-                <ol>
-                  <li> Sea \(U=\{(x,y): 1< x^2+y^2 < 2\}\) y sea
-                  \(\gamma\) una curva orientada cerrada simple, contenida
-                en \(A\) ¿Cuántos posibles valores distintos
-                puede tomar la integral \(\int_{\gamma} \omega ?\)</li>
-                <li>
-                  Sea \(V\) un conjunto abierto, conexo con exáctamente tres
-                  hoyos, por ejemplo \(V=D \setminus (D_{-1}\cup D_{1})\) donde
-                  \begin{eqnarray*}
-                  D&=&\{(x,y): x^2+y^2< 25\},\\
-                  D_{-1}&=&\{(x,y): (x+1)^2+y^2\leq 1/4\},\\
-                  D_1&=&\{(x,y): (x-1)^2+y^2< 1/4 \}.
-                  \end{eqnarray*}
-                  Contesta la misma pregunta que en el inciso anterior.
-                </li>
-                </ol>
+                  <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+                  <div class="resp-box">
+                  <p>
+                    El dominio de \(f\) es el que se encuentra entre la gráfica verde
+                    (\(y= 2x^{2}\))  y la gráfica roja (\(y = x^{2}\)),
 
-              </div>
+                    <div class="imagen-box flexbox">
+                      <img src="./Images/Fig25-1.png" alt="Dominio25-1" width="270" height="230">
+                    </div>
+
+
+                    Tenemos que la condición del dominio es \(x^{2} \leq y \leq 2x^{2}\)
+                    la cual es equivalente a \(\frac{\sqrt{y}}{\sqrt{2}} \leq x \leq \sqrt{y}\).
+                    Entonces fijando \(y \in [0, 1]\) y tamando
+                    \begin{equation*}
+                    A(y) = \int_{0}^{1}f(x, y)dx
+                    \end{equation*}
+
+                    Por la regla de correspondecia de \(f\) simplificamos
+                    \begin{eqnarray*}
+                    A(y) & = & \int_{\frac{\sqrt{y}}{\sqrt{2}}}^{\sqrt{y}} x + 2y dx \\
+                     & = & \frac{1}{2}\left(y - \frac{y}{2}\right) + 2y\left(\sqrt{y} -
+                     \frac{\sqrt{y}}{\sqrt{2}}\right) \\
+                     & = & \frac{y}{4} + \sqrt{2}\left(\sqrt{2} - 1\right)y^{\frac{3}{2}}
+                    \end{eqnarray*}
+
+                    Suponiendo que \(f\) es integrable, entonces por el ejercicio 12.5 tenemos
+                    \begin{eqnarray*}
+                    \int_{R} f & = & \int_{0}^{1} A(y) dy \\
+                     & = & \int_{0}^{1} \frac{y}{4} + \sqrt{2}\left(\sqrt{2} -
+                     1\right)y^{\frac{3}{2}} dy \\
+                     & = & \frac{1}{8} + \frac{2\sqrt{2}(\sqrt{2} - 1)}{5}\\
+                     & = & \frac{37 -16\sqrt{2}}{40}
+                    \end{eqnarray*}
+
+
+                  </p>
+                </div>
+
+                <br>
+                <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+                <div class="resp-box">
+                  <div class="video flexbox">
+                    <a href="https://youtu.be/uPrEWBLTXd4" target="_blank"> Video </a>
+                  </div>
+                </div>
+
+
+
+                  </div>
+
+
+
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                            Sean \(f:[a,b]\to \mathbb{R}\),
+                            \(g:[c,d]\to \mathbb{R}\) dos funciones continuas,
+                            denota \(\mathcal{R}=[a,b]\times [c,d]\) y define
+                            \(h:\mathcal{R}\to \mathbb{R}\) por \(h(x,y)=f(x)g(y)\).
+                          </p>
+                          <p>
+                            Expresa la integral \(\int_{\mathcal{R}} h(x,y)\)
+                            en términos de las integrales de \(f\) y de \(g\).
+                          </p>
+
+                        </div>
+
+
+                       <div class="ejercicio-box">
+                         <h2 class="number-title" id="Ejer:PropIntegral"> Ejercicio </h2>
+
+                         <p>
+                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                           \(f,g:\mathcal{R} \to \mathbb{R}\) funciones acotadas
+                           e integrables en \(\mathcal{R}\).
+
+                           <ol>
+                             <li>
+                               Sea \(c\in \mathcal{R}\) una constante. Prueba que
+                               la función \(f+cg\) es integrable y que
+                               \[
+                               \int_{\mathcal{R}} f+cg = \int_{\mathcal{R}}f +
+                               c\int_{\mathcal{R}}g.
+                               \]
+                             </li>
+                            <li>
+                              Supongamos que \(\mathcal{R}\) se subdivide
+                              en dos rectángulos \(\mathcal{R}_1\) y \(\mathcal{R}_2\).
+                              Prueba
+                              \[
+                              \int_{\mathcal{R}} f = \int_{\mathcal{R}_1}f
+                              + \int_{\mathcal{R}_2}f.
+                              \]
+                            </li>
+                            <li>
+                              Prueba que si
+                              \(f(x,y)\leq g(x,y)\), para toda \((x,y)\in \mathcal{R}\),
+                              entonces \(\int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g\).
+                            </li>
+                         </ol>
+                         </p>
+
+                       </div>
+
+                       <div class="ejercicio-box">
+                         <h2 class="number-title"> Ejercicio </h2>
+
+                         <p>
+                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+                           \(f:\mathcal{R}\to \mathbb{R}\) una función continua. Fija
+                           \(\varepsilon >0\) y sea \(\delta >0\) la delta del
+                           <a href="S12.html#Ejer:continuidadUniforme">Ejercicio 12.18</a>
+
+                         </p>
+
+                         <p>
+                           Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\)
+                           una partición de \(\mathcal{R}\) tal que \(\| \mathbb{P}\|\leq \delta/\sqrt{2}\).
+                         </p>
+                         <p>
+                           Considera  funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales que
+                           \begin{eqnarray*}
+                           s(x,y)=\min_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}\\
+                           t(x,y)=\max_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}
+                           \end{eqnarray*}
+                           donde \(\mathcal{R}_{i,j}=[x_{i-1}, x_i]\times [y_{j-1}, y_j]\).
+                         </p>
+                         <p>
+                           Prueba que
+                           \[
+                           \int_{\mathcal{R}} t -\int_{\mathcal{R}} s \leq \varepsilon A
+                           \]
+                           donde \(A\) es el área de \(\mathcal{R}\).
+                         </p>
+                       </div>
+
+
+          <div class="nota-box">
+            <h2 class="number-title"> Conclusión </h2>
+            <p>
+              Para definir la integral de 2-formas no constantes resulta
+              necesario tener una generalización de la integral de Riemann
+              1-dimensional (la de cálculo 2). Muchas de las ideas para definir
+              la integral doble o la integral 2-dimensional son similares al
+              caso 1-dimensional (por ejemplo integrales superiores e inferiores).
+              A pesar de que hay muchas similitudes (por ejemplo toda
+              función continua en dos variables es también integrable) hay diferencias
+              importantes pues ahora el cálculo de la integrales dobles se traduce
+              a integrales iteradas.
+            </p>
+              <p>
+              La manera inicial de presentar la integral de Riemann 2-dimensional
+              es con dominios rectangulares pero más adelante se generalizará a
+              dominios más generales. Las técnicas de integración se refinarán
+              para dichos dominios más generales y en particular el método de
+              integrales iteradas también se refinará para estas regiones.
+            </p>
+          </div>
+
 
 <!-- acaba contenido -->
-
     </div>
 
   </body>
