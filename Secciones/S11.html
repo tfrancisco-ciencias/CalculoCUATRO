@@ -248,7 +248,7 @@
 
     <div class="definicion-box">
 
-      <h2 class="number-title" id="Def:informal2F"> Definición </h2>
+      <h2 class="number-title" id="Def:informal2F"> Definición (informal)</h2>
       <p>
         Una 2-forma constante en \(\mathbb{R}^n\), denotada por \(\omega\), es un objeto el
         cual asigna números reales a triángulos dirigidos de \(\mathbb{R}^n\)
@@ -293,6 +293,14 @@
               la integral no cambia:
               \[
               \int_{\triangle(P,Q,R)}\omega=\int_{\triangle(P+S,Q+S,R+S)}\omega.
+              \]
+            </li>
+            <li>
+              (invariante bajo rotaciones) Si rotamos cada punto del triángulo 
+              \(\triangle(P,Q,R)\) y denotamos dicho triángulo como 
+              \(\triangle(P',Q',R')\) la integral no cambia:
+              \[
+              \int_{\triangle(P,Q,R)}\omega=\int_{\triangle(P',Q',R')}\omega.
               \]
             </li>
         </ol>
@@ -399,17 +407,9 @@
     <div class="ejercicio-box">
 
       <h2 class="number-title" id="Ejer:invaRotaciones"> Ejercicio </h2>
+    
       <p>
-        Una 2-forma constante \(\omega\) se llama <b>invariante bajo rotaciones</b> si
-        \[
-        \int_{\triangle(P,Q,R)}\omega = \int_{\triangle(P',Q',R')}\omega
-        \]
-        siempre que el triángulo \(\triangle(P',Q',R')\) se obtenga
-        de \(\triangle(P,Q,R)\) mediante una rotación.
-      </p>
-      <p>
-        Supon que \(\omega\) es una 2-forma constante en \(\mathbb{R}^2\)
-        e invariante bajo rotaciones.
+        Supon que \(\omega\) es una 2-forma constante en \(\mathbb{R}^2\).
 
         <ol>
           <li>Prueba que
@@ -441,8 +441,7 @@
     <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
-        Considera \(\omega\) una 2-forma constante en \(\mathbb{R}^2\)
-        invariante bajo rotaciones.
+        Considera \(\omega\) una 2-forma constante en \(\mathbb{R}^2\).
       </p>
       <p>
         Fija un triángulo dirigido \(\triangle(P,Q,R)\) y por
@@ -457,12 +456,12 @@
       </p>
 
 
-              <button class="respButton hvr-grow"> Demostración </button>
+             <!--<button class="respButton hvr-grow"> Demostración </button>
               <div class="resp-box">
                 <div class="video flexbox">
                   <a href="https://youtu.be/WArm1Uh0oso" target="_blank"> Video </a>
                   </div>
-                </div>
+                </div>-->
 
 
 
@@ -473,8 +472,7 @@
 
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:2fToBilineal"> Ejercicio </h2>
-      Considera \(\omega\), una 2-forma constante en \(\mathbb{R}^2\), invariante 
-      bajo rotaciones. Define
+      Considera \(\omega\), una 2-forma constante en \(\mathbb{R}^2\). Define
       \(\varphi: \mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}\) por
       \[
       \varphi(Q,R)=\int_{\triangle(O,Q,R)}\omega
@@ -792,6 +790,99 @@
         </p>
       </div>
 
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Define \(\varphi:\mathbb{R}^2\times \mathbb{R}^2 \to \mathbb{R}\) dada por 
+          \[
+          \varphi((x_0,y_0),(x_1,y_1))= 
+          \det 
+          \left[
+          \begin{array}{cc} 
+            2x_0-2y_0 & x_0+y_0 \\
+            2x_1-2y_1 & x_1+y_1
+          \end{array}
+          \right]
+          \]
+          Prueba que \(\varphi\) es una función bilineal alternante.
+        </p>
+
+            <p>
+              Sea \(\omega\) la 2-forma inducida por \(\varphi\). Calcula 
+              \(\int_{\triangle(P,Q,R)}\omega\), donde:
+            </p>
+            <ol>
+            <li>
+              \(P=(-1,1), Q=(1,2), R=(0,3) \).
+            </li>
+            <li>
+              \(P=(0,0), Q=(-3,3), R=(2,2) \).
+            </li>
+          </ol>
+        
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Define \(\varphi:\mathbb{R}^3\times \mathbb{R}^3 \to \mathbb{R}\) dada por 
+          \[
+          \varphi((x_0,y_0,z_0),(x_1,y_1,z_1))= 
+          2\det 
+          \left[
+          \begin{array}{cc} 
+            2x_0 & z_0 \\
+            2x_1 & z_1
+          \end{array}
+          \right]
+          -
+          3\det 
+          \left[
+          \begin{array}{cc} 
+            -x_0 & 4y_0 \\
+            -2x_1 & 4y_1
+          \end{array}
+          \right]
+          \]
+          Prueba que \(\varphi\) es una función bilineal alternante.
+        </p>
+
+            <p>
+              Sea \(\omega\) la 2-forma inducida por \(\varphi\). Calcula 
+              \(\int_{\triangle(P,Q,R)}\omega\), donde:
+            </p>
+            <ol>
+            <li>
+              \(P=(-1,1,1), Q=(1,2,0), R=(0,5,0) \).
+            </li>
+            <li>
+              \(P=(0,0,0), Q=(-3,3,1), R=(0,0,5) \).
+            </li>
+          </ol>
+        
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Si \(S\) es un punto dentro del triángulo \(\triangle(P,Q,R)\) entonces 
+          \[
+          A(\triangle(P,Q,R))=A(\triangle(P,Q,S))+A(\triangle(Q,R,S))+A(\triangle(R,P,S))
+          \]
+          donde \(A\) denota el área.
+        </p>
+        <p>
+          ¿Se vale la misma identidad si el punto \(S\) está fuera del triángulo?
+         </p>
+         <p>
+          ¿Si en vez de área se usa área con signo?
+         </p>
+      </div>
       <div class="nota-box">
         <h2 class="number-title"> Conclusión </h2>
 
