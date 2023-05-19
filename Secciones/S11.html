@@ -593,7 +593,59 @@
 
       </div>
 
-
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          En este ejercicio se ve que las diferentes formas de expresar
+          el triángulo dirigido \(\triangle(P,Q,R)\) no afectan a la
+          integral \eqref{Def:integral2FConstante}.
+        </p>
+        <p>
+          Sea \(\varphi:\mathbb{R}^n\times \mathbb{R}^n\to \mathbb{R}\)
+          una función bilineal alternante. Prueba que
+          \[
+          \varphi(Q-P,R-P)=\varphi(R-Q,P-Q)=\varphi(P-R,Q-R).
+          \]
+        </p>
+        <p>
+          Nota: si \(\omega\) es la 2-forma constante asociada a \(\varphi\)
+          lo anterior se puede escribir como:
+          \[
+          \int_{\triangle(P,Q,R) }\omega=\int_{\triangle(Q,R,P) }\omega=
+          \int_{\triangle(R,P,Q) }\omega.
+          \]
+        </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+        <div class="resp-box">
+          <p>
+            Por el Ejercicio 9.22 y la alternacia de \(\varphi\) tenemos que:
+    
+            \begin{equation*}
+            \varphi(Q - P, R - P) = - \varphi(P - Q, R - Q) = \varphi(R - Q, P - Q).
+            \end{equation*}
+          </p>
+          <p>
+            Es decir, \(\varphi(Q - P, R- P) = \varphi(R - Q, P - Q)\).
+          </p>
+          <p>
+            Nuevamente usando el Ejercicio 9.22 y la alternacia de \(\varphi\) se sigue que:
+            \begin{equation*}
+            \varphi(R - Q, P - Q) = - \varphi(Q - R, P - R) =  \varphi(P - R, Q - R).
+            \end{equation*}
+          </p>
+          <p>
+            Es decir \(\varphi(R - Q, P - Q) = \varphi(P - R, Q - R)\).
+            Por lo tanto,
+            \[
+            \varphi(Q - P, R - P) =
+            \varphi(R - Q, P - Q) =
+            \varphi(P - R, Q - R) .
+            \]
+          </p>
+        </div>
+    
+      </div>
+    
       <div class="nota-box">
         <h2 class="number-title"> Nota </h2>
         <p>De aquí en adelante vamos a tomar

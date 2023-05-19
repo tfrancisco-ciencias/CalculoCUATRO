@@ -83,7 +83,7 @@
   <!-- Contenido empieza abajo -->
 
   <body>
-    <h1 class="number-title flexbox">Cálculo de integrales para 2-formas constantes </h1>     
+    <h1 class="number-title flexbox">2-Formas </h1>     
 
 <!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
 <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
@@ -104,10 +104,10 @@
       \begin{equation}\label{Eqn:defIntegral}
       \int_{\triangle(P,Q,R) }\omega=\varphi(Q-P,R-P)
       \end{equation}
-      En esta sección nos enfocamos en: (1) métodos para
-      calcular esta integral y (2) extender esta integral a
-      superficies poligonales i.e. conjuntos formados por
-      <a href="S9.html#Nota:aditividadTriangulos">sumas de triángulos dirigidos</a>.
+      Copiando la definición de la sección 10 una 2-forma es una función 
+      que a cada punto del espacio le asocia una 2-forma constante. En esta sección veremos algunas de sus propiedades así como 
+      la extensión de la integral de 2-formas a regiones más generales, no sólo triángulos
+      dirigidos. 
     </p>
     <p>
       Nota: en el caso de las 2-formas \(dx_i\wedge dx_j \), para simplificar
@@ -118,59 +118,7 @@
     </p>
   </div>
 
-  <div class="ejercicio-box">
-    <h2 class="number-title"> Ejercicio </h2>
-    <p>
-      En este ejercicio se ve que las diferentes formas de expresar
-      el triángulo dirigido \(\triangle(P,Q,R)\) no afectan a la
-      integral \eqref{Eqn:defIntegral}.
-    </p>
-    <p>
-      Sea \(\varphi:\mathbb{R}^n\times \mathbb{R}^n\to \mathbb{R}\)
-      una función bilineal alternante. Prueba que
-      \[
-      \varphi(Q-P,R-P)=\varphi(R-Q,P-Q)=\varphi(P-R,Q-R).
-      \]
-    </p>
-    <p>
-      Nota: si \(\omega\) es la 2-forma constante asociada a \(\varphi\)
-      lo anterior se puede escribir como:
-      \[
-      \int_{\triangle(P,Q,R) }\omega=\int_{\triangle(Q,R,P) }\omega=
-      \int_{\triangle(R,P,Q) }\omega.
-      \]
-    </p>
-    <button class="respButton hvr-grow"> Respuesta </button>
-    <div class="resp-box">
-      <p>
-        Por el Ejercicio 9.22 y la alternacia de \(\varphi\) tenemos que:
-
-        \begin{equation*}
-        \varphi(Q - P, R - P) = - \varphi(P - Q, R - Q) = \varphi(R - Q, P - Q).
-        \end{equation*}
-      </p>
-      <p>
-        Es decir, \(\varphi(Q - P, R- P) = \varphi(R - Q, P - Q)\).
-      </p>
-      <p>
-        Nuevamente usando el Ejercicio 9.22 y la alternacia de \(\varphi\) se sigue que:
-        \begin{equation*}
-        \varphi(R - Q, P - Q) = - \varphi(Q - R, P - R) =  \varphi(P - R, Q - R).
-        \end{equation*}
-      </p>
-      <p>
-        Es decir \(\varphi(R - Q, P - Q) = \varphi(P - R, Q - R)\).
-        Por lo tanto,
-        \[
-        \varphi(Q - P, R - P) =
-        \varphi(R - Q, P - Q) =
-        \varphi(P - R, Q - R) .
-        \]
-      </p>
-    </div>
-
-  </div>
-
+ 
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
 
@@ -204,7 +152,7 @@
 
   </div>
 
-    <div class="ejercicio-box">
+    <!-- <div class="ejercicio-box">
       <h2 class="number-title"> Ejercicio </h2>
       <p>
         Para los triángulos dirigidos y 2-formas dados
@@ -221,7 +169,7 @@
             <a href="https://youtu.be/t5AYfMTc2mE" target="_blank"> Video </a>
           </div>
         </div>
-    </div>
+    </div>-->
 
 
     <div class="definicion-box">
@@ -544,7 +492,7 @@
     </div>
 
 
-    <div class="ejercicio-box">
+    <!--  <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:cambioVariable2DRn"> Ejercicio </h2>
 
       <p>
@@ -570,62 +518,6 @@
         Sugerencia: usa el ejercicio anterior.
       </p>
     </div>
-
-    <div class="definicion-box">
-      <h2 class="number-title"> Definición </h2>
-      <p>
-        Una <b>superficie poligonal</b> en \(\mathbb{R}^n\) es un subconjunto
-        de \(\mathbb{R}^n\) que se obtiene:
-        <ol>
-          <li>al sumar una cantidd finita
-        de triángulos dirigidos;</li>
-        <li> y con la condición de que las aristas de los
-        triángulos dirigidos NO pertenecen a más de dos
-        triángulo dirigidos en la suma.</li>
-      </ol>
-      </p>
-      <p>
-        Ejemplos: cubos, tetrahedros.
-
-      </p>
-      <p>
-        Es importante notar que una superficie poligonal
-        es la unión de objetos 2-dimensionales (<b>caras</b>),
-        objetos 1-dimensionales (<b>aristas</b>) y objetos 0-dimensionales
-        (<b>vértices</b>).
-      </p>
-      <p>La unión de las aristas
-        que pertenecen a una sóla cara forma <b>la frontera de
-        la superficie</b>. Si la superficie
-        se denota por \(\mathbb{S}\) su frontera se denota por \(\partial \mathbb{S}\).
-      <p>
-        <p>
-          Una <b>superficie  poligonal se llama cerrada</b> si su frontera es vacía.
-          Por ejemplo un cubo o un tetrahedro.
-        </p>
-
-        <p>
-          Dados cuatro puntos no co-planares, \(P,Q,R,S\), por
-          \(\mathbb{Te}(P,Q,R,S)\) denotamos al tetrahedro generado
-          por \(P,Q,R,S\), con la orientación inducida por
-          el triángulo orientado \(\triangle(P,Q,R)\).
-        </p>
-        <p>
-          Para una explicación más visual ver el
-          <div class="video flexbox">
-            <a href="https://youtu.be/le9gefgCaBA" target="_blank"> Video </a>
-          </div>
-
-        </p>
-        <p>
-          Otro video más informal sobre superficies poligonales y videojuegos.
-          <div class="video flexbox">
-            <a href="https://youtu.be/U93RImC-by4" target="_blank"> Video </a>
-          </div>
-        </p>
-    </div>
-
-
 
     <div class="definicion-box">
       <h2 class="number-title"> Definición </h2>
@@ -726,7 +618,44 @@
         \]
       </p>
     </div>
+  -->
 
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+      Sea \(S\subseteq \mathbb{R}^n\). Una 2-forma en \(S\) es una función 
+      que a cada punto \(P\in S\) asigna una 2-forma constante \(\omega_P\). 
+      Usando la base de las funciones bilineales discutida en la sección anterior 
+      podemos escribir 
+      \[
+      \omega_P=\sum_{1\leq i < j \leq n} A_{i,j}(P)dx_i\wedge dx_j
+      \]
+      Nota que esto produce funciones \(A_{i,j}:S \to \mathbb{R}\), \(1\leq i < j \leq n\).
+    </p>
+    <ol>
+      <li>
+        Si todas las funciones \(A_{i,j}:S \to \mathbb{R}\), \(1\leq i < j \leq n\), 
+        son continuas en \(S\) decimos que la 2-forma \(\omega\) es continua en \(S\).
+      </li>
+      <li>
+        Si \(S=U\) es un abierto de \(\mathbb{R}^n\) y todas 
+        las funciones \(A_{i,j}:U\to \mathbb{R}\), \(1\leq i< j \leq n\), son 
+        diferenciables en \(U\) decimos que \(\omega\) es diferenciable en \(U\).
+      </li>
+    </ol>
+    <p>
+      Con esta notación escribimos 
+      \[
+      \omega=\sum_{1\leq i < j \leq n}A_{i,j}dx_i \wedge dx_j
+      \]
+      por ejemplo, una 2-forma diferenciable \(\mathbb{R}^3\) es 
+      \[
+      \omega = (3x^2-y)dx\wedge dy + \cos(y^2) dx \wedge dz+ (e^x+e^y+z^4)dy\wedge dz
+      \]
+    </p>
+
+  </div>
 
     <div class="definicion-box">
       <h2 class="number-title"> Definición </h2>
@@ -737,29 +666,26 @@
         \[
         df= \sum_{i=1}^n (\partial_{x_i}f) dx_i
         \]
-        Nota que en general  \(df\) no es una 1-forma constante, pero,
-        si \(f\) es una función lineal entonces cada parcial
-        \(\partial_{x_i}f\) sí es una constante.
+       
       </p>
         <p>
-          Considera una 1-forma  en \(\mathbb{R}^n\)
+          Sea \(U\subseteq \mathbb{R}^n\) un abierto y considera una 1-forma  diferenciable en  \(U\)
           \[
           \omega= \sum_{i=1}^n f_i dx_i
           \]
-          donde cada \(f_i:\mathbb{R}^n\to \mathbb{R}\) es una
-          función lineal.
         </p>
         <p>Definimos la <b>derivada exterior</b> de
-          \(\omega\), denotada \(d\omega\) como la
-          2-forma constante dada por
+          \(\omega\), denotada \(d\omega\), como la
+          2-forma dada por
           \[
           d\omega= \sum_{i=1}^n (df_i) \wedge dx_i
           \]
 
         </p>
         <p>
-          Nota que \(\omega\) es una 1-forma pero
-          \(d\omega\) es una 2-forma.
+          Nota que \(df_i\) es una 1-forma por lo que \(df_i\wedge dx_i\) es una 2-forma 
+          la cual se puede escribir en términos de la base \(dx_k\wedge dx_l\) usando las 
+          reglas algebráicas del <a href="./S12.html#Ejer:propieadesFunBilAlt">Ejercicio 12.7</a>
         </p>
         <p>
           Por ejemplo, si consideramos
@@ -775,7 +701,7 @@
           d(x+z)=dx+dy,
           \end{eqnarray*}
           y usando las propiedades del producto cuña del
-          <a href="S10.html#Ejer:propieadesFunBilAlt"> Ejercicio 10.7</a>, tenemos
+          <a href="S10.html#Ejer:propieadesFunBilAlt"> Ejercicio 12.7</a>, tenemos
           \begin{eqnarray*}
           d\omega &=& ( 2dx+dy  )\wedge dx+(6dx-3dy)\wedge dy+(dx+dz)\wedge dz \\
           &=& dy\wedge dx+ 6 dx\wedge dy +dx\wedge dz \\
@@ -791,12 +717,21 @@
           <h2 class="number-title"> Ejercicio </h2>
           <p>
             Para cada una de las 1-formas en \(\mathbb{R}^3\) calcula
-            su derivada exterior.
+            su derivada exterior, escribiéndola en términos 
+            de la base canónica \(\{ dx\wedge dy, dx\wedge dz, dy\wedge dz\}\) .
           </p>
           <ol>
             <li> \(\omega= (3x-2y+4z)dx+(-3x+6y-2z)dy+(4x+2y+6z)dz \) .</li>
 
             <li> \(\omega= (x+y+z)dx+(x-y+z)dy+(-x-y-z)dz \) .</li>
+
+            <li>
+              \(\omega = e^{x+y}dx+\sin(xyz)dy+(xy)dz\).
+            </li>
+
+            <li>
+              \(\omega = \frac{dx}{x^2+y^2+z^2}+ \frac{dy}{1+y^2}+\frac{dz}{\cos^2(z)+y^2}\)
+            </li>
           </ol>
         </div>
 
@@ -818,6 +753,122 @@
           </p>
         </div>
 
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <ol>
+              <li>
+                En \(\mathbb{R}^n\) considera la 1-forma \(dx_i\), \(i\in \{1,\dots,n\}\). Prueba que 
+                \(d(dx_i)=0\).
+              </li>
+              <li>
+                Sea \(U\subseteq \mathbb{R}^n\) un abierto y \(f:U\to \mathbb{R}\) clase \(C^2\) 
+                en \(U\). Prueba que \(d(df)=0\).
+              </li>
+          </ol>
+
+        </div>
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición</h2>
+          <p>
+            Sea \(S\subseteq \mathbb{R}^n\) una superficie suave parametrizada orientada 
+            con parametrización \(\mathbb{r}:R\to S\) y  \(\omega=\sum_{1\leq i < j \leq n} A_{i,j}dx_i \wedge dx_j\) una
+            2-forma continua en \(S\).
+          </p>
+          <p>
+            Definimos la 
+            integral de \(\omega\) sobre \(S\) como 
+            \[
+            \int_S \omega = \sum_{1\leq i < j \leq n} \int_{R} A_{i,j}(\mathbb{r}(u,v)) \frac{\partial(X_i,X_j)}{\partial(x_i,x_j)}(u,v)du\otimes dv
+            \]
+            donde \(\mathbb{r}(u,v)=(X_1(u,v),\dots, X_n(u,v))\) y 
+            \[
+            \frac{\partial(X_i,X_j)}{\partial(x_i,x_j)}(u,v)=
+            \det\left[ 
+            \begin{array}{cc} 
+            \partial_u X_i(u,v) & \partial_u X_j(u,v) \\
+            \partial_v X_i(u,v) & \partial_v X_j(u,v) 
+            \end{array}
+            \right]
+            \]
+           </p>
+           <p>
+            Nota: cuando la superficie \(S\) está metida en \(\mathbb{R}^3\) la 2-forma se puede escribir como 
+            \[
+            \omega= A_1dx\wedge dy + A_2 dx\wedge dz + A_3 dy\wedge dz
+            \]
+            por lo que podemos identificar \(\omega\) con el campo vectorial \(\mathbb{F}=(A_1,A_2,A_3)\) y en 
+            este caso tenemos que 
+            \[
+            \int_S \omega = \int_S \mathbb{F}\cdot dS
+            \]
+            por lo que obtenemos una generalización de la integral de superficie.
+           </p>
+
+        </div>
+
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Una <b>superficie poligonal</b> en \(\mathbb{R}^n\) es un subconjunto
+            de \(\mathbb{R}^n\) que se obtiene:
+            <ol>
+              <li>al sumar una cantidd finita
+            de triángulos dirigidos;</li>
+            <li> y con la condición de que las aristas de los
+            triángulos dirigidos NO pertenecen a más de dos
+            triángulo dirigidos en la suma.</li>
+          </ol>
+          </p>
+          <p>
+            Ejemplos: cubos, tetrahedros.
+    
+          </p>
+          <p>
+            Es importante notar que una superficie poligonal
+            es la unión de objetos 2-dimensionales (<b>caras</b>),
+            objetos 1-dimensionales (<b>aristas</b>) y objetos 0-dimensionales
+            (<b>vértices</b>).
+          </p>
+          <p>La unión de las aristas
+            que pertenecen a una sóla cara forma <b>la frontera de
+            la superficie</b>. Si la superficie
+            se denota por \(\mathbb{S}\) su frontera se denota por \(\partial \mathbb{S}\).
+          <p>
+            <p>
+              Una <b>superficie  poligonal se llama cerrada</b> si su frontera es vacía.
+              Por ejemplo un cubo o un tetrahedro.
+            </p>
+    
+            <p>
+              Dados cuatro puntos no co-planares, \(P,Q,R,S\), por
+              \(\mathbb{Te}(P,Q,R,S)\) denotamos al tetrahedro generado
+              por \(P,Q,R,S\), con la orientación inducida por
+              el triángulo orientado \(\triangle(P,Q,R)\).
+            </p>
+            <p>
+              Para una explicación más visual ver el
+              <div class="video flexbox">
+                <a href="https://youtu.be/le9gefgCaBA" target="_blank"> Video </a>
+              </div>
+    
+            </p>
+            <p>
+              Otro video más informal sobre superficies poligonales y videojuegos.
+              <div class="video flexbox">
+                <a href="https://youtu.be/U93RImC-by4" target="_blank"> Video </a>
+              </div>
+            </p>
+        </div>
+    
+    
+    
+        
+
     <div class="ejercicio-box">
       <h2 class="number-title" id="Ejer:gaussPoligoonales"> Ejercicio </h2>
       <p>
@@ -836,8 +887,8 @@
           \]
           </p>
           <p>
-            Nota: este ejercicio es una breve mirada a lo que serán los
-            teoremas de Green, Gauss  y Stokes.
+            Nota: este ejercicio es la versión del Teorema de Stokes
+            para supreficies poligonales.
           </p>
           <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
@@ -855,8 +906,8 @@
           </p>
 
           <p>
-              Usa el <a href="#Ejer:gaussPoligoonales">Ejercicio 11.19</a>
-              y el ejercicio <a href="#Ejer:antiderivada2FConstante"> Ejercicio 11.18</a>
+              Usa el <a href="#Ejer:gaussPoligoonales">Ejercicio 13.13</a>
+              y el ejercicio <a href="#Ejer:antiderivada2FConstante"> Ejercicio 13.11</a>
               para calcular
               \[
               \int_{\mathbb{S}} -dxdy +4dydz +4dxdz
