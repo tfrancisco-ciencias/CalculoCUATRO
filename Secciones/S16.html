@@ -1,78 +1,92 @@
-<! DOCTYPE html>
-  <html lang="es">
+<!DOCTYPE html PUBLIC >
 
-
-
-  <head>
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <!-- Following part is mathjax, for latex-->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 
     <!-- This part is for jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
     <!-- This part is to load main.js -->
     <script type="text/javascript" src="../main.js"></script>
 
-    <!-- Next part is for new coomands -->
 
+    <!-- Next part is for new coomands -->
     <script>
       window.MathJax = {
         tex: {
           macros: {
             sen: "\\operatorname{sen}",
             seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
           },
-          tags: "ams" /* this part is for numbered equations */
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
       };
     </script>
 
-
-
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
 
     <!-- CSS -->
 
     <link rel="stylesheet" , href="../styles.css" />
 
-
-
-    <!-- This part restart counter of cards to start at N+1 -->
+    <!-- This part restart counter of cards to start at n+1 -->
     <style>
-      body.card {
-        counter-reset: sectionCounter 15 cardCounter;
-      }
+        body.number-title{
+          counter-reset: sectionCounter 15 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter 15 cardCounter ;
+        }
+        
+      </style>
+  
+    <!-- Top Menu  -->
 
-      h1.card {
-        counter-reset: sectionCounter 15 cardCounter;
-      }
-    </style>
 
-  </head>
+        <header class="main-header">
+          <h1> Cálculo CUATRO </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
 
-
-  <!-- Top Menu -->
-
-  <header class="main-header">
-    <nav class="top-nav">
-      <ul>
-        <li> <a href="../Home.html"> Inicio </a> </li>
-        <li> <a href="../Secciones.html"> Secciones </a> </li>
-      </ul>
-    </nav>
-
-    <h1 class="calculo-title"> Cálculo CUATRO</h1>
-
-  </header>
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 16</title>
+    </head>
 
   <!-- Contenido empieza abajo -->
 
+  <body>
+    <h1 class="number-title flexbox">El Teorema de Cambio de Variable  </h1>     
 
-  <body class="fondo card ">
-
-    <div class="flexbox">
-
-      <h1 class="card "> El Teorema de Cambio de Variable </h1>
+<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
       <div class="nota-box">
         <h2 class="number-title"> Introducción </h2>

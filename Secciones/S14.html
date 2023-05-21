@@ -94,50 +94,26 @@
         <h2 class="number-title"> Introducción </h2>
         <p>
           En esta sección iniciamos el estudio de las integrales de
-          2-formas y para introducir las ideas y conceptos nos enfocamos en
-          2-formas en \(\mathbb{R}^2\). Nota: la diferencia técnica
-          entre 2-formas en \(\mathbb{R^2}\) y 2-formas en \(\mathbb{R}^n\), \(n\geq 3\),
-          es análoga a la que se ve entre los ejercicios 11.6 y 11.9.
+          Riemann en dos dimensiones y la idea es copiar lo que se hizo 
+          en una dimensión. Ya que en dos dimensiones existen 
+          más posibilidades de regiones de integración (en una dimensión 
+          básicamente sólo hay una: intervalos) un aspecto técnico importante es 
+          iniciar con una región de integración que permita generalizar 
+          las construcciones de dimensión 1 y estas regiones son rectángulos.
         </p>
-        <p>
-          Hemos visto que  \(\Lambda^2(\mathbb{R}^2)\) tiene dimensión
-          1 y que la función determinante es una base. Por lo tanto
-          toda 2-forma constante se ve de la forma
-          \[
-          \omega=A \det
-          \]
-          donde \(A\) es una constante.
-        </p>
-        <p>
-          De manera análoga a lo que hicimos con 1-formas, vamos a
-          definir a una 2-forma, sobre un subconjunto \(D\subset \mathbb{R}^2\),
-          como una función que asigna a cada punto de \(D\) una
-          2-forma constante. Formalmente una 2-forma
-          es una función \(\omega:D \to \Lambda^2(\mathbb{R}^2)\).
-          Por lo tanto, una 2-forma se puede escribir
-          \[
-          \omega_P=A(P)\det
-          \]
-          donde ahora \(A:D \subset \mathbb{R}^2\to \mathbb{R}\) es una función.
-         </p>
+        
+       
+        
          <p>
-           Es muy útil notar que con esta definición hay una biyección
-           entre las 2-formas definidas en \(D\) y el conjunto de
-           funciones de \(D\) a \(\mathbb{R}\). Ya que a las funciones
-           usualmente se les denota como \(f\), vamos a usar \(f\) en vez de \(A\).
-         </p>
-         <p>
-            Tratando de copiar lo que hicimos para la integral de 1-formas,
-            queremos aproximar \(D\) mediante una suma de triángulos dirigidos.
-            Pero, ya que estamos acostumbrados al sistema cartesiano de coordenadas,
-            es más sencillo para las cuentas usar rectángulos.
+            Tratando de copiar lo que hicimos para la integral de una 
+            dimensión si \(R\subset \mathbb{R}^2\) es un rectángulo 
+            y \(f:R\to \mathbb{R}\) es una función queremos aproximar \(\int_R f\)
+            mediante una suma de subrectángulos de \(R\).
           </p>
           <p>
             Si denotamos
-            los rectángulos como el producto cartensiano
-            de dos intervalos, \([x_{i-1}, x_i]\times [y_{j-1}, y_j]\),
-            y usamos que la integral sobre un rectángulo de la 2-forma
-            que es el determinante es el área, la aproximación de la
+            los subrectángulos como el producto cartensiano
+            de dos intervalos, \([x_{i-1}, x_i]\times [y_{j-1}, y_j]\), la aproximación de la
             integral es una doble suma de la forma:
             \begin{equation}\label{Eqn:sumasRiemann2D}
             \sum_{i=1}^n\sum_{j=1}^m f(x_i^*,y_j^*)(x_i-x_{i-1})(y_j-y_{j-1})
@@ -145,24 +121,13 @@
             donde \((x_i^*,y_i^*)\) es un punto en el rectángulo
             \([x_{i-1}, x_i]\times[y_i,y_{i-1}]\).
           </p>
-            <p>Notar que antes,
-            para 1-formas, al hacer más fina la aproximación, teníamos
-            sumas que tendían al infinito y, gracias a la integral de Riemann,
-            podíamos asegurar que el límite era una integral,  ver
-             <a href="S4.html#Eqn:limiteSumaRimeann"> introducción de la
-             sección 4.</a>
-
-         </p>
          <p>
            Nuestro problema ahora es que no tenemos una integral en dos
            dimensiones que nos permita encontrar límites de sumas
            del tipo \eqref{Eqn:sumasRiemann2D}. El propósito de esta sección es formalizar
-           las ideas presentadas en esta introducción para introducir
-           la integral de Riemann en dos dimensiones.
+           las ideas presentadas en esta introducción.
          </p>
-         <p>
-           Vamos a iniciar con los dominios más sencillos, los rectángulos.
-         </p>
+         
       </div>
 
 
@@ -265,7 +230,7 @@
 
       </div>
 
-      <div class="nota-box">
+     <!-- <div class="nota-box">
         <h2 class="number-title"> Nota </h2>
         <p>
           Si pensamos al rectángulo \([a,b]\times [c,d]\) como un
@@ -289,7 +254,7 @@
           Nota también que en esta sección nos olvidamos de la orientación
           pues estamos tratando siempre con rectángulos orientados positivamente.
         </p>
-      </div>
+      </div>-->
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
@@ -666,63 +631,9 @@
       </div>
 
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Para cada una de las siguientes funciones y
-            rectángulos, usa el
-            <a href="#Ejer:Fubinni">Ejercicio 12.15</a>  para
-            calcular \(\int_\mathcal{R}f\). Puedes suponer
-            que todas las funciones que se presentan
-            son integrables.
-
-          </p>
-          <ol>
-            <li>
-              \(f(x,y)=xy(x^2+y)\), \(\mathcal{R}=[0,1]\times [0,2]\).
-            </li>
-            <li>
-              \(f(x,y)=\sqrt{xy}+x\), \(\mathcal{R}=[0,9]\times [0,1]\).
-            </li>
-            <li>
-              \(f(x,y)=\sin(x+y)\), \(\mathcal{R}=[0,\pi]\times [0,\pi]\).
-            </li>
-            <li>
-              \[
-              f(x,y)=
-              \left\{
-                \begin{array}{cc}
-                1+x-y & \frac{x}{4} \leq y \leq \frac{x}{2} \\
-                0 &  \textrm{en otro caso}
-                \end{array}
-              \right.
-              \]
-              \(\mathcal{R}=[0,2]\times [0,1]\).
-            </li>
-
-            <li>
-              \[
-              f(x,y)=
-              \left\{
-                \begin{array}{cc}
-                x+y &  x^2\leq y \leq x \\
-                0 &  \textrm{en otro caso}
-                \end{array}
-              \right.
-              \]
-              \(\mathcal{R}=[0,1]\times [0,1]\).
-            </li>
-          </ol>
-          <button class="respButton hvr-grow"> Respuesta de 1 y 4</button>
-          <div class="resp-box">
-            <div class="video flexbox">
-              <a href="https://youtu.be/wV5vwTSo3HY" target="_blank"> Video </a>
-            </div>
-          </div>
-        </div>
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+        
+      <div class="lema-box">
+        <h2 class="number-title"> Lema  </h2>
         <p>
           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
           \(f:\mathcal{R}\to \mathbb{R}\) una función acotada.
@@ -777,8 +688,8 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title" id="Ejer:continuidadUniforme"> Ejercicio </h2>
+      <div class="lema-box">
+        <h2 class="number-title" id="Ejer:continuidadUniforme"> Lema  </h2>
         <p>
           Toma \(\mathcal{R}=[a,b]\times [c,d]\) y
           \(f: \mathcal{R}\to \mathbb{R}\) una función continua en todo
@@ -799,6 +710,42 @@
           </div>
         </div>
 </div>
+
+
+
+
+<div class="ejercicio-box">
+  <h2 class="number-title"> Ejercicio </h2>
+
+  <p>
+    Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
+    \(f:\mathcal{R}\to \mathbb{R}\) una función continua. Fija
+    \(\varepsilon >0\) y sea \(\delta >0\) la delta del
+    <a href="S12.html#Ejer:continuidadUniforme">Ejercicio 12.18</a>
+
+  </p>
+
+  <p>
+    Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\)
+    una partición de \(\mathcal{R}\) tal que \(\| \mathbb{P}\|\leq \delta/\sqrt{2}\).
+  </p>
+  <p>
+    Considera  funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales que
+    \begin{eqnarray*}
+    s(x,y)=\min_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}\\
+    t(x,y)=\max_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}
+    \end{eqnarray*}
+    donde \(\mathcal{R}_{i,j}=[x_{i-1}, x_i]\times [y_{j-1}, y_j]\).
+  </p>
+  <p>
+    Prueba que
+    \[
+    \int_{\mathcal{R}} t -\int_{\mathcal{R}} s \leq \varepsilon A
+    \]
+    donde \(A\) es el área de \(\mathcal{R}\).
+  </p>
+</div>
+
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
@@ -928,196 +875,6 @@
 
 
 
-                        <div class="ejercicio-box">
-                          <h2 class="number-title"> Ejercicio </h2>
-                          <p>
-                            Calcula la integrales de las siguientes funciones.
-                            Recuerda que \(\lfloor x \rfloor\) denota el mayor entero
-                            menor o igual a \(x\).
-                          </p>
-                          <ol>
-                            <li> \(\int_{\mathcal{R}} \lfloor x\rfloor \lfloor y \rfloor\),
-                            \(\mathcal{R}=[0,2]\times [0,2]\). </li>
-                            <li> \(\int_{\mathcal{R}} \lfloor x+y \rfloor\),
-                              \(\mathcal{R}=[0,3]\times [0,3]\) </li>
-                            <li> \(\int_{\mathcal{R}} \sqrt{\lfloor x+y \rfloor}\),
-                            \(\mathcal{R}=[0,3]\times [0,3]\). </li>
-                            </ol>
-                            <p>
-                              Sugerencia: si \(\mathcal{R}\) es un polígono en el
-                              plano y \(f\) es igual a una constante \(c\) sobre \(\mathcal{R}\)
-                              entonces \(\int_{\mathcal{R}f}=c * \textrm{área}(\mathcal{R})\)
-                            </p>
-                            <button class="respButton hvr-grow"> Respuesta de 2 </button>
-                            <div class="resp-box">
-                              <div class="video flexbox">
-                                <a href="https://youtu.be/T5801bIJMA4" target="_blank"> Video </a>
-                              </div>
-                            </div>
-                        </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                    <p>
-                      Calcula la integrales de las siguientes funciones. Puedes
-                      suponer que todas las funciones que aparecen son integrables.
-                    </p>
-                    <ol>
-                      <li> \(\int_{\mathcal{R}}|3x+2y|\), \(\mathcal{R}=[0,2]\times [-3,3]\). </li>
-                      <li> \(\int_{\mathcal{R}} |\cos(x+y)|\),
-                        \(\mathcal{R}=[0,\pi]\times [0,\pi]\) </li>
-                      <li> \(\int_{\mathcal{R}} \sqrt{x+y}\),
-                      \(\mathcal{R}=[0,1]\times [0,4]\). </li>
-
-                      <li> \(\int_{\mathcal{R}} y^{-3}e^{tx/y}\),
-                        \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
-                      </li>
-                    </ol>
-
-                    <button class="respButton hvr-grow"> Respuesta inciso 1</button>
-                    <div class="resp-box">
-                      <div class="video flexbox">
-                        <a href="https://youtu.be/yd87EErkg8I" target="_blank"> Video </a>
-                      </div>
-                    </div>
-<br>
-                    <button class="respButton hvr-grow"> Respuesta inciso 2</button>
-                    <div class="resp-box">
-                      <div class="video flexbox">
-                        <a href="https://youtu.be/S1aNwrgNWwc" target="_blank"> Video </a>
-                      </div>
-                    </div>
-
-                    <br>
-
-                    <button class="respButton hvr-grow"> Respuesta inciso 3</button>
-                    <div class="resp-box">
-                      <p>
-                        Por el Teorema 12.20 tenemos que
-                        \begin{eqnarray*}
-                        \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
-                        & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
-                        & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
-                        & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
-                        \end{eqnarray*}
-                      </p>
-                    </div>
-
-                  </div>
-
-                  <div class="ejercicio-box">
-                    <h2 class="number-title"> Ejercicio </h2>
-                    <p>
-                      Calcula la integrales de las siguientes funciones. Puedes
-                      suponer que todas las funciones que aparecen son integrables.
-                    </p>
-                    <ol>
-                      <li> \(\mathcal{R}=[0,1]\times [0,1]\)
-                        \begin{eqnarray*}
-                        f(x,y)=\left\{
-                          \begin{array}{cc}
-                        x+2y & \textrm{si \(x^2 \leq y \leq 2x^2\)} \\
-                        0  & \textrm{en otro caso}
-                        \end{array}
-                        \right.
-                        \end{eqnarray*}
-                      </li>
-
-                      <li> \(\mathcal{R}=[-1,1]\times [-1,1]\)
-                        \begin{eqnarray*}
-                        f(x,y)=\left\{
-                          \begin{array}{cc}
-                        2x^2+2y^2 & \textrm{si \(x^2 + y^2 \leq 1 \)} \\
-                        0  & \textrm{en otro caso}
-                        \end{array}
-                        \right.
-                        \end{eqnarray*}
-                      </li>
-
-                      <li> \(\mathcal{R}=[1,2]\times [1,4]\)
-
-                          \begin{eqnarray*}
-                        f(x,y)=\left\{
-                          \begin{array}{cc}
-                        \frac{(x+y)^{-2}}{2} & \textrm{si \(x \leq y \leq 2x\)} \\
-                        0  & \textrm{en otro caso}
-                        \end{array}
-                        \right.
-                        \end{eqnarray*}
-
-                      </li>
-                    </ol>
-
-
-                  <button class="respButton hvr-grow"> Respuesta inciso 1</button>
-                  <div class="resp-box">
-                  <p>
-                    El dominio de \(f\) es el que se encuentra entre la gráfica verde
-                    (\(y= 2x^{2}\))  y la gráfica roja (\(y = x^{2}\)),
-
-                    <div class="imagen-box flexbox">
-                      <img src="./Images/Fig25-1.png" alt="Dominio25-1" width="270" height="230">
-                    </div>
-
-
-                    Tenemos que la condición del dominio es \(x^{2} \leq y \leq 2x^{2}\)
-                    la cual es equivalente a \(\frac{\sqrt{y}}{\sqrt{2}} \leq x \leq \sqrt{y}\).
-                    Entonces fijando \(y \in [0, 1]\) y tamando
-                    \begin{equation*}
-                    A(y) = \int_{0}^{1}f(x, y)dx
-                    \end{equation*}
-
-                    Por la regla de correspondecia de \(f\) simplificamos
-                    \begin{eqnarray*}
-                    A(y) & = & \int_{\frac{\sqrt{y}}{\sqrt{2}}}^{\sqrt{y}} x + 2y dx \\
-                     & = & \frac{1}{2}\left(y - \frac{y}{2}\right) + 2y\left(\sqrt{y} -
-                     \frac{\sqrt{y}}{\sqrt{2}}\right) \\
-                     & = & \frac{y}{4} + \sqrt{2}\left(\sqrt{2} - 1\right)y^{\frac{3}{2}}
-                    \end{eqnarray*}
-
-                    Suponiendo que \(f\) es integrable, entonces por el ejercicio 12.5 tenemos
-                    \begin{eqnarray*}
-                    \int_{R} f & = & \int_{0}^{1} A(y) dy \\
-                     & = & \int_{0}^{1} \frac{y}{4} + \sqrt{2}\left(\sqrt{2} -
-                     1\right)y^{\frac{3}{2}} dy \\
-                     & = & \frac{1}{8} + \frac{2\sqrt{2}(\sqrt{2} - 1)}{5}\\
-                     & = & \frac{37 -16\sqrt{2}}{40}
-                    \end{eqnarray*}
-
-
-                  </p>
-                </div>
-
-                <br>
-                <button class="respButton hvr-grow"> Respuesta inciso 2</button>
-                <div class="resp-box">
-                  <div class="video flexbox">
-                    <a href="https://youtu.be/uPrEWBLTXd4" target="_blank"> Video </a>
-                  </div>
-                </div>
-
-
-
-                  </div>
-
-
-
-                        <div class="ejercicio-box">
-                          <h2 class="number-title"> Ejercicio </h2>
-                          <p>
-                            Sean \(f:[a,b]\to \mathbb{R}\),
-                            \(g:[c,d]\to \mathbb{R}\) dos funciones continuas,
-                            denota \(\mathcal{R}=[a,b]\times [c,d]\) y define
-                            \(h:\mathcal{R}\to \mathbb{R}\) por \(h(x,y)=f(x)g(y)\).
-                          </p>
-                          <p>
-                            Expresa la integral \(\int_{\mathcal{R}} h(x,y)\)
-                            en términos de las integrales de \(f\) y de \(g\).
-                          </p>
-
-                        </div>
-
-
                        <div class="ejercicio-box">
                          <h2 class="number-title" id="Ejer:PropIntegral"> Ejercicio </h2>
 
@@ -1154,40 +911,9 @@
 
                        </div>
 
-                       <div class="ejercicio-box">
-                         <h2 class="number-title"> Ejercicio </h2>
-
-                         <p>
-                           Sea \(\mathcal{R}=[a,b]\times [c,d]\) y
-                           \(f:\mathcal{R}\to \mathbb{R}\) una función continua. Fija
-                           \(\varepsilon >0\) y sea \(\delta >0\) la delta del
-                           <a href="S12.html#Ejer:continuidadUniforme">Ejercicio 12.18</a>
-
-                         </p>
-
-                         <p>
-                           Sea \(\mathbb{P}=\{(x_i,y_j): 1\leq i \leq n, 1\leq j \leq m\}\)
-                           una partición de \(\mathcal{R}\) tal que \(\| \mathbb{P}\|\leq \delta/\sqrt{2}\).
-                         </p>
-                         <p>
-                           Considera  funciones escalonadas \(s,t:\mathcal{R}\to \mathbb{R}\) tales que
-                           \begin{eqnarray*}
-                           s(x,y)=\min_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}\\
-                           t(x,y)=\max_{(x,y)\in \mathcal{R}_{i,j}} \{  f(x,y)\} \quad \textrm{si \((x,y)\in (x_{i-1},x_i)\times (y_{j-1},y_j)\)}
-                           \end{eqnarray*}
-                           donde \(\mathcal{R}_{i,j}=[x_{i-1}, x_i]\times [y_{j-1}, y_j]\).
-                         </p>
-                         <p>
-                           Prueba que
-                           \[
-                           \int_{\mathcal{R}} t -\int_{\mathcal{R}} s \leq \varepsilon A
-                           \]
-                           donde \(A\) es el área de \(\mathcal{R}\).
-                         </p>
-                       </div>
 
 
-          <div class="nota-box">
+          <!-- <div class="nota-box">
             <h2 class="number-title"> Conclusión </h2>
             <p>
               Para definir la integral de 2-formas no constantes resulta
@@ -1207,7 +933,7 @@
               para dichos dominios más generales y en particular el método de
               integrales iteradas también se refinará para estas regiones.
             </p>
-          </div>
+          </div>--> 
 
 
 <!-- acaba contenido -->
