@@ -753,7 +753,36 @@
           </p>
         </div>
 
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <ol>
+              <li>
+                Considera la 1-forma diferenciable en \(\mathbb{R}^2\)
+                \[
+                \omega = Pdx+Qdy
+                \]
+                Prueba que 
+                \[
+                d\omega = (\partial_xQ -\partial_yP) dx\wedge dy.
+                \]
+                Nota que \(\partial_xQ -\partial_yP\) es el integrando que aparece en 
+                el Teorema de Green.
+              </li>
+              <li>
+                Considera la 1-forma diferenciable en \(\mathbb{R}^3\)
+                \[
+                \omega = Adx+Bdy+Cdz
+                \]
+                Prueba que 
+                \[
+                d\omega = (\partial_xB-\partial_yA)dx\wedge dy + (\partial_zA-\partial_xC)dz\wedge dx + (\partial_yC-\partial_zB)dy\wedge dz
+                \]
+                Nota que \(\textrm{Rot}(A,B,C)=(\partial_xB-\partial_yA,\partial_yC-\partial_zB,\partial_zA-\partial_xC)\).
+              </li>
+          </ol>
 
+
+        </div>
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
@@ -913,6 +942,139 @@
               \int_{\mathbb{S}} -dxdy +4dydz +4dxdz
               \]
           </p>
+        </div>
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <h3> El Teorema de Stokes para formas diferenciables </h3>
+          <p>
+            El <a href="#Ejer:gaussPoligoonales">Ejercicio 13.15</a>
+            da una idea para generalizar el  Teorema de Stokes para formas diferenciables.
+          </p>
+          <p>
+            Copiando directamente el <a href="#Ejer:gaussPoligoonales">Ejercicio 13.15</a>
+            podemos enunciar el Teorema de Stokes para formas como sigue:
+            \[
+            \int_{\mathcal{S}} d\omega = \int_{\partial \mathcal{S}} \omega
+            \]
+            donde \(\omega\) es una 1-forma clase \(C^1\) 
+            definida en un abierto que contiene a \(\mathcal{S}\).
+          </p>
+          <p>
+            La idea de la demostración (que se puede formalizar) es la siguiente.
+          </p>
+          <p>
+            Sea \(\mathcal{S}\) una superficie suave parametrizada, orientable con frontera. 
+            Una triangulación de 
+            \(\mathcal{S}\) es una superficie poligonal \(\mathbb{S}\) de tal forma que todos 
+            vértices de los triángulos dirigidos que conforman a \(\mathbb{S}\) caen en \(\mathcal{S}\).
+            <div class="imagen-box flexbox">
+              <img src="./Images/Sec13-img1.png" alt="Triangulaziones" width="300" height="230">
+              </div>
+          </p>
+          <p>
+           Dada  \(\omega\), una 2-forma continua definida en \(S\), podemos aproximar 
+           a la superficie \(\mathcal{S}\) con superficies poligonales de la siguiente forma: 
+           para toda \(\varepsilon >0\) existe \(\mathbb{S}\), una triangulación de \(\mathcal{S}\),
+           tal que 
+           \[
+           \left| \int_{\mathbb{S}} d\omega  -\int_{\mathcal{S}} d\omega \right| < \varepsilon
+           \]
+           y con un poco más de trabajo también se puede probar que también se aproximan las 
+           fronteras:
+           \[
+           \left| \int_{\partial \mathbb{S}}\omega  -\int_{\partial \mathcal{S}} \omega \right| < \varepsilon
+           \]
+          </p>
+          <p>
+            Ya que el <a href="#Ejer:gaussPoligoonales">Ejercicio 13.15</a> asegura 
+            \(\int_{\partial \mathbb{S}} \omega = \int_{\mathbb{S}} d\omega  \) podemos estimar 
+            \begin{eqnarray*}
+            \left| \int_{\partial \mathcal{S}}\omega  -\int_{\mathcal{S}} d\omega \right| &=&
+            \left| \int_{\partial \mathcal{S}}\omega  
+            -\int_{\partial \mathbb{S}} \omega + \int_{\mathbb{S}} d\omega 
+            -\int_{\mathcal{S}} d\omega \right|  \\
+            &\leq & 
+            \left| \int_{\partial \mathcal{S}}\omega  
+            -\int_{\partial \mathbb{S}} \omega \right|
+            + \left| \int_{\mathcal{S}}d\omega  
+            -\int_{\mathbb{S}} d \omega \right|\\
+            & \leq & 2\varepsilon
+            \end{eqnarray*}
+            y ya que \(\varepsilon\) es arbitraria del principio y final de las desigualdades anteriores 
+            concluimos 
+            \[
+            \int_{\partial \mathcal{S}}\omega = \int_{\mathcal{S}} d \omega.
+            \]
+          </p>
+        </div>
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> El Teorema Fundamental del Cálculo </h2>
+          <p>
+            El segundo Teorema fundamental dice:
+            \[
+            \int_a^b f'(x)dx= f(b)-f(a)
+            \]
+            donde \(f:[a,b]\to \mathbb{R}\) es una función continua en 
+            \([a,b]\) y diferenciable en \((a,b)\). Veamos el teorema 
+            en términos de 1-formas. 
+          </p>
+          <p>
+            De la <a>Definición 10.22</a>, la función \(f:[a,b]\to \mathbb{R}\)
+            tiene derivada exterior \(df=f'dx\) (pensando a \(dx\) como la 
+            1-forma canónica en \(\mathbb{R}\)) y ya habíamos notado que desde el punto 
+            vista de 1-formas, \(\int_{[a,b]} f'dx\) es la integral usual de \(f'\). 
+            Por lo tanto podemos escribir el lado izquierdo del Teorema Fundamental 
+            como 
+            \[
+            \int_{a}^b f'(x)dx = \int_{[a,b]}df.
+            \]
+          </p>
+          <p>
+            En cuanto al lado derecho no parece una integral pero el punto importante es 
+            notar que depende de los puntos \(a\) y \(b\) que es precisamente la 
+            frontera de \([a,b]\). Si por conveniencia pensamos a \(f\) como una 
+            0-forma y la integral de \(f\) desde \(a\) a \(b\) como \(f(b)-f(a)\)
+            podemos escribir el lado derecho como 
+            \[
+            f(b)-f(a)=\int_{\partial [a,b]} f. 
+            \]
+          </p>
+          <p>
+            Así el Teorema Fundamental se puede reescribir como 
+            \[
+            \int_{[a,b]}df= \int_{\partial [a,b]} f,
+            \]
+            pensando a \([a,b]\) como un objeto 1-dimensional en \(\mathbb{R}\).
+          </p>
+          <p>
+            Que la anterior formulación se asemeje al <a href="#Ejer:gaussPoligoonales">Ejercicio 13.15</a>
+            o a la versión del Teorema de Stokes para formas diferenciables no es coincidencia. La 
+            fórmula 
+            \[
+            \int_{\mathcal{S}}d\omega = \int_{\partial \mathcal{S}}\omega
+            \]
+            es 
+            <ol>
+              <li>
+                el teorema fundamental de integrales de línea para objetos 1-dimensionales en \(\mathbb{R}^n\),
+              </li>
+              <li>
+                el teorema de Gauss para objetos 2-dimensionales en \(\mathbb{R}^2\),
+              </li>
+              <li>
+                el teorema de Stokes para objetos 2-dimensionales en \(\mathbb{R}^3\),
+              </li>
+              <li>
+                el teorema de Gauss para objetos 3-dimensionales en \(\mathbb{R}^3\).
+              </li>
+              
+            </ol>
+          </p>
+
         </div>
 <!-- acaba contenido -->
 
