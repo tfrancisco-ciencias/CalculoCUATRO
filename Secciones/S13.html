@@ -925,6 +925,133 @@
               <a href="https://youtu.be/d_QKliDmq8U" target="_blank"> Video </a>
             </div>
           </div>
+
+          <p>
+            Caso 1: \(\mathbb{S}=\triangle(P,Q,R)\).
+          </p>
+          
+          <p>
+            Paso 1: afirmamos que 
+            \begin{eqnarray*}
+            \int_{\partial \mathbb{S}}\omega & = & \sum_{i=1}^n p_i(f_i(R)-f_i(Q)) \\
+            &+& \sum_{i=1}^n q_i(f_i(P)-f_i(R)) \\
+            &+&\sum_{i=1}^n r_i(f_i(Q)-f_i(P))
+            \end{eqnarray*}
+            donde \(P=(p_i)_{i=1}^n, Q=(q_i)_{i=1}^n, R=(r_i)_{i=1}^n\).
+          </p>
+          <p>
+            Razón.
+          </p>
+          <p>
+            Considerando la parametrización de \(\overrightarrow{PQ}\) 
+            dada por \(\alpha(t)=t(Q-P)+P\), \(0\leq t \leq 1\), tenemos \(dx_i=(p_i-q_i)\) y 
+            la integral se calcula como:
+            \begin{eqnarray*} 
+            \int_{\overrightarrow{PQ} }\omega &=&  \int_{\overrightarrow{PQ}} \sum_{i=1}^n f_idx_i \\
+            &=&\sum_{i=1}^n \int_{\overrightarrow{PQ} } f_idx_i \\
+            &=& \sum_{i=1}^n \int_0^1 f_i(t(Q-P)+P)(q_i-p_i)dt  \\
+            &=& \sum_{i=1}^n (q_i-p_i) \int_0^1 (tf_i(Q-P)+f(P))dt \\
+            &=& \sum_{i=1}^n (q_i-p_i) \left( \frac{f_i(Q-P)}{2}+f(P)\right)  \\
+            &=& \sum_{i=1}^n (q_i-p_i) \left( \frac{f_i(Q)-f_i(P)}{2}+f(P)\right)  \\
+            &=& \sum_{i=1}^n (q_i-p_i) \left(\frac{f_i(Q)+f_i(P)}{2}\right) \\
+            &=& \frac{1}{2}\sum_{i=1}^n (q_i-p_i) (f_i(Q)+f_i(P))  
+            \end{eqnarray*}
+          </p>
+          <p>
+            De manera similar, para los otros lados del triángulo \(\triangle(P,Q,R)\) obtenemos 
+            \begin{eqnarray*} 
+            \int_{\overrightarrow{QR} }\omega &=& \frac{1}{2}\sum_{i=1}^n (r_i-q_i) (f_i(R)+f_i(Q))  
+            \end{eqnarray*}
+            \begin{eqnarray*} 
+            \int_{\overrightarrow{RP} }\omega &=& \frac{1}{2}\sum_{i=1}^n (p_i-r_i) (f_i(P)+f_i(R))  
+            \end{eqnarray*}
+            Se sigue que 
+            \begin{eqnarray*} 
+            \int_{\partial \mathbb{S}}\omega &=& \int_{\overrightarrow{PQ} }\omega+
+            \int_{\overrightarrow{QR} }\omega + \int_{\overrightarrow{RP} }\omega \\
+            &=& \frac{1}{2}\sum_{i=1}^n (q_i-p_i) (f_i(Q)+f_i(P))   \\
+            &+& \frac{1}{2}\sum_{i=1}^n (r_i-q_i) (f_i(R)+f_i(Q))  \\
+            &+& \frac{1}{2}\sum_{i=1}^n (p_i-r_i) (f_i(P)+f_i(R))  
+            \end{eqnarray*}
+          </p>
+          <p>
+            Ahora, si analizamos cada \(i\)-ésimo sumando los desarrollamos y simplificamos 
+            obtenemos:
+            \begin{eqnarray*} 
+            & & (q_i-p_i) (f_i(Q)+f_i(P)) \\
+            &+& (r_i-q_i) (f_i(R)+f_i(Q))\\
+            &+& (p_i-r_i) (f_i(P)+f_i(R))  \\
+            &=&  q_if_i(Q)-p_if_i(Q)+q_if_i(P)-p_if_i(P) \\
+            &+& r_if_i(R)-q_if_i(R)+r_if_i(Q)-q_if_i(Q)\\
+            &+& p_if_i(P)-r_if_i(P)+p_if_i(R)-r_if_i(R) \\
+            &=& p_i(f_i(R)-f_i(Q))\\
+            &+&q_i(f_i(P)-f_i(R)) \\
+            &+& r_i(f_i(Q)-f_i(P))
+            \end{eqnarray*}
+          </p>
+          <p>
+            Por lo tanto concluimos 
+            \begin{eqnarray*} 
+            \int_{\partial \mathbb{S}}\omega &=& \sum_{i=1}^n p_i(f_i(R)-f_i(Q)) \\
+            &+& \sum_{i=1}^n q_i(f_i(P)-f_i(R)) \\
+            &+&\sum_{i=1}^n r_i(f_i(Q)-f_i(P)).
+            \end{eqnarray*}
+          </p>
+          <p>
+            Paso 2: afirmamos que 
+            \begin{eqnarray*}
+            \int_{\mathbb{S}}d\omega &=& \sum_{i=1}^n p_i(f_i(R)-f_i(Q)) \\
+            &+& \sum_{i=1}^n q_i(f_i(P)-f_i(R)) \\
+            &+&\sum_{i=1}^n r_i(f_i(Q)-f_i(P)).
+            \end{eqnarray*}
+          </p>
+          <p>
+            Razón.
+          </p>
+          <p>
+            Calculando directamente usando la definición de la derivada exterior y usando el lema que asegura \(df_i=f_i\), 
+            para \(f_i\) función lineal, obtenemos 
+            \begin{eqnarray*} 
+            \int_{\mathbb{S}}d\omega &=& \int_{\triangle(P,Q,R) } d\left( \sum_{i=1}^n f_idx_i \right) \\
+            &=& \int_{\triangle(P,Q,R)} \sum_{i=1}^n df_i\wedge dx_i \\
+            &=& \int_{\triangle(P,Q,R)} \sum_{i=1}^n f_i\wedge dx_i  \\
+            &=& \sum_{i=1}^n \int_{\triangle(P,Q,R)}  f_i\wedge dx_i  \\
+             &=& \sum_{i=1}^n  f_i\wedge dx_i(Q-P,R-P) \\
+             &=& \frac{1}{2}\sum_{i=1}^n \det 
+             \left[
+             \begin{array}{cc} 
+             f_i(Q-P) & dx_i(Q-P) \\
+             f_i(R-P) & dx_i(R-P)
+             \end{array}
+             \right]\\
+             &=&\frac{1}{2}\sum_{i=1}^n \det 
+             \left[
+             \begin{array}{cc} 
+             f_i(Q)-f_i(P) & q_i-p_i \\
+             f_i(R)-f_i(P) & r_i-p_i
+             \end{array}
+             \right] \\
+             &=& \frac{1}{2}\sum_{i=1}^n (f_i(Q)-f_i(P))(q_i-p_i)-(f_i(R)-f_i(P))(r_i-p_i)
+            \end{eqnarray*}
+            y desarrollando cada sumando obtenemos 
+            \begin{eqnarray*} 
+            & & (f_i(Q)-f_i(P))(q_i-p_i)-(f_i(R)-f_i(P))(r_i-p_i)\\
+            &=& (f_i(Q)-f_i(P))(q_i-p_i)+(f_i(R)-f_i(P))(p_i-r_i)\\
+            &=& f_i(Q)r_i-f_i(P)r_i \\
+            &-& f_i(Q)p_i + f_i(P)p_i \\
+            &+& f_i(R)p_i - f_i(P)p_i \\
+            &-& f_i(R)q_i + f_i(P)q_i \\
+            &=&p_i(f_i(R)-f_i(Q)) \\
+            &+& q_i(f_i(P)-f_i(R))\\
+            &+& r_i(f_i(Q)-f_i(P))
+            \end{eqnarray*}
+            por lo que concluimos 
+            \begin{eqnarray*}
+            \int_{\mathbb{S}}d\omega &=& \sum_{i=1}^n p_i(f_i(R)-f_i(Q)) \\
+            &+& \sum_{i=1}^n q_i(f_i(P)-f_i(R)) \\
+            &+&\sum_{i=1}^n r_i(f_i(Q)-f_i(P)).
+            \end{eqnarray*}
+          </p>
     </div>
 
         <div class="ejercicio-box">
