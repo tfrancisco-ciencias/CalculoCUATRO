@@ -85,7 +85,7 @@
   <body>
     <h1 class="number-title flexbox"> \(1-\textrm{Formas}\)  </h1>     
 
-<!--<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>-->
+<button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
 <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
@@ -1481,7 +1481,8 @@
 
       <div class="definicion-box">
         <h2 class="number-title" id="Def:Int_Lin"> Definición</h2>
-        Sea \(U \subseteq \mathbb{R}^n\) un abierto, \(\omega=\sum_{j=1}^n A_j dx_j\)
+        <p>
+          Sea \(U \subseteq \mathbb{R}^n\) un abierto, \(\omega=\sum_{j=1}^n A_j dx_j\)
         una 1-forma continua  en \(U\) y
         \(\gamma(t)=(\gamma_1(t), \dots, \gamma_n(t))\), \(t\in [a,b]\) una trayectoria
         parametrizada suave
@@ -1490,13 +1491,15 @@
         \[
         \int_\gamma \omega :=\int_a^b \sum_{j=1}^n A_j(\gamma(t))\gamma_j'(t)dt
         \]
+        </p>
+        
       </div>
 
 
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio</h2>
         <p>
-          Sea \(U\subset \mathbb{R}^n\) un abierto convexo y \(\omega\) una 1-forma 
+          Sea \(U\subset \mathbb{R}^n\) un abierto convexo y \(\omega\) una 1-forma constante y 
           continua en \(U\). Entonces para todos \(P,Q\in U\) y \(S\in \mathbb{R}^n\)
           tal que \(P_S=P+S, Q_S=Q+S \in U\) se tiene que 
           \[
