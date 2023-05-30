@@ -220,7 +220,7 @@
           una \(\delta >0\) tal que, si \(s,t\in [a,b]\) satisfacen
           \(|s-t|< \delta\), entonces \(|f(s)-f(t)|<\frac{\varepsilon }{b-a} \).
           <p>
-            Sugerencia: \(f\) es continua en el compacto \([a,b]\).
+            Sugerencia:este es básicamente el <a href="./S14.html#Ejer:continuidadUniforme">Lema 14.16.</a> 
           </p>
         </li>
         <li>
@@ -276,7 +276,7 @@
       </div>
 
         <div class="teorema-box">
-        <h2 class="number-title"> Teorema </h2>
+        <h2 class="number-title" id="Teo:ContenidoCeroContinuidadIntegral"> Teorema </h2>
         <p>
           Considera una función acotada \(f:[a,b]\times [c,d]\to \mathbb{R}\).
         </p>
@@ -314,7 +314,7 @@
             \]
             Decimos que \(f\) es integragle si \(\tilde{f}\)
             es integrable, en el sentido de la
-            <a href="S12.html#Def:RIntegragleRectang">Definición 12.12</a>.
+            <a href="S14.html#Def:RIntegragleRectang">Definición 14.12</a>.
             Además, si \(\tilde{f}\) es integrable, definimos la integral de
             \(f\) como:
             \[
@@ -324,7 +324,7 @@
            </p>
            <p>
              Es importante notar que, por el
-             <a href="S12.html#Ejer:PropIntegral">Ejercicio 12.27-2</a>,
+             <a href="S14.html#Ejer:PropIntegral">Ejercicio 14.22-2</a>,
              ésta definición no depende del rectángulo \(\mathcal{R}\)
              que usemos para encerrar a \(\mathcal{S}\).
            </p>
@@ -365,15 +365,15 @@
         <div class="nota-box">
           <h2 class="number-title"> Nota </h2>
           <p>
-            Gracias al Teorema 13.7 podemos dar condiciones bastante comunes
+            Gracias al <a href="#Teo:ContenidoCeroContinuidadIntegral">Teorema 15.7</a> podemos dar condiciones bastante comunes
             para que una integral exista. Por ejemplo, si \(\mathcal{S}\subset \mathbb{R}^2\)
             es un subconjunto cerrado, con  interior no vacío, de tal forma que
             \(\partial \mathcal{S}\) tiene contenido cero, entonces
             \(\int_{\mathcal{S}} f\) existe para cualquier función \(f\)
             que sea continua en el interior de \(\mathcal{S}\), pues: la
-            función \(\tilde{f}\) de la Definición 13.7 es continua en todos lados
+            función \(\tilde{f}\) de la <a href="#Def:IntegralRegionesGen">Definición 15.7</a> es continua en todos lados
             excepto tal vez en \(\partial \mathcal{S}\) pero ésta tiene contenido
-            cero,así que por el Teorema 13.7, \(\int_{\mathcal{S}}f\) existe.
+            cero,así que por el <a href="#Teo:ContenidoCeroContinuidadIntegral">Teorema 15.7</a>, \(\int_{\mathcal{S}}f\) existe.
           </p>
           <p>
             Ya que tenemos una definición de la integral para regiones
@@ -523,7 +523,7 @@
 
 
         <p>
-          En casos como estos, usando el <a href="S12.html#Ejer:PropIntegral">Ejercicio 12.27-2</a>
+          En casos como estos, usando el <a href="./S14.html#Ejer:PropIntegral">Ejercicio 14.22-2</a>
           tenemos que:
           \[
           \int_{\mathcal{S}} f = \int_{\mathcal{S}_1}f + \int_{\mathcal{S}_2} f.
@@ -537,7 +537,7 @@
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
-            Calcula las siguientes integrales usando el Teorema 13.12.
+            Calcula las siguientes integrales usando el <a href="#Teo:IntRegionesI">Teorema 15.12.</a>
           </p>
           <p>
             Nota: determina cómo expresar las regiones dadas en términos
@@ -661,7 +661,7 @@
         <div class="nota-box">
           <h2 class="number-title"> Area y volúmen </h2>
           <p>
-            Podemos usar la integral en <a href="Def:IntegralRegionesGen">Definición 13.7 </a>
+            Podemos usar la integral en <a href="#Def:IntegralRegionesGen">Definición 15.8 </a>
             para calcular areas y volúmenes.
           </p>
           <p>
@@ -670,7 +670,7 @@
             \(f\leq g\) entonces la integral \(\int_{a}^b (g(t)-f(t))dt\) representa
             el área entre las gráficas de \(f\) y \(g\). Si \(\mathcal{S}\)
             es la región de Tipo I determinada por \(f\) y \(g\) entonces
-            tenemos, por el <a href="#Teo:IntRegionesI">Teorema 13.12 </a> que:
+            tenemos, por el <a href="#Teo:IntRegionesI">Teorema 15.12 </a> que:
 
             \[
             \int_{\mathcal{S}}1 = \int_a^b\left(\int_{f(x)}^{g(x)} 1 dy \right)dx
@@ -784,7 +784,7 @@
         <div class="nota-box">
           <h2 class="number-title"> Cambio en el orden de integración </h2>
           <p>
-            El  <a href="S12.html#Ejer:Fubinni"> Ejercicio 12.15 </a> nos asegura que,
+            El  <a href="./S14.html#Ejer:Fubinni"> Ejercicio 14.14 </a> nos asegura que,
             a sabiendas de que la función \(f:\mathcal{R}=[a,b]\times [c,d] \to \mathbb{R}\)
             es integrable, y que las funciones
             \(A(y)=\int_{a}^bf(x,y)dx, B(x)=\int_{c}^d f(x,y)dy\) son integrable,
@@ -794,8 +794,8 @@
             \int_{\mathcal{R}} f =\int_a^b \left( \int_c^d f(x,y) dy\right)dx
             =\int_c^d \left(\int_a^b f(x,y)dx\right)dy
             \]
-            después podemos usar el <a  href="#Teo:IntRegionesI"> Teorema 13.12 </a> o
-            la  <a href="#Nota:IntRegionesII"> Nota 13.11 </a> para reducir un poco más
+            después podemos usar el <a  href="#Teo:IntRegionesI"> Teorema 15.12 </a> o
+            la  <a href="#Nota:IntRegionesII"> Nota 15.13 </a> para reducir un poco más
             las integrales interiores.
           <p>
           <p>
