@@ -209,6 +209,340 @@
 
 
 
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Consideremos dos funciones \(g_1,g_2:[a,b]\to \mathbb{R}\)
+            con la propiedad de que \(g_1(t)\leq g_2(t)\),
+            para toda \(t\in [a,b]\). Para dichas funciones definimos
+            la región de Tipo I:
+            \[
+            \mathcal{S}=\{(x,y)\in \mathbb{R}^2: x\in [a,b], g_1(x)\leq y \leq g_2(x)\}.
+            \]
+          </p>
+
+          <div class="imagen-box flexbox">
+            <img src="./Images/Sec1-img6.png" alt="tipoI" width="700" height="250">
+          </div>
+
+
+          <p>
+            De manera similar, si tenemos dos funciones \(h_1,h_2:[c,d]\to \mathbb{R}\)
+            con la propiedad de que \(h_1(t)\leq h_2(t)\),
+            para toda \(t\in [c,d]\),  definimos
+            la región de Tipo II:
+            \[
+            \mathcal{S}=\{(x,y)\in \mathbb{R}^2: y\in [c,d], h_1(x)\leq y \leq h_2(x)\}.
+            \]
+          </p>
+
+                  <div class="imagen-box flexbox">
+                  <img src="./Images/Sec1-img7.png" alt="T" width="300" height="250">
+                </div>
+                      <div class="imagen-box flexbox">
+                      <img src="./Images/Sec1-img8.png" alt="T" width="300" height="250">
+                    </div>
+          
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:IntRegionesI"> Teorema </h2>
+          <p>
+            Sean \(g_1,g_2:[a,b]\to \mathbb{R}\) dos funciones continuas
+            en todo \([a,b]\) con la propiedad de que \(g_1(t)\leq g_2(t)\),
+            para toda \(t\in [a,b]\). Considera la región de Tipo I
+            \[
+            \mathcal{S}=\{(x,y): x\in [a,b],  g_1(x)\leq y \leq g_2(x)\}.
+            \]
+          </p>
+          <p>
+            Sea \(f:\mathcal{S} \to \mathbb{R}\) una función  y
+            supongamos que \(f\) es continua en  \(\mathcal{S}\).
+          </p>
+          <p>
+            Entonces \(f\) es integrable sobre \(\mathcal{S}\) y la integral se puede calcular
+            como la integral iterada:
+            \[
+            \int_{\mathcal{S}}f = \int_a^b \left(\int_{g_1(x)}^{g_2(x)}f(x,y)dy  \right)dx.
+            \]
+          </p>
+        </div>
+
+
+
+
+        <div class="nota-box">
+          <h2 class="number-title" id="Nota:IntRegionesII"> Nota </h2>
+          <p>
+            Hay un resultado similar al Teorema anterior para regiones de Tipo II.
+          </p>
+          <p>
+            Sean \(h_1,h_2:[c,d]\to \mathbb{R}\) dos funciones continuas
+            en todo \([c,d]\) con la propiedad de que \(h_1(t)\leq h_2(t)\),
+            para toda \(t\in [c,d]\). Considera la región de Tipo II
+            \[
+            \mathcal{S}=\{(x,y): y\in [c,d],  h_1(y)\leq x \leq h_2(y)\}.
+            \]
+          </p>
+          <p>
+            Sea \(f:\mathcal{S} \to \mathbb{R}\) una función acotada y
+            supongamos que \(f\) es continua en \(\mathcal{S}\).
+          </p>
+          <p>
+            Entonces \(f\) es integrable y la integral se puede calcular
+            como la integral iterada:
+            \[
+            \int_{\mathcal{S}}f = \int_c^d \left(\int_{h_1(y)}^{h_2(y)}f(x,y)dx  \right)dy.
+            \]
+          </p>
+        </div>
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Thm:AditividadRegiones"> Teorema </h2>
+          <h3> Aditividad con  respecto a regiones </h3>
+          <p>
+            Sean \(\mathcal{S}_1, \mathcal{S}_2 \subseteq \mathbb{R}^2\) dos 
+            regiones acotadas con interior no vacío  y tal que la intersección 
+            \(\mathcal{S}_1\cap \mathcal{S}_2\) tiene contenido cero. Si 
+            la función \(f\) es integrable sobre \(\mathcal{S}_1\) y 
+            \(\mathcal{S}_2\) entonces es integrable sobre \(\mathcal{S}_1\cup \mathcal{S}_2\)
+            y además 
+            \[
+            \int_{\mathcal{S}_1 \cup \mathcal{S}_2}f = \int_{\mathcal{S}_1}f +\int_{\mathcal{S}_2}f
+            \]
+          </p>
+
+        </div>
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Nota </h2>
+        <p>
+          En ciertas ocaciones, la región \(\mathcal{S}\) no es
+          una región del Tipo I o II, pero se puede expresar como
+          la unión de dichas regiones  de tal forma que la intersección
+          de los uniendos tiene contenido cero.
+        </p>
+        <p>
+          Por ejemplo
+          en el caso de un anillo
+          \[
+          \mathcal{S}=\{(x,y): r\leq x^2+y^2 \leq R\}
+          \]
+          tenemos que \(\mathcal{S}=\mathcal{S}_1\cup \mathcal{S}_2\),
+          donde
+          \[
+          \mathcal{S}_1=\{(x,y): -R \leq x \leq R, g_1(x) \leq  y \leq g_2(x)\},
+          \]
+          \[
+          \mathcal{S}_2=\{(x,y): -R\leq x \leq R,  -g_2(x) \leq  y \leq -g_1(x)\},
+          \]
+          y las funciones \(g_1, g_2:[-R,R]\to \mathbb{R}\) están dadas por
+          \[
+          g_1(x)=\left\{
+            \begin{array}{cc}
+            0 & -R \leq x \leq -r \\
+            \sqrt{r^2-x^2} & -r \leq x \leq r \\
+            0 & r \leq x \leq R
+            \end{array}
+            \right.
+          \]
+          \[
+            g_2(x)=\sqrt{R^2-x^2}.
+          \]
+        </p>
+
+        <div class="imagen-box flexbox">
+          <img src="./Images/Ring.png" alt="T" width="500" height="300">
+        </div>
+
+
+        <p>
+          En casos como estos, usando la aditividad con respcto a regiones (teorema anterior)
+          tenemos que:
+          \[
+          \int_{\mathcal{S}} f = \int_{\mathcal{S}_1}f + \int_{\mathcal{S}_2} f.
+          \]
+          Es muy importante enfatizar que, para que la ecuación anterior sea válida,
+          la intersección entre las partes \(\mathcal{S}_1\) y
+          \(\mathcal{S}_2\) debe ser de contenido cero.
+        </p>
+      </div>
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:LinealidadIntegral"> Teorema </h2>
+        <h3>
+          Linealidad de la integral 
+        </h3>
+          <p>
+            Sea \(\mathcal{D}\) un subconjunto acotado con interior no vacío. Si 
+            \(f,g\) son funciones integrables en \(\mathcal{D}\) entonces la combinación lineal  
+            \(f+\alpha g\) (\(\alpha\) un escalar) también  integrable y 
+            \[
+            \int_{\mathcal{D}}f+\alpha g = \int_{\mathcal{D}}f+ \alpha \int_{\mathcal{D}}g
+            \]
+          </p>
+      </div>
+
+
+      <div class="teorema-box">
+        <h2 class="number-title" id="Teo:MonotoniaIntegral"> Teorema</h2>
+        <h3> Monotonía de la integral</h3>
+        <p>
+          Sea \(\mathcal{D}\subseteq \mathbb{R}^2\) una región compacta con interior no vacío y 
+          \(f,g:\mathcal{D}\to \mathbb{R}\) dos funciones Riemann integrables en \(\mathcal{D}\). Si 
+          se cumple que \(f(x,y)\leq g(x,y)\) para todo \((x,y)\in \mathcal{D}\)
+          entonces 
+          \[
+          \int_{\mathcal{D}} f \leq \int_{\mathcal{D}} g
+          \]
+        </p>
+        <p>
+          Nota: el mismo resultado es válido si \(f(x,y)\leq g(x,y)\) para todo 
+          \((x,y)\in \mathcal{D}\) excepto un conjunton de contenido cero.
+        </p>
+
+
+
+      </div>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Area y volúmen </h2>
+        <p>
+          Podemos usar la integral 
+          para calcular areas y volúmenes.
+        </p>
+        <p>
+          De cálculo 2, sabemos que si tenemos dos funciones continuas
+          \(f,g:[a,b]\to \mathbb{R}\) con la propiedad de que
+          \(f\leq g\) entonces la integral \(\int_{a}^b (g(t)-f(t))dt\) representa
+          el área entre las gráficas de \(f\) y \(g\). Si \(\mathcal{S}\)
+          es la región de Tipo I determinada por \(f\) y \(g\) entonces
+          tenemos, por el <a href="#Teo:IntRegionesI">Teorema 1.13 </a> que:
+
+          \[
+          \int_{\mathcal{S}}1 = \int_a^b\left(\int_{f(x)}^{g(x)} 1 dy \right)dx
+          = \int_a^b (g(t)-f(t))dt.
+          \]
+          Es decir, \(\int_{\mathcal{S}}1 = \textrm{Area}(\mathcal{S})\).
+         </p>
+         <p>
+           Por lo tanto, podemos definir el área de \(\mathcal{S}\) simplemente
+           como \(\int_{\mathcal{S}}1\), SIEMPRE y CUANDO ésta última integral exista.
+         </p>
+         <p>
+           Con respecto al volumen, si iniciamos con una función integrable
+           \(f:\mathcal{S}\to \mathbb{R}\), con la propiedad de que \(f\geq 0\),
+           la gráfica de \(f\) está por arriba del plano \(xy\) y podemos
+           considerar el volumen que está por debajo de la gráfica de \(f\). Si
+           aproximamos este volumen por cajas por debajo de la gráfica y tomamos
+           el supremo sobre la cantidad de cajas vemos que obtenemos la integral
+           inferior de \(f\), la cual coincide con \(\int_{\mathcal{S}}f\),
+           al ser \(f\) integrable.
+         </p>
+
+
+         <div class="imagen-box flexbox">
+           <img src="./Images/VolumenViaIntegral.png" alt="T" width="500" height="300">
+         </div>
+
+         <p>
+           Por lo tanto, podemos pensar a \(\int_{\mathcal{S}}f\) como el
+           volumen que está por debajo de la gráfica de \(f\).
+         </p>
+      </div>
+
+
+
+      <div class="nota-box">
+        <h2 class="number-title"> Cambio en el orden de integración </h2>
+        <p>
+          El  <a href="#Teo:Fubinni"> Teorema de Fubini  </a> nos asegura que,
+          a sabiendas de que la función \(f:\mathcal{R}=[a,b]\times [c,d] \to \mathbb{R}\)
+          es integrable, 
+          \[
+          \int_{\mathcal{R}} f =\int_a^b \left( \int_c^d f(x,y) dy\right)dx
+          =\int_c^d \left(\int_a^b f(x,y)dx\right)dy
+          \]
+          
+        <p>
+        <p>
+          Lo interesante es que el orden en que se integra puede
+          facilitar o complicar las cuentas de las integrales.
+        </p>
+        <p>
+          Por ejemplo, consideremos la integral
+          \[
+          \int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
+          \]
+          Si intentamos evaluar la integral iterada la primera
+          integral es \(\int 2\cos(y^2)dy\), la cual no se puede
+          poner en términos de funciones elementales. Necesitamos
+          cambiar el orden de integración.
+        </p>
+        <p>
+          Primero encontramos la región \(\mathcal{S}\) la cual
+          nos da la integral iterada \(\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx\).
+          Usando los límites de integración proponemos
+          \[
+          \mathcal{S}=\{(x,y): 0 \leq x \leq 1, \quad x \leq y \leq 1 \}
+          \]
+
+          <div class="imagen-box flexbox">
+            <img src="./Images/Sec1-img4.png" alt="T" width="500" height="300">
+          </div>
+
+
+          Por lo que, viendo a \(\mathcal{S}\) como una región de Tipo I, tenemos
+          \[
+          \int_{\mathcal{S}} 2\cos(y^2)=\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
+          \]
+          Pero también podemos ver a \(\mathcal{S}\) como una región de
+          Tipo II mediante
+          \[
+          \mathcal{S}=\{(x,y): 0\leq y \leq 1, \quad 0 \leq x \leq y \}.
+          \]
+
+          <div class="imagen-box flexbox">
+            <img src="./Images/Sec1-img5.png" alt="T" width="500" height="300">
+          </div>
+
+
+          Es importante notar que para pasar de región Tipo I a región de
+          Tipo II siempre hay que dibujar las regiones y a partir del dibujo
+          hay que intercambiar los papeles de \(x\) e \(y\) para poder
+          reescribir la región de otra forma.
+        </p>
+        <p>
+          Una ves que escribimos a \(\mathcal{S}\) como una región del Tipo II
+          podemos escribir
+          \[
+          \int_{\mathcal{S}}2\cos(y^2) = \int_0^1\left(\int_{0}^y 2\cos(y^2) dx\right)dy
+          \]
+        </p>
+        <p>
+          Ahora sí, podemos hacer la cuenta:
+          \begin{eqnarray*}
+          \int_0^y 2\cos(y^2)dx=2\cos(y^2)\int_0^y 1 dx = 2y\cos(y^2)
+          \end{eqnarray*}
+          luego con un cambio de variable, \(u=y^2\)
+          \[
+          \int_0^1 2y\cos(y^2)dy=\int_{0}^1 \cos(u)du=\sen(u) |_{0}^1=\sen(1)
+          \]
+          Por lo tanto, podemos concluir
+          \[
+            \int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx=\sen(1).
+          \]
+        </p>
+      </div>
+
+
+      
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
@@ -538,206 +872,6 @@
 
 
 
-        <div class="definicion-box">
-          <h2 class="number-title"> Definición </h2>
-          <p>
-            Consideremos dos funciones \(g_1,g_2:[a,b]\to \mathbb{R}\)
-            con la propiedad de que \(g_1(t)\leq g_2(t)\),
-            para toda \(t\in [a,b]\). Para dichas funciones definimos
-            la región de Tipo I:
-            \[
-            \mathcal{S}=\{(x,y)\in \mathbb{R}^2: x\in [a,b], g_1(x)\leq y \leq g_2(x)\}.
-            \]
-          </p>
-
-          <div class="imagen-box flexbox">
-            <img src="./Images/Sec1-img6.png" alt="tipoI" width="700" height="250">
-          </div>
-
-
-          <p>
-            De manera similar, si tenemos dos funciones \(h_1,h_2:[c,d]\to \mathbb{R}\)
-            con la propiedad de que \(h_1(t)\leq h_2(t)\),
-            para toda \(t\in [c,d]\),  definimos
-            la región de Tipo II:
-            \[
-            \mathcal{S}=\{(x,y)\in \mathbb{R}^2: y\in [c,d], h_1(x)\leq y \leq h_2(x)\}.
-            \]
-          </p>
-
-                  <div class="imagen-box flexbox">
-                  <img src="./Images/Sec1-img7.png" alt="T" width="300" height="250">
-                </div>
-                      <div class="imagen-box flexbox">
-                      <img src="./Images/Sec1-img8.png" alt="T" width="300" height="250">
-                    </div>
-          
-        </div>
-
-
-        <div class="teorema-box">
-          <h2 class="number-title" id="Teo:IntRegionesI"> Teorema </h2>
-          <p>
-            Sean \(g_1,g_2:[a,b]\to \mathbb{R}\) dos funciones continuas
-            en todo \([a,b]\) con la propiedad de que \(g_1(t)\leq g_2(t)\),
-            para toda \(t\in [a,b]\). Considera la región de Tipo I
-            \[
-            \mathcal{S}=\{(x,y): x\in [a,b],  g_1(x)\leq y \leq g_2(x)\}.
-            \]
-          </p>
-          <p>
-            Sea \(f:\mathcal{S} \to \mathbb{R}\) una función  y
-            supongamos que \(f\) es continua en  \(\mathcal{S}\).
-          </p>
-          <p>
-            Entonces \(f\) es integrable sobre \(\mathcal{S}\) y la integral se puede calcular
-            como la integral iterada:
-            \[
-            \int_{\mathcal{S}}f = \int_a^b \left(\int_{g_1(x)}^{g_2(x)}f(x,y)dy  \right)dx.
-            \]
-          </p>
-        </div>
-
-
-
-
-        <div class="nota-box">
-          <h2 class="number-title" id="Nota:IntRegionesII"> Nota </h2>
-          <p>
-            Hay un resultado similar al Teorema anterior para regiones de Tipo II.
-          </p>
-          <p>
-            Sean \(h_1,h_2:[c,d]\to \mathbb{R}\) dos funciones continuas
-            en todo \([c,d]\) con la propiedad de que \(h_1(t)\leq h_2(t)\),
-            para toda \(t\in [c,d]\). Considera la región de Tipo II
-            \[
-            \mathcal{S}=\{(x,y): y\in [c,d],  h_1(y)\leq x \leq h_2(y)\}.
-            \]
-          </p>
-          <p>
-            Sea \(f:\mathcal{S} \to \mathbb{R}\) una función acotada y
-            supongamos que \(f\) es continua en \(\mathcal{S}\).
-          </p>
-          <p>
-            Entonces \(f\) es integrable y la integral se puede calcular
-            como la integral iterada:
-            \[
-            \int_{\mathcal{S}}f = \int_c^d \left(\int_{h_1(y)}^{h_2(y)}f(x,y)dx  \right)dy.
-            \]
-          </p>
-        </div>
-
-
-
-        <div class="teorema-box">
-          <h2 class="number-title" id="Thm:AditividadRegiones"> Teorema </h2>
-          <h3> Aditividad con  respecto a regiones </h3>
-          <p>
-            Sean \(\mathcal{S}_1, \mathcal{S}_2 \subseteq \mathbb{R}^2\) dos 
-            regiones acotadas con interior no vacío  y tal que la intersección 
-            \(\mathcal{S}_1\cap \mathcal{S}_2\) tiene contenido cero. Si 
-            la función \(f\) es integrable sobre \(\mathcal{S}_1\) y 
-            \(\mathcal{S}_2\) entonces es integrable sobre \(\mathcal{S}_1\cup \mathcal{S}_2\)
-            y además 
-            \[
-            \int_{\mathcal{S}_1 \cup \mathcal{S}_2}f = \int_{\mathcal{S}_1}f +\int_{\mathcal{S}_2}f
-            \]
-          </p>
-
-        </div>
-
-
-      <div class="nota-box">
-        <h2 class="number-title"> Nota </h2>
-        <p>
-          En ciertas ocaciones, la región \(\mathcal{S}\) no es
-          una región del Tipo I o II, pero se puede expresar como
-          la unión de dichas regiones  de tal forma que la intersección
-          de los uniendos tiene contenido cero.
-        </p>
-        <p>
-          Por ejemplo
-          en el caso de un anillo
-          \[
-          \mathcal{S}=\{(x,y): r\leq x^2+y^2 \leq R\}
-          \]
-          tenemos que \(\mathcal{S}=\mathcal{S}_1\cup \mathcal{S}_2\),
-          donde
-          \[
-          \mathcal{S}_1=\{(x,y): -R \leq x \leq R, g_1(x) \leq  y \leq g_2(x)\},
-          \]
-          \[
-          \mathcal{S}_2=\{(x,y): -R\leq x \leq R,  -g_2(x) \leq  y \leq -g_1(x)\},
-          \]
-          y las funciones \(g_1, g_2:[-R,R]\to \mathbb{R}\) están dadas por
-          \[
-          g_1(x)=\left\{
-            \begin{array}{cc}
-            0 & -R \leq x \leq -r \\
-            \sqrt{r^2-x^2} & -r \leq x \leq r \\
-            0 & r \leq x \leq R
-            \end{array}
-            \right.
-          \]
-          \[
-            g_2(x)=\sqrt{R^2-x^2}.
-          \]
-        </p>
-
-        <div class="imagen-box flexbox">
-          <img src="./Images/Ring.png" alt="T" width="500" height="300">
-        </div>
-
-
-        <p>
-          En casos como estos, usando la aditividad con respcto a regiones (teorema anterior)
-          tenemos que:
-          \[
-          \int_{\mathcal{S}} f = \int_{\mathcal{S}_1}f + \int_{\mathcal{S}_2} f.
-          \]
-          Es muy importante enfatizar que, para que la ecuación anterior sea válida,
-          la intersección entre las partes \(\mathcal{S}_1\) y
-          \(\mathcal{S}_2\) debe ser de contenido cero.
-        </p>
-      </div>
-
-      <div class="teorema-box">
-        <h2 class="number-title" id="Teo:LinealidadIntegral"> Teorema </h2>
-        <h3>
-          Linealidad de la integral 
-        </h3>
-          <p>
-            Sea \(\mathcal{D}\) un subconjunto acotado con interior no vacío. Si 
-            \(f,g\) son funciones integrables en \(\mathcal{D}\) entonces la combinación lineal  
-            \(f+\alpha g\) (\(\alpha\) un escalar) también  integrable y 
-            \[
-            \int_{\mathcal{D}}f+\alpha g = \int_{\mathcal{D}}f+ \alpha \int_{\mathcal{D}}g
-            \]
-          </p>
-      </div>
-
-
-      <div class="teorema-box">
-        <h2 class="number-title" id="Teo:MonotoniaIntegral"> Teorema</h2>
-        <h3> Monotonía de la integral</h3>
-        <p>
-          Sea \(\mathcal{D}\subseteq \mathbb{R}^2\) una región compacta con interior no vacío y 
-          \(f,g:\mathcal{D}\to \mathbb{R}\) dos funciones Riemann integrables en \(\mathcal{D}\). Si 
-          se cumple que \(f(x,y)\leq g(x,y)\) para todo \((x,y)\in \mathcal{D}\)
-          entonces 
-          \[
-          \int_{\mathcal{D}} f \leq \int_{\mathcal{D}} g
-          \]
-        </p>
-        <p>
-          Nota: el mismo resultado es válido si \(f(x,y)\leq g(x,y)\) para todo 
-          \((x,y)\in \mathcal{D}\) excepto un conjunton de contenido cero.
-        </p>
-
-
-
-      </div>
-
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
@@ -877,51 +1011,6 @@
       </div>
       </div>
 
-      <div class="nota-box">
-        <h2 class="number-title"> Area y volúmen </h2>
-        <p>
-          Podemos usar la integral 
-          para calcular areas y volúmenes.
-        </p>
-        <p>
-          De cálculo 2, sabemos que si tenemos dos funciones continuas
-          \(f,g:[a,b]\to \mathbb{R}\) con la propiedad de que
-          \(f\leq g\) entonces la integral \(\int_{a}^b (g(t)-f(t))dt\) representa
-          el área entre las gráficas de \(f\) y \(g\). Si \(\mathcal{S}\)
-          es la región de Tipo I determinada por \(f\) y \(g\) entonces
-          tenemos, por el <a href="#Teo:IntRegionesI">Teorema 1.13 </a> que:
-
-          \[
-          \int_{\mathcal{S}}1 = \int_a^b\left(\int_{f(x)}^{g(x)} 1 dy \right)dx
-          = \int_a^b (g(t)-f(t))dt.
-          \]
-          Es decir, \(\int_{\mathcal{S}}1 = \textrm{Area}(\mathcal{S})\).
-         </p>
-         <p>
-           Por lo tanto, podemos definir el área de \(\mathcal{S}\) simplemente
-           como \(\int_{\mathcal{S}}1\), SIEMPRE y CUANDO ésta última integral exista.
-         </p>
-         <p>
-           Con respecto al volumen, si iniciamos con una función integrable
-           \(f:\mathcal{S}\to \mathbb{R}\), con la propiedad de que \(f\geq 0\),
-           la gráfica de \(f\) está por arriba del plano \(xy\) y podemos
-           considerar el volumen que está por debajo de la gráfica de \(f\). Si
-           aproximamos este volumen por cajas por debajo de la gráfica y tomamos
-           el supremo sobre la cantidad de cajas vemos que obtenemos la integral
-           inferior de \(f\), la cual coincide con \(\int_{\mathcal{S}}f\),
-           al ser \(f\) integrable.
-         </p>
-
-
-         <div class="imagen-box flexbox">
-           <img src="./Images/VolumenViaIntegral.png" alt="T" width="500" height="300">
-         </div>
-
-         <p>
-           Por lo tanto, podemos pensar a \(\int_{\mathcal{S}}f\) como el
-           volumen que está por debajo de la gráfica de \(f\).
-         </p>
-      </div>
 
 
       <div class="ejercicio-box">
@@ -1003,88 +1092,7 @@
               </div>
 
 
-      <div class="nota-box">
-        <h2 class="number-title"> Cambio en el orden de integración </h2>
-        <p>
-          El  <a href="#Teo:Fubinni"> Teorema de Fubini  </a> nos asegura que,
-          a sabiendas de que la función \(f:\mathcal{R}=[a,b]\times [c,d] \to \mathbb{R}\)
-          es integrable, 
-          \[
-          \int_{\mathcal{R}} f =\int_a^b \left( \int_c^d f(x,y) dy\right)dx
-          =\int_c^d \left(\int_a^b f(x,y)dx\right)dy
-          \]
-          
-        <p>
-        <p>
-          Lo interesante es que el orden en que se integra puede
-          facilitar o complicar las cuentas de las integrales.
-        </p>
-        <p>
-          Por ejemplo, consideremos la integral
-          \[
-          \int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
-          \]
-          Si intentamos evaluar la integral iterada la primera
-          integral es \(\int 2\cos(y^2)dy\), la cual no se puede
-          poner en términos de funciones elementales. Necesitamos
-          cambiar el orden de integración.
-        </p>
-        <p>
-          Primero encontramos la región \(\mathcal{S}\) la cual
-          nos da la integral iterada \(\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx\).
-          Usando los límites de integración proponemos
-          \[
-          \mathcal{S}=\{(x,y): 0 \leq x \leq 1, \quad x \leq y \leq 1 \}
-          \]
-
-          <div class="imagen-box flexbox">
-            <img src="./Images/Sec1-img4.png" alt="T" width="500" height="300">
-          </div>
-
-
-          Por lo que, viendo a \(\mathcal{S}\) como una región de Tipo I, tenemos
-          \[
-          \int_{\mathcal{S}} 2\cos(y^2)=\int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx.
-          \]
-          Pero también podemos ver a \(\mathcal{S}\) como una región de
-          Tipo II mediante
-          \[
-          \mathcal{S}=\{(x,y): 0\leq y \leq 1, \quad 0 \leq x \leq y \}.
-          \]
-
-          <div class="imagen-box flexbox">
-            <img src="./Images/Sec1-img5.png" alt="T" width="500" height="300">
-          </div>
-
-
-          Es importante notar que para pasar de región Tipo I a región de
-          Tipo II siempre hay que dibujar las regiones y a partir del dibujo
-          hay que intercambiar los papeles de \(x\) e \(y\) para poder
-          reescribir la región de otra forma.
-        </p>
-        <p>
-          Una ves que escribimos a \(\mathcal{S}\) como una región del Tipo II
-          podemos escribir
-          \[
-          \int_{\mathcal{S}}2\cos(y^2) = \int_0^1\left(\int_{0}^y 2\cos(y^2) dx\right)dy
-          \]
-        </p>
-        <p>
-          Ahora sí, podemos hacer la cuenta:
-          \begin{eqnarray*}
-          \int_0^y 2\cos(y^2)dx=2\cos(y^2)\int_0^y 1 dx = 2y\cos(y^2)
-          \end{eqnarray*}
-          luego con un cambio de variable, \(u=y^2\)
-          \[
-          \int_0^1 2y\cos(y^2)dy=\int_{0}^1 \cos(u)du=\sen(u) |_{0}^1=\sen(1)
-          \]
-          Por lo tanto, podemos concluir
-          \[
-            \int_0^1 \left( \int_x^1 2\cos(y^2)dy \right)dx=\sen(1).
-          \]
-        </p>
-      </div>
-
+      
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
