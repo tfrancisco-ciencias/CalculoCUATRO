@@ -1,64 +1,54 @@
 <html>
 
   <head>
-    <!-- Following part is mathjax, for latex-->
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-    <!-- Next part is for new coomands -->
-        <script>
-          window.MathJax = {
-          tex: {
-            macros: {
-              sen: "\\operatorname{sen}",
-              seg: ["\\overrightarrow{#1}",1]
-            }
+    <!-- MathJax v3 Configuration and Script -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
           }
-        };
-        </script>
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <!-- CSS -->
-
-      <link rel="stylesheet", href="styles.css" />
-
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <!-- Top Menu    -->
+  <!-- Top Menu -->
   <header class="main-header">
     <nav class="top-nav">
       <ul>
-        <li> <a href="./Home.html"> Inicio  </a> </li>
+        <li> <a href="./Home.html"> Inicio </a> </li>
         <li> <a href="./InfoPrimerDia.html"> Información general </a> </li>
-        <li> <a href="./Secciones.html"> Secciones  </a> </li>
+        <li> <a href="./Secciones.html"> Secciones </a> </li>
       </ul>
     </nav>
 
     <h1 class="calculo-title"> Cálculo CUATRO</h1>
-
   </header>
-
-
 
   <body class="flexbox fondo-info">
     <div class="secciones-main">
       <ul>
-        <li >  <a href="Secciones/S1.html"> § 1 : La integral de Riemann en 2-D </a></li>
-        <li >  <a href="Secciones/S2.html"> § 2 : Aplicaciones integrales dobles </a> </li>
-        <li >  <a href="Secciones/S3.html"> § 3 : La integral de Riemann en más dimensiones </a> </li>
-        <li >  <a href="Secciones/S4.html"> § 4 : La integral con respecto longitud de arco </a> </li>
-        <li >  <a href="Secciones/S5.html"> § 5 : La integral de línea  </a> </li>
-        <li >  <a href="Secciones/S6.html"> § 6 : Teoremas Fundamentales de la integral de línea</a> </li>
-        <li >  <a href="Secciones/S7.html"> § 7 : El Teorema de Green </a> </li>
-        <li >  <a href="Secciones/S8.html"> § 8 : El Toerema de Stokes </a> </li>
-        <li >  <a href="Secciones/S9.html"> § 9 : El Teorema de Gauss </a> </li>
-        <li >  <a href="Secciones/S10.html">§ 10: 1-Formas  </a> </li>
-        <li >  <a href="Secciones/S11.html"> § 11 : 2-Formas constantes </a> </li>
-        <li >  <a href="Secciones/S12.html"> § 12 : Funciones bilineales alternantes </a> </li>
-        <li >  <a href="Secciones/S13.html"> § 13 : 2-Formas </a> </li>
-        <li >  <a href="Secciones/S14.html"> § 14 : La integral de Riemann sobre rectángulos </a> </li>
-        <!-- <li >  <a href="Secciones/S14.html"> § 14 : 2-formas en el plano y el Teorema de Green </a> </li>
-        <li >  <a href="Secciones/S15.html"> § 15 : Integrales de superficie y el Teorema de Stokes</a> </li>
-        <li >  <a href="Secciones/S16.html"> § 16 : El Teorema de Cambio de Variable </a> </li>-->
+        <li> <a href="Secciones/S1.html"> § 1 : La integral de Riemann en 2-D </a></li>
+        <li> <a href="Secciones/S2.html"> § 2 : Aplicaciones integrales dobles </a> </li>
+        <li> <a href="Secciones/S3.html"> § 3 : La integral de Riemann en más dimensiones </a> </li>
+        <li> <a href="Secciones/S4.html"> § 4 : La integral con respecto longitud de arco </a> </li>
+        <li> <a href="Secciones/S5.html"> § 5 : La integral de línea </a> </li>
+        <li> <a href="Secciones/S6.html"> § 6 : Teoremas Fundamentales de la integral de línea</a> </li>
+        <li> <a href="Secciones/S7.html"> § 7 : El Teorema de Green </a> </li>
+        <li> <a href="Secciones/S8.html"> § 8 : El Teorema de Stokes </a> </li>
+        <li> <a href="Secciones/S9.html"> § 9 : El Teorema de Gauss </a> </li>
+        <li> <a href="Secciones/S10.html">§ 10: 1-Formas </a> </li>
+        <li> <a href="Secciones/S11.html"> § 11 : 2-Formas constantes </a> </li>
+        <li> <a href="Secciones/S12.html"> § 12 : Funciones bilineales alternantes </a> </li>
+        <li> <a href="Secciones/S13.html"> § 13 : 2-Formas </a> </li>
+        <li> <a href="Secciones/S14.html"> § 14 : La integral de Riemann sobre rectángulos </a> </li>
       </ul>
     </div>
-</body>
+  </body>
 </html>
