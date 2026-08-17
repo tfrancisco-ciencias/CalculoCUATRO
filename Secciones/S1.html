@@ -165,7 +165,7 @@
               Finalmente, la frase "para casi toda \(y\in [c,d]\)" significa  que 
               existe un conjunto \(N\subseteq [c,d]\), de contenido cero tal que 
               para toda \(y\in [c,d]\setminus N\) se vale la propiedad en cuestión. Es decir,
-              se puede pensar al conjunto \(N\) como despreciable/irrelevante.
+              se puede pensar al conjunto \(N\) como despreciable ó irrelevante.
             </p>
           </li>
           <li>
@@ -207,6 +207,28 @@
         </p>
         </div>
 
+
+         <div class="info-box">
+          <h2 class="number-title"> Ejemplo</h2>
+          <p>
+            Calcula la integral 
+            \[\int_{\mathcal{R}} \sqrt{x+y}\]
+            donde \(\mathcal{R}=[0,1]\times [0,4]\).
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+            <p>
+              Por el Teorema 12.20 tenemos que
+              \begin{eqnarray*}
+              \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
+              & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
+              & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
+              & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
+              \end{eqnarray*}
+            </p>
+          </div>
+          </div>
 
 
         <div class="definicion-box">
@@ -271,6 +293,60 @@
 
 
 
+        <div class="info-box">
+          <h2 class="number-title"> Ejemplo </h2>
+          <p>
+            Sea \(\mathcal{R}\) el medio anillo centrado en el origen con radio interior 1 y radio exterior 2.
+          </p>
+          <p>
+            Calculo \(\int_{\mathcal{R}}y\)
+          </p>
+
+      
+                  <button class="respButton hvr-grow"> Respuesta </button>
+                  <div class="resp-box">
+
+              <p>
+                La región \(\mathcal{R}\) se puede representar como una región de Tipo I
+                \[
+                \mathcal{R}=\{(x,y): -2\leq x \leq 2, g_1(x)\leq y \leq g_2(x)\}
+                \]
+                donde
+                \[
+                g_1(x)=\left\{
+                  \begin{array}{cc}
+                  0 & -2\leq x \leq -1\\
+                  -\sqrt{1-x^2} & -1\leq x \leq  1 \\
+                  0 & 1\leq x \leq 2\\
+                  \end{array}
+                  \right.
+                \]
+                y
+                \[
+                g_2(x)=\left\{
+                  \begin{array}{cc}
+                  \sqrt{4-x^2} & -2\leq x \leq 2
+                  \end{array}
+                  \right.
+                \]
+              </p>
+
+              <p>
+                Entonces por el <a href="#Teo:IntRegionesI">Teorema 1.6</a> tenemos que
+                \begin{eqnarray*}
+                \int_{\mathcal{R}}y &=& \int_{-2}^{2}\left(\int_{g_1(x)}^{g_2(x)}y dy\right)dx \\
+                &=& \int_{-2}^2 \int_{g_1(x)}^{g_2(x)}y dy dx \\ 
+                &=& \int_{-2}^2 \frac{1}{2}\left(g_2(x)^2 - g_1(x)^2\right) dx \\
+                &=&\frac{1}{2}\int_{-2}^2 g_2(x)^2 dx - \frac{1}{2}\int_{-1}^1 g_1(x)^2 dx \\ 
+                &=& \frac{1}{2}\int_{-2}^2 (4-x^2) dx - \frac{1}{2}\int_{-1}^1 (1-x^2) dx \\
+                &=& \frac{1}{2}\left( 8 - \frac{8}{3} \right) - \frac{1}{2}\left( 2 - \frac{2}{3} \right) = 2
+                \end{eqnarray*}
+
+              </p>
+            </div>
+        
+        </div>
+      
 
         <div class="nota-box">
           <h2 class="number-title" id="Nota:IntRegionesII"> Nota </h2>
@@ -298,6 +374,44 @@
           </p>
         </div>
 
+
+
+        <div class="teorema-box">
+          <h2 class="number-title" id="Teo:CurvaContenidoCero"> Teorema </h2>
+          <p>
+            Sea \(\gamma:[a,b]\to \mathbb{R}^2\) una función continua. Entonces la imagen de \(\gamma\), denotada 
+            \[
+            N=\{\gamma(t): t\in [a,b]\}
+            \] 
+            es un conjunto de contenido cero.
+          </p>
+
+          <!-- <p>
+            Sea \(\varepsilon >0\). Queremos encontrar una cantidad finita de cajas \(C_1,\dots, C_n\) tal que \(N\subseteq \cup_{i=1}^n C_i\) y \(\sum_{i=1}^n |C_i|<\varepsilon\).
+          </p>
+          <p>
+            Denotemos las coordenadas de \(\gamma(t)\) como \((x(t), y(t))\). Entonces al ser \(\gamma\) una función 
+            continua en el compacto \([a,b]\), es uniformemente continua. Por lo tanto para \(\sqrt{\varepsilon}\) existe \(\delta>0\) tal que si \(|t_1-t_2|<\delta\) entonces
+            \[  
+              \|\gamma(t_1)-\gamma(t_2)\|<\sqrt{\varepsilon}.
+            \]
+            En particular \(|x(t_1)-x(t_2)|<\sqrt{\varepsilon}\) y \(|y(t_1)-y(t_2)|<\sqrt{\varepsilon}\).
+
+          </p>
+          <p>
+            Sea \(n\in \mathbb{N}\) tal que \(\frac{b-a}{n}<\delta\). Consideremos la partición \(a=t_0 < t_1 < \cdots < t_n=b \) de \([a,b]\) 
+            homogenea de longitud \(\frac{b-a}{n}\). Definamos las cajas \(C_i\) como 
+            \[
+            C_i=[x(t_{i})-\sqrt{\varepsilon}/4\sqrt{n}/,x(t_{i})+\sqrt{\varepsilon}/4\sqrt{n}]\times [y(t_{i})-\sqrt{\varepsilon}/4\sqrt{n},y(t_{i})+\sqrt{\varepsilon}/4\sqrt{n}].
+            \]
+
+            Entonces \(|C_i|=\varepsilon/2n\) y \(\sum_{i=1}^n |C_i|=\varepsilon/2< \varepsilon\).
+            </p>
+            <p>
+              Por último, dado \(t\in [a,b]\) existe \(i\in \{1,\dots,n\}\) tal que \(t\in [t_{i-1}, t_i]\). Por lo tanto
+              \(\| \gamma(t)-\gamma(t_{i})\|<\sqrt{\varepsilon}\).
+            </p>-->
+        </div>
 
 
         <div class="teorema-box">
@@ -542,7 +656,7 @@
       </div>
 
 
-      
+
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
@@ -595,7 +709,7 @@
               <a href="https://youtu.be/wV5vwTSo3HY" target="_blank"> Video </a>
             </div>
           </div>
-          <button class="respButton hvr-grow"> Respuesta de 3</button>
+          <!-- <button class="respButton hvr-grow"> Respuesta de 3</button>
           <div class="resp-box">
             <div class="video flexbox">
               <a href="https://youtu.be/zrYm47sRH2o?feature=share&t=1569" target="_blank"> Video </a>
@@ -606,7 +720,7 @@
             <div class="video flexbox">
               <a href="https://youtu.be/zrYm47sRH2o?feature=share&t=1869" target="_blank"> Video </a>
             </div>
-          </div>
+          </div>-->
           
         </div>
 
@@ -623,15 +737,12 @@
             <li> \(\int_{\mathcal{R}}|3x+2y|\), \(\mathcal{R}=[0,2]\times [-3,3]\). </li>
             <li> \(\int_{\mathcal{R}} |\cos(x+y)|\),
               \(\mathcal{R}=[0,\pi]\times [0,\pi]\) </li>
-            <li> \(\int_{\mathcal{R}} \sqrt{x+y}\),
-            \(\mathcal{R}=[0,1]\times [0,4]\). </li>
-
             <li> \(\int_{\mathcal{R}} y^{-3}e^{tx/y}\),
               \(\mathcal{R}=[0,t]\times [1,t]\), con \(t>0\).
             </li>
           </ol>
 
-          <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+          <!-- <button class="respButton hvr-grow"> Respuesta inciso 1</button>
           <div class="resp-box">
             <div class="video flexbox">
               <a href="https://youtu.be/yd87EErkg8I" target="_blank"> Video </a>
@@ -643,22 +754,11 @@
             <div class="video flexbox">
               <a href="https://youtu.be/S1aNwrgNWwc" target="_blank"> Video </a>
             </div>
-          </div>
+          </div>-->
 
           <br>
 
-          <button class="respButton hvr-grow"> Respuesta inciso 3</button>
-          <div class="resp-box">
-            <p>
-              Por el Teorema 12.20 tenemos que
-              \begin{eqnarray*}
-              \int_{R}\sqrt{x + y} & = & \int_{0}^{1}\left(\int_{0}^{4}\sqrt{x + y} dy\right)dx \\
-              & = & \int_{0}^{1} \frac{2}{3}\left((x + 4)^{\frac{3}{2}} -x^{\frac{3}{2}}\right) dx \\
-              & = & \frac{2}{3}\cdot\frac{2}{5}\left((x + 4)^{\frac{5}{2}} - x^{\frac{5}{2}}\right)\mid_{0}^{1} \\
-              & = & \frac{4}{15}\left(5^{\frac{5}{2}} - 33\right)
-              \end{eqnarray*}
-            </p>
-          </div>
+          
 
         </div>
 
@@ -706,7 +806,7 @@
           </ol>
 
 
-        <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+        <!-- <button class="respButton hvr-grow"> Respuesta inciso 1</button>
         <div class="resp-box">
         <p>
           El dominio de \(f\) es el que se encuentra entre la gráfica verde
@@ -751,9 +851,7 @@
         <div class="video flexbox">
           <a href="https://youtu.be/uPrEWBLTXd4" target="_blank"> Video </a>
         </div>
-      </div>
-
-
+      </div>-->
 
         </div>
 
@@ -931,7 +1029,7 @@
          </div>
 
         <p>
-          Ahora vamos a obtener los puntos de intersecci\'on \(A\) y \(B\).
+          Ahora vamos a obtener los puntos de intersección \(A\) y \(B\).
          Tenemos que si \(x < 0\), entonces
          \(y = \mid x \mid = -x \) y si \(x < 3\), entonces
          \(y = 6 - \mid x-3 \mid = 6 - ( -( x-3 )) = 3 + x \). Esto implica, 
@@ -966,7 +1064,7 @@
         </p>
           <p>
          Es claro que \(S\) la estamos representando como una región de
-         Tipo I. Adem\'as,
+         Tipo I. Además,
          \[
          \int_S 2x + y dA
          = \int_{R_1} 2x + y dA + \int_{R_2} 2x + y dA
@@ -1024,12 +1122,12 @@
 
 
 
-       <button class="respButton hvr-grow"> Respuesta</button>
+       <!-- <button class="respButton hvr-grow"> Respuesta</button>
        <div class="resp-box">
          <div class="video flexbox">
            <a href="https://youtu.be/Mg3USWqo71s?feature=share&t=3588" target="_blank"> Video </a>
          </div>
-       </div>
+       </div>-->
         
       </div>
 
@@ -1081,11 +1179,11 @@
          </div>
          </div>
 
-         <button class="respButton hvr-grow"> Respuesta inciso 2</button>
+         <!-- <button class="respButton hvr-grow"> Respuesta inciso 2</button>
        <div class="resp-box">
          <div class="video flexbox">
            <a href="https://youtu.be/Mg3USWqo71s?feature=share&t=5384" target="_blank"> Video </a>
-         </div>
+         </div>-->
          
        </div>
                 
@@ -1134,7 +1232,7 @@
             \]
 
             es claro que \(S\) representada de esta manera es una región de
-            Tipo II y de manera gr\'afica tenemos
+            Tipo II y de manera gráfica tenemos
             </p>
 
             <div class="imagen-box flexbox">
