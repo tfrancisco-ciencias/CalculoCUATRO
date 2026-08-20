@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+            senh:"\\operatorname{senh}"
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <!-- This part is for using single $ for latex input, instead of \(\) -->
+    <!--<script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>-->
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../styles.css" />
+
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+        body.number-title{
+          counter-reset: sectionCounter -1 cardCounter ;
+        }
+        h1.number-title{
+          counter-reset: sectionCounter -1 cardCounter ;
+        }
+      </style>
+  
+    <!-- Top Menu  -->
+
+
+        <header class="main-header">
+          <h1> Cálculo CUATRO </h1>
+         <nav class="top-nav">
+           <ul>
+              <li> <a href="../Home.html"> Inicio  </a> </li>
+              <li> <a href="../InfoPrimerDia.html"> Información general </a> </li>
+              <li> <a href="../Secciones.html"> Secciones  </a> </li>
+              
+            </ul>
+          </nav>
+          <label class="switch">
+            <input type="checkbox" onclick="myFunction()">
+            <span class="slider"></span>
+          </label>
+        </header>
+
+      <!-- This part is for title in tab-->
+      <title id="Sec"> § 0 </title>
+    </head>
+
+    <!-- Contenido empieza abajo-->
+  <body>
+      <h1 class="number-title flexbox"> <p>Introducción a la integral de Riemann</p> </h1>     
+
+      <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+
+
+
+    <div class="nota-box">
+        <h2 class="number-title"> Repaso de la integral en una dimensión </h2> 
+        <p>
+            Dada una función acotada \(f:[a,b] \to \mathbb{R}\) y 
+            una partición \(P=\{x_0,x_1,\ldots,x_n\}\) de \([a,b]\), definimos suma inferior y suma superior 
+            de \(f\) con respecto a \(P\) como
+            \begin{eqnarray*} 
+                \underline{S}(f,P) &=& \sum_{i=1}^{n} m_i(f) \Delta_i x, \\
+                \overline{S}(f,P) &=& \sum_{i=1}^{n} M_i(f) \Delta_i x,
+            \end{eqnarray*}
+            donde \(m_i(f) = \inf\{f(x): x \in [x_{i-1},x_i]\}\), \(M_i(f) = \sup\{f(x): x \in [x_{i-1},x_i]\}\) y 
+            \(\Delta_i x = x_i - x_{i-1}\). 
+            La integral de Riemann
+        </p>
+        <p>
+            Definimos la integral inferior y superior de \(f\) como
+            \begin{eqnarray*}
+                \underline{\int_a^b} f(x) dx &=& \sup\{\underline{S}(f,P): P \text{ es una partición de } [a,b]\}, \\
+                \overline{\int_a^b} f(x) dx &=& \inf\{\overline{S}(f,P): P \text{ es una partición de } [a,b]\}.
+            \end{eqnarray*}
+            Si \(\underline{\int_a^b} f(x) dx = \overline{\int_a^b} f(x) dx\), decimos que \(f\) es Riemann-integrable en \([a,b]\) 
+                y definimos la integral de Riemann de 
+                \( f\) en \([a,b]\) como
+            \[
+                \int_a^b f(x) dx = \underline{\int_a^b} f(x) dx = \overline{\int_a^b} f(x) dx.
+            \]
+        </p>
+    </div>
+
+
+
+
+
+   </body>
+   </html>
