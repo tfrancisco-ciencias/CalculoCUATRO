@@ -99,7 +99,7 @@
             \end{eqnarray*}
             donde \(m_i(f) = \inf\{f(x): x \in [x_{i-1},x_i]\}\), \(M_i(f) = \sup\{f(x): x \in [x_{i-1},x_i]\}\) y 
             \(\Delta_i x = x_i - x_{i-1}\). 
-            La integral de Riemann
+            La integral de Riemann.
         </p>
         <p>
             Definimos la integral inferior y superior de \(f\) como
@@ -114,9 +114,281 @@
                 \int_a^b f(x) dx = \underline{\int_a^b} f(x) dx = \overline{\int_a^b} f(x) dx.
             \]
         </p>
+        <p>
+          Queremos copiar la misma idea para funciones de dos variables definidas sobre 
+          rectángulos de la forma \([a,b]\times[c,d]\). Lo primero para esto es definir qué es una 
+          partición de un rectángulo.
+        </p>
     </div>
 
 
+    <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) un rectángulo en
+          \(\mathbb{R}^2\). Una partición de \(\mathcal{R}\) es
+          el producto cartesiano de particiones de
+          sus lados. Es decir, si
+          \[
+          \mathbb{P}_1=\{a=x_0< \cdots < x_n=b  \}, \quad
+          \mathbb{P}_2=\{c=y_0< \cdots < y_m= d \},
+          \]
+          son particiones de \([a,b]\) y \([c,d]\), respectivamente,
+          entonces
+          \[
+          \mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2=
+          \{ (x_i,y_j):  1 \leq i \leq n, 1\leq j \leq m \}
+          \]
+          es una partición de \(\mathcal{R}\).
+        </p>
+        <p> La partición
+          \(\mathbb{P}\) parte a \(\mathcal{R}\) en \(nm\)
+          subrectángulos, \([x_{i-1}, x_i]\times [y_{i-1},y_i]\).
+          El rectángulo abierto \((x_{i-1},x_i)\times (y_{j-i},y_j)\)
+          se llama un subrectángulo abierto de \(\mathcal{R}\).
+        </p>
+        <p>
+          Se dice que una partición \(\mathbb{P}'\) de \(\mathcal{R}\)
+          refina a \(\mathbb{P}\) si \(\mathbb{P}\subseteq \mathbb{P}'\).
+        </p>
+
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          Sea \(\mathcal{R}=[a,b]\times [c,d]\) un rectángulo en
+          \(\mathbb{R}^2\) y sea \(f:\mathcal{R}\to \mathbb{R}\) una función acotada.
+          Sea \(\mathbb{P}=\mathbb{P}_1\times \mathbb{P}_2\) una partición de \(\mathcal{R}\).
+          Copiando el caso uno-dimensionales, definimos la suma inferior y suma superior de \(f\) con respecto a \(\mathbb{P}\) como
+          \begin{eqnarray*}
+            \underline{S}(f,\mathbb{P}) &=& \sum_{i=1}^{n} \sum_{j=1}^{m} m_{ij}(f) \Delta_i x \Delta_j y,\\
+            \overline{S}(f,\mathbb{P}) &=& \sum_{i=1}^{n} \sum_{j=1}^{m} M_{ij}(f) \Delta_i x \Delta_j y,
+          \end{eqnarray*}
+          donde \(m_{ij}(f)=\inf\{f(x,y): (x,y)\in [x_{i-1},x_i]\times [y_{j-1},y_j]\}\),
+          \(M_{ij}(f)=\sup\{f(x,y): (x,y)\in [x_{i-1},x_i]\times [y_{j-1},y_j]\}\),
+          \(\Delta_i x = x_i - x_{i-1}\) y
+          \(\Delta_j y = y_j - y_{j-1}\).
+        </p>
+        <p>
+          Si la función \(f\) es no negativa, entonces \(\underline{S}(f,\mathbb{P})\) y 
+          \(\overline{S}(f,\mathbb{P})\) pueden interpretarse como el área de los subrectángulos 
+          que se encuentran por debajo y por encima de la gráfica de \(f\), respectivamente.
+        </p>
+
+
+      </div>
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\) un rectángulo en
+            \(\mathbb{R}^2\) y sea \(f:\mathcal{R}\to \mathbb{R}\) una función acotada.
+            Definimos la integral inferior y superior de \(f\) como
+            \begin{eqnarray*}
+              \underline{\int_{\mathcal{R}}} f &=& \sup\{\underline{S}(f,\mathbb{P}): \mathbb{P} \text{ es una partición de } \mathcal{R}\},\\
+              \overline{\int_{\mathcal{R}}} f &=& \inf\{\overline{S}(f,\mathbb{P}): \mathbb{P} \text{ es una partición de } \mathcal{R}\}.
+            \end{eqnarray*}
+            Si
+            \(\underline{\int_{\mathcal{R}}} f = 
+            \overline{\int_{\mathcal{R}}} f\), decimos que \(f\) es Riemann-integrable en 
+            \(\mathcal{R}\) y definimos la integral de Riemann de \(f\) en 
+            \(\mathcal{R}\) como
+            \[
+              \int_{\mathcal{R}} f = 
+              \underline{\int_{\mathcal{R}}} f = 
+              \overline{\int_{\mathcal{R}}} f.
+            \]
+            Otras notaciones para la integral de Riemann de \(f\) en \(\mathcal{R}\) son
+            \[
+              \int_{\mathcal{R}} f(x,y) dA \quad \text{o} \quad
+              \int_{\mathcal{R}} f(x,y) dxdy.
+            \]
+          </p>
+
+        </div>      
+
+        <div class="info-box">
+          <h2 class="number-title"> Ejemplo </h2>
+          <p>
+          Definimos la función \(f:[0,1]\times [0,1]\to \mathbb{R}\) como
+          \[
+            f(x,y) = \left\{\begin{array}{ll}
+              1, & \text{si } x=y,\\
+              0, & \text{si } x\neq y.
+            \end{array}\right.
+          \]
+          La función \(f\) es acotada, ya que \(0\leq f(x,y)\leq 1\) para todo \((x,y)\in [0,1]\times [0,1]\). 
+          Entonces \(f\) es Riemann-integrable en \([0,1]\times [0,1]\) y
+          \[
+            \int_{[0,1]\times [0,1]} f = 0.
+          \]  
+          </p>
+
+        </div>
+
+        <div class="info-box">
+          <h2 class="number-title"> Ejemplo </h2>
+          <p>
+            Recordamos que en el caso uno-dimensional 
+            un ejemplo de  una función no Riemann-integrable es la función de Dirichlet, 
+            definida como
+            \[
+              D(x) = \left\{\begin{array}{ll}
+                1, & \text{si } x\in \mathbb{Q},\\
+                0, & \text{si } x\notin \mathbb{Q}.
+              \end{array}\right.
+            \]
+          </p>
+          <p>
+            Ahora definimos la función de dos variables, \(f:[0,1]\times [0,1]\to \mathbb{R}\), como
+            \[
+            f(x,y) = \left\{\begin{array}{ll}
+              D(x), & \text{si } y=1/2,\\
+              0, & \text{si } y\ne 1/2.
+            \end{array}\right.
+          \]
+          Entonces \(f\) es acotada y es Riemann-integrable en \([0,1]\times [0,1]\) y
+          \[
+            \int_{[0,1]\times [0,1]} f = 0.
+          \]
+          </p>
+
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
+          </p>
+          <p>
+            
+            Entonces la combinación lineal \(\alpha f+g\) es Riemann-integrable en 
+            \([a,b]\times [c,d]\) y además 
+            \[
+            \int_{\mathcal{R}} (\alpha f+g) = \alpha \int_{\mathcal{R}} f + \int_{\mathcal{R}} g.
+            \]
+          </p>
+        </div>
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
+          </p>
+          <p>
+            Si \(f(x,y)\leq g(x,y)\) para todo \((x,y)\in \mathcal{R}\), entonces
+            \[
+              \int_{\mathcal{R}} f \leq \int_{\mathcal{R}} g.
+            \]
+          </p>
+
+          </div>
+
+
+          
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
+          </p>
+          <p>
+            Entonces la función producto \(fg\) es Riemann-integrable en \(\mathcal{R}\).
+          </p>
+
+          </div>
+
+
+
+          
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sea \(f:\mathcal{R}\to \mathbb{R}\) una función continua en \(\mathcal{R}\). 
+            Entonces \(f\) es Riemann-integrable en \(\mathcal{R}\). Además 
+            \[
+            \int_{\mathcal{R}} f = \lim_{n\to \infty, m\to \infty} \sum_{i=1}^{n}\sum_{j=1}^m  f(t_{i,j})\left(\frac{b-a}{n}\right) \left(\frac{d-c}{m}\right).
+            \]
+            donde los \(t_{i,j}\) son puntos arbitrarios en los rectángulos de la partición homogenea.
+          </p>
+
+          </div>
+    
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Un subconjunto \(A\subseteq \mathbb{R}^2\) se llama de 
+            contenido cero o tiene contenido cero si para todo \(\varepsilon>0\) existe una colección finita de rectángulos (o cajas)
+            \(\{C_1,\ldots,C_n\}\) tal que 
+            <ol>
+              <li> \(A\subseteq \bigcup_{i=1}^{n} C_i\) </li>
+              <li> \(\sum_{i=1}^{n} \text{área}(C_i)<\varepsilon\) </li>
+            </ol>
+          </p>
+          <p>
+            Por ejemplo, la diagonal \(A=\{(x,x): x\in [0,1]\}\) tiene contenido cero. Para probarlo, sea \(\varepsilon>0\) y consideremos la colección de rectángulos
+            \[
+              C_i = \left[\frac{i-1}{n},\frac{i}{n}\right]\times \left[\frac{i-1}{n},\frac{i}{n}\right], \quad i=1,\ldots,n,
+            \]
+            donde \(n\) es un entero positivo tal que \(1/n<\varepsilon\). Entonces \(A\subseteq \bigcup_{i=1}^{n} C_i\) y
+            \[
+              \sum_{i=1}^{n} \text{área}(C_i) = \sum_{i=1}^{n} \frac{1}{n^2} = \frac{1}{n} < \varepsilon.
+            \]    
+          </p>
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(f:[a,b]\to \mathbb{R}\) una función continua en \([a,b]\). Entonces 
+            su gráfica, \(G(f)=\{(x,f(x)): x\in [a,b]\}\), tiene contenido cero.
+          </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+          <p>
+            Para probarlo vamos a usar que al ser \(f\) continua en 
+            el compacto \([a,b]\), entonces \(f\) es uniformemente continua. 
+          </p>
+          <p>
+            Sea \(\varepsilon>0\) y sea \(\delta>0\) tal que si \(|x-y|<\delta\), entonces \(|f(x)-f(y)|<\varepsilon/(b-a)\). 
+          </p>
+          <p>
+            Sea \(n\) un entero positivo tal que \(1/n<\delta\) y consideremos la partición homogenea de tamaño \(n\) de \([a,b]\):
+            \[
+              P=\left\{a=x_0< x_1< \cdots < x_n=b\right\}, \quad x_i = a + i\frac{b-a}{n}, \quad i=0,\ldots,n.
+            \]
+          </p>
+          
+          <p>
+            Por continuidad, para cada \(i=1,\ldots,n\) existe 
+            \(x_i^*, x_{i,*}\in [x_{i-1},x_i]\) tal que 
+            \begin{eqnarray*}
+              f(x_i^*) = \sup\{f(x): x\in [x_{i-1},x_i]\}, \\
+              f(x_{i,*}) = \inf\{f(x): x\in [x_{i-1},x_i]\}.
+            \end{eqnarray*}
+          </p>
+          <p>
+            Por la elección de \(\delta\), tenemos que 
+            \(|f(x_i^*)-f(x_{i,*})|<\varepsilon/(b-a)\). Entonces si definimos
+            \[
+            C_i= [x_{i-1},x_i]\times [f(x_{i,*}), f(x_i^*)]
+            \]
+            tenemos que 
+            \[
+             \text{área}(C_i) = (x_i-x_{i-1})(f(x_i^*)-f(x_{i,*})) < \frac{b-a}{n}\cdot \frac{\varepsilon}{b-a} = \frac{\varepsilon}{n}.
+            \]
+            Entonces \(\sum_{i=1}^{n} \text{área}(C_i) < \varepsilon\).
+          </p>
+          <p>
+            Finalmente, \(G(f)\subseteq \bigcup_{i=1}^{n} C_i\).
+            
+          </p>
+          </div>
+        </div>
 
 
 
