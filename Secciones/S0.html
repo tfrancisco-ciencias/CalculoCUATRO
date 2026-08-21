@@ -329,6 +329,10 @@
             </ol>
           </p>
           <p>
+            Nota: en la definición sólo decimos rectángulos, sin especificar si son abiertos o cerrados, pues 
+            como el área de un rectángulo abierto es igual al área de un rectángulo cerrado, no importa si usamos abiertos o cerrados.
+          </p>
+          <p>
             Por ejemplo, la diagonal \(A=\{(x,x): x\in [0,1]\}\) tiene contenido cero. Para probarlo, sea \(\varepsilon>0\) y consideremos la colección de rectángulos
             \[
               C_i = \left[\frac{i-1}{n},\frac{i}{n}\right]\times \left[\frac{i-1}{n},\frac{i}{n}\right], \quad i=1,\ldots,n,
@@ -337,7 +341,9 @@
             \[
               \sum_{i=1}^{n} \text{área}(C_i) = \sum_{i=1}^{n} \frac{1}{n^2} = \frac{1}{n} < \varepsilon.
             \]    
+            
           </p>
+          
         </div>
 
 
@@ -388,6 +394,134 @@
             
           </p>
           </div>
+        </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
+          </p>
+          <p>
+            Si \(f=g\) excepto en un conjunto de contenido cero, entonces
+            \[
+              \int_{\mathcal{R}} f = \int_{\mathcal{R}} g.
+            \]
+          </p>
+          <p>
+            Nota: decimos que \(f=g\) excepto en un conjunto de contenido cero si existe \(N\subseteq \mathcal{R}\),
+            un conjunto de contenido cero, tal que \(f(x,y)=g(x,y)\) para todo \((x,y)\in \mathcal{R}\setminus N\).
+          </p>
+        </div>
+
+        <div class="nota-box">
+          <h2 class="number-title"> Contenido cero en otras dimensiones </h2>
+          <p>
+            El concepto de contenido cero se puede definir en otras dimensiones. Veamos como se ve en 
+            dimensión 1.
+          </p>
+          <p>
+            Una parte importante en la definición de contenido cero en \(\mathbb{R}^2\) es que 
+            involucra el concepto de área, por lo tanto si queremos copiar la definición 
+            de contenido cero en \(\mathbb{R}\) debemos usar el concepto de longitud (el análigo de área).
+          </p>
+          <p>
+            Un subconjunto \(A\subseteq \mathbb{R}\) se llama de contenido cero o tiene contenido cero si para todo \(\varepsilon>0\) existe una colección finita de intervalos  \(\{I_1,\ldots,I_n\}\) tal que 
+            <ol>
+              <li> \(A\subseteq \bigcup_{i=1}^{n} I_i\) </li>
+              <li> \(\sum_{i=1}^{n} \text{longitud}(I_i)<\varepsilon\) </li>
+            </ol>
+          </p>
+          <p>
+            Por ejemplo el conjunto \(A=\{0\}\cup \{\frac{1}{n}: n\in \mathbb{N}\}\) tiene contenido cero.
+          </p>
+          <p>
+            Si queremos definir contenido cero en \(\mathbb{R}^3\) ahora el cocepto clave es el de 
+            volumen. Por lo tanto definimos contenido cero en \(\mathbb{R}^3\) como sigue: un subconjunto 
+            \(A\subseteq \mathbb{R}^3\) se llama de contenido cero o tiene contenido cero si para todo \(\varepsilon>0\) 
+            existe una colección finita de cajas (rectángulos en \(\mathbb{R}^3\)) \(\{C_1,\ldots,C_n\}\) tal que
+            <ol>
+              <li> \(A\subseteq \bigcup_{i=1}^{n} C_i\) </li>
+              <li> \(\sum_{i=1}^{n} \text{volumen}(C_i)<\varepsilon\) </li>
+            </ol>
+          </p>
+        </div>
+
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(X\) un conjunto y \(A\subseteq X\). Definimos la función característica de \(A\), ó indicadora,  
+            como
+            \[
+              \chi_A(x) = \left\{\begin{array}{ll}
+                1, & \text{si } x\in A,\\
+                0, & \text{si } x\notin A.
+              \end{array}\right.
+            \]
+          </p>
+        </div>
+
+        <div class="prop-box">
+          <h2 class="number-title"> Proposición </h2>
+          <p>
+            Sea \(X\) un conjunto y \(A,B\subseteq X\). Entonces:
+            <ol>
+              <li>
+                \(\chi_{\emptyset} = 0\), \(\chi_X = 1\).
+              </li>
+              <li>
+                \(\chi_A \cdot \chi_B = \chi_{A\cap B}\).
+              </li>
+              <li>
+                \(\chi_A + \chi_B = \chi_{A\cup B} + \chi_{A\cap B}\).
+              </li>
+              <li>
+                \(\chi_{A\triangle B} =\chi_A+ \chi_B \) mod 2, donde \(\triangle\) denota la diferencia simétrica,
+                definida como \(A\triangle B = (A\setminus B)\cup (B\setminus A)\).
+              </li>
+            </ol>
+          </p>
+
+        </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\) y \(\mathcal{R}'=[\alpha, \beta]\times [\gamma, \delta]\subseteq \mathcal{R}\).  
+          </p>
+          <p>
+            Entonces \(\chi_{\mathcal{R}'}\) es Riemann-integrable con 
+            \[
+            \int_{\mathcal{R}} \chi_{\mathcal{R}'} = \text{área}(\mathcal{R}')
+            \]
+          </p>
+          <p>
+            Vamos a probar que 
+            \[
+            \underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\overline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'} = \text{área}(\mathcal{R}')
+            \]
+          </p>
+          <p>
+            Para la primera parte vamos a probar que \(\underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\text{área}(\mathcal{R}')\).
+          </p>
+          <p>
+            Recordamos que 
+            \[
+            \underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\sup\{ \underline{S} (\chi_{\mathcal{R}'},P_1\times P_2):  P_1\times P_2 \text{ partición de } \mathcal{R}\}
+            \]
+            Sea \(P_1\times P_2\) una partición arbitraria de \(\mathcal{R}\). Ahora sea 
+            \(\tilde{P_1}\times \tilde{P_2}\) la partición de \(\mathcal{R}\) generada 
+            por el rectángulo \(\mathcal{R}'\) y tomemos \(\widehat{P_1}\times \widehat{P_2}=(P_1\times P_2)\cup (\tilde{P_1}\times \tilde{P_2})\).
+            Se sigue que 
+            \[
+            \underline{S} (\chi_{\mathcal{R}'},P_1\times P_2) \leq \underline{S} (\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2}) 
+            \] 
+            Afirmamos que \(\underline{S}(\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2}) = \text{área}(\mathcal{R}')\). Para ver 
+            esto escribimos 
+            \[
+            \underline{S}(\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2})=\sum_{i,j} m_{i,j}(\chi_{\mathcal{R}'}) \Delta_i x \Delta_j y
+            \]
+          </p>
         </div>
 
 
