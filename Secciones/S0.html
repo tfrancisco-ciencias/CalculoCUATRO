@@ -498,17 +498,26 @@
           <p>
             Vamos a probar que 
             \[
-            \underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\overline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'} = \text{área}(\mathcal{R}')
+             \text{Area}(\mathcal{R}') = \underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\overline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'} 
             \]
           </p>
           <p>
-            Para la primera parte vamos a probar que \(\underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\text{área}(\mathcal{R}')\).
+            <i>Primera parte:</i>  
+            <p> 
+              Vamos a probar que \(\underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\text{Area}(\mathcal{R}')\).
+            </p>
           </p>
           <p>
             Recordamos que 
             \[
             \underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\sup\{ \underline{S} (\chi_{\mathcal{R}'},P_1\times P_2):  P_1\times P_2 \text{ partición de } \mathcal{R}\}
             \]
+            
+          </p>
+          <p>
+            Paso 1: \(\text{Area}(\mathcal{R}')\) es cota superior del conjunto del lado derecho en la ecuación de arriba.
+          </p>
+          <p>
             Sea \(P_1\times P_2\) una partición arbitraria de \(\mathcal{R}\). Ahora sea 
             \(\tilde{P_1}\times \tilde{P_2}\) la partición de \(\mathcal{R}\) generada 
             por el rectángulo \(\mathcal{R}'\) y tomemos \(\widehat{P_1}\times \widehat{P_2}=(P_1\times P_2)\cup (\tilde{P_1}\times \tilde{P_2})\).
@@ -518,9 +527,188 @@
             \] 
             Afirmamos que \(\underline{S}(\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2}) = \text{área}(\mathcal{R}')\). Para ver 
             esto escribimos 
-            \[
+            \begin{equation}\label{Aux:SumaInferiorCaracteristica}
             \underline{S}(\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2})=\sum_{i,j} m_{i,j}(\chi_{\mathcal{R}'}) \Delta_i x \Delta_j y
+            \end{equation}
+            y lo importante es analizar los \(m_{i,j}(f)\).
+          </p>
+          <p>
+            Denotamos \(\widehat{R}_{i,j}=[\hat{x}_{i-1},\hat{x}_i]\times[\hat{y}_{j-1},\hat{y}_j]\), 
+            donde \(\widehat{P}_1\times \widehat{P}_2=\{(\hat{x}_i, \hat{y}_j)\}_{1\leq i \leq n, 1\leq j \leq m}\).
+          </p>
+          <p>
+            Por construcción de \( \widehat{P}_1 \times \widehat{P}_2\) podemos dividir los \(\widehat{R}_{i,j}\)
+            en tres tipos: 
+            <ul>
+              <li>
+                (I) los que están completamente dentro de \(\mathcal{R}'\),
+              </li>
+              <li>
+                (II) los que están completamente fuera de \(\mathcal{R}'\),   
+              </li>
+              <li>
+                (III) los que intersectan a \(\mathcal{R}'\) justo en la frontera.
+              </li>
+            </ul>
+            <p>
+              Para los de tipo (I) tenemos que \(m_{i,j}(\chi_{\mathcal{R}'})=1\), 
+              pues \(\chi_{R'}(x,y)=1\) para \((x,y)\in \mathcal{R}'\).
+            </p>
+            <p>
+              Para los de tipo (II) tenemos que \(m_{i,j}(\chi_{\mathcal{R}'})=0\),
+              pues \(\chi_{R'}(x,y)=0\) para \((x,y)\notin \mathcal{R}'\).
+            </p>
+            <p>
+              Para los de tipo (III) tenemos: si \((x,y)\in \widehat{R}_{i,j}\)
+              está en la frontera de \(\mathcal{R}'\) entonces \(\chi_{\mathcal{R}'}(x,y)=1\);
+              en cualquier otro caso \(\chi_{\mathcal{R}'}(x,y)=0\). Como 
+              por definición 
+              \[
+              m_{i,j}(\chi_{\mathcal{R}'})=\inf\{\chi_{\mathcal{R}'}(x,y): (x,y)\in \widehat{R}_{i,j}\}
+              \]
+              concluimos que \(m_{i,j}(\chi_{\mathcal{R}'})=0\).
+            </p>
+          </p>
+          <p>
+            Tomado en cuenta el análisis anterior tenemos que en \eqref{Aux:SumaInferiorCaracteristica}
+            sólo sobreviven los sumando \(i,j\) para los cuales \(\widehat{R}_{i,j}\subset \mathcal{R}'\) y como 
+            por construcción éstos \(\widehat{R}_{i,j}\) reconstruyen todo \(\mathcal{R}'\) concluimos
+            \begin{eqnarray*}
+            \sum_{i,j} m_{i,j}(\chi_{\mathcal{R}'}) \Delta_i x \Delta_j y&=&\sum_{i,j: \widehat{R}_{i,j}\subset \mathcal{R}'} \text{Area}(\widehat{R}_{i,j}) \\
+             &=& \text{Area}(\mathcal{R}')
+            \end{eqnarray*}
+          </p>
+          <p>
+            Resumiendo 
+            \[
+            \underline{S} (\chi_{\mathcal{R}'},P_1\times P_2) \leq \underline{S} (\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2}) 
+            =\text{Area}(\mathcal{R}').
             \]
+          </p>
+          <p>
+            Ya que \(P_1\times P_2\) fue arbitraria concluimos que 
+            \(\text{Area}(\mathcal{R}')\) es cota superior del conjunto 
+            \[
+            \{ \underline{S} (\chi_{\mathcal{R}'},P_1\times P_2):  P_1\times P_2 \text{ partición de } \mathcal{R}\}
+            \]
+          </p>
+          <p>
+            Paso 2: \(\underline{\int}_{\mathcal{R}}\chi_{\mathcal{R}'}=\text{Area}(\mathcal{R}')\).
+          </p>
+          <p>
+            Por el Paso 1 y la definición de supremo obtenemos
+            \begin{eqnarray*}
+            \underline{\int}_{\mathcal{R}}\chi_{\mathcal{R}'}&=&\sup\{ \underline{S} (\chi_{\mathcal{R}'},P_1\times P_2):  P_1\times P_2 \text{ partición de } \mathcal{R}\} \\
+            & \leq & \text{Area}(\mathcal{R}')
+            \end{eqnarray*}
+            Pero la igualdad se da pues en el Paso 1 construimos una partición 
+            \(\widehat{P}_1\times \widehat{P}_2\) tal que 
+            \[
+            \underline{S} (\chi_{\mathcal{R}'},\widehat{P}_1\times \widehat{P}_2)=\text{Area}(\mathcal{R}')
+            \]
+          </p>
+           <p>
+            <i>Seguna parte:</i>  
+            <p> 
+              Vamos a probar que \(\overline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\text{Area}(\mathcal{R}')\).
+            </p>
+          </p>
+          <p>
+            Recordamos que 
+            \[
+            \overline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\inf\{ \overline{S} (\chi_{\mathcal{R}'},P_1\times P_2):  P_1\times P_2 \text{ partición de } \mathcal{R}\}
+            \]
+          </p>
+          <p>
+            Para esta parte vamos a construir una sucesión de particiones \(\widehat{P}_n\times \widehat{Q}_n\)
+            tal que 
+            \[
+            \lim_{n}\overline{S} (\chi_{\mathcal{R}'},\widehat{P}_n\times \widehat{Q}_n)=\text{Area}(\mathcal{R}')
+            \]
+          </p>
+          <p>
+            Empezamos con \(P_n\), partición homogenea de \([\alpha, \beta]\) de longitud \(n\) 
+            y \(Q_n\), partición homogenea de \([\gamma, \delta]\) de longitud \(n\).
+          </p>
+          <p>
+            Ahora construimos rectángulos con base de longitud \(\frac{\beta-\alpha}{n}\) y altura 
+            con longitud \(\frac{\delta-\gamma}{n}\) y los colocamos alrededor de la orilla de 
+            \(\mathcal{R}'\). Notamos que tenemos \(4n+4\) de dichos rectángulos. 
+          </p>
+          <p>
+            Vamos a definir a \(\widehat{P}_n\times \widehat{Q}_n\) como la partición de 
+            \(\mathcal{R}\) generada por \(P_n\times Q_n\) y los rectángulos que pusimos 
+            en la orilla de \(\mathcal{R}'\). Si escribimos la suma superior obtenemos
+            \begin{equation}\label{Aux:SumaSuperiorCaracteristica}
+            \overline{S}(\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2})=\sum_{i,j} M_{i,j}(\chi_{\mathcal{R}'}) \Delta_i x \Delta_j y
+            \end{equation}
+          
+            al igual que en las sumas inferior denotamos \(\widehat{R}_{i,j}\)
+            a los subrectángulos de \(\widehat{P}_n\times \widehat{Q}_n\) y los 
+            dividimos en tres tipos: 
+            <ul>
+              <li>
+                (I) los que están completamente dentro de \(\mathcal{R}'\),
+              </li>
+              <li>
+                (II) los que están completamente fuera de \(\mathcal{R}'\),   
+              </li>
+              <li>
+                (III) los que intersectan a \(\mathcal{R}'\) justo en la frontera.
+              </li>
+            </ul>
+            <p>
+              Para los de tipo (I) tenemos que \(M_{i,j}(\chi_{\mathcal{R}'})=1\), 
+              pues \(\chi_{R'}(x,y)=1\) para \((x,y)\in \mathcal{R}'\).
+            </p>
+            <p>
+              Para los de tipo (II) tenemos que \(M_{i,j}(\chi_{\mathcal{R}'})=0\),
+              pues \(\chi_{R'}(x,y)=0\) para \((x,y)\notin \mathcal{R}'\).
+            </p>
+            <p>
+              Para los de tipo (III) tenemos: si \((x,y)\in \widehat{R}_{i,j}\)
+              está en la frontera de \(\mathcal{R}'\) entonces \(\chi_{\mathcal{R}'}(x,y)=1\);
+              en cualquier otro caso \(\chi_{\mathcal{R}'}(x,y)=0\). Como 
+              por definición 
+              \[
+              M_{i,j}(\chi_{\mathcal{R}'})=\sup\{\chi_{\mathcal{R}'}(x,y): (x,y)\in \widehat{R}_{i,j}\}
+              \]
+              concluimos que \(M_{i,j}(\chi_{\mathcal{R}'})=1\).
+            </p>
+            <p>
+              Entonces podemos simplificar \eqref{Aux:SumaSuperiorCaracteristica} como sigue
+              \begin{eqnarray*} 
+              \overline{S}(\chi_{\mathcal{R}'},\widehat{P_1}\times \widehat{P_2})&=& \sum_{i,j:\widehat{R}_{i,j} \text{tipo (I)}} \Delta_ix \Delta_jy \\
+              &+& \sum_{i,j:\widehat{R}_{i,j} \text{tipo (III)}} \Delta_ix \Delta_jy \\
+              &=&\sum_{i,j:\widehat{R}_{i,j} \text{tipo (I)}} \text{Area}(\widehat{R}_{i,j}) \\
+              &+& \sum_{i,j:\widehat{R}_{i,j} \text{tipo (III)}} \text{Area}(\widehat{R}_{i,j}) \\
+              &=& \text{Area}(\mathcal{R}') \\
+              &+& (4n+4)\left(\frac{\beta-\alpha}{n}\frac{\delta-\gamma}{n} \right) \\
+              &=&\text{Area}(\mathcal{R}') + \frac{4(\beta-\alpha)(\delta-\gamma)}{n}+\frac{4(\beta-\alpha)(\delta-\gamma)}{n^2} \\
+              &=&\text{Area}(\mathcal{R}') + \frac{c_1}{n}+\frac{c_1}{n^2}
+              \end{eqnarray*}
+              con \(c_1=4(\beta-\alpha)(\delta-\gamma)\).
+            </p>
+            <p>
+              Por definición de integral superior llegamos a: 
+              \begin{eqnarray*}
+              \overline{\int}_{\mathcal{R}}\chi_{\mathcal{R}'} &\leq &  \overline{S}(\chi_{\mathcal{R}'}, \widehat{P}_n\times \widehat{Q}_n) \\
+              &=&\text{Area}(\mathcal{R}')+\frac{c_1}{n}+\frac{c_1}{n^2}.
+              \end{eqnarray*}
+              Ahora, por la primera parte y la relación entre la integral inferior y superior obtenemos:
+              \[
+              \text{Area}(\mathcal{R}')=\underline{\int}_{\mathcal{R}'}\chi_{\mathcal{R}'}\leq 
+              \overline{\int}_{\mathcal{R}'}\chi_{\mathcal{R}'}  \leq \text{Area}(\mathcal{R})+\frac{c_1}{n}+\frac{c_2}{n}
+              \]
+            </p>
+            <p>
+              Finalmente, tomando límite cuando \(n\to \infty\) la ley del Sandwich implica
+              \[
+              \text{Area}(\mathcal{R})=\underline{\int}_{\mathcal{R}'}\chi_{\mathcal{R}'}= 
+              \overline{\int}_{\mathcal{R}'}\chi_{\mathcal{R}'}=\text{Area}(\mathcal{R}).
+              \]
+            </p>
+
           </p>
         </div>
 
