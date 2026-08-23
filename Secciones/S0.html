@@ -259,6 +259,9 @@
 
         <div class="teorema-box">
           <h2 class="number-title"> Teorema </h2>
+          <h3>
+          Linealidad de la integral 
+         </h3>
           <p>
             Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
           </p>
@@ -276,6 +279,9 @@
 
         <div class="teorema-box">
           <h2 class="number-title"> Teorema </h2>
+          <h3>
+          Monotonía de la integral 
+          </h3>
           <p>
             Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
           </p>
@@ -288,6 +294,19 @@
 
           </div>
 
+          <div class="teorema-box">
+            <h2 class="number-title"> Teorema </h2>
+            <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sean \(f:\mathcal{R}\to \mathbb{R}\) acotadas y Riemann-integrable en \(\mathcal{R}\).
+            
+          </p>
+          <p>
+            Entonces \(|f|\) es Riemann-integrable y 
+            \[
+            \left| \int_{\mathcal{R}} f \right| \leq \int_{\mathcal{R}} |f|.
+            \]
+          </p>
+          </div>
 
           
         <div class="teorema-box">
@@ -321,7 +340,7 @@
           <h2 class="number-title"> Definición </h2>
           <p>
             Un subconjunto \(A\subseteq \mathbb{R}^2\) se llama de 
-            contenido cero o tiene contenido cero si para todo \(\varepsilon>0\) existe una colección finita de rectángulos (o cajas)
+            <i>contenido cero o tiene contenido cero</i> si para todo \(\varepsilon>0\) existe una colección finita de rectángulos (o cajas)
             \(\{C_1,\ldots,C_n\}\) tal que 
             <ol>
               <li> \(A\subseteq \bigcup_{i=1}^{n} C_i\) </li>
@@ -343,7 +362,20 @@
             \]    
             
           </p>
-          
+          <p>
+             Decimos que \(f=g\) <i>excepto en un conjunto de contenido cero</i> si existe \(N\subseteq \mathcal{R}\),
+            un conjunto de contenido cero, tal que \(f(x,y)=g(x,y)\) para todo \((x,y)\in \mathcal{R}\setminus N\).
+          </p>
+          <p>
+            Por ejemplo, si 
+            \[
+            f(x,y) = \left\{\begin{array}{ll}
+              1, & \text{si } x=y,\\
+              0, & \text{si } x\neq y.
+            \end{array}\right.
+          \]
+          entonces \(f=0\) excepto en un conjunto de contenido cero (la diagonal).
+          </p>
         </div>
 
 
@@ -407,10 +439,11 @@
               \int_{\mathcal{R}} f = \int_{\mathcal{R}} g.
             \]
           </p>
+
           <p>
-            Nota: decimos que \(f=g\) excepto en un conjunto de contenido cero si existe \(N\subseteq \mathcal{R}\),
-            un conjunto de contenido cero, tal que \(f(x,y)=g(x,y)\) para todo \((x,y)\in \mathcal{R}\setminus N\).
+            
           </p>
+          
         </div>
 
         <div class="nota-box">
@@ -495,8 +528,10 @@
             \int_{\mathcal{R}} \chi_{\mathcal{R}'} = \text{área}(\mathcal{R}')
             \]
           </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
           <p>
-            Vamos a probar que 
+            Probaremos que 
             \[
              \text{Area}(\mathcal{R}') = \underline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'}=\overline{\int}_{\mathcal{R}} \chi_{\mathcal{R}'} 
             \]
@@ -710,6 +745,7 @@
             </p>
 
           </p>
+          </div>
         </div>
 
 

@@ -84,6 +84,7 @@
       <h1 class="number-title flexbox"> <p>La integral de Riemann</p><p>¡Ahora en 2-D!</p>  </h1>     
 
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
+      <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
   
 
 
@@ -92,7 +93,7 @@
         <h3>Fubinni</h3>
         <p>
           Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
-          \(f:[a,b] \times [c,d]\to \mathbb{R}\) una función acotada y Riemann integrable sobre 
+          \(f:\mathcal{R}\to \mathbb{R}\) una función acotada y Riemann integrable sobre 
           \(\mathcal{R}\). Entonces 
           <ol>
           <li>
@@ -135,7 +136,7 @@
             \]
           </li>
           
-          <li>
+          <!-- <li>
             <p>
               La parte "para casi toda \(y\in [c,d]\)" se debe de entender de la siguiente manera.
             </p>
@@ -167,7 +168,7 @@
               para toda \(y\in [c,d]\setminus N\) se vale la propiedad en cuestión. Es decir,
               se puede pensar al conjunto \(N\) como despreciable ó irrelevante.
             </p>
-          </li>
+          </li>-->
           <li>
             La integral de Riemann en 2D tiene la interpretación geométrica de 
             volumen bajo la gráfica de la función. Con este punto de vista la idea de las integrales iteradas es que la integral más interna nos da 
@@ -196,8 +197,7 @@
         <h2 class="number-title" id="Ejer:Fubinni"> Corolario </h2>
         <p>
           Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
-          \(f:[a,b] \times [c,d]\to \mathbb{R}\) una función continua, excepto tal vez en un 
-          conjunto de contenido cero.
+          \(f:\mathcal{R}\to \mathbb{R}\) una función continua.
           
             Entonces \(f\)  es integrable y 
             \[
