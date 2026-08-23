@@ -81,7 +81,7 @@
 
     <!-- Contenido empieza abajo-->
   <body>
-      <h1 class="number-title flexbox"> <p>La integral de Riemann</p><p>¡Ahora en 2-D!</p>  </h1>     
+      <h1 class="number-title flexbox"> <p>El teorema de Fubini </p> </h1>     
 
       <button  onclick="nextS()" class="fixed-btn-r flexbox button2">siguiente §  </button>
       <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
@@ -90,7 +90,7 @@
 
       <div class="teorema-box">
         <h2 class="number-title" id="Teo:Fubinni"> Teorema  </h2>
-        <h3>Fubinni</h3>
+        <h3>Fubini</h3>
         <p>
           Sea \(\mathcal{R}=[a,b]\times[c,d]\) y
           \(f:\mathcal{R}\to \mathbb{R}\) una función acotada y Riemann integrable sobre 
@@ -124,6 +124,114 @@
           </p>
 
         </p>
+          <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+        <p>
+          Vamos a dar demostración parcial de éste teorema. Es parcial pues vamos a asumir 
+          lo siguiente:
+          <ol>
+            <li>
+              Para toda \(y\in [c,d]\), la integral 1-dimensional
+            \(\int_a^bf(x,y)dx\) existe. Denotemos esta integral
+            por \(A(y)\).
+            </li>
+            <li>
+              La integral \(\int_c^d A(y)dy\) existe.
+            </li>
+          </ol>
+          Es decir no vamos a probar los puntos 1 y 2 del teorema, sólo vamos a probar 
+          la fórmula.
+        </p>
+        <p>
+          Para iniciar sea \(P\times Q=\{(x_i,y_j)\}_{1\leq i \leq n, 1\leq j \leq m}\) una partición arbitraria de \(\mathcal{R}\). 
+          Con ésta notación denotamos \(R_{i,j}=[x_{i-1},x_i]\times [y_{j-1},y_j]\) y notamos que, de la 
+          definición de \(m_{i,j}(f)\) y \(M_{i,j}(f)\), tenemos que 
+          \[
+          \sum_{i,j}m_{i,j}(f)\chi_{R_{i,j}}(x,y) \leq f(x,y) \leq \sum_{i,j}M_{i,j}(f)\chi_{R_{i,j}}(x,y)
+          \]
+          para todo \((x,y)\in \mathcal{R}\) excepto en las orillas de los \(R_{i,j}\), pues en las orillas
+          pueden haber traslapes.  Entonces podemos decir que las desigualdades anteriores se valen 
+          excepto en un conjunto de contenido cero. Por lo tanto podemos usar monotonía: fijamos 
+          \(y\in [c,d]\) e integramos con respecto a \(x\) para obtener
+          \begin{eqnarray*}
+          \int_a^b\left(\sum_{i,j}m_{i,j}(f)\chi_{R_{i,j}}(x,y) \right)dx &\leq&  \int_a^b f(x,y)dx \\
+          & \leq & \int_a^b\left(\sum_{i,j}M_{i,j}(f)\chi_{R_{i,j}}(x,y) \right) dx
+          \end{eqnarray*}
+          y por linealidad se puede reescribir como
+          \begin{eqnarray*}
+          \sum_{i,j}m_{i,j}(f)\int_a^b\chi_{R_{i,j}}(x,y) dx &\leq&  \int_a^b f(x,y)dx \\
+          & \leq & \sum_{i,j}M_{i,j}(f)\int_a^b\chi_{R_{i,j}}(x,y) dx
+          \end{eqnarray*}  
+          Nota: en esta parte es dónde hacemos uso de la suposición de que 
+          la integral \(\int_a^b f(x,y)dx\) existe para toda \(y\).
+        </p>
+        <p>
+          Ahora analizamos la integral \(\int_a^b \chi_{R_{i,j}}(x,y)dx\). El integrando 
+          \(\chi_{R_{i,j}}(x,y)\) sólo toma dos valores: 0 y 1. 
+        </p>
+        <p>
+          Notamos que si 
+          \(y\notin [y_{j-1},y_j]\) entonces \(\chi_{R_{i,j}}(x,y)=0\) para todo \(x\) y entonces 
+          \[
+          \int_a^b \chi_{R_{i,j}}(x,y)dx=0.
+          \]
+        </p>
+        <p>
+          Por otro lado si \(y\in [y_{j-1},y_j]\) entonces \(\chi_{R_{i,j}}(x,y)=1\)
+          si y sólo si \(x\in [x_{i-1}, x_i]\) y entonces 
+          \[
+          \int_a^b \chi_{R_{i,j}}(x,y)dx=\int_{x_{i-1}}^{x_i} dx =x_i-x_{i-1}
+          \]
+        </p>
+        <p>
+          Juntando éstos dos casos llegamos a la fórmula
+          \[
+          \int_a^b \chi_{R_{i,j}}(x,y)dx =\Delta_ix \chi_{[y_{j-1},y_j]}(y)
+          \]
+        </p>
+        <p>
+          Entonces podemos reescribir las desigualdades anteriores como 
+          \begin{eqnarray*}
+          \sum_{i,j}m_{i,j}(f)\Delta_i x \chi_{[y_{j-1},y_j]}(y) &\leq&  A(y) \\
+          & \leq & \sum_{i,j}M_{i,j}(f)\Delta_i x \chi_{[y_{j-1},y_j]}(y)
+          \end{eqnarray*}  
+        </p>
+        <p>
+          Como \(y\in [c,d]\) es arbitraria podemos integrar con respecto a \(y\) para obtener
+          \begin{eqnarray*}
+          \int_c^d \left( \sum_{i,j}m_{i,j}(f)\Delta_i x \chi_{[y_{j-1},y_j]}(y) \right)dy &\leq&  \int_c^d A(y)dy \\
+          & \leq & \int_c^d \left( \sum_{i,j}M_{i,j}(f)\Delta_i x \chi_{[y_{j-1},y_j]}(y) \right)dy
+          \end{eqnarray*} 
+          y por linealidad llegamos a 
+          \begin{eqnarray*}
+          \sum_{i,j}m_{i,j}(f)\Delta_i x \int_c^d  \chi_{[y_{j-1},y_j]}(y) dy &\leq&  \int_c^d A(y)dy \\
+          & \leq & \sum_{i,j}M_{i,j}(f)\Delta_i x \int_c^d  \chi_{[y_{j-1},y_j]}(y)dy
+          \end{eqnarray*} 
+          y usando que \(\int_c^d \chi_{[y_{j-1},y_j]}(y)dy=y_j-y_{j-1}=\Delta_jy\) podemos 
+          reescribir las desigualdades anteriores como
+          \begin{eqnarray*}
+          \sum_{i,j}m_{i,j}(f)\Delta_i x \Delta_j y \leq \int_c^d A(y)dy 
+          \leq  \sum_{i,j}M_{i,j}(f)\Delta_i x \Delta_j y
+          \end{eqnarray*} 
+        </p>
+        <p>
+          Reescribiendo las desigualdades anteriores en términos de sumas inferiores y superiores como 
+          \begin{eqnarray*}
+          \underline{S}(f,P\times Q) \leq \int_c^d A(y)dy 
+          \leq  \overline{S}(f,P\times Q).
+          \end{eqnarray*} 
+          Si ahora recordamos que \(P\times Q\) es una partición arbitraria de \(\mathcal{R}\)
+          y tomamos supremo e ínfirmo sobre las particiones \(P\times Q\) obtenemos que
+          \[
+          \underline{\int}_{\mathcal{R}} f \leq \int_c^d A(y)dy \leq \overline{\int}_{\mathcal{R}}f
+          \]
+          pero \(f\) es Riemann-integrable por lo que \(\underline{\int}_{\mathcal{R}} f=\overline{\int}_{\mathcal{R}} f=\int_{\mathcal{R}}f\)
+          por lo que concluimos 
+          \[
+          \int_{\mathcal{R}} f = \int_c^d A(y)dy= \int_c^d \left( \int_a^b f(x,y)dx\right)dy
+          \]
+        </p>
+        </div>
         </div>
 
         <div class="nota-box">
