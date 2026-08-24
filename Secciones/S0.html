@@ -446,6 +446,26 @@
           
         </div>
 
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Condiciones relajadas </h2>
+          <p>
+            El teorema anterior permite relajar hipótesis en algunos teoremas de integración. 
+            Por ejemplo la monotonía de la integral dice que si \(f(x,y)\leq g(x,y)\) 
+            para todo \((x,y)\in \mathcal{R}\) entonces 
+            \[
+            \int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g 
+            \]
+            Pero usando el teorema anterior podemos cambiar la hipótesis por: 
+            si existe \(N\subset \mathcal{R}\) de contenido cero y 
+            \(f(x,y)\leq g(x,y)\) para todo \((x,y)\in \mathcal{R}\setminus N\) entonces 
+            \[
+            \int_{\mathcal{R}} f \leq \int_{\mathcal{R}}g.
+            \]
+          </p>
+        </div>
+
         <div class="nota-box">
           <h2 class="number-title"> Contenido cero en otras dimensiones </h2>
           <p>
@@ -478,6 +498,7 @@
             </ol>
           </p>
         </div>
+
 
 
         <div class="definicion-box">
@@ -746,6 +767,31 @@
 
           </p>
           </div>
+        </div>
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <h3> Condición de Cauchy </h3>
+          <p>
+            Sea \(\mathcal{R}=[a,b]\times [c,d]\) y \(f:\mathcal{R}\to \mathbb{R}\)
+            una función acotada.
+          </p>
+          <p>
+            \(f\) es Riemann-integrable si y sólo si para toda \(\varepsilon >0\)
+            existe \(P\times Q\) partición de \(\mathcal{R}\) tal que 
+            \[
+            \overline{S}(f,P\times Q)-\underline{S}(f,P\times Q) < \varepsilon.
+            \]
+          </p>
+        </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(A\subseteq \mathbb{R}^2\) un subconjunto acotado. Entonces  
+            \(\chi_A\) es Riemann-integrable si y sólo si \(\partial A\) tiene contenido cero. 
+          </p>
         </div>
 
 
