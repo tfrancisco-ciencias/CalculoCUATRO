@@ -89,10 +89,9 @@
 
         
 
-
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+         <p>
                 Si una lámina ocupa una región \(\mathcal{D}\) en el plano-\(xy\)
                 y para el punto \((x,y)\) su densidad está dada por la función 
                 \(\rho(x,y)\) (en unidades de masa por unidad de área), se define su masa total como 
@@ -119,47 +118,21 @@
                 \]
             </p>
 
-            <ol>
-                <li>
+      </div>
+
+
+      <div class="info-box">
+        <h2 class="number-title"> Ejemplo </h2>
+        <p>
                     Encuentra el centro de masa de una lámina triangular cuyos vértices están en los 
                     puntos \((0,0),(0,a)\) y \((a/3,2a)\), donde \(a>0\) es una constante y donde suponemos 
                     una densidad constante. 
-                </li>
-                <li>
-                    Mismas suposiciones del inciso anterior pero ahora la densidad está dada por 
-                    la función \(\rho(x,y)=3x+5y+2\).
-                </li>
-                <li>
-                    Encuentra el centro de masa de una lámina \(\mathcal{D}\) acotada por las 
-                    parábolas \(x=y^2, y=x^2\) si su dendisdad está dada por \(\rho(x,y)=ky\), donde 
-                    \(k>0\) es constante.
-                </li>
-                <li>
-                    Determina la masa de una lámina acotada por el eje \(x\) y el 
-                    segmento de parábola \(y=2x-x^2\), para \(x=0,x=2\), si la densidad 
-                    está dada por \(\rho(x,y)=\frac{1-y}{1+x}\).
-                </li>
-            </ol>
-            
-        </div>
+        </p>
+      </div>
 
 
-        <!--<div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Otros tipos de densidad se tratam de manera similar. Por ejemplo si una 
-                lámina \(\mathcal{D}\) tiene una carga eléctrica y la densidad de carga 
-                en el punto \((x,y)\) (en unidades de carga por unidad de área) está 
-                modelada por la función \(\sigma(x,y)\) se define 
-                la carga total de la lámina como 
-                \[
-                \int_{\mathcal{D}}\sigma(x,y)dA
-                \]
-            </p>
 
-        </div>-->
-
-        <div class="teorema-box">
+       <div class="teorema-box">
             <h2 class="number-title"> Teorema </h2>
             <p>
                 Consideramos las coordenadas polares 
@@ -178,36 +151,112 @@
             <p>
                 Supongamos que \(f\) es una función continua en \(\mathcal{S}\). Entonces 
                 \[
-                \int_{\mathcal{S}}f(x,y)dx\otimes dy= \int_{a}^b \int_{\theta_1}^{\theta_2}f(r\cos(\theta),r\sen(\theta))rdr\otimes d\theta
+                \int_{\mathcal{S}}f(x,y)dA= \int_{a}^b \int_{\theta_1}^{\theta_2}f(r\cos(\theta),r\sen(\theta))r d\theta dr
                 \]
             </p>
 
         </div>
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
+
+
+          <div class="info-box">
+            <h2 class="number-title"> Ejemplo</h2>
             <p>
                 Una lámina tiene la forma de la intersección de las circunferencias 
                 \(x^2+y^2=1, x^2+y^2=2y\). Calcula su centro de masa si la 
                 densidad de un punto es proporcional al inverso de la distancia del punto al origen.
             </p>
-
-        </div>
-
-
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
             <p>
-                Encuentra el volumen del sólido que está por debado del paraboloide elíptico
-                \(z=x^2+2y^2\), arriba del plano \(xy\) y adentro del cilindro \(x^2+y^2=2x\).
+              La primera circunferencia es de radio 1, centrada en el origen. La segunda circunferencia 
+              se puede reescribir como: \(x^2+y^2=2y\Rightarrow x^2+(y-1)^2=1\), una circunferencia 
+              de radio 1 centrada en \((0,1)\).
             </p>
-
+            <p>
+              Ahora intersectamos las curvas para ver la región de integración. Sustituyendo 
+              \(2y=x^2+y^2\) en \(x^2+y^2=1\) obtenemos \(y=\frac{1}{2}\) y sustituyendo ésta en 
+              \(x^2+y^2=1\) obtenemos \(x=\pm\frac{\sqrt{3}}{2}\).
+            </p>
+            <p>
+              Por otro lado, como la densidad es inversamente proporcional a la distancia al 
+              origen tiene que tener la forma
+              \[
+              \rho(x,y)=\frac{k}{(x,y)}
+              \]
+              para alguna constante \(k>0\).
+            </p>
         </div>
 
 
+         <div class="definicion-box">
+            <h2 class="number-title"> Definición </h2>
+            <p>
+                Una variable aleatoria es una función que trata de modelar las posibilidades de un evento
+                (que una maquina falle, que el precio de una acción suba/baje). Lo importante de las 
+                variables aleatorias es que queremos calcular probabilidades de eventos. Si \(X\)
+                es una variable aleatoria que toma valores reales queremos calcular probabilidades 
+                de eventos como \(a\leq X \leq b\), lo cual se denota 
+                \[
+                \mathbb{P}(a\leq X \leq b)
+                \]
+                Nota: la probabilidad siempre es un número en \([0,1]\) donde la idea es que un evento con 
+                probabilidad cerca de \(0\) es poco probable y uno cerca de 1 es más probable. 
+            </p>
+            <p>
+                Una variable aleatoria \(X\), que toma valores reales, se dice que tiene función de densidad de probabilidad 
+                si existe una función \(f\) que satisface 
+                <ol>
+                    <li>
+                        \(f\geq 0\)
+                    </li>
+                    <li>
+                        \(\int_{-\infty}^\infty f(t)dt=1\)
+                        Nota: se entiende 
+                        \[
+                        \int_{-\infty}^\infty f(t)dt=\lim_{n \to \infty}\int_{-n}^{n}f(t)dt
+                        \]
+                        suponiendo que para todo natural \(n\), \(\int_{-n}^nf(t)dt\) existe. 
+                    </li>
+                    <li>
+                      \(\mathbb{P}(a\leq X \leq b)\) se calcula como 
+                      \[
+                      \mathbb{P}(a\leq X \leq b)=\int_a^b f(t)dt
+                      \]
+                    </li>
+                </ol>
+            </p>
+            <p>
+              Algunos ejemplos importantes de funciones de densidad  (también llamadas
+              distribuciones son) son 
+              <ol>
+                <li>
+                  Distribución uniforme. Esta es la más sencilla. La distribución uniforme en el 
+                  intervalo \([a,b]\) está dada por la función, \(f:\mathbb{R} \to \mathbb{R}\)
+                  \[
+                  f(t)=\left\{ 
+                    \begin{array}{cc}
+                    \frac{1}{b-a} & x\in [a,b] \\
+                    0 & x\notin [a,b]
+                    \end{array}
+                  \right.
+                  \] 
+                </li>
+                <li>
+                  Gaussiana o normal.
+                </li>
+                
+                <li>
+                  Distribución exponencial.
+                </li>
+              </ol>
+            </p>
+            <p>
+              Los siguientes lemas tratan la distribución Gaussiana y a exponencial está en los ejercicioss.
+            </p>
+        </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+
+              <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
 
         <p>
           Para  \(s>0\) denota
@@ -222,7 +271,7 @@
             <li>
               Prueba que
               \[
-              (A(s))^2=\int_{\mathcal{R}}e^{-(x^2+y^2)}dx\otimes dy
+              (A(s))^2=\int_{\mathcal{R}}e^{-(x^2+y^2)}dA
               \]
               donde \(\mathcal{R}=[-s,s]\times [-s,s]\).
 
@@ -255,7 +304,7 @@
         <p>
           Aplicando directamente el <a href="./S1.html#Teo:Fubinni"> Teorema de Fubini  </a> resulta 
           \[
-          \int_{\mathcal{R}}e^{-(x^2+y^2)}dx\otimes dy = \int_{-s}^{s}\left( \int_{-s}^s e^{-(x^2+y^2)}dx\right)dy
+          \int_{\mathcal{R}}e^{-(x^2+y^2)}dA = \int_{-s}^{s}\left( \int_{-s}^s e^{-(x^2+y^2)}dx\right)dy
           \]
           y por las propiedades de la exponencial \(e^{-(x^2+y^2)}=e^{-x^2}e^{-y^2}\), así que haciendo las 
           integrales interadas obtenemos 
@@ -342,8 +391,8 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
+      <div class="lema-box">
+        <h2 class="number-title"> Lema </h2>
         <p>
           Usa un cambio de variable y el ejercicio anterior para probar que 
           para \(\mu,\sigma\) constantes:
@@ -352,7 +401,7 @@
           \]
         </p>
 
-        <button class="respButton hvr-grow"> Respuesta</button>
+        <button class="respButton hvr-grow"> Demostración </button>
         <div class="resp-box">
         <p>
           Para \(s >0\)  consideramos la integral 
@@ -373,71 +422,31 @@
         </div>
       </div>
 
-        <div class="definicion-box">
-            <h2 class="number-title"> Definición </h2>
-            <p>
-                Una variable aleatoria es una función que trata de modelar las posibilidades de un evento
-                (que una maquina falle, que el precio de una acción suba/baje). Lo importante de las 
-                variables aleatorias es que queremos calcular probabilidades de eventos. Si \(X\)
-                es una variable aleatoria que toma valores reales queremos calcular probabilidades 
-                de eventos como \(a\leq X \leq b\), lo cual se denota 
-                \[
-                \mathbb{P}(a\leq X \leq b)
-                \]
-                Nota: la probabilidad siempre es un número en \([0,1]\) donde la idea es que un evento con 
-                probabilidad cerca de \(0\) es poco probable y uno cerca de 1 es más probable. 
-            </p>
-            <p>
-                Una variable aleatoria \(X\), que toma valores reales, se dice que tiene función de densidad de probabilidad 
-                si existe una función \(f\) que satisface 
-                <ol>
-                    <li>
-                        \(f\geq 0\)
-                    </li>
-                    <li>
-                        \(\int_{-\infty}^\infty f(t)dt=1\)
-                        Nota: se entiende 
-                        \[
-                        \int_{-\infty}^\infty f(t)dt=\lim_{n \to \infty}\int_{-n}^{n}f(t)dt
-                        \]
-                        suponiendo que para todo natural \(n\), \(\int_{-n}^nf(t)dt\) existe. 
-                    </li>
-                    <li>
-                      \(\mathbb{P}(a\leq X \leq b)\) se calcula como 
-                      \[
-                      \mathbb{P}(a\leq X \leq b)=\int_a^b f(t)dt
-                      \]
-                    </li>
-                </ol>
-            </p>
-
-        </div>
 
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio</h2>
-            
-            <p>
-                Considera la función 
-                \begin{eqnarray*} 
-                f(t)=\left\{ 
-                    \begin{array}{cc} 
-                    \mu^{-1}e^{-t/\mu} & t \geq 0 \\
-                    0 & t < 0
-                    \end{array}
-                    \right.
-                \end{eqnarray*}
-                donde \(\mu > 0\) es una constante.
-            </p>
-            <p>
-                Prueba que \(\int_{-\infty}^{\infty}f(t)dt=1\).
-            </p>
-            <p>
-                Dicho tipo de función se llama 
-                una función de densidad tipo exponencial. 
-            </p>
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+          La distribución o función de densidad Gaussiana de media \(\mu\) y varianza \(\sigma^2\)
+          se define como 
+          \[
+          f(t)=\frac{1}{\sigma\sqrt{2\pi}} e^{-(t-\mu)^2/(2\sigma^2)}
+          \]
+        </p>
+        <p>
+          Geométricamente, la media \(\mu\) dice dónde está la recta de simetría de la gráfica. La raíz de 
+          la varianza, \(\sigma\), llamda la desviación estandard dice qué tanto se dispersan los datos
+          que se están modelando y si es es grande la campana es ancha y si es chica la campana es puntiaguda. 
+        </p>
 
-        </div>
+
+                <div class="imagen-box flexbox">
+                    <img src="./Images/Sec2-Img1.png" alt="Gaussiana" width="500" height="300">
+                  </div>
+      </div>
+
+
+
 
 
         <div class="definicion-box">
@@ -451,19 +460,26 @@
                     </li>
                     <li>
                         \begin{eqnarray*}
-                        \int_{\mathbb{R}^2}f(x,y)dx\otimes dy&=& 1
+                        \int_{\mathbb{R}^2}f(x,y)dA&=& 1
                         \end{eqnarray*}
+                        la ecuación anterior se puede entender como 
+                        \[
+                        \lim_{n\to \infty} \int_{R} f(x,y)dA
+                        \]
+                        con \(R_n=[-n,n]\times [-n,n]\). Es más, se puede reemplazar 
+                        la región \(R\) por otra región que vaya "creciendo al infinito", por ejemplo
+                        el disco de radio \(n\) centrado en 0: \(R_n=D_{n}(0)\).
                     </li>
                     <li>
                         Para una región \(\mathcal{D}\subseteq \mathbb{R}^2\) se satisface 
                         \[
-                        \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}} f(x,y)dx\otimes dy 
+                        \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}} f(x,y)dA
                         \]
                     </li>
                 </ol> 
                 La integral anterior se puede probar que satisface 
                         \begin{eqnarray*} 
-                        \int_{\mathbb{R}^2}f(x,y)dx\otimes dy &=&\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dydx \\
+                        \int_{\mathbb{R}^2}f(x,y)dA &=&\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dydx \\
                         &=&\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)dxdy \\
                         \end{eqnarray*}
                 
@@ -472,33 +488,7 @@
 
         </div>
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio</h2>
-            
-            <ol>
-                <li>
-                    Fija dos números positivos \(a,b\). Encuentra la constante \(C>0\) para la 
-                    cual la función  
-                    \begin{eqnarray*} 
-                    f(x,y)=\left\{  
-                        \begin{array}{cc} 
-                        C xy & 0\leq x \leq a, 0\leq y \leq b  \\
-                        0 & \textrm{en otro caso}
-                        \end{array}
-                        \right.
-                    \end{eqnarray*}
-                    satisface \(\int_{\mathbb{R}^2}f=1\).
-                </li>
-                <li>
-                    Supon que \(X,Y\) son variables aleatorias y que la función del inciso anterior 
-                    es la función de densidad conjunta de \(X,Y\). Calcula 
-                    \[
-                    \mathbb{P}(X\geq a/2), \mathbb{P}(X\leq a/2, Y\geq b/2), \mathbb{P}(bX+aY\leq ab/2)
-                    \]
-                </li>
-            </ol>
 
-        </div>
 
 
 
@@ -521,82 +511,9 @@
                 \]
                 Es decir, para toda región \(\mathcal{D}\subseteq \mathbb{R}^2\): 
                 \[
-                \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}}f_X(x)f_Y(y)dx\otimes dy.
+                \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}}f_X(x)f_Y(y)dA.
                 \]
             </p>
-        </div>
-
-        <div class="definicion-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Una variable aleatoria se se dice que tiene una densidad normal, con media 
-                \(\mu\) y varianza \(\sigma\) ( o que se distribuye de manera normal) si
-                admite una función de densidad de probabilidad de la forma 
-                \[
-                f(t)=\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(t-\mu)^2}{2\sigma^2}}
-                \] 
-
-                <div class="imagen-box flexbox">
-                    <img src="./Images/Sec2-Img1.png" alt="Gaussiana" width="500" height="300">
-                  </div>
-                Nota: el factor \(1/(\sigma \sqrt{2\pi})\) es para que \(\int_{-\infty}^{\infty}f(t)dt=1\).
-            </p>
-            <p>
-                Las funciones del tipo anterior son las que se conocen como campanas de Gauss. 
-            </p>
-
-        </div>
-
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Supon que \(X,Y\) son variables aleatorias independientes. \(X\) tiene una función 
-                de densidad normal con media \(\mu=45\) y varianza \(\sigma=0.5\), 
-                \(Y\) tiene una densidad normal con media \(\mu=25\) y varianza \(\sigma=0.3\). Calcula 
-                \(\mathbb{P}(30\leq X \leq 50, 20\leq Y \leq 30)\)
-                
-            </p>
-
-        </div>
-
-
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Tiempos de espera se pueden modelar con variables aleatorias con función de probabilidad 
-                de densidad de la forma 
-                \begin{eqnarray*} 
-                f(t)=\left\{ 
-                    \begin{array}{cc} 
-                    \mu^{-1}e^{-t/\mu} & t \geq 0 \\
-                    0 & t < 0
-                    \end{array}
-                    \right.
-                \end{eqnarray*}
-                donde \(\mu > 0\) es una constante (dicho tipo de función se llama 
-                una función de densidad tipo exponencial). 
-            </p>
-            <p>
-                Asume que el tiempo de vida de cierto tipo de focos se pude 
-                modelar con una variable aleatoria con densidad tipo exponencial con \(\mu=1000\) (promedio 
-                de vida del foco es 1000 horas).
-            </p>
-            <ol>
-                <li>
-                    Si una  lámpara tiene dos focos calcula la probabilidad de que ambos focos tengan un
-                    lapso de vida de a lo más  1000 horas. 
-                </li>
-                <li>
-                    Considera dos lámparaas cada una con un sólo foco. Calcula la probabilidad de que 
-                    alguna de ellas falle en un lapso de a lo más 1000 horas. 
-                </li>
-                <li>
-                    Considera que tienes sólo una lámpara con un sólo foco. Calcula la probabilidad de que
-                    un foco falle, lo reemplaces y que ambos focos fallen en un lapso de a lo más  1000 horas. 
-                </li>
-                
-            </ol>
-
         </div>
 
 
@@ -774,50 +691,6 @@
           </div>
   
   
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio </h2>
-          <p>
-            Para las siguientes superficies parametrizadas calcula su producto
-            fundamental.
-          </p>
-          <ol>
-            <li>
-              Plano: \(\mathbb{r}(u,v)=(x_0,y_0,z_0)+u(a_1,a_2,a_3)+v(b_1,b_2,b_3)\).
-            </li>
-            <li>
-              Esfera: \(\mathbb{r}(u,v)=(r\cos(v)\sin(u), r\sin(v)\sin(u), r\cos(u))\),
-              donde \(r>0\) es el radio.
-            </li>
-            <li>
-              Paraboloide elíptico: \(\mathbb{r}(u,v)=(a u \cos(v),bu\sin(v), u^2)\)
-              donde \(a,b >0\) son constantes.
-             </li>
-             <li>
-               Elipsoide: \(\mathbb{r}(u,v)=(a\sin(u)\cos(v), b\sin(u)\sin(v), c \cos(u))\),
-               donde \(a,b,c>0\).
-             </li>
-             <li>
-               Superficie de revolución: \(\mathbb{r}(u,v)=(u\cos(v), u\sin(v), f(u))\),
-               donde \(f\) es una función de una variable con \(f \geq 0\).
-              </li>
-              <li>
-                Toro: \(\mathbb{r}(u,v)=((a+b\cos(u))\sin(v), (a+b\cos(u))\cos(v), b\sin(u))\),
-                donde \(a,b >0\).
-              </li>
-          </ol>
-  
-          <button class="respButton hvr-grow"> Respuesta de 5 </button>
-          <div class="resp-box">
-            <div class="video flexbox">
-              <a href="https://youtu.be/I6LBHMq7mP4" target="_blank"> Video </a>
-            </div>
-          </div>
-  
-        </div>
-  
-
-        
-
 
         <div class="nota-box">
             <h2 class="number-title"> Area superficial </h2>
@@ -858,6 +731,297 @@
             \]
           </p>
         </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+           
+            <ol>
+                
+                <li>
+                    Encuentra el centro de masa de una lámina triangular cuyos vértices están en los 
+                    puntos \((0,0),(0,a)\) y \((a/3,2a)\), donde \(a>0\) es una constante y la densidad está dada por 
+                    la función \(\rho(x,y)=3x+5y+2\).
+                </li>
+                <li>
+                    Encuentra el centro de masa de una lámina \(\mathcal{D}\) acotada por las 
+                    parábolas \(x=y^2, y=x^2\) si su dendisdad está dada por \(\rho(x,y)=ky\), donde 
+                    \(k>0\) es constante.
+                </li>
+               
+            </ol>
+            
+        </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+           
+            <ol>
+                
+                <li>
+                    Determina la masa de una lámina acotada por las curvas \(y=x^2\)
+                    y \(y=x+2\), con densidad \(\rho(x,y)=kx\).
+                </li>
+               
+                <li>
+                    Determina la masa de una lámina acotada por el eje \(x\) y el 
+                    segmento de parábola \(y=2x-x^2\), para \(x=0,x=2\), si la densidad 
+                    está dada por \(\rho(x,y)=\frac{1-y}{1+x}\).
+                </li>
+            </ol>
+            
+        </div>
+
+        <!--<div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Otros tipos de densidad se tratam de manera similar. Por ejemplo si una 
+                lámina \(\mathcal{D}\) tiene una carga eléctrica y la densidad de carga 
+                en el punto \((x,y)\) (en unidades de carga por unidad de área) está 
+                modelada por la función \(\sigma(x,y)\) se define 
+                la carga total de la lámina como 
+                \[
+                \int_{\mathcal{D}}\sigma(x,y)dA
+                \]
+            </p>
+
+        </div>-->
+
+       
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Encuentra el volumen del sólido que está por debado del paraboloide elíptico
+                \(z=x^2+2y^2\), arriba del plano \(xy\) y adentro del cilindro \(x^2+y^2=2x\).
+            </p>
+            <p>
+              Hint: primero encuentra la integral que da el volumen después usar un cambio de coordenadas
+              polares para calcularla.
+            </p>
+
+        </div>
+
+
+
+       
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio</h2>
+            
+            <p>
+                Considera la función 
+                \begin{eqnarray*} 
+                f(t)=\left\{ 
+                    \begin{array}{cc} 
+                    \mu^{-1}e^{-t/\mu} & t \geq 0 \\
+                    0 & t < 0
+                    \end{array}
+                    \right.
+                \end{eqnarray*}
+                donde \(\mu > 0\) es una constante.
+            </p>
+            <p>
+                Prueba que \(\int_{-\infty}^{\infty}f(t)dt=1\).
+            </p>
+            <p>
+                Dicho tipo de función se llama 
+                una función de densidad tipo exponencial. 
+            </p>
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio</h2>
+            <p>
+              Considera la función 
+              \begin{eqnarray*} 
+                f(t)=\left\{ 
+                    \begin{array}{cc} 
+                    c xe^{-x/2} & t \geq 0 \\
+                    0 & t < 0
+                    \end{array}
+                    \right.
+                \end{eqnarray*}
+                donde \(c>0\) es una constante.
+            </p>
+            <p>
+                Encuentra el valor de \(c\) para la cual 
+                \(f\) es una función de densidad, es decir 
+                \[ \int_{-\infty}^{\infty}f(t)dt=1\]
+            </p>
+        </div>    
+
+
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Tiempos de espera se pueden modelar con variables aleatorias con función de probabilidad 
+                de densidad de la forma 
+                \begin{eqnarray*} 
+                f(t)=\left\{ 
+                    \begin{array}{cc} 
+                    \mu^{-1}e^{-t/\mu} & t \geq 0 \\
+                    0 & t < 0
+                    \end{array}
+                    \right.
+                \end{eqnarray*}
+                donde \(\mu > 0\) es una constante (dicho tipo de función se llama 
+                una función de densidad tipo exponencial). 
+            </p>
+            <p>
+                Asume que el tiempo de vida de cierto tipo de focos se pude 
+                modelar con una variable aleatoria con densidad tipo exponencial con \(\mu=1000\) (promedio 
+                de vida del foco es 1000 horas).
+            </p>
+            <ol>
+                <li>
+                    Si una  lámpara tiene dos focos calcula la probabilidad de que ambos focos tengan un
+                    lapso de vida de a lo más  1000 horas. 
+                </li>
+                <li>
+                    Considera dos lámparaas cada una con un sólo foco. Calcula la probabilidad de que 
+                    alguna de ellas falle en un lapso de a lo más 1000 horas. 
+                </li>
+                <li>
+                    Considera que tienes sólo una lámpara con un sólo foco. Calcula la probabilidad de que
+                    un foco falle, lo reemplaces y que ambos focos fallen en un lapso de a lo más  1000 horas. 
+                </li>
+                
+            </ol>
+
+        </div>
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio</h2>
+            
+            <ol>
+                <li>
+                    Fija dos números positivos \(a,b\). Encuentra la constante \(C>0\) para la 
+                    cual la función  
+                    \begin{eqnarray*} 
+                    f(x,y)=\left\{  
+                        \begin{array}{cc} 
+                        C xy & 0\leq x \leq a, 0\leq y \leq b  \\
+                        0 & \textrm{en otro caso}
+                        \end{array}
+                        \right.
+                    \end{eqnarray*}
+                    satisface \(\int_{\mathbb{R}^2}f=1\). Esta es la versión 2-dimensional 
+                    de la distribución uniforme.
+                </li>
+                <li>
+                    Supon que \(X,Y\) son variables aleatorias y que la función del inciso anterior 
+                    es la función de densidad conjunta de \(X,Y\). Calcula 
+                    \[
+                    \mathbb{P}(X\geq a/2), \mathbb{P}(X\leq a/2, Y\geq b/2), \mathbb{P}(bX+aY\leq ab/2)
+                    \]
+                </li>
+            </ol>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Considera la función \(f:\mathbb{R}^2 \to \mathbb{R}\) dada por 
+            \[
+            f(x,y)=\frac{1}{2\pi} e^{-\frac{x^2+y^2}{2}}
+            \]
+            Prueba que \(\int_{\mathbb{R}^2}f(x,y)dA=1\).
+          </p>
+          <p>
+            Sugerencia: prueba \(\lim_{n\to \infty}\int_{R_n}f(x,y)dA=1\), 
+            donde \(R_n\) es el disco centrado en cero y de radio \(n\).
+          </p>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Supon que \(X,Y\) son variables aleatorias independientes. \(X\) tiene una función 
+                de densidad normal con media \(\mu=45\) y desviación estandar \(\sigma=0.5\), 
+                \(Y\) tiene una densidad normal con media \(\mu=25\) y desviación estandar\(\sigma=0.3\). Calcula 
+                \(\mathbb{P}(30\leq X \leq 50, 20\leq Y \leq 30)\)
+                
+            </p>
+
+        </div>
+
+
+
+
+        
+
+                <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para las siguientes superficies parametrizadas calcula su producto
+            fundamental.
+          </p>
+          <ol>
+            <li>
+              Plano: \(\mathbb{r}(u,v)=(x_0,y_0,z_0)+u(a_1,a_2,a_3)+v(b_1,b_2,b_3)\).
+            </li>
+            <li>
+              Esfera: \(\mathbb{r}(u,v)=(r\cos(v)\sin(u), r\sin(v)\sin(u), r\cos(u))\),
+              donde \(r>0\) es el radio.
+            </li>
+            <li>
+              Paraboloide elíptico: \(\mathbb{r}(u,v)=(a u \cos(v),bu\sin(v), u^2)\)
+              donde \(a,b >0\) son constantes.
+             </li>
+            
+          </ol>
+        </div>
+
+
+
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio </h2>
+          <p>
+            Para las siguientes superficies parametrizadas calcula su producto
+            fundamental.
+          </p>
+          <ol>
+             <li>
+               Elipsoide: \(\mathbb{r}(u,v)=(a\sin(u)\cos(v), b\sin(u)\sin(v), c \cos(u))\),
+               donde \(a,b,c>0\).
+             </li>
+             <li>
+               Superficie de revolución: \(\mathbb{r}(u,v)=(u\cos(v), u\sin(v), f(u))\),
+               donde \(f\) es una función de una variable con \(f \geq 0\).
+              </li>
+              <li>
+                Toro: \(\mathbb{r}(u,v)=((a+b\cos(u))\sin(v), (a+b\cos(u))\cos(v), b\sin(u))\),
+                donde \(a,b >0\).
+              </li>
+          </ol>
+  
+          <button class="respButton hvr-grow"> Respuesta de 3 </button>
+          <div class="resp-box">
+            <div class="video flexbox">
+              <a href="https://youtu.be/I6LBHMq7mP4" target="_blank"> Video </a>
+            </div>
+          </div>
+  
+        </div>
+  
+
+
+  
+        
+
   
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
