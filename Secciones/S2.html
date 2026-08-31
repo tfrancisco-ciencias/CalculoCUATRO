@@ -114,7 +114,7 @@
                 El centro de masa de la lámina \(\mathcal{D}\) se define como el punto \((\overline{x},\overline{y})\)
                 donde 
                 \[
-                \overline{x}=\frac{M_y}{m}, \quad \overline{y}=\frac{M_x}{m} 
+                \overline{x}=\frac{1}{m}\int_{\mathcal{D}}x\rho(x,y)dA, \quad \overline{y}=\frac{1}{m}\int_{\mathcal{D}}y\rho(x,y)dA 
                 \]
             </p>
 
@@ -128,6 +128,73 @@
                     puntos \((0,0),(0,a)\) y \((a/3,2a)\), donde \(a>0\) es una constante y donde suponemos 
                     una densidad constante. 
         </p>
+        <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
+            <p>
+              Como en éste caso la densidad es constante las coordenadas del 
+              centro de masa se simplifican a 
+              \begin{eqnarray*} 
+              \overline{x}&=&\frac{1}{\rho\text{Area}(S)}\int_{S} x \rho dA=\frac{1}{\text{Area}(S)}\int_S xdA\\
+              \overline{y}&=&\frac{1}{\rho\text{Area}(S)}\int_{S} y \rho dA=\frac{1}{\text{Area}(S)}\int_S ydA
+              \end{eqnarray*}
+
+            </p>
+        <p>
+          Primero tenemos que definir la región de integración. Dibujando el triángulo 
+          tenemos 
+           <div class="imagen-box flexbox">
+                <img src="./Images/Sec2-EjemploCentroMasa.png" alt="Triangle" width="400" height="300">
+              </div>
+
+        </p>
+        <p>
+          Por la fórmula del área de un triángulo tenemos 
+          \[
+          \text{Area}(S)=\frac{1}{2} a \frac{a}{3}=\frac{1}{6}a^2
+          \]
+        </p>
+        <p>
+          Las rectas que buscamos son: \(y=6x\), \(y=3x+a\). 
+        </p>
+        <p>
+          Por otro lado, viendo a \(S\) como una región de tipo I, con piso \(g_1(x)=6x\)
+          y techo \(g_2(x)=3x+a\), tenemos
+          \begin{eqnarray*} 
+          \int_S xdA &=& \int_0^{a/3}\int_{6x}^{3x+a} x dy dx \\
+          &=& \int_0^{a/3}x\left( 3x+a-6x\right)dx \\
+          &=& \int_0^{a/3}x(a-3x) dx  \\
+          &=& \left( \int_{0}^{a/3} axdx - \int_{0}^{a/3}3x^2 dx \right) \\
+          &=& \left( \frac{1}{18}a^3 - \frac{1}{27}a^3\right)\\
+          &=& \frac{1}{54}a^3 \\
+          \end{eqnarray*}
+          entonces 
+          \[
+          \overline{x}=\frac{1}{\text{Area}(S)} \frac{1}{54}a^3=\frac{6}{a^2}\frac{1}{54}a^3=\frac{1}{9}a
+          \]
+        </p>
+        <p>
+          Similarmente,
+          \begin{eqnarray*} 
+          \int_S y dA &=& \int_0^{a/3}\int_{6x}^{3x+a} y dy dx  \\
+          &=& \int_0^{a/3} \frac{ (3x+a)^2- (6x)^2}{2} dx \\
+          &=& \frac{1}{2} \int_{0}^{a/3} (a^2 + 6ax - 27x^2)  dx \\
+          &=&\frac{1}{2} \left[ a^2x + 3ax^2 - 9x^3 \right]_{0}^{a/3} \\
+          &=&\frac{1}{2} \left( a^2\left(\frac{a}{3}\right) + 3a\left(\frac{a^2}{9}\right) - 9\left(\frac{a^3}{27}\right) \right) \\
+          &=& \frac{1}{2} \left( \frac{a^3}{3} + \frac{a^3}{3} - \frac{a^3}{3} \right) \\
+          &=& \frac{1}{6} a^3\\
+          \end{eqnarray*}
+          entonces 
+          \[
+          \overline{y}=\frac{1}{\text{Area}(S)}\frac{1}{6}a^3=\frac{6}{a^2}\frac{1}{6}a^3=a.
+          \]
+        </p>
+        <p>
+          Por lo tanto el centro de masa es
+          \[
+          \left( \frac{1}{9}a,  a \right)
+          \]
+        </p>
+        </div>
       </div>
 
 
@@ -166,24 +233,148 @@
                 \(x^2+y^2=1, x^2+y^2=2y\). Calcula su centro de masa si la 
                 densidad de un punto es proporcional al inverso de la distancia del punto al origen.
             </p>
+            <button class="respButton hvr-grow"> Respuesta </button>
+          <div class="resp-box">
             <p>
               La primera circunferencia es de radio 1, centrada en el origen. La segunda circunferencia 
               se puede reescribir como: \(x^2+y^2=2y\Rightarrow x^2+(y-1)^2=1\), una circunferencia 
-              de radio 1 centrada en \((0,1)\).
+              de radio 1 centrada en \((0,1)\).              
             </p>
+
             <p>
               Ahora intersectamos las curvas para ver la región de integración. Sustituyendo 
               \(2y=x^2+y^2\) en \(x^2+y^2=1\) obtenemos \(y=\frac{1}{2}\) y sustituyendo ésta en 
-              \(x^2+y^2=1\) obtenemos \(x=\pm\frac{\sqrt{3}}{2}\).
+              \(x^2+y^2=1\) obtenemos \(x=\pm\frac{\sqrt{3}}{2}\). Entonces la región de integración es
+              <div class="imagen-box flexbox">
+                  <img src="./Images/Sec2-EjemploCentroMasa-CambioVariable.png" alt="DiscosIntersectando" width="500" height="auto">
+                </div>
+            
             </p>
+
+            
             <p>
               Por otro lado, como la densidad es inversamente proporcional a la distancia al 
               origen tiene que tener la forma
               \[
-              \rho(x,y)=\frac{k}{(x,y)}
+              \rho(x,y)=\frac{k}{\sqrt{x^2+y^2}}
               \]
               para alguna constante \(k>0\).
             </p>
+
+            <p>
+              Masa total.
+            </p>
+            <p>
+              Así la masa total está dada por 
+              \(m=\int_{S} \rho(x,y)dA\), la cual vamos a calcular partiendo la región \(S\) en tres partes
+              <div class="imagen-box flexbox">
+                  <img src="./Images/Sec2-CentroMasaCambioVarTresRegiones.png" alt="DiscosIntersectando" width="500" height="auto">
+                </div>
+                El segmento de circunferencia por arriba en coordenadas polares 
+                está dado por \(r=1\). El segmento de circunferencia por abajo está dada
+                por la circunferencia \(x^2+y^2=2y\) que al pasarlo a polares queda
+                \[
+                r^2=2r\sen(\theta) \Rightarrow r=2\sen(\theta)
+                \]
+                Entonces en coordenadas polares podemos describir
+                \begin{eqnarray*} 
+                S_1&=&\{(r,\theta): \theta\in [0,\pi/6], 0\leq r \leq 2\sen(\theta)\}\\
+                S_2&=&\{(r,\theta): \theta\in [pi/6, 5\pi/6], 0\leq r \leq 1\} \\
+                S_3&=&\{(r,\theta): \theta\in [5\pi/6,\pi], 0\leq r \leq 2\sen(\theta)\}
+                \end{eqnarray*}
+            </p>
+            <p>
+              Por el Teorema de cambio de variable
+              \begin{eqnarray*} 
+              \int_{S_1}\rho(x,y)dA&=&\int_{0}^{\pi/6}\int_0^{2\sen(\theta)} \frac{k}{r} r dr d\theta \\
+              &=& k \int_0^{\pi/6} 2\sen(\theta)d\theta \\
+              &=& 2k [-\cos(\theta)]_{0}^{\pi/6} \\
+              &=& 2k\left(1-\frac{\sqrt{3}}{2}\right)
+              \end{eqnarray*}
+            </p>
+            <p>
+              Por la simetría de la función densidad \(\rho(x,y)\) con respecto al eje \(y\)
+              podemos concluir que 
+              \[
+              \int_{S_2}\rho(x,y)dA=2k\left(1-\frac{\sqrt{3}}{2}\right)
+              \]
+            </p>
+            <p>
+              Para \(S_3\) tenemos por el Teorema de cambio de variable 
+              \begin{eqnarray*}
+              \int_{S_3}\rho(x,y)dA&=&\int_{\pi/6}^{5\pi/5} \int_{0}^1 \frac{k}{r}rdrd\theta \\
+              &=& k k\int_{\pi/6}^{5\pi/6}1 d\theta \\
+              &=& k\frac{2\pi}{3}
+              \end{eqnarray*}
+            </p>
+            <p>
+              Por lo tanto 
+              \begin{eqnarray*}
+              m&=&4k\left(1-\frac{\sqrt{3}}{2}\right)+k\frac{2\pi}{3} \\
+              &=&k\left( 4-2\sqrt{3}+\frac{2\pi}{3}\right)
+              \end{eqnarray*}
+            </p>
+            <p>
+              Coordenada \(\overline{x}\).
+            </p>
+            <p>
+              Ya que \(\rho(x,y)=\rho(-x,y)\), la densidad es simétrica con 
+              respecto al eje \(y\) y como la región \(S\) también 
+              es simétrica con respecto al eje \(y\) concluimos 
+              que \(\overline{x}=0\).
+            </p>
+            <p>
+              Coordenada \(\overline{y}\).
+            </p>
+            <p>
+              Igualmente partimos la integral que define a \(\overline{y}\) en tres partes
+              \[
+              \int_{S} y\rho(x,y)dA=\int_{S_1} y\rho(x,y)dA+\int_{S_2} y\rho(x,y)dA+\int_{S_3} y\rho(x,y)dA
+              \]
+              y por simetria de \(S_1\) y \(S_3\) con respecto al eje \(y\) y junto con 
+              la identidad \(y\rho(x,y)=y\rho(-x,y)\) podemos simplificar
+              \[
+              \int_{S} y\rho(x,y)dA=2\int_{S_1} y\rho(x,y)dA+\int_{S_2} y\rho(x,y)dA
+              \]
+              Ahora calculamos las integrales usando el Teorema del cambio de variable.
+            </p>
+            <p>
+              Para \(S_1\):
+              \begin{eqnarray*} 
+              \int_{S_1}y\rho(x,y)dA&=&\int_{0}^{\pi/6} \int_{0}^{2\sen(\theta)} r\sen(\theta) \frac{k}{r}rdrd\theta \\
+              &=& k\int_0^{\pi/6} \int_{0}^{2\sen(\theta)} r\sen(\theta)drd\theta \\
+              &=& k \int_0^{\pi/6}\left( \sen(\theta) \int_{0}^{2\sen(\theta)} rdr \right)d\theta \\
+              &=& k \int_0^{\pi/6} \sen(\theta) \frac{\sen^2(\theta)}{2} d\theta \\
+              &=& \frac{k}{2} \int_0^{\pi/6}\sen^3(\theta)d\theta \\
+              &=& \frac{k}{2}\left( \frac{2}{3}-\frac{3\sqrt{3}}{8}\right) 
+              \end{eqnarray*}
+            </p>
+            <p>
+              Para \(S_2\):
+              \begin{eqnarray*} 
+              \int_{S_2}y\rho(x,y)dA&=&\int_{\pi/6}^{5\pi/6}\int_0^1 r\sen(\theta)\frac{k}{r}rdr d\theta \\
+              &=& k \int_{pi/6}^{5\pi/6} \sen(\theta)\left( \int_0^1 r dr \ \right) d\theta \\
+              &=& k \int_{\pi/6}^{5\pi/6} \sen(\theta)\frac{1}{2} d\theta \\\
+              &=& \frac{k}{2}[-\cos(\theta)]_{\pi/6}^{5\pi/6} \\
+              &=& \frac{k}{2}\sqrt{3}
+              \end{eqnarray*}
+            </p>
+            <p>
+              Finalmente 
+              \begin{eqnarray*} 
+              \overline{y}&=&\frac{1}{m}\int_S y\rho(x,y)dA \\
+              &=&\frac{1}{m} \left(k\left( \frac{2}{3}-\frac{3\sqrt{3}}{8}\right) + \frac{k}{2}\sqrt{3} \right)\\
+              &=&\frac{k}{m}\left(  \frac{2}{3}-\frac{3\sqrt{3}}{8} + \frac{\sqrt{3}}{2} \right) \\
+              &=& \frac{k}{m} \left(  \frac{2}{3}+\frac{\sqrt{3}}{8}  \right) \\
+              \end{eqnarray*}
+            </p>
+            <p>
+              Concluimos
+              \[
+              (\overline{x},\overline{y})=\left(0, \frac{\frac{2}{3}+\frac{\sqrt{3}}{8}}{4-2\sqrt{3}+\frac{2\pi}{3}} \right)
+              \]
+            </p>
+            </div>
         </div>
 
 
@@ -514,6 +705,64 @@
                 \mathbb{P}((X,Y)\in \mathcal{D})=\int_{\mathcal{D}}f_X(x)f_Y(y)dA.
                 \]
             </p>
+            <p>
+              Ejemplos.
+            </p>
+            <p>
+              Supongamos que \(X, Y\) son variables aleatorias independiente, con densidades \(f_X,f_Y\).
+            </p>
+            <ol>
+              <li>
+                Entonces la probabilidad de que \(X\) caiga en el intervalo \([a,b]\) y
+                \(Y\) caiga en el intervalo \([c,d]\) es:
+                \begin{eqnarray*}
+                \mathbb{P}(a\leq X\leq b \, \text{y} \, c\leq Y\leq d)&=& 
+                \int_{[a,b]\times [c,d]} f_X(x)f_Y(y)dA\\
+                &=&\int_a^b \left(\int_c^d f_X(x)f_Y(y)dy\right)dx\\
+                &=& \left( \int_a^b f_X(x)dx\right) \left(\int_c^d f_Y(y)dy\right)
+                \end{eqnarray*}
+              </li>
+              <li>
+                Entonces la probabilidad de que \(X\) caiga en el intervalo \([a,b]\)
+                ó que \(Y\) caiga en el intervalo \([c,d]\) es:
+                \begin{eqnarray*} 
+                \mathbb{P}(a\leq X \leq b \, \text{ó}\, c\leq Y \leq d)=\int_{([a,b]\times \mathbb{R}) \cup (\mathbb{R}\times [c,d])} f_X(x)f_Y(y)dA
+                \end{eqnarray*}
+                Vamos a reescribir esta integral.
+                <p>
+                  Denotemos 
+                  \begin{eqnarray*} 
+                  p_x=\mathbb{P}(a\leq X \leq b)=\int_{a}^b f_X(x)dx\\
+                  p_y=\mathbb{P}(c\leq Y \leq d)=\int_{c}^d f_y(y)dy\
+                  \end{eqnarray*}
+                  
+          
+                </p>
+                <p>
+                  Entonces 
+                  \begin{eqnarray*} 
+                  1-p_x=\mathbb{P}(X < a \, \text{ó} \, X> b )= \int_{-\infty}^a f_X(x)dx +\int_b^\infty f_X(x)dx\\
+                  1-p_y=\mathbb{P}(Y < a \, \text{ó} \, Y> b )= \int_{-\infty}^c f_Y(y)dy +\int_d^\infty f_Y(y)dy
+                  \end{eqnarray*}
+                </p>
+                <p>
+                  Escrbiendo 
+                  \begin{eqnarray*}
+                  ([a,b]\times \mathbb{R} )\cup (\mathbb{R}\times [c,d])&=& [a,b]\times [c,d] \\
+                  &\cup & (-\infty,a)\times [c,d] \\
+                  &\cup & (b,\infty)\times [c,d] \\
+                   & \cup & [a,b]\times (-\infty, c) \\
+                   & \cup & [a,b]\times (d, \infty) 
+                  \end{eqnarray*}
+                  obtenemos 
+                  \begin{eqnarray*} 
+                  \mathbb{P}(a\leq X \leq b \, \text{ó}\, c\leq Y \leq d)&=&\int_{([a,b]\times \mathbb{R}) \cup (\mathbb{R}\times [c,d] )} f_X(x)f_Y(y)dA \\
+                  &=& p_xp_y+p_y(1-p_x)+p_x(1-p_y) \\
+                  &=& p_x+p_y-p_xp_y.
+                  \end{eqnarray*}
+                </p>
+              </li>
+            </ol>
         </div>
 
 
@@ -567,7 +816,7 @@
                 y dice: todo punto de la superficie adminte una vecindad que es
                 homeomorfa a un abierto de \(\mathbb{R}^2\). </li>
                 <li> Si la parametrización \(\mathbb{r}\) es inyectiva
-                entonces la condición 1 de la definición se cumple
+                entonces la condición 3 de la definición se cumple
                 inmediatamente. Pero a la inversa no es necesariamente cierta
                 como lo muestra el ejemplo de la esfera (ver más abajo). </li>
                 <li>Decimos que una función definida en un compacto con interior no vacío, \(r:\mathcal{R} \to \mathbb{R}^n\), 
