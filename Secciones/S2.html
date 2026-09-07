@@ -945,25 +945,46 @@
             <h2 class="number-title"> Area superficial </h2>
             
             <p>
-              Para una parametrización
-              \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\), podemos usar de nuevo
+              En esta nota vamos a motivar la fórmula para el área superficial de una superficie 
+              parametrizada. 
+            </p>
+            <p>
+              Sea \(\mathcal{R}\subset \mathbb{R}^2\) un rectángulo. Para una parametrización
+              \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\), podemos usar
               el producto fundamental para ver cómo \(\mathbb{r}\) transforma el
               área de \(\mathcal{R}\).
             </p>
             <p>
-              Recordemos que, en general, la norma del producto cruz de dos vectores
-              \(P\) y \(Q\) es igual al área del paralelogramo generado \(P\) y \(Q\). Ahora,
-              fijemos \(\mathbb{r}(u_0,v_0)\) en la superficie. Ya que el plano tangente
+              Antes de iniciar recordemos que, en general, la norma del producto cruz de dos vectores
+              \(P, Q \in \mathbb{R}^3\) es igual al área del paralelogramo generado \(P\) y \(Q\).
+            </p>
+            <p>
+              Ahora, supongamos que partimos \(\mathcal{R}\) en rectángulos pequeños \(\mathcal{R}_{ij}\), 
+              de lados \(\Delta_iu\) y \(\Delta_jv\). Para continuar, fijemos una esquina del rectángulo \(\mathcal{R}_{ij}\), es decir, 
+              \((u_i,v_j)\in \mathcal{R}_{ij}\). 
+              Ya que el plano tangente
               es el mejor plano que aproxima a la superficie y tomando en cuenta de que
               \(\{\partial_u \mathbb{r}(u_0,v_0),\partial_v \mathbb{r}(u_0,v_0)\}\)
-              forma una base para dicho espacio, tomando \(P=\partial_u \mathbb{r}(u_0,v_0)\)
-              y \(Q=\partial_u \mathbb{r}(u_0,v_0)\), resulta que
+              forma una base para dicho espacio, tomando \(P=\partial_u \mathbb{r}(u_i,v_j)\Delta_i u\)
+              y \(Q=\partial_v \mathbb{r}(u_i,v_j)\Delta_j v\), resulta que
               \[
-              \|\partial_u \mathbb{r}(u_0,v_0)\times \partial_v \mathbb{r}(u_0,v_0) \|
+              \|\partial_u \mathbb{r}(u_i,v_j)\times \partial_v \mathbb{r}(u_i,v_j) \|\Delta_i u \Delta_j v
               \]
-              de una medida de qué tanto  el área de \(\mathcal{R}\) se deforma para
-              dar el  área de la sufercie. Tomando en cuenta esto, tenemos la siguiente
-              definición.
+              de una medida de qué tanto  el área de \(\mathcal{R}_{ij}\) se deforma para
+              dar el  área de \(\mathbb{r}(\mathcal{R}_{ij})\). Tomando en cuenta esto podemos estimar
+              \begin{eqnarray*}
+              \text{Area}(\mathbb{r}(\mathcal{R}))&=& \sum_{i,j} \text{Area}(\mathbb{r}(\mathcal{R}_{ij})) \\
+              &\approx & \sum_{i,j} \|\partial_u \mathbb{r}(u_i,v_j)\times \partial_v \mathbb{r}(u_i,v_j) \|\Delta_i u \Delta_j v.
+              \end{eqnarray*}
+              Por último, notamos que ésta última suma tiende a la integral de Riemann
+              \[
+              \int_{\mathcal{R}} \|\partial_u \mathbb{r}\times \partial_v \mathbb{r} \| d(u,v)
+              \]
+              cuando tomamos particiones cada vez más finas de \(\mathcal{R}\) (siempre 
+              y cuando la función \(\mathbb{r}\) sea clase \(C^1\)).  
+             </p>
+             <p>
+              Por la discusión anterior definimos el área superficial como sigue.
              </p>
           </div>
   
@@ -976,7 +997,7 @@
             por \(\mathbb{r}:\mathcal{R}\to \mathbb{R}^3\), definimos su
             área superficial como
             \[
-            \textrm{Area}(\mathcal{S})=\int_{\mathcal{R}} \left\| \partial_u \mathbb{r}\times \partial_u \mathbb{r} \right\|
+            \textrm{Area}(\mathcal{S})=\int_{\mathcal{R}} \left\| \partial_u \mathbb{r}\times \partial_u \mathbb{r} \right\|dA
             \]
           </p>
         </div>
