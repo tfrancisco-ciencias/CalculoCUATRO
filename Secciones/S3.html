@@ -88,40 +88,285 @@
  <button  onclick="prevS()" class="fixed-btn-l flexbox button2"> § previa </button>
 
 
-
-      <div class="teorema-box">
-        <h2 class="number-title"> Teorema  </h2>
-        <h3> Fubinni</h3>
+ <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
         <p>
-            Sea \(\mathcal{R}=[a_1,b_1]\times [a_2,b_2]\times  [a_3,b_3]\subseteq \mathbb{R}^3\) un cubo 
-            y sea \(f:\mathcal{R}\to \mathbb{R}\) una función Riemann integrable. Entonces la integral 
-            sobre \(\mathcal{R}\) se puede calcular mediante las integrales iteradas 
+          Sea \(\mathcal{R}=[a_1,b_1]\times \cdot \times [a_k,b_k]\) un rectángulo en
+          \(\mathbb{R}^k\). Una partición de \(\mathcal{R}\) es
+          el producto cartesiano de particiones de
+          sus lados. Es decir, si
+          \begin{eqnarray*}
+          \mathbb{P}_1&=&\{a_1=x_0^{(1)}< \cdots < x_{n_1}^{(1)}=b_1 \}, \\
+          \mathbb{P}_2&=&\{a_2=x_0^{(2)}< \cdots < x_{n_2}^{(2)}=b_2 \}, \\
+          &\vdots  & \\
+          \mathbb{P}_k&=&\{a_k=x_0^{(k)}< \cdots < x_{n_k}^{(k)}=b_k \}.
+          \end{eqnarray*}
+          son particiones de \([a_i,b_i]\), \(i=1,\dots, k\), respectivamente,
+          entonces
+          \[
+          \mathbb{P}=\mathbb{P}_1\times \cdots \times \mathbb{P}_k=
+          \{ (x_{i_1}^{(1)}, \dots, x_{i_k}^{(k)}):  0 \leq i_l \leq n_l, l=1,\dots,k \}
+          \]
+          es una partición de \(\mathcal{R}\).
+        </p>
+        <p> La partición
+          \(\mathbb{P}\) parte a \(\mathcal{R}\) en \(n_1n_2\cdots n_k\)
+          subrectángulos cerrados de dimensión \(k\), explícitamente se escriben de la forma
+          \[
+          [x_{i_1-1}^{(1)},x_{i_1}^{(1)}]\times \cdots \times [x_{i_{k}-1}^{(k)},x_{i_k}^{(k)}],
+          \]
+          con \(1\leq i_l \leq n_l\) para todo \(l=1,\dots,k\). Como toda 
+          la información de los subrectángulos está en los índices 
+          \(\{i_1,\dots,i_k\}\), vamos a denotar éstos subrectángulos como
+          \(R_{\underline{i}}\),
+          done \(\underline{i}=(i_1,\dots,i_k)\). Es decir, 
+          \[
+          R_{\underline{i}}=[x_{i_1-1}^{(1)},x_{i_1}^{(1)}]\times \cdots \times [x_{i_{k}-1}^{(k)},x_{i_k}^{(k)}].
+          \]
+          El rectángulo abierto inducido por \(R_{\underline{i}}\) es
+          llamado un subrectángulo abierto de \(\mathcal{R}\).
+        </p>
+        <p>
+          Se dice que una partición \(\mathbb{P}'\) de \(\mathcal{R}\)
+          refina a \(\mathbb{P}\) si \(\mathbb{P}\subseteq \mathbb{P}'\).
+        </p>
 
+      </div>
+
+      <div class="definicion-box">
+        <h2 class="number-title"> Definición </h2>
+        <p>
+            En el caso 2-dimensional tenemos expresiones de la forma
             \[
-            \int_{\mathcal{R}}f = \int_{a_1}^{b_1}\int_{a_2}^{b_2}\int_{a_3}^{b_3} f(x,y,z)dzdydx
+            \sum_{i=1}^{n}\sum_{j=1}^{m} m_{i,j}(f) (x_i-x_{i-1}) (y_j-y_{j-1}).
+            \]
+            Para el caso \(k\)-dimensional, la expresión análoga es
+            \[
+            \sum_{i_1=1}^{n_1} \cdots \sum_{i_k=1}^{n_k} m_{i_1,\dots,i_k}(f) (x_{i_1}-x_{i_1-1})\cdots (x_{i_k}-x_{i_k-1}).
             \]
         </p>
         <p>
-            Notas.
+            Para tratar de simplificar un poco la notación introducimos el siguiente símbolo: 
+            si \(\mathbb{P}=\mathbb{P}_1\times \cdots \times \mathbb{P}_k\)
+            es una partición de \(\mathcal{R}\) denotamos 
+            
+            \[
+            I_{\mathbb{P}}=\{(i_1,\dots, i_k): 1\leq i_l \leq n_l, l=1,\dots, k\}
+            \]
+            el cual agrupa a todos los posibles indices que los subrectángulos de 
+            \(\mathcal{R}\) inducidos por \(\mathbb{P}\).
         </p>
-        <ol>
-            <li>
-                El orden de integración se puede cambiar, teniendo cuidado que se integre 
-                la variable adecuada, por ejemplo se valen las fórmulas
-                \begin{eqnarray*} 
-                \int_{\mathcal{R}}f &=& \int_{a_1}^{b_1}\int_{a_3}^{b_3}\int_{a_2}^{b_2} f(x,y,z)dydzdx\\
-                \int_{\mathcal{R}}f &=& \int_{a_3}^{b_3}\int_{a_2}^{b_2}\int_{a_1}^{b_1} f(x,y,z)dxdydz
-                \end{eqnarray*}
-                Ya que tenemos tres variables y las diferenciales pueden ordenarse de cualquier forma se tienen 
-                \(3!=6\) diferentes ordenes de integración.
-            </li>
-            <li>
-                Se enunció el resultado para tres dimensiones pero también es válido para cuatro, cinco o  cualquier número 
-                de dimensiones.
-            </li>
-        </ol>
+        <p>
+            Con ayuda de ésta notación, dada la partición \(\mathbb{P}\) y una 
+            función acotada \(f:\mathcal{R}\to \mathbb{R}\), podemos escribir 
+            \begin{eqnarray*}
+            m_{\underline{i}}(f)&=&\inf\{f(p): p \in R_{\underline{i}}\}, \\
+            M_{\underline{i}}(f)&=&\sup\{f(p): p \in R_{\underline{i}}\}, \\
+            m(R_{\underline{i}}) &=& (x_{i_1}^{(1)} - x_{i_1-1}^{(1)})\cdots (x_{i_k}^{(k)}-x_{i_{k}-1}^{(k)}).
+            \end{eqnarray*}
+            Nota: en dimensión 2, \(m(R_{\underline{i}})\) representa el área del subrectángulo \(R_{\underline{i}}\),
+            mientras que en dimensión 3 representa el volumen del subrectángulo \(R_{\underline{i}}\).
+        </p>
+        
+        <p>
+          
+          Copiando el caso 2-dimensional, definimos la suma inferior y suma superior de \(f\) con respecto a \(\mathbb{P}\) como
+          \begin{eqnarray*}
+            \underline{S}(f,\mathbb{P}) &=& \sum_{\underline{i}\in I_{\mathbb{P}}}  m_{\underline{i}}(f) m(R_{\underline{i}})\\
+            \overline{S}(f,\mathbb{P}) &=& \sum_{\underline{i}\in I_{\mathbb{P}}}  M_{\underline{i}}(f) m(R_{\underline{i}})
+          \end{eqnarray*}
+          </p>
+        <p>
+          Si la función \(f\) es no negativa, entonces \(\underline{S}(f,\mathbb{P})\) y 
+          \(\overline{S}(f,\mathbb{P})\) pueden interpretarse como el área de los subrectángulos 
+          que se encuentran por debajo y por encima de la gráfica de \(f\), respectivamente.
+        </p>
+
 
       </div>
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Sea \(\mathcal{R}=[a_1,b_1]\times  \cdots \times [a_k,b_k]\) un rectángulo en
+            \(\mathbb{R}^k\) y sea \(f:\mathcal{R}\to \mathbb{R}\) una función acotada.
+            Definimos la integral inferior y superior de \(f\) como
+            \begin{eqnarray*}
+              \underline{\int_{\mathcal{R}}} f &=& \sup\{\underline{S}(f,\mathbb{P}): \mathbb{P} \text{ es una partición de } \mathcal{R}\},\\
+              \overline{\int_{\mathcal{R}}} f &=& \inf\{\overline{S}(f,\mathbb{P}): \mathbb{P} \text{ es una partición de } \mathcal{R}\}.
+            \end{eqnarray*}
+            Si
+            \(\underline{\int_{\mathcal{R}}} f = 
+            \overline{\int_{\mathcal{R}}} f\), decimos que \(f\) es Riemann-integrable en 
+            \(\mathcal{R}\) y definimos la integral de Riemann de \(f\) en 
+            \(\mathcal{R}\) como
+            \[
+              \int_{\mathcal{R}} f = 
+              \underline{\int_{\mathcal{R}}} f = 
+              \overline{\int_{\mathcal{R}}} f.
+            \]
+            Otras notaciones para la integral de Riemann de \(f\) en \(\mathcal{R}\) son
+            \[
+              \int_{\mathcal{R}} f(x_1,x_2,\dots, x_k) dx, \quad \int_{\mathcal{R}} f(x) dm(x)
+            \]
+          </p>
+
+        </div>      
+
+
+        <div class="nota-box">
+            <h2 class="number-title"> Propiedades de la integral </h2>
+            <p>
+                Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_k,b_k]\)
+                un rectángulo de \(\mathcal{R}^k\) y sean 
+                \(f,g:\mathcal{R}\to \mathbb{R}\) funciones acotadas y Riemann-integrables en \(\mathcal{R}\).
+            </p>
+            <p>
+                Al igual que en el caso 2-dimensional la integral en más dimensiones 
+                satisface:
+                <ol>
+                    <li>
+                       (linealidad) Para una constante  \(\alpha\), \(\alpha f+g\) es Riemann integrable y 
+                       \[
+                       \int_{\mathcal{R}} (\alpha f + g) = \alpha \int_{\mathcal{R}} f +\int_{\mathcal{R}}g
+                       \]
+                    </li>
+                    <li>
+                        (monotonía) Si \(f(x,y)\leq g(x,y)\) para todo \((x,y)\in \mathcal{R}\), entonces
+                        \[
+                        \int_{\mathcal{R}} f \leq \int_{\mathcal{R}} g.
+                        \]
+                    </li>
+                    <li>
+                        La función  \(|f|\) es Riemann-integrable y 
+                        \[
+                        \left| \int_{\mathcal{R}} f \right| \leq \int_{\mathcal{R}} |f|.
+                        \]
+                    </li>
+                    <li>
+                        La función producto \(fg\) es Riemann-integrable en \(\mathcal{R}\).
+                    </li>
+                    <li>
+                        Si \(f\) es continua en \(\mathbb{R}\) entonces es Riemann-integrable.
+                    </li>
+                </ol>
+            </p>
+        </div>
+
+
+
+
+                <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <h3> Condición de Cauchy </h3>
+          <p>
+            Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_k,b_k]\) y \(f:\mathcal{R}\to \mathbb{R}\)
+            una función acotada.
+          </p>
+          <p>
+            \(f\) es Riemann-integrable si y sólo si para toda \(\varepsilon >0\)
+            existe \(\mathbb{P}\) partición de \(\mathcal{R}\) tal que 
+            \[
+            \overline{S}(f,\mathbb{P})-\underline{S}(f,\mathbb{P}) < \varepsilon.
+            \]
+          </p>
+        </div>
+
+
+                <div class="definicion-box">
+            <h2 class="number-title"> Definición </h2>
+            <p>
+                Un subconjunto \(A\subseteq \mathbb{R}^k\) es de contenido cero ó tiene 
+                contenido cero en \(\mathbb{R}^k\) si para todo \(\varepsilon>0\) 
+                existe una familia finita  de rectángulos de dimensión \(k\), \(\{R_i\}_{i=1}^n\), tales que
+                <ol>
+                    <li>
+                        \(A\subseteq \bigcup_{i=1}^n R_i\).
+                    </li>
+                    <li>
+                        \(\sum_{i=1}^n m(R_i)<\varepsilon\).
+                    </li>
+                </ol> 
+            </p>
+        </div>
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(A\subseteq \mathbb{R}^k\) un subconjunto acotado. Entonces  
+            \(\chi_A\) es Riemann-integrable si y sólo si \(\partial A\) tiene contenido cero
+            en \(\mathbb{R}^k\). 
+          </p>
+        </div>
+
+        <div class="definicion-box">
+          <h2 class="number-title"> Definición </h2>
+          <p>
+            Un subconjunto acotado \(A\subset \mathbb{R}^k\) se llama jordan medible 
+            si \(\chi_A\) es Riemann-integrable. 
+          </p>
+          <p>
+            Por el teorema anterior un subconjunto \(A\) es Jordan medible si y sólo si 
+            \(\partial A\) tiene contenido cero en \(\mathbb{R}^k\).
+          </p>
+        </div>
+
+
+        <div class="teorema-box">
+            <h2 class="number-title"> Teorema </h2>
+            <p>
+                Sea \(\mathcal{R}\subset \mathbb{R}^k\) 
+                rectángulo de dimensión \(k\) y sea 
+                \(f:\mathcal{R}\to \mathbb{R}\) una función acotada. 
+                Si el conjunto 
+                de discontinuidades de \(f\) 
+                tiene contenido cero en \(\mathbb{R}^k\), entonces \(f\) es Riemann-integrable en \(\mathcal{R}\).
+            </p>
+        </div>
+
+        <div class="teorema-box">
+        <h2 class="number-title" id="Teo:Fubinni"> Teorema  </h2>
+        <h3>Fubini</h3>
+        <p>
+            <p>
+                Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_k,b_k] \subset \mathbb{R}^k\) y
+                \(f:\mathcal{R}\to \mathbb{R}\) una función acotada y Riemann integrable sobre 
+                \(\mathcal{R}\).    
+            </p>
+           
+          <p>
+            Antes de continuar introducimos un poco de notación. Dado un índice arbitrario 
+            \(i_0\in \{1,\ldots,k\}\) por \(\hat{R}\) denotamos al rectángulo de dimensión \(k-1\) 
+            que se obtiene al eliminar la coordenada \(i_0\) de \(\mathcal{R}\) y por 
+            \(\hat{x}\) denotamos al vector de dimensión \(k-1\) que se obtiene al eliminar la coordenada \(i_0\) 
+            de \(x\in \mathcal{R}\).
+          </p>
+          <ol>
+          <li>
+            Para casi toda \(y\in \hat{R}\), la integral \(n-1\)-dimensional
+            \[
+            \int_{\hat{R}}f(x_1,\dots, x_{i_0-1},y,x_{i_0+1},\dots, x_k)d\hat{x}
+            \] existe. 
+            Denotemos esta integral
+            por \(A(y)\).
+          </li>
+          <li>
+            La integral \(\int_{a_{i_0}}^{b_{i_0}} A(y)dy\) existe y 
+            \[
+            \int_\mathcal{R}f  = \int_{a_{i_0}}^{b_{i_0}} A(y)dy.
+            \]
+            Abusando un poco la notación, lo anterior se puede escribir como la integral iterada 
+            \[
+            \int_\mathcal{R}f  = \int_{a_{i_0}}^{b_{i_0}} \left( \int_{\hat{R}}f(\hat{x},y)d\hat{x}\right) dy.
+            \]
+          </li>
+          </ol>
+        </p>
+        </div>
+
+
 
 
 
@@ -130,16 +375,34 @@
         <h2 class="number-title" id="Ejer:Fubinni"> Corolario </h2>
         <p>
           Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_n,b_n]\) un rectángulo en \(\mathbb{R}^n\) y
-          \(f:\mathcal{R} \to \mathbb{R}\) una función continua, excepto tal vez en un 
-          conjunto de contenido cero.
+          \(f:\mathcal{R} \to \mathbb{R}\) una función continua excepto en un subconjunto de contenido cero.
           
-            Entonces \(f\)  es integrable y 
+            Entonces \(f\)  es integrable y para cualquier, \(i_1,\dots,i_n\), reordenamiento de \(\{1,\dots, n\}\),
+            se cumple que:
             \[
-            \int_{\mathcal{R}}f=\int_{a_1}^{b_1} \cdots  \int_{a_n}^{b_n} f(x_1,\dots, x_n)dx_n\cdots dx_1
+            \int_{\mathcal{R}}f=\int_{a_{i_1}}^{b_{i_1}} \cdots  \int_{a_{i_n}}^{b_{i_n}} f(x_{1},\dots, x_{n})dx_{i_n}\cdots dx_{i_1}.
             \]
         </p>
         </div>
 
+        <div class="definicion-box">
+            <h2 class="number-title"> Definición </h2>
+            <p>
+                Sea \(\mathcal{S}\subset \mathbb{R}^k\) un subconjunto acotado y \(f:\mathcal{S}\to \mathbb{R}\) 
+                una función acotada. Decimos que \(f\) es Riemann-integrable en \(\mathcal{S}\) si existe un 
+                rectángulo, de dimensión \(k\), \(\mathcal{R}\subset \mathbb{R}^k\) tal que la función 
+                \[
+                \tilde{f}(x,y)=\left\{
+                 \begin{array}{cc} 
+                  f(x,y) & (x,y)\in \mathcal{S} \\
+                  0.   & (x,y)\in \mathcal{R}\setminus \mathcal{S}
+                 \end{array}
+                \right.
+               \]
+              es Riemann-integrable en \(\mathcal{R}\).
+               
+            </p>
+        </div>
 
         <div class="definicion-box">
             <h2 class="number-title"> Definición </h2>
@@ -149,8 +412,17 @@
                 \[
                 \mathcal{S }=\{(x,y,z): (x,y)\in \mathcal{D}, g_1(x,y) \leq z \leq g_2(x,y)\}
                 \]
-                donde \(\mathcal{D}\) es la proyección de \(\mathcal{S}\) en el plano \(xy\)
-                y las funciones \(g_1,g_2:\mathcal{D}\to \mathbb{R}\) son continuas.
+                donde:
+                <ol>
+                    <li>
+                        \(\mathcal{D}\) es la proyección de \(\mathcal{S}\) en el plano \(xy\), 
+                        la cual debe ser Jordan medible.
+                    </li>
+                    <li>
+                     Las funciones \(g_1,g_2:\mathcal{D}\to \mathbb{R}\) son continuas.
+                    </li>
+                </ol> 
+                
 
             </p>
             <p>
@@ -188,9 +460,9 @@
                 Sea \(\mathcal{S}\) una región de tipo I, digamos que 
                 es la región entre las gráficas de las funciones 
                 \(g_1,g_2:\mathcal{D}\to \mathbb{R}\). Sea \(f:\mathcal{S}\to \mathbb{R}\)
-                una función continua en \(\mathcal{S}\), entonces 
+                una función continua en \(\mathcal{S}\), entonces \(f\) es Riemann-integrable en \(\mathcal{S}\) y
                 \[
-                \int_{\mathcal{S}}f= \int_{\mathcal{D}}\left( \int_{g_1(x,y)}^{g_2(x,y)}f(x,y,z)dz\right)dx\otimes dy
+                \int_{\mathcal{S}}f= \int_{\mathcal{D}}\left( \int_{g_1(x,y)}^{g_2(x,y)}f(x,y,z)dz\right)d(x,y)
                 \]
             </p>
 
@@ -238,120 +510,18 @@
 
         </div>
 
-
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
+        <div class="info-box">
+            <h2 class="number-title"> Ejemplo </h2>
             <p>
-                Calcula las siguientes integrales. 
+                Calcula la integral \(\int_{\mathcal{S}} xy d(x,y,z)\), 
+                donde \(\mathcal{S}\) es tetraedro acotado por los planos \(x=0, y=0, z=0\) y \(x+y+z=1\). 
+
             </p>
-            <ol>
-                <li>
-                    \(\int_{\mathcal{D}} xyz \) donde \(\mathcal{D}\) es el cubo vértices 
-                    \begin{eqnarray*}
-                    (a,a,a),(a,-a,a),(-a,a,a),(-a,-a,a),\\
-                    (a,a,-a),(a,-a,-a),(-a,a,-a),(-a,-a,-a),
-                    \end{eqnarray*}
-                    donde \(a>0\).
-                </li>
-                <p>
-
-                </p>
-
-                <li>
-                    \(\int_{\mathcal{D}} x+y+z\) donde \(\mathcal{D}\) es el tetrahedro 
-                    con vértices \[(0,0,0), (a,0,0), (0,a,0), (0,0,b)\]
-                    donde \(a,b>0\) son constantes.
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} x^2+y^2+z^2 \) donde \(\mathcal{D}\)  es el 
-                    tetrahedro con vértices 
-                    \[(0,0,0), (1,0,0), (0,1,0), (0,0,1)\]
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    <p>
-                        \(\int_{\mathcal{D}} xy\) donde \(\mathcal{D}\) es la región del primer octante
-                        debajo del plano \(z=x+y+2\).
-                    </p>
-                    
-                </li>
-
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} 2x-3y+z\) donde \(\mathcal{D}\) es 
-                    la región delimitada por el cilindro \(z^2+y^2=4\), los planos  \(x=1\),
-                    \(y=2x\), \(z=0\) en el primer cuadrante.
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} x \) donde \(\mathcal{D}\) es la 
-                   región encerrada por el paraboloide \(x=2y^2+2z^2\) y el plano 
-                   \(x=6\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} x \) donde \(\mathcal{D}\) es la 
-                   región encerrada por el paraboloide \(x=4y^2+2z^2\) y el plano 
-                   \(x=2\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_\mathcal{D} xy+x\) donde \(\mathcal{D}\) es la región 
-                    delimitada por los paraboloides 
-                    \(y=x^2+y^2\), \(y=27-2x^2-2y^2\).
-                </li>
-            </ol>
 
         </div>
 
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Reescribe la integral iterada en las otras 5 formas equivalentes (\(f\) denota
-                una función continua sobre el dominio adecuado). 
-            </p>
-            <ol>
-                <li>
-                    \(\int_{0}^1\int_y^1\int_0^y f(x,y,z)dzdxdy\)
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_0^1\int_y^1\int_0^z f(x,y,z)dxdzdy\)
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_0^1 \int_{0}^{1-x^2}\int_{0}^{1-x}f(x,y,z)dydzdx\)
-                </li>
-                <p>
-                    
-                </p>
-                <li>
-                    \(\int_0^1 \int_{\sqrt{x}}^{1}\int_{0}^{1-y}f(x,y,z)dzdydx\)
-                </li>
-            </ol>
-
-        </div>
-
-
-        <div class="definicion-box">
+          <div class="definicion-box">
             <h2 class="number-title"> Definición  </h2>
             <p>
                 Sea \(U\subset \mathbb{R}^n\) un abierto y 
@@ -396,65 +566,7 @@
         </div>
 
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Prueba las fórmulas para los siguientes Jacobianos.
-            </p>
-            <ol>
-                <li>
-                    Coordenadas polares.
-                    \[
-                    T(r,\theta)=(r\cos(\theta),r\sen(\theta))
-                    \]
-                    Entonces 
-                    \[
-                    J_T=r
-                    \]
-                </li>
-                <p>
 
-                </p>
-                <li>
-                    Coordenadas cilíndricas. 
-                    \[
-                    T(r,\theta,z)=(r\cos(\theta),r\sen(\theta),z)
-                    \]
-                    Entonces 
-                    \[
-                    J_T=r 
-                    \]
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    Coordenadas esféricas.
-                    \[
-                    T(\rho, \theta, \phi)=(\rho\sen(\phi)\cos(\theta),\rho\sen(\phi)\sen(\theta), \rho\cos(\phi))
-                    \]
-                    Entonces 
-                    \[
-                    J_T=\rho^2 \sen(\phi)
-                    \]    
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    Cambio de coordenadas afin.
-                    \[
-                    T(x_1,\dots, x_n)=A(x_1,\dots, x_n)+p
-                    \]
-                    donde \(A\) es una matriz de \(n\times n\) y \(p\in \mathbb{R}^n\) es un vector fijo. Entonces 
-                    \[
-                    J_T=\det(A)
-                    \]
-                </li>
-                
-            </ol>
-
-        </div>
 
         <div class="teorema-box">
             <h2 class="number-title" id="Teo:CAmbioVar"> Teorema </h2> 
@@ -507,76 +619,8 @@
 
         </div>
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Calcula las siguientes integrales.
-            </p>
-            <ol>
-                <li>
-                    \(\int_{\mathcal{D}}\sqrt{2x^2+2y^2}\), donde \(\mathcal{D}\) es la 
-                    región dentro del cilindro \(x^2+y^2=25\) y entre los planos \(z=-1, z=9\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} 2z+y^2\), donde \(\mathcal{D}\) es la región delimitada por el 
-                    paraboloide \(z=3x^2+3y^2\) y el plano \(z=9\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} x+2y+z\), donde \(\mathcal{D}\) es la región en el primer octanten 
-                    bajo el paraboloide \(z=9-x^2-y^2\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} x^2+y^4\), donde \(\mathcal{D}\) es la región dentro del 
-                    cilindro \(x^2+y^2=4\), arriba del plano \(z=0\) y por debajo del cono 
-                    \(z^2=9x^2+9y^2\).
-                </li>
-            </ol>
-
-        </div>
 
 
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-            <p>
-                Calcula las siguientes integrales.
-            </p>
-            <ol>
-                <li>
-                    \(\int_\mathcal{D} 5-x^2-y^2\), donde \(\mathcal{D}\) es el hemisferio \(x^2+y^2+z^2 \leq 1\), \(z\geq 0\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} x+y+z \), donde \(\mathcal{D}\) es la región entre las esferas 
-                    \(x^2+y^2+z^2=1\) y \(x^2+y^2+z^2=9\)
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} xyz\), donde \(\mathcal{D}\) es la región entre las esferas 
-                    \(x^2+y^2+z^2=4, x^2+y^2+z^2=16\) y arriba del cono \(\phi=\pi/6\).
-                </li>
-                <p>
-
-                </p>
-                <li>
-                    \(\int_{\mathcal{D}} ye^{x^2+y^2+z^2}\), donde \(\mathcal{D}\) es la parte de la bola centrada en el origen 
-                    de radio \(a>0\) en el primer octante.
-                </li>
-            </ol>
-
-        </div>
 
         <div class="nota-box">
             <h2 class="number-title"> Nota</h2>
@@ -777,6 +821,37 @@
             
         </div>
 
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Calcula las siguientes integrales.
+            </p>
+            <ol>
+                
+                <li>
+                    \(\int_{\mathcal{D}} 3x+y\), donde \(\mathcal{D}\) es el paralelogramo 
+                    con vértices \((1,1),(1,3),(5,2),(6,7)\).
+                </li>
+                <p>
+
+                </p>
+
+                <li>
+                    \(\int_{\mathcal{D}} 5x-2y+3z\), donde  \(\mathcal{D}\) es el paralepipedo 
+                    con vértices 
+                    \begin{eqnarray*}
+                        (0,0,0),(3,1,0),(2,4,0),(5,6,0),\\
+                        (1,0,6),(0,2,6),(3,1,6),(1,4,6).
+                    \end{eqnarray*}
+                </li>
+            </ol>
+
+        </div>
+
+
+
         <div class="ejercicio-box">
             <h2 class="number-title"> Ejercicio </h2>
             <p>
@@ -797,21 +872,271 @@
                 <p>
 
                 </p>
+               
+            </ol>
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Calcula las siguientes integrales. 
+            </p>
+            <ol>
                 <li>
-                    \(\int_{\mathcal{D}} 3x+y\), donde \(\mathcal{D}\) es el paralelogramo 
-                    con vértices \((1,1),(1,3),(5,2),(6,7)\).
+                    \(\int_{\mathcal{D}} xyz \) donde \(\mathcal{D}\) es el cubo vértices 
+                    \begin{eqnarray*}
+                    (a,a,a),(a,-a,a),(-a,a,a),(-a,-a,a),\\
+                    (a,a,-a),(a,-a,-a),(-a,a,-a),(-a,-a,-a),
+                    \end{eqnarray*}
+                    donde \(a>0\).
                 </li>
                 <p>
 
                 </p>
 
                 <li>
-                    \(\int_{\mathcal{D}} 5x-2y+3z\), donde  \(\mathcal{D}\) es el paralepipedo 
-                    con vértices 
-                    \begin{eqnarray*}
-                        (0,0,0),(3,1,0),(2,4,0),(5,6,0),\\
-                        (1,0,6),(0,2,6),(3,1,6),(1,4,6).
-                    \end{eqnarray*}
+                    \(\int_{\mathcal{D}} x+y+z\) donde \(\mathcal{D}\) es el tetrahedro 
+                    con vértices \[(0,0,0), (a,0,0), (0,a,0), (0,0,b)\]
+                    donde \(a,b>0\) son constantes.
+                </li>
+               <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} x \) donde \(\mathcal{D}\) es la 
+                   región encerrada por el paraboloide \(x=4y^2+2z^2\) y el plano 
+                   \(x=2\).
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_\mathcal{D} xy+x\) donde \(\mathcal{D}\) es la región 
+                    delimitada por los paraboloides 
+                    \(y=x^2+y^2\), \(y=27-2x^2-2y^2\).
+                </li>
+            </ol>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Calcula las siguientes integrales. 
+            </p>
+            <ol>
+                
+                 <li>
+                    \(\int_{\mathcal{D}} x^2+y^2+z^2 \) donde \(\mathcal{D}\)  es el 
+                    tetrahedro con vértices 
+                    \[(0,0,0), (1,0,0), (0,1,0), (0,0,1)\]
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    <p>
+                        \(\int_{\mathcal{D}} xy\) donde \(\mathcal{D}\) es la región del primer octante
+                        debajo del plano \(z=x+y+2\).
+                    </p>
+                    
+                </li>
+               
+                <li>
+                    \(\int_{\mathcal{D}} 2x-3y+z\) donde \(\mathcal{D}\) es 
+                    la región delimitada por el cilindro \(z^2+y^2=4\), los planos  \(x=1\),
+                    \(y=2x\), \(z=0\) en el primer cuadrante.
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} x \) donde \(\mathcal{D}\) es la 
+                   región encerrada por el paraboloide \(x=2y^2+2z^2\) y el plano 
+                   \(x=6\).
+                </li>
+                
+            </ol>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Reescribe la integral iterada en las otras 5 formas equivalentes (\(f\) denota
+                una función continua sobre el dominio adecuado). 
+            </p>
+            <ol>
+                <li>
+                    \(\int_{0}^1\int_y^1\int_0^y f(x,y,z)dzdxdy\)
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_0^1\int_y^1\int_0^z f(x,y,z)dxdzdy\)
+                </li>
+                
+            </ol>
+
+        </div>
+
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Reescribe la integral iterada en las otras 5 formas equivalentes (\(f\) denota
+                una función continua sobre el dominio adecuado). 
+            </p>
+            <ol>
+                
+                <li>
+                    \(\int_0^1 \int_{0}^{1-x^2}\int_{0}^{1-x}f(x,y,z)dydzdx\)
+                </li>
+                <p>
+                    
+                </p>
+                <li>
+                    \(\int_0^1 \int_{\sqrt{x}}^{1}\int_{0}^{1-y}f(x,y,z)dzdydx\)
+                </li>
+            </ol>
+
+        </div>
+
+      
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Prueba las fórmulas para los siguientes Jacobianos.
+            </p>
+            <ol>
+                <li>
+                    Coordenadas polares.
+                    \[
+                    T(r,\theta)=(r\cos(\theta),r\sen(\theta))
+                    \]
+                    Entonces 
+                    \[
+                    J_T=r
+                    \]
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    Coordenadas cilíndricas. 
+                    \[
+                    T(r,\theta,z)=(r\cos(\theta),r\sen(\theta),z)
+                    \]
+                    Entonces 
+                    \[
+                    J_T=r 
+                    \]
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    Coordenadas esféricas.
+                    \[
+                    T(\rho, \theta, \phi)=(\rho\sen(\phi)\cos(\theta),\rho\sen(\phi)\sen(\theta), \rho\cos(\phi))
+                    \]
+                    Entonces 
+                    \[
+                    J_T=\rho^2 \sen(\phi)
+                    \]    
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    Cambio de coordenadas afin.
+                    \[
+                    T(x_1,\dots, x_n)=A(x_1,\dots, x_n)+p
+                    \]
+                    donde \(A\) es una matriz de \(n\times n\) y \(p\in \mathbb{R}^n\) es un vector fijo. Entonces 
+                    \[
+                    J_T=\det(A)
+                    \]
+                </li>
+                
+            </ol>
+
+        </div>
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Calcula las siguientes integrales.
+            </p>
+            <ol>
+                <li>
+                    \(\int_{\mathcal{D}}\sqrt{2x^2+2y^2}\), donde \(\mathcal{D}\) es la 
+                    región dentro del cilindro \(x^2+y^2=25\) y entre los planos \(z=-1, z=9\).
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} 2z+y^2\), donde \(\mathcal{D}\) es la región delimitada por el 
+                    paraboloide \(z=3x^2+3y^2\) y el plano \(z=9\).
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} x+2y+z\), donde \(\mathcal{D}\) es la región en el primer octanten 
+                    bajo el paraboloide \(z=9-x^2-y^2\).
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} x^2+y^4\), donde \(\mathcal{D}\) es la región dentro del 
+                    cilindro \(x^2+y^2=4\), arriba del plano \(z=0\) y por debajo del cono 
+                    \(z^2=9x^2+9y^2\).
+                </li>
+            </ol>
+
+        </div>
+
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+            <p>
+                Calcula las siguientes integrales.
+            </p>
+            <ol>
+                <li>
+                    \(\int_\mathcal{D} 5-x^2-y^2\), donde \(\mathcal{D}\) es el hemisferio \(x^2+y^2+z^2 \leq 1\), \(z\geq 0\).
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} x+y+z \), donde \(\mathcal{D}\) es la región entre las esferas 
+                    \(x^2+y^2+z^2=1\) y \(x^2+y^2+z^2=9\)
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} xyz\), donde \(\mathcal{D}\) es la región entre las esferas 
+                    \(x^2+y^2+z^2=4, x^2+y^2+z^2=16\) y arriba del cono \(\phi=\pi/6\).
+                </li>
+                <p>
+
+                </p>
+                <li>
+                    \(\int_{\mathcal{D}} ye^{x^2+y^2+z^2}\), donde \(\mathcal{D}\) es la parte de la bola centrada en el origen 
+                    de radio \(a>0\) en el primer octante.
                 </li>
             </ol>
 
