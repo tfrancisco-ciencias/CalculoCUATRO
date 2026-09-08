@@ -393,6 +393,9 @@
             \]
         </p>
 
+
+        <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
         <p>
             Vamos a proceder por inducción sobre \(k\). Notamos que en el 
             caso \(k=1\)  realmente no hay nada que demostrar. El caso \(k=2\)
@@ -440,6 +443,7 @@
             \]
         </p>
         </div>
+        </div>
 
         <div class="definicion-box">
             <h2 class="number-title"> Definición </h2>
@@ -448,10 +452,10 @@
                 una función acotada. Decimos que \(f\) es Riemann-integrable en \(\mathcal{S}\) si existe un 
                 rectángulo, de dimensión \(k\), \(\mathcal{R}\subset \mathbb{R}^k\) tal que la función 
                 \[
-                \tilde{f}(x,y)=\left\{
+                \tilde{f}(p)=\left\{
                  \begin{array}{cc} 
-                  f(x,y) & (x,y)\in \mathcal{S} \\
-                  0.   & (x,y)\in \mathcal{R}\setminus \mathcal{S}
+                  f(p) & p\in \mathcal{S} \\
+                  0.   & p\in \mathcal{R}\setminus \mathcal{S}
                  \end{array}
                 \right.
                \]
@@ -463,7 +467,7 @@
         <div class="definicion-box">
             <h2 class="number-title"> Definición </h2>
             <p>
-                Una región de tipo \(I\) en \(\mathbb{R}^3\) es un subconjunto 
+                Una región de tipo \(I\) en \(\mathbb{R}^3\) es un subconjunto acotado
                 \(\mathcal{S}\) que se puede describir como 
                 \[
                 \mathcal{S }=\{(x,y,z): (x,y)\in \mathcal{D}, g_1(x,y) \leq z \leq g_2(x,y)\}
@@ -521,7 +525,54 @@
                 \int_{\mathcal{S}}f= \int_{\mathcal{D}}\left( \int_{g_1(x,y)}^{g_2(x,y)}f(x,y,z)dz\right)d(x,y)
                 \]
             </p>
+            <button class="respButton hvr-grow"> Demostración </button>
+                <div class="resp-box">
+            <p>
+                Al ser \(\mathcal{S}\) acotado existe \(\mathcal{R}=[a_1,b_1]\times [a_2,b_2]\times [a_3,b_3]\subset \mathbb{R}^3\) 
+                tal que \(\mathcal{S}\subseteq \mathcal{R}\). Ahora si definimos 
+                \[
+                \tilde{f}(x,y,z)=\left\{
+                 \begin{array}{cc} 
+                  f(x,y,z) & (x,y,z)\in \mathcal{S} \\
+                  0.   & (x,y,z)\in \mathcal{R}\setminus \mathcal{S}
+                 \end{array}
+                \right.
+               \]
+               Para probar que \(\tilde{f}\) 
+               es Riemann-integrable resta probar que el conjunto de 
+               puntos de discontinuidad de \(\tilde{f}\) tiene contenido cero. Como 
+               \(f\) es continua en \(\mathcal{S}\), el conjunto de puntos de continuidad 
+               de \(\tilde{f}\) está contenida en la frontera de \(\mathcal{S}\).
+            </p>
+            <p>
+               Ahora, la frontera de \(\mathcal{S}\) es unión de gráficas 
+               de funciones continuas. Como las gráficas de funciones continuas tienen 
+               contenido cero y la unión finita de conjuntos de contenido cero vuelve a tener 
+               contenido cero, resulta que la frontera de \(S\) tiene contenido cero. Por lo 
+               tanto \(\tilde{f}\) es integrable y entonces \(f\) es Riemann-integrable en \(\mathcal{S}\).
+            </p>
+            <p>
+                Ahora, por el Teorema de Fubini
+                \begin{eqnarray*} 
+                \int_{\mathcal{S}}f&=&\int_{\mathcal{R}}\tilde{f} \\
+                &=&\int_{a_1}^{b_1}\int_{a_2}^{b_2}\int_{a_3}^{b_3} \tilde{f}(x,y,z) dz dy dx \\
+                &=& \int_{a_1}^{b_1}\int_{a_2}^{b_2}\int_{g_1(x)}^{g_2(x)} \tilde{f}(x,y,z) dz dy dx\\ 
+                \end{eqnarray*}
+                Ahora notamos que si \((x,y)\notin \mathcal{D}\) entonces 
+                \(\tilde{f}(x,y,z)=0\), sin importar la coordenada  \(z\), por lo que podemos simplificar
+                \begin{eqnarray*} 
+                \int_{a_1}^{b_1}\int_{a_2}^{b_2}\int_{g_1(x)}^{g_2(x)} \tilde{f}(x,y,z) dz dy dx 
+                &=& \int_{\mathcal{D}} \int_{g_1(x)}^{g_2(x)}\tilde{f}(x,y,z) dzd(x,y) \\
+                &=& \int_{\mathcal{D}} \int_{g_1(x)}^{g_2(x)}f(x,y,z) dzd(x,y) .
+                \end{eqnarray*}
 
+                Concluimos que:
+                \[
+                \int_{\mathcal{S}}f = \int_{\mathcal{D}} \int_{g_1(x)}^{g_2(x)}f(x,y,z) dzd(x,y).
+                \]
+
+            </p>
+            </div>
         </div>
 
         <div class="nota-box">
