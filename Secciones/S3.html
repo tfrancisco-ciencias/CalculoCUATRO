@@ -315,7 +315,7 @@
 
 
         <div class="teorema-box">
-            <h2 class="number-title"> Teorema </h2>
+            <h2 class="number-title" id="Teo:ContenidoCero&Integral"> Teorema </h2>
             <p>
                 Sea \(\mathcal{R}\subset \mathbb{R}^k\) 
                 rectángulo de dimensión \(k\) y sea 
@@ -327,7 +327,7 @@
         </div>
 
         <div class="teorema-box">
-        <h2 class="number-title" id="Teo:Fubinni"> Teorema  </h2>
+        <h2 class="number-title" id="Teo:FubiniMasDimensiones"> Teorema  </h2>
         <h3>Fubini</h3>
         <p>
             <p>
@@ -345,7 +345,7 @@
           </p>
           <ol>
           <li>
-            Para casi toda \(y\in \hat{R}\), la integral \(n-1\)-dimensional
+            Para casi toda \(y\in [a_{i_0},b_{i_0}]\), la integral \(k-1\)-dimensional
             \[
             \int_{\hat{R}}f(x_1,\dots, x_{i_0-1},y,x_{i_0+1},\dots, x_k)d\hat{x}
             \] existe. 
@@ -359,10 +359,19 @@
             \]
             Abusando un poco la notación, lo anterior se puede escribir como la integral iterada 
             \[
-            \int_\mathcal{R}f  = \int_{a_{i_0}}^{b_{i_0}} \left( \int_{\hat{R}}f(\hat{x},y)d\hat{x}\right) dy.
+            \int_\mathcal{R}f  = \int_{a_{i_0}}^{b_{i_0}} \left( \int_{\hat{R}}f_y(\hat{x})d\hat{x}\right) dy.
+            \]
+            Nota: la expresión \(f_y(\hat{x})\) debe entenderse como 
+            \[
+            f_y(\hat{x})=f(x_1,\dots, x_{i_0-1},y,x_{i_0+1},\dots, x_k).
             \]
           </li>
           </ol>
+          <p>
+            Nota: la expresión "para casi toda \(y\in [a_{i_0},b_{i_0}]\)" significa que 
+            existe \(N\subset [a_{i_0},b_{i_0}]\) de contenido cero tal que para todo \(y\in [a_{i_0},b_{i_0}]\setminus N\), la integral 
+            \(\int_{\hat{R}}f_y(\hat{x})d\hat{x}\) existe.
+          </p>
         </p>
         </div>
 
@@ -374,13 +383,60 @@
       <div class="coro-box">
         <h2 class="number-title" id="Ejer:Fubinni"> Corolario </h2>
         <p>
-          Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_n,b_n]\) un rectángulo en \(\mathbb{R}^n\) y
-          \(f:\mathcal{R} \to \mathbb{R}\) una función continua excepto en un subconjunto de contenido cero.
+          Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_n,b_n]\) un rectángulo en \(\mathbb{R}^k\) y
+          \(f:\mathcal{R} \to \mathbb{R}\) una función acotada y Riemann-integrable.
           
-            Entonces \(f\)  es integrable y para cualquier, \(i_1,\dots,i_n\), reordenamiento de \(\{1,\dots, n\}\),
+            Entonces para cualquier, \(i_1,\dots,i_n\), reordenamiento de \(\{1,\dots, n\}\),
             se cumple que:
             \[
             \int_{\mathcal{R}}f=\int_{a_{i_1}}^{b_{i_1}} \cdots  \int_{a_{i_n}}^{b_{i_n}} f(x_{1},\dots, x_{n})dx_{i_n}\cdots dx_{i_1}.
+            \]
+        </p>
+
+        <p>
+            Vamos a proceder por inducción sobre \(k\). Notamos que en el 
+            caso \(k=1\)  realmente no hay nada que demostrar. El caso \(k=2\)
+            es el Teorema de Fubini de la sección 2 (<a href="./S1.html#Teo:Fubini">Teorema 1.1</a>)
+        </p>
+        <p>
+            Así pues supongamos que el resultado es cierto para \(k\) y probemos para 
+            \(k+1\). Sea \(\mathcal{R}=[a_1,b_1]\times \cdots \times [a_{k+1},b_{k+1}]\) 
+            un rectángulo en \(\mathbb{R}^{k+1}\)    y sea \(f:\mathcal{R}\to \mathbb{R}\)
+            una función acotada y Riemann-integrable. 
+        </p>
+        <p>
+            Al ser \(f\) Riemann-integrable en \(\mathcal{R}\) por el 
+            <a href="#Teo:FubiniMasDimensiones">Teorema de Fubini
+            en más dimensiones </a> tenemos que existe \(N\subset [a_{i_1},b_{i_1}]\) de contenido cero tal que para todo 
+            \(x_{i_1}\in [a_{i_1},b_{i_1}]\setminus N\), la integral
+            \[
+            \int_{\hat{R}}f_{x_{i_1}}(\hat{x})d\hat{x}
+            \] 
+            existe, es decir, \(f_{x_{i_1}}\) es Riemann-integrable en \(\hat{R}\). Además 
+            \[
+            \int_{\mathcal{R}}f =\int_{a_{i_1}}^{b_{i_1}} \left( \int_{\hat{R}} f_{x_{i_1}}(\hat{x})d\hat{x}\right) dx_{i_1}
+            \]
+            Recuerda que \(\hat{R}\) es el rectángulo de dimensión \(k\) que se obtiene al eliminar la coordenada \(i_1\) de \(\mathcal{R}\).
+            
+        </p>
+        <p>
+             Como sabemos que para todo \(x_{i_1}\in [a_{i_1},b_{i_1}]\setminus N\), la función 
+             \(f_{x_{i_1}}\) es Riemann-integrable en \(\hat{R}\). Aplicando la hipótesis de inducción 
+             a \(f_{x_{i_1}}\) en \(\hat{R}\) tenemos que para cualquier reordenamiento 
+             \(i_2,\dots,i_{k+1}\) se cumple que:
+             \[
+             \int_{\hat{R}} f_{x_{i_1}}(\hat{x})d\hat{x} = \int_{a_{i_2}}^{b_{i_2}}\cdots \int_{a_{i_{k+1}}}^{b_{i_{k+1}}} f_{x_{i_1}}(x_1,\dots,x_{i_1-1},x_{i_1+1},\dots,x_{k+1}) dx_{i_{k+1}}\cdots dx_{i_2}
+             \]
+
+        </p>
+        <p>
+            Lo anterior lo podemos escribir como 
+            \[
+            \int_{\hat{R}} f_{x_{i_1}}(\hat{x})d\hat{x} = \int_{a_{i_2}}^{b_{i_2}}\cdots \int_{a_{i_{k+1}}}^{b_{i_{k+1}}} f(x_1,\dots, x_{k+1}) dx_{i_{k+1}}\cdots dx_{i_2}
+            \]
+            integrando ésta última expresión con respecto a \(x_{i_1}\) obtenemos que
+            \[
+            \int_{\mathcal{R}}f =\int_{a_{i_1}}^{b_{i_1}}  \int_{a_{i_2}}^{b_{i_2}}\cdots \int_{a_{i_{k+1}}}^{b_{i_{k+1}}} f(x_1,\dots, x_{k+1}) dx_{i_{k+1}}\cdots dx_{i_2} dx_{i_1}
             \]
         </p>
         </div>

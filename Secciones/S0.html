@@ -330,9 +330,10 @@
             Sea \(\mathcal{R}=[a,b]\times [c,d]\). Sea \(f:\mathcal{R}\to \mathbb{R}\) una función continua en \(\mathcal{R}\). 
             Entonces \(f\) es Riemann-integrable en \(\mathcal{R}\). Además 
             \[
-            \int_{\mathcal{R}} f = \lim_{n\to \infty, m\to \infty} \sum_{i=1}^{n}\sum_{j=1}^m  f(t_{i,j})\left(\frac{b-a}{n}\right) \left(\frac{d-c}{m}\right).
+            \int_{\mathcal{R}} f = \lim_{n\to \infty} \sum_{i=1}^{n}\sum_{j=1}^n  f((t_{i}^{(n)},t_j^{(n)}))\left(\frac{b-a}{n}\right) \left(\frac{d-c}{n}\right).
             \]
-            donde los \(t_{i,j}\) son puntos arbitrarios en los rectángulos de la partición homogenea.
+            donde los \((t_{i}^{(n)},t_j^{(n)})\in [x_{i-1}^{(n)},x_i^{(n)}]\times [y_{j-1}^{(n)},y_j^{(n)}]\), son puntos arbitrarios en los rectángulos de la partición 
+            homogenea de \(\mathcal{R}\).
           </p>
 
           </div>
