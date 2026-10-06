@@ -256,8 +256,77 @@
   <div class="info-box">
     <h2 class="number-title"> Ejemplo </h2>
     <p>
-      
+      Calcula 
+      \[
+      \int_\alpha ydx-xdy, \quad \int_\beta ydx-xdy
+      \]
+      donde \(\alpha\) es el triángulo unitario en el plano, recorrido 
+      en el sentido positivo y \(\beta\) el mismo triángulo recorrido en 
+      el sentido negativo.
+
     </p>
+    <button class="respButton hvr-grow"> Respuesta</button>
+      <div class="resp-box">
+    <p>
+      Podemos descomponer \(\alpha\) como tres curvas, 
+      \begin{eqnarray*} 
+      \alpha_1(t)&=&(t,0), \quad t\in [0,1] \\
+      \alpha_2(t)&=&(1-t,t), \quad t\in [0,1] \\
+      \alpha_3(t)&=&(0,1-t), \quad t\in [0,1]
+      \end{eqnarray*}
+      Entonces 
+      \[
+      \int_\alpha ydx-xdy = \sum_{i=1}^3 \int_{\alpha_i} ydx-xdy.
+      \]
+      Para \(\alpha_1\) tenemos que \(y=0\) y \(dy=0\), \(x=t\) y \(dx=dt\) entonces
+      \[
+      \int_{\alpha_1}ydx-xdy = \int_0^1 0dt-0=0.
+      \]
+      Para \(\alpha_2\) tenemos que \(y=t\) y \(dy=dt\), \(x=1-t\) y \(dx=-dt\) entonces
+      \[
+      \int_{\alpha_2}ydx-xdy = \int_0^1 t(-dt)-(1-t)dt = \int_0^1 -t-(1-t)dt = \int_0^1 -1 dt = -1.
+      \]
+      Para \(\alpha_3\) tenemos que \(y=1-t\) y \(dy=-dt\), \(x=0\) y \(dx=0\) entonces
+      \[
+      \int_{\alpha_3}ydx-xdy = \int_0^1 (1-t)0-0(-dt) = 0.
+      \]
+      Por lo tanto,
+      \[
+      \int_\alpha ydx-xdy = 0 + (-1) + 0 = -1.
+      \]
+    </p>
+    <p>
+      Para \(\beta\) también la descomponemos en tres partes,
+      \begin{eqnarray*}
+      \beta_1(t)&=&(0,t), \quad t\in [0,1] \\
+      \beta_2(t)&=&(t,1-t), \quad t\in [0,1] \\
+      \beta_3(t)&=&(1-t,0), \quad t\in [0,1]
+      \end{eqnarray*}
+      Entonces 
+      \[
+      \int_\beta ydx-xdy = \sum_{i=1}^3 \int_{\beta_i} ydx-xdy.
+      \]
+      Para \(\beta_1\) tenemos que \(y=t\) y \(dy=dt\), \(x=0\) y \(dx=0\) entonces
+      \[
+      \int_{\beta_1}ydx-xdy = \int_0^1 t(0)-0dt = 0.
+      \]
+      Para \(\beta_2\) tenemos que \(y=1-t\) y \(dy=-dt\), \(x=t\) y \(dx=dt\) entonces
+      \[
+      \int_{\beta_2}ydx-xdy = \int_0^1 (1-t)dt-t(-dt) = \int_0^1 1-t+t dt = \int_0^1 1 dt = 1.
+      \]
+      Para \(\beta_3\) tenemos que \(y=0\) y \(dy=0\), \(x=1-t\) y \(dx=-dt\) entonces
+      \[
+      \int_{\beta_3}ydx-xdy = \int_0^1 0(-dt)-0 =0
+      \]
+      Por lo tanto,
+      \[
+      \int_\beta ydx-xdy = 0 + 1 + 0 = 1.
+      \]
+    </p>
+    <p>
+      Nota: El signo de la integral de línea se invierte si se invierte la orientación de la curva.
+    </p>
+    </div>
   </div>
 
   <div class="lema-box">
