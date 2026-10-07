@@ -490,8 +490,133 @@
   \(\alpha \vee \beta\) es equivalente a
   \(\tilde{\alpha} \vee \tilde{\beta}\).
   </p>
-
-  
+  <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+  <p>
+    Supongamos que $\alpha: [a,b] \to \mathbb{R}^n$ y $\tilde{\alpha}: [\tilde{a}, \tilde{b}] \to \mathbb{R}^n$ 
+    son curvas suaves equivalentes con reparametrización 
+    $u_\alpha: [a,b] \to [\tilde{a}, \tilde{b}]$.
+  </p>
+  <p>
+    Igualmente, supongamos que $\beta: [c,d] \to \mathbb{R}^n$ y $\tilde{\beta}: [\tilde{c}, \tilde{d}] \to \mathbb{R}^n$ 
+    son curvas equivalentes con reparametrización $u_\beta: [c,d] \to [\tilde{c}, \tilde{d}]$.
+  </p>
+  <p>
+    Ya que $u_\alpha$ y $u_\beta$ son reparametrizaciones 
+    tenemos que:
+    <ol>
+      <li>
+        $u_\alpha$ es continua en $[a,b]$, 
+      </li>
+      <li>
+        $u_\alpha$ es diferenciable con derivada continua y no nula,
+      </li>
+      <li>
+        como \(\alpha\) y \(\tilde{\alpha}\) tienen la misma orientación, $u_\alpha' > 0$ en $(a,b)$,
+      </li>
+      <li>
+y cumple $u_\alpha(a) = \tilde{a}$, $u_\alpha(b) = \tilde{b}$, con $\tilde{\alpha}(u_\alpha(t)) = \alpha(t)$. 
+      </li>
+    </ol>
+    
+  </p>
+  <p>
+    De manera análoga, $u_\beta$ cumple las mismas propiedades para $\beta$ y $\tilde{\beta}$.
+  </p>
+  <p>
+    De la condición de pegado $\alpha(b) = \beta(c)$, 
+    se deduce que:
+    \begin{eqnarray*} 
+    \tilde{\alpha}(\tilde{b}) &=&  \tilde{\alpha}(u_\alpha(b)) \\
+    &=& \alpha(b) \\
+    &=& \beta(c) \\
+    &=& \tilde{\beta}(u_\beta(c)) \\
+    &=&  \tilde{\beta}(\tilde{c}),
+    \end{eqnarray*}
+    por lo que $\tilde{\alpha} \vee \tilde{\beta}: [0,1] \to \mathbb{R}^n$ está bien definida.
+  </p>
+  <p>
+    Definimos la función $u: [0,1] \to [0,1]$ por partes como:
+    $$u(t) = \begin{cases} \dfrac{u_\alpha((b-a)2t + a) - \tilde{a}}{2(\tilde{b}-\tilde{a})}, & t \in \left[0, \frac{1}{2}\right] 
+    \\ \dfrac{u_\beta((d-c)(2t-1) + c) - \tilde{c}}{2(\tilde{d}-\tilde{c})} + \dfrac{1}{2}, & t \in \left[\frac{1}{2}, 1\right] .
+    \end{cases}$$
+  </p>
+  <p>
+    Es claro que $u$ es continua en \([0,1/2)\) y \((1/2, 1]\). Resta probar que es continua en $1/2$:
+    \[
+    \lim_{t \to (1/2)^-} u(t) = \frac{u_\alpha(b) - \tilde{a}}{2(\tilde{b}-\tilde{a})} = \frac{\tilde{b} - \tilde{a}}{2(\tilde{b}-\tilde{a})} = \frac{1}{2},
+    \]
+    \[
+    \lim_{t \to (1/2)^+} u(t) = \frac{u_\beta(c) - \tilde{c}}{2(\tilde{d}-\tilde{c})} + \frac{1}{2} = 0 + \frac{1}{2} = \frac{1}{2}.
+    \]
+    Por lo tanto $u$ es continua en \([0,1]\).
+  </p>
+  <p>
+    Para la derivada en $u$ nos restringimos a los intervalos \([0,1/2)\) y \((1/2, 1]\). 
+  </p>
+  <p>
+    Para $t \in (0, 1/2)$:
+    $$u'(t) = \frac{b-a}{\tilde{b}-\tilde{a}} \, u_\alpha'((b-a)2t + a).$$
+    Como $u_\alpha'$ es continua y estrictamente positiva en $(a,b)$, $u'>0$ y es continua 
+     en $(0, 1/2)$.
+  </p>
+  <p>
+    Para $t \in (1/2, 1)$:
+    $$u'(t) = \frac{d-c}{\tilde{d}-\tilde{c}} \, u_\beta'((d-c)(2t-1) + c).$$
+    Como $u_\beta'$ es continua y estrictamente positiva en $(c,d)$, $u'>0$ y es continua en $(1/2, 1)$.
+  </p>
+  <p>
+    Además como 
+    \[
+    u(0) = \frac{u_\alpha(a) - \tilde{a}}{2(\tilde{b}-\tilde{a})} = \frac{\tilde{a} - \tilde{a}}{2(\tilde{b}-\tilde{a})} = 0,
+    \]
+    y
+    \[
+    u(1) = \frac{u_\beta(d) - \tilde{c}}{2(\tilde{d}-\tilde{c})} + \frac{1}{2} = \frac{\tilde{d} - \tilde{c}}{2(\tilde{d}-\tilde{c})} + \frac{1}{2} = \frac{1}{2} + \frac{1}{2} = 1,
+    \]
+    resulta que \(u([0,1]) = [0,1]\).
+  </p>
+  <p>
+    Para terminar nos resta probar que \((\tilde{\alpha} \vee \tilde{\beta})(u(t)) = (\alpha \vee \beta)(t)\) para todo \(t \in [0,1]\).
+  </p>
+  <p>
+    Caso 1: $t \in [0, 1/2]$. 
+  </p>
+  <p>
+    Como $u(t) \in [0, 1/2]$, aplicamos la definición de $\tilde{\alpha} \vee \tilde{\beta}$:
+    $$(\tilde{\alpha} \vee \tilde{\beta})(u(t)) = \tilde{\alpha}\Big( (\tilde{b}-\tilde{a})(2 u(t)) + \tilde{a} \Big).$$
+    Sustituyendo $u(t)$:
+    \begin{eqnarray*} 
+    (\tilde{b}-\tilde{a})(2 u(t)) + \tilde{a} &=& (\tilde{b}-\tilde{a}) \left( \frac{u_\alpha((b-a)2t + a) - \tilde{a}}{\tilde{b}-\tilde{a}} \right) + \tilde{a} \\
+    &=& u_\alpha((b-a)2t + a).
+    \end{eqnarray*}
+    Por lo tanto:
+    \begin{eqnarray*} 
+    (\tilde{\alpha} \vee \tilde{\beta})(u(t)) &=&  \tilde{\alpha}\Big(u_\alpha((b-a)2t + a)\Big)  \\
+    &=& \alpha((b-a)2t + a) \\
+    &=& (\alpha \vee \beta)(t).
+    \end{eqnarray*}
+  </p>
+  <p>
+    Caso 2: $t \in [1/2, 1]$.
+  </p>
+  <p>
+    Como $u(t) \in [1/2, 1]$, aplicamos la definición de $\tilde{\alpha} \vee \tilde{\beta}$:
+    $$(\tilde{\alpha} \vee \tilde{\beta})(u(t)) = \tilde{\beta}\Big( (\tilde{d}-\tilde{c})(2 u(t) - 1) + \tilde{c} \Big).$$
+    Sustituyendo $u(t)$:
+    \begin{eqnarray*} 
+    & & (\tilde{d}-\tilde{c})(2 u(t) - 1)+\tilde{c} \\
+    &=& (\tilde{d}-\tilde{c}) \left(\frac{u_\beta((d-c)(2t-1) + c) - \tilde{c}}{\tilde{d}-\tilde{c}}+1-1\right)+\tilde{c} \\
+    &=& u_\beta((d-c)(2t-1) + c)
+    \end{eqnarray*}
+    Por lo tanto:
+    \begin{eqnarray*} 
+    (\tilde{\alpha} \vee \tilde{\beta})(u(t)) &=& \tilde{\beta}\Big(u_\beta((d-c)(2t-1) + c)\Big) \\
+    &=& \beta((d-c)(2t-1) + c) \\
+    &=& (\alpha \vee \beta)(t).
+    \end{eqnarray*}
+  </p>
+  </div>
 </div>
 
 <div class="teorema-box">
