@@ -226,91 +226,26 @@
         </p>
       </div>
 
-      <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio  </h2>
-
-          <p>
-            Para los siguientes subconjuntos abiertos de \(\mathbb{R}^2\)
-            determina cuales son conexos o disconexos. Para los que sean
-            conexos explica cómo se encuentra una trayectoria que una
-            dos puntos en el conjunto.
-
-            <ol>
-              <!--<li> \(S=\{(x,y): x^2+y^2< 4, (x-2)^2+y^2< 1 \}\) .</li>-->
-              <li> \(S=\{ (x,y): x^2+y^2> 1, |y|< 1/2  \} \). </li>
-              <p></p>
-              <li> \(S=\{(x,y): x^2+y^2> 2 , x^2+(y-5)^2> 1\}\).  </li>
-              <p></p>
-              <li>  \(S=\{(x,y): x+2y >1, -x+6y< 3  \}\) .</li>
-              <p></p>
-              <li> \(S=\{(x,y): x^2-y^2>1, y>0 \} \). </li>
-              <p></p>
-              <li> \(S=\{(x,y): x^2+y^2< 1 \} \cup \{(x,y): (x-2)^2+y^2< 1 \}\).</li>
-              <p></p>
-              <li>
-                \(S=\{(x,y): 0< x, 0 < y < 1/x  \}\)
-              </li>
-            </ol>
-          </p>
-          <p>
-            Sugerencia: haz unos dibujos.
-            Nota: para describir las trayectorias no hay que ser formal en este ejercicio.
-          </p>
-      </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-        Sean \(U_1,U_2,\dots, U_n\) abiertos conexos y no vacíos. Prueba
-        que si cualesquiera dos tienen intersección no vacía entonces
-        la unión \(\cup_{i=1}^n U_i\) es abierta conexa.
-        </p>
-        <p>
-          Sugerencia: inicia con dos conjuntos \(U_1,U_2\)
-          y después usa inducción sobre el número de conjuntos.
-        </p>
-      </div>
-
-        <div class="ejercicio-box">
-            <h2 class="number-title"> Ejercicio </h2>
-          <p>
-          Da ejemplos de dos conjuntos abierto conexos, no vacíos,
-          tales que su intersección sea:
-          <ol>
-            <li>
-              conexa;
-            </li>
-            <li>
-              disconexa;
-            </li>
-          </ol> 
-          </p>
-        </div>
 
 
         <div class="lema-box" id="Ejer:dfCeroConstante">
           <h2 class="number-title"> Lema  </h2>
-          <ol>
-            <li>
-              <p>
+          
+              <!-- <p>
                 Sea \(B_r(p)\) una bola abierta centrada en \(p\) y 
                 \(f:B_r(p)\to \mathbb{R}\) una función diferenciable que 
                 satisface \(\nabla f=0\) en \(p\). Prueba que \(f\) es constante en \(B_r(p)\).
-              </p>
+              </p>-->
     
-            </li>
-            <p></p>
-            <li>
               <p>
                 Sea \(U\subseteq \mathbb{R}^n\) un conjunto abierto conexo
                 no vacío y  \(f:U\to \mathbb{R}\) una función diferenciable
                 tal que \( \nabla f=0\). Prueba que \(f\) es constante
                 en \(U\).
                 </p>
-                
-            </li>
-          </ol>
+               
           
           <!--<button class="respButton hvr-grow"> Respuesta inciso 2 </button>
           
@@ -368,11 +303,704 @@
             \(f\) es una función escalar pero \(\mathbb{F}\) es un campo vectorial,
             así que \(\mathbb{F}\) y su antiderivada son de "distintas especies".
           </p>
+          
+        </div>
+
+
+          <div class="teorema-box" id="Teo:2TF">
+          <h2 class="number-title"> Teorema </h2>
+          <h3> Segundo Teorema Fundamental de las integrales de línea</h3>
+            <p>
+              Sea \(U\subset\mathbb{R}^n\) un abierto conexo y \(f:U\to \mathbb{R}\)
+              una función de clase \(C^1\) en \(U\). Para cualquier
+              trayectoria suave a trozos, \(\alpha:[a,b]\to \mathbb{R}^n\),
+              con traza contenida en \(U\) se cumple:
+            </p>
+            <p>
+              <!--En notación de 1-formas:
+              \[
+              \int_\alpha df = f(\alpha(b))-f(\alpha(a))
+              \]-->
+              \[
+              \int_\alpha \nabla f \cdot d\alpha = f(\alpha(b))-f(\alpha(a))
+              \]
+            </p>
+
+
+            <button class="respButton hvr-grow"> Demostración </button>
+              <div class="resp-box">
+                <p>
+                  La demostración no es muy difícil y se basa en el Segundo
+                  Teorema Fundamental de Cálculo (de una variable).
+                </p>
+                <p>
+                  Primero vamos a suponer que \(\alpha:[a,b]\to U\)
+                  es una curva suave (sin "picos"). Definimos la función escalar
+                  \(\varphi:[a,b]\to \mathbb{R}\) por
+                  \(\varphi(t)= f(\alpha(t))\). Ya que \(f\) y  \(\alpha\)
+                  son diferenciables \(\varphi\) también lo es
+                  y  podemos aplicar la regla de la cadena
+                  para obtener que
+                  \[
+                  \varphi'(t)=\frac{\partial f}{\partial_{x_1}}(\alpha(t))
+                  \frac{d x_1}{d t}(t) + \cdots
+                  +\frac{\partial f}{\partial_{x_n}}(\alpha(t))
+                  \frac{d x_n}{d t}(t)
+                  \]
+                  donde escribimos las funciones coordenadas 
+                  \(\alpha=(a_1,\dots, a_n)\) y \(\frac{d x_j}{dt}=a_j'\).
+                  Entonces tenemos
+                  \[
+                  \varphi'(t)= \partial_{x_1}f(\alpha(t))a_1'(t)+
+                  \cdots+\partial_{x_n}(\alpha(t))a_n'(t)
+                  \]
+                  donde el lado derecho de la ecuación anterior es precisamente
+                  el integrando la la integral de línea \(\int_\alpha \nabla f \cdot d\alpha\)
+                  por lo tanto
+                  \begin{eqnarray}
+                  \int_\alpha \nabla f \cdot d\alpha &=& \int_a^b \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
+                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t) dt \\
+                  &=&\int_a^b \varphi'(t)dt. \label{Eqn:TFILequation1}
+                  \end{eqnarray}
+                  Por el Segundo Teorema Fundamental de Cálculo, y tomando que
+                  \(\alpha'\) es contina (ya que \(f\) y \(\alpha\) son clase \(C^1\))
+                  tenemos
+                  \begin{equation}\label{Eqn:TFC1aplicado}
+                  \int_a^b \varphi'(t)dt=\varphi(b)-\varphi(a)=f(\alpha(b))-f(\alpha(a))
+                  \end{equation}
+                  Concluimos de \eqref{Eqn:TFILequation1} y \eqref{Eqn:TFC1aplicado}
+                  \[
+                  \int_\alpha df =f(\alpha(b))-f(\alpha(a))
+                  \]
+                </p>
+                <p>
+                  Para terminar vamos a ver el caso cuando \(\alpha\) es suave
+                  a trozos.
+                </p>
+                <p>
+                  Ya que \(\alpha\) es suave a trozos, existe una partición
+                  \(\{a=t_0< \cdots< t_n=b\}\) tal que \(\alpha\)
+                  restringida a \([t_{i-1},t_i]\) es suave. Por el caso anterior,
+                  si \(\alpha_i\) es la restricción a \([t_{i-1},t_i]\), tenemos:
+                  \[
+                  \int_{\alpha_i} \nabla f \cdot d\alpha_j=f(\alpha(t_i))-f(\alpha(t_{i-1}))
+                  \]
+                  de donde se sigue
+                  \[
+                  \int_\alpha \nabla f \cdot d\alpha = \sum_{i=1}^n \int_{\alpha_i}\nabla f \cdot d\alpha_j =\sum_{i=1}^n
+                  f(\alpha(t_i))-f(\alpha(t_{i-1}))=f(\alpha(b))-f(\alpha(a))
+                  \]
+                  donde la primera identidad es la definición de la integral
+                  sobre curvas suaves a trozos y la última es porque tenemos
+                  una suma telescópica.
+                </p>
+
+              </div>
+        </div>
+
+
+                <div class="nota-box">
+                  <h2 class="number-title"> Nota </h2>
+                  <p>
+                    Empezamos con el Segundo TF pués es el más fácil de entender,
+                    pues es el que necesita menos construcciones.
+                  </p>
+                  <p>
+                    El teorema resuelve completamente el problema de calcular
+                    las integrales de línea de campos conservativos, 
+                    pues sólo tenemos que evaluar la función potencial
+                    en los puntos inicial y final de la trayectoria.
+                  </p>
+                  <p>
+                    Otra consecuencia importante del teorema es que la integral
+                    de línea de campos conservativos sólo depende del punto inicial
+                    y final de la trayectoria. Por eso se les llama campos conservativos,
+                    por que la integral de línea se conserva aún si modificamos la
+                    trayectoria que une el punto inicial y el punto final.
+                  </p>
+                  <p>
+                    Nota que el teorema NO dice que la integral de línea de campos
+                    conservativos no cambia si cambiamos los puntos inicial y final.
+                    Por ejemplo, si \(\alpha\) une \((0,0)\) con \((1,0)\)
+                    y \(\beta\) une \((0,0)\) con \((0,1)\), el teorema no implica
+                    que \(\int_\alpha \mathbb{F}=\int_\beta \mathbb{F}\) aún si
+                    \(\mathbb{F}\) es conservativo.
+                  </p>
+                </div>
+
+
+                   <div class="teorema-box" >
+          <h2 class="number-title"> Teorema </h2>
+          <h3> Primer Teorema Fundamental de integrales de línea </h3>
           <p>
-            Los ejercicios que siguen se enfocan en funciones potenciales y 
-            campos conservativos. 
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
+            \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial continuo en \(U\).
+          </p>
+          <p>
+            Supon que las integrales de línea de \(\mathbb{F}\) sólo dependen
+            del punto inicial y final de la trayetoria.
+          </p>
+          <p>
+            Fija \(P\in U\). Define la función \(f:U\to \mathbb{R}\) por
+            \[
+            f(Q)=\int_\alpha \mathbb{F}\cdot d\alpha
+            \]
+            donde \(Q\in U\) y \(\alpha\) es una trayectoria que une \(P\)
+            con \(Q\) cuya traza esté contenida en \(U\).
+          </p>
+
+          <p>
+            Entonces \(\nabla f= \mathbb{F}\), es decir,
+            \(\mathbb{F}\) es un campo gradiente.
+          </p>
+          <p>
+            Nota: ya que la hipótesis dice que la integral sólo depende
+            del punto inicial y final, la curva que se use para definir
+            la función potencial no va a
+            ser relevante.
+          </p>
+
+           <button class="respButton hvr-grow"> Demostración </button>
+            <div class="resp-box">
+              <p>
+              Primero escribimos las funciones coordenadas de \(\mathbb{F}\) como
+              \[
+              \mathbb{F}=(F_1,\dots, F_n).
+              \]
+              Lo que debemos de probar es que la función  \(f\) definida arriba 
+              satisface :
+             <ol>
+              <li>
+                es diferenciable
+                en \(U\)
+              </li>
+              <li>
+                y que \(\partial_{x_j} f= F_j\) para toda \(j=1,\dots,n\).
+              </li>
+             </ol>
+               
+            </p>
+            <p>
+              Para probar que una función es diferenciable es suficiente
+              probar que las derivadas parciales existen y son continuas
+              (ver por ejemplo
+              <a href="https://en.wikipedia.org/wiki/Differentiable_function#Differentiability_in_higher_dimensions"
+               target="_blank">Wikipedia</a> o Bartle, <i>Elements of
+               real analysis</i>, Teorema 20.7 ó 
+               <a href="https://tfrancisco-ciencias.github.io/CalculoTRES/Secciones/S9.html#Teo:C1ImplicaDif"> Teorema 9.10 (cálculo 3)</a> ). Entonces
+              si probamos las identidades
+              \[
+              \partial_{x_j} f= F_j, \quad j=1, \dots, n,
+              \]
+              matamos dos pájaros de un tiro pues probamos que, 
+              las parcieles existen y que son continuas (pues cada
+              \(F_j\) es continiua por suposición del Teorema).
+            </p>
+            <p>
+              Así pues, fijamos \(j\) y probamos
+              \[
+              \partial_{x_j}f(Q) = F_j(Q) \quad \textrm{ para todo  \(Q\in U\)}
+              \]
+              que, usando la definición de derivada parcial,
+              es equivalente a probar que
+              \[
+              \lim_{h\to 0} \frac{f(Q+he_j)-f(Q)}{h}=F_j(Q)
+              \]
+              donde \(e_j\) es el vector canónico con 1 en la entrada \(j\).
+            </p>
+            <p>
+              Ahora nos enfocamos en el cociente diferencial
+              \[
+              \frac{f(Q+he_j)-f(Q)}{h}
+              \]
+              donde suponemos que \(h \ne 0\) y es suficientemente chico
+              para que \(Q+he_j \in U\) (aquí es donde se usa que \(U\) es abierto,
+              por ejemplo si tomamos \(r>0\) tal que la bola
+              centrada en \(Q\) de radio \(r\) esté contenida en \(U\)
+              vamos a pedir que \(|h|< r\) ).
+            </p>
+            <p>
+              Por la propiedad de aditividad de la integral de línea podemos escribir
+              \[
+              f(Q+he_j)-f(Q)=\int_{\beta} \mathbb{F}\cdot d\beta
+              \]
+              donde \(\beta\) es cualquier trayectoria contenida en \(U\)
+              que va de \(Q\) a \(Q+he_j\). En particular podemos tomar
+              \(\beta\) el segmento de recta que une \(Q\) con \(Q+he_j\) (aquí
+              usamos la hipótesis que la integral de línea no depende de
+              trayectoria que una dos puntos dados) :
+              \[
+              \beta(t)=Q + t(Q+he_j-Q), \quad t\in [0,1]
+              \]
+
+              <p>
+                <div class="imagen-box flexbox">
+                  <img src="./Images/Sec6-img4.png" alt="Fig1TFIL-1" width="400" height="250">
+                </div>
+              </p>
+              Haciendo la cuenta, si escribimos \(Q=(q_1,\dots, q_n)\), tenemos
+              \begin{eqnarray*} 
+              \beta(t)&=& Q + t(Q+he_j-Q)\\
+              &=& Q+the_j\\
+              &=& (q_1,\dots,q_{j-1} , q_j+th,q_{j+1},\dots ,q_n)
+              \end{eqnarray*}
+              Por lo tanto, si por \(b_j\) denotamos la \(j\)-ésima  función
+              coodenada de \(\beta\), resulta que \(b_i'=0\) para toda
+              \(i\ne j\), que \(b_j(t)=q_j+th\) y  que \(b_j'(t)=h\).
+            </p>
+            <p>
+              Por lo tanto al calcula la integral de línea obtenemos
+              \begin{eqnarray*}
+              \int_\beta \mathbb{F}\cdot d\beta
+              &=&
+              \int_0^1 \sum_{i=1}^n F_i(\beta(t))b_i'(t)dt \\
+              &=& \int_0^1 F_j(q_1,\dots,q_{j}+th, \dots, q_n ) h dt
+              \end{eqnarray*}
+
+            </p>
+            <p>
+              Antes de proseguir con el cociente diferencial, vamos a
+              hacer un cambio de variable en la integral anterior. Tomando
+              \(u=th\), \(du=hdt\) y
+              \[
+              \int_0^1 F_j(q_1,\dots,q_j+th, \dots, q_n)hdt
+              =\int_0^{h} F_j(q_1,\dots, q_j+u, \dots, q_n)du
+              \]
+              Para aplicar el Primer Teorema Fundamental de Cálculo más
+              adelante definimos la función auxiliar 
+              \[
+              g(h)=\int_0^{h} F_j(q_1,\dots, q_j+u, \dots, q_n)du,
+              \quad \textrm{ para \(|h|< r\)}
+              \]
+            </p>
+            <p>
+            Con esta notación podemos expresar el cocient diferencial como
+            \begin{eqnarray*}
+            \frac{f(Q+he_j)-f(Q)}{h}
+            &=&
+            \frac{1}{h}\int_\beta \mathbb{F}\cdot  d \beta \\
+            &=& \frac{g(h)-g(0)}{h}
+            \end{eqnarray*}
+            </p>
+            <p>
+              El último paso es probar el siguiente límite
+              \[
+              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=F_j(Q)
+              \]
+              pero, ya que \(F_j\) es continua, por el Primer
+              Teorema Fundamental del Cálculo obtenemos que
+              \(g\) es diferenciable y que
+              \[
+              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=g'(0)=F_j(q_1,\dots, q_j+0, \dots, q_n)=F_j(Q)
+              \]
+            </p>
+            </div>
+
+        </div>
+
+
+                <div class="nota-box">
+                  <h2 class="number-title"> Nota </h2>
+                  <p>
+                    El Primer TF da, en teoría, una forma para construir
+                    una función potencial, pero nota que la hipótesis fuerte
+                    es que sabemos de antemano que la integral de línea
+                    NO depende de la trayectoria que una los puntos, lo cual
+                    es una hipótesis fuerte de probar. Sín embargo es una
+                    herramienta teórica fundamental. Entre otras cosas da una
+                    caracterización de las 1-formas exáctas (o campos
+                    conservativos), lo que se muestra en el siguiente ejercicio.
+                  </p>
+                  <p>
+                    Otra observación importante es que en este teorema se puede
+                    ver la necesidad de pedir que el dominio sea conexo pues,
+                    para construir la función potencial, debemos de usar
+                    una trayectoria que una cualesquiera puntos del dominio,
+                    es decir, pedir que el dominio sea conexo.
+                  </p>
+                </div>
+
+        <div class="teorema-box">
+          <h2 class="number-title"id="Ejer:equivFormaExacta"> Teorema  </h2>
+          <p>
+            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
+            \(\mathbb{F}\) un campo vectorial  donde las funciones coordenadas
+            son continuas en \(U\). Prueba que
+            las siguientes condiciones son equivalentes:
+            <ol>
+              <li>\(\mathbb{F}\) es conservativo. </li>
+              <li> Para toda \(\alpha\),  curva orientada cerrada suave a trozos
+                   con traza contenida en \(U\):
+                   \[
+                   \int_\alpha\mathbb{F} \cdot d\alpha=0.
+                   \]
+              </li>
+              <li>
+                La integral \(\int_\beta \mathbb{F} \cdot d\beta \) sólo depende
+                del punto inicial y punto final de \(\beta\)
+                (curva suave a trozos, con traza contenida en
+                \(U\)).
+              </li>
+          </p>
+
+          <button class="respButton hvr-grow"> Respuesta </button>
+                <div class="resp-box">
+                  <div class="video flexbox">
+                    <a href="https://youtu.be/98UnwyBcs1A" target="_blank"> Video </a>
+                    </div>
+                  </div>
+
+        </div>
+
+
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema </h2>
+          <p>
+            Sea \(U\) un abierto de \(\mathbb{R}^n\) y \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
+            clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
+            donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
+          </p>
+          <p>
+            Si \(\mathbb{F}\) es conservativo entonces 
+            \[
+            \partial_{x_i} f_j = \partial_{x_j}f_i
+            \]
+            para todos \(i,j\).
+          </p>
+
+        </div>
+
+
+
+
+
+
+        <div class="prop-box">
+          <h2  class="number-title"> Lema (diferenciación dentro
+            de la  integral) </h2>
+
+
+          <p>
+            Supón que tenemos definida una función escalar
+            \(\varphi: U\times (c,d) \to \mathbb{R}\), donde
+            \(U\) es un conjunto abierto no vacío de \(\mathbb{R}^n\). Suponemos
+            que \(\varphi\) es una función clase \(C^1\) en \(U\times (c,d)\).
+          </p>
+          <p>
+            A los puntos de \(U\times (c,d)\) los vamos a denotar
+            \( (X,t) \)  donde \(X=(x_1,\dots, x_n)\in U\) y \(t\in (c,d)\).
+          </p>
+          <p>
+            Fija un intervalo cerrado
+            \([a,b]\subset (c,d)\) y define la función escalar \(\phi:U\to \mathbb{R}\) por
+            \[
+            \phi(X)=\int_a^b \varphi(X,t)dt
+            \]
+
+            Entonces las derivadas parciales
+            de \(\phi\) existen en \(U\) y
+            \[
+            \partial_{x_j} \phi(X) = \int_a^b \partial_{x_j}\varphi(X,t)dt
+            \]
+          </p>
+
+          <button class="respButton hvr-grow"> Demostración  </button>
+          <div class="resp-box">
+
+            <p>
+              Fijamos un  \(j=1,\dots, n\) y por
+              \(e_j\) denotamos el
+              \(j\)-ésimo vector canónico. Para probar el resultado tenemos
+              que probar
+              \[
+              \lim_{h\to 0 }\frac{\phi(X+te_j)-\phi(X)}{h}=
+              \int_a^b \partial_{x_j}\varphi(X,t)dt,
+              \]
+              el cual es equivalente a
+              \begin{equation}\label{Eqn:auxLimiteCero}
+              \lim_{h\to 0 }
+              \left|
+              \frac{\phi(X+te_j)-\phi(X)}{h}
+              -\int_a^b \partial_{x_j}\varphi(X,t)dt
+              \right|
+              =0.
+              \end{equation}
+
+              Para probar el límite anterior vamos
+              a proceder en dos pasos. En el primer paso
+              vamos a reescribir el cociente diferencial
+              de \(\phi\) como una integral. En el segundo paso probamos \eqref{Eqn:auxLimiteCero}
+            </p>
+            <p>
+              Primer paso.
+            </p>
+            <p>
+              Antes de iniciar fijamos un radio \(r>0\) tal que
+              la bola abierta centrada en \(X\) y radio \(r\) esté contenida en \(U\). De aquí en
+              adelante vamos a estar considerando sólo puntos en esta bola.
+            </p>
+            <p>
+              Por definición de \(\phi\), usando linealidad de la
+              integral tenemos
+              \[
+              \frac{\phi(X+he_j)-\phi(X)}{h}=
+              \int_a^b \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}dt
+              \]
+              para \(h \ne 0\) y \(|h|< r\).
+            </p>
+            <p>
+              Ahora aplicamos el Teorema del Valor Medio para
+              derivadas para obtener
+              \begin{equation}\label{Eqn:auxTVM}
+              \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}=\partial_{x_j}\varphi(X(h,t),t)
+              \end{equation}
+              donde \(X(h,t)\) es un punto en el segmento de línea
+              que une \(X+he_j\) con \(X\) y depende de \(h\) y de \(t\).
+            </p>
+            <p>
+              Nota: para obtener la identidad \eqref{Eqn:auxTVM} se considera la función
+              \(g(h)=\varphi(X+he_j,t)\), para la variable \(h\) tomada en
+              \((-r,r)\) y se usa que
+              \(g'(h)=\partial_{x_j}\varphi(X+he_j,t)\).
+            </p>
+            <p>
+              Por lo tanto, de \eqref{Eqn:auxTVM} concluimos que el cociente
+              diferencial para \(\phi\) se puede escribir como
+              \begin{equation}\label{Eqn:auxCocienteDif}
+              \frac{\phi(X+he_j,t)-\phi(X,t)}{h}
+              =
+              \int_a^b \partial_{x_j}\varphi(X(h,t),t)dt
+              \end{equation}
+
+              Aquí termina el paso 1.
+            </p>
+            <p>
+              Paso 2.
+            </p>
+            <p>
+              Concluimos de \eqref{Eqn:auxCocienteDif} que el término
+              dentro del valor absoluto en \eqref{Eqn:auxLimiteCero}
+              lo podemos acotar como
+              \[
+              \left|
+              \frac{\phi(X+te_j)-\phi(X)}{h}
+              -\int_a^b \partial_{x_j}\varphi(X,t)dt
+              \right|
+              \leq
+              \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
+              \]
+              Por lo tanto para probar \eqref{Eqn:auxLimiteCero} es
+              suficiente probar
+              \begin{equation}\label{Eqn:auxLimiteCeroDos}
+              \lim_{h\to 0}
+              \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
+              =0
+              \end{equation}
+              el cual probamos con  \(\varepsilon\) y \(\delta\). Fijamos
+              \(\varepsilon>0\).
+            </p>
+            <p>
+              Hasta este momento no hemos usado el hecho de que \(\varphi\)
+              es clase \(C^1\), ahorita es el momento. Por
+              \(\bar{B}_{r/2}(X)\) denotamos la bola cerrada centrada
+              en \(X\) y radio \(r/2\). Considera el compacto
+              \(\bar{B}_{r/2}(X)\times [a,b]\). Tenemos que
+              \(\bar{B}_{r/2}(X)\times [a,b] \subset U \times (c,d)\)
+              y ya que \(\partial_{x_j}\varphi\) es continua
+              en \(U\times (c,d)\) resulta que
+              es uniformemente continua en \(\bar{B}_{r/2}(X)\times [a,b]\).
+            </p>
+            <p>
+              Usando que \(\partial_{x_j}\varphi\) es uniformemente continua
+              en \(\bar{B}_{r/2}(X)\times [a,b]\), para nuestra \(\varepsilon\)
+              existe \(\delta >0\) tal que si \((Y,s) \)  y \((Z,u)\)
+              son puntos en \(\bar{B}_{r/2}(X)\times [a,b] \)
+              \begin{equation}\label{Eqn:auxContinuidadUnif}
+              \| (Y,s)-(Z,u)\| < \delta
+              \Rightarrow
+              |\partial_{x_j}\varphi(Y,s)
+              -
+              \partial_{x_j}\varphi(Z,u)|
+              <
+              \frac{\varepsilon}{b-a}
+              \end{equation}
+            </p>
+            <p>
+              Tomamos
+              \(h\) con \(0< |h|<\delta\)  y \(t\in [a,b]\) arbitrarios. Tomando
+              \((Y,s)=(X,t)\) y \((Z,u)=(X(h,t),t)\) resulta
+              \[
+              \| (Y,s)-(Z,u)\|= \|X-X(h,t) \| \leq |h|
+              \]
+              donde la última igualdad se debe a que \(X(h,t)\) está en
+              el segmento de recta que  une \(X\) con \(X+he_j\). Ya que
+              \(|h|< \delta\) de \eqref{Eqn:auxContinuidadUnif} concluimos
+              \[
+              |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|
+              < \frac{\varepsilon}{b-a}
+              \]
+              para toda \(t\in [a,b]\). Integrando con respecto a \(t\)
+              llegamos a que
+              \[
+              \int_a^b |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|dt
+              <\varepsilon
+              \]
+              para toda \(0<|h|<\delta\), lo cual prueba \eqref{Eqn:auxLimiteCeroDos}.
+            </p>
+
+            </div>
+    </div>
+
+
+
+
+
+        <div class="teorema-box">
+          <h2 class="number-title"> Teorema  </h2>
+          <p>
+            Sea \(U\) un abierto y convexo de \(\mathbb{R}^n\). Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
+            clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
+            donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
+          </p>
+          <p>
+            \(\mathbb{F}\) es conservativo si y sólo si 
+            \begin{equation}\label{Eqn:condicionSuficiente}
+            \partial_{x_i} f_j = \partial_{x_j}f_i
+            \end{equation}
+            para todos \(i,j\).
+          </p>
+
+        </div>
+
+
+
+        <div class="nota-box">
+          <h2 class="number-title"> Nota </h2>
+          <p>
+            La demostración del Teorema 6.28 da un método para encontrar
+            funciones potenciales. Si
+            el campo \(\mathbb{F}\) está definido en un dominio
+            convexo y satisface la condición \eqref{Eqn:condicionSuficiente}
+            entonces
+            una función potencial puede encontrarse como
+            \[
+            f(x)=\int_0^1 \mathbb{F}(x_0+t(x-x_0)) \cdot (x-x_0)dt
+            \]
+            donde \(x_0\) es un punto fijo del dominio de \(\mathbb{F}\).
           </p>
         </div>
+
+
+
+                        <div class="nota-box">
+                  <h2 class="number-title"> Conclusión </h2>
+                  <p>
+                    Los dos teoremas fundamentales son dos caras de la misma
+                    moneda. El primero dice que, mientras el integrando sea
+                    continuo (sobre un dominio conexo), siempre tenemos una
+                    función potencial. El segundo dice cómo calcular
+                    la integral una vez que ya tenemos la función potencial.
+                  </p>
+                  <p>
+                    Otro aspecto importante es que el Segundo Teorema Fundamental
+                    nos da una forma de pasar de un objeto 1-dimensional
+                    (integral de línea) a uno cero dimensional (valuar la
+                    función potencial en el punto inicial y final). El resultado
+                    es profundo pues se va a extender a otras dimensiones y que
+                    finalmente se convertiran en los Teoremas de Green, Gauss
+                    y Stokes.
+                  </p>
+                </div>
+
+
+      <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio  </h2>
+
+          <p>
+            Para los siguientes subconjuntos abiertos de \(\mathbb{R}^2\)
+            determina cuales son conexos o disconexos. Para los que sean
+            conexos explica cómo se encuentra una trayectoria que una
+            dos puntos en el conjunto.
+
+            <ol>
+              <!--<li> \(S=\{(x,y): x^2+y^2< 4, (x-2)^2+y^2< 1 \}\) .</li>-->
+              <li> \(S=\{ (x,y): x^2+y^2> 1, |y|< 1/2  \} \). </li>
+              <p></p>
+              <li> \(S=\{(x,y): x^2+y^2> 2 , x^2+(y-5)^2> 1\}\).  </li>
+              <p></p>
+              <li>  \(S=\{(x,y): x+2y >1, -x+6y< 3  \}\) .</li>
+              <p></p>
+            </ol>
+          </p>
+          <p>
+            Sugerencia: haz unos dibujos.
+            Nota: para describir las trayectorias no hay que ser formal en este ejercicio.
+          </p>
+      </div>
+
+
+
+       <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio  </h2>
+
+          <p>
+            Para los siguientes subconjuntos abiertos de \(\mathbb{R}^2\)
+            determina cuales son conexos o disconexos. Para los que sean
+            conexos explica cómo se encuentra una trayectoria que una
+            dos puntos en el conjunto.
+
+            <ol>
+              <!--<li> \(S=\{(x,y): x^2+y^2< 4, (x-2)^2+y^2< 1 \}\) .</li>-->
+              
+              <p></p>
+              <li> \(S=\{(x,y): x^2-y^2>1, y>0 \} \). </li>
+              <p></p>
+              <li> \(S=\{(x,y): x^2+y^2< 1 \} \cup \{(x,y): (x-2)^2+y^2< 1 \}\).</li>
+              <p></p>
+              <li>
+                \(S=\{(x,y): 0< x, 0 < y < 1/x  \}\)
+              </li>
+            </ol>
+          </p>
+          <p>
+            Sugerencia: haz unos dibujos.
+            Nota: para describir las trayectorias no hay que ser formal en este ejercicio.
+          </p>
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+        Sean \(U_1,U_2,\dots, U_n\) abiertos conexos y no vacíos. Prueba
+        que si cualesquiera dos tienen intersección no vacía entonces
+        la unión \(\cup_{i=1}^n U_i\) es abierta conexa.
+        </p>
+        <p>
+          Sugerencia: inicia con dos conjuntos \(U_1,U_2\)
+          y después usa inducción sobre el número de conjuntos.
+        </p>
+      </div>
+
+        <div class="ejercicio-box">
+            <h2 class="number-title"> Ejercicio </h2>
+          <p>
+          Da ejemplos de dos conjuntos abierto conexos, no vacíos,
+          tales que su intersección sea:
+          <ol>
+            <li>
+              conexa;
+            </li>
+            <li>
+              disconexa;
+            </li>
+          </ol> 
+          </p>
+        </div>
+
 
         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:necesidad1FormaExacta3D"> Ejercicio </h2>
@@ -479,7 +1107,7 @@
 
                     </p>
                     <p>
-                      Sugerencia: usa el  <a href="#Ejer:dfCeroConstante">Ejercicio 6.7</a>.
+                      Sugerencia: usa el  <a href="#Ejer:dfCeroConstante">Lema 6.4</a>.
                     </p>
                 </div>
 
@@ -520,132 +1148,12 @@
 
 
 
-        <div class="teorema-box" id="Teo:2TF">
-          <h2 class="number-title"> Teorema </h2>
-          <h3> Segundo Teorema Fundamental de las integrales de línea</h3>
-            <p>
-              Sea \(U\subset\mathbb{R}^n\) un abierto conexo y \(f:U\to \mathbb{R}\)
-              una función de clase \(C^1\) en \(U\). Para cualquier
-              trayectoria suave a trozos, \(\alpha:[a,b]\to \mathbb{R}^n\),
-              con traza contenida en \(U\) se cumple:
-            </p>
-            <p>
-              <!--En notación de 1-formas:
-              \[
-              \int_\alpha df = f(\alpha(b))-f(\alpha(a))
-              \]-->
-              \[
-              \int_\alpha \nabla f \cdot d\alpha = f(\alpha(b))-f(\alpha(a))
-              \]
-            </p>
-
-
-            <button class="respButton hvr-grow"> Demostración </button>
-              <div class="resp-box">
-                <p>
-                  La demostración no es muy difícil y se basa en el Segundo
-                  Teorema Fundamental de Cálculo (de una variable).
-                </p>
-                <p>
-                  Primero vamos a suponer que \(\alpha:[a,b]\to U\)
-                  es una curva suave (sin "picos"). Definimos la función escalar
-                  \(\varphi:[a,b]\to \mathbb{R}\) por
-                  \(\varphi(t)= f(\alpha(t))\). Ya que \(f\) y  \(\alpha\)
-                  son diferenciables \(\varphi\) también lo es
-                  y  podemos aplicar la regla de la cadena
-                  para obtener que
-                  \[
-                  \varphi'(t)=\frac{\partial f}{\partial_{x_1}}(\alpha(t))
-                  \frac{d x_1}{d t}(t) + \cdots
-                  +\frac{\partial f}{\partial_{x_n}}(\alpha(t))
-                  \frac{d x_n}{d t}(t)
-                  \]
-                  donde escribimos las funciones coordenadas 
-                  \(\alpha=(a_1,\dots, a_n)\) y \(\frac{d x_j}{dt}=a_j'\).
-                  Entonces tenemos
-                  \[
-                  \varphi'(t)= \partial_{x_1}f(\alpha(t))a_1'(t)+
-                  \cdots+\partial_{x_n}(\alpha(t))a_n'(t)
-                  \]
-                  donde el lado derecho de la ecuación anterior es precisamente
-                  el integrando la la integral de línea \(\int_\alpha \nabla f \cdot d\alpha\)
-                  por lo tanto
-                  \begin{eqnarray}
-                  \int_\alpha \nabla f \cdot d\alpha &=& \int_a^b \partial_{x_1}f(\alpha(t))\alpha_1'(t)+
-                  \cdots+\partial_{x_n}(\alpha(t))\alpha_n'(t) dt \\
-                  &=&\int_a^b \varphi'(t)dt. \label{Eqn:TFILequation1}
-                  \end{eqnarray}
-                  Por el Segundo Teorema Fundamental de Cálculo, y tomando que
-                  \(\alpha'\) es contina (ya que \(f\) y \(\alpha\) son clase \(C^1\))
-                  tenemos
-                  \begin{equation}\label{Eqn:TFC1aplicado}
-                  \int_a^b \varphi'(t)dt=\varphi(b)-\varphi(a)=f(\alpha(b))-f(\alpha(a))
-                  \end{equation}
-                  Concluimos de \eqref{Eqn:TFILequation1} y \eqref{Eqn:TFC1aplicado}
-                  \[
-                  \int_\alpha df =f(\alpha(b))-f(\alpha(a))
-                  \]
-                </p>
-                <p>
-                  Para terminar vamos a ver el caso cuando \(\alpha\) es suave
-                  a trozos.
-                </p>
-                <p>
-                  Ya que \(\alpha\) es suave a trozos, existe una partición
-                  \(\{a=t_0< \cdots< t_n=b\}\) tal que \(\alpha\)
-                  restringida a \([t_{i-1},t_i]\) es suave. Por el caso anterior,
-                  si \(\alpha_i\) es la restricción a \([t_{i-1},t_i]\), tenemos:
-                  \[
-                  \int_{\alpha_i} \nabla f \cdot d\alpha_j=f(\alpha(t_i))-f(\alpha(t_{i-1}))
-                  \]
-                  de donde se sigue
-                  \[
-                  \int_\alpha \nabla f \cdot d\alpha = \sum_{i=1}^n \int_{\alpha_i}\nabla f \cdot d\alpha_j =\sum_{i=1}^n
-                  f(\alpha(t_i))-f(\alpha(t_{i-1}))=f(\alpha(b))-f(\alpha(a))
-                  \]
-                  donde la primera identidad es la definición de la integral
-                  sobre curvas suaves a trozos y la última es porque tenemos
-                  una suma telescópica.
-                </p>
-
-              </div>
-        </div>
-
-
-                <div class="nota-box">
-                  <h2 class="number-title"> Nota </h2>
-                  <p>
-                    Empezamos con el Segundo TF pués es el más fácil de entender,
-                    pues es el que necesita menos construcciones.
-                  </p>
-                  <p>
-                    El teorema resuelve completamente el problema de calcular
-                    las integrales de línea de campos conservativos o 1-formas
-                    exáctas, pues sólo tenemos que evaluar la función potencial
-                    en los puntos inicial y final de la trayectoria.
-                  </p>
-                  <p>
-                    Otra consecuencia importante del teorema es que la integral
-                    de línea de campos conservativos sólo depende del punto inicial
-                    y final de la trayectoria. Por eso se les llama campos conservativos,
-                    por que la integral de línea se conserva aún si modificamos la
-                    trayectoria que une el punto inicial y el punto final.
-                  </p>
-                  <p>
-                    Nota que el teorema NO dice que la integral de línea de campos
-                    conservativos no cambia si cambiamos los puntos inicial y final.
-                    Por ejemplo, si \(\alpha\) une \((0,0)\) con \((1,0)\)
-                    y \(\beta\) une \((0,0)\) con \((0,1)\), el teorema no implica
-                    que \(\int_\alpha \mathbb{F}=\int_\beta \mathbb{F}\) aún si
-                    \(\mathbb{F}\) es conservativo.
-                  </p>
-                </div>
-
+      
                         <div class="ejercicio-box">
                           <h2 class="number-title"> Ejercicio </h2>
                           <p>
                           Para los siguientes campos vectoriales \(\mathbb{F}\) prueba que
-                          no son campos gradientes encontrado una
+                          no son campos gradientes encontrando una
                           trayectoria cerrada \(\alpha\) para la cual
                           \(\int_\alpha \mathbb{F}\cdot d\alpha \ne 0\).
                           <ol>
@@ -655,7 +1163,7 @@
                           </p>
 
 
-                          <button class="respButton hvr-grow"> Respuesta inciso 1 </button>
+                          <!--<button class="respButton hvr-grow"> Respuesta inciso 1 </button>
                           <div class="resp-box">
                             <div class="video flexbox">
                               <a href="https://youtu.be/CyYX4NgOn7c" target="_blank"> Video</a>
@@ -666,7 +1174,7 @@
                           <div class="resp-box">
                             <div class="video flexbox">
                               <a href="https://youtu.be/hCFiGGdZOMM" target="_blank"> Video</a>
-                          </div>
+                          </div>-->
                           </div>
         </div>
 
@@ -934,232 +1442,7 @@
                 </div>
 
 
-        <div class="teorema-box" >
-          <h2 class="number-title"> Teorema </h2>
-          <h3> Primer Teorema Fundamental de integrales de línea </h3>
-          <p>
-            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
-            \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial continuo en \(U\).
-          </p>
-          <p>
-            Supon que las integrales de línea de \(\mathbb{F}\) sólo dependen
-            del punto inicial y final de la trayetoria.
-          </p>
-          <p>
-            Fija \(P\in U\). Define la función \(f:U\to \mathbb{R}\) por
-            \[
-            f(Q)=\int_\alpha \mathbb{F}\cdot d\alpha
-            \]
-            donde \(Q\in U\) y \(\alpha\) es una trayectoria que une \(P\)
-            con \(Q\) cuya traza esté contenida en \(U\).
-          </p>
-
-          <p>
-            Entonces \(\nabla f= \mathbb{F}\), es decir,
-            \(\mathbb{F}\) es un campo gradiente.
-          </p>
-          <p>
-            Nota: ya que la hipótesis dice que la integral sólo depende
-            del punto inicial y final, la curva que se use para definir
-            la función potencial no va a
-            ser relevante.
-          </p>
-
-           <button class="respButton hvr-grow"> Demostración </button>
-            <div class="resp-box">
-              <p>
-              Primero escribimos las funciones coordenadas de \(\mathbb{F}\) como
-              \[
-              \mathbb{F}=(F_1,\dots, F_n).
-              \]
-              Lo que debemos de probar es que la función  \(f\) definida arriba 
-              satisface :
-             <ol>
-              <li>
-                es diferenciable
-                en \(U\)
-              </li>
-              <li>
-                y que \(\partial_{x_j} f= F_j\) para toda \(j=1,\dots,n\).
-              </li>
-             </ol>
-               
-            </p>
-            <p>
-              Para probar que una función es diferenciable es suficiente
-              probar que las derivadas parciales existen y son continuas
-              (ver por ejemplo
-              <a href="https://en.wikipedia.org/wiki/Differentiable_function#Differentiability_in_higher_dimensions"
-               target="_blank">Wikipedia</a> o Bartle, <i>Elements of
-               real analysis</i>, Teorema 20.7 ó 
-               <a href="https://tfrancisco-ciencias.github.io/CalculoTRES/Secciones/S9.html#Teo:C1ImplicaDif"> Teorema 9.10 (cálculo 3)</a> ). Entonces
-              si probamos las identidades
-              \[
-              \partial_{x_j} f= F_j, \quad j=1, \dots, n,
-              \]
-              matamos dos pájaros de un tiro pues probamos que, 
-              las parcieles existen y que son continuas (pues cada
-              \(F_j\) es continiua por suposición del Teorema).
-            </p>
-            <p>
-              Así pues, fijamos \(j\) y probamos
-              \[
-              \partial_{x_j}f(Q) = F_j(Q) \quad \textrm{ para todo  \(Q\in U\)}
-              \]
-              que, usando la definición de derivada parcial,
-              es equivalente a probar que
-              \[
-              \lim_{h\to 0} \frac{f(Q+he_j)-f(Q)}{h}=F_j(Q)
-              \]
-              donde \(e_j\) es el vector canónico con 1 en la entrada \(j\).
-            </p>
-            <p>
-              Ahora nos enfocamos en el cociente diferencial
-              \[
-              \frac{f(Q+he_j)-f(Q)}{h}
-              \]
-              donde suponemos que \(h \ne 0\) y es suficientemente chico
-              para que \(Q+he_j \in U\) (aquí es donde se usa que \(U\) es abierto,
-              por ejemplo si tomamos \(r>0\) tal que la bola
-              centrada en \(Q\) de radio \(r\) esté contenida en \(U\)
-              vamos a pedir que \(|h|< r\) ).
-            </p>
-            <p>
-              Por la propiedad de aditividad de la integral de línea podemos escribir
-              \[
-              f(Q+he_j)-f(Q)=\int_{\beta} \mathbb{F}\cdot d\beta
-              \]
-              donde \(\beta\) es cualquier trayectoria contenida en \(U\)
-              que va de \(Q\) a \(Q+he_j\). En particular podemos tomar
-              \(\beta\) el segmento de recta que une \(Q\) con \(Q+he_j\) (aquí
-              usamos la hipótesis que la integral de línea no depende de
-              trayectoria que una dos puntos dados) :
-              \[
-              \beta(t)=Q + t(Q+he_j-Q), \quad t\in [0,1]
-              \]
-
-              <p>
-                <div class="imagen-box flexbox">
-                  <img src="./Images/Sec6-img4.png" alt="Fig1TFIL-1" width="400" height="250">
-                </div>
-              </p>
-              Haciendo la cuenta, si escribimos \(Q=(q_1,\dots, q_n)\), tenemos
-              \begin{eqnarray*} 
-              \beta(t)&=& Q + t(Q+he_j-Q)\\
-              &=& Q+the_j\\
-              &=& (q_1,\dots,q_{j-1} , q_j+th,q_{j+1},\dots ,q_n)
-              \end{eqnarray*}
-              Por lo tanto, si por \(b_j\) denotamos la \(j\)-ésima  función
-              coodenada de \(\beta\), resulta que \(b_i'=0\) para toda
-              \(i\ne j\), que \(b_j(t)=q_j+th\) y  que \(b_j'(t)=h\).
-            </p>
-            <p>
-              Por lo tanto al calcula la integral de línea obtenemos
-              \begin{eqnarray*}
-              \int_\beta \mathbb{F}\cdot d\beta
-              &=&
-              \int_0^1 \sum_{i=1}^n F_i(\beta(t))b_i'(t)dt \\
-              &=& \int_0^1 F_j(q_1,\dots,q_{j}+th, \dots, q_n ) h dt
-              \end{eqnarray*}
-
-            </p>
-            <p>
-              Antes de proseguir con el cociente diferencial, vamos a
-              hacer un cambio de variable en la integral anterior. Tomando
-              \(u=th\), \(du=hdt\) y
-              \[
-              \int_0^1 F_j(q_1,\dots,q_j+th, \dots, q_n)hdt
-              =\int_0^{h} F_j(q_1,\dots, q_j+u, \dots, q_n)du
-              \]
-              Para aplicar el Primer Teorema Fundamental de Cálculo más
-              adelante definimos la función auxiliar 
-              \[
-              g(h)=\int_0^{h} F_j(q_1,\dots, q_j+u, \dots, q_n)du,
-              \quad \textrm{ para \(|h|< r\)}
-              \]
-            </p>
-            <p>
-            Con esta notación podemos expresar el cocient diferencial como
-            \begin{eqnarray*}
-            \frac{f(Q+he_j)-f(Q)}{h}
-            &=&
-            \frac{1}{h}\int_\beta \mathbb{F}\cdot  d \beta \\
-            &=& \frac{g(h)-g(0)}{h}
-            \end{eqnarray*}
-            </p>
-            <p>
-              El último paso es probar el siguiente límite
-              \[
-              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=F_j(Q)
-              \]
-              pero, ya que \(F_j\) es continua, por el Primer
-              Teorema Fundamental del Cálculo obtenemos que
-              \(g\) es diferenciable y que
-              \[
-              \lim_{h\to 0} \frac{g(h)-g(0)}{h}=g'(0)=F_j(q_1,\dots, q_j+0, \dots, q_n)=F_j(Q)
-              \]
-            </p>
-            </div>
-
-        </div>
-
-
-                <div class="nota-box">
-                  <h2 class="number-title"> Nota </h2>
-                  <p>
-                    El Primer TF da, en teoría, una forma para construir
-                    una función potencial, pero nota que la hipótesis fuerte
-                    es que sabemos de antemano que la integral de línea
-                    NO depende de la trayectoria que una los puntos, lo cual
-                    es una hipótesis fuerte de probar. Sín embargo es una
-                    herramienta teórica fundamental. Entre otras cosas da una
-                    caracterización de las 1-formas exáctas (o campos
-                    conservativos), lo que se muestra en el siguiente ejercicio.
-                  </p>
-                  <p>
-                    Otra observación importante es que en este teorema se puede
-                    ver la necesidad de pedir que el dominio sea conexo pues,
-                    para construir la función potencial, debemos de usar
-                    una trayectoria que una cualesquiera puntos del dominio,
-                    es decir, pedir que el dominio sea conexo.
-                  </p>
-                </div>
-
-        <div class="teorema-box">
-          <h2 class="number-title"id="Ejer:equivFormaExacta"> Teorema  </h2>
-          <p>
-            Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo y
-            \(\mathbb{F}\) un campo vectorial  donde las funciones coordenadas
-            son continuas en \(U\). Prueba que
-            las siguientes condiciones son equivalentes:
-            <ol>
-              <li>\(\mathbb{F}\) es conservativo. </li>
-              <li> Para toda \(\alpha\),  curva orientada cerrada suave a trozos
-                   con traza contenida en \(U\):
-                   \[
-                   \int_\alpha\mathbb{F} \cdot d\alpha=0.
-                   \]
-              </li>
-              <li>
-                La integral \(\int_\beta \mathbb{F} \cdot d\beta \) sólo depende
-                del punto inicial y punto final de \(\beta\)
-                (curva suave a trozos, con traza contenida en
-                \(U\)).
-              </li>
-          </p>
-
-          <button class="respButton hvr-grow"> Respuesta </button>
-                <div class="resp-box">
-                  <div class="video flexbox">
-                    <a href="https://youtu.be/98UnwyBcs1A" target="_blank"> Video </a>
-                    </div>
-                  </div>
-
-        </div>
-
-
-
-
+     
 
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
@@ -1188,24 +1471,6 @@
         </div>
 
 
-
-        <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
-          <p>
-            Sea \(U\) un abierto de \(\mathbb{R}^n\) y \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
-            clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
-            donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
-          </p>
-          <p>
-            Si \(\mathbb{F}\) es conservativo entonces 
-            \[
-            \partial_{x_i} f_j = \partial_{x_j}f_i
-            \]
-            para todos \(i,j\).
-          </p>
-
-        </div>
-
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
           <p>
@@ -1228,222 +1493,6 @@
         </div>
 
 
-
-
-        <div class="prop-box">
-          <h2  class="number-title"> Lema (diferenciación dentro
-            de la  integral) </h2>
-
-
-          <p>
-            Supón que tenemos definida una función escalar
-            \(\varphi: U\times (c,d) \to \mathbb{R}\), donde
-            \(U\) es un conjunto abierto no vacío de \(\mathbb{R}^n\). Suponemos
-            que \(\varphi\) es una función clase \(C^1\) en \(U\times (c,d)\).
-          </p>
-          <p>
-            A los puntos de \(U\times (c,d)\) los vamos a denotar
-            \( (X,t) \)  donde \(X=(x_1,\dots, x_n)\in U\) y \(t\in (c,d)\).
-          </p>
-          <p>
-            Fija un intervalo cerrado
-            \([a,b]\subset (c,d)\) y define la función escalar \(\phi:U\to \mathbb{R}\) por
-            \[
-            \phi(X)=\int_a^b \varphi(X,t)dt
-            \]
-
-            Entonces las derivadas parciales
-            de \(\phi\) existen en \(U\) y
-            \[
-            \partial_{x_j} \phi(X) = \int_a^b \partial_{x_j}\varphi(X,t)dt
-            \]
-          </p>
-
-          <button class="respButton hvr-grow"> Demostración  </button>
-          <div class="resp-box">
-
-            <p>
-              Fijamos un  \(j=1,\dots, n\) y por
-              \(e_j\) denotamos el
-              \(j\)-ésimo vector canónico. Para probar el resultado tenemos
-              que probar
-              \[
-              \lim_{h\to 0 }\frac{\phi(X+te_j)-\phi(X)}{h}=
-              \int_a^b \partial_{x_j}\varphi(X,t)dt,
-              \]
-              el cual es equivalente a
-              \begin{equation}\label{Eqn:auxLimiteCero}
-              \lim_{h\to 0 }
-              \left|
-              \frac{\phi(X+te_j)-\phi(X)}{h}
-              -\int_a^b \partial_{x_j}\varphi(X,t)dt
-              \right|
-              =0.
-              \end{equation}
-
-              Para probar el límite anterior vamos
-              a proceder en dos pasos. En el primer paso
-              vamos a reescribir el cociente diferencial
-              de \(\phi\) como una integral. En el segundo paso probamos \eqref{Eqn:auxLimiteCero}
-            </p>
-            <p>
-              Primer paso.
-            </p>
-            <p>
-              Antes de iniciar fijamos un radio \(r>0\) tal que
-              la bola abierta centrada en \(X\) y radio \(r\) esté contenida en \(U\). De aquí en
-              adelante vamos a estar considerando sólo puntos en esta bola.
-            </p>
-            <p>
-              Por definición de \(\phi\), usando linealidad de la
-              integral tenemos
-              \[
-              \frac{\phi(X+he_j)-\phi(X)}{h}=
-              \int_a^b \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}dt
-              \]
-              para \(h \ne 0\) y \(|h|< r\).
-            </p>
-            <p>
-              Ahora aplicamos el Teorema del Valor Medio para
-              derivadas para obtener
-              \begin{equation}\label{Eqn:auxTVM}
-              \frac{\varphi(X+he_j,t)-\varphi(X,t)}{h}=\partial_{x_j}\varphi(X(h,t),t)
-              \end{equation}
-              donde \(X(h,t)\) es un punto en el segmento de línea
-              que une \(X+he_j\) con \(X\) y depende de \(h\) y de \(t\).
-            </p>
-            <p>
-              Nota: para obtener la identidad \eqref{Eqn:auxTVM} se considera la función
-              \(g(h)=\varphi(X+he_j,t)\), para la variable \(h\) tomada en
-              \((-r,r)\) y se usa que
-              \(g'(h)=\partial_{x_j}\varphi(X+he_j,t)\).
-            </p>
-            <p>
-              Por lo tanto, de \eqref{Eqn:auxTVM} concluimos que el cociente
-              diferencial para \(\phi\) se puede escribir como
-              \begin{equation}\label{Eqn:auxCocienteDif}
-              \frac{\phi(X+he_j,t)-\phi(X,t)}{h}
-              =
-              \int_a^b \partial_{x_j}\varphi(X(h,t),t)dt
-              \end{equation}
-
-              Aquí termina el paso 1.
-            </p>
-            <p>
-              Paso 2.
-            </p>
-            <p>
-              Concluimos de \eqref{Eqn:auxCocienteDif} que el término
-              dentro del valor absoluto en \eqref{Eqn:auxLimiteCero}
-              lo podemos acotar como
-              \[
-              \left|
-              \frac{\phi(X+te_j)-\phi(X)}{h}
-              -\int_a^b \partial_{x_j}\varphi(X,t)dt
-              \right|
-              \leq
-              \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
-              \]
-              Por lo tanto para probar \eqref{Eqn:auxLimiteCero} es
-              suficiente probar
-              \begin{equation}\label{Eqn:auxLimiteCeroDos}
-              \lim_{h\to 0}
-              \int_a^b |\partial_{x_j}\varphi(X(h,t),t)-\partial_{x_j}\varphi(X,t)|dt
-              =0
-              \end{equation}
-              el cual probamos con  \(\varepsilon\) y \(\delta\). Fijamos
-              \(\varepsilon>0\).
-            </p>
-            <p>
-              Hasta este momento no hemos usado el hecho de que \(\varphi\)
-              es clase \(C^1\), ahorita es el momento. Por
-              \(\bar{B}_{r/2}(X)\) denotamos la bola cerrada centrada
-              en \(X\) y radio \(r/2\). Considera el compacto
-              \(\bar{B}_{r/2}(X)\times [a,b]\). Tenemos que
-              \(\bar{B}_{r/2}(X)\times [a,b] \subset U \times (c,d)\)
-              y ya que \(\partial_{x_j}\varphi\) es continua
-              en \(U\times (c,d)\) resulta que
-              es uniformemente continua en \(\bar{B}_{r/2}(X)\times [a,b]\).
-            </p>
-            <p>
-              Usando que \(\partial_{x_j}\varphi\) es uniformemente continua
-              en \(\bar{B}_{r/2}(X)\times [a,b]\), para nuestra \(\varepsilon\)
-              existe \(\delta >0\) tal que si \((Y,s) \)  y \((Z,u)\)
-              son puntos en \(\bar{B}_{r/2}(X)\times [a,b] \)
-              \begin{equation}\label{Eqn:auxContinuidadUnif}
-              \| (Y,s)-(Z,u)\| < \delta
-              \Rightarrow
-              |\partial_{x_j}\varphi(Y,s)
-              -
-              \partial_{x_j}\varphi(Z,u)|
-              <
-              \frac{\varepsilon}{b-a}
-              \end{equation}
-            </p>
-            <p>
-              Tomamos
-              \(h\) con \(0< |h|<\delta\)  y \(t\in [a,b]\) arbitrarios. Tomando
-              \((Y,s)=(X,t)\) y \((Z,u)=(X(h,t),t)\) resulta
-              \[
-              \| (Y,s)-(Z,u)\|= \|X-X(h,t) \| \leq |h|
-              \]
-              donde la última igualdad se debe a que \(X(h,t)\) está en
-              el segmento de recta que  une \(X\) con \(X+he_j\). Ya que
-              \(|h|< \delta\) de \eqref{Eqn:auxContinuidadUnif} concluimos
-              \[
-              |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|
-              < \frac{\varepsilon}{b-a}
-              \]
-              para toda \(t\in [a,b]\). Integrando con respecto a \(t\)
-              llegamos a que
-              \[
-              \int_a^b |\partial_{x_j}\varphi(X,t)-\partial_{x_j}\varphi(X(h,t),t)|dt
-              <\varepsilon
-              \]
-              para toda \(0<|h|<\delta\), lo cual prueba \eqref{Eqn:auxLimiteCeroDos}.
-            </p>
-
-            </div>
-    </div>
-
-
-
-
-
-        <div class="teorema-box">
-          <h2 class="number-title"> Teorema  </h2>
-          <p>
-            Sea \(U\) un abierto y convexo de \(\mathbb{R}^n\). Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
-            clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
-            donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
-          </p>
-          <p>
-            \(\mathbb{F}\) es conservativo si y sólo si 
-            \begin{equation}\label{Eqn:condicionSuficiente}
-            \partial_{x_i} f_j = \partial_{x_j}f_i
-            \end{equation}
-            para todos \(i,j\).
-          </p>
-
-        </div>
-
-
-
-        <div class="nota-box">
-          <h2 class="number-title"> Nota </h2>
-          <p>
-            La demostración del Teorema 6.28 da un método para encontrar
-            funciones potenciales. Si
-            el campo \(\mathbb{F}\) está definido en un dominio
-            convexo y satisface la condición \eqref{Eqn:condicionSuficiente}
-            entonces
-            una función potencial puede encontrarse como
-            \[
-            f(x)=\int_0^1 \mathbb{F}(x_0+t(x-x_0)) \cdot (x-x_0)dt
-            \]
-            donde \(x_0\) es un punto fijo del dominio de \(\mathbb{F}\).
-          </p>
-        </div>
   
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
@@ -1472,25 +1521,6 @@
         </div>
   
 
-                <div class="nota-box">
-                  <h2 class="number-title"> Conclusión </h2>
-                  <p>
-                    Los dos teoremas fundamentales son dos caras de la misma
-                    moneda. El primero dice que, mientras el integrando sea
-                    continuo (sobre un dominio conexo), siempre tenemos una
-                    función potencial. El segundo dice cómo calcular
-                    la integral una vez que ya tenemos la función potencial.
-                  </p>
-                  <p>
-                    Otro aspecto importante es que el Segundo Teorema Fundamental
-                    nos da una forma de pasar de un objeto 1-dimensional
-                    (integral de línea) a uno cero dimensional (valuar la
-                    función potencial en el punto inicial y final). El resultado
-                    es profundo pues se va a extender a otras dimensiones y que
-                    finalmente se convertiran en los Teoremas de Green, Gauss
-                    y Stokes.
-                  </p>
-                </div>
 
 
 <!--termina contenido -->
