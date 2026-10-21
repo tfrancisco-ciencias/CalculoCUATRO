@@ -657,7 +657,7 @@
 
 
         <div class="teorema-box">
-          <h2 class="number-title"> Teorema </h2>
+          <h2 class="number-title" > Teorema </h2>
           <p>
             Sea \(U\) un abierto de \(\mathbb{R}^n\) y \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
             clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
@@ -859,7 +859,7 @@
 
 
         <div class="teorema-box">
-          <h2 class="number-title"> Teorema  </h2>
+          <h2 class="number-title" id="Teorema:condicionEquivalente"> Teorema  </h2>
           <p>
             Sea \(U\) un abierto y convexo de \(\mathbb{R}^n\). Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
             clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
@@ -1147,38 +1147,7 @@
 
 
 
-
-      
-                        <div class="ejercicio-box">
-                          <h2 class="number-title"> Ejercicio </h2>
-                          <p>
-                          Para los siguientes campos vectoriales \(\mathbb{F}\) prueba que
-                          no son campos gradientes encontrando una
-                          trayectoria cerrada \(\alpha\) para la cual
-                          \(\int_\alpha \mathbb{F}\cdot d\alpha \ne 0\).
-                          <ol>
-                            <li> \(\mathbb{F}(x,y,z)=(y,x^2,x)\). </li>
-                            <li> \(\mathbb{F}(x,y,z)=(xy,x^2+3,z^2)\). </li>
-                          </ol>
-                          </p>
-
-
-                          <!--<button class="respButton hvr-grow"> Respuesta inciso 1 </button>
-                          <div class="resp-box">
-                            <div class="video flexbox">
-                              <a href="https://youtu.be/CyYX4NgOn7c" target="_blank"> Video</a>
-                            </div>
-                          </div>
-
-                          <button class="respButton hvr-grow"> Respuesta inciso 2 </button>
-                          <div class="resp-box">
-                            <div class="video flexbox">
-                              <a href="https://youtu.be/hCFiGGdZOMM" target="_blank"> Video</a>
-                          </div>-->
-                          </div>
-        </div>
-
-        <div class="ejercicio-box">
+         <div class="ejercicio-box">
           <h2 class="number-title" id="Ejer:integralCurvaCerradaCero"> Ejercicio </h2>
           <p>
             Sea \(U\subseteq \mathbb{R}^n\) un abierto conexo
@@ -1201,7 +1170,7 @@
             </li>
           </p>
 
-          <button class="respButton hvr-grow"> Respuesta </button>
+          <!-- <button class="respButton hvr-grow"> Respuesta </button>
             <div class="resp-box">
           <p>
             Inciso 1
@@ -1261,9 +1230,41 @@
           Es decir \(\int_{\beta}\nabla f \cdot d\beta  = \int_{\gamma}\nabla f \cdot d\gamma\).
           Por lo tanto, hemos demostrado que la integral de línea de
           \(\nabla f\) es independiente de la trayectoria.
-        </div>
+        </div>-->
         </div>
 
+
+      
+                        <div class="ejercicio-box">
+                          <h2 class="number-title"> Ejercicio </h2>
+                          <p>
+                          Para los siguientes campos vectoriales \(\mathbb{F}\) prueba que
+                          no son campos gradientes encontrando una
+                          trayectoria cerrada \(\alpha\) para la cual
+                          \(\int_\alpha \mathbb{F}\cdot d\alpha \ne 0\).
+                          <ol>
+                            <li> \(\mathbb{F}(x,y,z)=(y,x^2,x)\). </li>
+                            <li> \(\mathbb{F}(x,y,z)=(xy,x^2+3,z^2)\). </li>
+                          </ol>
+                          </p>
+
+
+                          <!--<button class="respButton hvr-grow"> Respuesta inciso 1 </button>
+                          <div class="resp-box">
+                            <div class="video flexbox">
+                              <a href="https://youtu.be/CyYX4NgOn7c" target="_blank"> Video</a>
+                            </div>
+                          </div>
+
+                          <button class="respButton hvr-grow"> Respuesta inciso 2 </button>
+                          <div class="resp-box">
+                            <div class="video flexbox">
+                              <a href="https://youtu.be/hCFiGGdZOMM" target="_blank"> Video</a>
+                          </div>-->
+                          </div>
+        </div>
+
+       
         <div class="ejercicio-box">
           <h2 class="number-title"> Ejercicio </h2>
 
@@ -1426,7 +1427,7 @@
                         </p>
                       </li>
                       <li>
-                        Por el <a href="./S5.html#Ejer:ejemploCerrada"> Ejercicio 5.13</a>, si \(\alpha\) es el circulo unitario
+                        Por el <a href="./S5.html#Ejer:ejemploCerrada"> Ejercicio 5.20</a>, si \(\alpha\) es el circulo unitario
                         recorrido en el sentido positivo
                         \[
                         \int_\alpha \mathbb{F}\cdot d\alpha= 2\pi
@@ -1434,7 +1435,7 @@
                         Sin embargo, por el Segundo Teorema Fundamental
                         de integrales de línea, la integral de un campo conservativo 
                         sobre una trayectoria cerrada es cero
-                        (ver <a href="#Ejer:integralCurvaCerradaCero"> Ejercicio 6.18 </a>). ¿Dónde
+                        (ver <a href="#Ejer:integralCurvaCerradaCero"> Ejercicio 6.26 </a>). ¿Dónde
                         está el error?
                       </li>
                     </ol>
@@ -1500,9 +1501,10 @@
             Para los siguientes campos vectoriales:
             <ul>
               <li> comprueba que se satisfacen la
-            condición \eqref{Eqn:condicionSuficiente} del Teorema.
+            condición \eqref{Eqn:condicionSuficiente} del <a href="#Teorema:condicionEquivalente">
+            Teorema 6.14</a>.
             </li>
-            <li> usa el método de la Nota 8.10  para encontrar
+            <li> usa el método de la Nota 6.15  para encontrar
             una función potencial.
             </li>
             <li>
@@ -1512,10 +1514,14 @@
             </ul>
             <ol>
               <li> \(\mathbb{F}(x,y,z)=(4xy-3x^2z^2+1,2x^2+2,-2x^3z-3z^2) \). </li>
-              <li> \(\mathbb{F}(x,y,z)=(6xy-6xyz+12xy^2-12x^2y^3z,
-                3x^2-3x^2z+12x^2y-12x^3y^2z,-3x^2y-4x^3y^3)\). </li>
+              <li> El siguiente es un poco largo:
+                \begin{eqnarray*}
+                \mathbb{F}(x,y,z)&=&(6xy-6xyz+12xy^2-12x^2y^3z,\\
+                & & 3x^2-3x^2z+12x^2y-12x^3y^2z,\\
+                & &-3x^2y-4x^3y^3)
+              \end{eqnarray*} </li>
             </ol>
-            Sugerencia: en el método de la Nota 6.29 toma  \(x_0=0\).
+            
           </p>
   
         </div>
