@@ -643,11 +643,50 @@
               </li>
           </p>
 
-          <button class="respButton hvr-grow"> Respuesta </button>
+        <button class="respButton hvr-grow"> Demostración </button>
                 <div class="resp-box">
-                  <div class="video flexbox">
+          <p>
+            \(1 \Rightarrow 2 ]\)
+          </p>
+          <p>
+            Como \(\mathbb{F}\) es conservativo, existe una función potencial \(f:U\to \mathbb{R}\),
+            diferenciable, tal que \(\nabla f=\mathbb{F}\). Sea \(\alpha:[a,b]\to U\) una curva suave a trozos,
+            cerrada, con traza contenida en \(U\). Por el Segundo Teorema Fundamental de las integrales de línea
+            \[
+            \int_\alpha \mathbb{F}\cdot d\alpha = f(\alpha(b))-f(\alpha(a))=f(\alpha(a))-f(\alpha(a))=0.
+            \]
+          </p>
+          <p>
+            \(2 \Rightarrow 3 ]\)
+          </p>
+          <p>
+            
+            Sea \(\beta_1\) y \(\beta_2\) dos curvas suaves a trozos con traza contenida en \(U\)
+            que unen los puntos \(P\) y \(Q\). Sea \(\alpha\) la curva cerrada obtenida al recorrer
+            \(\beta_1\) y luego recorrer \(\beta_2\) en sentido contrario. 
+            En notación \(\alpha=\beta_1\vee (-\beta_2)\). Por hipótesis
+            \[
+            0=\int_\alpha \mathbb{F}\cdot d\alpha = \int_{\beta_1} \mathbb{F}\cdot d\beta_1 - \int_{\beta_2} \mathbb{F}\cdot d\beta_2
+            \]
+            de donde se sigue que
+            \[
+            \int_{\beta_1} \mathbb{F}\cdot d\beta_1 =  \int_{\beta_2} \mathbb{F}\cdot d\beta_2.
+            \]
+          </p>
+          <p>
+            \(3 \Rightarrow 1 ]\)
+          </p>
+          <p>
+              Supongamos que la integral \(\int_\beta \mathbb{F} \cdot d\beta \) sólo depende
+                del punto inicial y punto final de \(\beta\)
+                (curva suave a trozos, con traza contenida en
+                \(U\)). Entonces por el primer teorema fundamental de las integrales de línea, 
+                existe \(f:U\to \mathbb{R}\) tal que \(\nabla f=\mathbb{F}\). Por lo tanto \(\mathbb{F}\) es conservativo.
+          </p>
+          
+                  <!--<div class="video flexbox">
                     <a href="https://youtu.be/98UnwyBcs1A" target="_blank"> Video </a>
-                    </div>
+                    </div>-->
                   </div>
 
         </div>
@@ -710,28 +749,35 @@
             Supón que tenemos definida una función escalar
             \(\varphi: U\times (c,d) \to \mathbb{R}\), donde
             \(U\) es un conjunto abierto no vacío de \(\mathbb{R}^n\). Suponemos
-            que \(\varphi\) es una función clase \(C^1\) en \(U\times (c,d)\).
+            que \(\varphi\) es una función clase \(C^1\) en \(U\times (c,d)\). Fijamos 
+            un intervalo cerrado \([a,b]\subset (c,d)\).
           </p>
           <p>
+            Entonces para todo \(j=1,\dots, n\) se cumple que:
+            \[
+            \partial_{x_j}\left( \int_a^b \varphi(x_1,\dots, x_n,t)dt \right) = \int_a^b \partial_{x_j}\varphi(x_1,\dots, x_n,t)dt.
+            \]
+          </p>
+          
+          <button class="respButton hvr-grow"> Demostración  </button>
+          <div class="resp-box">
+
+            <p>
             A los puntos de \(U\times (c,d)\) los vamos a denotar
             \( (X,t) \)  donde \(X=(x_1,\dots, x_n)\in U\) y \(t\in (c,d)\).
           </p>
           <p>
-            Fija un intervalo cerrado
-            \([a,b]\subset (c,d)\) y define la función escalar \(\phi:U\to \mathbb{R}\) por
+             Definimos la función escalar \(\phi:U\to \mathbb{R}\) por
             \[
             \phi(X)=\int_a^b \varphi(X,t)dt
             \]
 
-            Entonces las derivadas parciales
+            Vamos a probar que las  derivadas parciales
             de \(\phi\) existen en \(U\) y
             \[
             \partial_{x_j} \phi(X) = \int_a^b \partial_{x_j}\varphi(X,t)dt
             \]
           </p>
-
-          <button class="respButton hvr-grow"> Demostración  </button>
-          <div class="resp-box">
 
             <p>
               Fijamos un  \(j=1,\dots, n\) y por
@@ -739,14 +785,14 @@
               \(j\)-ésimo vector canónico. Para probar el resultado tenemos
               que probar
               \[
-              \lim_{h\to 0 }\frac{\phi(X+te_j)-\phi(X)}{h}=
+              \lim_{h\to 0 }\frac{\phi(X+he_j)-\phi(X)}{h}=
               \int_a^b \partial_{x_j}\varphi(X,t)dt,
               \]
               el cual es equivalente a
               \begin{equation}\label{Eqn:auxLimiteCero}
               \lim_{h\to 0 }
               \left|
-              \frac{\phi(X+te_j)-\phi(X)}{h}
+              \frac{\phi(X+he_j)-\phi(X)}{h}
               -\int_a^b \partial_{x_j}\varphi(X,t)dt
               \right|
               =0.
@@ -884,6 +930,10 @@
         <div class="teorema-box">
           <h2 class="number-title" id="Teorema:condicionEquivalente"> Teorema  </h2>
           <p>
+            Recuerda que un subconjunto \(U\subseteq \mathbb{R}^n\) es convexo si para cualesquiera dos 
+            puntos \(p,q\in U\) el segmento de recta que une \(p\) con \(q\) está contenido en \(U\).
+          </p>
+          <p>
             Sea \(U\) un abierto y convexo de \(\mathbb{R}^n\). Sea \(\mathbb{F}:U\to \mathbb{R}^n\) un campo vectorial  
             clase \(C^1\). Escribamos las funciones coordendas como \(\mathbb{F}=(f_1,\dots, f_n)\),
             donde cada \(f_i\) depende de las variables \((x_1,\dots, x_n)\).
@@ -896,6 +946,88 @@
             para todos \(i,j\).
           </p>
 
+
+          <p>
+            \(\Rightarrow ] \)
+          </p>
+          <p>
+            Esta dirección es el teorema anterior.
+          </p>
+          <p>
+            \(\Leftarrow ] \)
+          </p>
+          <p>
+            Suponemos que para todos \(i,j=1,\dots,n\), \(\partial_{x_i} f_j = \partial_{x_j}f_i\). Fijamos un punto \(q=(q_1,\dots,q_n)\in U\) 
+            y dado un punto \(p=(p_1,\dots,p_n)\in U\) definimos \(\gamma\) como 
+            la recta que une \(q\) con \(p\), es decir \(\gamma(t) = q + t(p - q)\) para \(t \in [0,1]\). 
+            Entonces definimos la función \(f:U\to \mathbb{R}\) por
+            \begin{eqnarray*} 
+            f(p) &=& \int_{\gamma} \mathbb{F} \cdot d\gamma \\
+            &=&\int_{0}^{1} \mathbb{F}(q + t(p - q)) \cdot (p - q) \, dt \\
+            &=&  \sum_{k=1}^n (p_k - q_{k}) \int_{0}^{1} f_k(q + t(p - q)) \, dt
+            \end{eqnarray*}
+          </p>
+          <p>
+            Nota: la integral \(\int_\gamma \mathbb{F}\cdot d\gamma\) está bien 
+            definida pues al ser \(U\) convexo, \(\gamma\) está contenida en \(U\).
+          </p>
+          <p>
+            Debemos probar que \(\partial_{p_j} f(p) = f_j(p)\) para todo \(j=1,\dots,n\).
+          </p>
+          <p>
+            Definimos 
+            \begin{eqnarray*}
+            \varphi_k(p,t) &=& f_k(q + t(p - q)) \\
+            &=& f_k(q_1 + t(p_1 - q_1), \dots, q_n + t(p_n - q_n))\\
+            &=& f_k((1-t)q_1+tp_1, \dots, (1-t)q_n + tp_n)
+            \end{eqnarray*}
+            Con esta notación tenemos que
+            \[
+            f(p) = \sum_{k=1}^n (p_k - q_{k}) \int_{0}^{1} \varphi_k(p,t) \, dt.
+            \]
+            Con esta forma podemos aplicar la regla del producto para la derivada y 
+             el lema de diferenciación dentro de la integral para obtener
+            \begin{eqnarray*}
+            \partial_{p_j} f(p) &=& \sum_{k=1}^n \partial_{p_j}\left( (p_k - q_{k}) \int_{0}^{1} \varphi_k(p,t) \, dt \right) \\ 
+             &=& \sum_{k=1}^n (p_k - q_{k}) \int_{0}^{1} \partial_{p_j} \varphi_k(p,t) \, dt + \int_{0}^{1} \varphi_j(p,t) \, dt.
+            \end{eqnarray*}
+          </p>
+          <p>
+            Ahora calculamos \(\partial_{p_j} \varphi_k(p,t)\) usando la regla de la cadena:
+            \begin{eqnarray*}
+            \partial_{p_j} \varphi_k(p,t) &=& \sum_{i=1}^n \frac{\partial f_k}{\partial x_i} \left( q + t(p - q) \right)  \frac{\partial}{\partial p_j} (q_i + t(p_i - q_i)) \\
+            &=& \frac{\partial f_k}{\partial x_j} \left( q + t(p - q) \right)  t\\
+            &=& t \, \partial_{x_j} f_k(q + t(p - q)).
+            \end{eqnarray*}
+          </p>
+          <p>
+            En este punto, usando la condición \(\partial_{x_i} f_j = \partial_{x_j}f_i\), podemos reescribir :
+            \begin{eqnarray*}
+            \partial_{p_j} \varphi_k(p,t)&=& t \, \partial_{x_j} f_k(q + t(p - q)) \\
+            &=& t \, \partial_{x_k} f_j(q + t(p - q)).
+             \end{eqnarray*}   
+             Entonces \(\partial_{p_j} f(p)\) se puede reescribir como
+            \begin{eqnarray*}
+            \partial_{p_j} f(p) &=& \sum_{k=1}^n (p_k - q_{k}) \int_{0}^{1} t \,\partial_{x_k} f_j(q + t(p - q)) \, dt + \int_{0}^{1} f_j(q + t(p - q)) \, dt \\
+            &=& \int_{0}^{1} t \left( \sum_{k=1}^n (p_k - q_{k})  \,\partial_{x_k} f_j(q + t(p - q)) \right) dt + \int_{0}^{1} f_j(q + t(p - q)) \, dt \\
+            &=& \int_{0}^{1} t \frac{\partial}{\partial t} f_j(q + t(p - q)) \, dt + \int_{0}^{1} f_j(q + t(p - q)) \, dt
+            \end{eqnarray*}
+            
+          </p>
+          <p>
+            Integrando con respecto a \(t\) y usando integración por partes con
+            <ol>
+              <li> \(u=t, dv=\frac{\partial}{\partial t} f_j(q + t(p - q)) dt\)</li>
+              <li> \(du=dt, v= f_j(q + t(p - q))\)</li>
+            </ol>
+            concluimos que:
+            \begin{eqnarray*}
+            \partial_{p_j}f(p) &=& \left[ t f_j(q + t(p - q)) \right]_0^1 - \int_{0}^{1} f_j(q + t(p - q)) dt + \int_{0}^{1} f_j(q + t(p - q)) dt \\
+            &=& f_j(q + (p - q)) \\
+            &=& f_j(p)
+            \end{eqnarray*}
+          </p>
+          
         </div>
 
 
