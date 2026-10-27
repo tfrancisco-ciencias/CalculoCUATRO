@@ -946,7 +946,8 @@
             para todos \(i,j\).
           </p>
 
-
+          <button class="respButton hvr-grow"> Demostración  </button>
+          <div class="resp-box">
           <p>
             \(\Rightarrow ] \)
           </p>
@@ -1027,9 +1028,55 @@
             &=& f_j(p)
             \end{eqnarray*}
           </p>
-          
+          </div>
         </div>
 
+        <div class="nota-box">
+          <h2 > Nota </h2>
+          <p>
+            La condición \(\partial_{x_i} f_j = \partial_{x_j}f_i\) es una condición
+            necesaria para que un campo vectorial sea conservativo. El teorema
+            anterior dice que si el dominio es convexo, entonces esta condición
+            es también suficiente. Pero si el dominio no es convexo, la condición puede no ser suficiente.
+
+          </p>
+          <p>
+            Por ejemplo el campo vectorial \(\mathbb{F}(x,y)=\left(\frac{-y}{x^2+y^2},\frac{x}{x^2+y^2}\right)\) definido en
+             \(U=\mathbb{R}^2\setminus \{(0,0)\}\) satisface la condición \(\partial_{x_i} f_j = \partial_{x_j}f_i\) pero no es conservativo.
+          </p>
+          <p>
+            Primero, sacando las derivadas parciales obtenemos
+            \begin{eqnarray*}
+            \partial_x f_2 &=&  \partial_x \left( \frac{x}{x^2+y^2} \right) \\
+            &=& \frac{(x^2+y^2)-x(2x)}{(x^2+y^2)^2} \\
+            &=&  \frac{y^2-x^2}{(x^2+y^2)^2} \\
+            \partial_y f_1&=& \partial_y\left( \frac{-y}{x^2+y^2} \right) \\
+            &=& \frac{(x^2+y^2)(-1)-(-y)(2y)}{(x^2+y^2)^2} \\
+            &=& \frac{y^2-x^2}{(x^2+y^2)^2}
+            \end{eqnarray*}
+            Por lo tanto se cumple la condición \(\partial_{x_i} f_j = \partial_{x_j}f_i\). Sin embargo, si consideramos la curva 
+            cerrada \(\alpha(t)=(\cos t, \sin t)\) para \(t\in [0,2\pi]\), que es la circunferencia unitaria, obtenemos
+            \begin{eqnarray*}
+            \int_\alpha \mathbb{F}\cdot d\alpha &=&  \int_0^{2\pi} \left( \frac{-\sin t}{1}, \frac{\cos t}{1} \right) \cdot (-\sin t, \cos t )dt\\
+            &=& \int_0^{2\pi}1 dt \\
+            &=&2\pi. 
+            \end{eqnarray*}
+            Como la curva \(\alpha\) es cerrada y \(\int_{\alpha}\mathbb{F}\cdot \alpha \ne 0\), 
+            el campo \(\mathbb{F}:U\to \mathbb{R}^2\) NO es conservativo.
+          </p>
+          <p>
+            Sin embargo, si consideramos \(\mathbb{F}\) en el dominio 
+            \(V=\{(x,y)\in \mathbb{R}^2: x>0\}\) éste sí es convexo y como se satisfacen 
+            las condiciones \(\partial_{x_i} f_j = \partial_{x_j}f_i\), el teorema 
+            anterior implica que existe \(f:V\to \mathbb{R}\) diferenciable con \(\nabla f=\mathbb{F}\),
+            pero el detalle importante es que ésta función NO se extiende a todo \(U\).
+             El <a href="#Ejer:formaCerradaNoExacta">Ejercicio 6.29</a> trata de esto. 
+          </p>
+          <p>
+            En conclusión, ser conservativo no sólo depende de la regla de correspondencia
+            de la función pero también en el DOMINIO.
+          </p>
+        </div>
 
 
         <div class="nota-box">
