@@ -268,7 +268,7 @@
     </p>
     <p>
       \[
-      \int_{\mathcal{S}} (\partial_xQ - \partial_y P) dx\otimes dy=
+      \int_{\mathcal{S}} (\partial_xQ - \partial_y P) dx dy=
       \int_{\partial \mathcal{S}} Pdx+Qdy
       \]
 
@@ -277,7 +277,719 @@
     <div class="imagen-box flexbox">
       <img src="./Images/Sec7-img7.png" alt="TeoGreen" width="400" height="auto">
       </div>
+
+
+      <p>
+        La demostración en una región general se logra demostrando 
+        primero las dos identidades parciales por separado:
+        <ol>
+          <li>
+            Identidad I: $\iint_S \left( -\frac{\partial P}{\partial y} \right) dx \, dy = \int_{\partial S} P \, dx$.
+          </li>
+          <p></p>
+          <li>
+            Identidad II: $\iint_S \frac{\partial Q}{\partial x} \, dx \, dy = \int_{\partial S} Q \, dy$.
+          </li>
+        </ol>
+      
+      </p>
+      <p>
+        Sumando ambas identidades obtendremos la igualdad completa del teorema. 
+      </p>
+
+      
+      <button class="respButton hvr-grow"> Demostración Identidad I </button>
+          <div class="resp-box">
+      <p>
+        Caso 1: $S$ es una región de Tipo I.
+      </p>
+
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-GreenEqn1TipoI.jpeg" alt="TeoGreen" width="400" height="auto">
+      </div>
+      <p> Integral de área. </p>
+        
+    
+        <p>
+          Consideremos que $S$ es una región de Tipo I descrita como:
+          $$S = \{ (x, y) \in \mathbb{R}^2 : x \in [a, b], \, g_1(x) \le y \le g_2(x) \},$$ 
+          donde $g_1, g_2 : [a, b] \to \mathbb{R}$ son funciones continuas, suaves a trozos. 
+        </p> 
+        <p>
+          Aplicando el Teorema de Fubini para integrar sobre la región de Tipo I:   
+          $$\iint_S -\frac{\partial P}{\partial y} \, dx \, dy = 
+          \int_{a}^{b} \left( \int_{g_1(x)}^{g_2(x)} -\frac{\partial P}{\partial y} \, dy \right) dx.$$
+
+        </p>
+        <p>
+          Por el Teorema Fundamental del Cálculo aplicado a la 
+          integral interior respecto a $y$:
+          $$\int_{g_1(x)}^{g_2(x)} -\frac{\partial P}{\partial y} \, dy = 
+          -\Big[ P(x, y) \Big]_{y=g_1(x)}^{y=g_2(x)} = -P(x, g_2(x)) 
+          + P(x, g_1(x))$$
+          Sustituyendo esto en la integral exterior 
+          obtendremos:
+          \begin{equation}\label{Eqn:GreenTipoI}
+          \iint_S -\frac{\partial P}{\partial y} \, dx \, dy 
+          = \int_{a}^{b} P(x, g_1(x)) \, dx - \int_{a}^{b} P(x, g_2(x)) \, dx 
+          \end{equation}
+        </p>
+        <p>
+          Integral de línea.
+        </p>
+        <p>
+          La frontera $\partial S$ se divide en 4 curvas recorridas 
+          en sentido contrario a las manecillas del reloj:
+          <ol>
+            <li>
+              $C_1$: La gráfica inferior $y = g_1(x)$ para $x$ desde $a$ hasta $b$. Parametrizando 
+              $C_1$ por $x = t,y=g_1(t)$, $t$ recorriendo desde $a$ hasta $b$, tenemos $dx = dt$ y entonces:
+              $$\int_{C_1} P(x, y) \, dx = \int_{a}^{b} P(t, g_1(t)) \, dt.$$
+            </li>
+            <li>
+              $C_2$: El segmento vertical derecho $x = b$ desde $g_1(b)$ hasta $g_2(b)$.   
+              En $C_2$, $x = b$ es constante, luego $dx = 0$, por lo que 
+              $$\int_{C_2} P \, dx = 0.$$
+            </li>
+            <li>
+              $C_3$: La gráfica superior $y = g_2(x)$ para $x$ desde $b$ hasta $a$ (en sentido inverso).
+              Parametrizando $C_3$ con dirección inversa de $b$ a $a$ por $x = t$, entonces :
+              $$\int_{C_3} P(x, y) \, dx = \int_{b}^{a} P(t, g_2(t)) \, dt = -\int_{a}^{b} P(t, g_2(t)) \, dt.$$
+            </li>
+            <li>
+              $C_4$: El segmento vertical izquierdo $x = a$ desde $g_2(a)$ hasta $g_1(a)$.  En $C_4$, $x = a$ es constante, 
+              luego $dx = 0$, por lo que 
+              $$\int_{C_4} P \, dx = 0.$$
+            </li>
+          </ol>
+        </p>
+        <p>
+          Sumando estas contribuciones:
+          \begin{eqnarray}\label{Eqn:GreenIntegralLineaTipoI}
+          \int_{\partial S} P \, dx = \int_{a}^{b} P(x, g_1(x)) \, dx - \int_{a}^{b} P(x, g_2(x)) \, dx 
+          \end{eqnarray}
+
+        </p>
+        <p>
+          Comparando las ecuaciones \eqref{Eqn:GreenTipoI} y \eqref{Eqn:GreenIntegralLineaTipoI}, obtenemos:
+        $$\iint_S -\frac{\partial P}{\partial y} \, dx \, dy = \int_{\partial S} P \, dx$$
+        </p>
+        <p>
+        Caso 2: $S$ es una región de Tipo II.
+      </p>
+      <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-GreenEqn1TipoII.jpeg" alt="TeoGreen" width="400" height="auto">
+      </div>
+      <p>
+        En este caso tenemos que 
+        $$S = \{ (x, y) \in \mathbb{R}^2 : c \le y \le d, \, h_1(y) \le x \le h_2(y) \}$$
+        donde $h_1, h_2 : [c, d] \to \mathbb{R}$ son funciones continuas 
+        (suaves a trozos) que definen las fronteras izquierda y derecha de la región, 
+        respectivamente.  
+      </p>
+      <p> Integral de línea.</p>
+      <p>
+          La frontera $\partial S$ se divide en 4 curvas recorridas 
+          en sentido contrario a las manecillas del reloj:
+      </p>
+      <ol>
+        <li>
+          $C_1$: recta inferior con $y = c$ para $x$ desde $h_1(c)$ hasta $h_2(c)$. 
+          Para metrizando con $y=c$ y $x=t$ desde $h_1(c)$ hasta $h_2(c)$, tenemos $dx = dt$ y 
+          entonces: 
+          $$\int_{C_1} P \, dx = \int_{h_1(c)}^{h_2(c)} P(t, c) \, dt$$
+        </li>
+        <li>
+          $C_2$: curva de la derecha dada por la gráfica de $h_2$. Parametrizando 
+          esta curva con $y=t$, $t$ desde $c$ hasta $d$ y $x=h_2(t)$, tenemos 
+          que $dx=h_2'(t) dt$ y entonces:
+          $$\int_{C_2} P \, dx = \int_{c}^{d} P(h_2(y), y) \, h_2'(y) \, dy$$
+        </li>
+        <li>
+          $C_3$: recta superior con $y = d$ para $x$ desde $h_2(d)$ hasta $h_1(d)$ (en sentido inverso).
+          Parametrizando con $y=d$ y $x=t$ desde $h_2(d)$ hasta $h_1(d)$, tenemos $dx = dt$ y entonces:
+          $$\int_{C_3} P \, dx = \int_{h_2(d)}^{h_1(d)} P(t, d) \, dt = -\int_{h_1(d)}^{h_2(d)} P(t, d) \, dt$$
+        </li>
+        <li>
+          $C_4$: curva de la izquierda dada por la gráfica de $h_1$. Parametrizando 
+          esta curva con $y=t$, $t$ desde $d$ hasta $c$ (en sentido inverso) y $x=h_1(t)$, tenemos
+          $$\int_{C_4} P \, dx = \int_{d}^{c} P(h_1(y), y) \, h_1'(y) \, dy = -\int_{c}^{d} P(h_1(y), y) \, h_1'(y) \, dy$$
+        </li>
+      </ol>
+      <p>
+        Sumando todas las contribuciones de las cuatro curvas, obtenemos:
+        \begin{eqnarray} 
+        \int_{\partial S} P \, dx &=&  \int_{h_1(c)}^{h_2(c)} P(x, c) \, dx - \int_{h_1(d)}^{h_2(d)} P(x, d) \, dx  \nonumber \\
+        &+&  \int_{c}^{d} P(h_2(y), y) \, h_2'(y) \, dy - \int_{c}^{d} P(h_1(y), y) \, h_1'(y) \, dy \label{Eqn:AuxGreenLineaRegionII}.
+        \end{eqnarray}
+      </p>
+      <p>
+        Para continuar vamos a definir la  función auxiliar 
+        $H(y):= \int_{h_1(y)}^{h_2(y)} P(x, y) \, dx$. Ya que $P$ es clase $C^1$
+        y $h_2,h_1$ son funciones continuas suaves a trozos, $H$ es diferenciable
+        con derivada continua y 
+        aplicando el Teorema Fundamental del Cálculo, obtenemos:
+        \begin{eqnarray}
+        \int_c^d H'(y) \, dy &=& H(d)  - H(c) \nonumber \\
+        &=& \int_{h_1(d)}^{h_2(d)} P(x, d) \, dx - \int_{h_1(c)}^{h_2(c)} P(x, c) \, dx \label{Eqn:AuxGreenIntegralH}.
+        \end{eqnarray}
+      </p>
+      <p>
+        Ahora vamos a calcular la derivada de  $H(y)$ usando la siguiente función de tres variables: 
+        \[
+        G(y_1,y_2,y_3)=\int_{y_1}^{y_2} P(x,y_3) \, dx.
+        \]
+        Usando a $G$ podemos escribir a $H(y)$ como 
+        \[
+        H(y)=G(h_1(y),h_2(y),y).
+        \]
+        Entonces por la regla de la cadena tenemos:
+        \begin{eqnarray*}
+        H'(y) &=& \frac{\partial G}{\partial y_1}(h_1(y),h_2(y),y)h_1'(y) \\
+        &+& \frac{\partial G}{\partial y_2}(h_1(y),h_2(y),y)h_2'(y) \\
+        &+& \frac{\partial G}{\partial y_3}(h_1(y),h_2(y),y). 
+        \end{eqnarray*}
+        Además por el teorema fundamental del cálculo, tenemos que:
+        \begin{eqnarray*}
+        \frac{\partial G}{\partial y_1}(y_1,y_2,y_3) &=& -P(y_1,y_3), \\
+        \frac{\partial G}{\partial y_2}(y_1,y_2,y_3) &=& P(y_2,y_3), \\
+        \end{eqnarray*}
+        y por el lema de diferención bajo el signo de integral, tenemos que:
+        \[
+        \frac{\partial G}{\partial y_3}(y_1,y_2,y_3) = \int_{y_1}^{y_2} \frac{\partial P}{\partial y_3}(x,y_3) \, dx.
+        \]  
+
+      </p>
+      <p>
+      Por lo tanto:
+      \begin{eqnarray}
+        H'(y) &=&  -P(h_1(y),y)h_1'(y) + P(h_2(y),y)h_2'(y) \nonumber \\
+        &+&  \int_{h_1(y)}^{h_2(y)} \frac{\partial P}{\partial y}(x,y) \, dx  \label{Eqn:AuxGreenDerivadaH}
+        \end{eqnarray}
+      </p>
+      <p>
+        Substituyendo \eqref{Eqn:AuxGreenDerivadaH} en \eqref{Eqn:AuxGreenIntegralH}, obtenemos:
+        \begin{eqnarray*}
+        & & \int_{h_1(c)}^{h_2(c)} P(x, d) \, dx - \int_{h_1(d)}^{h_2(d)} P(x, c) \, dx \\
+        &=& -\int_{c}^d H'(y) \, dy \\
+        &=& \int_c^d P(h_1(y),y)h_1'(y) \, dy - \int_c^d P(h_2(y),y)h_2'(y) \, dy \\
+        &-& \int_c^d \int_{h_1(y)}^{h_2(y)} \frac{\partial P}{\partial y}(x,y) \, dx \, dy.
+        \end{eqnarray*}
+      </p>
+      <p>
+        Por último, substituyendo esto en \eqref{Eqn:AuxGreenLineaRegionII}, obtenemos:
+        \begin{eqnarray*}
+        \int_{\partial S} P \, dx &=&  \int_{h_1(c)}^{h_2(c)} P(x, c) \, dx - \int_{h_1(d)}^{h_2(d)} P(x, d) \, dx \\
+        &+&  \int_{c}^{d} P(h_2(y), y) \, h_2'(y) \, dy - \int_{c}^{d} P(h_1(y), y) \, h_1'(y) \, dy \\
+        &=& \int_c^d P(h_1(y),y)h_1'(y) \, dy - \int_c^d P(h_2(y),y)h_2'(y) \, dy \\
+        &-&  \int_c^d \int_{h_1(y)}^{h_2(y)} \frac{\partial P}{\partial y}(x,y) \, dx \, dy \\
+        &+& \int_{c}^{d} P(h_2(y), y) \, h_2'(y) \, dy - \int_{c}^{d} P(h_1(y), y) \, h_1'(y) \, dy \\
+        &=& \int_c^d \int_{h_1(y)}^{h_2(y)} -\frac{\partial P}{\partial y}(x,y) \, dx \, dy \\
+        &=& \int_S -\frac{\partial P}{\partial y} \, dx \, dy.
+        \end{eqnarray*}
+      </p>
+      <p>
+        Caso 3: $S$ es una región general.
+      </p>
+      <p>
+         En éste caso $S$ se puede descomponer en 
+         una unión finita de subregiones $S = S_1 \cup S_2 \dots \cup S_k$ 
+         de Tipo I ó II. Las integrales sobre las fronteras 
+         interiores se cancelarán por tener orientaciones opuestas, 
+         obteniéndose el resultado general.  
+      </p>
+      </div>
+
+
+          <button class="respButton hvr-grow"> Demostración Identidad II  </button>
+          <div class="resp-box">
+     
+      <p>
+        Queremos demostrar que $\iint_S \frac{\partial Q}{\partial x} \, dx \, dy = \int_{\partial S} Q \, dy$.
+        El argumento es análogo al de la Identidad I, pero ahora los papeles de los Tipos I y II
+        se intercambian: el Tipo II es el caso directo y el Tipo I requiere la función auxiliar.
+      </p>
+      <p>
+        Caso 1: $S$ es una región de Tipo II.
+      </p>
+
+      <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-GreenEqn1TipoII.jpeg" alt="TeoGreen" width="400" height="auto">
+      </div>
+      <p> Integral de área. </p>
+
+      <p>
+        Consideremos que $S$ es una región de Tipo II descrita como:
+        $$S = \{ (x, y) \in \mathbb{R}^2 : c \le y \le d, \, h_1(y) \le x \le h_2(y) \},$$
+        donde $h_1, h_2 : [c, d] \to \mathbb{R}$ son funciones continuas, suaves a trozos.
+      </p>
+      <p>
+        Aplicando el Teorema de Fubini para integrar sobre la región de Tipo II:
+        $$\iint_S \frac{\partial Q}{\partial x} \, dx \, dy =
+        \int_{c}^{d} \left( \int_{h_1(y)}^{h_2(y)} \frac{\partial Q}{\partial x} \, dx \right) dy.$$
+      </p>
+      <p>
+        Por el Teorema Fundamental del Cálculo aplicado a la integral interior respecto a $x$:
+        $$\int_{h_1(y)}^{h_2(y)} \frac{\partial Q}{\partial x} \, dx =
+        \Big[ Q(x, y) \Big]_{x=h_1(y)}^{x=h_2(y)} = Q(h_2(y), y) - Q(h_1(y), y).$$
+        Sustituyendo esto en la integral exterior obtenemos:
+        \begin{equation}\label{Eqn:GreenIITipoII}
+        \iint_S \frac{\partial Q}{\partial x} \, dx \, dy
+        = \int_{c}^{d} Q(h_2(y), y) \, dy - \int_{c}^{d} Q(h_1(y), y) \, dy.
+        \end{equation}
+      </p>
+      <p>
+        Integral de línea.
+      </p>
+      <p>
+        La frontera $\partial S$ se divide en 4 curvas recorridas
+        en sentido contrario a las manecillas del reloj:
+      </p>
+      <ol>
+        <li>
+          $C_1$: recta inferior con $y = c$ para $x$ desde $h_1(c)$ hasta $h_2(c)$.
+          En $C_1$, $y = c$ es constante, luego $dy = 0$, por lo que
+          $$\int_{C_1} Q \, dy = 0.$$
+        </li>
+        <li>
+          $C_2$: curva de la derecha dada por la gráfica de $h_2$. Parametrizando
+          esta curva con $y=t$, $t$ desde $c$ hasta $d$ y $x=h_2(t)$, tenemos
+          $dy = dt$ y entonces:
+          $$\int_{C_2} Q \, dy = \int_{c}^{d} Q(h_2(t), t) \, dt.$$
+        </li>
+        <li>
+          $C_3$: recta superior con $y = d$ para $x$ desde $h_2(d)$ hasta $h_1(d)$ (en sentido inverso).
+          En $C_3$, $y = d$ es constante, luego $dy = 0$, por lo que
+          $$\int_{C_3} Q \, dy = 0.$$
+        </li>
+        <li>
+          $C_4$: curva de la izquierda dada por la gráfica de $h_1$. Parametrizando
+          esta curva con $y=t$, $t$ desde $d$ hasta $c$ (en sentido inverso) y $x=h_1(t)$, tenemos
+          $dy = dt$ y entonces:
+          $$\int_{C_4} Q \, dy = \int_{d}^{c} Q(h_1(t), t) \, dt = -\int_{c}^{d} Q(h_1(t), t) \, dt.$$
+        </li>
+      </ol>
+      <p>
+        Sumando estas contribuciones:
+        \begin{eqnarray}\label{Eqn:GreenIILineaTipoII}
+        \int_{\partial S} Q \, dy = \int_{c}^{d} Q(h_2(y), y) \, dy - \int_{c}^{d} Q(h_1(y), y) \, dy.
+        \end{eqnarray}
+      </p>
+      <p>
+        Comparando las ecuaciones \eqref{Eqn:GreenIITipoII} y \eqref{Eqn:GreenIILineaTipoII}, obtenemos:
+        $$\iint_S \frac{\partial Q}{\partial x} \, dx \, dy = \int_{\partial S} Q \, dy.$$
+      </p>
+
+      <p>
+        Caso 2: $S$ es una región de Tipo I.
+      </p>
+      <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-GreenEqn1TipoI.jpeg" alt="TeoGreen" width="400" height="auto">
+      </div>
+      <p>
+        En este caso tenemos que
+        $$S = \{ (x, y) \in \mathbb{R}^2 : a \le x \le b, \, g_1(x) \le y \le g_2(x) \}$$
+        donde $g_1, g_2 : [a, b] \to \mathbb{R}$ son funciones continuas
+        (suaves a trozos) que definen las fronteras inferior y superior de la región,
+        respectivamente.
+      </p>
+      <p> Integral de línea.</p>
+      <p>
+        La frontera $\partial S$ se divide en 4 curvas recorridas
+        en sentido contrario a las manecillas del reloj:
+      </p>
+      <ol>
+        <li>
+          $C_1$: la gráfica inferior $y = g_1(x)$ para $x$ desde $a$ hasta $b$. Parametrizando
+          con $x=t$, $y=g_1(t)$, $t$ desde $a$ hasta $b$, tenemos $dy = g_1'(t) \, dt$ y entonces:
+          $$\int_{C_1} Q \, dy = \int_{a}^{b} Q(t, g_1(t)) \, g_1'(t) \, dt.$$
+        </li>
+        <li>
+          $C_2$: el segmento vertical derecho $x = b$ para $y$ desde $g_1(b)$ hasta $g_2(b)$.
+          Parametrizando con $x=b$, $y=t$, tenemos $dy = dt$ y entonces:
+          $$\int_{C_2} Q \, dy = \int_{g_1(b)}^{g_2(b)} Q(b, t) \, dt.$$
+        </li>
+        <li>
+          $C_3$: la gráfica superior $y = g_2(x)$ para $x$ desde $b$ hasta $a$ (en sentido inverso).
+          Parametrizando con $x=t$, $y=g_2(t)$, $t$ desde $b$ hasta $a$, tenemos $dy = g_2'(t) \, dt$ y entonces:
+          $$\int_{C_3} Q \, dy = \int_{b}^{a} Q(t, g_2(t)) \, g_2'(t) \, dt = -\int_{a}^{b} Q(t, g_2(t)) \, g_2'(t) \, dt.$$
+        </li>
+        <li>
+          $C_4$: el segmento vertical izquierdo $x = a$ para $y$ desde $g_2(a)$ hasta $g_1(a)$ (en sentido inverso).
+          Parametrizando con $x=a$, $y=t$, tenemos $dy = dt$ y entonces:
+          $$\int_{C_4} Q \, dy = \int_{g_2(a)}^{g_1(a)} Q(a, t) \, dt = -\int_{g_1(a)}^{g_2(a)} Q(a, t) \, dt.$$
+        </li>
+      </ol>
+      <p>
+        Sumando todas las contribuciones de las cuatro curvas, obtenemos:
+        \begin{eqnarray}
+        \int_{\partial S} Q \, dy &=&  \int_{g_1(b)}^{g_2(b)} Q(b, y) \, dy - \int_{g_1(a)}^{g_2(a)} Q(a, y) \, dy  \nonumber \\
+        &+&  \int_{a}^{b} Q(x, g_1(x)) \, g_1'(x) \, dx - \int_{a}^{b} Q(x, g_2(x)) \, g_2'(x) \, dx \label{Eqn:AuxGreenIILineaRegionI}.
+        \end{eqnarray}
+      </p>
+      <p>
+        Para continuar vamos a definir la función auxiliar
+        $K(x):= \int_{g_1(x)}^{g_2(x)} Q(x, y) \, dy$. Ya que $Q$ es clase $C^1$
+        y $g_1,g_2$ son funciones continuas suaves a trozos, $K$ es diferenciable
+        (a trozos) con derivada continua y
+        aplicando el Teorema Fundamental del Cálculo, obtenemos:
+        \begin{eqnarray}
+        \int_a^b K'(x) \, dx &=& K(b)  - K(a) \nonumber \\
+        &=& \int_{g_1(b)}^{g_2(b)} Q(b, y) \, dy - \int_{g_1(a)}^{g_2(a)} Q(a, y) \, dy \label{Eqn:AuxGreenIIIntegralK}.
+        \end{eqnarray}
+      </p>
+      <p>
+        Ahora vamos a calcular la derivada de $K(x)$ usando la siguiente función de tres variables:
+        \[
+        F(x_1,x_2,x_3)=\int_{x_1}^{x_2} Q(x_3,y) \, dy.
+        \]
+        Usando a $F$ podemos escribir a $K(x)$ como
+        \[
+        K(x)=F(g_1(x),g_2(x),x).
+        \]
+        Entonces por la regla de la cadena tenemos:
+        \begin{eqnarray*}
+        K'(x) &=& \frac{\partial F}{\partial x_1}(g_1(x),g_2(x),x)g_1'(x) \\
+        &+& \frac{\partial F}{\partial x_2}(g_1(x),g_2(x),x)g_2'(x) \\
+        &+& \frac{\partial F}{\partial x_3}(g_1(x),g_2(x),x).
+        \end{eqnarray*}
+        Además por el teorema fundamental del cálculo, tenemos que:
+        \begin{eqnarray*}
+        \frac{\partial F}{\partial x_1}(x_1,x_2,x_3) &=& -Q(x_3,x_1), \\
+        \frac{\partial F}{\partial x_2}(x_1,x_2,x_3) &=& Q(x_3,x_2), \\
+        \end{eqnarray*}
+        y por el lema de derivación bajo el signo de integral, tenemos que:
+        \[
+        \frac{\partial F}{\partial x_3}(x_1,x_2,x_3) = \int_{x_1}^{x_2} \frac{\partial Q}{\partial x}(x_3,y) \, dy.
+        \]
+      </p>
+      <p>
+        Por lo tanto:
+        \begin{eqnarray}
+        K'(x) &=&  -Q(x,g_1(x))g_1'(x) + Q(x,g_2(x))g_2'(x) \nonumber \\
+        &+&  \int_{g_1(x)}^{g_2(x)} \frac{\partial Q}{\partial x}(x,y) \, dy  \label{Eqn:AuxGreenIIDerivadaK}
+        \end{eqnarray}
+      </p>
+      <p>
+        Sustituyendo \eqref{Eqn:AuxGreenIIDerivadaK} en \eqref{Eqn:AuxGreenIIIntegralK}, obtenemos:
+        \begin{eqnarray*}
+        & & \int_{g_1(b)}^{g_2(b)} Q(b, y) \, dy - \int_{g_1(a)}^{g_2(a)} Q(a, y) \, dy \\
+        &=& \int_{a}^b K'(x) \, dx \\
+        &=& -\int_a^b Q(x,g_1(x))g_1'(x) \, dx + \int_a^b Q(x,g_2(x))g_2'(x) \, dx \\
+        &+& \int_a^b \int_{g_1(x)}^{g_2(x)} \frac{\partial Q}{\partial x}(x,y) \, dy \, dx.
+        \end{eqnarray*}
+      </p>
+      <p>
+        Por último, sustituyendo esto en \eqref{Eqn:AuxGreenIILineaRegionI}, obtenemos:
+        \begin{eqnarray*}
+        \int_{\partial S} Q \, dy &=&  \int_{g_1(b)}^{g_2(b)} Q(b, y) \, dy - \int_{g_1(a)}^{g_2(a)} Q(a, y) \, dy \\
+        &+&  \int_{a}^{b} Q(x, g_1(x)) \, g_1'(x) \, dx - \int_{a}^{b} Q(x, g_2(x)) \, g_2'(x) \, dx \\
+        &=& -\int_a^b Q(x,g_1(x))g_1'(x) \, dx + \int_a^b Q(x,g_2(x))g_2'(x) \, dx \\
+        &+&  \int_a^b \int_{g_1(x)}^{g_2(x)} \frac{\partial Q}{\partial x}(x,y) \, dy \, dx \\
+        &+& \int_{a}^{b} Q(x, g_1(x)) \, g_1'(x) \, dx - \int_{a}^{b} Q(x, g_2(x)) \, g_2'(x) \, dx \\
+        &=& \int_a^b \int_{g_1(x)}^{g_2(x)} \frac{\partial Q}{\partial x}(x,y) \, dy \, dx \\
+        &=& \iint_S \frac{\partial Q}{\partial x} \, dx \, dy.
+        \end{eqnarray*}
+      </p>
+      <p>
+        Caso 3: $S$ es una región general.
+      </p>
+      <p>
+         En éste caso $S$ se puede descomponer en
+         una unión finita de subregiones $S = S_1 \cup S_2 \dots \cup S_k$
+         de Tipo I ó II. Aplicando los Casos 1 y 2 a cada $S_j$ y sumando,
+         las integrales sobre las fronteras
+         interiores se cancelarán por tener orientaciones opuestas,
+         obteniéndose la Identidad II para $S$.
+      </p>
+      </div>
+
+
 </div>
+
+
+
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición </h2>
+    <p>
+      Sea \(\gamma:[a,b]\to \mathbb{R}^2\) una curva cerrada simple, suave
+      a trozos, con la propiedad de que
+      \(\gamma'(t)\ne 0\), siempre que la derivada \(\gamma'(t)\) existe.
+    </p>
+    <p>
+      Se define el vector normal unitario a la curva \(\gamma\) como
+      la función \(\mathbb{n}\) dada por
+      \[
+      \mathbb{n}(t)=\frac{1}{\|\gamma'(t)\|}\gamma'(t)
+      \]
+      Nota: \(\gamma(t)=(\gamma_1(t), \gamma_2(t))\) y \(\gamma'(t)=(\gamma_1'(t), \gamma_2'(t)) \).
+
+    </p>
+    <p>
+      Sea \(U\subset \mathbb{R}^2\) un conjunto abierto y
+      \(\varphi:U \to \mathbb{R}\) una función clase \(C^1\). Definimos
+      la derivada normal de \(\varphi\) a lo largo de \(\gamma\) como
+      \[
+      \partial_{\mathbb{n}}\varphi(t)= \nabla\varphi(\gamma(t))\cdot \mathbb{n}(t)
+      \]
+    </p>
+  </div>
+
+
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema (Green versión 2) </h2>
+    <p>
+      Sean \(\gamma_0, \gamma_1, \dots, \gamma_n\)
+      curvas cerradas simples, suaves a trozos, orientadas
+      positivamente, con las
+      siguientes propiedades
+      <ol>
+        <li> Cualesquiera dos curvas
+        no se intersectan, </li>
+        <li>
+          Las curvas, \(\gamma_1,\dots, \gamma_n\),
+          caen dentro del interior de \(\gamma_0\),
+        </li>
+        <li>
+          La curva \(\gamma_i\) está en el exterior
+          de la curva \(\gamma_j\), para todos \(1\leq i, j \leq n\),
+          \(i\ne j\).
+        </li>
+      </ol>
+    </p>
+    <p>
+      Por \(\mathcal{S}\) denotamos la región del plano
+      que consiste de la unión de \(\gamma_0\), con el
+      subconjunto del interior de \(\gamma_0\) formado por
+      los puntos que no están en el interior de las curvas
+      \(\gamma_1,\dots, \gamma_n\).
+    </p>
+
+    <p>
+      Sean \(A,B :U \to \mathbb{R}\), funciones de clase
+      \(C^1\) en \(U\), donde \(U\subset \mathbb{R}^2\)
+      es un conjunto abierto que contiene a \(\mathcal{S}\).
+    </p>
+    <p>
+      Entonces se tiene que
+      \[
+      \int_{\mathcal{S}} (\partial_xB-\partial_yA)dx\otimes dy=
+      \int_{\gamma_0} Adx+Bdy -
+      \sum_{k=1}^n \int_{\gamma_k}Adx+Bdy
+      \]
+    </p>
+
+    <div class="imagen-box flexbox">
+      <img src="./Images/Sec7-img8.png" alt="TeoGreen" width="400" height="auto">
+      </div>
+
+
+      <button class="respButton hvr-grow"> Demostración </button>
+        <div class="resp-box">
+          <div class="video flexbox">
+            <a href="https://youtu.be/n4hGJ2MZ894" target="_blank"> Video </a>
+          </div>
+        </div>
+  </div>
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema (de invariancia)</h2>
+    <p>
+      Sea \(U\subset \mathbb{R}^2\) un  abierto conexo y
+      \(\mathbb{F}=(P,Q)\) un campo vectorial clase \(C^1\) en \(U\) que satisface 
+      \(\partial_xQ = \partial_y P\) en \(U\).
+    <p>
+      <p>
+        Sean \(\gamma_1, \gamma_2\) dos curvas suaves a trozos,
+        cerradas, simples,  que satisfacen:
+        <ol>
+          <li> \(\gamma_1\) y \(\gamma_2\) tienen la
+          misma orientación, </li>
+          <li>
+            \(\gamma_2\) caen dentro del interior de \(\gamma_1\),
+          </li>
+          <li>
+            los puntos del interior de  \(\gamma_1\) que caen afuera de
+            \(\gamma_2\) están en \(U\).
+          </li>
+
+        </ol>
+      </p>
+      <p>
+        Entonces
+        \[
+        \int_{\gamma_1} \mathbb{F} \cdot d\gamma_1= \int_{\gamma_2}\mathbb{F} \cdot d\gamma_2
+        \]
+      </p>
+
+
+        <button class="respButton hvr-grow"> Demostración </button>
+          <div class="resp-box">
+              <div class="video flexbox">
+                <a href="https://youtu.be/rdgfGbpwYoY" target="_blank"> Video </a>
+              </div>
+          </div>
+  </div>
+
+
+
+
+
+  <div class="definicion-box">
+    <h2 class="number-title"> Definición</h2>
+
+    <p>
+      Un abierto en \(\mathbb{R}^2\) se llama simplemente conexo sii 
+      <ol>
+        <li>
+          \(U\) es conexo por trayectorias,
+        </li>
+        <li>
+          Para toda cura de Jordan en \(U\) el interior de la curva 
+          también está contenido en \(U\).
+        </li>
+      </ol>
+      </p>
+      <p>
+        Convexo y simplemente conexo. 
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img9.png" alt="CurvaCerrada" width="300" height="230">
+          </div>
+      </p>
+      <p>
+        No convexo y simplemente conexo. 
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img10.png" alt="CurvaCerrada" width="300" height="230">
+          </div>
+      </p>
+      <p>
+        No convexo y no simplemente conexo. 
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img11.png" alt="CurvaCerrada" width="300" height="230">
+          </div>
+      </p>
+    
+
+  </div>
+
+  <div class="lema-box">
+    <h2 class="number-title"> Lema </h2>
+    <p>
+      Una poligonal simple escalonada en \(\mathbb{R}^2\) es una trayectoria simple (no se auto-intersecta) de tal forma que 
+      está formada por segmentos de recta que son o bien horizontales o bien verticales. 
+    </p>
+    <p>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec7-img12.png" alt="CurvaCerrada" width="300" height="230">
+        </div>
+    <p>
+      Sea \(U\) un abierto y conexo por trayectorias.
+    </p>
+    <p>
+      Entonces cualesquiera puntos en \(U\) se pueden  unir por una poligonal simple escalonada.
+    </p>
+
+  </div>
+
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea \(U\subseteq \mathbb{R}^2\) un abierto simplemente conexo 
+    y \(\mathbb{F}=(P,Q):U\to \mathbb{R}^2\) un campo vectorial clase \(C^1\) en \(U\).
+  </p>
+  <p>
+    Entonces \(\mathbb{F}\) es conservativo en \(U\) si y sólo si 
+    \[
+    \partial_xQ = \partial_y P
+    \]
+  </p>
+  </div>
+
+
+  <div class="definicion-box">
+    <h2 class="number-title" id="Def:Rotacional"> Definición</h2>
+    <p>
+      Dado un campo vectorial clase \(C^1\) sobre un abierto, 
+      \(\mathbb{F}=(A,B,C):U\to \mathbb{R}^3\), se define su rotacional como 
+      el campo vectorial sobre \(U\) con regla de correspondencia 
+      \begin{eqnarray*} 
+      \nabla \times \mathbb{F}&=& \det \left[ 
+      \begin{array}{cc} 
+      i & j & k  \\
+      \partial_x  & \partial_y & \partial_z \\
+      A & B & C 
+      \end{array}
+      \right] \\
+      &=&(\partial_yC - \partial_zB, \partial_zA - \partial_xC, \partial_xB- \partial_yA )
+
+      \end{eqnarray*}
+    </p>
+
+    <p>
+      La idea es que \(\nabla \times \mathbb{F}\) mide la rotación infinitesimal del campo. Para 
+      visualizar lo anterior se fija una esfera muy chica en un punto del espacio 
+      y se deja que el campo \(\mathbb{F}\) actue sobre la esfera, sin que esta se mueva, sólo 
+      haciendo que \(\mathbb{F}\) la rote en el mismo lugar (pensando al campo como un fluido).  
+    </p>
+    <p>
+      Por ejemplo, para el campo \(\mathbb{F}=(-y,x+yx,0)\) su rotacional es 
+      \(\nabla \times \mathbb{F} =(0,0,2+y)\). Una representación gráfica del campo y su rotacional 
+      son, respectivamente 
+
+      <p>
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img13.png" alt="VectorField" width="300" height="auto">
+          </div>
+       </p> 
+
+
+       <p>
+        <div class="imagen-box flexbox">
+          <img src="./Images/Sec7-img14.png" alt="Rotational" width="300" height="auto">
+          </div>
+       </p> 
+    </p>
+    <p>
+
+    </p>
+    <p>
+      Nota que el rotacional no es una sola linea que pasa por el centro de las curvas de \(\mathbb{F}\)
+      si no una serie de rectas paraleleas, lo intuitivamente dice que al colocar una 
+      esfera fija en un punto del espacio ésta rotara teniendo a dicha recta como eje de rotación.
+    </p>
+  </div>
+
+
+  <div class="teorema-box">
+    <h2 class="number-title"> Teorema de Green (forma vectorial)</h2>
+    <p>
+      Sea \(U\subseteq \mathbb{R}^2\) un abierto y \(\mathbb{F}:U\to \mathbb{R}^2\)
+      un campo clase \(C^1\). 
+    </p>
+    <p>
+      Si \(S\subset U\) es un compacto con interior no vacío tal que 
+      \(\partial S\) es una curva de Jordan, orientada positivamente, 
+      entonces
+
+      \[
+      \int_{\partial S} \mathbb{F} \cdot d\partial S = \int_S (\nabla \times \mathbb{F})\cdot k dx\otimes dy
+      \]
+    </p>
+    <p>
+      Tomando la interpretación de \(\nabla \times \mathbb{F}\) como la rotación infinitesimal del campo, 
+      el Teorema de Green es más claro pues, si  sumamos todas las rotaciones infinitesimales del interior 
+      de la región notamos que hay muchas cancelaciones y lo  que nos queda al final es la integral de línea en la frontera.
+    </p>
+
+    <p>
+      <div class="imagen-box flexbox">
+        <img src="./Images/Sec7-img15.png" alt="U" width="300" height="auto">
+        </div>
+     </p> 
+
+  </div>
 
 <div class="ejercicio-box">
   <h2 class="number-title"> Ejercicio</h2>
@@ -531,32 +1243,6 @@
     </p>
   </div>
 
-  <div class="definicion-box">
-    <h2 class="number-title"> Definición </h2>
-    <p>
-      Sea \(\gamma:[a,b]\to \mathbb{R}^2\) una curva cerrada simple, suave
-      a trozos, con la propiedad de que
-      \(\gamma'(t)\ne 0\), siempre que la derivada \(\gamma'(t)\) existe.
-    </p>
-    <p>
-      Se define el vector normal unitario a la curva \(\gamma\) como
-      la función \(\mathbb{n}\) dada por
-      \[
-      \mathbb{n}(t)=\frac{1}{\|\gamma'(t)\|}(\gamma_2'(t), -\gamma_1'(t))
-      \]
-      Nota: \(\gamma(t)=(\gamma_1(t), \gamma_2(t))\).
-
-    </p>
-    <p>
-      Sea \(U\subset \mathbb{R}^2\) un conjunto abierto y
-      \(\varphi:U \to \mathbb{R}\) una función clase \(C^1\). Definimos
-      la derivada normal de \(\varphi\) a lo largo de \(\gamma\) como
-      \[
-      \partial_{\mathbb{n}}\varphi(t)= \nabla\varphi(\gamma(t))\cdot \mathbb{n}(t)
-      \]
-    </p>
-  </div>
-
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
@@ -689,101 +1375,6 @@
   </div>
 
 
-  <div class="teorema-box">
-    <h2 class="number-title"> Teorema (Green versión 2) </h2>
-    <p>
-      Sean \(\gamma_0, \gamma_1, \dots, \gamma_n\)
-      curvas cerradas simples, suaves a trozos, orientadas
-      positivamente, con las
-      siguientes propiedades
-      <ol>
-        <li> Cualesquiera dos curvas
-        no se intersectan, </li>
-        <li>
-          Las curvas, \(\gamma_1,\dots, \gamma_n\),
-          caen dentro del interior de \(\gamma_0\),
-        </li>
-        <li>
-          La curva \(\gamma_i\) está en el exterior
-          de la curva \(\gamma_j\), para todos \(1\leq i, j \leq n\),
-          \(i\ne j\).
-        </li>
-      </ol>
-    </p>
-    <p>
-      Por \(\mathcal{S}\) denotamos la región del plano
-      que consiste de la unión de \(\gamma_0\), con el
-      subconjunto del interior de \(\gamma_0\) formado por
-      los puntos que no están en el interior de las curvas
-      \(\gamma_1,\dots, \gamma_n\).
-    </p>
-
-    <p>
-      Sean \(A,B :U \to \mathbb{R}\), funciones de clase
-      \(C^1\) en \(U\), donde \(U\subset \mathbb{R}^2\)
-      es un conjunto abierto que contiene a \(\mathcal{S}\).
-    </p>
-    <p>
-      Entonces se tiene que
-      \[
-      \int_{\mathcal{S}} (\partial_xB-\partial_yA)dx\otimes dy=
-      \int_{\gamma_0} Adx+Bdy -
-      \sum_{k=1}^n \int_{\gamma_k}Adx+Bdy
-      \]
-    </p>
-
-    <div class="imagen-box flexbox">
-      <img src="./Images/Sec7-img8.png" alt="TeoGreen" width="400" height="auto">
-      </div>
-
-
-      <button class="respButton hvr-grow"> Demostración </button>
-        <div class="resp-box">
-          <div class="video flexbox">
-            <a href="https://youtu.be/n4hGJ2MZ894" target="_blank"> Video </a>
-          </div>
-        </div>
-  </div>
-
-  <div class="teorema-box">
-    <h2 class="number-title"> Teorema (de invariancia)</h2>
-    <p>
-      Sea \(U\subset \mathbb{R}^2\) un  abierto conexo y
-      \(\mathbb{F}=(P,Q)\) un campo vectorial clase \(C^1\) en \(U\) que satisface 
-      \(\partial_xQ = \partial_y P\) en \(U\).
-    <p>
-      <p>
-        Sean \(\gamma_1, \gamma_2\) dos curvas suaves a trozos,
-        cerradas, simples,  que satisfacen:
-        <ol>
-          <li> \(\gamma_1\) y \(\gamma_2\) tienen la
-          misma orientación, </li>
-          <li>
-            \(\gamma_2\) caen dentro del interior de \(\gamma_1\),
-          </li>
-          <li>
-            los puntos del interior de  \(\gamma_1\) que caen afuera de
-            \(\gamma_2\) están en \(U\).
-          </li>
-
-        </ol>
-      </p>
-      <p>
-        Entonces
-        \[
-        \int_{\gamma_1} \mathbb{F} \cdot d\gamma_1= \int_{\gamma_2}\mathbb{F} \cdot d\gamma_2
-        \]
-      </p>
-
-
-        <button class="respButton hvr-grow"> Demostración </button>
-          <div class="resp-box">
-              <div class="video flexbox">
-                <a href="https://youtu.be/rdgfGbpwYoY" target="_blank"> Video </a>
-              </div>
-          </div>
-  </div>
-
   <div class="ejercicio-box">
     <h2 class="number-title"> Ejercicio </h2>
     <p>
@@ -833,161 +1424,6 @@
 
   </div>
 
-
-
-  <div class="definicion-box">
-    <h2 class="number-title"> Definición</h2>
-
-    <p>
-      Un abierto en \(\mathbb{R}^2\) se llama simplemente conexo sii 
-      <ol>
-        <li>
-          \(U\) es conexo por trayectorias,
-        </li>
-        <li>
-          Para toda cura de Jordan en \(U\) el interior de la curva 
-          también está contenido en \(U\).
-        </li>
-      </ol>
-      </p>
-      <p>
-        Convexo y simplemente conexo. 
-        <div class="imagen-box flexbox">
-          <img src="./Images/Sec7-img9.png" alt="CurvaCerrada" width="300" height="230">
-          </div>
-      </p>
-      <p>
-        No convexo y simplemente conexo. 
-        <div class="imagen-box flexbox">
-          <img src="./Images/Sec7-img10.png" alt="CurvaCerrada" width="300" height="230">
-          </div>
-      </p>
-      <p>
-        No convexo y no simplemente conexo. 
-        <div class="imagen-box flexbox">
-          <img src="./Images/Sec7-img11.png" alt="CurvaCerrada" width="300" height="230">
-          </div>
-      </p>
-    
-
-  </div>
-
-  <div class="lema-box">
-    <h2 class="number-title"> Lema </h2>
-    <p>
-      Una poligonal simple escalonada en \(\mathbb{R}^2\) es una trayectoria simple (no se auto-intersecta) de tal forma que 
-      está formada por segmentos de recta que son o bien horizontales o bien verticales. 
-    </p>
-    <p>
-      <div class="imagen-box flexbox">
-        <img src="./Images/Sec7-img12.png" alt="CurvaCerrada" width="300" height="230">
-        </div>
-    <p>
-      Sea \(U\) un abierto y conexo por trayectorias.
-    </p>
-    <p>
-      Entonces cualesquiera puntos en \(U\) se pueden  unir por una poligonal simple escalonada.
-    </p>
-
-  </div>
-
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <p>
-    Sea \(U\subseteq \mathbb{R}^2\) un abierto simplemente conexo 
-    y \(\mathbb{F}=(P,Q):U\to \mathbb{R}^2\) un campo vectorial clase \(C^1\) en \(U\).
-  </p>
-  <p>
-    Entonces \(\mathbb{F}\) es conservativo en \(U\) si y sólo si 
-    \[
-    \partial_xQ = \partial_y P
-    \]
-  </p>
-  </div>
-
-
-  <div class="definicion-box">
-    <h2 class="number-title" id="Def:Rotacional"> Definición</h2>
-    <p>
-      Dado un campo vectorial clase \(C^1\) sobre un abierto, 
-      \(\mathbb{F}=(A,B,C):U\to \mathbb{R}^3\), se define su rotacional como 
-      el campo vectorial sobre \(U\) con regla de correspondencia 
-      \begin{eqnarray*} 
-      \nabla \times \mathbb{F}&=& \det \left[ 
-      \begin{array}{cc} 
-      i & j & k  \\
-      \partial_x  & \partial_y & \partial_z \\
-      A & B & C 
-      \end{array}
-      \right] \\
-      &=&(\partial_yC - \partial_zB, \partial_zA - \partial_xC, \partial_xB- \partial_yA )
-
-      \end{eqnarray*}
-    </p>
-
-    <p>
-      La idea es que \(\nabla \times \mathbb{F}\) mide la rotación infinitesimal del campo. Para 
-      visualizar lo anterior se fija una esfera muy chica en un punto del espacio 
-      y se deja que el campo \(\mathbb{F}\) actue sobre la esfera, sin que esta se mueva, sólo 
-      haciendo que \(\mathbb{F}\) la rote en el mismo lugar (pensando al campo como un fluido).  
-    </p>
-    <p>
-      Por ejemplo, para el campo \(\mathbb{F}=(-y,x+yx,0)\) su rotacional es 
-      \(\nabla \times \mathbb{F} =(0,0,2+y)\). Una representación gráfica del campo y su rotacional 
-      son, respectivamente 
-
-      <p>
-        <div class="imagen-box flexbox">
-          <img src="./Images/Sec7-img13.png" alt="VectorField" width="300" height="auto">
-          </div>
-       </p> 
-
-
-       <p>
-        <div class="imagen-box flexbox">
-          <img src="./Images/Sec7-img14.png" alt="Rotational" width="300" height="auto">
-          </div>
-       </p> 
-    </p>
-    <p>
-
-    </p>
-    <p>
-      Nota que el rotacional no es una sola linea que pasa por el centro de las curvas de \(\mathbb{F}\)
-      si no una serie de rectas paraleleas, lo intuitivamente dice que al colocar una 
-      esfera fija en un punto del espacio ésta rotara teniendo a dicha recta como eje de rotación.
-    </p>
-  </div>
-
-
-  <div class="teorema-box">
-    <h2 class="number-title"> Teorema de Green (forma vectorial)</h2>
-    <p>
-      Sea \(U\subseteq \mathbb{R}^2\) un abierto y \(\mathbb{F}:U\to \mathbb{R}^2\)
-      un campo clase \(C^1\). 
-    </p>
-    <p>
-      Si \(S\subset U\) es un compacto con interior no vacío tal que 
-      \(\partial S\) es una curva de Jordan, orientada positivamente, 
-      entonces
-
-      \[
-      \int_{\partial S} \mathbb{F} \cdot d\partial S = \int_S (\nabla \times \mathbb{F})\cdot k dx\otimes dy
-      \]
-    </p>
-    <p>
-      Tomando la interpretación de \(\nabla \times \mathbb{F}\) como la rotación infinitesimal del campo, 
-      el Teorema de Green es más claro pues, si  sumamos todas las rotaciones infinitesimales del interior 
-      de la región notamos que hay muchas cancelaciones y lo  que nos queda al final es la integral de línea en la frontera.
-    </p>
-
-    <p>
-      <div class="imagen-box flexbox">
-        <img src="./Images/Sec7-img15.png" alt="U" width="300" height="auto">
-        </div>
-     </p> 
-
-  </div>
 <!--termina contenido -->
 
   </body>
