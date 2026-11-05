@@ -891,6 +891,73 @@
       Entonces cualesquiera puntos en \(U\) se pueden  unir por una poligonal simple escalonada.
     </p>
 
+    <p>
+      Dado que $U$ es conexo por trayectorias y $p, q \in U$, existe 
+      una función continua $\gamma: [0, 1] \to U$ tal que 
+      $\gamma(0) = p$ y $\gamma(1) = q$.   
+    </p>
+    <p>
+      Definimos el conjunto:
+      $$A = \{ t \in [0, 1] \mid \text{existe una poligonal simple escalonada en } U \text{ que une } p \text{ con } \gamma(t) \}$$
+      Denotamos $t^*=\sup(A)$. Vamos a demostrarque $t^*= 1$.
+    </p>
+    <p>
+      Primeramente veamos que $T^*$ está bien definido. 
+      Para $t = 0$, $\gamma(0) = p$. El punto $p$ se une consigo mismo mediante una poligonal 
+      trivial (un solo punto), por lo que $0 \in A$. Además $A \subseteq [0, 1]$, 
+      por lo que $A$ está acotado superiormente por $1$. Entonces por el axioma 
+      del supremo $t^*$ está bien definido y $t^*\leq 1$.
+    </p>
+    <p>
+      Ahora vamos a probar que $p$ se puede conectar a $\gamma(t^*)$ con una poligonal simple escalonada.
+    </p>
+    <p>
+      Sea $z = \gamma(t^*) \in U$. Como $U$ es un conjunto abierto, 
+      existe un $r > 0$ tal que la bola abierta $B_r(z)\subset U$.
+    </p>
+    <p>
+      Por la continuidad de $\gamma$ existe un punto 
+      $t_0 \in [0,t^*)$ suficientemente cercano a $t^*$ tal que $\gamma(t_0) \in B_r(z)$. Y 
+      por la propiedad fundamental del supremo además podemos suponer que $t_0 \in A$. 
+    </p>
+    <p>
+      Dado que $t_0 \in A$, existe una poligonal simple escalonada $\mathcal{P}_1 \subset U$ que une $p$ con $\gamma(t_0)$.
+      Como $\gamma(t_0)$ y $z$ están ambos dentro de la bola abierta $B_r(z) \subset U$, 
+      podemos unirlos mediante una trayectoria de a lo más dos segmentos de recta 
+      (uno horizontal y otro vertical) $\mathcal{P}_2 \subset B_r(z) \subset U$. Al concatenar 
+      $\mathcal{P}_1$ con $\mathcal{P}_2$ 
+      (y reduciendo o eliminando cruces/bucles locales si fuera necesario), 
+      obtenemos una poligonal simple escalonada $\mathcal{P} \subset U$ que 
+      une $p$ con $z = \gamma(t^*)$.
+    </p>
+    <p>
+      Esto termina la prueba de que $p$ se puede conectar a $\gamma(t^*)$ con una poligonal simple escalonada.
+    </p>
+    <p>
+      Para terminar la prueba vamos a demostrar que $t^* = 1$, por contradicción.
+    </p>
+    <p>
+      Supongamos por el contrario que $t^* < 1$. Consideremos de nuevo el punto 
+      $z = \gamma(t^*) \in U$ y la bola $B_r(z) \subset U$ de radio $r > 0$.   
+      Por la continuidad de la trayectoria $\gamma$ en el punto $t^*$, e
+      xiste un $\delta > 0$ tal que para todo $t \in [t^*, t^* + \delta)$, 
+      el punto evaluado $\gamma(t)$ permanece dentro de la bola $B_r(z)$. 
+      
+      
+    </p>
+    <p>
+      Fijemos un $t_1 \in (t^*, t^* + \delta)$. Como $\gamma(t_1) \in B_r(z)$ 
+      y ya sabemos del Paso 2 que $p$ se une con 
+      $z = \gamma(t^*)$ por una poligonal en $U$, 
+      basta extender dicha poligonal desde $z$ hasta $\gamma(t_1)$ 
+      mediante dos segmentos escalonados (horizontal y vertical) 
+      dentro de $B_r(z) \subset U$. Esto construye una poligonal 
+      escalonada en $U$ que une $p$ con $\gamma(t_1)$.
+      Por definición del conjunto $A$, esto implica que 
+      $t_1 \in A$.Sin embargo, $t_1 > t^*$, 
+      lo cual contradice que $t^* = \sup(A)$.
+    </p>
+
   </div>
 
 <div class="teorema-box">
