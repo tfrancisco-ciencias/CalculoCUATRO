@@ -136,7 +136,7 @@
         </ol>
           <p>
             Resulta que, para las cuentas, ésta última descripción es muy útil,
-            así que es la que usamos en <a href="./S2.html#Def:Superficie">Definición 2.15</a> la cual 
+            así que es la que usamos en <a href="./S2.html#Def:Superficie">Definición 2.11</a> la cual 
             reproducimos a continuación. 
           </p>
           <p>
@@ -300,49 +300,6 @@
 
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio</h2>
-        <p>
-          Por \(\mathcal{S}\) denotamos la superficie cuya frontera está formada 
-          por los vértices del triángulo \((a,0,0),(0,a,0),(0,0,a)\) donde \(a>0\). 
-          Sea  \(\mathbb{F}(x,y,z)=(x,y,z)\).Calcula 
-           \(\int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}\) usando: 
-           <ol>
-            <li>
-              la pareametrización \(\mathbb{r}(u,v)=(a(u+v),a(u-v),a(1-2u))\), 
-            </li>
-            <li>
-             una representación explícita de la forma  \(z=f(x,y)\).
-            </li>
-           </ol>
-        </p>
-
-      </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio</h2>
-        <p>
-          Por \(\mathcal{S}\) denotamos el hemosferio de la esfera de radio \(a\) dado por 
-           \(x^2+y^2+z^2=a^2, z\geq 0\). Sea \(\mathbb{F}(x,y,z)=(x,y,0)\). Calcula 
-           \(\int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}\) usando: 
-           <ol>
-            <li>
-              la pareametrización \(\mathbb{r}(u,v)=a(\sen(u)\cos(v),\sen(u)\sen(v),\cos(u))\), 
-            </li>
-            <li>
-             la representación explícita \(z=\sqrt{a^2-x^2-y^2}\).
-            </li>
-           </ol>
-        </p>
-
-      </div>
-
-
-
-
-
-
         <div class="definicion-box">
           <h2 class="number-title" id="Def:Orientacion"> Definición   </h2>
           <h3> Orientación </h3>
@@ -407,8 +364,10 @@
           
         </div>
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio  </h2>
+
+
+         <div class="lema-box">
+          <h2 class="number-title"> Lema </h2>
           <p>
             Sea \(\mathcal{S}\subset \mathbb{R}^3\) una superficie suave parametrizada y supongamos que 
             existe una parametrización clase \(C^1\) de \(\mathcal{S}\), 
@@ -455,60 +414,8 @@
 
         </div>
 
-        <div class="ejercicio-box">
-          <h2 class="number-title"> Ejercicio</h2>
-          <p>
-            Sea \(D\subset \mathbb{R}^2\) un subconunto compacto con interior no vacío, 
-            \(U\subseteq \mathbb{R}^2\) un subconjunto abierto y 
-            \(f:U \to \mathbb{R}\) una función clase \(C^1\) en \(U\).
-          </p>
-          <p>
-            Prueba que la gráfica de \(f\) restringida a \(D\):
-            \[
-            \mathcal{S}=\{(x,y,f(x,y)): (x,y)\in D\}
-            \]
-            es una superficie orientable.
-          </p>
 
-        </div>
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Prueba que las siguientes superficies parametrizadas son orientables y calcula las dos posibles orientaciones.
-        </p>
-        <ol>
-          <li>
-            Plano: \(\mathbb{r}(u,v)=(x_0,y_0,z_0)+u(a_1,a_2,a_3)+v(b_1,b_2,b_3)\).
-          </li>
-          <li>
-            Esfera: \(\mathbb{r}(u,v)=(r\cos(v)\sin(u), r\sin(v)\sin(u), r\cos(u))\),
-            donde \(r>0\) es el radio.
-          </li>
-          <li>
-            Paraboloide elíptico: \(\mathbb{r}(u,v)=(a u \cos(v),bu\sin(v), u^2)\)
-            donde \(a,b >0\) son constantes.
-           </li>
-           <li>
-             Elipsoide: \(\mathbb{r}(u,v)=(a\sin(u)\cos(v), b\sin(u)\sin(v), c \cos(u))\),
-             donde \(a,b,c>0\).
-           </li>
-           <li>
-             Superficie de revolución: \(\mathbb{r}(u,v)=(u\cos(v), u\sin(v), f(u))\),
-             donde \(f\) es una función de una variable con \(f \geq 0\).
-            </li>
-            <li>
-              Toro: \(\mathbb{r}(u,v)=((a+b\cos(u))\sin(v), (a+b\cos(u))\cos(v), b\sin(u))\),
-              donde \(a,b >0\).
-            </li>
-          </ol>
-
-      </div>
-
-
-
-      <div class="definicion-box">
+        <div class="definicion-box">
         <h2 class="number-title"> Definición</h2>
         
         <p>
@@ -837,185 +744,7 @@
 
       </div>
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
 
-        <ol>
-        <li>
-          <p>
-            Calcula
-            \[
-            \int_{\mathcal{S}} xdx\wedge dy +ydy\wedge dz +zdx\wedge dz 
-            \]
-            donde \(\mathcal{S}\) es la región triangular
-            con vértices \((1,0,0), (0,0,1)\) y \((0,0,1)\)
-            y vector normal con componente \(z >0\).
-          </p>
-        </li>
-        <li>
-        <p>
-          Calcula
-          \[
-          \int_{\mathcal{S}} x^2 dx\wedge dy +xz dy\wedge dz  - yz dx\wedge dz
-          \]
-
-        donde \(\mathcal{S}\) es la esfera \(x^2+y^2+y^2=r^2\), con vector
-        normal apuntando hacia afuera.
-        </p>
-        </li>
-      </ol>
-
-      <button class="respButton hvr-grow"> Respuesta inciso 1</button>
-        <div class="resp-box">
-
-          <p>
-            Primero parametricemos la región \(S\). Graficamente
-            \(S\) es de la forma,
-            <div class="imagen-box flexbox">
-              <img src="./Images/G.png" alt="G" width="400" height="300">
-            </div>
-
-            Tenemos que la ecuación del plano que contiene a la región
-            \(S\) es  \(\textbf{n}\cdot((x, y, z) - p_0) = 0\)
-            donde \(p_0\) es un punto del plano
-            (a saber \(p_0 = (1,0,0)\)) y \(\textbf{n}\) es el vector normal
-            del plano que apunta hacia afuera, entonces
-            \(\textbf{n} = v_1 \times v_2 \) donde
-            \(v_1 = (0, 1, 0) - (1, 0, 0) \) y
-            \(v_2 = (0, 0, 1) - (1, 0, 0) \), es decir,
-            \(v_1 = (-1, 1, 0)\) y \(v_2 = (-1, 0, 1). \).
-            Por lo tanto, \(\textbf{n} = (1, 1, 1) \) y  la ecuación del
-            plano es de la forma \(z = 1 -x -y\).
-          </p>
-
-          <p>
-            Lo siguiente es proyectar los puntos de la región \(S\) en el plano
-            \(XY\), a dicha región la denotamos por \(R\), podemos considerar
-            \(R \subseteq \mathbb{R}^2\) la cual está delimitada por
-            \(x \in[0, 1]\) y \(0 \leq y \leq 1 -x\), es decir,
-            \[
-            R = \lbrace (x, y) \in \mathbb{R}^2 :
-            x\in [0, 1], 0 \leq y \leq 1 -x \rbrace.
-            \]
-          </p>
-          <p>
-            Por lo tanto, la parametrización de la región \(S\) es de la
-            forma \(\mathbb{r} : R \subseteq \mathbb{R}^2 \rightarrow
-            S \subseteq \mathbb{R}^3  \)
-            dada por
-            \(\mathbb{r}(u, v) = (x(u, v), y(u,v), z(u,v))
-            = (u, v, 1 -u -v)\)
-            para \((u,v) \in R\), esto implica que
-            \( \partial_u\mathbb{r} = (1, 0, -1) \) y
-            \(\partial_v\mathbb{r} = (0, 1, -1). \).
-            Además
-            \begin{eqnarray*}
-            \frac{\partial(x, y)}{\partial(u, v)}
-            &=& \det \left[\begin{array}{cccc}
-            1  & 0  \\
-            0 &  1
-            \end{array} \right] = 1,\\
-            \frac{\partial(y, z)}{\partial(u, v)}
-            &=& \det \left[\begin{array}{cccc}
-            0  & 1  \\
-            -1 &  -1
-            \end{array} \right] = 1,
-            \\
-            \frac{\partial(x, z)}{\partial(u, v)}
-            &=& \det \left[\begin{array}{cccc}
-            1 & 0  \\
-            -1 &  -1
-            \end{array} \right] = -1.
-            \end{eqnarray*}
-          </p>
-          <p>
-            Tenemos que
-            \begin{eqnarray*}
-            \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz & = &
-            \int_R u \frac{\partial(x, y)}{\partial(u, v)} \\
-            &+&  \int_R v \frac{\partial(y, z)}{\partial(u, v)} \\
-            &+&  \int_R (1 -u -v)  \frac{\partial(x, z)}{\partial(u, v)} \\
-            & = & \int_R u dA  \\
-            &+& \int_R v dA \\
-            &+& \int_R (u + v -1) dA
-            \end{eqnarray*}
-          </p>
-            Como \( \int_R (u + v -1) dA  =
-            \int_R u dA + \int_R v dA - \int_R 1dA \)  y
-            \( \int_R 1dA = A(R) = \frac{1}{2}\). Entonces tenemos
-            \begin{eqnarray*}
-            \int_R u dA + \int_R v dA + \int_R (u + v -1) dA
-            & = & 2\int_R u dA + 2\int_R v dA - \frac{1}{2}
-            \end{eqnarray*}
-
-            donde,
-            \[
-            \int_R u dA  = \int_0^1\left(\int_0^{1-u}u dv\right)du
-            = \int_0^1 u(1-u) du = \frac{1}{2} - \frac{1}{3}.
-            \]
-            y
-            \[
-            \int_R v dA = \int_0^{1}\left(\int_0^{1-u}v dv\right)du
-            = \int_0^1 \frac{(1 - u)^2}{2} du  = \frac{1}{6}.
-            \]
-            </p>
-            <p>
-            Entonces,
-            \[
-            2\int_R u dA + 2\int_R v dA - \frac{1}{2} =
-            2\left(\frac{1}{2} - \frac{1}{3}\right) + \frac{1}{3}
-            - \frac{1}{2} = \frac{1}{6} .
-            \]
-            </p>
-            <p>
-            Por lo tanto,
-            \[
-            \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz
-            = \frac{1}{6}.
-            \]
-            </p>
-
-
-        </div>
-
-      </div>
-
-
-
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(\mathcal{S}\) la superficie determinada por la gráfica
-          de una función de clase \(C^1\), \(f\). Es decir, una parametrización
-          de \(\mathcal{S}\) es \(\mathbb{r}(x,y)=(x,y,f(x,y))\),
-          donde \((x,y)\in \mathcal{R}\), \(\mathcal{R}\subset \mathbb{R}^2\)
-          es una región y \(f:\mathcal{R}\to \mathbb{R}\) es una función clase \(C^1\).
-        </p>
-        <p>
-          Sea \(\varphi: U \to \mathbb{R}\) continua en
-          \(U\), donde \(U\subset \mathbb{R}^3\) es tal que \(\mathcal{S}\subset U\).
-          Usa la parametrización anterior para probar
-        </p>
-          <ol>
-              <li>
-                \[
-                \int_{\mathcal{S}}\varphi dx\wedge dy = \int_{\mathcal{R}}\varphi(x,y,f(x,y))dxdy
-                \]
-              </li>
-              <li>
-                \[
-                \int_{\mathcal{S}} \varphi dy \wedge dz = - \int_{\mathcal{R}} \varphi(x,y,f(x,y))\partial_xf(x,y)dxdy
-                \]
-              </li>
-              <li>
-                \[
-                \int_{\mathcal{S}} \varphi dx \wedge dz = \int_{\mathcal{R}} \varphi(x,y,f(x,y))\partial_yf(x,y)dxdy
-                \]
-              </li>
-          </ol>
-        </p>
-      </div>
 
       <div class="definicion-box">
         <h2 class="number-title"> Definición </h2>
@@ -1189,81 +918,9 @@
       </div>
 
 
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Usa el Teorema de Stokes para calcular la integral
-          de superficie, \(\int_{\mathcal{S}} (\nabla\times \mathbb{F})\cdot d\mathcal{S}\).
-        </p>
-        <ol>
-          <li>
-            \(\mathcal{S}\) es la semi-esfera \(x^2+y^2+z^2 =1\), \(z\geq 0\),
-            con vector normal apuntando hacia afuera y
-            \(\mathbb{F}= (y^3x,x^2y, xz) \).
-          </li>
-          <li>
-            \(\mathcal{S}\) consiste en las cinco caras del cubo
-            \(0\leq x \leq a, 0\leq y \leq a, 0 \leq z \leq a\), donde
-            \(a>0\), con vector normal apuntando hacia afuera y
-            \(\mathbb{F}= (xy-z, yz, x^2-y^2) \).
-          </li>
-          <li>
-            \(\mathcal{S}\) consiste de las tres caras del tetrahedro,
-            que no están sobre el plano \(xz\), determinado por
-            los tres planos coordenados y el plano \(2x+y+5z=5\), con
-            vector normal apuntando hacia afuera del tetrahedro y
-            \(\mathbb{F}=(xy^2, x-z, x^2y-z)\).
-          </li>
-          <li>
-            \(\mathcal{S}\) es la mitad del elipsoide \(4x^2+y^2+4z^2=4\) con 
-            \(y\geq 0\) orientada con el vector normal apuntando hacia afuera y 
-            \(\mathbb{F}=(e^{xy},e^{xz},x^2z)\).
-          </li>
-        </ol>
-
-      </div>
 
 
-
-      <div class="ejercicio-box">
-        <h2 class="number-title"> Ejercicio </h2>
-        <p>
-          Sea \(\mathcal{R}\subset \mathbb{R}^2\) una región orientada y
-           \(\mathbb{T}:U \to \mathbb{R}^2\) un campo vectorial,
-          clase \(C^1\) en \(U\), donde \(U\) es un abierto de
-          \(\mathbb{R}^2\) que contiene a \(\mathcal{R}\).
-        </p>
-          <p>
-            Denotamos \(\mathbb{T}(u,v)=(X(u,v),Y(u,v))\) y
-            supongamos que el Jacobiano de \(\mathbb{T}\), denotado
-            \[
-            \frac{\partial(X,Y)}{\partial(u,v)}:=
-            \det\left[
-              \begin{array}{cc}
-              \partial_uX & \partial_v X \\
-              \partial_u Y & \partial_v Y
-              \end{array}
-            \right]
-            \]
-            nunca se anula en \(\mathcal{R}\).
-          </p>
-          <p>
-            Aplicando el Teorema de la Función Inversa se puede probar que,
-            bajo estas suposiciones \(\tilde{\mathcal{R}}:=\mathbb{T}(\mathcal{S})\)
-            es una región.
-          </p>
-        <p>
-          Prueba que
-          \[
-          \int_{\tilde{\mathcal{R}}}1 dx\wedge dy=\int_{\mathcal{R}}\frac{\partial(X,Y)}{\partial(u,v)} du\wedge dv
-          \]
-        </p>
-
-      </div>
-
-
-
-        <div class="nota-box">
+        <!-- <div class="nota-box">
           <h2 class="number-title"> Area superficial </h2>
           <p>
             El ejercicio anterior nos dice que, para una
@@ -1292,7 +949,7 @@
             dar el  área de la sufercie. Tomando en cuenta esto, tenemos la siguiente
             definición.
            </p>
-        </div>
+        </div>-->
 
 
 
@@ -1409,30 +1066,413 @@
     </div>
 
 
+<div class="teorema-box">
+  <h2 class="number-title"> Teorema </h2>
+  <p>
+    Sea \(U\subseteq \mathbb{R}^3\) un abierto y convexo. 
+  </p>
+  <p>
+    Supongamos que \(\mathbb{F}:U\to \mathbb{R}^3\) un campo clase 
+    \(C^1\) tal que \(\nabla \times \mathbb{F}=0\). Entonces 
+    \(\mathbb{F}\) es conservativo. 
+  </p>
+
+</div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+          Por \(\mathcal{S}\) denotamos la superficie cuya frontera está formada 
+          por los vértices del triángulo \((a,0,0),(0,a,0),(0,0,a)\) donde \(a>0\). 
+          Sea  \(\mathbb{F}(x,y,z)=(x,y,z)\).Calcula 
+           \(\int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}\) usando: 
+           <ol>
+            <li>
+              la pareametrización \(\mathbb{r}(u,v)=(a(u+v),a(u-v),a(1-2u))\), 
+            </li>
+            <li>
+             una representación explícita de la forma  \(z=f(x,y)\).
+            </li>
+           </ol>
+        </p>
+
+      </div>
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio</h2>
+        <p>
+          Por \(\mathcal{S}\) denotamos el hemosferio de la esfera de radio \(a\) dado por 
+           \(x^2+y^2+z^2=a^2, z\geq 0\). Sea \(\mathbb{F}(x,y,z)=(x,y,0)\). Calcula 
+           \(\int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}\) usando: 
+           <ol>
+            <li>
+              la pareametrización \(\mathbb{r}(u,v)=a(\sen(u)\cos(v),\sen(u)\sen(v),\cos(u))\), 
+            </li>
+            <li>
+             la representación explícita \(z=\sqrt{a^2-x^2-y^2}\).
+            </li>
+           </ol>
+        </p>
+
+      </div>
+
+
+
+
+
+       
+        <div class="ejercicio-box">
+          <h2 class="number-title"> Ejercicio</h2>
+          <p>
+            Sea \(D\subset \mathbb{R}^2\) un subconunto compacto con interior no vacío, 
+            \(U\subseteq \mathbb{R}^2\) un subconjunto abierto y 
+            \(f:U \to \mathbb{R}\) una función clase \(C^1\) en \(U\).
+          </p>
+          <p>
+            Prueba que la gráfica de \(f\) restringida a \(D\):
+            \[
+            \mathcal{S}=\{(x,y,f(x,y)): (x,y)\in D\}
+            \]
+            es una superficie orientable.
+          </p>
+
+        </div>
+
+
       <div class="ejercicio-box">
         <h2 class="number-title"> Ejercicio </h2>
         <p>
-          Calcula las integrales con respecto al área.
+          Prueba que las siguientes superficies parametrizadas son orientables y calcula las dos posibles orientaciones.
         </p>
         <ol>
           <li>
+            Plano: \(\mathbb{r}(u,v)=(x_0,y_0,z_0)+u(a_1,a_2,a_3)+v(b_1,b_2,b_3)\).
+          </li>
+          <li>
+            Esfera: \(\mathbb{r}(u,v)=(r\cos(v)\sin(u), r\sin(v)\sin(u), r\cos(u))\),
+            donde \(r>0\) es el radio.
+          </li>
+          <li>
+            Paraboloide elíptico: \(\mathbb{r}(u,v)=(a u \cos(v),bu\sin(v), u^2)\)
+            donde \(a,b >0\) son constantes.
+           </li>
+           
+          </ol>
+
+      </div>
+
+
+
+            <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Prueba que las siguientes superficies parametrizadas son orientables y calcula las dos posibles orientaciones.
+        </p>
+        <ol>
+           <li>
+             Elipsoide: \(\mathbb{r}(u,v)=(a\sin(u)\cos(v), b\sin(u)\sin(v), c \cos(u))\),
+             donde \(a,b,c>0\).
+           </li>
+           <li>
+             Superficie de revolución: \(\mathbb{r}(u,v)=(u\cos(v), u\sin(v), f(u))\),
+             donde \(f\) es una función de una variable con \(f \geq 0\).
+            </li>
+            <li>
+              Toro: \(\mathbb{r}(u,v)=((a+b\cos(u))\sin(v), (a+b\cos(u))\cos(v), b\sin(u))\),
+              donde \(a,b >0\).
+            </li>
+          </ol>
+
+      </div>
+
+
+      
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+          <p>
+            Calcula
+            \[
+            \int_{\mathcal{S}} xdx\wedge dy +ydy\wedge dz +zdx\wedge dz 
+            \]
+            donde \(\mathcal{S}\) es la región triangular
+            con vértices \((1,0,0), (0,0,1)\) y \((0,0,1)\)
+            y vector normal con componente \(z >0\).
+          </p>
+        
+
+      <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+        <div class="resp-box">
+
+          <p>
+            Primero parametricemos la región \(S\). Graficamente
+            \(S\) es de la forma,
+            <div class="imagen-box flexbox">
+              <img src="./Images/G.png" alt="G" width="400" height="300">
+            </div>
+
+            Tenemos que la ecuación del plano que contiene a la región
+            \(S\) es  \(\textbf{n}\cdot((x, y, z) - p_0) = 0\)
+            donde \(p_0\) es un punto del plano
+            (a saber \(p_0 = (1,0,0)\)) y \(\textbf{n}\) es el vector normal
+            del plano que apunta hacia afuera, entonces
+            \(\textbf{n} = v_1 \times v_2 \) donde
+            \(v_1 = (0, 1, 0) - (1, 0, 0) \) y
+            \(v_2 = (0, 0, 1) - (1, 0, 0) \), es decir,
+            \(v_1 = (-1, 1, 0)\) y \(v_2 = (-1, 0, 1). \).
+            Por lo tanto, \(\textbf{n} = (1, 1, 1) \) y  la ecuación del
+            plano es de la forma \(z = 1 -x -y\).
+          </p>
+
+          <p>
+            Lo siguiente es proyectar los puntos de la región \(S\) en el plano
+            \(XY\), a dicha región la denotamos por \(R\), podemos considerar
+            \(R \subseteq \mathbb{R}^2\) la cual está delimitada por
+            \(x \in[0, 1]\) y \(0 \leq y \leq 1 -x\), es decir,
+            \[
+            R = \lbrace (x, y) \in \mathbb{R}^2 :
+            x\in [0, 1], 0 \leq y \leq 1 -x \rbrace.
+            \]
+          </p>
+          <p>
+            Por lo tanto, la parametrización de la región \(S\) es de la
+            forma \(\mathbb{r} : R \subseteq \mathbb{R}^2 \rightarrow
+            S \subseteq \mathbb{R}^3  \)
+            dada por
+            \(\mathbb{r}(u, v) = (x(u, v), y(u,v), z(u,v))
+            = (u, v, 1 -u -v)\)
+            para \((u,v) \in R\), esto implica que
+            \( \partial_u\mathbb{r} = (1, 0, -1) \) y
+            \(\partial_v\mathbb{r} = (0, 1, -1). \).
+            Además
+            \begin{eqnarray*}
+            \frac{\partial(x, y)}{\partial(u, v)}
+            &=& \det \left[\begin{array}{cccc}
+            1  & 0  \\
+            0 &  1
+            \end{array} \right] = 1,\\
+            \frac{\partial(y, z)}{\partial(u, v)}
+            &=& \det \left[\begin{array}{cccc}
+            0  & 1  \\
+            -1 &  -1
+            \end{array} \right] = 1,
+            \\
+            \frac{\partial(x, z)}{\partial(u, v)}
+            &=& \det \left[\begin{array}{cccc}
+            1 & 0  \\
+            -1 &  -1
+            \end{array} \right] = -1.
+            \end{eqnarray*}
+          </p>
+          <p>
+            Tenemos que
+            \begin{eqnarray*}
+            \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz & = &
+            \int_R u \frac{\partial(x, y)}{\partial(u, v)} \\
+            &+&  \int_R v \frac{\partial(y, z)}{\partial(u, v)} \\
+            &+&  \int_R (1 -u -v)  \frac{\partial(x, z)}{\partial(u, v)} \\
+            & = & \int_R u dA  \\
+            &+& \int_R v dA \\
+            &+& \int_R (u + v -1) dA
+            \end{eqnarray*}
+          </p>
+            Como \( \int_R (u + v -1) dA  =
+            \int_R u dA + \int_R v dA - \int_R 1dA \)  y
+            \( \int_R 1dA = A(R) = \frac{1}{2}\). Entonces tenemos
+            \begin{eqnarray*}
+            \int_R u dA + \int_R v dA + \int_R (u + v -1) dA
+            & = & 2\int_R u dA + 2\int_R v dA - \frac{1}{2}
+            \end{eqnarray*}
+
+            donde,
+            \[
+            \int_R u dA  = \int_0^1\left(\int_0^{1-u}u dv\right)du
+            = \int_0^1 u(1-u) du = \frac{1}{2} - \frac{1}{3}.
+            \]
+            y
+            \[
+            \int_R v dA = \int_0^{1}\left(\int_0^{1-u}v dv\right)du
+            = \int_0^1 \frac{(1 - u)^2}{2} du  = \frac{1}{6}.
+            \]
+            </p>
+            <p>
+            Entonces,
+            \[
+            2\int_R u dA + 2\int_R v dA - \frac{1}{2} =
+            2\left(\frac{1}{2} - \frac{1}{3}\right) + \frac{1}{3}
+            - \frac{1}{2} = \frac{1}{6} .
+            \]
+            </p>
+            <p>
+            Por lo tanto,
+            \[
+            \int_S x dx\wedge dy + ydy\wedge dz + z dx\wedge dz
+            = \frac{1}{6}.
+            \]
+            </p>
+
+
+        </div>
+
+      </div>
+
+
+
+
+      
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+
+        
+        <p>
+          Calcula
+          \[
+          \int_{\mathcal{S}} x^2 dx\wedge dy +xz dy\wedge dz  - yz dx\wedge dz
+          \]
+
+        donde \(\mathcal{S}\) es la esfera \(x^2+y^2+y^2=r^2\), con vector
+        normal apuntando hacia afuera.
+        </p>
+        
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{S}\) la superficie determinada por la gráfica
+          de una función de clase \(C^1\), \(f\). Es decir, una parametrización
+          de \(\mathcal{S}\) es \(\mathbb{r}(x,y)=(x,y,f(x,y))\),
+          donde \((x,y)\in \mathcal{R}\), \(\mathcal{R}\subset \mathbb{R}^2\)
+          es una región y \(f:\mathcal{R}\to \mathbb{R}\) es una función clase \(C^1\).
+        </p>
+        <p>
+          Sea \(\varphi: U \to \mathbb{R}\) continua en
+          \(U\), donde \(U\subset \mathbb{R}^3\) es tal que \(\mathcal{S}\subset U\).
+          Usa la parametrización anterior para probar
+        </p>
+          <ol>
+              <li>
+                \[
+                \int_{\mathcal{S}}\varphi dx\wedge dy = \int_{\mathcal{R}}\varphi(x,y,f(x,y))dxdy
+                \]
+              </li>
+              <li>
+                \[
+                \int_{\mathcal{S}} \varphi dy \wedge dz = - \int_{\mathcal{R}} \varphi(x,y,f(x,y))\partial_xf(x,y)dxdy
+                \]
+              </li>
+              <li>
+                \[
+                \int_{\mathcal{S}} \varphi dx \wedge dz = \int_{\mathcal{R}} \varphi(x,y,f(x,y))\partial_yf(x,y)dxdy
+                \]
+              </li>
+          </ol>
+        </p>
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Usa el Teorema de Stokes para calcular la integral
+          de superficie, \(\int_{\mathcal{S}} (\nabla\times \mathbb{F})\cdot d\mathcal{S}\).
+        </p>
+        <ol>
+          <li>
+            \(\mathcal{S}\) es la semi-esfera \(x^2+y^2+z^2 =1\), \(z\geq 0\),
+            con vector normal apuntando hacia afuera y
+            \(\mathbb{F}= (y^3x,x^2y, xz) \).
+          </li>
+          <li>
+            \(\mathcal{S}\) consiste en las cinco caras del cubo
+            \(0\leq x \leq a, 0\leq y \leq a, 0 \leq z \leq a\), donde
+            \(a>0\), con vector normal apuntando hacia afuera y
+            \(\mathbb{F}= (xy-z, yz, x^2-y^2) \).
+          </li>
+          
+        </ol>
+
+      </div>
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Usa el Teorema de Stokes para calcular la integral
+          de superficie, \(\int_{\mathcal{S}} (\nabla\times \mathbb{F})\cdot d\mathcal{S}\).
+        </p>
+        <ol>
+          
+          <li>
+            \(\mathcal{S}\) consiste de las tres caras del tetrahedro,
+            que no están sobre el plano \(xz\), determinado por
+            los tres planos coordenados y el plano \(2x+y+5z=5\), con
+            vector normal apuntando hacia afuera del tetrahedro y
+            \(\mathbb{F}=(xy^2, x-z, x^2y-z)\).
+          </li>
+          <li>
+            \(\mathcal{S}\) es la mitad del elipsoide \(4x^2+y^2+4z^2=4\) con 
+            \(y\geq 0\) orientada con el vector normal apuntando hacia afuera y 
+            \(\mathbb{F}=(e^{xy},e^{xz},x^2z)\).
+          </li>
+        </ol>
+
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Sea \(\mathcal{R}\subset \mathbb{R}^2\) una región orientada y
+           \(\mathbb{T}:U \to \mathbb{R}^2\) un campo vectorial,
+          clase \(C^1\) en \(U\), donde \(U\) es un abierto de
+          \(\mathbb{R}^2\) que contiene a \(\mathcal{R}\).
+        </p>
+          <p>
+            Denotamos \(\mathbb{T}(u,v)=(X(u,v),Y(u,v))\) y
+            supongamos que el Jacobiano de \(\mathbb{T}\), denotado
+            \[
+            \frac{\partial(X,Y)}{\partial(u,v)}:=
+            \det\left[
+              \begin{array}{cc}
+              \partial_uX & \partial_v X \\
+              \partial_u Y & \partial_v Y
+              \end{array}
+            \right]
+            \]
+            nunca se anula en \(\mathcal{R}\).
+          </p>
+          <p>
+            Aplicando el Teorema de la Función Inversa se puede probar que,
+            bajo estas suposiciones \(\tilde{\mathcal{R}}:=\mathbb{T}(\mathcal{S})\)
+            es una región.
+          </p>
+        <p>
+          Prueba que
+          \[
+          \int_{\tilde{\mathcal{R}}}1 dx\wedge dy=\int_{\mathcal{R}}\frac{\partial(X,Y)}{\partial(u,v)} du\wedge dv
+          \]
+        </p>
+
+      </div>
+
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Calcula la integral con respecto al área.
+        </p>
+        
+          <p>
             \(\int_{\mathcal{S}} 2y |dS|\), donde \(S\) es el helicoide
             con parametrización \(\mathbb{r}(u,v)=(u\cos(v), u\sen(v), v)\)
             \(0\leq u \leq 1 , 0\leq  v \leq \pi\).
-          </li>
-          <li>
-            \(\int_{\mathcal{S}}x^2yz^2 |dS|\), donde
-            \(S\) es la parte del plano \(z=1+2x+3y\) que está por
-            arriba del rectángulo \([0,3]\times [0,1]\).
-          </li>
-          <li>
-            \(\int_{\mathcal{S}} (x+y) |dS|\), donde \(\mathbb{S}\) es la
-            región triángular con vértices \((1,0,0), (0,-2,0), (0,0,2)\).
-          </li>
+          </p>
+          
 
-        </ol>
-
-        <button class="respButton hvr-grow"> Respuesta inciso 1</button>
+        <button class="respButton hvr-grow"> Respuesta </button>
           <div class="resp-box">
 
             <p>
@@ -1516,6 +1556,27 @@
           </div>
       </div>
 
+
+
+      <div class="ejercicio-box">
+        <h2 class="number-title"> Ejercicio </h2>
+        <p>
+          Calcula las integrales con respecto al área.
+        </p>
+        <ol>
+          
+          <li>
+            \(\int_{\mathcal{S}}x^2yz^2 |dS|\), donde
+            \(S\) es la parte del plano \(z=1+2x+3y\) que está por
+            arriba del rectángulo \([0,3]\times [0,1]\).
+          </li>
+          <li>
+            \(\int_{\mathcal{S}} (x+y) |dS|\), donde \(\mathbb{S}\) es la
+            región triángular con vértices \((1,0,0), (0,-2,0), (0,0,2)\).
+          </li>
+
+        </ol>
+     </div>
 
 
       <div class="ejercicio-box">
@@ -1617,18 +1678,6 @@
 
 
 
-<div class="teorema-box">
-  <h2 class="number-title"> Teorema </h2>
-  <p>
-    Sea \(U\subseteq \mathbb{R}^3\) un abierto y convexo. 
-  </p>
-  <p>
-    Supongamos que \(\mathbb{F}:U\to \mathbb{R}^3\) un campo clase 
-    \(C^1\) tal que \(\nabla \times \mathbb{F}=0\). Entonces 
-    \(\mathbb{F}\) es conservativo. 
-  </p>
-
-</div>
 <!-- acaba contenido -->
 
     </div>
