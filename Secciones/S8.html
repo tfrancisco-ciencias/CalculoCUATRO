@@ -297,6 +297,88 @@
       </div>
 
 
+      <div class="info-box">
+        <h2 class="number-title"> Ejemplo </h2>
+        <p>
+          Considera el campo vectorial $\mathbb{F}(x, y, z) = (x, y, z^2)$.
+        </p>
+        <ol>
+          <li>
+            Considera el hemisferio norte de la esfera parametrizado por 
+            \[
+            \mathbb{r}(\theta, \varphi) = (\sin\theta \cos\varphi, \; \sin\theta \sin\varphi, \; \cos\theta)
+            \]
+            donde $\theta \in [0, \pi/2]$ y $\varphi \in [0, 2\pi]$.   Prueba que
+            \[
+            \int_S \mathbb{F} \cdot dS = \frac{11\pi}{6}
+            \]
+          </li>
+          <li>
+            Usando la parametrización 
+            \[
+            \mathbb{r}(x,y)=(x,y,\sqrt{1-x^2-y^2})
+            \]
+            donde \((x,y)\in \mathcal{R}=\{(x,y): x^2+y^2\leq 1\}\), y el inciso anterior, prueba que 
+            \[
+            \int_0^1 \frac{r^3}{1-r^2}dr=\frac{2}{3}.
+            \]
+          </li>
+        </ol>
+        <p>
+          El producto fundamental es:
+          \[
+          \partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r}(\theta,\varphi) = (\sin^2\theta \cos\varphi, \; \sin^2\theta \sin\varphi, \; \sin\theta \cos\theta).
+          \]
+          El campo vectorial evaluado en la parametrización es:
+          \[
+          \mathbb{F}(\mathbb{r}(\theta,\varphi))= (\sin\theta \cos\varphi, \; \sin\theta \sin\varphi, \; \cos^2\theta).
+          \]
+          Por lo tanto el producto punto es:
+          \begin{eqnarray*}
+         (\mathbb{F}\circ \mathbb{r}) \cdot( \partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r})&=&  \sin^3\theta \cos^2\varphi + \sin^3\theta \sin^2\varphi + \sin\theta \cos^3\theta \\
+         &=& \sin^3\theta + \sin\theta \cos^3\theta \\
+          \end{eqnarray*}
+          Entonces 
+          \begin{eqnarray*}
+          \int_S \mathbb{F} \cdot dS &=& \int_0^{\pi/2} \int_0^{2\pi} (\sin^3\theta + \sin\theta \cos^3\theta) \, d\varphi \, d\theta \\
+          &=&2\pi \int_0^{\pi/2} (\sin^3\theta + \sin\theta \cos^3\theta) \, d\theta \\
+          \end{eqnarray*}
+          Calculando las integrales por separado
+          \begin{eqnarray*}
+          \int_0^{\pi/2} \sin^3\theta \, d\theta &=& \int_0^{\pi/2} (1-\cos^2\theta)\sin\theta \, d\theta \\
+          &=& \left[ -\cos\theta + \frac{\cos^3\theta}{3} \right]_0^{\pi/2} \\
+          &=& \frac{2}{3} \\
+          \int_0^{\pi/2} \cos^3\theta \sin\theta \, d\theta &=& \left[ -\frac{\cos^4\theta}{4} \right]_0^{\pi/2} \\
+          &=& \frac{1}{4}
+          \end{eqnarray*}
+          Por lo tanto
+          \begin{eqnarray*} 
+          \int_S \mathbb{F} \cdot d S &=& 2\pi \left( \frac{2}{3} + \frac{1}{4} \right) \\
+          &=& \frac{11\pi}{6}
+          \end{eqnarray*}
+
+        </p>
+        <p>
+          Para el segundo inciso, el producto fundamental es:
+          \[
+          \partial_x \mathbb{r} \times \partial_y \mathbb{r}(x,y) = \left( \frac{x}{\sqrt{1-x^2-y^2}}, \; \frac{y}{\sqrt{1-x^2-y^2}}, \; 1\right).
+          \]
+          El campo vectorial evaluado en la parametrización es:
+          \[
+          \mathbf{F}(x, y, f(x,y)) = \left( x, \; y, \; 1-x^2-y^2 \right)
+          \]
+          Por lo tanto el producto punto es:
+          \begin{eqnarray*}
+          (\mathbb{F}\circ \mathbb{r}) \cdot( \partial_x \mathbb{r} \times \partial_y \mathbb{r}) &=&  \frac{x^2}{\sqrt{1-x^2-y^2}} + \frac{y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \\
+          &=& \frac{x^2+y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \\
+          \end{eqnarray*}
+
+          Entonces 
+          \begin{eqnarray*} 
+          \int_{S}\mathbb{F}dS= \int_{R} \left( \frac{x^2+y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \right) dx dy
+          \end{eqnarray*}
+        </p>
+        </div>
 
 
 
