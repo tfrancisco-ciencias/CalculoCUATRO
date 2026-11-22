@@ -214,9 +214,10 @@
           \(\Delta u \partial_u \mathbb{r}(p_{i,j}), \Delta v \partial_v \mathbb{r}(p_{i,j})\) y \(\mathbb{F}(\mathbb{r}(p_{i,j}))\)
           donde \(p_{i,j}\in \mathcal{R}\) es un punto arbitrario. El volumen 
           de dicho paralelepipedo está dado por el triple producto 
-          \[
-          \mathbb{F}(\mathbb{r}(p_{i,j})) \cdot (\Delta u \partial_u \mathbb{r}(p_{i,j}) \times \Delta v \partial_v \mathbb{r}(p_{i,j}))=\mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
-          \]
+          \begin{eqnarray*}
+          & & \mathbb{F}(\mathbb{r}(p_{i,j})) \cdot (\Delta u \partial_u \mathbb{r}(p_{i,j}) \times \Delta v \partial_v \mathbb{r}(p_{i,j}))\\
+          &=&\mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+          \end{eqnarray*}
 
         </p>
 
@@ -254,10 +255,11 @@
           </p>
           <p>
             Tomando el límite cuando \(n\to \infty\) tenemos que 
-            \[
-            \sum_{i,j=1}^n \mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
-            \to \int_{\mathcal{R}} \mathbb{F}(\mathbb{r}(u,v))\cdot (\partial_u \mathbb{r}(u,v)\times \mathbb{r}_v(u,v))du\otimes dv
-            \]
+            \begin{eqnarray*} 
+            & & \sum_{i,j=1}^n \mathbb{F}(\mathbb{r}(p_{i,j}))\cdot (\partial_u\mathbb{r}(p_{i,j})\times \partial_v \mathbb{r}(p_{i,j}))\Delta u \Delta v
+            \\
+            &\to &  \int_{\mathcal{R}} \mathbb{F}(\mathbb{r}(u,v))\cdot (\partial_u \mathbb{r}(u,v)\times \mathbb{r}_v(u,v))dudv
+            \end{eqnarray*}
           </p>
       </div>
 
@@ -279,7 +281,7 @@
         <p>
           Definimos la integral de superficie de \(\mathbb{F}\) sobre \(\mathcal{S}\) como 
           \[
-          \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}=\int_{\mathcal{R}} \mathbb{F}(\mathbb{r}(u,v))\cdot (\partial_u\mathbb{r}\times \partial_v\mathbb{r})(u,v)du\otimes dv
+          \int_{\mathcal{S}} \mathbb{F}\cdot d\mathcal{S}=\int_{\mathcal{R}} \mathbb{F}(\mathbb{r}(u,v))\cdot (\partial_u\mathbb{r}\times \partial_v\mathbb{r})(u,v)dudv
           \]
           también se puede denotar \(\int_{\mathbb{r} } \mathbb{F}\cdot d\mathbb{r}\).
         </p>
@@ -304,11 +306,11 @@
         </p>
         <ol>
           <li>
-            Considera el hemisferio norte de la esfera parametrizado por 
+            Considera $S$, el hemisferio norte de la esfera, parametrizado por 
             \[
             \mathbb{r}(\theta, \varphi) = (\sin\theta \cos\varphi, \; \sin\theta \sin\varphi, \; \cos\theta)
             \]
-            donde $\theta \in [0, \pi/2]$ y $\varphi \in [0, 2\pi]$.   Prueba que
+            donde $(\theta, \varphi) \in [0, \pi/2]\times [0, 2\pi]$.   Prueba que
             \[
             \int_S \mathbb{F} \cdot dS = \frac{11\pi}{6}
             \]
@@ -324,6 +326,8 @@
             \]
           </li>
         </ol>
+        <button class="respButton hvr-grow"> Inciso 1  </button>
+        <div class="resp-box">
         <p>
           El producto fundamental es:
           \[
@@ -335,7 +339,9 @@
           \]
           Por lo tanto el producto punto es:
           \begin{eqnarray*}
-         (\mathbb{F}\circ \mathbb{r}) \cdot( \partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r})&=&  \sin^3\theta \cos^2\varphi + \sin^3\theta \sin^2\varphi + \sin\theta \cos^3\theta \\
+         (\mathbb{F}\circ \mathbb{r}) \cdot( \partial_\theta \mathbb{r} \times \partial_\varphi \mathbb{r})&=&  \sin^3\theta \cos^2\varphi  \\
+         &+ & \sin^3\theta \sin^2\varphi \\
+         &+&  \sin\theta \cos^3\theta \\
          &=& \sin^3\theta + \sin\theta \cos^3\theta \\
           \end{eqnarray*}
           Entonces 
@@ -358,26 +364,75 @@
           \end{eqnarray*}
 
         </p>
+        </div>
+        <button class="respButton hvr-grow"> Inciso 2  </button>
+        <div class="resp-box">
         <p>
           Para el segundo inciso, el producto fundamental es:
-          \[
-          \partial_x \mathbb{r} \times \partial_y \mathbb{r}(x,y) = \left( \frac{x}{\sqrt{1-x^2-y^2}}, \; \frac{y}{\sqrt{1-x^2-y^2}}, \; 1\right).
-          \]
+          \begin{eqnarray*}
+          & & \partial_x \mathbb{r} \times \partial_y \mathbb{r}(x,y) \\
+          &=& \left( \frac{x}{\sqrt{1-x^2-y^2}}, \; \frac{y}{\sqrt{1-x^2-y^2}}, \; 1\right).
+          \end{eqnarray*}
+          Nota: este campo no es clase $C^1$ en $\mathcal{R}=\{(x,y): x^2+y^2\leq 1\}$ pues 
+          en los puntos de la forma $x^2+y^2=1$ (la frontera de $\mathcal{R}$) las parciales no son continuas. Para remediar este problema
+          consideramos $\mathcal{R}_{\varepsilon}=\{(x,y): x^2+y^2 \leq \varepsilon^2\}$, 
+          con $\varepsilon \in (0,1)$. Así definido la parametrización $\mathbb{r}(x,y)=(x,y,\sqrt{1-x^2-y^2})$
+          sí es clase $C^1$ en $\mathcal{R}_\varepsilon$ y podemos calcular la integral $\int_{S_\varepsilon} \mathbb{F}\cdot dS$
+          (donde $\mathbb{r}(\mathcal{R}_\varepsilon)=S_\varepsilon$).
+        </p>
+        <p>
+
           El campo vectorial evaluado en la parametrización es:
           \[
           \mathbf{F}(x, y, f(x,y)) = \left( x, \; y, \; 1-x^2-y^2 \right)
           \]
           Por lo tanto el producto punto es:
           \begin{eqnarray*}
-          (\mathbb{F}\circ \mathbb{r}) \cdot( \partial_x \mathbb{r} \times \partial_y \mathbb{r}) &=&  \frac{x^2}{\sqrt{1-x^2-y^2}} + \frac{y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \\
+          (\mathbb{F}\circ \mathbb{r}) \cdot( \partial_x \mathbb{r} \times \partial_y \mathbb{r}) &=&  \frac{x^2}{\sqrt{1-x^2-y^2}} + \frac{y^2}{\sqrt{1-x^2-y^2}} \\
+          &+&  1-x^2-y^2 \\
           &=& \frac{x^2+y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \\
           \end{eqnarray*}
 
           Entonces 
           \begin{eqnarray*} 
-          \int_{S}\mathbb{F}dS= \int_{R} \left( \frac{x^2+y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \right) dx dy
+          \int_{S_\varepsilon}\mathbb{F}dS= \int_{R_\varepsilon} \left( \frac{x^2+y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \right) dx dy
+          \end{eqnarray*}
+
+        </p>
+        <p>
+          Ahora calculamos ésta última integral usando coordenadas polares $x=r\cos(\theta), y=r\sen(\theta)$
+          con $(r,\theta)\in [0,\varepsilon]\times [0,2\pi] $. Usando el 
+          teorema del cambio de variable obtenemos 
+          \begin{eqnarray*} 
+          & & \int_{R_\varepsilon} \left( \frac{x^2+y^2}{\sqrt{1-x^2-y^2}} + 1-x^2-y^2 \right) dx dy \\
+          &=& \int_0^\varepsilon \int_0^{2\pi} \left( \frac{r^2}{\sqrt{1-r^2}}+1-r^2 \right)r d\theta dr \\
+          &=& 2\pi \left( \int_0^\varepsilon \frac{r^3}{\sqrt{1-r^2}}dr + \int_0^{\varepsilon} (r-r^3)dr\right) \\
+          &=&2\pi \left( \int_0^\varepsilon \frac{r^3}{\sqrt{1-r^2}}dr + \frac{\varepsilon^2}{2}-\frac{\varepsilon^4}{4}\right) \\
           \end{eqnarray*}
         </p>
+        <p>
+          Ahora viene un punto delicado: las dos parametrizaciones deben de dar la misma integral y por lo tanto, por el resultado 
+          del inciso anterior 
+          \[
+          \lim_{\varepsilon \to 1} \int_{S_\varepsilon} \mathbb{F}dS=\frac{11\pi}{6}
+          \]
+          substituyendo esto con los calculos anteriores tenemos
+          \begin{eqnarray*} 
+          \lim_{\varepsilon \to 1} 2\pi \left( \int_0^\varepsilon \frac{r^3}{\sqrt{1-r^2}}dr + \frac{\varepsilon^2}{2}-\frac{\varepsilon^4}{4}\right) =\frac{11 \pi}{6}
+          \end{eqnarray*}
+          por lo tanto 
+          \begin{eqnarray*} 
+          \lim_{\varepsilon \to 1}\int_0^\varepsilon \frac{r^3}{1-r^2}dr&=&\frac{11}{12}-\frac{1}{2}+\frac{1}{4} \\
+          &=&\frac{2}{3}
+          \end{eqnarray*}
+        </p>
+        <p>
+          Concluimos
+          $$
+          \int_0^1\frac{r^3}{1-r^2}dr=\frac{2}{3}.
+          $$
+        </p>
+        </div>
         </div>
 
 
@@ -635,9 +690,9 @@
           Usando  \(\mathbb{r}_1=\mathbb{r}_2\circ T \) tenemos que 
           \begin{eqnarray*}
           \int_{\mathbb{r}_1} \mathbb{F}\cdot \mathbb{r}_1 
-          &=& \int_{\mathcal{R}_1}\mathbb{F}(\mathbb{r}_1(u,v))\cdot (\partial_u \mathbb{r}_1 \times \partial_v\mathbb{r}_1)(u,v)du\otimes dv \\
+          &=& \int_{\mathcal{R}_1}\mathbb{F}(\mathbb{r}_1(u,v))\cdot (\partial_u \mathbb{r}_1 \times \partial_v\mathbb{r}_1)(u,v)dudv \\
           &=&  \int_{\mathcal{R}_1}\mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-          (\partial_u \mathbb{r}_1 \times \mathbb{r}_1)(u,v)du\otimes dv 
+          (\partial_u \mathbb{r}_1 \times \mathbb{r}_1)(u,v)dudv 
           \end{eqnarray*}
         </p>
         <p>
@@ -648,10 +703,10 @@
           
           \begin{eqnarray} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \nonumber\\
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)dudv \nonumber\\
           &=&
           \int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
-          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)du\otimes dv \label{Eqn:Aux2ReparametrizacionSup}
+          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)dudv \label{Eqn:Aux2ReparametrizacionSup}
           \end{eqnarray}
           lo cual empieza a tener cara de que podemos aplicar el 
           <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable</a> pero 
@@ -685,9 +740,9 @@
           substituyendo ésta igualdad obtenemos 
           \begin{eqnarray*} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-          (\partial_u\mathbb{r}_1\times \partial_v\mathbb{r}_1)(u,v)du\otimes dv \\
+          (\partial_u\mathbb{r}_1\times \partial_v\mathbb{r}_1)(u,v)dudv \\
           &= & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) dudv 
           \end{eqnarray*}
         </p>
         <p>
@@ -696,9 +751,9 @@
           su Jacobiano es \(|J_T(u,v)|=|\det D_{p}T|=\det D_pT\) y podemos reescribir
           \begin{eqnarray*} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv \\
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) dudv \\
          & =& \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| dudv 
           \end{eqnarray*}
         </p>
         <p>
@@ -706,9 +761,9 @@
           (la ecuación que debemos probar) es equivalente a 
           \begin{eqnarray*} 
          & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv \\
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| dudv \\
            &=&\int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
-           (\partial_u \mathbb{r}_2\times \partial_v \mathbb{r}_2)(u,v)du\otimes dv
+           (\partial_u \mathbb{r}_2\times \partial_v \mathbb{r}_2)(u,v)dudv
           \end{eqnarray*}
           la cual es cierta por el <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable </a>.
         </p>
@@ -720,18 +775,18 @@
           debemos de probar 
           \begin{eqnarray} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \nonumber\\
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)dudv \nonumber\\
           &=&
           -\int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
-          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)du\otimes dv \label{Eqn:Aux3ReparametrizacionSup}
+          (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(u,v)dudv \label{Eqn:Aux3ReparametrizacionSup}
           \end{eqnarray}
           
           Todo es similar hasta la ecuación 
           \begin{eqnarray*} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)du\otimes dv \\
+          (\partial_u \mathbb{r}_1 \times \partial_v \mathbb{r}_1)(u,v)dudv \\
           &=& \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) dudv 
           \end{eqnarray*}
         </p>
         <p>
@@ -740,9 +795,9 @@
           su Jacobiano es \(|J_T(u,v)|=|\det D_{p}T|=-\det D_pT\) por lo que 
           \begin{eqnarray*} 
           & & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) du\otimes dv \\
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))(\det D_pT) dudv \\
          & =- & \int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv 
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| dudv 
           \end{eqnarray*}
         </p>
         <p>
@@ -750,9 +805,9 @@
           (la ecuación que debemos probar) es equivalente a 
           \begin{eqnarray*} 
          & & -\int_{\mathcal{R}_1} \mathbb{F}(\mathbb{r}_2(T(u,v)))\cdot 
-           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| du\otimes dv \\
+           (\partial_u \mathbb{r}_2 \times \partial_v \mathbb{r}_2)(T(u,v))|J_T(u,v)| dudv \\
            &=&-\int_{\mathcal{R}_2} \mathbb{F}(\mathbb{r}_2(u,v))\cdot 
-           (\partial_u \mathbb{r}_2\times \partial_v \mathbb{r}_2)(u,v)du\otimes dv
+           (\partial_u \mathbb{r}_2\times \partial_v \mathbb{r}_2)(u,v)dudv
           \end{eqnarray*}
           la cual es cierta por el <a href="./S3.html#Teo:CAmbioVar">Teorema del Cambio de Variable </a>.
         </p>
@@ -806,17 +861,17 @@
         <p>
           Por lo tanto, si el campo tiene funciones coordenadas \(\mathbb{F}=(P,Q,R)\) entonces 
           \begin{eqnarray*} 
-          \int_{\mathbb{r}}\mathbb{F}\cdot d\mathbb{r}&=&\int_{\mathcal{R}}P(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}du\otimes dv \\
-          &+&\int_{\mathcal{R}}Q(\mathbb{r}(u,v)) \frac{\partial(Z,X)}{\partial(u,v)}du\otimes dv \\
-          &+& \int_{\mathcal{R}}R(\mathbb{r}(u,v)) \frac{\partial(X,Y)}{\partial(u,v)}du\otimes dv \\
+          \int_{\mathbb{r}}\mathbb{F}\cdot d\mathbb{r}&=&\int_{\mathcal{R}}P(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}dudv \\
+          &+&\int_{\mathcal{R}}Q(\mathbb{r}(u,v)) \frac{\partial(Z,X)}{\partial(u,v)}dudv \\
+          &+& \int_{\mathcal{R}}R(\mathbb{r}(u,v)) \frac{\partial(X,Y)}{\partial(u,v)}dudv \\
           \end{eqnarray*}
         </p>
         <p>
           Por simplicidad denotamos 
           \begin{eqnarray*} 
-          \int_{\mathcal{S}} P(x,y,z)dy\wedge dz &=& \int_{\mathcal{R}}P(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}du\otimes dv \\
-          \int_{\mathcal{S}} Q(x,y,z)dz\wedge dx &=& \int_{\mathcal{R}}Q(\mathbb{r}(u,v))\frac{\partial(Z,X)}{\partial(u,v)}du\otimes dv \\
-          \int_{\mathcal{S}} R(x,y,z)dx\wedge dy &=& \int_{\mathcal{R}}R(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}du\otimes dv \\
+          \int_{\mathcal{S}} P(x,y,z)dy\wedge dz &=& \int_{\mathcal{R}}P(\mathbb{r}(u,v))\frac{\partial(Y,Z)}{\partial(u,v)}dudv \\
+          \int_{\mathcal{S}} Q(x,y,z)dz\wedge dx &=& \int_{\mathcal{R}}Q(\mathbb{r}(u,v))\frac{\partial(Z,X)}{\partial(u,v)}dudv \\
+          \int_{\mathcal{S}} R(x,y,z)dx\wedge dy &=& \int_{\mathcal{R}}R(\mathbb{r}(u,v))\frac{\partial(X,Y)}{\partial(u,v)}dudv \\
           \end{eqnarray*}
           y entonces podemos escribir con esta notación 
           \[
@@ -1117,7 +1172,7 @@
             por lo tanto, copiando la definición de  integral con respecto a longitud
             de arco tenemos una expresión
             \[
-            \int_{\mathcal{R}} (\rho\circ \mathbb{r}) \|\partial_u \mathbb{r}\times \partial_v \mathbb{r} \| du\otimes dv
+            \int_{\mathcal{R}} (\rho\circ \mathbb{r}) \|\partial_u \mathbb{r}\times \partial_v \mathbb{r} \| dudv
             \]
             donde ahora \(\rho\) es una función continua definida sobre
             la superficie.
@@ -1140,7 +1195,7 @@
         Dada una función escalar \(f:\mathcal{S}\to \mathbb{R}\), continua sobre 
         \(\mathcal{S}\), definimos la integral de \(f\) con respecto area superficial como 
         \[
-        \int_{\mathcal{S}}f |d\mathcal{S}|=\int_{\mathcal{R}}f(\mathbb{r}(u,v))\|\partial_u \mathbb{r}\times \partial_v\mathbb{r} \|du\otimes dv
+        \int_{\mathcal{S}}f |d\mathcal{S}|=\int_{\mathcal{R}}f(\mathbb{r}(u,v))\|\partial_u \mathbb{r}\times \partial_v\mathbb{r} \|dudv
         \]
         también se puede denotar como \(\int_{\mathbb{r}}f |d\mathbb{r}|\).
       </p>
