@@ -648,7 +648,63 @@
           \]
 
         </p>
+        <button class="respButton hvr-grow"> Demostración  </button>
+        <div class="resp-box">
+        <p>
+          Sean $A_1, A_2 \in \mathbb{R}^3$ los vectores columna de $A$, $B_1, B_2 \in \mathbb{R}^3$ 
+          los vectores columna de $B$, y escribamos la matriz 
+          $C$ de $2 \times 2$ en términos de sus entradas como:
+          $$C = \begin{pmatrix} c_{11} & c_{12} \\ c_{21} & c_{22} \end{pmatrix}$$
+        </p>
+        <p>
+          Al desarrollar el producto matricial $B = AC$ por columnas, 
+          obtenemos:
+          \begin{eqnarray*}
+            \begin{pmatrix} B_1 & B_2 \end{pmatrix} 
+          &=& \begin{pmatrix} A_1 & A_2 \end{pmatrix} \begin{pmatrix} c_{11} & c_{12} 
+          \\ c_{21} & c_{22} \end{pmatrix}  \\
+          &=&  \begin{pmatrix} c_{11}A_1 + c_{21}A_2 & c_{12}A_1 + c_{22}A_2 
+          \end{pmatrix}
+          \end{eqnarray*}
 
+          Igualando columna por columna se sigue que:
+          $$B_1 = c_{11}A_1 + c_{21}A_2 \quad \text{y} \quad B_2 
+          = c_{12}A_1 + c_{22}A_2$$
+        </p>
+        <p>
+          Sustituimos las expresiones anteriores en 
+          $B_1 \times B_2$ y aplicamos la bilinealidad del producto cruz en 
+          $\mathbb{R}^3$:
+          $$\begin{aligned} B_1 \times B_2 &
+          = (c_{11}A_1 + c_{21}A_2) \times (c_{12}A_1 + c_{22}A_2) 
+          \\ &= (c_{11}A_1) \times (c_{12}A_1) \\
+          & + (c_{11}A_1) \times (c_{22}A_2) \\
+          & + (c_{21}A_2) \times (c_{12}A_1) \\
+          & + (c_{21}A_2) \times (c_{22}A_2) \\ 
+          &= c_{11}c_{12}(A_1 \times A_1) \\
+          & + c_{11}c_{22}(A_1 \times A_2) \\
+          & + c_{21}c_{12}(A_2 \times A_1) \\
+          & + c_{21}c_{22}(A_2 \times A_2) 
+          \end{aligned}$$
+        </p>
+        <p>
+          Recordemos que el producto cruz de un vector consigo mismo es el vector cero 
+          ($A_1 \times A_1 = \mathbf{0}$ y 
+          $A_2 \times A_2 = \mathbf{0}$) y que además es anticonmutativo 
+          ($A_2 \times A_1 = -(A_1 \times A_2)$). 
+          Al sustituir estas identidades en la expresión previa, resulta:
+          $$\begin{aligned} B_1 \times B_2 &= \mathbf{0} + c_{11}c_{22}(A_1 \times A_2) 
+          - c_{21}c_{12}(A_1 \times A_2) 
+          + \mathbf{0} \\ 
+          &= (c_{11}c_{22} - c_{12}c_{21})(A_1 \times A_2) 
+          \end{aligned}$$
+        </p>
+        <p>
+          Dado que $\det(C) = c_{11}c_{22} - c_{12}c_{21}$, 
+          concluimos finalmente que:
+          $$B_1 \times B_2 = \det(C)(A_1 \times A_2)$$
+        </p>
+        </div>
       </div>
 
       <div class="teorema-box">
